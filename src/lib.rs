@@ -2,8 +2,8 @@
 
 use raxb::{value::ConstStr, XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
-use wasm_bindgen::prelude::*;
 use tsify::Tsify;
+use wasm_bindgen::prelude::*;
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct Code {
@@ -16,7 +16,6 @@ pub struct Code {
     #[xml(ty = "text", default)]
     pub code: String,
 }
-
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"identifikation.nachricht")]
@@ -98,19 +97,19 @@ pub struct IdentifikationVorgang {
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct Untersuchungsverfahren {    
+pub struct Untersuchungsverfahren {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct UntersuchterParameter {    
+pub struct UntersuchterParameter {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct BewertungUntersuchungswert {    
+pub struct BewertungUntersuchungswert {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
 }
@@ -173,9 +172,17 @@ pub struct Pruefbericht {
     pub pruefbericht_id: String,
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
     pub probennahmestelle: Vec<Probennahmestelle>,
-    #[xml(ns = b"xwas", name = b"nameBeauftragteUntersuchungsstelle", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"nameBeauftragteUntersuchungsstelle",
+        ty = "child"
+    )]
     pub name_beauftragte_untersuchungsstelle: String,
-    #[xml(ns = b"xwas", name = b"pruefgerichtGemVorgabenAkkredition", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"pruefgerichtGemVorgabenAkkredition",
+        ty = "child"
+    )]
     pub pruefgericht_gem_vorgaben_akkredition: String,
     #[xml(ns = b"xwas", name = b"titel", ty = "child")]
     pub titel: String,
@@ -185,7 +192,11 @@ pub struct Pruefbericht {
     pub auffaelligkeiten: String,
     #[xml(ns = b"xwas", name = b"zeitpunktValidierungPruefbericht", ty = "child")]
     pub zeitpunkt_validierung_pruefbericht: String,
-    #[xml(ns = b"xwas", name = b"fuerValidierungVerantwortlichePerson", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"fuerValidierungVerantwortlichePerson",
+        ty = "child"
+    )]
     pub fuer_validierung_verantwortliche_person: String,
     #[xml(ns = b"xwas", name = b"pruefberichtIDLabor", ty = "child")]
     pub pruefbericht_id_labor: String,
@@ -268,9 +279,34 @@ pub struct QualityReport {
     pub vorgang: Vorgang,
 }
 
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"administration.quittung.0020")]
+pub struct AdministrationQuittung {
+    #[xml(name = b"nachrichtenkopf.g2g", ty = "child")]
+    pub nachrichtenkopf_g2g: NachrichtenkopfG2g,
+
+    #[xml(ns = b"xwas", name = b"identifikationVorgang", ty = "child")]
+    pub identifikation_vorgang: IdentifikationVorgang,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"quittung")]
+pub struct Quittung {
+    #[xml(ns = b"xwas", name = b"aktuellerStatusTechnisch", ty = "child")]
+    pub aktueller_status_technisch: AktuellerStatusTechnisch,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"aktueller_status_technisch")]
+pub struct AktuellerStatusTechnisch {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+}
+
 #[wasm_bindgen]
 pub fn create_quality_report_xml(data: QualityReport) -> Result<String, JsValue> {
-    Ok(raxb::ser::to_string_pretty_with_decl(&data).map_err(|err| JsValue::from_str(&err.to_string()))?)
+    Ok(raxb::ser::to_string_pretty_with_decl(&data)
+        .map_err(|err| JsValue::from_str(&err.to_string()))?)
 }
 
 #[wasm_bindgen]
