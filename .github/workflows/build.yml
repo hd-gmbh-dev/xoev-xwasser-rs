@@ -32,8 +32,8 @@ jobs:
         run: cargo test
       - name: Test WASM
         run: wasm-pack build --release --target nodejs --reference-types --weak-refs
-  publish:
-    if: startsWith( github.ref, 'refs/tags/v' )
-    uses: ./.github/workflows/publish.yaml
-    needs: ci
-    secrets: inherit
+  # publish:
+  #   if: startsWith( github.ref, 'refs/tags/v' )
+  #   uses: ./.github/workflows/publish.yaml
+  #   needs: ci
+  #   secrets: inherit
