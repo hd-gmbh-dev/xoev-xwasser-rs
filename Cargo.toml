@@ -1,7 +1,7 @@
 [package]
-name = "xwasser-rs"
+name = "xoev-xwasser-rs"
 version = "0.1.0"
-authors = ["Jürgen Seitz <juergen.seitz@h-d-gmbh.de>"]
+authors = ["H & D GmbH Open Source <contact-oss@h-d-gmbh.de>"]
 edition = "2018"
 
 [lib]

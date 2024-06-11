@@ -17,9 +17,6 @@ importers:
       vitest:
         specifier: ^1.6.0
         version: 1.6.0(@types/node@20.14.2)(jsdom@24.1.0)
-      xwasser-rs:
-        specifier: link:/Users/juergen/Projects/hd-gmbh-dev/xwasser-rs/xwasser-rs/pkg
-        version: link:xwasser-rs/pkg
     devDependencies:
       '@tsconfig/node20':
         specifier: ^20.1.4

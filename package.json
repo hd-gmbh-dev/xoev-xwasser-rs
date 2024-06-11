@@ -1,5 +1,5 @@
 {
-  "name": "xwasser-rs",
+  "name": "xoev-xwasser-rs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,8 +13,7 @@
   "dependencies": {
     "vite": "^5.2.13",
     "vite-plugin-wasm": "^3.3.0",
-    "vitest": "^1.6.0",
-    "xwasser-rs": "link:/Users/juergen/Projects/hd-gmbh-dev/xwasser-rs/xwasser-rs/pkg"
+    "vitest": "^1.6.0"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
