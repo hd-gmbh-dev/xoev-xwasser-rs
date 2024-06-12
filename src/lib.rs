@@ -47,11 +47,17 @@ pub struct IdentifikationNachricht {
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"erstellungszeitpunkt")]
-pub struct Erstellungszeitpunkt {}
+pub struct Erstellungszeitpunkt {
+    #[xml(name = b"erstellungszeitpunkt", ty = "child")]
+    pub erstellungszeitpunkt: String,
+}
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"nachrichtenUUID")]
-pub struct NachrichtenUUID {}
+pub struct NachrichtenUUID {
+    #[xml(name = b"nachrichtenUUID", ty = "child")]
+    pub nachrichten_uuid: String, 
+}
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"verzeichnisdienst")]
@@ -69,9 +75,48 @@ pub struct Leser {
     #[xml(name = b"verzeichnisdienst", ty = "child")]
     pub verzeichnisdienst: Verzeichnisdienst,
     #[xml(name = b"kennung", ty = "child")]
-    pub kennung: String,
+    pub kennung: Kennung,
     #[xml(name = b"name", ty = "child")]
     pub name: String,
+    #[xml(name = b"erreichbarkeit" , ty = "child")]
+    pub erreichbarkeit: Erreichbarkeit,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"erreichbarkeit")]
+pub struct Erreichbarkeit { 
+    #[xml(name = b"kanal", ty = "child")]
+    pub kanal: Kanal,
+    #[xml(name = b"kennung", ty = "child")]
+    pub kennung: Kennung,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: Zusatz,
+}
+
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"zusatz")]
+pub struct Zusatz {
+    #[xml(name = b"zusatz", ty = "child")] 
+    pub zusatz: String,
+}
+
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"kanal")]
+pub struct Kanal { 
+    #[xml(name = b"listVersionID", ty = "attr", value = "1")]
+    #[serde(skip)]
+    pub _list_version_id: ConstStr,
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"kennung")]
+pub struct Kennung { 
+    #[xml(name = b"kennung", ty = "child")]
+    pub kennung: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -80,7 +125,7 @@ pub struct Autor {
     #[xml(name = b"verzeichnisdienst", ty = "child")]
     pub verzeichnisdienst: Verzeichnisdienst,
     #[xml(name = b"kennung", ty = "child")]
-    pub kennung: String,
+    pub kennung: Kennung,
     #[xml(name = b"name", ty = "child")]
     pub name: String,
 }
@@ -102,11 +147,17 @@ pub struct NachrichtenkopfG2g {
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"DvdvDienstkennung")]
-pub struct DvdvDienstkennung {}
+pub struct DvdvDienstkennung {
+    #[xml(name = b"dvdvDienstkennung", ty = "child")]
+    pub dvdv_dienstkennung: String,
+}
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"ReferenzUUID")]
-pub struct ReferenzUUID {}
+pub struct ReferenzUUID {
+    #[xml(name = b"referenzUUID", ty = "child")]
+    pub referenz_uuid: String,
+}
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"identifikationVorgang")]
