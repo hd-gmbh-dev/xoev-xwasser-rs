@@ -307,6 +307,10 @@ pub struct AdministrationQuittung {
 
     #[xml(ns = b"xwas", name = b"identifikationVorgang", ty = "child")]
     pub identifikation_vorgang: IdentifikationVorgang,
+
+    #[xml(ns = b"xwas", name = b"quittung", ty = "child")]
+    pub quittung: Quittung,
+    
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
