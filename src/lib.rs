@@ -38,12 +38,20 @@ pub struct NachrichtenTyp {
 #[xml(root = b"identifikation.nachricht")]
 pub struct IdentifikationNachricht {
     #[xml(name = b"nachrichtenUUID", ty = "child")]
-    pub nachrichten_uuid: String,
+    pub nachrichten_uuid: NachrichtenUUID,
     #[xml(name = b"nachrichtentyp", ty = "child")]
     pub nachrichten_typ: NachrichtenTyp,
     #[xml(name = b"erstellungszeitpunkt", ty = "child")]
-    pub erstellungszeitpunkt: String,
+    pub erstellungszeitpunkt: Erstellungszeitpunkt,
 }
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"erstellungszeitpunkt")]
+pub struct Erstellungszeitpunkt {}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"nachrichtenUUID")]
+pub struct NachrichtenUUID {}
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"verzeichnisdienst")]
@@ -86,7 +94,19 @@ pub struct NachrichtenkopfG2g {
     pub leser: Leser,
     #[xml(name = b"autor", ty = "child")]
     pub autor: Autor,
+    #[xml(name = b"referenzUUID", ty = "child")]
+    pub referenz_uuid: ReferenzUUID,
+    #[xml(name = b"dvdvDienstkennung", ty = "child")]
+    pub dvdv_dienstkennung: DvdvDienstkennung,
 }
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"DvdvDienstkennung")]
+pub struct DvdvDienstkennung {}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"ReferenzUUID")]
+pub struct ReferenzUUID {}
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"identifikationVorgang")]
