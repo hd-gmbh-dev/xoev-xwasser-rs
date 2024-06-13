@@ -323,6 +323,34 @@ pub struct Probennehmer {
     pub organisation: Organisation,
     #[xml(ns = b"xwas", name = b"natuerlichePerson", ty = "child")]
     pub natuerlichePerson: NatuerlichePerson,
+    #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
+    pub zustaendigeBehoerde: ZustaendigeBehoerde,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct ZustaendigeBehoerde {
+    #[xml(name = b"id", ty = "child")]
+    pub id: String,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: String,
+    #[xml(name = b"anlageNachTrinkwVID", ty = "child")]
+    pub anlageNachTrinkwVID: String,
+    #[xml(name = b"probennehmerID", ty = "child")]
+    pub probennehmerID: String,
+    #[xml(name = b"pruefberichtID", ty = "child")]
+    pub pruefberichtID: String,
+    #[xml(name = b"laenderkuerzel", ty = "child")]
+    pub laenderkuerzel: Laenderkuerzel,
+    #[xml(name = b"kommentar", ty = "child")]
+    pub kommentar: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Laenderkuerzel {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
