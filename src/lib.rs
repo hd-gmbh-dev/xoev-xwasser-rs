@@ -56,7 +56,7 @@ pub struct Erstellungszeitpunkt {
 #[xml(root = b"nachrichtenUUID")]
 pub struct NachrichtenUUID {
     #[xml(name = b"nachrichtenUUID", ty = "child")]
-    pub nachrichten_uuid: String, 
+    pub nachrichten_uuid: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -78,13 +78,13 @@ pub struct Leser {
     pub kennung: Kennung,
     #[xml(name = b"name", ty = "child")]
     pub name: String,
-    #[xml(name = b"erreichbarkeit" , ty = "child")]
+    #[xml(name = b"erreichbarkeit", ty = "child")]
     pub erreichbarkeit: Erreichbarkeit,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"erreichbarkeit")]
-pub struct Erreichbarkeit { 
+pub struct Erreichbarkeit {
     #[xml(name = b"kanal", ty = "child")]
     pub kanal: Kanal,
     #[xml(name = b"kennung", ty = "child")]
@@ -93,28 +93,28 @@ pub struct Erreichbarkeit {
     pub zusatz: Zusatz,
 }
 
-
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"zusatz")]
 pub struct Zusatz {
-    #[xml(name = b"zusatz", ty = "child")] 
+    #[xml(name = b"zusatz", ty = "child")]
     pub zusatz: String,
 }
 
-
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"kanal")]
-pub struct Kanal { 
+pub struct Kanal {
     #[xml(name = b"listVersionID", ty = "attr", value = "1")]
     #[serde(skip)]
     pub _list_version_id: ConstStr,
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"kennung")]
-pub struct Kennung { 
+pub struct Kennung {
     #[xml(name = b"kennung", ty = "child")]
     pub kennung: String,
 }
@@ -209,7 +209,11 @@ pub struct AnalyseergebnisParameter {
     pub analyse_im_rahmen_der_akkreditierung: bool,
     #[xml(ns = b"xwas", name = b"untersuchungsverfahren", ty = "child")]
     pub untersuchungsverfahren: Untersuchungsverfahren,
-    #[xml(ns = b"xwas", name = b"ergaenzungZumUntersuchungsverfahren", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"ergaenzungZumUntersuchungsverfahren",
+        ty = "child"
+    )]
     pub ergaenzung_zum_untersuchungsverfahren: String,
     #[xml(ns = b"xwas", name = b"untersuchterParameter", ty = "child")]
     pub untersuchter_parameter: UntersuchterParameter,
@@ -217,13 +221,21 @@ pub struct AnalyseergebnisParameter {
     pub parameterauspraegung: Parameterauspraegung,
     #[xml(ns = b"xwas", name = b"parameterUnterauswahl", ty = "child")]
     pub parameter_unterauswahl: ParameterUnterauswahl,
-    #[xml(ns = b"xwas", name = b"sensorischerParameterIstAnnehmbar", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"sensorischerParameterIstAnnehmbar",
+        ty = "child"
+    )]
     pub sensorischer_parameter_ist_annehmbar: bool,
     #[xml(ns = b"xwas", name = b"untersuchungswertParameter", ty = "child")]
-    pub untersuchungswert_parameter: String,  
+    pub untersuchungswert_parameter: String,
     #[xml(ns = b"xwas", name = b"einheitDesUntersuchungswerts", ty = "child")]
     pub einheit_des_untersuchungswerts: EinheitDesUntersuchungswerts,
-    #[xml(ns = b"xwas", name = b"ergaenzungZumUntersuchungswertParameter", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"ergaenzungZumUntersuchungswertParameter",
+        ty = "child"
+    )]
     pub ergaenzung_zum_untersuchungswert_parameter: ErgaenzungZumUntersuchungswertParameter,
     #[xml(ns = b"xwas", name = b"parameterwertErgaenzung", ty = "child")]
     pub parameterwert_ergaenzung: String,
@@ -235,10 +247,14 @@ pub struct AnalyseergebnisParameter {
     pub bewertung_untersuchungswert: BewertungUntersuchungswert,
     #[xml(ns = b"xwas", name = b"parameterauffaelligkeit", ty = "child")]
     pub parameterauffaelligkeit: String,
-    #[xml(ns = b"xwas", name = b"messunsicherheitUntersuchungswert", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"messunsicherheitUntersuchungswert",
+        ty = "child"
+    )]
     pub messunsicherheitUntersuchungswert: String, // not null
     #[xml(ns = b"xwas", name = b"bestimmungsgrenzeLoQ", ty = "child")]
-    pub bestimmungsgrenzeLoQ: String, // erfüllung von anderem feld abhängig 
+    pub bestimmungsgrenzeLoQ: String, // erfüllung von anderem feld abhängig
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: String,
 }
@@ -289,6 +305,110 @@ pub struct Probe {
     pub analyseergebnis_parameter_id: String,
     #[xml(ns = b"xwas", name = b"analyseergebnisParameter", ty = "child")]
     pub analyseergebnis_parameter: AnalyseergebnisParameter,
+    #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
+    pub probennehmer_id: String,
+    #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
+    pub probennehmer: Probennehmer,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Probennehmer {
+    #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
+    pub probennehmer_id: String,
+    #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
+    pub probe_id: String,
+    // #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
+    // pub probennehmer: Box<Probennehmer>,
+    #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
+    pub organisation: Organisation,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Organisation {
+    #[xml(name = b"rechtsform", ty = "child")]
+    pub rechtsform: Rechtsform,
+    #[xml(name = b"branche", ty = "child")]
+    pub branche: Branche,
+    #[xml(name = b"zweck", ty = "child")]
+    pub zweck: Zweck,
+    #[xml(name = b"name", ty = "child")]
+    pub name: Name,
+    #[xml(name = b"unterorganisation", ty = "child")]
+    pub unterorganisation: Unterorganisation,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Unterorganisation {
+    #[xml(name = b"kommunikation", ty = "child")]
+    pub kommunikation: Kommunikation,
+    #[xml(name = b"registrierung", ty = "child")]
+    pub registrierung: Registrierung,
+    // #[xml(name = b"gueltigkeit", ty = "child")]
+    // pub gueltigkeit: Gueltigkeit,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Registrierung {
+    #[xml(name = b"id", ty = "child")]
+    pub id: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Kommunikation {
+    #[xml(name = b"kanal", ty = "child")]
+    pub kanal: Kanal,
+    #[xml(name = b"kennung", ty = "child")]
+    pub kennung: String,
+    #[xml(name = b"istDienstlich", ty = "child")]
+    pub istDienstlich: bool,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Name {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"kurzbeschreibung", ty = "child")]
+    pub kurzbeschreibung: String,
+    #[xml(name = b"gueltigkeit", ty = "child")]
+    pub gueltigkeit: Gueltigkeit,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Gueltigkeit {
+    #[xml(name = b"beginn", ty = "child")]
+    pub beginn: String,
+    #[xml(name = b"ende", ty = "child")]
+    pub ende: String,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Branche {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Zweck {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Rechtsform {
+    #[xml(name = b"listVersionID", ty = "attr")]
+    pub list_version_id: Option<String>,
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -435,7 +555,6 @@ pub struct AdministrationQuittung {
 
     #[xml(ns = b"xwas", name = b"quittung", ty = "child")]
     pub quittung: Quittung,
-    
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
