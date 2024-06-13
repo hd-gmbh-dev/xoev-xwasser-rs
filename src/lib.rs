@@ -343,8 +343,30 @@ pub struct Unterorganisation {
     pub kommunikation: Kommunikation,
     #[xml(name = b"registrierung", ty = "child")]
     pub registrierung: Registrierung,
-    // #[xml(name = b"gueltigkeit", ty = "child")]
-    // pub gueltigkeit: Gueltigkeit,
+    #[xml(name = b"identifikation", ty = "child")]
+    pub identifikation: Identifikation,
+    #[xml(name = b"existenzzeitraum", ty = "child")]
+    pub existenzzeitraum: Existenzzeitraum,
+    #[xml(name = b"anschrift", ty = "child")]
+    pub anschrift: Anschrift,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Existenzzeitraum {
+    #[xml(name = b"beginn", ty = "child")]
+    pub beginn: String,
+    #[xml(name = b"ende", ty = "child")]
+    pub ende: String,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Identifikation {
+    #[xml(name = b"id", ty = "child")]
+    pub id: String,
+    #[xml(name = b"beschreibung", ty = "child")]
+    pub beschreibung: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -355,6 +377,8 @@ pub struct Registrierung {
     pub registriertyp: Registriertyp,
     #[xml(name = b"registrierendeBehoerde", ty = "child")]
     pub registrierendeBehoerde: RegistrierendeBehoerde,
+    #[xml(name = b"gueltigkeit", ty = "child")]
+    pub gueltigkeit: Gueltigkeit,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
