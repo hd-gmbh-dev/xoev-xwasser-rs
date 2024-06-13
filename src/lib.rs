@@ -165,24 +165,32 @@ pub struct ReferenzUUID {
 pub struct IdentifikationVorgang {
     #[xml(ns = b"xwas", name = b"vorgangsID", ty = "child")]
     pub vorgangs_id: String,
+    #[xml(ns = b"xwas", name = b"aktenzeichen", ty = "child")]
+    pub aktenzeichen: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct Untersuchungsverfahren {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct UntersuchterParameter {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct BewertungUntersuchungswert {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -191,6 +199,8 @@ pub struct BewertungUntersuchungswert {
 pub struct AnalyseergebnisParameter {
     #[xml(ns = b"xwas", name = b"analyseergebnisParameterID", ty = "child")]
     pub analyseergebnis_parameter_id: String,
+    #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
+    pub probe_id: String,
     #[xml(ns = b"xwas", name = b"zugelasseneUntersuchungsstelleID", ty = "child")]
     pub zugelassene_untersuchungsstelle_id: String,
     #[xml(ns = b"xwas", name = b"anschriftID", ty = "child")]
@@ -199,10 +209,70 @@ pub struct AnalyseergebnisParameter {
     pub analyse_im_rahmen_der_akkreditierung: bool,
     #[xml(ns = b"xwas", name = b"untersuchungsverfahren", ty = "child")]
     pub untersuchungsverfahren: Untersuchungsverfahren,
+    #[xml(ns = b"xwas", name = b"ergaenzungZumUntersuchungsverfahren", ty = "child")]
+    pub ergaenzung_zum_untersuchungsverfahren: String,
     #[xml(ns = b"xwas", name = b"untersuchterParameter", ty = "child")]
-    pub untersuchterParameter: UntersuchterParameter,
+    pub untersuchter_parameter: UntersuchterParameter,
+    #[xml(ns = b"xwas", name = b"parameterauspraegung", ty = "child")]
+    pub parameterauspraegung: Parameterauspraegung,
+    #[xml(ns = b"xwas", name = b"parameterUnterauswahl", ty = "child")]
+    pub parameter_unterauswahl: ParameterUnterauswahl,
+    #[xml(ns = b"xwas", name = b"sensorischerParameterIstAnnehmbar", ty = "child")]
+    pub sensorischer_parameter_ist_annehmbar: bool,
+    #[xml(ns = b"xwas", name = b"untersuchungswertParameter", ty = "child")]
+    pub untersuchungswert_parameter: String,  
+    #[xml(ns = b"xwas", name = b"einheitDesUntersuchungswerts", ty = "child")]
+    pub einheit_des_untersuchungswerts: EinheitDesUntersuchungswerts,
+    #[xml(ns = b"xwas", name = b"ergaenzungZumUntersuchungswertParameter", ty = "child")]
+    pub ergaenzung_zum_untersuchungswert_parameter: ErgaenzungZumUntersuchungswertParameter,
+    #[xml(ns = b"xwas", name = b"parameterwertErgaenzung", ty = "child")]
+    pub parameterwert_ergaenzung: String,
+    #[xml(ns = b"xwas", name = b"ausgewertetesAnsatzvolumen", ty = "child")]
+    pub ausgewertetes_ansatzvolumen: String,
+    #[xml(ns = b"xwas", name = b"shapthParameterNummer", ty = "child")]
+    pub shapth_parameter_nummer: String,
     #[xml(ns = b"xwas", name = b"bewertungUntersuchungswert", ty = "child")]
-    pub bewertungUntersuchungswert: BewertungUntersuchungswert,
+    pub bewertung_untersuchungswert: BewertungUntersuchungswert,
+    #[xml(ns = b"xwas", name = b"parameterauffaelligkeit", ty = "child")]
+    pub parameterauffaelligkeit: String,
+    #[xml(ns = b"xwas", name = b"messunsicherheitUntersuchungswert", ty = "child")]
+    pub messunsicherheitUntersuchungswert: String, // not null
+    #[xml(ns = b"xwas", name = b"bestimmungsgrenzeLoQ", ty = "child")]
+    pub bestimmungsgrenzeLoQ: String, // erfüllung von anderem feld abhängig 
+    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    pub kommentar: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct ErgaenzungZumUntersuchungswertParameter {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct EinheitDesUntersuchungswerts {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct ParameterUnterauswahl {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Parameterauspraegung {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -213,6 +283,10 @@ pub struct Probe {
     pub probe_id: String,
     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
     pub probennahmestelle_id: String,
+    #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
+    pub untersuchungsplan_id: String,
+    #[xml(ns = b"xwas", name = b"analyseergebnisParameterID", ty = "child")]
+    pub analyseergebnis_parameter_id: String,
     #[xml(ns = b"xwas", name = b"analyseergebnisParameter", ty = "child")]
     pub analyseergebnis_parameter: AnalyseergebnisParameter,
 }
