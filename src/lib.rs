@@ -321,6 +321,174 @@ pub struct Probennehmer {
     // pub probennehmer: Box<Probennehmer>,
     #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
     pub organisation: Organisation,
+    #[xml(ns = b"xwas", name = b"natuerlichePerson", ty = "child")]
+    pub natuerlichePerson: NatuerlichePerson,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct NatuerlichePerson {
+    #[xml(name = b"auskunftssperre", ty = "child")]
+    pub auskunftssperre: Auskunftssperre,
+    #[xml(name = b"nameNatuerlichePerson", ty = "child")]
+    pub name_natuerliche_person: NameNatuerlichePerson,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct NameNatuerlichePerson {
+    #[xml(name = b"titel", ty = "child")]
+    pub titel: String,
+    #[xml(name = b"anrede", ty = "child")]
+    pub anrede: String,
+    #[xml(name = b"namenssuffix", ty = "child")]
+    pub namenssuffix: String,
+    #[xml(name = b"familienname", ty = "child")]
+    pub familienname: Familienname,
+    #[xml(name = b"ehename", ty = "child")]
+    pub ehename: Ehename,
+    #[xml(name = b"lebenspartnerschaftsname", ty = "child")]
+    pub lebenspartnerschaftsname: Lebenspartnerschaftsname,
+    #[xml(name = b"geburtsname", ty = "child")]
+    pub geburtsname: Geburtsname,
+    #[xml(name = b"fruehererFamilienname", ty = "child")]
+    pub frueherer_familienname: FruehererFamilienname,
+    #[xml(name = b"vorname", ty = "child")]
+    pub vorname: Vorname,
+    #[xml(name = b"rufname", ty = "child")]
+    pub rufname: Rufname,
+    #[xml(name = b"fruehererVorname", ty = "child")]
+    pub frueherer_vorname: FruehererVorname,
+    #[xml(name = b"alternativeRepraesentation", ty = "child")]
+    pub alternative_repraesentattion: AlternativeRepraesentation,
+    #[xml(name = b"ordensname", ty = "child")]
+    pub ordensanme: Ordensname,
+    #[xml(name = b"kuenstlername", ty = "child")]
+    pub kuenstlername: Kuenstlername,
+    #[xml(name = b"weitererName", ty = "child")]
+    pub weiterer_name: WeitererName,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct WeitererName {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"nichtVorhanden", ty = "child")]
+    pub nicht_vorhanden: bool,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Kuenstlername {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"nichtVorhanden", ty = "child")]
+    pub nicht_vorhanden: bool,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Ordensname {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"nichtVorhanden", ty = "child")]
+    pub nicht_vorhanden: bool,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct FruehererVorname {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"nichtVorhanden", ty = "child")]
+    pub nicht_vorhanden: bool,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Rufname {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"nichtVorhanden", ty = "child")]
+    pub nicht_vorhanden: bool,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Vorname {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"nichtVorhanden", ty = "child")]
+    pub nicht_vorhanden: bool,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct FruehererFamilienname {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"nichtVorhanden", ty = "child")]
+    pub nicht_vorhanden: bool,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Geburtsname {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"nichtVorhanden", ty = "child")]
+    pub nicht_vorhanden: bool,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Lebenspartnerschaftsname {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"nichtVorhanden", ty = "child")]
+    pub nicht_vorhanden: bool,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Ehename {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"nichtVorhanden", ty = "child")]
+    pub nicht_vorhanden: bool,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Familienname {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"nichtVorhanden", ty = "child")]
+    pub nicht_vorhanden: bool,
+    #[xml(name = b"namensart", ty = "child")]
+    pub namensart: Namensart,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct AlternativeRepraesentation {
+    #[xml(name = b"repraesentation", ty = "child")]
+    pub repraesentation: String,
+    #[xml(name = b"algorithmus", ty = "child")]
+    pub algorithmus: String,
+    #[xml(name = b"hinweis", ty = "child")]
+    pub hinweis: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Namensart {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Auskunftssperre {
+    #[xml(name = b"grund", ty = "child")]
+    pub grund: Grund,
+    #[xml(name = b"gueltigkeit", ty = "child")]
+    pub gueltigkeit: Gueltigkeit,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Grund {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
