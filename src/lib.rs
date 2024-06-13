@@ -309,6 +309,118 @@ pub struct Probe {
     pub probennehmer_id: String,
     #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
     pub probennehmer: Probennehmer,
+    #[xml(ns = b"xwas", name = b"anlassDerUntersuchung", ty = "child")]
+    pub anlass_der_untersuchung: AnlassDerUntersuchung,
+    #[xml(ns = b"xwas", name = b"medium", ty = "child")]
+    pub medium: Medium,
+    #[xml(ns = b"xwas", name = b"ergaenzungZumMedium", ty = "child")]
+    pub ergaenzung_zum_medium: String,
+    #[xml(ns = b"xwas", name = b"zeitpunktProbennahme", ty = "child")]
+    pub zeitpunkt_probennahme: String,
+    #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
+    pub probennahmeverfahren: Probennahmeverfahren,
+    #[xml(ns = b"xwas", name = b"probennahmegeraet", ty = "child")]
+    pub probennahmegeraet: Probennahmegeraet,
+    #[xml(ns = b"xwas", name = b"probengefaess", ty = "child")]
+    pub probengefaess: Probengefaess,
+    #[xml(
+        ns = b"xwas",
+        name = b"ergaenzendeInformationenZuProbenentnahmegeraet",
+        ty = "child"
+    )]
+    pub ergaenzende_informationen_zu_probenentnahmegeraet: String,
+    #[xml(
+        ns = b"xwas",
+        name = b"desinfektionProbenentnahmegeraetDurchgefuehrt",
+        ty = "child"
+    )]
+    pub desinfektion_probenentnahmegeraet_durchgefuehrt: bool,
+    #[xml(
+        ns = b"xwas",
+        name = b"konservierungAufbereitungDesinfektionProbe",
+        ty = "child"
+    )]
+    pub konservierung_aufbereitung_desinfektion_probe: KonservierungAufbereitungDesinfektionProbe,
+    #[xml(ns = b"xwas", name = b"kommentarZurProbennahme", ty = "child")]
+    pub kommentar_zur_probennahme: String,
+    #[xml(ns = b"xwas", name = b"informationenZumProbentransport", ty = "child")]
+    pub informationen_zum_probentransport: String,
+    #[xml(
+        ns = b"xwas",
+        name = b"eingangProbeBeiUntersuchungsstelle",
+        ty = "child"
+    )]
+    pub eingang_probe_bei_untersuchungsstelle: String,
+    #[xml(ns = b"xwas", name = b"beginnAnalytik", ty = "child")]
+    pub beginn_analytik: String,
+    #[xml(ns = b"xwas", name = b"probenbewertung", ty = "child")]
+    pub probenbewertung: Probenbewertung,
+    #[xml(ns = b"xwas", name = b"berichtspflichtig", ty = "child")]
+    pub berichtspflichtig: bool,
+    #[xml(ns = b"xwas", name = b"vonProbennehmerVergebeneProbeID", ty = "child")]
+    pub vonProbennehmerVergebeneProbeID: String,
+    #[xml(ns = b"xwas", name = b"probeID_ausLabor", ty = "child")]
+    pub probeID_ausLabor: String,
+    #[xml(ns = b"xwas", name = b"anhang", ty = "child")]
+    pub anhang: String,
+    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    pub kommentar: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Probenbewertung {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct KonservierungAufbereitungDesinfektionProbe {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Probengefaess {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Probennahmegeraet {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Probennahmeverfahren {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Medium {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct AnlassDerUntersuchung {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -325,6 +437,10 @@ pub struct Probennehmer {
     pub natuerlichePerson: NatuerlichePerson,
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
     pub zustaendigeBehoerde: ZustaendigeBehoerde,
+    #[xml(ns = b"xwas", name = b"fremdsystemID_Probennehmer", ty = "child")]
+    pub fremdsystem_id_probennehmer: String,
+    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    pub kommentar: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
