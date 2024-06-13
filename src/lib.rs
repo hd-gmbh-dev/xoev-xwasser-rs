@@ -387,6 +387,18 @@ pub struct NachgeordneteBehoerde {
     pub verwaltungspolitische_zustaendigkeit: VerwaltungspolitischeZustaendigkeit,
     #[xml(name = b"anschrift", ty = "child")]
     pub anschrift: Anschrift,
+    #[xml(name = b"organisationsstruktur", ty = "child")]
+    pub organisationsstruktur: Organisationsstruktur,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Organisationsstruktur {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"hierarchieebene", ty = "child")]
+    pub hierarchieebene: String,
+    #[xml(name = b"hierarchiename", ty = "child")]
+    pub hierarchiename: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
