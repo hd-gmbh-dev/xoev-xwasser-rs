@@ -351,6 +351,172 @@ pub struct Unterorganisation {
 pub struct Registrierung {
     #[xml(name = b"id", ty = "child")]
     pub id: String,
+    #[xml(name = b"registriertyp", ty = "child")]
+    pub registriertyp: Registriertyp,
+    #[xml(name = b"registrierendeBehoerde", ty = "child")]
+    pub registrierendeBehoerde: RegistrierendeBehoerde,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct RegistrierendeBehoerde {
+    #[xml(name = b"id", ty = "child")]
+    pub id: String,
+    #[xml(name = b"typ", ty = "child")]
+    pub typ: Typ,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: String,
+    #[xml(name = b"behoerdenKennung", ty = "child")]
+    pub behoerden_kennung: BehoerdenKennung,
+    #[xml(name = b"kommunikation", ty = "child")]
+    pub kommunikation: Kommunikation,
+    #[xml(name = b"behoerdenidentifikation", ty = "child")]
+    pub behoerdenidentifikation: Behoerdenidentifikation,
+    #[xml(name = b"behoerdenname", ty = "child")]
+    pub behoerdenname: Behoerdenname,
+    #[xml(name = b"nachgeordneteBehoerde", ty = "child")]
+    pub nachgeordnete_behoerde: NachgeordneteBehoerde,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct NachgeordneteBehoerde {
+    #[xml(name = b"id", ty = "child")]
+    pub id: String,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: String,
+    #[xml(name = b"verwaltungspolitischeZustaendigkeit", ty = "child")]
+    pub verwaltungspolitische_zustaendigkeit: VerwaltungspolitischeZustaendigkeit,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct VerwaltungspolitischeZustaendigkeit {
+    #[xml(name = b"kreis", ty = "child")]
+    pub kreis: Kreis,
+    #[xml(name = b"bezirk", ty = "child")]
+    pub bezirk: Bezirk,
+    #[xml(name = b"bundesland", ty = "child")]
+    pub bundesland: Bundesland,
+    #[xml(name = b"gemeindeschluessel", ty = "child")]
+    pub gemeindeschluessel: Gemeindeschluessel,
+    #[xml(name = b"regionalschluessel", ty = "child")]
+    pub regionalschluessel: Regionalschluessel,
+    #[xml(name = b"nation", ty = "child")]
+    pub nation: Nation,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Nation {
+    #[xml(name = b"staat", ty = "child")]
+    pub staat: Staat,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Staat {
+    #[xml(name = b"listVersionID", ty = "attr")]
+    pub list_version_id: Option<String>,
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Regionalschluessel {
+    #[xml(name = b"listVersionID", ty = "attr")]
+    pub list_version_id: Option<String>,
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Gemeindeschluessel {
+    #[xml(name = b"listVersionID", ty = "attr")]
+    pub list_version_id: Option<String>,
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Bundesland {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Bezirk {
+    #[xml(name = b"listVersionID", ty = "attr")]
+    pub list_version_id: Option<String>,
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Kreis {
+    #[xml(name = b"listVersionID", ty = "attr")]
+    pub list_version_id: Option<String>,
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Behoerdenname {
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"kurzbezeichnung", ty = "child")]
+    pub kurzbezeichnung: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Behoerdenidentifikation {
+    #[xml(name = b"id", ty = "child")]
+    pub id: String,
+    #[xml(name = b"beschreibung", ty = "child")]
+    pub beschreibung: String,
+    #[xml(name = b"gueltigkeit", ty = "child")]
+    pub gueltigkeit: Gueltigkeit,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct BehoerdenKennung {
+    #[xml(name = b"kennung", ty = "child")]
+    pub kennung: Kennung,
+    #[xml(name = b"praefix", ty = "child")]
+    pub praefix: Praefix,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Praefix {
+    #[xml(name = b"listVersionID", ty = "attr")]
+    pub list_version_id: Option<String>,
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Typ {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Registriertyp {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
