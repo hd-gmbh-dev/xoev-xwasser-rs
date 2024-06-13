@@ -331,6 +331,189 @@ pub struct NatuerlichePerson {
     pub auskunftssperre: Auskunftssperre,
     #[xml(name = b"nameNatuerlichePerson", ty = "child")]
     pub name_natuerliche_person: NameNatuerlichePerson,
+    #[xml(name = b"familienstand", ty = "child")]
+    pub familienstand: Familienstand,
+    #[xml(name = b"geburt", ty = "child")]
+    pub geburt: Geburt,
+    #[xml(name = b"doktorgrad", ty = "child")]
+    pub doktorgrad: String,
+    #[xml(name = b"staatsangehoerigkeit", ty = "child")]
+    pub staatsangehoerigkeit: Staatsangehoerigkeit, // recursive struktur
+    #[xml(name = b"ausweisdokument", ty = "child")]
+    pub ausweisdokument: Ausweisdokument,
+    #[xml(name = b"anschrift", ty = "child")]
+    pub anschrift: Anschrift,
+    #[xml(name = b"geschlecht", ty = "child")]
+    pub geschlecht: Geschlecht,
+    #[xml(name = b"identifikationsnummer", ty = "child")]
+    pub identifikationsnummer: Identifikationsnummer,
+    #[xml(name = b"kommunikation", ty = "child")]
+    pub kommunikation: Kommunikation,
+    #[xml(name = b"muttersprache", ty = "child")]
+    pub muttersprache: Muttersprache,
+    #[xml(name = b"fremdsprache", ty = "child")]
+    pub fremdsprache: Fremdsprache,
+    #[xml(name = b"vertreterBevollmaechtigter", ty = "child")]
+    pub vertreter_bevollmaechtigter: VertreterBevollmaechtigter,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct VertreterBevollmaechtigter {
+    #[xml(name = b"vertreterBevollmaechtigterID", ty = "child")]
+    pub vertreter_bevollmaechtigter_id: String,
+    #[xml(name = b"artVertreter", ty = "child")]
+    pub art_vertreter: ArtVertreter,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct ArtVertreter {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Fremdsprache {
+    // is there missing something here ?
+    // #[xml(name = b"sprache", ty = "child")]
+    // pub sprache: Sprache,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Muttersprache {
+    #[xml(name = b"sprache", ty = "child")]
+    pub sprache: Sprache,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Sprache {
+    #[xml(name = b"listVersionID", ty = "attr")]
+    pub list_version_id: Option<String>,
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Identifikationsnummer {
+    #[xml(name = b"id", ty = "child")]
+    pub id: String,
+    #[xml(name = b"beschreibung", ty = "child")]
+    pub beschreibung: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Geschlecht {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"gueltigkeit", ty = "child")]
+    pub gueltigkeit: Gueltigkeit,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Ausweisdokument {
+    #[xml(name = b"listVersionID", ty = "attr")]
+    pub list_version_id: Option<String>,
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(name = b"gueltigkeit", ty = "child")]
+    pub gueltigkeit: Gueltigkeit,
+    #[xml(name = b"ausweisID", ty = "child")]
+    pub ausweis_id: AusweisID,
+    #[xml(name = b"ausstellendeBehoerde", ty = "child")]
+    pub ausstellende_behoerde: AusstellendeBehoerde,
+    #[xml(name = b"ausstellenderStaat", ty = "child")]
+    pub austellender_staat: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct AusstellendeBehoerde {
+    #[xml(name = b"id", ty = "child")]
+    pub id: String,
+    #[xml(name = b"beschreibung", ty = "child")]
+    pub beschreibung: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct AusweisID {
+    #[xml(name = b"id", ty = "child")]
+    pub id: String,
+    #[xml(name = b"beschreibung", ty = "child")]
+    pub beschreibung: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Staatsangehoerigkeit {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Geburt {
+    #[xml(name = b"datum", ty = "child")]
+    pub datum: String,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: String,
+    #[xml(name = b"geburtsort", ty = "child")]
+    pub geburtsort: Geburtsort,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Geburtsort {
+    #[xml(name = b"id", ty = "attr")]
+    pub id: String,
+    #[xml(name = b"strasse", ty = "child")]
+    pub strasse: String,
+    #[xml(name = b"hausnummer", ty = "child")]
+    pub hausnummer: String,
+    #[xml(name = b"postfach", ty = "child")]
+    pub postfach: String,
+    #[xml(name = b"postleitzahl", ty = "child")]
+    pub postleitzahl: String,
+    #[xml(name = b"ort", ty = "child")]
+    pub ort: String,
+    #[xml(name = b"ortsteil", ty = "child")]
+    pub ortsteil: String,
+    #[xml(name = b"ortFruehererGemeindename", ty = "child")]
+    pub ort_frueherer_gemeindename: String,
+    #[xml(name = b"wohnungsgeber", ty = "child")]
+    pub wohnungsgeber: String,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Familienstand {
+    // #[xml(name = b"code", ty = "child")]
+    // pub code: Code,
+    // #[xml(name = b"name", ty = "child")]
+    // pub name: String,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: String,
+    #[xml(name = b"grund", ty = "child")]
+    pub grund: Grund,
+    #[xml(name = b"gueltigkeit", ty = "child")]
+    pub gueltigkeit: Gueltigkeit,
+    #[xml(name = b"behoerde", ty = "child")]
+    pub behoerde: Behoerde,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Behoerde {
+    #[xml(name = b"id", ty = "child")]
+    pub id: String,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
