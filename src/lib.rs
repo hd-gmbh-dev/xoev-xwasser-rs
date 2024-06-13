@@ -385,6 +385,48 @@ pub struct NachgeordneteBehoerde {
     pub zusatz: String,
     #[xml(name = b"verwaltungspolitischeZustaendigkeit", ty = "child")]
     pub verwaltungspolitische_zustaendigkeit: VerwaltungspolitischeZustaendigkeit,
+    #[xml(name = b"anschrift", ty = "child")]
+    pub anschrift: Anschrift,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Anschrift {
+    #[xml(name = b"id", ty = "attr")]
+    pub id: String,
+    #[xml(name = b"strassenschluessel", ty = "child")]
+    pub strassenschluessel: Strassenschluessel,
+    #[xml(name = b"strasse", ty = "child")]
+    pub strasse: String,
+    #[xml(name = b"hausnummer", ty = "child")]
+    pub hausnummer: String,
+    #[xml(name = b"postfach", ty = "child")]
+    pub postfach: String,
+    #[xml(name = b"postleitzahl", ty = "child")]
+    pub postleitzahl: String,
+    #[xml(name = b"ort", ty = "child")]
+    pub ort: String,
+    #[xml(name = b"ortsteil", ty = "child")]
+    pub ortsteil: String,
+    #[xml(name = b"ortFruehererGemeindename", ty = "child")]
+    pub ort_frueherer_gemeindename: String,
+    #[xml(name = b"wohnungsgeber", ty = "child")]
+    pub wohnungsgeber: String,
+    #[xml(name = b"zusatz", ty = "child")]
+    pub zusatz: String,
+    #[xml(name = b"typ", ty = "child")]
+    pub typ: Typ,
+    #[xml(name = b"staat", ty = "child")]
+    pub staat: Staat,
+    #[xml(name = b"verwaltungspolitischeKodierung", ty = "child")]
+    pub verwaltungspolitische_kodierung: String,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+pub struct Strassenschluessel {
+    #[xml(name = b"code", ty = "child")]
+    pub code: Code,
+    #[xml(name = b"name", ty = "child")]
+    pub name: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
