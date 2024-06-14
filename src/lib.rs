@@ -98,19 +98,19 @@ pub struct IdentifikationVorgang {
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct Untersuchungsverfahren {    
+pub struct Untersuchungsverfahren {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct UntersuchterParameter {    
+pub struct UntersuchterParameter {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct BewertungUntersuchungswert {    
+pub struct BewertungUntersuchungswert {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
 }
