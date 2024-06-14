@@ -44,9 +44,8 @@ jobs:
         with:
           name: xoev-xwasser-pkg
           path: ./pkg
-
-  # publish:
-  #   if: startsWith( github.ref, 'refs/tags/v' )
-  #   uses: ./.github/workflows/publish.yaml
-  #   needs: ci
-  #   secrets: inherit
+  publish:
+    if: startsWith( github.ref, 'refs/tags/v' )
+    uses: ./.github/workflows/publish.yaml
+    needs: ci
+    secrets: inherit
