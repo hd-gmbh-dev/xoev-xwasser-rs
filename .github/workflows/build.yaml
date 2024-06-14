@@ -47,5 +47,5 @@ jobs:
   publish:
     if: startsWith( github.ref, 'refs/tags/v' )
     uses: ./.github/workflows/publish.yaml
-    needs: ci
+    needs: build-and-test
     secrets: inherit
