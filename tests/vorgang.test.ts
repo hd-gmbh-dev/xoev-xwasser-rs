@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { create_quality_report_xml, parse_quality_report_xml } from "../pkg/xwasser_rs";
+import { Gueltigkeit, create_quality_report_xml, parse_quality_report_xml } from "../pkg/xwasser_rs";
 
 const GH_XML = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="xwasser ../schemas/V0_2_0/xwasser.xsd" xmlns:xwas="xwasser" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.2.0">
@@ -190,37 +190,290 @@ const GH_XML = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   </xwas:vorgang>
 </vorgang.transportieren.2010>`
 
+
+function createHeadInfo(kennung: string, name: string): any {
+  return {
+    kennung: kennung,
+    name: name,
+    verzeichnisdienst: {
+        code: {
+            list_uri: "",
+            list_version_id: "",
+            code: "",
+        },
+    },
+  }
+}
+
+function code(name: string, code: string): any {
+  return {
+    code: {
+        code: "2010",
+    },
+    name: [name],
+  }
+}
+
+function geburt(): any {
+  return {
+    datum: [
+      "asdf"
+    ],
+    zusatz: [
+      "asokdfm"
+    ],
+    geburtsort: [anschrift()],
+  }
+}
+
+function alternativeRepraesentation(): any {
+  return {
+    repraesentation: "r1",
+    algorithmus: [
+      "bubble_sort"
+    ],
+    hinweis: [
+      "be careful"
+    ],
+  }
+}
+
+function allgemeinerNameType(name: string): any {
+  return {
+    name: [
+      name
+    ],
+    nicht_vorhanden: false,
+    namensart: {
+        code: "1010"
+    },
+    alternative_repraesentation: [alternativeRepraesentation()],
+  }
+}
+
+function verwaltungspolitischeKodierung(): any {
+  return {
+    kreis: [code("name","1111")],
+    bezirk: [code("name","1111")],
+    bundesland: [code("name","1111")],
+    gemeindeschluessel: [code("name","1111")],
+    regionalschluessel: [code("name","1111")],
+    nation: [code("name","1111")]
+  }
+}
+
+
+function anschrift(): any {
+  return  {
+    id: "IDfcfd2538-f074-4848-b443-d15997e42c9e",
+    strassenschluessel: code("name","1234"),
+    strasse: "Mustermann Strasse",
+    hausnummer: "1",
+    postfach: "1234",
+    postleitzahl: "123456",
+    ort: "Musterhausen",
+    ortsteil: [
+      "Neuhausen"
+    ],
+    ort_frueherer_gemeindename: [
+      "wurstling"
+    ],
+    wohnungsgeber: [
+      ""
+    ],
+    zusatz: [
+      ""
+    ],
+    typ: {
+      code: "1234",
+      name: ""
+    },
+    staat: [code("absurdistan","1111")],
+    verwaltungspolitische_kodierung: verwaltungspolitischeKodierung(),
+  }
+}
+
+function gueltigkeit(beginn: string, ende: string, zusatz: string): any {
+  return {                                                    
+    beginn: beginn,
+    ende: ende,
+    zusatz: zusatz,
+  }
+}
+
+function identifikationType() {
+  return {
+    id: ["238b7cc7-6d64-4db8-9c69-779bb65d60b1"],
+    beschreibung: ["bal bla bla"],
+    gueltigkeit: [gueltigkeit("9:00","19:00","iieudjod")]
+
+  }
+}
+
+function kommunikationType(kanal: CodeKommunikationType[], kennung: string[], ist_dienstlich: boolean[], zusatz: string[]): any {
+  return {
+    kanal: kanal,
+    kennung: kennung,
+    ist_dienstlich: ist_dienstlich,
+    zusatz:zusatz,
+  }
+}
+
+function spracheType(sprache: string, zusatz: string[]): any {
+  return {
+    sprache: sprache, 
+    zusatz: zusatz
+  }
+}
+
+function vertreterBevollmaechtigterType(): any {
+  return {
+    id: "1234",
+    art_vertreter: code("vertretungsart","1233")
+  }
+}
+
+function natuerlichePerson(): any {
+  return {
+    auskunftssperre: {
+      grund: {
+        code: "69"
+      },
+      gueltigkeit: [gueltigkeit("9:00","19:00","iieudjod")]
+
+    },
+    name_natuerliche_person: {
+        titel: [
+            "Prof",
+            "Dr"
+        ],
+
+        anrede: "Herr",
+        namenssuffix: [
+          "Sir",
+          "Jr"
+        ],
+
+        familienname: [allgemeinerNameType("Doe")],
+        ehename: [allgemeinerNameType("Meier")],
+        lebenspartnerschaftsname: [allgemeinerNameType("Mueller")],
+        geburtsname: [allgemeinerNameType("Schroeder")],
+        frueherer_familienname: [allgemeinerNameType("Heinz")],
+        vorname: [allgemeinerNameType("Alexander")],
+        rufname: [allgemeinerNameType("Alex")],
+        frueherer_vorname: [allgemeinerNameType("Nadine")],
+        alternative_repraesentation: [alternativeRepraesentation()],
+        ordensname: [allgemeinerNameType("Andechs")],
+        kuenstlername: [allgemeinerNameType("sikis")],
+        weiterer_name: [allgemeinerNameType("superman")],
+    },
+    familienstand: code("familienstand","1111"),
+    geburt: [geburt()],
+    doktorgrad: [
+      {
+        bezeichnung: "DR."
+      }
+    ],
+    staatsangehoerigkeit: code("staatsangehoerigkeit","1111"),
+    ausweisdokument: code("ausweisdokument","1234"),
+    anschrift: anschrift(),
+    geschlecht: code("geschlecht","1111"),
+    identifikationsnummer: [identifikationType()],
+    kommunikation: [kommunikationType("email", "123", true, "text")],
+    muttersprache: spracheType("Deutsch", ["zusatz"]),
+    fremdsprache: spracheType("Englisch", ["zusatz"]),
+    vertreter_bevollmaechtigter: vertreterBevollmaechtigterType()
+  }
+}
+
+function nameOrganisationType(org_name: string[], kurzbezeichnung: string[], gueltigkeit: Gueltigkeit[]): any {
+  return {
+    name: org_name,
+    kurzbezeichnung: kurzbezeichnung,
+    gueltigkeit: gueltigkeit,
+  }
+}
+
+
+function organisationType() {
+  return {
+    rechtsform: code("rechtsform", "0815"),
+    branche: code("branche", "666"),
+    zweck: code("zweck", "666"),
+    name: nameOrganisationType(["abc corp"], ["produces stuff"], [gueltigkeit("9","12","")]),
+    unterorganisation: [], // hier kann man noch eine weitere organisation eintragen
+    kommunikation: [kommunikationType()],
+    registrierung: []
+
+
+  }
+}
+
+function analyseergebnisParameter(): any {
+  return {
+    analyseergebnis_parameter_id: "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
+    probe_id: "ID3cd3c929-ee22-4056-a2a0-6c2d1c295c5c",
+    zugelassene_untersuchungsstelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
+    anschrift_id: "IDfcfd2538-f074-4848-b443-d15997e42c9e",
+    analyse_im_rahmen_der_akkreditierung: true,
+    untersuchungsverfahren: code("untersuchungsverfahren","9999"),
+    untersuchter_parameter: code("untersuchter_parameter","1010"),
+    bewertung_untersuchungswert: code("bewertung_untersuchungswert","9999"),
+  }
+}
+
+function probennehmer():any {
+  return {
+    probennehmer_id: "IDb05bfc54-c2a9-4ff1-92c8-47b2c4fd9804",
+    probennehmer: {
+      // natuerliche_person: natuerlichePerson(),
+      organisation: organisationType(),
+    },
+  }
+}
+
+function probe(): any {
+  return {
+    probe_id: "ID3cd3c929-ee22-4056-a2a0-6c2d1c295c5c",
+    analyseergebnis_parameter: analyseergebnisParameter(),
+    probennehmer: probennehmer(),
+    anlass_der_untersuchung: code("name","1010"),
+    probennahmestelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
+    analyseergebnis_parameter_id: "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
+    medium: code("medium","1010"),
+    ergaenzung_zum_medium: ["Wasser"],
+    zeitpunkt_probennahme: "2024-05-27T09:00:00",
+    probennahmeverfahren: code("probennahmeverfahren","1010"),
+    probenentnahmegeraet: code("probenentnahmegeraet","1234"),
+    probengefaess: code("probengefaess","1234"),
+    ergaenzende_informationen_zu_probenentnahmegeraet: [""],
+    desinfektion_probenentnahmegeraet_durchgefuehrt: [true],
+    konservierung_aufbereitung_desinfektion_probe: [code("konservierung_aufbereitung_desinfektion_probe","1234")],
+    kommentar_zur_probennahme: "",
+    informationen_zum_probentransport: ["Lieferwagen"],
+    eingang_probe_bei_untersuchungsstelle: "2024-05-27T10:00:00",
+    beginn_analytik: "2024-05-27T10:01:00",
+    abschluss_analytik: "2024-05-27T10:02:00",
+    probenbewertung: code("probenbewertung","1010"),
+    berichtspflichtig: [true],
+    von_probennehmer_vergebene_probe_id: "123456789",
+    probe_id_aus_labor: "1233",
+    anhang: ["Anhang"],
+    kommentar: ["Kommentar"],
+  }
+}
+
 describe("simple xml generation via wasm", async () => {
     it("should be able to create and parse quality report xml", async () => {
         const xml = create_quality_report_xml({
             produkt: "SHAPTH CLI",
             test: true,
             nachrichtenkopf_g2g: {
-                leser: {
-                    name: "Reader",
-                    verzeichnisdienst: {
-                        code: {
-                            code: "",
-                        },
-                    },
-                    kennung: "psw:01003110",
-                },
-                autor: {
-                    kennung: "psw:01003110",
-                    name: "Author",
-                    verzeichnisdienst: {
-                        code: {
-                            code: "",
-                        },
-                    },
-                },
+                leser: createHeadInfo("psw:11113110", "Reader"),
+                autor: createHeadInfo("psw:01003110", "Author"),
                 identifikation_nachricht: {
                     nachrichten_uuid: "693c64d6-456f-4d14-abe7-fe9681c74aae",
-                    nachrichten_typ: {
-                        code: {
-                            code: "2010",
-                        },
-                    },
+                    nachrichten_typ: code("name","2010"),
                     erstellungszeitpunkt: "2024-05-28T09:00:00",
                 },
                 referenz_uuid: "238b7cc7-6d64-4db8-9c69-779bb65d60b1",
@@ -233,145 +486,33 @@ describe("simple xml generation via wasm", async () => {
                 vorgang_type: {
                     pruefbericht: {
                         pruefbericht_id: "IDcd7df392-08ca-4915-bbd9-c14be7b69d02",
-    
                         probennahmestelle: {
                             probennahmestelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
                             objekt_id: "",
-                            probe: 
-                                {
-                                    probe_id: "ID3cd3c929-ee22-4056-a2a0-6c2d1c295c5c",
-                                    probennahmestelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
-                                    // untersuchungsplan_id: "untersuchungsplanID",
-                                    analyseergebnis_parameter_id: "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
-                                    analyseergebnis_parameter: {
-                                        analyseergebnis_parameter_id: "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
-                                        probe_id: "ID3cd3c929-ee22-4056-a2a0-6c2d1c295c5c",
-                                        zugelassene_untersuchungsstelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
-                                        anschrift_id: "IDfcfd2538-f074-4848-b443-d15997e42c9e",
-                                        analyse_im_rahmen_der_akkreditierung: true,
-                                        untersuchungsverfahren: {
-                                            code: {
-                                                code: "1010"
-                                            }
-                                        },
-                                        untersuchter_parameter: {
-                                            code: {
-                                                code: "1021"
-                                            }
-                                        },
-                                        bewertung_untersuchungswert: {
-                                            code: {
-                                                code: "1010"
-                                            }
-                                        },
-                                    },
-                                    probennehmer_id: "IDb05bfc54-c2a9-4ff1-92c8-47b2c4fd9804",
-                                    probennehmer: {
-                                        probennehmer_id: "IDb05bfc54-c2a9-4ff1-92c8-47b2c4fd9804",
-                                        probennehmer: {
-                                            natuerliche_person: {
-                                                name_natuerliche_person: {
-                                                    vorname: [
-                                                        {
-                                                            name: "John"
-                                                        }
-                                                    ],
-                                                    familienname: [
-                                                        {
-                                                            name: "Doe"
-                                                        }
-                                                    ]
-                                                },
-                                            },
-                                        },
-                                    },
-                                    anlass_der_untersuchung: {
-                                        code: {
-                                            code: "1010"
-                                        }
-                                    },
-                                    medium: {
-                                        code: {
-                                            code: "1010"
-                                        }
-                                    },
-                                    zeitpunkt_probennahme: "2024-05-27T09:00:00",
-                                    probennahmeverfahren: {
-                                        code: {
-                                            code: "1010"
-                                        }
-                                    },
-                                    kommentar_zur_probennahme: "",
-                                    eingang_probe_bei_untersuchungsstelle: "2024-05-27T10:00:00",
-                                    beginn_analytik: "2024-05-27T10:01:00",
-                                    abschluss_analytik: "2024-05-27T10:02:00",
-                                    probenbewertung: {
-                                        code: {
-                                            code: "1010"
-                                        }
-                                    },
-                                    von_probennehmer_vergebene_probe_id: "qqq",
-                                    probe_id_aus_labor: "small pink elephants dancing on my table",
-                                },
+                            probe: probe(),
     
                             name_probennahmestelle: "",
-                            art_probennahmestelle: {
-                                code: {
-                                    code: "1010"
-                                }
-                            },
-                            medium_an_der_probennahmestelle: {
-                                code: {
-                                    code: "1010"
-                                }
-                            }
+                            art_probennahmestelle: code("name","1010"),
+                            medium_an_der_probennahmestelle: code("name","1010"),
                         },
-                        name_beauftragte_untersuchungsstelle: {
-                            code: {
-                                code: "09010"
-                            }
-                        },
+                        name_beauftragte_untersuchungsstelle: code("name","1010"),
                         pruefgericht_gem_vorgaben_akkredition: true,
                         titel: "",
-                        gesamtbewertung: {
-                            code: {
-                                code: "1010"
-                            }
-                        },
+                        gesamtbewertung: code("name","1010"),
                         auffaelligkeiten: "ids are duplicated, makes no sense",
                         zeitpunkt_validierung_pruefbericht: "2024-05-28T09:10:00",
                         fuer_validierung_verantwortliche_person: "",
                         pruefbericht_id_labor: "aaa",
                         sw_version: "0.1.0",
-                        sprache_pruefbericht: {
-                            code: {
-                                code: "DE"
-                            }
-                        },
+                        sprache_pruefbericht: code("name","DE"),
                         rechtlicher_disclaimer: "",
                         zeitpunkt_uebermittlung_an_shapth: "2024-05-28T09:11:00",
                         auftraggeber_rel: {
                             auftraggeber_id: "ID4510d774-13a7-414f-82b0-60e8176e5e19",
-                            auftraggeberart: {
-                                code: {
-                                    code: "1010"
-                                },
-                            },
+                            auftraggeberart: code("name","1010"),
                             auftraggeber: {
-                                natuerliche_person: {
-                                        name_natuerliche_person: {
-                                            vorname: [
-                                                {
-                                                    name: "John"
-                                                }
-                                            ],
-                                            familienname: [
-                                                {
-                                                    name: "Doe"
-                                                }
-                                            ]
-                                        }
-                                },
+                              natuerliche_person: natuerlichePerson(),
+                              },
                             },
                         },
                         zustaemdige_behoerde_rel: {
@@ -383,18 +524,11 @@ describe("simple xml generation via wasm", async () => {
                             behoerdenname: "",
                             nachgeordnete_behoerde: "",
                             verwaltungspolitische_zustaendigkeit: "",
-                            anschrift: {
-                                    id: "IDfcfd2538-f074-4848-b443-d15997e42c9e",
-                            },
+                            anschrift: anschrift(), 
                             anlage_nach_trinkw_vid: "IDcd7df392-08ca-4915-bbd9-c14be7b69d02",
                             probennehmer_id: "IDb05bfc54-c2a9-4ff1-92c8-47b2c4fd9804",
                             pruefbericht_id: "IDcd7df392-08ca-4915-bbd9-c14be7b69d02",
-                            laenderkuerzel: {
-                                code: {
-                                    code: "DEAA"
-                                }
-                            },
-                        
+                            laenderkuerzel: code("name","DEAA"),
                         },
                         beauftragte_untersuchungsstelle_rel: {
                             rechtsform: {
@@ -403,31 +537,17 @@ describe("simple xml generation via wasm", async () => {
                                     code: "",
                                 }
                             },
-                            branche: {
-                                code: {
-                                    code: "",
-                                }
-                            },
-                            zweck: {
-                                code: {
-                                    code: "",
-                                }
-                            },
+                            branche: code("name",""),
+                            zweck: code("name",""),
                             name: "",
                             unterorganisation: "",
                             kommunikation: "",
                             registrierung: "",
                             identifikation: "",
                             existenzzeitraum: "",
-                            anschrift: {
-                                id: "fcfd2538-f074-4848-b443-d15997e42c9e",
-                            },
+                            anschrift: anschrift(),
                             zugelassene_untersuchungsstelle_id: "ID14aeb6dd-bc5e-443f-890c-cbdfe6f50c86",
-                            name_zugelassene_untersuchungsstelle: {
-                                code: {
-                                    code: "09010",
-                                }
-                            },
+                            name_zugelassene_untersuchungsstelle: code("name","09010"),
                             pruefgebiete_untersuchungen_phys_chem: true,
                             pruefgebiete_untersuchungen_mikrobio: true,//Vec<PruefgebieteUntersuchungenMikr
                             pruefgebiete_untersuchungen_radionuklide: true,//Vec<PruefgebieteUntersuchungenRadionuk
@@ -445,8 +565,8 @@ describe("simple xml generation via wasm", async () => {
             },
         });
         expect(xml).toEqual(GH_XML);
-        const parsed = parse_quality_report_xml(xml);
-        console.log(xml);
+        // const parsed = parse_quality_report_xml(xml);
+        // console.log(xml);
     //     expect(parsed.produkt).toEqual("SHAPTH");
     //     expect(parsed.test).toBeTruthy();
     //     expect(parsed.nachrichtenkopf_g2g.autor.name).toEqual("Author");
