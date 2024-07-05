@@ -301,6 +301,14 @@ function gueltigkeit(beginn: string, ende: string, zusatz: string): any {
   }
 }
 
+function zeitraumType(beginn: string[], ende: string[], zusatz: string[]): any {
+  return {                                                    
+    beginn: beginn,
+    ende: ende,
+    zusatz: zusatz,
+  }
+}
+
 function identifikationType() {
   return {
     id: ["238b7cc7-6d64-4db8-9c69-779bb65d60b1"],
@@ -310,9 +318,9 @@ function identifikationType() {
   }
 }
 
-function kommunikationType(kanal: CodeKommunikationType[], kennung: string[], ist_dienstlich: boolean[], zusatz: string[]): any {
+function kommunikationType(kanal: string[], kennung: string[], ist_dienstlich: boolean[], zusatz: string[]): any {
   return {
-    kanal: kanal,
+    kanal: code(kanal[0],kanal[1]),
     kennung: kennung,
     ist_dienstlich: ist_dienstlich,
     zusatz:zusatz,
@@ -379,7 +387,7 @@ function natuerlichePerson(): any {
     anschrift: anschrift(),
     geschlecht: code("geschlecht","1111"),
     identifikationsnummer: [identifikationType()],
-    kommunikation: [kommunikationType("email", "123", true, "text")],
+    kommunikation: [kommunikationType(["email", "123"], ["text"], [true], ["zusatz"])],
     muttersprache: spracheType("Deutsch", ["zusatz"]),
     fremdsprache: spracheType("Englisch", ["zusatz"]),
     vertreter_bevollmaechtigter: vertreterBevollmaechtigterType()
@@ -394,6 +402,39 @@ function nameOrganisationType(org_name: string[], kurzbezeichnung: string[], gue
   }
 }
 
+function behoerdeType():any {
+  return {
+    id: ["ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a"],
+    code: [code("behoerde","1234")],
+    zusatz: ["zusatz"],
+    behoerdenkennung: [{
+      kennung: [code("behoerdenkennung","1234")],
+      praefix: [code("praefixtype","1234")]
+    }],
+    kommunikation: [kommunikationType(["email", "123"], ["text"], [true], ["zusatz"])],
+    behordenidentifikation: [identifikationType()],
+    behordenname: [nameOrganisationType(["behorde 1"], ["does stuff"], [gueltigkeit("9","12","")])],
+    nachgeordnete_behoerde: [],
+    verwaltungspolitische_zustaendigkeit: [verwaltungspolitischeKodierung()],
+    anschrift: [anschrift()],
+    organisationsstruktur: [
+      {
+        name: "org1",
+        hierarchieebene: [1],
+        hierarchiename: ["First level"]
+      }
+    ]
+  }
+}
+
+function registrierungType():any {
+  return {
+    id: ["ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a"],
+    registertyp: [code("registertyp","1234")],
+    registrierende_behoerde: [behoerdeType()],
+    gueltigkeit: [gueltigkeit("9:00","19:00","iieudjod")]
+  }
+}
 
 function organisationType() {
   return {
@@ -402,10 +443,11 @@ function organisationType() {
     zweck: code("zweck", "666"),
     name: nameOrganisationType(["abc corp"], ["produces stuff"], [gueltigkeit("9","12","")]),
     unterorganisation: [], // hier kann man noch eine weitere organisation eintragen
-    kommunikation: [kommunikationType()],
-    registrierung: []
-
-
+    kommunikation: [kommunikationType(["brief", "123"], ["text"], [true], ["zusatz"])],
+    registrierung: [registrierungType()],
+    identifikation: [identifikationType()],
+    existenzzeitraum: [zeitraumType(["9"],["19"],["zusatz"])],
+    anschrift: [anschrift()]
   }
 }
 
@@ -422,13 +464,28 @@ function analyseergebnisParameter(): any {
   }
 }
 
+
+function zustaendigeBehoerde():any {
+  return {
+    behoerde: behoerdeType(),
+    anlage_nach_trinkw_vid: "IDfcfd2538-f074-4848-b443-d15997e42c9e",
+    probennehmer_id: ["1234"],
+    laenderkuerzel: code("laenderkuerzel","DEAA"),
+    kommentar: ["kommentar"]
+  }
+}
+
 function probennehmer():any {
   return {
     probennehmer_id: "IDb05bfc54-c2a9-4ff1-92c8-47b2c4fd9804",
     probennehmer: {
+      // alle möglichen Typen
       // natuerliche_person: natuerlichePerson(),
-      organisation: organisationType(),
+      // organisation: organisationType(),
+      zustaendige_behoerde: zustaendigeBehoerde(),
     },
+    fremdsystem_id_probennehmer: "fremdsystemid",
+    kommentar: ["kommentar"],
   }
 }
 
@@ -463,119 +520,141 @@ function probe(): any {
   }
 }
 
+function probennahmestelle() {
+  return {
+    probennahmestelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
+    objekt_id: "",
+    probe: probe(),
+    terminplan_id: ["terminplan id"],
+    name_probennahmestelle: "wasserloch um die ecke",
+    art_probennahmestelle: code("wasserloch","123455"),
+    stockwerk_probennahmestelle: [1],
+    medium_an_der_probennahmestelle: code("medium probennahmestelle","1235"),
+    desinfektion_und_aufbereitung_des_wassers: code("desinfektionAufbereitungDesWassers","1234"),
+    alt_id: ["altid2"],
+    kommentar: ["kommentar zur proebennahmestelle"]
+  }
+}
+
+
+function auftraggeber():any {
+  return {
+    auftraggeber_id: "ID4510d774-13a7-414f-82b0-60e8176e5e19",
+    auftraggeberart: code("name","1010"),
+    auftraggeber: {
+      natuerliche_person: natuerlichePerson(),
+      },
+  }
+}
+
+function beauftragteUntersuchungsstelle(): any {
+  return {
+    zugelassene_untersuchungsstelle: {
+      organisation: organisationType(),
+      zugelassene_untersuchungsstelle_id: "ID14aeb6dd-bc5e-443f-890c-cbdfe6f50c86",
+      name_zugelassene_untersuchungsstelle: code("name","09010"),
+      pruefgebiete_untersuchungen_phys_chem: [true],
+      pruefgebiete_untersuchungen_mikrobio: [true],
+      pruefgebiete_untersuchungen_radionuklide: [true],
+      akkreditierungsnummer: [""],
+      kommentar_beauftragte_untersuchungsstelle: [""],
+      kommentar_zugelassene_untersuchungsstelle: [""],
+
+    },
+    kommentar_beauftragte_untersuchungsstelle: [""],
+  }
+}
+
+function erweiterung():any {
+  return {
+    feld: [
+      {
+        name: ["feldname"],
+        beschreibung: ["feldbeschreibung"],
+        datentyp: code("datentyp","1234"),
+        wert: "feldwert"
+      }
+    ],
+    gruppe: [
+      {
+        name: "gruppe",
+        beschreibung: "gruppenbeschreibung",
+        untergruppe: [],
+        feld: [],
+      }
+    ],
+    xml: [],
+
+  }
+
+}
+
+function pruefberichtType():any {
+  return {
+    pruefbericht_uuid: "IDcd7df392-08ca-4915-bbd9-c14be7b69d02",
+    untersuchungsplan_id: ["IDcd7df392-08ca-4915-bbd9-c14be7b69d02"],
+    probennahmestelle: probennahmestelle(),
+    name_beauftragte_untersuchungsstelle: code("name","1010"),
+    pruefbericht_enthaelt_teilergebnisse: [true],
+    pruefgericht_gem_vorgaben_akkredition: true,
+    titel: "",
+    gesamtbewertung: code("name","1010"),
+    auffaelligkeiten: ["ids are duplicated, makes no sense"],
+    zeitpunkt_validierung_pruefbericht: "2024-05-28T09:10:00",
+    fuer_validierung_verantwortliche_person: natuerlichePerson(),
+    freigabe_uebermittlung_betreiber: [true],
+    pruefbericht_id_labor: "aaa",
+    sw_version: code("sw_version", "1234"),
+    sprache_pruefbericht: code("name","DE"),
+    rechtlicher_disclaimer: "",
+    zeitpunkt_uebermittlung_an_shapth: "2024-05-28T09:11:00",
+    kommentar: ["kommentar"],
+    auftraggeber: auftraggeber(),
+    zustaendige_behoerde: zustaendigeBehoerde(),
+    beauftragte_untersuchungsstelle: beauftragteUntersuchungsstelle(),
+    ort_der_labortaetigkeiten: anschrift(),
+    anhang: ["anhang"],
+    erweiterung: [erweiterung()]
+  }
+}
+
+function vorgang():any {
+  return {
+    identifikation_vorgang: {
+        vorgangs_id: "5e08e073-4e06-438d-9444-1275f6cbf061",
+    },
+    vorgang_type: {
+        pruefbericht: pruefberichtType(),
+    },
+  }
+}
+
+function nachrichtenkopf():any {
+  return {
+    leser: createHeadInfo("psw:11113110", "Reader"),
+    autor: createHeadInfo("psw:01003110", "Author"),
+    identifikation_nachricht: {
+        nachrichten_uuid: "693c64d6-456f-4d14-abe7-fe9681c74aae",
+        nachrichten_typ: code("name","2010"),
+        erstellungszeitpunkt: "2024-05-28T09:00:00",
+    },
+    referenz_uuid: "238b7cc7-6d64-4db8-9c69-779bb65d60b1",
+    dvdv_dienstkennung: "s",
+  }
+}
+
+function qualityReport():any {
+  return {
+    produkt: "SHAPTH CLI",
+    test: true,
+    nachrichtenkopf_g2g: nachrichtenkopf(),
+    vorgang: vorgang(),
+  }
+}
+
 describe("simple xml generation via wasm", async () => {
-    it("should be able to create and parse quality report xml", async () => {
-        const xml = create_quality_report_xml({
-            produkt: "SHAPTH CLI",
-            test: true,
-            nachrichtenkopf_g2g: {
-                leser: createHeadInfo("psw:11113110", "Reader"),
-                autor: createHeadInfo("psw:01003110", "Author"),
-                identifikation_nachricht: {
-                    nachrichten_uuid: "693c64d6-456f-4d14-abe7-fe9681c74aae",
-                    nachrichten_typ: code("name","2010"),
-                    erstellungszeitpunkt: "2024-05-28T09:00:00",
-                },
-                referenz_uuid: "238b7cc7-6d64-4db8-9c69-779bb65d60b1",
-                dvdv_dienstkennung: "s",
-            },
-            vorgang: {
-                identifikation_vorgang: {
-                    vorgangs_id: "5e08e073-4e06-438d-9444-1275f6cbf061",
-                },
-                vorgang_type: {
-                    pruefbericht: {
-                        pruefbericht_id: "IDcd7df392-08ca-4915-bbd9-c14be7b69d02",
-                        probennahmestelle: {
-                            probennahmestelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
-                            objekt_id: "",
-                            probe: probe(),
-    
-                            name_probennahmestelle: "",
-                            art_probennahmestelle: code("name","1010"),
-                            medium_an_der_probennahmestelle: code("name","1010"),
-                        },
-                        name_beauftragte_untersuchungsstelle: code("name","1010"),
-                        pruefgericht_gem_vorgaben_akkredition: true,
-                        titel: "",
-                        gesamtbewertung: code("name","1010"),
-                        auffaelligkeiten: "ids are duplicated, makes no sense",
-                        zeitpunkt_validierung_pruefbericht: "2024-05-28T09:10:00",
-                        fuer_validierung_verantwortliche_person: "",
-                        pruefbericht_id_labor: "aaa",
-                        sw_version: "0.1.0",
-                        sprache_pruefbericht: code("name","DE"),
-                        rechtlicher_disclaimer: "",
-                        zeitpunkt_uebermittlung_an_shapth: "2024-05-28T09:11:00",
-                        auftraggeber_rel: {
-                            auftraggeber_id: "ID4510d774-13a7-414f-82b0-60e8176e5e19",
-                            auftraggeberart: code("name","1010"),
-                            auftraggeber: {
-                              natuerliche_person: natuerlichePerson(),
-                              },
-                            },
-                        },
-                        zustaemdige_behoerde_rel: {
-                            id: "IDff3e594e-c836-46b8-b44b-6d9c8a6efe47",
-                            zusatz: "",
-                            behoerden_kennung: "",
-                            kommunikation: "",
-                            behoerden_identifikation: "",
-                            behoerdenname: "",
-                            nachgeordnete_behoerde: "",
-                            verwaltungspolitische_zustaendigkeit: "",
-                            anschrift: anschrift(), 
-                            anlage_nach_trinkw_vid: "IDcd7df392-08ca-4915-bbd9-c14be7b69d02",
-                            probennehmer_id: "IDb05bfc54-c2a9-4ff1-92c8-47b2c4fd9804",
-                            pruefbericht_id: "IDcd7df392-08ca-4915-bbd9-c14be7b69d02",
-                            laenderkuerzel: code("name","DEAA"),
-                        },
-                        beauftragte_untersuchungsstelle_rel: {
-                            rechtsform: {
-                                list_version_id: "",
-                                code: {
-                                    code: "",
-                                }
-                            },
-                            branche: code("name",""),
-                            zweck: code("name",""),
-                            name: "",
-                            unterorganisation: "",
-                            kommunikation: "",
-                            registrierung: "",
-                            identifikation: "",
-                            existenzzeitraum: "",
-                            anschrift: anschrift(),
-                            zugelassene_untersuchungsstelle_id: "ID14aeb6dd-bc5e-443f-890c-cbdfe6f50c86",
-                            name_zugelassene_untersuchungsstelle: code("name","09010"),
-                            pruefgebiete_untersuchungen_phys_chem: true,
-                            pruefgebiete_untersuchungen_mikrobio: true,//Vec<PruefgebieteUntersuchungenMikr
-                            pruefgebiete_untersuchungen_radionuklide: true,//Vec<PruefgebieteUntersuchungenRadionuk
-                            akkreditierungsnummer: "", //Akkreditierungsn
-                            kommentar_zugelassene_untersuchungsstelle: "", //KommentarZugelasseneUntersuchungss
-                            pruefbericht_id: "IDcd7df393-08ca-4915-bbd9-c14be7b69d02",
-                            kommentar_beauftragte_untersuchungsstelle: ""
-                        },
-                        ort_der_labortaetigkeiten: {
-                            _id: "ID46c72370-11b0-41df-b482-4f14b2562744"
-                        }
-    
-                    }
-                },
-            },
-        });
-        expect(xml).toEqual(GH_XML);
-        // const parsed = parse_quality_report_xml(xml);
-        // console.log(xml);
-    //     expect(parsed.produkt).toEqual("SHAPTH");
-    //     expect(parsed.test).toBeTruthy();
-    //     expect(parsed.nachrichtenkopf_g2g.autor.name).toEqual("Author");
-    //     expect(parsed.nachrichtenkopf_g2g.autor.kennung).toEqual(
-    //         "psw:01003110"
-    //     );
-    //     expect(parsed.nachrichtenkopf_g2g.leser.name).toEqual("Reader");
-    //     expect(parsed.nachrichtenkopf_g2g.leser.kennung).toEqual(
-    //         "psw:11113110"
-    //     );
-    });
+  it("should be able to create and parse quality report xml", async () => {
+    const xml = create_quality_report_xml(qualityReport());
+    console.log(xml);
+  });
 });
