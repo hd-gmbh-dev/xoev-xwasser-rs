@@ -102,12 +102,6 @@ pub struct Leser {
     // pub erreichbarkeit: Erreichbarkeit,
 }
 
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(root = b"kennung")]
-// pub struct Kennung {
-//     #[xml(name = b"kennung", ty = "child")]
-//     pub kennung: String,
-// }
 
 /// Unter "Identifikation" werden die Informationen zusammengefasst, die die eindeutige
 /// Identifikation von Objekten in einem fachlichen Kontext erlauben.
@@ -191,64 +185,6 @@ pub struct Vorgang {
     // pub anlage: Vec<Anlage>,
 }
 
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(root = b"erstellungszeitpunkt")]
-// pub struct Erstellungszeitpunkt {
-//     #[xml(name = b"erstellungszeitpunkt", ty = "child")]
-//     pub erstellungszeitpunkt: String,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(root = b"nachrichtenUUID")]
-// pub struct NachrichtenUUID {
-//     #[xml(name = b"nachrichtenUUID", ty = "child")]
-//     pub nachrichten_uuid: String,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(root = b"erreichbarkeit")]
-// pub struct Erreichbarkeit {
-//     #[xml(name = b"kanal", ty = "child")]
-//     pub kanal: Kanal,
-//     #[xml(name = b"kennung", ty = "child")]
-//     pub kennung: Kennung,
-//     #[xml(name = b"zusatz", ty = "child")]
-//     pub zusatz: Zusatz,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(root = b"zusatz")]
-// pub struct Zusatz {
-//     #[xml(name = b"zusatz", ty = "child")]
-//     pub zusatz: String,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(root = b"kanal")]
-// pub struct Kanal {
-//     #[xml(name = b"listVersionID", ty = "attr", value = "1")]
-//     #[serde(skip)]
-//     pub _list_version_id: ConstStr,
-//     #[xml(name = b"code", ty = "child")]
-//     pub code: Code,
-//     #[xml(name = b"name", ty = "child")]
-//     pub name: String,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(root = b"DvdvDienstkennung")]
-// pub struct DvdvDienstkennung {
-//     #[xml(name = b"dvdvDienstkennung", ty = "child")]
-//     pub dvdv_dienstkennung: String,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(root = b"ReferenzUUID")]
-// pub struct ReferenzUUID {
-//     #[xml(name = b"referenzUUID", ty = "child")]
-//     pub referenz_uuid: String,
-// }
-
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"identifikationVorgang")]
 pub struct IdentifikationVorgang {
@@ -267,6 +203,25 @@ pub struct RegisterTyp {
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeUntersuchungsverfahrenType")]
+pub struct CodeUntersuchungsverfahrenType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Vec<String>,
+}
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"Code.SHAPTH-Parameter-EinheitType")]
+pub struct CodeShapthParameterEinheitType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Vec<String>,
+}
+
+
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"analyseergebnisParameter")]
 // #[xml(tns(b"xwas", b"xwasser"))]
 pub struct AnalyseergebnisParameter {
@@ -281,7 +236,7 @@ pub struct AnalyseergebnisParameter {
     #[xml(ns = b"xwas", name = b"analyseImRahmenDerAkkreditierung", ty = "child")]
     pub analyse_im_rahmen_der_akkreditierung: bool,
     #[xml(ns = b"xwas", name = b"untersuchungsverfahren", ty = "child")]
-    pub untersuchungsverfahren: Untersuchungsverfahren,
+    pub untersuchungsverfahren: CodeUntersuchungsverfahrenType,
     // #[xml(
     //     ns = b"xwas",
     //     name = b"ergaenzungZumUntersuchungsverfahren",
@@ -289,7 +244,7 @@ pub struct AnalyseergebnisParameter {
     // )]
     // pub ergaenzung_zum_untersuchungsverfahren: String,
     #[xml(ns = b"xwas", name = b"untersuchterParameter", ty = "child")]
-    pub untersuchter_parameter: UntersuchterParameter,
+    pub untersuchter_parameter: CodeShapthParameterEinheitType,
     // #[xml(ns = b"xwas", name = b"parameterauspraegung", ty = "child")]
     // pub parameterauspraegung: Parameterauspraegung,
     // #[xml(ns = b"xwas", name = b"parameterUnterauswahl", ty = "child")]
@@ -317,7 +272,7 @@ pub struct AnalyseergebnisParameter {
     // #[xml(ns = b"xwas", name = b"shapthParameterNummer", ty = "child")]
     // pub shapth_parameter_nummer: String,
     #[xml(ns = b"xwas", name = b"bewertungUntersuchungswert", ty = "child")]
-    pub bewertung_untersuchungswert: BewertungUntersuchungswert,
+    pub bewertung_untersuchungswert: CodeBewertungUntersuchungswert,
     // #[xml(ns = b"xwas", name = b"parameterauffaelligkeit", ty = "child")]
     // pub parameterauffaelligkeit: String,
     // #[xml(
@@ -332,94 +287,22 @@ pub struct AnalyseergebnisParameter {
     // pub kommentar: String,
 }
 
+
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct Untersuchungsverfahren {
+pub struct CodeUntersuchterParameter {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
-    // #[xml(name = b"name", ty = "child")]
-    // pub name: String,
+    #[xml(name = b"name", ty = "child")]
+    pub name: Vec<String>,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct UntersuchterParameter {
+pub struct CodeBewertungUntersuchungswert {
     #[xml(name = b"code", ty = "child")]
-    pub code: Code,
-    // #[xml(name = b"name", ty = "child")]
-    // pub name: String,
+    pub code: String,
+    #[xml(name = b"name", ty = "child")]
+    pub name: Vec<String>,
 }
-
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct BewertungUntersuchungswert {
-    #[xml(name = b"code", ty = "child")]
-    pub code: Code,
-    // #[xml(name = b"name", ty = "child")]
-    // pub name: String,
-}
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// pub struct ErgaenzungZumUntersuchungswertParameter {
-//     #[xml(name = b"code", ty = "child")]
-//     pub code: Code,
-//     #[xml(name = b"name", ty = "child")]
-//     pub name: String,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// pub struct EinheitDesUntersuchungswerts {
-//     #[xml(name = b"code", ty = "child")]
-//     pub code: Code,
-//     #[xml(name = b"name", ty = "child")]
-//     pub name: String,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// pub struct ParameterUnterauswahl {
-//     #[xml(name = b"code", ty = "child")]
-//     pub code: Code,
-//     #[xml(name = b"name", ty = "child")]
-//     pub name: String,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// pub struct Parameterauspraegung {
-//     #[xml(name = b"code", ty = "child")]
-//     pub code: Code,
-//     #[xml(name = b"name", ty = "child")]
-//     pub name: String,
-// }
-
-
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct Probenbewertung {
-    #[xml(name = b"code", ty = "child")]
-    pub code: Code,
-    // #[xml(name = b"name", ty = "child")]
-    // pub name: String,
-}
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// pub struct KonservierungAufbereitungDesinfektionProbe {
-//     #[xml(name = b"code", ty = "child")]
-//     pub code: Code,
-//     #[xml(name = b"name", ty = "child")]
-//     pub name: String,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// pub struct Probengefaess {
-//     #[xml(name = b"code", ty = "child")]
-//     pub code: Code,
-//     #[xml(name = b"name", ty = "child")]
-//     pub name: String,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// pub struct Probennahmegeraet {
-//     #[xml(name = b"code", ty = "child")]
-//     pub code: Code,
-//     #[xml(name = b"name", ty = "child")]
-//     pub name: String,
-// }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeProbennahmeverfahrenType")]
@@ -450,27 +333,6 @@ pub struct CodeAnlassUntersuchungType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Vec<String>,
 }
-
-
-
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// pub struct ZustaendigeBehoerde {
-//     #[xml(name = b"id", ty = "child")]
-//     pub id: String,
-//     #[xml(name = b"zusatz", ty = "child")]
-//     pub zusatz: String,
-//     #[xml(name = b"anlageNachTrinkwVID", ty = "child")]
-//     pub anlageNachTrinkwVID: String,
-//     #[xml(name = b"probennehmerID", ty = "child")]
-//     pub probennehmerID: String,
-//     #[xml(name = b"pruefberichtID", ty = "child")]
-//     pub pruefberichtID: String,
-//     #[xml(name = b"laenderkuerzel", ty = "child")]
-//     pub laenderkuerzel: Laenderkuerzel,
-//     #[xml(name = b"kommentar", ty = "child")]
-//     pub kommentar: String,
-// }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct Laenderkuerzel {
