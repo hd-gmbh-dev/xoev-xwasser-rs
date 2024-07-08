@@ -301,7 +301,7 @@ function probennehmer():any {
       // zustaendige_behoerde: zustaendigeBehoerde(),
     },
     fremdsystem_id_probennehmer: "fremdsystemid",
-    kommentar: ["kommentar"],
+    kommentar: "kommentar",
   }
 }
 
@@ -339,15 +339,15 @@ function probennahmestelle() {
   return {
     probennahmestelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
     objekt_id: "",
-    probe: probe(),
+    probe: [probe()],
     terminplan_id: ["terminplan id"],
     name_probennahmestelle: "wasserloch um die ecke",
     art_probennahmestelle: code("wasserloch","123455"),
-    stockwerk_probennahmestelle: [1],
-    medium_an_der_probennahmestelle: code("medium probennahmestelle","1235"),
+    stockwerk_probennahmestelle: 1,
+    medium_an_der_probennahmestelle: [code("medium probennahmestelle","1235")],
     desinfektion_und_aufbereitung_des_wassers: [code("desinfektionAufbereitungDesWassers","1234")],
-    alt_id: ["altid2"],
-    kommentar: ["kommentar zur proebennahmestelle"]
+    alt_id: "altid2",
+    kommentar: "kommentar zur proebennahmestelle",
   }
 }
 

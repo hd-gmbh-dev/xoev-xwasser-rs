@@ -831,23 +831,6 @@ pub struct AuftraggeberArt {
     // pub name: String,
 }
 
-// #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(root = b"probennahmestelle")]
-// pub struct Probennahmestelle {
-//     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
-//     pub probennahmestelle_id: String,
-//     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
-//     pub objekt_id: String,
-//     #[xml(ns = b"xwas", name = b"probe", ty = "child")]
-//     pub probe: ProbeType,
-//     #[xml(ns = b"xwas", name = b"nameProbennahmestelle", ty = "child")]
-//     pub name_probennahmestelle: String,
-//     #[xml(ns = b"xwas", name = b"artProbennahmestelle", ty = "child")]
-//     pub art_probennahmestelle: ArtProbennahmestelle,
-//     #[xml(ns = b"xwas", name = b"mediumAnDerProbennahmestelle", ty = "child")]
-//     pub medium_an_der_probennahmestelle: MediumAnDerProbennahmestelle,
-// }
-
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeArtProbennahmestelleType")]
 pub struct CodeArtProbennahmestelleType {
@@ -878,7 +861,7 @@ pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
     pub objekt_id: String,
     #[xml(ns = b"xwas", name = b"probe", ty = "child")]
-    pub probe: ProbeType,
+    pub probe: Vec<ProbeType>,
     #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
     pub terminplan_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"nameProbennahmestelle", ty = "child")]
@@ -886,15 +869,15 @@ pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"artProbennahmestelle", ty = "child")]
     pub art_probennahmestelle: CodeArtProbennahmestelleType,
     #[xml(ns = b"xwas", name = b"stockwerkProbennahmestelle", ty = "child")]
-    pub stockwerk_probennahmestelle: Vec<u8>,
+    pub stockwerk_probennahmestelle: Option<u8>,
     #[xml(ns = b"xwas", name = b"mediumAnDerProbennahmestelle", ty = "child")]
-    pub medium_an_der_probennahmestelle: CodeMediumType,
+    pub medium_an_der_probennahmestelle: Vec<CodeMediumType>,
     #[xml(ns = b"xwas", name = b"desinfektionUndAufbereitungDesWassers", ty = "child")]
     pub desinfektion_und_aufbereitung_des_wassers: Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
     #[xml(ns = b"xwas", name = b"altID", ty = "child")]
-    pub alt_id: Vec<String>,
+    pub alt_id: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    pub kommentar: Vec<String>,
+    pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "attr")]
     #[serde(skip)]
     pub _id: ConstStr,
@@ -1517,9 +1500,9 @@ pub struct Probennehmer {
     #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
     pub probennehmer: ProbennehmerType,
     #[xml(ns = b"xwas", name = b"fremdsystemID_Probennehmer", ty = "child")]
-    pub fremdsystem_id_probennehmer: String,
+    pub fremdsystem_id_probennehmer: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    pub kommentar: Vec<String>,
+    pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"_id", ty = "attr")]
     #[serde(skip)]
     pub _id: ConstStr,
@@ -1615,171 +1598,7 @@ pub struct ProbeType {
     pub _id: ConstStr,
 }
 
-/// Klasse für den Transport von Informationen, die für die Erstellung eines
-/// Untersuchungsplans für a- und b-Anlagen relevant sind.
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"Untersuchungsplan")]
-pub struct Untersuchungsplan {
-    /// ID zur eindeutigen Identifikation eines Untersuchungsplans. Strukturell
-    /// definiertcolon Anlagen ID - Jahr (8-stellig) - Fortlaufende Nr. (5-stellig); Jahr
-    /// 8-stellig, da Untersuchungsplan mehrere Jahre gültig sein kann, und Angabe des ersten
-    /// und letzten Jahres sipnnvoll ist. ToDo: Die genaue Syntax ist an einem Beispiel zu
-    /// konkretisieren!
-    #[xml(name = b"untersuchungsplanID", ty = "child")]
-    pub untersuchungsplanID: String,
-    /// Referenz zur eindeutigen Identifikation einer Anlage nach Trinkwasserverordnung.
-    #[xml(name = b"anlageNachTrinkVID", ty = "child")]
-    pub anlageNachTrinkVID: String,
-    /// Referenz zur eindeutigen Identifikation eines Wasserversorgungsgebiets.
-    #[xml(name = b"wasserversorgungsgebiet", ty = "child")]
-    pub wasserversorgungsgebiet: String,
-    /// Referenz zur eindeutigen Identifikation eines Auftraggebers (und somit einer Behörde
-    /// oder eines Betreibers).
-    #[xml(name = b"auftraggeberID", ty = "child")]
-    pub auftraggeberID: String,
-    /// Referenz zur eindeutigen Identifikation einer zuständigen Behörde.
-    #[xml(name = b"zustaendigeBehoerdeID", ty = "child")]
-    pub zustaendigeBehoerdeID: String,
-    /// Das Jahr, oder die Jahre, für die der Untersuchungsplan erstellt wird. Den Plan für
-    /// mehrere Jahre anzulegenen bietet bietet sich insbesondere für kleine WVA mit wenigen
-    /// Proben an. Es sollten Gültigkeitszeiträume gewählt werden, die ganzzahlige
-    /// Probennanzahlen für die Parameter der Gruppe B ergeben.
-    #[xml(name = b"jahr", ty = "child")]
-    pub jahr: String,
-    /// Wasserabgabe (Vorjahr).
-    #[xml(name = b"wasserabgabeVorjahr", ty = "child")]
-    pub wasserabgabeVorjahr: String,
-    /// "Dieser Eintrag hat Einfluss darauf, welche Parameter in den Messprogrammen
-    /// automatisch zur Untersuchung markiert werden. Bei Anlagen mit 100 % Fremdbezug werden
-    /// z.B. keine unveränderlichen Parameter markiert. 1: Eigenständige WVA
-    /// (Versorgungsgebiet der WVA =WVG; Anlage mit eigener Wassergewinnung und Verteilung
-    /// oder vollständig untersuchte WVA mit 100% Fremdbezug) 2: Fern-WVA ohne versorgte
-    /// Gebiete (Teil des WVG) 3: Fern-WVA mit versorgten Gebieten (gesamtes WVG) 4: WVA mit
-    /// 100 % Fremdbezug (Teil des WVG einer anderen WVA oder Fern-WVA)".
-    #[xml(name = b"artVonWVAundWVG", ty = "child")]
-    pub artVonWVAundWVG: String,
-    /// Erläuterungen zur Wasserabgabemenge mit Blick auf die Anrechnung von Untersuchungen
-    /// bei Fremdbezug oder Fremdabgabe durch den Lieferanten bzw. Abnehmern.
-    #[xml(name = b"erlaeuterungZurWasserabgabemenge", ty = "child")]
-    pub erlaeuterungZurWasserabgabemenge: String,
-    /// Falls eine Flockung mit Eisen oder Aluminium erfolgt, beeinnflusst das die Zuordnung
-    /// dieser Parameter zu Gruppe A oder Gruppe B.
-    #[xml(name = b"flockung", ty = "child")]
-    pub flockung: String,
-    /// Oberflächenwassereinfluss bei dem abgegebenen Trinkwasser.
-    #[xml(name = b"oberflaechenwassereinfluss", ty = "child")]
-    pub oberflaechenwassereinfluss: String,
-    /// "Wenn dauerhaft oder regelmäßig eine Desinfektion mit Chlor, Hypochloriten oder
-    /// elektrolytisch erzeugte Chlorlösungen erfolgt, ist auf THM zu untersuchen. Wenn keine
-    /// Desinfektion mit den vorgenannten Chlorprodukten erfolgt und die Chlorung nur in
-    /// Bereitschaft gehalten wird, oder wenn mit Chlordioxid desinfiziert wird, ist keine
-    /// Untersuchung auf THM benötigt."
-    #[xml(name = b"desinfektionDurchgefuehrtMit", ty = "child")]
-    pub desinfektionDurchgefuehrtMit: String,
-    /// Trinkwasserabgabe in verschlossenen Behältnissen liegt in der Regel in Deutschland
-    /// nicht als Nutzungszweck ganzer Wasserversorgungsanlagen vor. Wenn
-    /// Wasserversorgungsunternehmen neben der leitungsgebundenen Abgabe auch Trinkwasser in
-    /// Flaschen abfüllen sollten, ist trotzdem "nein" einzutragen.
-    #[xml(
-        name = b"abfuellungZurAbgabeInVerschlossenenBehaeltnissen",
-        ty = "child"
-    )]
-    pub abfuellungZurAbgabeInVerschlossenenBehaeltnissen: String,
-    /// "Folgende Varianten würden einen rechnerischen Nachweis der Einhaltung des Parameters
-    /// Acrylamid ermöglichen: • frühere Untersuchungen lagen unter der Nachweisgrenze und es
-    /// gibt keine einschlägigen Änderungen in der Aufbereitung. • kein Einsatz
-    /// Polyacrylamid-haltiger Flockungshilfsmittel bei der Wasseraufbereitung •
-    /// Polyacrylamid-haltige Flockungshilfsmittel werden verwendet, die Einhaltung der
-    /// zulässigen Zugabe und der Reinheitsanforderungen gemäß §11-Liste wird kontrolliert."
-    #[xml(name = b"acrylamid", ty = "child")]
-    pub acrylamid: String,
-    /// "Folgende Varianten würden einen rechnerischen Nachweis der Einhaltung des Parameters
-    /// Epichlorhydrin ermöglichen: • frühere Untersuchungen lagen unter der Nachweisgrenze
-    /// und es gibt keine einschlägigen Änderungen bei Rohren, Behältern und Beschichtungen •
-    /// Es sind keine trinkwasserberührten epoxidharzhaltigen Rohre, Behälter und
-    /// Beschichtungen in der öffentlichen WVA vorhanden und dem Gesundheitsamt sind keine
-    /// Epoxidharzbeschichtungen in Trinkwasser-Installationen bekannt. • wasserberührte
-    /// epoxidharzbasierte Bauteile oder Beschichtungen sind in der öffentlichen WVA
-    /// vorhanden. Es wurden ausschließlich zertifizierte Produkte und Verfahren eingesetzt."
-    #[xml(name = b"epichlorhydrin", ty = "child")]
-    pub epichlorhydrin: String,
-    /// "Folgende Varianten würden einen rechnerischen Nachweis der Einhaltung des Parameters
-    /// Vinylchlorid ermöglichen: • Frühere Untersuchungen lagen unter der Nachweisgrenze und
-    /// es gibt keine einschlägigen Änderungen bei Rohren, Behältern und Beschichtungen sowie
-    /// im Einzugsgebiet. • Es sind keine trinkwasserberührten Rohre, Behälter und
-    /// Beschichtungen aus PVC in der öffentlichen WVA vorhanden. • Wasserberührte Bauteile
-    /// oder Beschichtungen aus PVC sind in der öffentlichen WVA vorhanden. Es wurden
-    /// ausschließlich zertifizierte Produkte eingesetzt. • Belastungen mit chlorierten
-    /// Lösungsmitteln im Wassereinzugsgebiet können jeweils ausgeschlossen werden."
-    #[xml(name = b"vinylchlorid", ty = "child")]
-    pub vinylchlorid: String,
-    /// Wenn der pH-Wert am Wassewerksausgang i.d.R. gt 7,7 ist, braucht der Parameter
-    /// Calcitlösekapazität nicht untersucht werden.
-    #[xml(name = b"phWertWasserwerksausgang", ty = "child")]
-    pub phWertWasserwerksausgang: String,
-    /// Automatische Berechnung anhand der gesamten Wasserabgabe des Vorjahres:
-    /// [=Wasserabgabe (Vorjahr)/365].
-    #[xml(name = b"wasserabgabeVorjahrProTag", ty = "child")]
-    pub wasserabgabeVorjahrProTag: String,
-    /// Automatische Berechnung der Untersuchungsanzahl nach Anlage 4 Buchstabe c TrinkwV:
-    /// lbrack=IF("Wasserabgabe (Vorjahr) pro Tag"=0;0;IF("Wasserabgabe (Vorjahr) pro
-    /// Tag"lt10;1;IF("Wasserabgabe (Vorjahr) pro Tag"lt=1000;4;4+(ROUNDUP(("Wasserabgabe
-    /// (Vorjahr) pro Tag"-1000);-3)/1000)*3)))rbrack.
-    #[xml(name = b"anzahlUntersuchungenproJahrGruppeA", ty = "child")]
-    pub anzahlUntersuchungenproJahrGruppeA: String,
-    /// Wenn das Gesundheitsamt eigene Untersuchungen nach §19 (1) und (7) durchführt, können
-    /// diese auf den Umfang der Überwachung angerechnet werden. Hinweis an Implementierende
-    /// / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein abhängiges/
-    /// dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.
-    #[xml(name = b"abzudeckenDurchBetreiberGruppeA", ty = "child")]
-    pub abzudeckenDurchBetreiberGruppeA: String,
-    /// Berechnung der Untersuchungsanzahl nach Anlage 4 Buchstabe c TrinkwV:
-    /// lbrack=IF("Wasserabgabe (Vorjahr) pro Tag"=0;0;IF("Wasserabgabe (Vorjahr) pro
-    /// Tag"lt10;1/3;IF("Wasserabgabe (Vorjahr) pro Tag"lt=1000;1;IF("Wasserabgabe (Vorjahr)
-    /// pro Tag"lt=5500;2;IF("Wasserabgabe (Vorjahr) pro Tag"lt=10000;3;IF("Wasserabgabe
-    /// (Vorjahr) pro Tag"lt=100000;3+ROUNDUP(("Wasserabgabe (Vorjahr) pro
-    /// Tag"-10000);-4)/10000;12+(ROUNDUP(("Wasserabgabe (Vorjahr) pro
-    /// Tag"-100000)/25000;0))*1))))))rbrack.
-    #[xml(name = b"anzahlUntersuchungenproJahrGruppeB", ty = "child")]
-    pub anzahlUntersuchungenproJahrGruppeB: String,
-    /// Wenn das Gesundheitsamt eigene Untersuchungen nach §19 (1) und (7) durchführt, können
-    /// diese auf den Umfang der Überwachung angerechnet werden.
-    #[xml(name = b"abzudeckenDurchBetreiberGruppeB", ty = "child")]
-    pub abzudeckenDurchBetreiberGruppeB: String,
-    /// Wenn eine RAP durchgeführt wurde, bitte prüfen, dass die Messprogramme und Termine
-    /// entsprechend der RAP angelegt wurden. In diesem Fall erfolgt nur bei den nicht
-    /// reduzierbaren Parametern eine Fehlermeldung, wenn die Untersuchungsanzahlen nach
-    /// Wassermenge nicht erreicht werden.
-    #[xml(name = b"rapDurchgefuehrt", ty = "child")]
-    pub rapDurchgefuehrt: String,
-    /// Klasse für den Transport von Informationen, die für die Erstellung von Terminplänen
-    /// als Teil des Untersuchungsplans für a- und b-Anlagen relevant sind.
-    #[xml(name = b"terminplan", ty = "child")]
-    pub terminplan: String,
-    /// Technischer Status des Untersuchungsplans auf SHAPTH und bildet nicht den fachlichen
-    /// Status der Untersuchungen ab.
-    #[xml(name = b"statusUntersuchungsplan", ty = "child")]
-    pub statusUntersuchungsplan: String,
-    /// Kommentar zu dem Untersuchungsplan.
-    #[xml(name = b"kommentar", ty = "child")]
-    pub kommentar: String,
-    /// Mit dieser Relation lässt sich zu einem Untersuchungsplan ein Terminplan erfassen.
-    #[xml(name = b"terminplan_Rel", ty = "child")]
-    pub terminplan_Rel: String,
-    #[xml(name = b"anlageNachTrinkwV_Rel", ty = "child")]
-    pub anlageNachTrinkwV_Rel: String,
-    #[xml(name = b"auftraggeber_Rel", ty = "child")]
-    pub auftraggeber_Rel: String,
-    #[xml(name = b"zustaendigeBehoerde_Rel", ty = "child")]
-    pub zustaendigeBehoerde_Rel: String,
-    #[xml(name = b"probe_Rel", ty = "child")]
-    pub probe_Rel: String,
-    #[xml(name = b"erweiterung", ty = "child")]
-    pub erweiterung: String,
-}
-
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(tns(b"xwas", b"xwasser"))]
 pub struct VorgangType {
     #[xml(ns = b"xwas", name = b"pruefbericht", ty = "child")]
     pub pruefbericht: PruefberichtType,
@@ -1792,32 +1611,6 @@ pub struct VorgangType {
 
 extern crate raxb as _raxb;
 
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(root = b"administration.quittung.0020")]
-// pub struct AdministrationQuittung {
-//     #[xml(name = b"nachrichtenkopf.g2g", ty = "child")]
-//     pub nachrichtenkopf_g2g: NachrichtenkopfG2g,
-
-//     #[xml(ns = b"xwas", name = b"identifikationVorgang", ty = "child")]
-//     pub identifikation_vorgang: IdentifikationVorgang,
-
-//     #[xml(ns = b"xwas", name = b"quittung", ty = "child")]
-//     pub quittung: Quittung,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(root = b"quittung")]
-// pub struct Quittung {
-//     #[xml(ns = b"xwas", name = b"aktuellerStatusTechnisch", ty = "child")]
-//     pub aktueller_status_technisch: AktuellerStatusTechnisch,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(root = b"aktueller_status_technisch")]
-// pub struct AktuellerStatusTechnisch {
-//     #[xml(name = b"code", ty = "child")]
-//     pub code: Code,
-// }
 
 #[wasm_bindgen]
 pub fn create_quality_report_xml(data: QualityReport) -> Result<String, JsValue> {
@@ -1829,14 +1622,3 @@ pub fn create_quality_report_xml(data: QualityReport) -> Result<String, JsValue>
 pub fn parse_quality_report_xml(xml: String) -> Result<QualityReport, JsValue> {
     Ok(raxb::de::from_str(&xml).map_err(|err| JsValue::from_str(&err.to_string()))?)
 }
-
-// #[wasm_bindgen]
-// pub fn create_vorgang_xml(data: Vorgang) -> Result<String, JsValue> {
-//     Ok(raxb::ser::to_string_pretty_with_decl(&data)
-//         .map_err(|err| JsValue::from_str(&err.to_string()))?)
-// }
-
-// #[wasm_bindgen]
-// pub fn parse_vorgang_xml(xml: String) -> Result<Vorgang, JsValue> {
-//     Ok(raxb::de::from_str(&xml).map_err(|err| JsValue::from_str(&err.to_string()))?)
-// }
