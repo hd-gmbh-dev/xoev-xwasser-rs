@@ -28,7 +28,7 @@ function nachrichtenTyp():any {
 function code(name: string, code: string): any {
   return {
     code: code,
-    name: [name],
+    name: name,
   }
 }
 

@@ -208,7 +208,7 @@ pub struct CodeUntersuchungsverfahrenType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -217,7 +217,7 @@ pub struct CodeShapthParameterEinheitType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -293,7 +293,7 @@ pub struct CodeUntersuchterParameter {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
     #[xml(name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -301,7 +301,7 @@ pub struct CodeBewertungUntersuchungswert {
     #[xml(name = b"code", ty = "child")]
     pub code: String,
     #[xml(name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -310,7 +310,7 @@ pub struct CodeProbennahmeverfahrenType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -320,7 +320,7 @@ pub struct CodeMediumType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -331,7 +331,7 @@ pub struct CodeAnlassUntersuchungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -368,7 +368,7 @@ pub struct CodeRechtsformenType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 /// "NameOrganisation" fasst die Angaben zum Namen einer Organisation zusammen.
@@ -389,7 +389,7 @@ pub struct CodeKommunikationType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 /// "Kommunikation" fasst Angaben zur Erreichbarkeit über elektronische
@@ -414,7 +414,7 @@ pub struct CodeRegisterType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -423,7 +423,7 @@ pub struct CodeBehoerdeType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 /// Die Organisationseinheit fasst Angaben zur Darstellung der internen hierarchischen
@@ -449,7 +449,7 @@ pub struct CodeBehoerdenkennungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 /// Die mit der genutzten Codeliste beschriebenen Präfixe werden für die fachliche
@@ -460,7 +460,7 @@ pub struct CodePraefixType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -600,7 +600,7 @@ pub struct CodeAnschrifttypType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -609,7 +609,7 @@ pub struct CodeStaatType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -619,7 +619,7 @@ pub struct CodeKreisType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -628,7 +628,7 @@ pub struct CodeBezirkType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -637,7 +637,7 @@ pub struct CodeBundeslandType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -646,7 +646,7 @@ pub struct CodeAGSType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -655,7 +655,7 @@ pub struct CodeRegionalschluesselType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -723,113 +723,15 @@ pub struct AnschriftType {
 }
 
 
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// pub struct VerwaltungspolitischeZustaendigkeit {
-//     #[xml(name = b"kreis", ty = "child")]
-//     pub kreis: Kreis,
-//     #[xml(name = b"bezirk", ty = "child")]
-//     pub bezirk: Bezirk,
-//     #[xml(name = b"bundesland", ty = "child")]
-//     pub bundesland: Bundesland,
-//     #[xml(name = b"gemeindeschluessel", ty = "child")]
-//     pub gemeindeschluessel: Gemeindeschluessel,
-//     #[xml(name = b"regionalschluessel", ty = "child")]
-//     pub regionalschluessel: Regionalschluessel,
-//     #[xml(name = b"nation", ty = "child")]
-//     pub nation: Nation,
-// }
-
-
-
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// pub struct Name {
-//     #[xml(name = b"name", ty = "child")]
-//     pub name: String,
-//     #[xml(name = b"kurzbeschreibung", ty = "child")]
-//     pub kurzbeschreibung: String,
-//     #[xml(name = b"gueltigkeit", ty = "child")]
-//     pub gueltigkeit: Gueltigkeit,
-// }
-
-
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct CodeBrancheType {
     // typ xoev-code:Code
     #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
 }
 
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// pub struct Zweck {
-//     #[xml(name = b"code", ty = "child")]
-//     pub code: Code,
-//     #[xml(name = b"name", ty = "child")]
-//     pub name: String,
-// }
-
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct CodeRechtsform {
-    #[xml(name = b"listVersionID", ty = "attr")]
-    // #[serde(skip)]
-    pub list_version_id: Option<String>,
-    #[xml(name = b"code", ty = "child")]
-    pub code: Code,
-    // #[xml(name = b"name", ty = "child")]
-    // pub name: String,
-}
-
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct ArtProbennahmestelle {
-    // #[xml(name = b"listVersionID", ty = "attr")]
-    // pub list_version_id: Option<String>,
-    #[xml(name = b"code", ty = "child")]
-    pub code: Code,
-    // #[xml(name = b"name", ty = "child")]
-    // pub name: String,
-}
-
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct MediumAnDerProbennahmestelle {
-    // #[xml(name = b"listVersionID", ty = "attr")]
-    // pub list_version_id: Option<String>,
-    #[xml(name = b"code", ty = "child")]
-    pub code: Code,
-    // #[xml(name = b"name", ty = "child")]
-    // pub name: String,
-}
-
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct Gesamtbewertung {
-    // #[xml(name = b"listVersionID", ty = "attr")]
-    // pub list_version_id: Option<String>,
-    #[xml(name = b"code", ty = "child")]
-    pub code: Code,
-    // #[xml(name = b"name", ty = "child")]
-    // pub name: String,
-}
-
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct SprachePruefbericht {
-    // #[xml(name = b"listVersionID", ty = "attr")]
-    // pub list_version_id: Option<String>,
-    #[xml(name = b"code", ty = "child")]
-    pub code: Code,
-    // #[xml(name = b"name", ty = "child")]
-    // pub name: String,
-}
-
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct AuftraggeberArt {
-    // #[xml(name = b"listVersionID", ty = "attr")]
-    // pub list_version_id: Option<String>,
-    #[xml(name = b"code", ty = "child")]
-    pub code: Code,
-    // #[xml(name = b"name", ty = "child")]
-    // pub name: String,
-}
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeArtProbennahmestelleType")]
@@ -837,7 +739,7 @@ pub struct CodeArtProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -847,7 +749,7 @@ pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -890,29 +792,10 @@ pub struct CodeZweckType {
     // xoev-code:Code
     #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
 }
 
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct Name {
-    // #[xml(name = b"listVersionID", ty = "attr")]
-    // pub list_version_id: Option<String>,
-    #[xml(name = b"code", ty = "child")]
-    pub code: Code,
-    // #[xml(name = b"name", ty = "child")]
-    // pub name: String,
-}
-
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct NameZugelasseneUntersuchungsstelle {
-    // #[xml(name = b"listVersionID", ty = "attr")]
-    // pub list_version_id: Option<String>,
-    #[xml(name = b"code", ty = "child")]
-    pub code: Code,
-    // #[xml(name = b"name", ty = "child")]
-    // pub name: String,
-}
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeUntersuchungsstelleType")]
@@ -920,7 +803,7 @@ pub struct CodeUntersuchungsstelleType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -1009,7 +892,7 @@ pub struct CodeGesamtbewertungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1018,7 +901,7 @@ pub struct CodeAmtsspracheEUType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 /// Erweiterung.XML darf nur dazu genutzt werden, weitere (z. B. fachspezifische)
@@ -1042,7 +925,7 @@ pub struct CodeDatentypType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -1158,7 +1041,7 @@ pub struct CodeAuftraggeberartType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 /// Informationen zu einem Auftraggeber [Ergänzende Angaben zu den jeweiligen
@@ -1190,26 +1073,13 @@ pub struct AuftraggeberType {
 }
 
 
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct AuftraggeberRel {
-    #[xml(ns = b"xwas", name = b"auftraggeberID", ty = "child")]
-    pub auftraggeber_id: String,
-    // #[xml(name = b"pruefberichtID", ty = "child")]
-    // pub pruefberichtID: String,
-    // #[xml(name = b"untersuchungsplanID", ty = "child")]
-    // pub untersuchungsplanID: String,
-    #[xml(ns = b"xwas", name = b"auftraggeberart", ty = "child")]
-    pub auftraggeberart: AuftraggeberArt,
-    #[xml(ns = b"xwas", name = b"auftraggeber", ty = "child")]
-    pub auftraggeber: Auftraggeber,
-}
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct CodeNameBeauftragteUntersuchungsstelle {
     #[xml(name = b"code", ty = "child")]
     pub code: String,
     #[xml(name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1218,7 +1088,7 @@ pub struct CodeLaenderkennzeichenType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -1319,7 +1189,7 @@ pub struct CodeAuskunftssperreType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -1353,7 +1223,7 @@ pub struct CodeFamilienstandType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -1387,7 +1257,7 @@ pub struct CodeStaatsangehoerigkeitType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1396,7 +1266,7 @@ pub struct CodeAusweisdokumenteType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1405,7 +1275,7 @@ pub struct CodeGeschlechtType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 /// Unter "Sprache" werden Informationen über Sprachen zusammengefasst.
@@ -1424,7 +1294,7 @@ pub struct CodeVertretungsartType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 
 }
 
@@ -1514,7 +1384,7 @@ pub struct CodeProbenentnahmegeraetType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1523,7 +1393,7 @@ pub struct CodeProbengefaessType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
@@ -1534,7 +1404,7 @@ pub struct CodeProbenbewertungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
 }
 
 
