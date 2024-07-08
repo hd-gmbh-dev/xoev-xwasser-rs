@@ -407,29 +407,29 @@ function erweiterung():any {
 function pruefberichtType():PruefberichtType {
   return {
     pruefbericht_uuid: "IDcd7df392-08ca-4915-bbd9-c14be7b69d02",
-    untersuchungsplan_id: ["IDcd7df392-08ca-4915-bbd9-c14be7b69d02"],
-    probennahmestelle: probennahmestelle(),
+    untersuchungsplan_id: "IDcd7df392-08ca-4915-bbd9-c14be7b69d02",
+    probennahmestelle: [probennahmestelle()],
     name_beauftragte_untersuchungsstelle: code("name","1010"),
-    pruefbericht_enthaelt_teilergebnisse: [true],
+    pruefbericht_enthaelt_teilergebnisse: true,
     pruefgericht_gem_vorgaben_akkredition: true,
     titel: "",
     gesamtbewertung: code("name","1010"),
     auffaelligkeiten: ["ids are duplicated, makes no sense"],
     zeitpunkt_validierung_pruefbericht: "2024-05-28T09:10:00",
-    fuer_validierung_verantwortliche_person: natuerlichePerson(),
-    freigabe_uebermittlung_betreiber: [true],
+    fuer_validierung_verantwortliche_person: [natuerlichePerson()],
+    freigabe_uebermittlung_betreiber: true,
     pruefbericht_id_labor: "aaa",
     sw_version: code("sw_version", "1234"),
     sprache_pruefbericht: code("name","DE"),
     rechtlicher_disclaimer: "",
     zeitpunkt_uebermittlung_an_shapth: "2024-05-28T09:11:00",
-    kommentar: ["kommentar"],
+    kommentar: "kommentar",
     auftraggeber: auftraggeber(),
-    zustaendige_behoerde: zustaendigeBehoerde(),
+    zustaendige_behoerde: [zustaendigeBehoerde()],
     beauftragte_untersuchungsstelle: beauftragteUntersuchungsstelle(),
-    ort_der_labortaetigkeiten: anschrift(),
+    ort_der_labortaetigkeiten: [anschrift()],
     anhang: ["anhang"],
-    erweiterung: [erweiterung()]
+    erweiterung: erweiterung(),
   }
 }
 

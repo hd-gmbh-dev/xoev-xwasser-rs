@@ -1105,13 +1105,13 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
     pub pruefbericht_uuid: String,
     #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
-    pub untersuchungsplan_id: Vec<String>,
+    pub untersuchungsplan_id: Option<String>,
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
-    pub probennahmestelle: ProbennahmestelleType,
+    pub probennahmestelle: Vec<ProbennahmestelleType>,
     #[xml(ns = b"xwas", name = b"nameBeauftragteUntersuchungsstelle", ty = "child")]
     pub name_beauftragte_untersuchungsstelle: CodeNameBeauftragteUntersuchungsstelle,
     #[xml(ns = b"xwas", name = b"pruefberichtEnthaeltTeilergebnisse", ty = "child")]
-    pub pruefbericht_enthaelt_teilergebnisse: Vec<bool>,
+    pub pruefbericht_enthaelt_teilergebnisse: Option<bool>,
     #[xml(ns = b"xwas", name = b"pruefgerichtGemVorgabenAkkredition", ty = "child")]
     pub pruefgericht_gem_vorgaben_akkredition: bool,
     #[xml(ns = b"xwas", name = b"titel", ty = "child")]
@@ -1123,9 +1123,9 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"zeitpunktValidierungPruefbericht", ty = "child")]
     pub zeitpunkt_validierung_pruefbericht: String, //datetime
     #[xml(ns = b"xwas", name = b"fuerValidierungVerantwortlichePerson", ty = "child")]
-    pub fuer_validierung_verantwortliche_person: NatuerlichePersonType,
+    pub fuer_validierung_verantwortliche_person: Vec<NatuerlichePersonType>,
     #[xml(ns = b"xwas", name = b"freigabeUebermittlungBetreiber", ty = "child")]
-    pub freigabe_uebermittlung_betreiber: Vec<bool>,
+    pub freigabe_uebermittlung_betreiber: Option<bool>,
     #[xml(ns = b"xwas", name = b"pruefberichtIDLabor", ty = "child")]
     pub pruefbericht_id_labor: String,
     #[xml(ns = b"xwas", name = b"swVersion", ty = "child")]
@@ -1137,19 +1137,19 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"zeitpunktUebermittlungAnSHAPTH", ty = "child")]
     pub zeitpunkt_uebermittlung_an_shapth: String, //datetime
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    pub kommentar: Vec<String>,
+    pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"auftraggeber", ty = "child")]
     pub auftraggeber: AuftraggeberType,
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
-    pub zustaendige_behoerde: ZustaendigeBehoerdeType,
+    pub zustaendige_behoerde: Vec<ZustaendigeBehoerdeType>,
     #[xml(ns = b"xwas", name = b"beauftragteUntersuchungsstelle", ty = "child")]
     pub beauftragte_untersuchungsstelle: BeauftragteUntersuchungsstelleType,
     #[xml(ns = b"xwas", name = b"ortDerLabortaetigkeiten", ty = "child")]
-    pub ort_der_labortaetigkeiten: AnschriftType,
+    pub ort_der_labortaetigkeiten: Vec<AnschriftType>,
     #[xml(ns = b"xwas", name = b"anhang", ty = "child")]
     pub anhang: Vec<String>,
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
-    pub erweiterung: Vec<ErweiterungType>,
+    pub erweiterung: Option<ErweiterungType>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
