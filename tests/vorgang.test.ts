@@ -1,6 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { Gueltigkeit, create_quality_report_xml, parse_quality_report_xml } from "../pkg/xwasser_rs";
-
+import { OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, Gueltigkeit, create_quality_report_xml, parse_quality_report_xml } from "../pkg/xwasser_rs";
 
 function createHeadInfo(kennung: string, name: string): any {
   return {
@@ -103,24 +102,21 @@ function anschrift(): any {
     zusatz: [
       ""
     ],
-    typ: {
-      code: "1234",
-      name: ""
-    },
+    typ: code("anschriftType","1234"),
     staat: [code("absurdistan","1111")],
     verwaltungspolitische_kodierung: verwaltungspolitischeKodierung(),
   }
 }
 
-function gueltigkeit(beginn: string, ende: string, zusatz: string): any {
-  return {                                                    
-    beginn: beginn,
-    ende: ende,
-    zusatz: zusatz,
-  }
-}
+// function gueltigkeit(beginn: string, ende: string, zusatz: string): ZeitraumType {
+//   return {                                                    
+//     beginn: beginn,
+//     ende: ende,
+//     zusatz: zusatz,
+//   }
+// }
 
-function zeitraumType(beginn: string[], ende: string[], zusatz: string[]): any {
+function zeitraumType(beginn: string[], ende: string[], zusatz: string[]): ZeitraumType {
   return {                                                    
     beginn: beginn,
     ende: ende,
@@ -132,14 +128,14 @@ function identifikationType() {
   return {
     id: ["238b7cc7-6d64-4db8-9c69-779bb65d60b1"],
     beschreibung: ["bal bla bla"],
-    gueltigkeit: [gueltigkeit("9:00","19:00","iieudjod")]
+    gueltigkeit: [zeitraumType(["9"],["19"],["zusatz"])]
 
   }
 }
 
-function kommunikationType(kanal: string[], kennung: string[], ist_dienstlich: boolean[], zusatz: string[]): any {
+function kommunikationType(kennung: string, ist_dienstlich: boolean, zusatz: string): any {
   return {
-    kanal: code(kanal[0],kanal[1]),
+    kanal: code("e","1"),
     kennung: kennung,
     ist_dienstlich: ist_dienstlich,
     zusatz:zusatz,
@@ -155,61 +151,68 @@ function spracheType(sprache: string, zusatz: string[]): any {
 
 function vertreterBevollmaechtigterType(): any {
   return {
-    id: "1234",
+    vertreter_bevollmaechtigter_id: "1234",
     art_vertreter: code("vertretungsart","1233")
   }
 }
 
-function natuerlichePerson(): any {
+function auskunftssperreType(): AuskunftssperreType {
   return {
-    auskunftssperre: {
-      grund: {
-        code: "69"
-      },
-      gueltigkeit: [gueltigkeit("9:00","19:00","iieudjod")]
+    grund: code("auskunftsperretype","1"),
+    gueltigkeit: [zeitraumType(["9"],["19"],["zusatz"])]
+  }
+}
 
-    },
-    name_natuerliche_person: {
-        titel: [
-            "Prof",
-            "Dr"
-        ],
-
-        anrede: "Herr",
-        namenssuffix: [
-          "Sir",
-          "Jr"
-        ],
-
-        familienname: [allgemeinerNameType("Doe")],
-        ehename: [allgemeinerNameType("Meier")],
-        lebenspartnerschaftsname: [allgemeinerNameType("Mueller")],
-        geburtsname: [allgemeinerNameType("Schroeder")],
-        frueherer_familienname: [allgemeinerNameType("Heinz")],
-        vorname: [allgemeinerNameType("Alexander")],
-        rufname: [allgemeinerNameType("Alex")],
-        frueherer_vorname: [allgemeinerNameType("Nadine")],
-        alternative_repraesentation: [alternativeRepraesentation()],
-        ordensname: [allgemeinerNameType("Andechs")],
-        kuenstlername: [allgemeinerNameType("sikis")],
-        weiterer_name: [allgemeinerNameType("superman")],
-    },
-    familienstand: code("familienstand","1111"),
-    geburt: [geburt()],
-    doktorgrad: [
-      {
-        bezeichnung: "DR."
-      }
+function nameNatuerlichePersonType(): NameNatuerlichePersonType {
+  return {
+    titel: "Prof",
+    anrede: ["Herr", "von und zu"],
+    namenssuffix: [
+      "Sir",
+      "Jr"
     ],
-    staatsangehoerigkeit: code("staatsangehoerigkeit","1111"),
-    ausweisdokument: code("ausweisdokument","1234"),
-    anschrift: anschrift(),
-    geschlecht: code("geschlecht","1111"),
+
+    familienname: allgemeinerNameType("Doe"),
+    ehename: allgemeinerNameType("Meier"),
+    lebenspartnerschaftsname: allgemeinerNameType("Mueller"),
+    geburtsname: allgemeinerNameType("Schroeder"),
+    frueherer_familienname: [allgemeinerNameType("Heinz")],
+    vorname: allgemeinerNameType("Alexander"),
+    rufname: allgemeinerNameType("Alex"),
+    frueherer_vorname: allgemeinerNameType("Nadine"),
+    alternative_repraesentation: alternativeRepraesentation(),
+    ordensname: allgemeinerNameType("Andechs"),
+    kuenstlername: [allgemeinerNameType("sikis")],
+    weiterer_name: [allgemeinerNameType("superman")],
+  } 
+}
+
+function natuerlichePerson(): NatuerlichePersonType {
+  return {
+    auskunftssperre: [auskunftssperreType()],
+    name_natuerliche_person: nameNatuerlichePersonType(),
+    familienstand: [code("familienstand","1111")],
+    geburt: geburt(),
+    doktorgrad: {
+        bezeichnung: "DR."
+      },
+    staatsangehoerigkeit: [code("staatsangehoerigkeit","1111")],
+    ausweisdokument: [code("ausweisdokument","1234")],
+    anschrift: [anschrift()],
+    geschlecht: [code("geschlecht","1111")],
     identifikationsnummer: [identifikationType()],
-    kommunikation: [kommunikationType(["email", "123"], ["text"], [true], ["zusatz"])],
-    muttersprache: spracheType("Deutsch", ["zusatz"]),
-    fremdsprache: spracheType("Englisch", ["zusatz"]),
-    vertreter_bevollmaechtigter: vertreterBevollmaechtigterType()
+    kommunikation: [kommunikationType("text", true, "zusatz")],
+    muttersprache: [spracheType("Deutsch", ["zusatz"])],
+    fremdsprache: [spracheType("Englisch", ["zusatz"])],
+    vertreter_bevollmaechtigter: [vertreterBevollmaechtigterType()]
+  }
+}
+
+function organisationseinheitType():any {
+  return {
+    name: "",
+    hierarchieebene: 1,
+    hierarchiename: "String",
   }
 }
 
@@ -224,25 +227,19 @@ function nameOrganisationType(org_name: string[], kurzbezeichnung: string[], gue
 function behoerdeType():any {
   return {
     id: ["ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a"],
-    code: [code("behoerde","1234")],
+    typ: [code("behoerde","1234")],
     zusatz: ["zusatz"],
     behoerdenkennung: [{
       kennung: [code("behoerdenkennung","1234")],
       praefix: [code("praefixtype","1234")]
     }],
-    kommunikation: [kommunikationType(["email", "123"], ["text"], [true], ["zusatz"])],
-    behordenidentifikation: [identifikationType()],
-    behordenname: [nameOrganisationType(["behorde 1"], ["does stuff"], [gueltigkeit("9","12","")])],
+    kommunikation: [kommunikationType("text", true, "zusatz")],
+    behoerdenidentifikation: [identifikationType()],
+    behoerdenname: [nameOrganisationType(["behorde 1"], ["does stuff"], [zeitraumType(["9"],["19"],["zusatz"])])],
     nachgeordnete_behoerde: [],
     verwaltungspolitische_zustaendigkeit: [verwaltungspolitischeKodierung()],
     anschrift: [anschrift()],
-    organisationsstruktur: [
-      {
-        name: "org1",
-        hierarchieebene: [1],
-        hierarchiename: ["First level"]
-      }
-    ]
+    organisationsstruktur: [organisationseinheitType()]
   }
 }
 
@@ -251,18 +248,18 @@ function registrierungType():any {
     id: ["ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a"],
     registertyp: [code("registertyp","1234")],
     registrierende_behoerde: [behoerdeType()],
-    gueltigkeit: [gueltigkeit("9:00","19:00","iieudjod")]
+    gueltigkeit: [zeitraumType(["9"],["19"],["zusatz"])]
   }
 }
 
-function organisationType() {
+function organisationType(): OrganisationType  {
   return {
-    rechtsform: code("rechtsform", "0815"),
-    branche: code("branche", "666"),
-    zweck: code("zweck", "666"),
-    name: nameOrganisationType(["abc corp"], ["produces stuff"], [gueltigkeit("9","12","")]),
+    rechtsform: [code("rechtsform", "0815")],
+    branche: [code("branche", "666")],
+    zweck: [code("zweck", "666")],
+    name: [nameOrganisationType(["abc corp"], ["produces stuff"],[zeitraumType(["9"],["19"],["zusatz"])])],
     unterorganisation: [], // hier kann man noch eine weitere organisation eintragen
-    kommunikation: [kommunikationType(["brief", "123"], ["text"], [true], ["zusatz"])],
+    kommunikation: [kommunikationType("text", true, "zusatz")],
     registrierung: [registrierungType()],
     identifikation: [identifikationType()],
     existenzzeitraum: [zeitraumType(["9"],["19"],["zusatz"])],
@@ -284,10 +281,10 @@ function analyseergebnisParameter(): any {
 }
 
 
-function zustaendigeBehoerde():any {
+function zustaendigeBehoerde():ZustaendigeBehoerdeType {
   return {
     behoerde: behoerdeType(),
-    anlage_nach_trinkw_vid: "IDfcfd2538-f074-4848-b443-d15997e42c9e",
+    anlage_nach_trinkw_vid: ["IDfcfd2538-f074-4848-b443-d15997e42c9e"],
     probennehmer_id: ["1234"],
     laenderkuerzel: code("laenderkuerzel","DEAA"),
     kommentar: ["kommentar"]
@@ -308,20 +305,20 @@ function probennehmer():any {
   }
 }
 
-function probe(): any {
+function probe(): ProbeType {
   return {
     probe_id: "ID3cd3c929-ee22-4056-a2a0-6c2d1c295c5c",
     analyseergebnis_parameter: analyseergebnisParameter(),
     probennehmer: probennehmer(),
     anlass_der_untersuchung: code("name","1010"),
-    probennahmestelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
-    analyseergebnis_parameter_id: "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
     medium: code("medium","1010"),
     ergaenzung_zum_medium: ["Wasser"],
     zeitpunkt_probennahme: "2024-05-27T09:00:00",
     probennahmeverfahren: code("probennahmeverfahren","1010"),
-    probenentnahmegeraet: code("probenentnahmegeraet","1234"),
-    probengefaess: code("probengefaess","1234"),
+    probenentnahmegeraet: [code("probenentnahmegeraet","1234")],
+    probennahmestelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
+    analyseergebnis_parameter_id: "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
+    probengefaess: [code("probengefaess","1234")],
     ergaenzende_informationen_zu_probenentnahmegeraet: [""],
     desinfektion_probenentnahmegeraet_durchgefuehrt: [true],
     konservierung_aufbereitung_desinfektion_probe: [code("konservierung_aufbereitung_desinfektion_probe","1234")],
@@ -349,7 +346,7 @@ function probennahmestelle() {
     art_probennahmestelle: code("wasserloch","123455"),
     stockwerk_probennahmestelle: [1],
     medium_an_der_probennahmestelle: code("medium probennahmestelle","1235"),
-    desinfektion_und_aufbereitung_des_wassers: code("desinfektionAufbereitungDesWassers","1234"),
+    desinfektion_und_aufbereitung_des_wassers: [code("desinfektionAufbereitungDesWassers","1234")],
     alt_id: ["altid2"],
     kommentar: ["kommentar zur proebennahmestelle"]
   }
@@ -408,7 +405,7 @@ function erweiterung():any {
 
 }
 
-function pruefberichtType():any {
+function pruefberichtType():PruefberichtType {
   return {
     pruefbericht_uuid: "IDcd7df392-08ca-4915-bbd9-c14be7b69d02",
     untersuchungsplan_id: ["IDcd7df392-08ca-4915-bbd9-c14be7b69d02"],
@@ -443,7 +440,7 @@ function vorgang():any {
         vorgangs_id: "5e08e073-4e06-438d-9444-1275f6cbf061",
     },
     vorgang_type: {
-        pruefbericht: pruefberichtType(),
+      pruefbericht: pruefberichtType(),
     },
   }
 }
