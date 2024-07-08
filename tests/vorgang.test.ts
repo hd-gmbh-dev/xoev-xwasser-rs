@@ -254,15 +254,15 @@ function registrierungType():any {
 
 function organisationType(): OrganisationType  {
   return {
-    rechtsform: [code("rechtsform", "0815")],
+    rechtsform: code("rechtsform", "0815"),
     branche: [code("branche", "666")],
     zweck: [code("zweck", "666")],
-    name: [nameOrganisationType(["abc corp"], ["produces stuff"],[zeitraumType(["9"],["19"],["zusatz"])])],
+    name: nameOrganisationType(["abc corp"], ["produces stuff"],[zeitraumType(["9"],["19"],["zusatz"])]),
     unterorganisation: [], // hier kann man noch eine weitere organisation eintragen
     kommunikation: [kommunikationType("text", true, "zusatz")],
     registrierung: [registrierungType()],
     identifikation: [identifikationType()],
-    existenzzeitraum: [zeitraumType(["9"],["19"],["zusatz"])],
+    existenzzeitraum: zeitraumType(["9"],["19"],["zusatz"]),
     anschrift: [anschrift()]
   }
 }
@@ -296,9 +296,9 @@ function probennehmer():any {
     probennehmer_id: "IDb05bfc54-c2a9-4ff1-92c8-47b2c4fd9804",
     probennehmer: {
       // alle möglichen Typen
-      // natuerliche_person: natuerlichePerson(),
+      natuerliche_person: natuerlichePerson(),
       // organisation: organisationType(),
-      zustaendige_behoerde: zustaendigeBehoerde(),
+      // zustaendige_behoerde: zustaendigeBehoerde(),
     },
     fremdsystem_id_probennehmer: "fremdsystemid",
     kommentar: ["kommentar"],
@@ -308,31 +308,30 @@ function probennehmer():any {
 function probe(): ProbeType {
   return {
     probe_id: "ID3cd3c929-ee22-4056-a2a0-6c2d1c295c5c",
-    analyseergebnis_parameter: analyseergebnisParameter(),
+    analyseergebnis_parameter: [analyseergebnisParameter()],
     probennehmer: probennehmer(),
-    anlass_der_untersuchung: code("name","1010"),
+    anlass_der_untersuchung: [code("name","1010")],
     medium: code("medium","1010"),
-    ergaenzung_zum_medium: ["Wasser"],
+    ergaenzung_zum_medium: "Wasser",
     zeitpunkt_probennahme: "2024-05-27T09:00:00",
-    probennahmeverfahren: code("probennahmeverfahren","1010"),
-    probenentnahmegeraet: [code("probenentnahmegeraet","1234")],
-    probennahmestelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
+    probennahmeverfahren: [code("probennahmeverfahren","1010")],
+    probenentnahmegeraet: code("probenentnahmegeraet","1234"),
     analyseergebnis_parameter_id: "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
-    probengefaess: [code("probengefaess","1234")],
-    ergaenzende_informationen_zu_probenentnahmegeraet: [""],
-    desinfektion_probenentnahmegeraet_durchgefuehrt: [true],
+    probengefaess: code("probengefaess","1234"),
+    ergaenzende_informationen_zu_probenentnahmegeraet: "",
+    desinfektion_probenentnahmegeraet_durchgefuehrt: true,
     konservierung_aufbereitung_desinfektion_probe: [code("konservierung_aufbereitung_desinfektion_probe","1234")],
     kommentar_zur_probennahme: "",
-    informationen_zum_probentransport: ["Lieferwagen"],
+    informationen_zum_probentransport: "Lieferwagen",
     eingang_probe_bei_untersuchungsstelle: "2024-05-27T10:00:00",
     beginn_analytik: "2024-05-27T10:01:00",
     abschluss_analytik: "2024-05-27T10:02:00",
     probenbewertung: code("probenbewertung","1010"),
-    berichtspflichtig: [true],
+    berichtspflichtig: true,
     von_probennehmer_vergebene_probe_id: "123456789",
     probe_id_aus_labor: "1233",
     anhang: ["Anhang"],
-    kommentar: ["Kommentar"],
+    kommentar: "Kommentar",
   }
 }
 

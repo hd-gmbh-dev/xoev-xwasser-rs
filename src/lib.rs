@@ -543,13 +543,13 @@ pub struct RegistrierungType {
 #[xml(root = b"OrganisationType")]
 pub struct OrganisationType {
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
-    pub rechtsform: Vec<CodeRechtsformenType>,
+    pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]
     pub branche: Vec<CodeBrancheType>,
     #[xml(ns = b"xwas", name = b"zweck", ty = "child")]
     pub zweck: Vec<CodeZweckType>,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<NameOrganisationType>,
+    pub name: Option<NameOrganisationType>,
     #[xml(ns = b"xwas", name = b"unterorganisation", ty = "child")]
     pub unterorganisation: Vec<OrganisationType>,
     #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
@@ -559,7 +559,7 @@ pub struct OrganisationType {
     #[xml(ns = b"xwas", name = b"identifikation", ty = "child")]
     pub identifikation: Vec<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"existenzzeitraum", ty = "child")]
-    pub existenzzeitraum: Vec<ZeitraumType>,
+    pub existenzzeitraum: Option<ZeitraumType>,
     #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
     pub anschrift: Vec<AnschriftType>,
 }
@@ -1501,10 +1501,10 @@ pub struct NatuerlichePersonType {
 pub struct ProbennehmerType {
     // #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
     // pub organisation: OrganisationType,
-    // #[xml(ns = b"xwas", name = b"natuerlichePerson", ty = "child")]
-    // pub natuerliche_person: NatuerlichePersonType,
-    #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
-    pub zustaendige_behoerde: ZustaendigeBehoerdeType,
+    #[xml(ns = b"xwas", name = b"natuerlichePerson", ty = "child")]
+    pub natuerliche_person: NatuerlichePersonType,
+    // #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
+    // pub zustaendige_behoerde: ZustaendigeBehoerdeType,
 }
 
 /// Klasse für den Transport von Informationen zu einem Probennehmer [Durch das Labor mit
@@ -1563,33 +1563,33 @@ pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
     pub probe_id: String,
     #[xml(ns = b"xwas", name = b"analyseergebnisParameter", ty = "child")]
-    pub analyseergebnis_parameter: AnalyseergebnisParameter,
+    pub analyseergebnis_parameter: Vec<AnalyseergebnisParameter>,
     #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
     pub probennehmer: Probennehmer,
     #[xml(ns = b"xwas", name = b"anlassDerUntersuchung", ty = "child")]
-    pub anlass_der_untersuchung: CodeAnlassUntersuchungType,
+    pub anlass_der_untersuchung: Vec<CodeAnlassUntersuchungType>,
     #[xml(ns = b"xwas", name = b"medium", ty = "child")]
     pub medium: CodeMediumType,
     #[xml(name = b"ergaenzungZumMedium", ty = "child")]
-    pub ergaenzung_zum_medium: Vec<String>,
+    pub ergaenzung_zum_medium: Option<String>,
     #[xml(ns = b"xwas", name = b"zeitpunktProbennahme", ty = "child")]
     pub zeitpunkt_probennahme: String, //datetime
     #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
-    pub probennahmeverfahren: CodeProbennahmeverfahrenType,
+    pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
     #[xml(name = b"probenentnahmegeraet", ty = "child")]
-    pub probenentnahmegeraet: Vec<CodeProbenentnahmegeraetType>,
+    pub probenentnahmegeraet: Option<CodeProbenentnahmegeraetType>,
     #[xml(name = b"probengefaess", ty = "child")]
-    pub probengefaess: Vec<CodeProbengefaessType>,
+    pub probengefaess: Option<CodeProbengefaessType>,
     #[xml(name = b"ergaenzendeInformationenZuProbenentnahmegeraet", ty = "child")]
-    pub ergaenzende_informationen_zu_probenentnahmegeraet: Vec<String>,
+    pub ergaenzende_informationen_zu_probenentnahmegeraet: Option<String>,
     #[xml(name = b"desinfektionProbenentnahmegeraetDurchgefuehrt", ty = "child")]
-    pub desinfektion_probenentnahmegeraet_durchgefuehrt: Vec<bool>,
+    pub desinfektion_probenentnahmegeraet_durchgefuehrt: Option<bool>,
     #[xml(name = b"konservierungAufbereitungDesinfektionProbe", ty = "child")]
     pub konservierung_aufbereitung_desinfektion_probe: Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
     #[xml(ns = b"xwas", name = b"kommentarZurProbennahme", ty = "child")]
     pub kommentar_zur_probennahme: String,
     #[xml(name = b"informationenZumProbentransport", ty = "child")]
-    pub informationen_zum_probentransport: Vec<String>,
+    pub informationen_zum_probentransport: Option<String>,
     #[xml(ns = b"xwas", name = b"eingangProbeBeiUntersuchungsstelle", ty = "child")]
     pub eingang_probe_bei_untersuchungsstelle: String, //xs dateTime
     #[xml(ns = b"xwas", name = b"beginnAnalytik", ty = "child")]
@@ -1598,12 +1598,10 @@ pub struct ProbeType {
     pub abschluss_analytik: String,
     #[xml(ns = b"xwas", name = b"probenbewertung", ty = "child")]
     pub probenbewertung: CodeProbenbewertungType,
-    #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
-    pub probennahmestelle_id: String,
     #[xml(ns = b"xwas", name = b"analyseergebnisParameterID", ty = "child")]
     pub analyseergebnis_parameter_id: String,
     #[xml(name = b"berichtspflichtig", ty = "child")]
-    pub berichtspflichtig: Vec<bool>,
+    pub berichtspflichtig: Option<bool>,
     #[xml(ns = b"xwas", name = b"vonProbennehmerVergebeneProbeID", ty = "child")]
     pub von_probennehmer_vergebene_probe_id: String,
     #[xml(ns = b"xwas", name = b"probeID_ausLabor", ty = "child")]
@@ -1611,7 +1609,7 @@ pub struct ProbeType {
     #[xml(name = b"anhang", ty = "child")]
     pub anhang: Vec<String>,
     #[xml(name = b"kommentar", ty = "child")]
-    pub kommentar: Vec<String>,
+    pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "attr")]
     #[serde(skip)]
     pub _id: ConstStr,
