@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { NameOrganisationType, OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, create_quality_report_xml, parse_quality_report_xml } from "../pkg/xwasser_rs";
+import { VorgangType, NameOrganisationType, OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, create_quality_report_xml, parse_quality_report_xml } from "../pkg/xwasser_rs";
 
 function createHeadInfo(kennung: string, name: string): any {
   return {
@@ -350,20 +350,23 @@ function auftraggeber():any {
   }
 }
 
+function zugelasseneUntersuchungsstelle(): any {
+  return {
+    organisation: organisationType(),
+    zugelassene_untersuchungsstelle_id: "ID14aeb6dd-bc5e-443f-890c-cbdfe6f50c86",
+    name_zugelassene_untersuchungsstelle: code("name","09010"),
+    pruefgebiete_untersuchungen_phys_chem: true,
+    pruefgebiete_untersuchungen_mikrobio: true,
+    pruefgebiete_untersuchungen_radionuklide: true,
+    akkreditierungsnummer: "",
+    kommentar_beauftragte_untersuchungsstelle: "",
+    kommentar_zugelassene_untersuchungsstelle: "",
+  }
+}
+
 function beauftragteUntersuchungsstelle(): any {
   return {
-    zugelassene_untersuchungsstelle: {
-      organisation: organisationType(),
-      zugelassene_untersuchungsstelle_id: "ID14aeb6dd-bc5e-443f-890c-cbdfe6f50c86",
-      name_zugelassene_untersuchungsstelle: code("name","09010"),
-      pruefgebiete_untersuchungen_phys_chem: true,
-      pruefgebiete_untersuchungen_mikrobio: true,
-      pruefgebiete_untersuchungen_radionuklide: true,
-      akkreditierungsnummer: "",
-      kommentar_beauftragte_untersuchungsstelle: "",
-      kommentar_zugelassene_untersuchungsstelle: "",
-
-    },
+    zugelassene_untersuchungsstelle: zugelasseneUntersuchungsstelle(),
     kommentar_beauftragte_untersuchungsstelle: "",
   }
 }
@@ -423,14 +426,26 @@ function pruefberichtType():PruefberichtType {
   }
 }
 
+function untersuchungsplan(): UntersuchungsplanType { 
+  return {
+
+  }
+}
+
+function vorgangType(): VorgangType {
+  return {
+    pruefbericht: pruefberichtType(),
+    untersuchungsplan: untersuchungsplan()
+  }
+
+}
+
 function vorgang():any {
   return {
     identifikation_vorgang: {
         vorgangs_id: "5e08e073-4e06-438d-9444-1275f6cbf061",
     },
-    vorgang_type: {
-      pruefbericht: pruefberichtType(),
-    },
+    vorgang_type: vorgangType(),
     bemerkung: "Bemerkung",
   }
 }
