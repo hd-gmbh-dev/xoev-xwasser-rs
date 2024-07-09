@@ -47,12 +47,8 @@ function geburt(): any {
 function alternativeRepraesentation(): any {
   return {
     repraesentation: "r1",
-    algorithmus: [
-      "bubble_sort"
-    ],
-    hinweis: [
-      "be careful"
-    ],
+    algorithmus: "bubble_sort",
+    hinweis: "be careful",
   }
 }
 
@@ -108,15 +104,7 @@ function anschrift(): any {
   }
 }
 
-// function gueltigkeit(beginn: string, ende: string, zusatz: string): ZeitraumType {
-//   return {                                                    
-//     beginn: beginn,
-//     ende: ende,
-//     zusatz: zusatz,
-//   }
-// }
-
-function zeitraumType(beginn: string[], ende: string[], zusatz: string[]): ZeitraumType {
+function zeitraumType(beginn: string, ende: string, zusatz: string): ZeitraumType {
   return {                                                    
     beginn: beginn,
     ende: ende,
@@ -128,7 +116,7 @@ function identifikationType() {
   return {
     id: ["238b7cc7-6d64-4db8-9c69-779bb65d60b1"],
     beschreibung: ["bal bla bla"],
-    gueltigkeit: [zeitraumType(["9"],["19"],["zusatz"])]
+    gueltigkeit: [zeitraumType("9","19","zusatz")]
 
   }
 }
@@ -159,7 +147,7 @@ function vertreterBevollmaechtigterType(): any {
 function auskunftssperreType(): AuskunftssperreType {
   return {
     grund: code("auskunftsperretype","1"),
-    gueltigkeit: [zeitraumType(["9"],["19"],["zusatz"])]
+    gueltigkeit: zeitraumType("9","19","zusatz"),
   }
 }
 
@@ -235,7 +223,7 @@ function behoerdeType():any {
     }],
     kommunikation: [kommunikationType("text", true, "zusatz")],
     behoerdenidentifikation: [identifikationType()],
-    behoerdenname: [nameOrganisationType(["behorde 1"], ["does stuff"], [zeitraumType(["9"],["19"],["zusatz"])])],
+    behoerdenname: [nameOrganisationType(["behorde 1"], ["does stuff"], [zeitraumType("9","19","zusatz")])],
     nachgeordnete_behoerde: [],
     verwaltungspolitische_zustaendigkeit: [verwaltungspolitischeKodierung()],
     anschrift: [anschrift()],
@@ -248,7 +236,7 @@ function registrierungType():any {
     id: ["ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a"],
     registertyp: [code("registertyp","1234")],
     registrierende_behoerde: [behoerdeType()],
-    gueltigkeit: [zeitraumType(["9"],["19"],["zusatz"])]
+    gueltigkeit: [zeitraumType("9","19","zusatz")]
   }
 }
 
@@ -257,12 +245,12 @@ function organisationType(): OrganisationType  {
     rechtsform: code("rechtsform", "0815"),
     branche: [code("branche", "666")],
     zweck: [code("zweck", "666")],
-    name: nameOrganisationType(["abc corp"], ["produces stuff"],[zeitraumType(["9"],["19"],["zusatz"])]),
+    name: nameOrganisationType(["abc corp"], ["produces stuff"],[zeitraumType("9","19","zusatz")]),
     unterorganisation: [], // hier kann man noch eine weitere organisation eintragen
     kommunikation: [kommunikationType("text", true, "zusatz")],
     registrierung: [registrierungType()],
     identifikation: [identifikationType()],
-    existenzzeitraum: zeitraumType(["9"],["19"],["zusatz"]),
+    existenzzeitraum: zeitraumType("9","19","zusatz"),
     anschrift: [anschrift()]
   }
 }

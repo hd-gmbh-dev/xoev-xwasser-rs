@@ -1141,9 +1141,9 @@ pub struct AlternativeRepraesentationType {
     #[xml(ns = b"xwas", name = b"repraesentation", ty = "child")]
     pub repraesentation: String,
     #[xml(ns = b"xwas", name = b"algorithmus", ty = "child")]
-    pub algorithmus: Vec<String>,
+    pub algorithmus: Option<String>,
     #[xml(ns = b"xwas", name = b"hinweis", ty = "child")]
-    pub hinweis: Vec<String>,
+    pub hinweis: Option<String>,
 }
 
 /// Der Name einer Person ist eine Benennung dieser Person, die dazu dient, diese Person
@@ -1199,11 +1199,11 @@ pub struct CodeAuskunftssperreType {
 #[xml(root = b"ZeitraumType")]
 pub struct ZeitraumType {
     #[xml(ns = b"xwas", name = b"beginn", ty = "child")]
-    pub beginn: Vec<String>, // eigentlich of tyype xs:date
+    pub beginn: Option<String>, // eigentlich of tyype xs:date
     #[xml(ns = b"xwas", name = b"ende", ty = "child")]
-    pub ende: Vec<String>,
+    pub ende: Option<String>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
-    pub zusatz: Vec<String>,
+    pub zusatz: Option<String>,
 }
 
 /// Die Auskunftssperre beschränkt die Weitergabe von Informationen an Dritte.
@@ -1211,9 +1211,9 @@ pub struct ZeitraumType {
 #[xml(root = b"AuskunftssperreType")]
 pub struct AuskunftssperreType {
     #[xml(ns = b"xwas", name = b"grund", ty = "child")]
-    pub grund: CodeAuskunftssperreType,
+    pub grund: Option<CodeAuskunftssperreType>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
-    pub gueltigkeit: Vec<ZeitraumType>,
+    pub gueltigkeit: Option<ZeitraumType>,
 }
 
 
