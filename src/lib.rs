@@ -212,7 +212,7 @@ pub struct CodeUntersuchungsverfahrenType {
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"Code.SHAPTH-Parameter-EinheitType")]
+#[xml(root = b"codeSHAPTH-Parameter-EinheitType")]
 pub struct CodeShapthParameterEinheitType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
@@ -220,8 +220,44 @@ pub struct CodeShapthParameterEinheitType {
     pub name: Option<String>,
 }
 
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeParameterauspraegungType")]
+pub struct CodeParameterauspraegungType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeParameterunterauswahlType")]
+pub struct CodeParameterunterauswahlType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeMesswertergaenzungType")]
+pub struct CodeMesswertergaenzungType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeBewertungUntersuchungswertType")]
+pub struct CodeBewertungUntersuchungswertType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"analyseergebnisParameter")]
 // #[xml(tns(b"xwas", b"xwasser"))]
 pub struct AnalyseergebnisParameter {
@@ -236,55 +272,43 @@ pub struct AnalyseergebnisParameter {
     #[xml(ns = b"xwas", name = b"analyseImRahmenDerAkkreditierung", ty = "child")]
     pub analyse_im_rahmen_der_akkreditierung: bool,
     #[xml(ns = b"xwas", name = b"untersuchungsverfahren", ty = "child")]
-    pub untersuchungsverfahren: CodeUntersuchungsverfahrenType,
-    // #[xml(
-    //     ns = b"xwas",
-    //     name = b"ergaenzungZumUntersuchungsverfahren",
-    //     ty = "child"
-    // )]
-    // pub ergaenzung_zum_untersuchungsverfahren: String,
+    pub untersuchungsverfahren: Vec<CodeUntersuchungsverfahrenType>,
+    #[xml(
+        ns = b"xwas",
+        name = b"ergaenzungZumUntersuchungsverfahren",
+        ty = "child"
+    )]
+    pub ergaenzung_zum_untersuchungsverfahren: Option<String>,
     #[xml(ns = b"xwas", name = b"untersuchterParameter", ty = "child")]
     pub untersuchter_parameter: CodeShapthParameterEinheitType,
-    // #[xml(ns = b"xwas", name = b"parameterauspraegung", ty = "child")]
-    // pub parameterauspraegung: Parameterauspraegung,
-    // #[xml(ns = b"xwas", name = b"parameterUnterauswahl", ty = "child")]
-    // pub parameter_unterauswahl: ParameterUnterauswahl,
-    // #[xml(
-    //     ns = b"xwas",
-    //     name = b"sensorischerParameterIstAnnehmbar",
-    //     ty = "child"
-    // )]
-    // pub sensorischer_parameter_ist_annehmbar: bool,
-    // #[xml(ns = b"xwas", name = b"untersuchungswertParameter", ty = "child")]
-    // pub untersuchungswert_parameter: String,
-    // #[xml(ns = b"xwas", name = b"einheitDesUntersuchungswerts", ty = "child")]
-    // pub einheit_des_untersuchungswerts: EinheitDesUntersuchungswerts,
-    // #[xml(
-    //     ns = b"xwas",
-    //     name = b"ergaenzungZumUntersuchungswertParameter",
-    //     ty = "child"
-    // )]
-    // pub ergaenzung_zum_untersuchungswert_parameter: ErgaenzungZumUntersuchungswertParameter,
-    // #[xml(ns = b"xwas", name = b"parameterwertErgaenzung", ty = "child")]
-    // pub parameterwert_ergaenzung: String,
-    // #[xml(ns = b"xwas", name = b"ausgewertetesAnsatzvolumen", ty = "child")]
-    // pub ausgewertetes_ansatzvolumen: String,
-    // #[xml(ns = b"xwas", name = b"shapthParameterNummer", ty = "child")]
-    // pub shapth_parameter_nummer: String,
+    #[xml(ns = b"xwas", name = b"parameterauspraegung", ty = "child")]
+    pub parameterauspraegung: Option<CodeParameterauspraegungType>,
+    #[xml(ns = b"xwas", name = b"parameterUnterauswahl", ty = "child")]
+    pub parameter_unterauswahl: Option<CodeParameterunterauswahlType>,
+    #[xml(ns = b"xwas", name = b"sensorischerParameterIstAnnehmbar", ty = "child")]
+    pub sensorischer_parameter_ist_annehmbar: Option<bool>,
+    #[xml(ns = b"xwas", name = b"untersuchungswertParameter", ty = "child")]
+    pub untersuchungswert_parameter: Option<String>,
+    #[xml(ns = b"xwas", name = b"einheitDesUntersuchungswerts", ty = "child")]
+    pub einheit_des_untersuchungswerts: Option<CodeShapthParameterEinheitType>,
+    #[xml(ns = b"xwas", name = b"ergaenzungZumUntersuchungswertParameter", ty = "child")]
+    pub ergaenzung_zum_untersuchungswert_parameter: Option<CodeMesswertergaenzungType>,
+    #[xml(ns = b"xwas", name = b"parameterwertErgaenzung", ty = "child")]
+    pub parameterwert_ergaenzung: Option<String>,
+    #[xml(ns = b"xwas", name = b"ausgewertetesAnsatzvolumen", ty = "child")]
+    pub ausgewertetes_ansatzvolumen: Option<String>,
+    #[xml(ns = b"xwas", name = b"shapthParameterNummer", ty = "child")]
+    pub shapth_parameter_nummer: Vec<String>,
     #[xml(ns = b"xwas", name = b"bewertungUntersuchungswert", ty = "child")]
-    pub bewertung_untersuchungswert: CodeBewertungUntersuchungswert,
-    // #[xml(ns = b"xwas", name = b"parameterauffaelligkeit", ty = "child")]
-    // pub parameterauffaelligkeit: String,
-    // #[xml(
-    //     ns = b"xwas",
-    //     name = b"messunsicherheitUntersuchungswert",
-    //     ty = "child"
-    // )]
-    // pub messunsicherheitUntersuchungswert: String, // not null
-    // #[xml(ns = b"xwas", name = b"bestimmungsgrenzeLoQ", ty = "child")]
-    // pub bestimmungsgrenzeLoQ: String, // erfüllung von anderem feld abhängig
-    // #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    // pub kommentar: String,
+    pub bewertung_untersuchungswert: CodeBewertungUntersuchungswertType,
+    #[xml(ns = b"xwas", name = b"parameterauffaelligkeit", ty = "child")]
+    pub parameterauffaelligkeit: Option<String>,
+    #[xml(ns = b"xwas", name = b"messunsicherheitUntersuchungswert", ty = "child")]
+    pub messunsicherheit_untersuchungswert: Option<String>,
+    #[xml(ns = b"xwas", name = b"bestimmungsgrenzeLoQ", ty = "child")]
+    pub bestimmungsgrenze_lo_q: Option<String>,
+    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    pub kommentar: Option<String>,
 }
 
 
@@ -570,32 +594,9 @@ pub struct RegistrierendeBehoerde {
     #[xml(name = b"id", ty = "child")]
     pub id: String, 
 }
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// pub struct NachgeordneteBehoerde {
-//     #[xml(name = b"id", ty = "child")]
-//     pub id: String,
-//     #[xml(name = b"zusatz", ty = "child")]
-//     pub zusatz: String,
-//     #[xml(name = b"verwaltungspolitischeZustaendigkeit", ty = "child")]
-//     pub verwaltungspolitische_zustaendigkeit: VerwaltungspolitischeZustaendigkeit,
-//     #[xml(name = b"anschrift", ty = "child")]
-//     pub anschrift: Anschrift,
-//     #[xml(name = b"organisationsstruktur", ty = "child")]
-//     pub organisationsstruktur: Organisationsstruktur,
-// }
-
-// #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// pub struct Organisationsstruktur {
-//     #[xml(name = b"name", ty = "child")]
-//     pub name: String,
-//     #[xml(name = b"hierarchieebene", ty = "child")]
-//     pub hierarchieebene: String,
-//     #[xml(name = b"hierarchiename", ty = "child")]
-//     pub hierarchiename: String,
-// }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"Code.AnschrifttypType")]
+#[xml(root = b"codeAnschrifttypType")]
 pub struct CodeAnschrifttypType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
@@ -604,7 +605,7 @@ pub struct CodeAnschrifttypType {
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"Code.StaatType")]
+#[xml(root = b"codeStaatType")]
 pub struct CodeStaatType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
@@ -614,7 +615,7 @@ pub struct CodeStaatType {
 
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"Code.KreisType")]
+#[xml(root = b"codeKreisType")]
 pub struct CodeKreisType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
@@ -623,7 +624,7 @@ pub struct CodeKreisType {
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"Code.BezirkType")]
+#[xml(root = b"codeBezirkType")]
 pub struct CodeBezirkType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
@@ -632,7 +633,7 @@ pub struct CodeBezirkType {
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"Code.BundeslandType")]
+#[xml(root = b"codeBundeslandType")]
 pub struct CodeBundeslandType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
@@ -641,7 +642,7 @@ pub struct CodeBundeslandType {
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"Code.AGSType")]
+#[xml(root = b"codeAGSType")]
 pub struct CodeAGSType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
@@ -650,7 +651,7 @@ pub struct CodeAGSType {
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"Code.RegionalschluesselType")]
+#[xml(root = b"codeRegionalschluesselType")]
 pub struct CodeRegionalschluesselType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
@@ -1106,7 +1107,7 @@ pub struct ZustaendigeBehoerdeType {
     #[xml(ns = b"xwas", name = b"laenderkuerzel", ty = "child")]
     pub laenderkuerzel: CodeLaenderkennzeichenType,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    pub kommentar: Vec<String>,
+    pub kommentar: Option<String>,
 }
 
 
@@ -1116,11 +1117,11 @@ pub struct ZustaendigeBehoerdeType {
 #[xml(root = b"AllgemeinerNameType")]
 pub struct AllgemeinerNameType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Vec<String>,
+    pub name: Option<String>,
     #[xml(ns = b"xwas", name = b"nichtVorhanden", ty = "child")]
-    pub nicht_vorhanden: bool,
+    pub nicht_vorhanden: Option<bool>,
     #[xml(ns = b"xwas", name = b"namensart", ty = "child")]
-    pub namensart: Code,
+    pub namensart: Option<Code>,
     #[xml(ns = b"xwas", name = b"alternativeRepraesentation", ty = "child")]
     pub alternative_repraesentation: Vec<AlternativeRepraesentationType>,
 }
@@ -1230,13 +1231,13 @@ pub struct CodeFamilienstandType {
 /// Unter "Geburt" werden geburtsbezogene Informationen zusammengefasst.
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"Geburt")]
-pub struct Geburt {
+pub struct GeburtType {
     #[xml(ns = b"xwas", name = b"datum", ty = "child")]
-    pub datum: Vec<String>,
+    pub datum: Option<String>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
-    pub zusatz: Vec<String>,
+    pub zusatz: Option<String>,
     #[xml(ns = b"xwas", name = b"geburtsort", ty = "child")]
-    pub geburtsort: Vec<AnschriftType>,
+    pub geburtsort: Option<AnschriftType>,
 }
 
 /// Dieser Datentyp erlaubt die Angabe von Doktorgraden. Es sind nur diejenigen
@@ -1252,7 +1253,7 @@ pub struct DoktorgradType {
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"Code.StaatsangehoerigkeitType")]
+#[xml(root = b"codeStaatsangehoerigkeitType")]
 pub struct CodeStaatsangehoerigkeitType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
@@ -1261,7 +1262,7 @@ pub struct CodeStaatsangehoerigkeitType {
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"Code.AusweisdokumenteType")]
+#[xml(root = b"codeAusweisdokumenteType")]
 pub struct CodeAusweisdokumenteType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
@@ -1270,7 +1271,7 @@ pub struct CodeAusweisdokumenteType {
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"Code.GeschlechtType")]
+#[xml(root = b"codeGeschlechtType")]
 pub struct CodeGeschlechtType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
@@ -1285,11 +1286,11 @@ pub struct SpracheType {
     #[xml(ns = b"xwas", name = b"sprache", ty = "child")]
     pub sprache: String,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
-    pub zusatz: Vec<String>,
+    pub zusatz: Option<String>,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"Code.VertretungsartType")]
+#[xml(root = b"codeVertretungsartType")]
 pub struct CodeVertretungsartType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
     pub code: String,
@@ -1326,7 +1327,7 @@ pub struct NatuerlichePersonType {
     #[xml(name = b"familienstand", ty = "child")]
     pub familienstand: Vec<CodeFamilienstandType>,
     #[xml(name = b"geburt", ty = "child")]
-    pub geburt: Option<Geburt>,
+    pub geburt: Option<GeburtType>,
     #[xml(name = b"doktorgrad", ty = "child")]
     pub doktorgrad: Option<DoktorgradType>,
     #[xml(name = b"staatsangehoerigkeit", ty = "child")]

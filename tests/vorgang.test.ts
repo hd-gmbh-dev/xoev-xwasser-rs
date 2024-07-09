@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, Gueltigkeit, create_quality_report_xml, parse_quality_report_xml } from "../pkg/xwasser_rs";
+import { OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, create_quality_report_xml, parse_quality_report_xml } from "../pkg/xwasser_rs";
 
 function createHeadInfo(kennung: string, name: string): any {
   return {
@@ -34,13 +34,9 @@ function code(name: string, code: string): any {
 
 function geburt(): any {
   return {
-    datum: [
-      "asdf"
-    ],
-    zusatz: [
-      "asokdfm"
-    ],
-    geburtsort: [anschrift()],
+    datum: "asdf",
+    zusatz: "asokdfm",
+    geburtsort: anschrift(),
   }
 }
 
@@ -54,9 +50,7 @@ function alternativeRepraesentation(): any {
 
 function allgemeinerNameType(name: string): any {
   return {
-    name: [
-      name
-    ],
+    name: name,
     nicht_vorhanden: false,
     namensart: {
         code: "1010"
@@ -130,7 +124,7 @@ function kommunikationType(kennung: string, ist_dienstlich: boolean, zusatz: str
   }
 }
 
-function spracheType(sprache: string, zusatz: string[]): any {
+function spracheType(sprache: string, zusatz: string): any {
   return {
     sprache: sprache, 
     zusatz: zusatz
@@ -190,8 +184,8 @@ function natuerlichePerson(): NatuerlichePersonType {
     geschlecht: [code("geschlecht","1111")],
     identifikationsnummer: [identifikationType()],
     kommunikation: [kommunikationType("text", true, "zusatz")],
-    muttersprache: [spracheType("Deutsch", ["zusatz"])],
-    fremdsprache: [spracheType("Englisch", ["zusatz"])],
+    muttersprache: [spracheType("Deutsch", "zusatz")],
+    fremdsprache: [spracheType("Englisch", "zusatz")],
     vertreter_bevollmaechtigter: [vertreterBevollmaechtigterType()]
   }
 }
@@ -204,7 +198,7 @@ function organisationseinheitType():any {
   }
 }
 
-function nameOrganisationType(org_name: string[], kurzbezeichnung: string[], gueltigkeit: Gueltigkeit[]): any {
+function nameOrganisationType(org_name: string[], kurzbezeichnung: string[], gueltigkeit: ZeitraumType[]): any {
   return {
     name: org_name,
     kurzbezeichnung: kurzbezeichnung,
@@ -262,9 +256,23 @@ function analyseergebnisParameter(): any {
     zugelassene_untersuchungsstelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
     anschrift_id: "IDfcfd2538-f074-4848-b443-d15997e42c9e",
     analyse_im_rahmen_der_akkreditierung: true,
-    untersuchungsverfahren: code("untersuchungsverfahren","9919"),
+    untersuchungsverfahren: [code("untersuchungsverfahren","9919")],
+    ergaenzung_zum_untersuchungsverfahren: "ergaenzung_zum_untersuchungsverfahren",
     untersuchter_parameter: code("untersuchter_parameter","1210"),
+    parameterauspraegung: code("parameterauspraegung","1210"),
+    parameter_unterauswahl: code("parameter_unterauswahl","1210"),
+    sensorischer_parameter_ist_annehmbar: true,
+    untersuchungswert_parameter: "1000 gramm",
+    einheit_des_untersuchungswerts: code("einheit_des_untersuchungswerts","1210"),
+    ergaenzung_zum_untersuchungswert_parameter: code("ergaenzung_zum_untersuchungswert_parameter","1210"),
+    parameterwert_ergaenzung: "parameterwert_ergaenzung",
+    ausgewertetes_ansatzvolumen: "ausgewertetes_ansatzvolumen",
+    shapth_parameter_nummer: ["shapth_parameter_nummer"],
     bewertung_untersuchungswert: code("bewertung_untersuchungswert","9999"),
+    parameterauffaelligkeit: "parameterauffaelligkeit",
+    messunsicherheit_untersuchungswert: "messunsicherheit_untersuchungswert",
+    bestimmungsgrenze_lo_q: "bestimmungsgrenze_lo_q",
+    kommentar: "kommentar",
   }
 }
 
@@ -275,7 +283,7 @@ function zustaendigeBehoerde():ZustaendigeBehoerdeType {
     anlage_nach_trinkw_vid: ["IDfcfd2538-f074-4848-b443-d15997e42c9e"],
     probennehmer_id: ["1234"],
     laenderkuerzel: code("laenderkuerzel","DEAA"),
-    kommentar: ["kommentar"]
+    kommentar: "kommentar"
   }
 }
 
