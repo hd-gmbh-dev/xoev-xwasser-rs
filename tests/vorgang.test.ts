@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, create_quality_report_xml, parse_quality_report_xml } from "../pkg/xwasser_rs";
+import { NameOrganisationType, OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, create_quality_report_xml, parse_quality_report_xml } from "../pkg/xwasser_rs";
 
 function createHeadInfo(kennung: string, name: string): any {
   return {
@@ -61,12 +61,12 @@ function allgemeinerNameType(name: string): any {
 
 function verwaltungspolitischeKodierung(): any {
   return {
-    kreis: [code("name","1111")],
-    bezirk: [code("name","1111")],
-    bundesland: [code("name","1111")],
-    gemeindeschluessel: [code("name","1111")],
-    regionalschluessel: [code("name","1111")],
-    nation: [code("name","1111")]
+    kreis: code("name","1111"),
+    bezirk: code("name","1111"),
+    bundesland: code("name","1111"),
+    gemeindeschluessel: code("name","1111"),
+    regionalschluessel: code("name","1111"),
+    nation: code("name","1111"),
   }
 }
 
@@ -80,20 +80,12 @@ function anschrift(): any {
     postfach: "1234",
     postleitzahl: "123456",
     ort: "Musterhausen",
-    ortsteil: [
-      "Neuhausen"
-    ],
-    ort_frueherer_gemeindename: [
-      "wurstling"
-    ],
-    wohnungsgeber: [
-      ""
-    ],
-    zusatz: [
-      ""
-    ],
-    typ: code("anschriftType","1234"),
-    staat: [code("absurdistan","1111")],
+    ortsteil: "Neuhausen",
+    ort_frueherer_gemeindename: "wurstling",
+    wohnungsgeber: "",
+    zusatz: "",
+    typ: [code("anschriftType","1234")],
+    staat: code("absurdistan","1111"),
     verwaltungspolitische_kodierung: verwaltungspolitischeKodierung(),
   }
 }
@@ -108,9 +100,9 @@ function zeitraumType(beginn: string, ende: string, zusatz: string): ZeitraumTyp
 
 function identifikationType() {
   return {
-    id: ["238b7cc7-6d64-4db8-9c69-779bb65d60b1"],
-    beschreibung: ["bal bla bla"],
-    gueltigkeit: [zeitraumType("9","19","zusatz")]
+    id: "238b7cc7-6d64-4db8-9c69-779bb65d60b1",
+    beschreibung: "bal bla bla",
+    gueltigkeit: zeitraumType("9","19","zusatz"),
 
   }
 }
@@ -198,9 +190,9 @@ function organisationseinheitType():any {
   }
 }
 
-function nameOrganisationType(org_name: string[], kurzbezeichnung: string[], gueltigkeit: ZeitraumType[]): any {
+function nameOrganisationType(name: string, kurzbezeichnung: string, gueltigkeit: ZeitraumType): NameOrganisationType {
   return {
-    name: org_name,
+    name: name, // wenn es nicht optional type ist wird gemeldet dass hier name fehlt .. why ?? 
     kurzbezeichnung: kurzbezeichnung,
     gueltigkeit: gueltigkeit,
   }
@@ -208,16 +200,16 @@ function nameOrganisationType(org_name: string[], kurzbezeichnung: string[], gue
 
 function behoerdeType():any {
   return {
-    id: ["ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a"],
-    typ: [code("behoerde","1234")],
-    zusatz: ["zusatz"],
-    behoerdenkennung: [{
+    id: "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
+    typ: code("behoerde","1234"),
+    zusatz: "zusatz",
+    behoerdenkennung: {
       kennung: [code("behoerdenkennung","1234")],
       praefix: [code("praefixtype","1234")]
-    }],
+    },
     kommunikation: [kommunikationType("text", true, "zusatz")],
-    behoerdenidentifikation: [identifikationType()],
-    behoerdenname: [nameOrganisationType(["behorde 1"], ["does stuff"], [zeitraumType("9","19","zusatz")])],
+    behoerdenidentifikation: identifikationType(),
+    behoerdenname: [nameOrganisationType("behorde 1", "does stuff", zeitraumType("9","19","zusatz"))],
     nachgeordnete_behoerde: [],
     verwaltungspolitische_zustaendigkeit: [verwaltungspolitischeKodierung()],
     anschrift: [anschrift()],
@@ -227,10 +219,10 @@ function behoerdeType():any {
 
 function registrierungType():any {
   return {
-    id: ["ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a"],
-    registertyp: [code("registertyp","1234")],
-    registrierende_behoerde: [behoerdeType()],
-    gueltigkeit: [zeitraumType("9","19","zusatz")]
+    id: "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
+    registertyp: code("registertyp","1234"),
+    registrierende_behoerde: behoerdeType(),
+    gueltigkeit: zeitraumType("9","19","zusatz"),
   }
 }
 
@@ -239,7 +231,7 @@ function organisationType(): OrganisationType  {
     rechtsform: code("rechtsform", "0815"),
     branche: [code("branche", "666")],
     zweck: [code("zweck", "666")],
-    name: nameOrganisationType(["abc corp"], ["produces stuff"],[zeitraumType("9","19","zusatz")]),
+    name: nameOrganisationType("abc corp", "produces stuff",zeitraumType("9","19","zusatz")),
     unterorganisation: [], // hier kann man noch eine weitere organisation eintragen
     kommunikation: [kommunikationType("text", true, "zusatz")],
     registrierung: [registrierungType()],
@@ -364,15 +356,15 @@ function beauftragteUntersuchungsstelle(): any {
       organisation: organisationType(),
       zugelassene_untersuchungsstelle_id: "ID14aeb6dd-bc5e-443f-890c-cbdfe6f50c86",
       name_zugelassene_untersuchungsstelle: code("name","09010"),
-      pruefgebiete_untersuchungen_phys_chem: [true],
-      pruefgebiete_untersuchungen_mikrobio: [true],
-      pruefgebiete_untersuchungen_radionuklide: [true],
-      akkreditierungsnummer: [""],
-      kommentar_beauftragte_untersuchungsstelle: [""],
-      kommentar_zugelassene_untersuchungsstelle: [""],
+      pruefgebiete_untersuchungen_phys_chem: true,
+      pruefgebiete_untersuchungen_mikrobio: true,
+      pruefgebiete_untersuchungen_radionuklide: true,
+      akkreditierungsnummer: "",
+      kommentar_beauftragte_untersuchungsstelle: "",
+      kommentar_zugelassene_untersuchungsstelle: "",
 
     },
-    kommentar_beauftragte_untersuchungsstelle: [""],
+    kommentar_beauftragte_untersuchungsstelle: "",
   }
 }
 
@@ -380,8 +372,8 @@ function erweiterung():any {
   return {
     feld: [
       {
-        name: ["feldname"],
-        beschreibung: ["feldbeschreibung"],
+        name: "feldname",
+        beschreibung: "feldbeschreibung",
         datentyp: code("datentyp","1234"),
         wert: "feldwert"
       }
@@ -394,7 +386,9 @@ function erweiterung():any {
         feld: [],
       }
     ],
-    xml: [],
+    xml: {
+      any: []
+    },
 
   }
 
@@ -437,6 +431,7 @@ function vorgang():any {
     vorgang_type: {
       pruefbericht: pruefberichtType(),
     },
+    bemerkung: "Bemerkung",
   }
 }
 
