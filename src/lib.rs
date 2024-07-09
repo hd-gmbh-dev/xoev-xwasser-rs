@@ -1666,7 +1666,6 @@ pub struct UntersuchungsplanType {
     pub probe_rel: Vec<ProbeType>,
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
     pub erweiterung: Option<ErweiterungType>,
-
 }
 
 

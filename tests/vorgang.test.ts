@@ -426,16 +426,16 @@ function pruefberichtType():PruefberichtType {
   }
 }
 
-function untersuchungsplan(): UntersuchungsplanType { 
-  return {
+// function untersuchungsplan(): UntersuchungsplanType { 
+//   return {
 
-  }
-}
+//   }
+// }
 
 function vorgangType(): VorgangType {
   return {
     pruefbericht: pruefberichtType(),
-    untersuchungsplan: untersuchungsplan()
+    // untersuchungsplan: untersuchungsplan()
   }
 
 }
