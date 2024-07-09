@@ -1378,6 +1378,232 @@ pub struct WasserversorgungsgebietType {
     pub _id: ConstStr,
 }
 
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeWVAType")]
+pub struct CodeWVAType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeErlaeuterungWasserabgabemengeType")]
+pub struct CodeErlaeuterungWasserabgabemengeType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeFlockungType")]
+pub struct CodeFlockungType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeDesinfektionsartType")]
+pub struct CodeDesinfektionsartType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeNachweisartType")]
+pub struct CodeNachweisartType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeStatusUntersuchungsplanType")]
+pub struct CodeStatusUntersuchungsplanType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeKategorieProbennahmestelleType")]
+pub struct CodeKategorieProbennahmestelleType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeUeberwachungAufbereitungType")]
+pub struct CodeUeberwachungAufbereitungType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+
+
+/// Klasse für den Transport von Informationen, die für die Erstellung von Terminplänen
+/// als Teil des Untersuchungsplans für a- und b-Anlagen relevant sind.
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"TerminplanType")]
+pub struct TerminplanType {
+    #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
+    pub terminplan_id: String,
+    #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
+    pub probennahmestelle_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"datumZeitraum", ty = "child")]
+    pub datum_zeitraum: Vec<String>,
+    #[xml(ns = b"xwas", name = b"probennahmestelleKategorie", ty = "child")]
+    pub probennahmestelle_kategorie: CodeKategorieProbennahmestelleType,
+    #[xml(ns = b"xwas", name = b"weitereBeschreibungDerProbennahmestelle", ty = "child")]
+    pub weitere_beschreibung_der_probennahmestelle: Option<String>,
+    #[xml(ns = b"xwas", name = b"untersuchungDurch", ty = "child")]
+    pub untersuchung_durch: Vec<CodeUeberwachungAufbereitungType>,
+    #[xml(ns = b"xwas", name = b"zuUntersuchendeParameter", ty = "child")]
+    pub zu_untersuchende_parameter: Vec<CodeShapthParameterType>,
+    #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
+    pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
+    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    pub kommentar: Option<String>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeArtTrinkwasseranlageType")]
+pub struct CodeArtTrinkwasseranlageType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeArtObjektType")]
+pub struct CodeArtObjektType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeBetriebszustandType")]
+pub struct CodeBetriebszustandType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeRahmenTrinkwasserbereitstellungType")]
+pub struct CodeRahmenTrinkwasserbereitstellungType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+/// Informationen zu einem Auftraggeber [Ergänzende Angaben zu den jeweiligen
+/// Informationen aus den Registern von Betreibern/Behörden].
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"auftraggeber")]
+pub struct ArtDerPerson {
+    // #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
+    // pub organisation: OrganisationType,
+    #[xml(ns = b"xwas", name = b"natuerlichePerson", ty = "child")]
+    pub natuerliche_person: NatuerlichePersonType,
+    // #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
+    // pub zustaendige_behoerde: ZustaendigeBehoerdeType,
+
+}
+
+/// Klasse zum Transport von Informationen zu einem Betreiber einer WVA [Soweit möglich
+/// in Register zu pflegen].
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"BetreiberType")]
+pub struct BetreiberType {
+    #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
+    pub betreiber_id: String,
+    #[xml(ns = b"xwas", name = b"artDerPerson", ty = "child")]
+    pub art_der_person: ArtDerPerson, // enum .. heisst eigentlich ArtDerPerson
+    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    pub kommentar: Option<String>,
+}
+
+
+/// Klasse für den Transport von Informationen zu einem Objekt.
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"ObjektType")]
+pub struct ObjektType {
+    #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
+    pub objekt_id: String,
+    #[xml(ns = b"xwas", name = b"wasserversorgungsgebiet", ty = "child")]
+    pub wasserversorgungsgebiet: Option<String>,
+    #[xml(ns = b"xwas", name = b"anschriftObjekt", ty = "child")]
+    pub anschrift_objekt: Vec<AnschriftType>,
+    #[xml(ns = b"xwas", name = b"artObjekt", ty = "child")]
+    pub art_objekt: CodeArtObjektType,
+    #[xml(ns = b"xwas", name = b"nameObjekt", ty = "child")]
+    pub name_objekt: String,
+    #[xml(ns = b"xwas", name = b"betriebszustandDesObjekts", ty = "child")]
+    pub betriebszustand_des_objekts: Option<CodeBetriebszustandType>,
+    #[xml(ns = b"xwas", name = b"datumInBetriebnahme", ty = "child")]
+    pub datum_in_betriebnahme: Option<String>,
+    #[xml(ns = b"xwas", name = b"datumAusserBetriebnahme", ty = "child")]
+    pub datum_ausser_betriebnahme: Option<String>,
+    #[xml(ns = b"xwas", name = b"rahmenDerTrinkwasserbereitstellung", ty = "child")]
+    pub rahmen_der_trinkwasserbereitstellung: Vec<CodeRahmenTrinkwasserbereitstellungType>,
+    #[xml(ns = b"xwas", name = b"geokoordinatenObjekt", ty = "child")]
+    pub geokoordinaten_objekt: GeokoordinatenShapthType,
+    #[xml(ns = b"xwas", name = b"altID", ty = "child")]
+    pub alt_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    pub kommentar: Option<String>,
+    #[xml(ns = b"xwas", name = b"betreiber", ty = "child")]
+    pub betreiber: Vec<BetreiberType>,
+    #[xml(ns = b"xwas", name = b"objekt_probennahmestelle", ty = "child")]
+    pub objekt_probennahmestelle: Vec<ProbennahmestelleType>,
+}
+
+
+/// Klasse für den Transport von Informationen zu einer Trinkwasserversorgungsanlage.
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"AnlageNachTrinkwVType")]
+pub struct AnlageNachTrinkwVType {
+    #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
+    pub anlage_nach_trinkw_vid: String,
+    #[xml(ns = b"xwas", name = b"zustaendigeBehoerdeID", ty = "child")]
+    pub zustaendige_behoerde_id: String,
+    #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
+    pub untersuchungsplan_id: Vec<String>,
+    #[xml(ns = b"xwas", name = b"artAnlage", ty = "child")]
+    pub art_anlage: CodeArtTrinkwasseranlageType,
+    #[xml(ns = b"xwas", name = b"nameDerAnlage", ty = "child")]
+    pub name_der_anlage: String,
+    #[xml(ns = b"xwas", name = b"abgegebeneWassermengeDerAnlageProTag", ty = "child")]
+    pub abgegebene_wassermenge_der_anlage_pro_tag: Option<f64>,
+    #[xml(ns = b"xwas", name = b"anzahlDurchAnlageVersorgtePersonen", ty = "child")]
+    pub anzahl_durch_anlage_versorgte_personen: Option<u32>,
+    #[xml(ns = b"xwas", name = b"altID", ty = "child")]
+    pub alt_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    pub kommentar: Option<String>,
+    #[xml(ns = b"xwas", name = b"wasserversorgungsgebiet", ty = "child")]
+    pub wasserversorgungsgebiet: Vec<WasserversorgungsgebietType>,
+    #[xml(ns = b"xwas", name = b"anlageNachTrinwV_Objekt", ty = "child")]
+    pub anlage_nach_trinw_v_objekt: Vec<ObjektType>,
+}
+
 
 /// Klasse für den Transport von Informationen, die für die Erstellung eines
 /// Untersuchungsplans für a- und b-Anlagen relevant sind.
@@ -1387,23 +1613,23 @@ pub struct UntersuchungsplanType {
     #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
     pub untersuchungsplan_id: String,
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebiet", ty = "child")]
-    pub wasserversorgungsgebiet: Vec<WasserversorgungsgebietType>,
+    pub wasserversorgungsgebiet: Vec<String>,
     #[xml(ns = b"xwas", name = b"jahr", ty = "child")]
-    pub jahr: Vec<Jahr>,
+    pub jahr: Vec<String>, // JahrType
     #[xml(ns = b"xwas", name = b"wasserabgabeVorjahr", ty = "child")]
-    pub wasserabgabe_vorjahr: String,
+    pub wasserabgabe_vorjahr: f64,
     #[xml(ns = b"xwas", name = b"artVonWVAundWVG", ty = "child")]
-    pub art_vonW_vAundW_vG: CodeWVAType,
+    pub art_von_wva_und_wvg: CodeWVAType,
     #[xml(ns = b"xwas", name = b"erlaeuterungZurWasserabgabemenge", ty = "child")]
     pub erlaeuterung_zur_wasserabgabemenge: CodeErlaeuterungWasserabgabemengeType,
     #[xml(ns = b"xwas", name = b"flockung", ty = "child")]
     pub flockung: CodeFlockungType,
     #[xml(ns = b"xwas", name = b"oberflaechenwassereinfluss", ty = "child")]
-    pub oberflaechenwassereinfluss: Oberflaechenwassereinfluss,
+    pub oberflaechenwassereinfluss: bool,
     #[xml(ns = b"xwas", name = b"desinfektionDurchgefuehrtMit", ty = "child")]
     pub desinfektion_durchgefuehrt_mit: CodeDesinfektionsartType,
     #[xml(ns = b"xwas", name = b"abfuellungZurAbgabeInVerschlossenenBehaeltnissen", ty = "child")]
-    pub abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen: AbfuellungZurAbgabeInVerschlossenenBehaeltnissen,
+    pub abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen: bool,
     #[xml(ns = b"xwas", name = b"acrylamid", ty = "child")]
     pub acrylamid: CodeNachweisartType,
     #[xml(ns = b"xwas", name = b"epichlorhydrin", ty = "child")]
@@ -1411,35 +1637,36 @@ pub struct UntersuchungsplanType {
     #[xml(ns = b"xwas", name = b"vinylchlorid", ty = "child")]
     pub vinylchlorid: CodeNachweisartType,
     #[xml(ns = b"xwas", name = b"phWertWasserwerksausgang", ty = "child")]
-    pub ph_wert_wasserwerksausgang: PhWertWasserwerksausgang,
+    pub ph_wert_wasserwerksausgang: bool,
     #[xml(ns = b"xwas", name = b"wasserabgabeVorjahrProTag", ty = "child")]
-    pub wasserabgabe_vorjahr_pro_tag: String,
+    pub wasserabgabe_vorjahr_pro_tag: f64,
     #[xml(ns = b"xwas", name = b"anzahlUntersuchungenproJahrGruppeA", ty = "child")]
-    pub anzahl_untersuchungenpro_jahr_gruppe_a: String,
+    pub anzahl_untersuchungenpro_jahr_gruppe_a: u32,
     #[xml(ns = b"xwas", name = b"abzudeckenDurchBetreiberGruppeA", ty = "child")]
-    pub abzudecken_durch_betreiber_gruppe_a: Option<String>,
+    pub abzudecken_durch_betreiber_gruppe_a: Option<u32>,
     #[xml(ns = b"xwas", name = b"anzahlUntersuchungenproJahrGruppeB", ty = "child")]
-    pub anzahl_untersuchungenpro_jahr_gruppe_b: String,
+    pub anzahl_untersuchungenpro_jahr_gruppe_b: u32,
     #[xml(ns = b"xwas", name = b"abzudeckenDurchBetreiberGruppeB", ty = "child")]
-    pub abzudecken_durch_betreiber_gruppe_b: Option<String>,
+    pub abzudecken_durch_betreiber_gruppe_b: Option<u32>,
     #[xml(ns = b"xwas", name = b"rapDurchgefuehrt", ty = "child")]
-    pub rap_durchgefuehrt: RapDurchgefuehrt,
+    pub rap_durchgefuehrt: bool,
     #[xml(ns = b"xwas", name = b"statusUntersuchungsplan", ty = "child")]
     pub status_untersuchungsplan: CodeStatusUntersuchungsplanType,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"terminplan", ty = "child")]
-    pub terminplan: Vec<Terminplan>,
+    pub terminplan: Vec<TerminplanType>,
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwV", ty = "child")]
-    pub anlage_nach_trinkw_v: AnlageNachTrinkwV,
+    pub anlage_nach_trinkw_v: AnlageNachTrinkwVType,
     #[xml(ns = b"xwas", name = b"auftraggeber", ty = "child")]
     pub auftraggeber: Auftraggeber,
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
-    pub zustaendige_behoerde: ZustaendigeBehoerde,
+    pub zustaendige_behoerde: ZustaendigeBehoerdeType,
     #[xml(ns = b"xwas", name = b"probe_Rel", ty = "child")]
-    pub probe_rel: Vec<Probe_Rel>,
+    pub probe_rel: Vec<ProbeType>,
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
-    pub erweiterung: Option<Erweiterung>,
+    pub erweiterung: Option<ErweiterungType>,
+
 }
 
 
