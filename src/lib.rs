@@ -1957,6 +1957,68 @@ pub struct VertreterBevollmaechtigterType {
     pub art_vertreter: CodeVertretungsartType,
 }
 
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeFamilienstandBeendigungsgrundType")]
+pub struct CodeFamilienstandBeendigungsgrundType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+
+/// Hier werden Angaben zum Familienstand einer natürlichen Person zusammengefasst.
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"familienstandType")]
+pub struct FamilienstandType {
+    #[xml(ns = b"xwas", name = b"familienstand", ty = "child")]
+    pub familienstand: Option<CodeFamilienstandType>,
+    #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
+    pub zusatz: Option<String>,
+    #[xml(ns = b"xwas", name = b"grund", ty = "child")]
+    pub grund: Option<CodeFamilienstandBeendigungsgrundType>,
+    #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
+    pub gueltigkeit: Option<ZeitraumType>,
+    #[xml(ns = b"xwas", name = b"behoerde", ty = "child")]
+    pub behoerde: Option<BehoerdeType>,
+}
+
+/// Hier werden Angaben zur Staatsangehörigkeit zusammengefasst.
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"StaatsangehoerigkeitType")]
+pub struct StaatsangehoerigkeitType {
+    #[xml(ns = b"xwas", name = b"staatsangehoerigkeit", ty = "child")]
+    pub staatsangehoerigkeit: CodeStaatsangehoerigkeitType,
+}
+
+/// Als Staat bezeichnet man eine politische Ordnung, die ein gemeinsames als
+/// Staatsgebiet abgegrenztes Territorium, ein dazugehöriges Staatsvolk und eine
+/// Machtausübung über dieses umfasst.
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"staatType")]
+pub struct StaatType {
+    #[xml(ns = b"xwas", name = b"staat", ty = "child")]
+    pub staat: CodeStaatType,
+}
+
+
+/// Ein Ausweis ist eine öffentliche oder private Urkunde, die die Identität des Inhabers
+/// schriftlich und offiziell darstellt. Er enthält meist persönliche Daten.
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"ausweisdokumentType")]
+pub struct AusweisdokumentType {
+    #[xml(ns = b"xwas", name = b"ausweisart", ty = "child")]
+    pub ausweisart: Option<CodeAusweisdokumenteType>,
+    #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
+    pub gueltigkeit: Option<ZeitraumType>,
+    #[xml(ns = b"xwas", name = b"ausweisID", ty = "child")]
+    pub ausweis_id: Option<IdentifikationType>,
+    #[xml(ns = b"xwas", name = b"ausstellendeBehoerde", ty = "child")]
+    pub ausstellende_behoerde: Option<BehoerdeType>,
+    #[xml(ns = b"xwas", name = b"ausstellenderStaat", ty = "child")]
+    pub ausstellender_staat: Option<StaatType>,
+}
+
 
 /// Eine natürliche Person ist der Mensch in seiner Rolle als Rechtssubjekt, d. h. als
 /// Träger von Rechten und Pflichten. Mit der Vollendung seiner Geburt wird ein Mensch
@@ -1971,15 +2033,15 @@ pub struct NatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"nameNatuerlichePerson", ty = "child")]
     pub name_natuerliche_person: Option<NameNatuerlichePersonType>,
     #[xml(name = b"familienstand", ty = "child")]
-    pub familienstand: Vec<CodeFamilienstandType>,
+    pub familienstand: Vec<FamilienstandType>,
     #[xml(name = b"geburt", ty = "child")]
     pub geburt: Option<GeburtType>,
     #[xml(name = b"doktorgrad", ty = "child")]
     pub doktorgrad: Option<DoktorgradType>,
     #[xml(name = b"staatsangehoerigkeit", ty = "child")]
-    pub staatsangehoerigkeit: Vec<CodeStaatsangehoerigkeitType>,
+    pub staatsangehoerigkeit: Vec<StaatsangehoerigkeitType>,
     #[xml(name = b"ausweisdokument", ty = "child")]
-    pub ausweisdokument: Vec<CodeAusweisdokumenteType>,
+    pub ausweisdokument: Vec<AusweisdokumentType>,
     #[xml(name = b"anschrift", ty = "child")]
     pub anschrift: Vec<AnschriftType>,
     #[xml(name = b"geschlecht", ty = "child")]
@@ -2115,6 +2177,70 @@ pub struct ProbeType {
     pub _id: ConstStr,
 }
 
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeDokumenttypType")]
+pub struct CodeDokumenttypType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+/// Sofern das Dokument signiert wurde findet sich hier eine Referenzliste auf die
+/// Signaturen. Diese sind ihrerseits wieder Dokumente, die auch als Dokumentelemente in
+/// der Nachricht zu finden sind.
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"SignaturenType")]
+pub struct SignaturenType {
+    #[xml(ns = b"xwas", name = b"signaturDokumentID", ty = "child")]
+    pub signatur_dokument_id: Vec<String>,
+}
+
+
+/// Dokument-Repräsentation, eine Darstellungsform des Dokumentes. Es muss das Element
+/// content oder die Elemente externalReferenceIndex und externalReferenceType oder alle
+/// 3 vorhanden sein.
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"dokumentRepraesentationType")]
+pub struct DokumentRepraesentationType {
+    #[xml(ns = b"xwas", name = b"referenz", ty = "child")]
+    pub referenz: Option<String>,
+    #[xml(ns = b"xwas", name = b"mimeType", ty = "child")]
+    pub mime_type: String,
+    #[xml(ns = b"xwas", name = b"inhalt", ty = "child")]
+    pub inhalt: Option<String>,
+    #[xml(ns = b"xwas", name = b"externerReferenzTyp", ty = "child")]
+    pub externer_referenz_typ: Option<String>,
+    #[xml(ns = b"xwas", name = b"externerReferenzIndex", ty = "child")]
+    pub externer_referenz_index: Option<String>,
+    #[xml(ns = b"xwas", name = b"inhaltTyp", ty = "child")]
+    pub inhalt_typ: Option<String>,
+    #[xml(ns = b"xwas", name = b"signaturen", ty = "child")]
+    pub signaturen: Option<SignaturenType>,
+}
+
+
+/// Eine zum Antrag gehörige Unterlage in verschiedenen Dokumentendarstellungen, z. B.
+/// PDF oder eine Datendarstellung. Es muss immer das komplette Dokument mit allen
+/// Darstellungen übertragen werden.
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"DokumentType")]
+pub struct DokumentType {
+    #[xml(ns = b"xwas", name = b"dokumentTyp", ty = "child")]
+    pub dokument_typ: CodeDokumenttypType,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: String,
+    #[xml(ns = b"xwas", name = b"aktuelleVersion", ty = "child")]
+    pub aktuelle_version: Option<String>,
+    #[xml(ns = b"xwas", name = b"letzteVersion", ty = "child")]
+    pub letzte_version: Option<String>,
+    #[xml(ns = b"xwas", name = b"dokumentRepraesentation", ty = "child")]
+    pub dokument_repraesentation: Vec<DokumentRepraesentationType>,
+    #[xml(ns = b"xwas", name = b"personReferenzID", ty = "child")]
+    pub person_referenz_id: Vec<String>,
+}
+
+
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[serde(tag = "t", content = "c")]
 pub enum VorgangType {
@@ -2122,8 +2248,8 @@ pub enum VorgangType {
     Pruefbericht(PruefberichtType),
     #[xml(ns = b"xwas", name = b"untersuchungsplan")]
     Untersuchungsplan(UntersuchungsplanType),
-    // #[xml(ns = b"xwas", name = b"olgBericht", ty = "child")]
-    // OlgBericht(String),
+    #[xml(ns = b"xwas", name = b"olgBericht", ty = "child")]
+    OlgBericht(DokumentType),
     #[default]
     #[xml(ns = b"xwas", name = b"unknown")]
     None,

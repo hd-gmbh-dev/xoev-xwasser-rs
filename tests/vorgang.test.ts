@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {BetreiberType, ObjektType,IncidentCauseAndRemedialActionType, IncidentType, ExceedanceCauseAndRemedialActionType, ExceedanceType, QualityAndMonitoringType, DerogationRemedialActionType, DerogationType, GeokoordinatenShapthType, WasserversorgungsgebietType, AnlageNachTrinkwVType, TerminplanType, UntersuchungsplanType, VorgangType, NameOrganisationType, OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, create_quality_report_xml, parse_quality_report_xml, AuftraggeberType, Auftraggeber, QualityReport, ArtDerPerson } from "../pkg/xwasser_rs";
+import {AusweisdokumentType,StaatType,StaatsangehoerigkeitType,FamilienstandType,CodeDokumenttypType, SignaturenType,DokumentRepraesentationType, DokumentType,BetreiberType, ObjektType,IncidentCauseAndRemedialActionType, IncidentType, ExceedanceCauseAndRemedialActionType, ExceedanceType, QualityAndMonitoringType, DerogationRemedialActionType, DerogationType, GeokoordinatenShapthType, WasserversorgungsgebietType, AnlageNachTrinkwVType, TerminplanType, UntersuchungsplanType, VorgangType, NameOrganisationType, OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, create_quality_report_xml, parse_quality_report_xml, AuftraggeberType, Auftraggeber, QualityReport, ArtDerPerson } from "../pkg/xwasser_rs";
 
 function createHeadInfo(kennung: string, name: string): any {
   return {
@@ -135,6 +135,40 @@ function auskunftssperreType(): AuskunftssperreType {
     grund: code("auskunftsperretype","1"),
     gueltigkeit: zeitraumType("9","19","zusatz"),
   }
+}
+
+
+function familienstandType():FamilienstandType {
+    return {
+      familienstand: code("CodeFamilienstandType","1234"),
+      zusatz: "zusatz",
+      grund: code("CodeFamilienstandBeendigungsgrundType","1234"),
+      gueltigkeit: zeitraumType(),
+      behoerde: behoerdeType(),
+    }
+}
+
+function staatsangehoerigkeitType():StaatsangehoerigkeitType {
+    return {
+      staatsangehoerigkeit: code("CodeStaatsangehoerigkeitType","1234"),
+    }
+}
+
+function staatType():StaatType {
+    return {
+      staat: code("CodeStaatType","1234"),
+    }
+}
+
+
+function ausweisdokumentType():AusweisdokumentType {
+    return {
+      ausweisart: code("CodeAusweisdokumenteType","1234"),
+      gueltigkeit: zeitraumType(),
+      ausweis_id: identifikationType(),
+      ausstellende_behoerde: behoerdeType(),
+      ausstellender_staat: staatType(),
+    }
 }
 
 function nameNatuerlichePersonType(): NameNatuerlichePersonType {
@@ -667,12 +701,45 @@ function untersuchungsplanType(): UntersuchungsplanType {
   }
 }
 
+function signaturenType():SignaturenType {
+    return {
+      signatur_dokument_id: ["signatur_dokument_id"],
+    }
+}
+
+
+function dokumentRepraesentationType():DokumentRepraesentationType {
+    return {
+      referenz: "referenz",
+      mime_type: "mime_type",
+      inhalt: "inhalt",
+      externer_referenz_typ: "externer_referenz_typ",
+      externer_referenz_index: "externer_referenz_index",
+      inhalt_typ: "inhalt_typ",
+      signaturen: signaturenType(),
+    }
+}
+
+
+function dokumentType():DokumentType {
+    return {
+      dokument_typ: code("CodeDokumenttypType","1234"),
+      name: "name",
+      aktuelle_version: "aktuelle_version",
+      letzte_version: "letzte_version",
+      dokument_repraesentation: [dokumentRepraesentationType()],
+      person_referenz_id: ["person_referenz_id"],
+    }
+}
+
 function vorgangType(): VorgangType {
   return {
-    // t: "Pruefbericht",
-    // c: pruefberichtType(),
-    t: "Untersuchungsplan",
-    c: untersuchungsplanType(),
+    t: "Pruefbericht",
+    c: pruefberichtType(),
+    // t: "Untersuchungsplan",
+    // c: untersuchungsplanType(),
+    // t: "OlgBericht",
+    // c: dokumentType(),
   }
 }
 
