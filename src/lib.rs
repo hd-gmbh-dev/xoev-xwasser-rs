@@ -102,7 +102,6 @@ pub struct Leser {
     // pub erreichbarkeit: Erreichbarkeit,
 }
 
-
 /// Unter "Identifikation" werden die Informationen zusammengefasst, die die eindeutige
 /// Identifikation von Objekten in einem fachlichen Kontext erlauben.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -255,7 +254,6 @@ pub struct CodeBewertungUntersuchungswertType {
     pub name: Option<String>,
 }
 
-
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"analyseergebnisParameter")]
 // #[xml(tns(b"xwas", b"xwasser"))]
@@ -284,13 +282,21 @@ pub struct AnalyseergebnisParameter {
     pub parameterauspraegung: Option<CodeParameterauspraegungType>,
     #[xml(ns = b"xwas", name = b"parameterUnterauswahl", ty = "child")]
     pub parameter_unterauswahl: Option<CodeParameterunterauswahlType>,
-    #[xml(ns = b"xwas", name = b"sensorischerParameterIstAnnehmbar", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"sensorischerParameterIstAnnehmbar",
+        ty = "child"
+    )]
     pub sensorischer_parameter_ist_annehmbar: Option<bool>,
     #[xml(ns = b"xwas", name = b"untersuchungswertParameter", ty = "child")]
     pub untersuchungswert_parameter: Option<String>,
     #[xml(ns = b"xwas", name = b"einheitDesUntersuchungswerts", ty = "child")]
     pub einheit_des_untersuchungswerts: Option<CodeShapthParameterEinheitType>,
-    #[xml(ns = b"xwas", name = b"ergaenzungZumUntersuchungswertParameter", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"ergaenzungZumUntersuchungswertParameter",
+        ty = "child"
+    )]
     pub ergaenzung_zum_untersuchungswert_parameter: Option<CodeMesswertergaenzungType>,
     #[xml(ns = b"xwas", name = b"parameterwertErgaenzung", ty = "child")]
     pub parameterwert_ergaenzung: Option<String>,
@@ -302,14 +308,17 @@ pub struct AnalyseergebnisParameter {
     pub bewertung_untersuchungswert: CodeBewertungUntersuchungswertType,
     #[xml(ns = b"xwas", name = b"parameterauffaelligkeit", ty = "child")]
     pub parameterauffaelligkeit: Option<String>,
-    #[xml(ns = b"xwas", name = b"messunsicherheitUntersuchungswert", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"messunsicherheitUntersuchungswert",
+        ty = "child"
+    )]
     pub messunsicherheit_untersuchungswert: Option<String>,
     #[xml(ns = b"xwas", name = b"bestimmungsgrenzeLoQ", ty = "child")]
     pub bestimmungsgrenze_lo_q: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
 }
-
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct CodeUntersuchterParameter {
@@ -336,7 +345,6 @@ pub struct CodeProbennahmeverfahrenType {
     pub name: Option<String>,
 }
 
-
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeMediumType")]
 pub struct CodeMediumType {
@@ -345,8 +353,6 @@ pub struct CodeMediumType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
 }
-
-
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeAnlassUntersuchungType")]
@@ -365,7 +371,6 @@ pub struct Laenderkuerzel {
     // pub name: String,
 }
 
-
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct Vorname {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -373,7 +378,6 @@ pub struct Vorname {
     // #[xml(name = b"nichtVorhanden", ty = "child")]
     // pub nicht_vorhanden: bool,
 }
-
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct Familienname {
@@ -430,7 +434,6 @@ pub struct KommunikationType {
     pub zusatz: Option<String>,
 }
 
-
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeRegisterType")]
 pub struct CodeRegisterType {
@@ -486,8 +489,6 @@ pub struct CodePraefixType {
     pub name: Option<String>,
 }
 
-
-
 /// Die Behoerdenkennung fasst die Elemente zusammen, über die eine Behörde identifiziert
 /// werden kann. Die "Behoerdenkennung" ist prioritär zur Übermittlung der im DVDV
 /// verzeichneten Behördenschlüssel vorgesehen, kann aber auch für andere
@@ -507,8 +508,6 @@ pub struct BehoerdenkennungType {
     #[xml(ns = b"xwas", name = b"praefix", ty = "child")]
     pub praefix: Vec<CodePraefixType>,
 }
-
-
 
 /// Eine Behörde ist ein Organ eines Verwaltungsträgers, das gegenüber dem
 /// Verwaltungsträger berechtigt ist, mit Außenwirkung Aufgaben öffentlichen Handelns
@@ -530,17 +529,20 @@ pub struct BehoerdeType {
     #[xml(ns = b"xwas", name = b"behoerdenidentifikation", ty = "child")]
     pub behoerdenidentifikation: Option<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"behoerdenname", ty = "child")]
-    pub behoerdenname: Vec<NameOrganisationType>,//Option<NameOrganisationType>,
+    pub behoerdenname: Vec<NameOrganisationType>, //Option<NameOrganisationType>,
     #[xml(ns = b"xwas", name = b"nachgeordneteBehoerde", ty = "child")]
     pub nachgeordnete_behoerde: Vec<BehoerdeType>,
-    #[xml(ns = b"xwas", name = b"verwaltungspolitischeZustaendigkeit", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"verwaltungspolitischeZustaendigkeit",
+        ty = "child"
+    )]
     pub verwaltungspolitische_zustaendigkeit: Vec<VerwaltungspolitischeKodierungType>,
     #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
     pub anschrift: Vec<AnschriftType>,
     #[xml(ns = b"xwas", name = b"organisationsstruktur", ty = "child")]
     pub organisationsstruktur: Vec<OrganisationseinheitType>,
 }
-
 
 /// Angaben zum Registereintrag.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -555,8 +557,6 @@ pub struct RegistrierungType {
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
     pub gueltigkeit: Option<ZeitraumType>,
 }
-
-
 
 /// Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer
 /// Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z.B.
@@ -587,11 +587,10 @@ pub struct OrganisationType {
     pub anschrift: Vec<AnschriftType>,
 }
 
-
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct RegistrierendeBehoerde {
     #[xml(name = b"id", ty = "child")]
-    pub id: String, 
+    pub id: String,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -611,7 +610,6 @@ pub struct CodeStaatType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
 }
-
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeKreisType")]
@@ -658,7 +656,6 @@ pub struct CodeRegionalschluesselType {
     pub name: Option<String>,
 }
 
-
 /// Die Komponente "VerwaltungspolitischeKodierung" beinhaltet Information, die eine
 /// verwaltungspolitisch eindeutige Zuordnung ermöglichen.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -677,7 +674,6 @@ pub struct VerwaltungspolitischeKodierungType {
     #[xml(ns = b"xwas", name = b"nation", ty = "child")]
     pub nation: Option<CodeStaatType>,
 }
-
 
 /// Eine Anschrift beschreibt einen Ort mit den klassischen Ordnungsbegriffen wie Orts-
 /// und Straßennamen sowie ergänzenden Informationen wie Ortsteil und Postfach. Eine
@@ -701,7 +697,7 @@ pub struct AnschriftType {
     #[xml(name = b"hausnummer", ty = "child")]
     pub hausnummer: Option<String>,
     #[xml(name = b"postfach", ty = "child")]
-    pub postfach:  Option<String>,
+    pub postfach: Option<String>,
     #[xml(name = b"postleitzahl", ty = "child")]
     pub postleitzahl: Option<String>,
     #[xml(name = b"ort", ty = "child")]
@@ -722,7 +718,6 @@ pub struct AnschriftType {
     pub verwaltungspolitische_kodierung: Option<VerwaltungspolitischeKodierungType>,
 }
 
-
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct CodeBrancheType {
     // typ xoev-code:Code
@@ -731,7 +726,6 @@ pub struct CodeBrancheType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
 }
-
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeArtProbennahmestelleType")]
@@ -742,7 +736,6 @@ pub struct CodeArtProbennahmestelleType {
     pub name: Option<String>,
 }
 
-
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeAufbereitungsstoffDesinfektionsverfahrenType")]
 pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
@@ -751,8 +744,6 @@ pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
 }
-
-
 
 /// Klasse für den Transport von Informationen zu einer Probennahmestelle.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -774,8 +765,13 @@ pub struct ProbennahmestelleType {
     pub stockwerk_probennahmestelle: Option<u8>,
     #[xml(ns = b"xwas", name = b"mediumAnDerProbennahmestelle", ty = "child")]
     pub medium_an_der_probennahmestelle: Vec<CodeMediumType>,
-    #[xml(ns = b"xwas", name = b"desinfektionUndAufbereitungDesWassers", ty = "child")]
-    pub desinfektion_und_aufbereitung_des_wassers: Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
+    #[xml(
+        ns = b"xwas",
+        name = b"desinfektionUndAufbereitungDesWassers",
+        ty = "child"
+    )]
+    pub desinfektion_und_aufbereitung_des_wassers:
+        Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
     #[xml(ns = b"xwas", name = b"altID", ty = "child")]
     pub alt_id: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
@@ -783,19 +779,16 @@ pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "attr")]
     #[serde(skip)]
     pub _id: ConstStr,
-
 }
 
-
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct CodeZweckType { 
+pub struct CodeZweckType {
     // xoev-code:Code
     #[xml(name = b"code", ty = "child")]
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
 }
-
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeUntersuchungsstelleType")]
@@ -805,7 +798,6 @@ pub struct CodeUntersuchungsstelleType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
 }
-
 
 /// Klasse für den Transport von Informationen zu einer zugelassenen Untersuchungsstelle.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -838,10 +830,13 @@ pub struct ZugelasseneUntersuchungsstelleType {
 pub struct BeauftragteUntersuchungsstelleType {
     #[xml(ns = b"xwas", name = b"zugelasseneUntersuchungsstelle", ty = "child")]
     pub zugelassene_untersuchungsstelle: ZugelasseneUntersuchungsstelleType,
-    #[xml(ns = b"xwas", name = b"kommentarBeauftragteUntersuchungsstelle", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"kommentarBeauftragteUntersuchungsstelle",
+        ty = "child"
+    )]
     pub kommentar_beauftragte_untersuchungsstelle: Option<String>,
 }
-
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"ZugelasseneUntersuchungsstelleType")]
@@ -849,7 +844,6 @@ pub struct OrtDerLabortaetigkeiten {
     #[xml(name = b"id", ty = "attr", value = "H & D GmbH")]
     _id: String,
 }
-
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeGesamtbewertungType")]
@@ -879,7 +873,7 @@ pub struct CodeAmtsspracheEUType {
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"erweiterungXMLType")]
 pub struct ErweiterungXmlType {
-    // weiteres xml schema 
+    // weiteres xml schema
     #[xml(ns = b"xwas", name = b"any", ty = "child")]
     pub any: Vec<String>,
 }
@@ -892,7 +886,6 @@ pub struct CodeDatentypType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
 }
-
 
 /// Ein Feld ist ein anwendungsspezifisches Metadatum. Die Konfiguration eines Feldes
 /// muss zwischen den Kommunikationspartnern abgesprochen sein.
@@ -909,7 +902,6 @@ pub struct ErweiterungFeldType {
     pub wert: String,
 }
 
-
 /// Eine Erweiterungsgruppe fasst mehrere Felder (Metadaten) zu einem Objekt zusammen .
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"erweiterungGruppeType")]
@@ -923,7 +915,6 @@ pub struct ErweiterungGruppeType {
     #[xml(ns = b"xwas", name = b"feld", ty = "child")]
     pub feld: Vec<ErweiterungFeldType>,
 }
-
 
 /// Die Klasse Erweiterung dient zur Übertragung generischer Informationen. Die
 /// Verwendung ist für folgende Fälle vorgesehen: Es müssen zeitnah Informationen
@@ -943,8 +934,6 @@ pub struct ErweiterungType {
     pub xml: Option<ErweiterungXmlType>,
 }
 
-
-
 /// Klasse zur Erfassung bzw. zum Transport der Daten eines Prüfberichts. Prüfberichte
 /// werden erstellt, nachdem eine Wasserprobe im Labor analysiert wurde.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -956,11 +945,23 @@ pub struct PruefberichtType {
     pub untersuchungsplan_id: Option<String>,
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
     pub probennahmestelle: Vec<ProbennahmestelleType>,
-    #[xml(ns = b"xwas", name = b"nameBeauftragteUntersuchungsstelle", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"nameBeauftragteUntersuchungsstelle",
+        ty = "child"
+    )]
     pub name_beauftragte_untersuchungsstelle: CodeNameBeauftragteUntersuchungsstelle,
-    #[xml(ns = b"xwas", name = b"pruefberichtEnthaeltTeilergebnisse", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"pruefberichtEnthaeltTeilergebnisse",
+        ty = "child"
+    )]
     pub pruefbericht_enthaelt_teilergebnisse: Option<bool>,
-    #[xml(ns = b"xwas", name = b"pruefgerichtGemVorgabenAkkredition", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"pruefgerichtGemVorgabenAkkredition",
+        ty = "child"
+    )]
     pub pruefgericht_gem_vorgaben_akkredition: bool,
     #[xml(ns = b"xwas", name = b"titel", ty = "child")]
     pub titel: String,
@@ -970,7 +971,11 @@ pub struct PruefberichtType {
     pub auffaelligkeiten: Vec<String>,
     #[xml(ns = b"xwas", name = b"zeitpunktValidierungPruefbericht", ty = "child")]
     pub zeitpunkt_validierung_pruefbericht: String, //datetime
-    #[xml(ns = b"xwas", name = b"fuerValidierungVerantwortlichePerson", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"fuerValidierungVerantwortlichePerson",
+        ty = "child"
+    )]
     pub fuer_validierung_verantwortliche_person: Vec<NatuerlichePersonType>,
     #[xml(ns = b"xwas", name = b"freigabeUebermittlungBetreiber", ty = "child")]
     pub freigabe_uebermittlung_betreiber: Option<bool>,
@@ -1013,7 +1018,11 @@ pub struct CodeWasserversorgungsgebietType {
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"geokoordinatenShapthType")]
 pub struct GeokoordinatenShapthType {
-    #[xml(ns = b"xwas", name = b"geografischePositionUndAusdehnung", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"geografischePositionUndAusdehnung",
+        ty = "child"
+    )]
     pub geografische_position_und_ausdehnung: Option<String>, // xs:base64Binary
     #[xml(ns = b"xwas", name = b"nameShapefile", ty = "child")]
     pub name_shapefile: Option<String>,
@@ -1063,17 +1072,24 @@ pub struct CodeAbhilfemassnahmeType {
     pub name: Option<String>,
 }
 
-
 /// Transport von Informationen, die für die Maßnahmen zur Ausnahmeregelungen gem. de
 /// neuen Vorgaben für das EU-Berichtsformat benötigt werden.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"DerogationRemedialActionType")]
 pub struct DerogationRemedialActionType {
-    #[xml(ns = b"xwas", name = b"derogationRemedialActionIdentifier", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"derogationRemedialActionIdentifier",
+        ty = "child"
+    )]
     pub derogation_remedial_action_identifier: String, // xs:ID
     #[xml(ns = b"xwas", name = b"derogationRemedialAction", ty = "child")]
     pub derogation_remedial_action: CodeAbhilfemassnahmeType,
-    #[xml(ns = b"xwas", name = b"derogationRemedialActionStartDate", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"derogationRemedialActionStartDate",
+        ty = "child"
+    )]
     pub derogation_remedial_action_start_date: String,
     #[xml(ns = b"xwas", name = b"derogationRemedialActionEndDate", ty = "child")]
     pub derogation_remedial_action_end_date: String,
@@ -1113,13 +1129,16 @@ pub struct CodeArtProbennahmestelleEUType {
     pub name: Option<String>,
 }
 
-
 /// Transport der Informationen, die für Qualität und Überwachung gem. dem neuen Vorgaben
 /// für das EU-Berichtsformat benötigt werden.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"QualityAndMonitoringType")]
 pub struct QualityAndMonitoringType {
-    #[xml(ns = b"xwas", name = b"qualityAndMonitoringRequirementIdentifier", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"qualityAndMonitoringRequirementIdentifier",
+        ty = "child"
+    )]
     pub quality_and_monitoring_requirement_identifier: String, // bn-uq-g2g:UUID
     #[xml(ns = b"xwas", name = b"parameterCode", ty = "child")]
     pub parameter_code: CodeShapthParameterType,
@@ -1168,7 +1187,7 @@ pub struct DerogationType {
     #[xml(ns = b"xwas", name = b"previousDerogationIdentifier", ty = "child")]
     pub previous_derogation_identifier: Option<String>, // xs:IDREF
     #[xml(ns = b"xwas", name = b"previousDerogationConclusions", ty = "child")]
-    pub previous_derogation_conclusions: Option<String>, 
+    pub previous_derogation_conclusions: Option<String>,
     #[xml(ns = b"xwas", name = b"previousDerogationStartDate", ty = "child")]
     pub previous_derogation_start_date: Option<String>, // xs:date
     #[xml(ns = b"xwas", name = b"previousDerogationEndDate", ty = "child")]
@@ -1204,19 +1223,26 @@ pub struct CodeIncidentExceedanceCauseType {
     pub name: Option<String>,
 }
 
-
 /// Klasse für den Transport von Informationen, die für Ursachen und Maßnahmen von
 /// Überschreitungen gem. den neuen Vorgaben für das EU-Berichtsformat benötigt werden.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"ExceedanceCauseAndRemedialActionType")]
 pub struct ExceedanceCauseAndRemedialActionType {
-    #[xml(ns = b"xwas", name = b"exceedanceCauseAndRemedialActionIdentifier", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"exceedanceCauseAndRemedialActionIdentifier",
+        ty = "child"
+    )]
     pub exceedance_cause_and_remedial_action_identifier: String, // bn-uq-g2g:UUID
     #[xml(ns = b"xwas", name = b"exceedanceCause", ty = "child")]
     pub exceedance_cause: CodeIncidentExceedanceCauseType,
     #[xml(ns = b"xwas", name = b"exceedanceRemedialAction", ty = "child")]
     pub exceedance_remedial_action: CodeMassnahmeType,
-    #[xml(ns = b"xwas", name = b"exceedanceRemedialActionStartDate", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"exceedanceRemedialActionStartDate",
+        ty = "child"
+    )]
     pub exceedance_remedial_action_start_date: String, // xs:date
     #[xml(ns = b"xwas", name = b"exceedanceRemedialActionEndDate", ty = "child")]
     pub exceedance_remedial_action_end_date: String, // xs:date
@@ -1226,7 +1252,6 @@ pub struct ExceedanceCauseAndRemedialActionType {
     #[serde(skip)]
     pub _id: ConstStr,
 }
-
 
 /// Klasse für den Transport von Informationen, die für Überschreitungen gem. den neuen
 /// Vorgaben für das EU-Berichtsformat benötigt werden.
@@ -1296,7 +1321,6 @@ pub struct IncidentCauseAndRemedialActionType {
     pub _id: ConstStr,
 }
 
-
 /// Klasse für den Transport von Informationen, die für Vorfälle gem. den neuen Vorgaben
 /// für das EU-Berichtsformat benötigt werden.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1322,7 +1346,6 @@ pub struct IncidentType {
     #[serde(skip)]
     pub _id: ConstStr,
 }
-
 
 /// Klasse für den Transport von Informationen zu einem Wasserversorgungsgebiet [Soweit
 /// möglich in Register zu pflegen].
@@ -1359,9 +1382,17 @@ pub struct WasserversorgungsgebietType {
     pub art_der_wasserressource: Vec<CodeArtWasserressourceType>,
     #[xml(ns = b"xwas", name = b"anteilDerWasserressource", ty = "child")]
     pub anteil_der_wasserressource: Vec<u32>,
-    #[xml(ns = b"xwas", name = b"vorgeschriebeneUntersuchungshaeufigkeitParameterA", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"vorgeschriebeneUntersuchungshaeufigkeitParameterA",
+        ty = "child"
+    )]
     pub vorgeschriebene_untersuchungshaeufigkeit_parameter_a: u32,
-    #[xml(ns = b"xwas", name = b"vorgeschriebeneUntersuchungshaeufigkeitParameterB", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"vorgeschriebeneUntersuchungshaeufigkeitParameterB",
+        ty = "child"
+    )]
     pub vorgeschriebene_untersuchungshaeufigkeit_parameter_b: u32,
     #[xml(ns = b"xwas", name = b"altID", ty = "child")]
     pub alt_id: Option<String>,
@@ -1450,8 +1481,6 @@ pub struct CodeUeberwachungAufbereitungType {
     pub name: Option<String>,
 }
 
-
-
 /// Klasse für den Transport von Informationen, die für die Erstellung von Terminplänen
 /// als Teil des Untersuchungsplans für a- und b-Anlagen relevant sind.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1465,7 +1494,11 @@ pub struct TerminplanType {
     pub datum_zeitraum: Vec<String>,
     #[xml(ns = b"xwas", name = b"probennahmestelleKategorie", ty = "child")]
     pub probennahmestelle_kategorie: CodeKategorieProbennahmestelleType,
-    #[xml(ns = b"xwas", name = b"weitereBeschreibungDerProbennahmestelle", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"weitereBeschreibungDerProbennahmestelle",
+        ty = "child"
+    )]
     pub weitere_beschreibung_der_probennahmestelle: Option<String>,
     #[xml(ns = b"xwas", name = b"untersuchungDurch", ty = "child")]
     pub untersuchung_durch: Vec<CodeUeberwachungAufbereitungType>,
@@ -1527,7 +1560,6 @@ pub enum ArtDerPerson {
     #[default]
     #[xml(ns = b"xwas", name = b"unknown")]
     None,
-
 }
 
 /// Klasse zum Transport von Informationen zu einem Betreiber einer WVA [Soweit möglich
@@ -1563,7 +1595,11 @@ pub struct ObjektType {
     pub datum_in_betriebnahme: Option<String>,
     #[xml(ns = b"xwas", name = b"datumAusserBetriebnahme", ty = "child")]
     pub datum_ausser_betriebnahme: Option<String>,
-    #[xml(ns = b"xwas", name = b"rahmenDerTrinkwasserbereitstellung", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"rahmenDerTrinkwasserbereitstellung",
+        ty = "child"
+    )]
     pub rahmen_der_trinkwasserbereitstellung: Vec<CodeRahmenTrinkwasserbereitstellungType>,
     #[xml(ns = b"xwas", name = b"geokoordinatenObjekt", ty = "child")]
     pub geokoordinaten_objekt: GeokoordinatenShapthType,
@@ -1576,7 +1612,6 @@ pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"objekt_probennahmestelle", ty = "child")]
     pub objekt_probennahmestelle: Vec<ProbennahmestelleType>,
 }
-
 
 /// Klasse für den Transport von Informationen zu einer Trinkwasserversorgungsanlage.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1592,9 +1627,17 @@ pub struct AnlageNachTrinkwVType {
     pub art_anlage: CodeArtTrinkwasseranlageType,
     #[xml(ns = b"xwas", name = b"nameDerAnlage", ty = "child")]
     pub name_der_anlage: String,
-    #[xml(ns = b"xwas", name = b"abgegebeneWassermengeDerAnlageProTag", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"abgegebeneWassermengeDerAnlageProTag",
+        ty = "child"
+    )]
     pub abgegebene_wassermenge_der_anlage_pro_tag: Option<f64>,
-    #[xml(ns = b"xwas", name = b"anzahlDurchAnlageVersorgtePersonen", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"anzahlDurchAnlageVersorgtePersonen",
+        ty = "child"
+    )]
     pub anzahl_durch_anlage_versorgte_personen: Option<u32>,
     #[xml(ns = b"xwas", name = b"altID", ty = "child")]
     pub alt_id: Option<String>,
@@ -1605,7 +1648,6 @@ pub struct AnlageNachTrinkwVType {
     #[xml(ns = b"xwas", name = b"anlageNachTrinwV_Objekt", ty = "child")]
     pub anlage_nach_trinw_v_objekt: Vec<ObjektType>,
 }
-
 
 /// Klasse für den Transport von Informationen, die für die Erstellung eines
 /// Untersuchungsplans für a- und b-Anlagen relevant sind.
@@ -1630,7 +1672,11 @@ pub struct UntersuchungsplanType {
     pub oberflaechenwassereinfluss: bool,
     #[xml(ns = b"xwas", name = b"desinfektionDurchgefuehrtMit", ty = "child")]
     pub desinfektion_durchgefuehrt_mit: CodeDesinfektionsartType,
-    #[xml(ns = b"xwas", name = b"abfuellungZurAbgabeInVerschlossenenBehaeltnissen", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"abfuellungZurAbgabeInVerschlossenenBehaeltnissen",
+        ty = "child"
+    )]
     pub abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen: bool,
     #[xml(ns = b"xwas", name = b"acrylamid", ty = "child")]
     pub acrylamid: CodeNachweisartType,
@@ -1642,11 +1688,19 @@ pub struct UntersuchungsplanType {
     pub ph_wert_wasserwerksausgang: bool,
     #[xml(ns = b"xwas", name = b"wasserabgabeVorjahrProTag", ty = "child")]
     pub wasserabgabe_vorjahr_pro_tag: f64,
-    #[xml(ns = b"xwas", name = b"anzahlUntersuchungenproJahrGruppeA", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"anzahlUntersuchungenproJahrGruppeA",
+        ty = "child"
+    )]
     pub anzahl_untersuchungenpro_jahr_gruppe_a: u32,
     #[xml(ns = b"xwas", name = b"abzudeckenDurchBetreiberGruppeA", ty = "child")]
     pub abzudecken_durch_betreiber_gruppe_a: Option<u32>,
-    #[xml(ns = b"xwas", name = b"anzahlUntersuchungenproJahrGruppeB", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"anzahlUntersuchungenproJahrGruppeB",
+        ty = "child"
+    )]
     pub anzahl_untersuchungenpro_jahr_gruppe_b: u32,
     #[xml(ns = b"xwas", name = b"abzudeckenDurchBetreiberGruppeB", ty = "child")]
     pub abzudecken_durch_betreiber_gruppe_b: Option<u32>,
@@ -1669,7 +1723,6 @@ pub struct UntersuchungsplanType {
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
     pub erweiterung: Option<ErweiterungType>,
 }
-
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeAuftraggeberartType")]
@@ -1720,7 +1773,6 @@ pub struct AuftraggeberType {
     pub auftraggeber: Auftraggeber,
 }
 
-
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct CodeNameBeauftragteUntersuchungsstelle {
     #[xml(name = b"code", ty = "child")]
@@ -1738,7 +1790,6 @@ pub struct CodeLaenderkennzeichenType {
     pub name: Option<String>,
 }
 
-
 /// Klasse für den Transport von Informationen zu einer Zuständigen Behörde [Ergänzende
 /// Angaben zu einer im Register Behörden gepflegte Behörde].
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1755,7 +1806,6 @@ pub struct ZustaendigeBehoerdeType {
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
 }
-
 
 /// Der AllgemeineName dient der Darstellung von Vor- und Nachnamen und fasst deren
 /// gemeinsame Eigenschaften zusammen.
@@ -1839,7 +1889,6 @@ pub struct CodeAuskunftssperreType {
     pub name: Option<String>,
 }
 
-
 /// Der Zeitraum kennzeichnet einen Abschnitt auf einem Zeitstrahl durch Angabe von
 /// Beginn und/oder Ende.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1863,7 +1912,6 @@ pub struct AuskunftssperreType {
     pub gueltigkeit: Option<ZeitraumType>,
 }
 
-
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeFamilienstandType")]
 pub struct CodeFamilienstandType {
@@ -1872,7 +1920,6 @@ pub struct CodeFamilienstandType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
 }
-
 
 /// Unter "Geburt" werden geburtsbezogene Informationen zusammengefasst.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1942,9 +1989,7 @@ pub struct CodeVertretungsartType {
     pub code: String,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
-
 }
-
 
 /// Mit diesem Datentyp wird ein gesetzlicher Vertreter oder ein Bevollmächtigter einer
 /// nichtnatürlichen Person abgebildet.
@@ -1965,7 +2010,6 @@ pub struct CodeFamilienstandBeendigungsgrundType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
 }
-
 
 /// Hier werden Angaben zum Familienstand einer natürlichen Person zusammengefasst.
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -2001,7 +2045,6 @@ pub struct StaatType {
     pub staat: CodeStaatType,
 }
 
-
 /// Ein Ausweis ist eine öffentliche oder private Urkunde, die die Identität des Inhabers
 /// schriftlich und offiziell darstellt. Er enthält meist persönliche Daten.
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -2019,6 +2062,42 @@ pub struct AusweisdokumentType {
     pub ausstellender_staat: Option<StaatType>,
 }
 
+/// Dieses Objekt umfasst die allgemeinen Angaben zu einer juristischen Person des
+/// privaten oder öffentlichen Rechts. Unter juristischen Personen werden sowohl die
+/// Körperschaften des Privatrechts (Gesellschaft mit beschränkter Haftung,
+/// Aktiengesellschaft, Kommanditgesellschaft auf Aktien, eingetragener Verein,
+/// Genossenschaft) als auch öffentlich-rechtliche Körperschaften (Gebietskörperschaften,
+/// Selbstverwaltungskörperschaften, sonstige Körperschaften des öffentlichen Rechts)
+/// erfasst. Die konkrete Rechtsform der juristischen Person kann mittels einer Codeliste
+/// angegeben werden.
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"juristischePersonType")]
+pub struct JuristischePersonType {
+    #[xml(
+        ns = b"xwas",
+        name = b"bundeseinheitlicheWirtschaftsnummer",
+        ty = "child"
+    )]
+    pub bundeseinheitliche_wirtschaftsnummer: Option<String>,
+    #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
+    pub rechtsform: Option<CodeRechtsformenType>,
+    #[xml(ns = b"xwas", name = b"eingetragenerName", ty = "child")]
+    pub eingetragener_name: Option<String>,
+    #[xml(ns = b"xwas", name = b"eintragung", ty = "child")]
+    pub eintragung: Option<String>,
+    #[xml(ns = b"xwas", name = b"geschaeftsbezeichnung", ty = "child")]
+    pub geschaeftsbezeichnung: Option<String>,
+    #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
+    pub anschrift: Vec<AnschriftType>,
+    #[xml(ns = b"xwas", name = b"sitz", ty = "child")]
+    pub sitz: Option<String>,
+    #[xml(ns = b"xwas", name = b"effektiverVerwaltungssitz", ty = "child")]
+    pub effektiver_verwaltungssitz: Option<String>,
+    #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
+    pub kommunikation: Vec<KommunikationType>,
+    #[xml(ns = b"xwas", name = b"vertreterBevollmaechtigter", ty = "child")]
+    pub vertreter_bevollmaechtigter: Vec<VertreterBevollmaechtigterType>,
+}
 
 /// Eine natürliche Person ist der Mensch in seiner Rolle als Rechtssubjekt, d. h. als
 /// Träger von Rechten und Pflichten. Mit der Vollendung seiner Geburt wird ein Mensch
@@ -2056,6 +2135,41 @@ pub struct NatuerlichePersonType {
     pub fremdsprache: Vec<SpracheType>,
     #[xml(name = b"vertreterBevollmaechtigter", ty = "child")]
     pub vertreter_bevollmaechtigter: Vec<VertreterBevollmaechtigterType>,
+}
+
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[serde(tag = "t", content = "c")]
+pub enum Person {
+    #[xml(ns = b"xwas", name = b"natuerlichePerson")]
+    NatuerlichePerson(NatuerlichePersonType),
+    #[xml(ns = b"xwas", name = b"juristischePerson", ty = "child")]
+    JuristischePerson(JuristischePersonType),
+    #[default]
+    #[xml(ns = b"xwas", name = b"unknown")]
+    None,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codePersonenrolleType")]
+pub struct CodePersonenrolleType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+}
+
+/// Mit diesem Datentyp wird eine allgemeine Person, natürlich oder nichtnatürlich,
+/// spezifiziert
+/// dieser Datentype wird bisher nirgends verwendet
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"PersonType")]
+pub struct PersonType {
+    #[xml(ns = b"xwas", name = b"personRolle", ty = "child")]
+    pub person_rolle: Vec<CodePersonenrolleType>,
+    #[xml(ns = b"xwas", name = b"dokumentReferenzID", ty = "child")]
+    pub dokument_referenz_id: Vec<String>,
+    #[xml(ns = b"xwas", name = b"person", ty = "child")]
+    pub person: Person,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -2105,8 +2219,6 @@ pub struct CodeProbengefaessType {
     pub name: Option<String>,
 }
 
-
-
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeProbenbewertungType")]
 pub struct CodeProbenbewertungType {
@@ -2115,7 +2227,6 @@ pub struct CodeProbenbewertungType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
 }
-
 
 /// Klasse zum Transport von Informationen, welche über eine Probe vorliegen sollen, die
 /// im Rahmen eines Prüfberichts via SHAPTH übermittelt wird.
@@ -2147,12 +2258,17 @@ pub struct ProbeType {
     #[xml(name = b"desinfektionProbenentnahmegeraetDurchgefuehrt", ty = "child")]
     pub desinfektion_probenentnahmegeraet_durchgefuehrt: Option<bool>,
     #[xml(name = b"konservierungAufbereitungDesinfektionProbe", ty = "child")]
-    pub konservierung_aufbereitung_desinfektion_probe: Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
+    pub konservierung_aufbereitung_desinfektion_probe:
+        Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
     #[xml(ns = b"xwas", name = b"kommentarZurProbennahme", ty = "child")]
     pub kommentar_zur_probennahme: String,
     #[xml(name = b"informationenZumProbentransport", ty = "child")]
     pub informationen_zum_probentransport: Option<String>,
-    #[xml(ns = b"xwas", name = b"eingangProbeBeiUntersuchungsstelle", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"eingangProbeBeiUntersuchungsstelle",
+        ty = "child"
+    )]
     pub eingang_probe_bei_untersuchungsstelle: String, //xs dateTime
     #[xml(ns = b"xwas", name = b"beginnAnalytik", ty = "child")]
     pub beginn_analytik: String, //datetime
@@ -2196,7 +2312,6 @@ pub struct SignaturenType {
     pub signatur_dokument_id: Vec<String>,
 }
 
-
 /// Dokument-Repräsentation, eine Darstellungsform des Dokumentes. Es muss das Element
 /// content oder die Elemente externalReferenceIndex und externalReferenceType oder alle
 /// 3 vorhanden sein.
@@ -2219,7 +2334,6 @@ pub struct DokumentRepraesentationType {
     pub signaturen: Option<SignaturenType>,
 }
 
-
 /// Eine zum Antrag gehörige Unterlage in verschiedenen Dokumentendarstellungen, z. B.
 /// PDF oder eine Datendarstellung. Es muss immer das komplette Dokument mit allen
 /// Darstellungen übertragen werden.
@@ -2240,7 +2354,6 @@ pub struct DokumentType {
     pub person_referenz_id: Vec<String>,
 }
 
-
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[serde(tag = "t", content = "c")]
 pub enum VorgangType {
@@ -2256,7 +2369,6 @@ pub enum VorgangType {
 }
 
 extern crate raxb as _raxb;
-
 
 #[wasm_bindgen]
 pub fn create_quality_report_xml(data: QualityReport) -> Result<String, JsValue> {
@@ -2282,7 +2394,7 @@ mod test {
             ..Default::default()
         };
         eprintln!("{}", serde_json::to_string_pretty(&v).unwrap());
-        
+
         // serde_json::json!({
 
         // })

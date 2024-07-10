@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import {
+  JuristischePersonType,
   NachrichtenTyp,
   GeburtType,
   AlternativeRepraesentationType,
@@ -776,6 +777,20 @@ function dokumentRepraesentationType():DokumentRepraesentationType {
     }
 }
 
+function juristischePersonType(): JuristischePersonType {
+  return {
+    bundeseinheitliche_wirtschaftsnummer: "bundeseinheitliche_wirtschaftsnummer",
+    rechtsform: code("CodeRechtsformenType","1234"),
+    eingetragener_name: "eingetragener_name",
+    eintragung: "eintragung",
+    geschaeftsbezeichnung: "geschaeftsbezeichnung",
+    anschrift: [anschriftType()],
+    sitz: "sitz",
+    effektiver_verwaltungssitz: "effektiver_verwaltungssitz",
+    kommunikation: [kommunikationType("text", true, "zusatz")],
+    vertreter_bevollmaechtigter: [vertreterBevollmaechtigterType()],
+  }
+}
 
 function dokumentType():DokumentType {
     return {
