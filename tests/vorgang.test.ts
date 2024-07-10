@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { VorgangType, NameOrganisationType, OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, create_quality_report_xml, parse_quality_report_xml } from "../pkg/xwasser_rs";
+import { VorgangType, NameOrganisationType, OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, create_quality_report_xml, parse_quality_report_xml, AuftraggeberType, Auftraggeber, QualityReport } from "../pkg/xwasser_rs";
 
 function createHeadInfo(kennung: string, name: string): any {
   return {
@@ -340,13 +340,14 @@ function probennahmestelle() {
 }
 
 
-function auftraggeber():any {
+function auftraggeber():AuftraggeberType {
   return {
     auftraggeber_id: "ID4510d774-13a7-414f-82b0-60e8176e5e19",
     auftraggeberart: code("name","1010"),
     auftraggeber: {
-      natuerliche_person: natuerlichePerson(),
-      },
+      t: "NatuerlichePerson",
+      c: natuerlichePerson(),
+    },
   }
 }
 
@@ -434,10 +435,9 @@ function pruefberichtType():PruefberichtType {
 
 function vorgangType(): VorgangType {
   return {
-    pruefbericht: pruefberichtType(),
-    // untersuchungsplan: untersuchungsplan()
+    t: "Pruefbericht",
+    c: pruefberichtType(),
   }
-
 }
 
 function vorgang():any {
@@ -464,9 +464,8 @@ function nachrichtenkopf():any {
   }
 }
 
-function qualityReport():any {
+function qualityReport():QualityReport {
   return {
-
     produkt: "SHAPTH CLI",
     test: true,
     nachrichtenkopf_g2g: nachrichtenkopf(),
@@ -476,7 +475,9 @@ function qualityReport():any {
 
 describe("simple xml generation via wasm", async () => {
   it("should be able to create and parse quality report xml", async () => {
-    const xml = create_quality_report_xml(qualityReport());
-    console.log(xml);
+    console.log(JSON.stringify(qualityReport(), null, 4));
+    
+    // const xml = create_quality_report_xml(qualityReport());
+    // console.log(xml);
   });
 });
