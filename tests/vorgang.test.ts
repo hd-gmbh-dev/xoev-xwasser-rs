@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { VorgangType, NameOrganisationType, OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, create_quality_report_xml, parse_quality_report_xml, AuftraggeberType, Auftraggeber, QualityReport } from "../pkg/xwasser_rs";
+import {BetreiberType, ObjektType,IncidentCauseAndRemedialActionType, IncidentType, ExceedanceCauseAndRemedialActionType, ExceedanceType, QualityAndMonitoringType, DerogationRemedialActionType, DerogationType, GeokoordinatenShapthType, WasserversorgungsgebietType, AnlageNachTrinkwVType, TerminplanType, UntersuchungsplanType, VorgangType, NameOrganisationType, OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, create_quality_report_xml, parse_quality_report_xml, AuftraggeberType, Auftraggeber, QualityReport, ArtDerPerson } from "../pkg/xwasser_rs";
 
 function createHeadInfo(kennung: string, name: string): any {
   return {
@@ -339,15 +339,20 @@ function probennahmestelle() {
   }
 }
 
+function auftraggeber(): Auftraggeber {
+  return {
+      t: "NatuerlichePerson",
+      c: natuerlichePerson(),
+  }
 
-function auftraggeber():AuftraggeberType {
+}
+
+
+function auftraggeberType():AuftraggeberType {
   return {
     auftraggeber_id: "ID4510d774-13a7-414f-82b0-60e8176e5e19",
     auftraggeberart: code("name","1010"),
-    auftraggeber: {
-      t: "NatuerlichePerson",
-      c: natuerlichePerson(),
-    },
+    auftraggeber: auftraggeber(),
   }
 }
 
@@ -418,7 +423,7 @@ function pruefberichtType():PruefberichtType {
     rechtlicher_disclaimer: "",
     zeitpunkt_uebermittlung_an_shapth: "2024-05-28T09:11:00",
     kommentar: "kommentar",
-    auftraggeber: auftraggeber(),
+    auftraggeber: auftraggeberType(),
     zustaendige_behoerde: [zustaendigeBehoerde()],
     beauftragte_untersuchungsstelle: beauftragteUntersuchungsstelle(),
     ort_der_labortaetigkeiten: [anschrift()],
@@ -427,16 +432,247 @@ function pruefberichtType():PruefberichtType {
   }
 }
 
-// function untersuchungsplan(): UntersuchungsplanType { 
-//   return {
+function terminplanType(): TerminplanType {
+    return { 
+      terminplan_id: "terminplan_id",
+      probennahmestelle_id: "probennahmestelle_id",
+      datum_zeitraum: ["datum_zeitraum"],
+      probennahmestelle_kategorie: code("CodeKategorieProbennahmestelleType","1234"),
+      weitere_beschreibung_der_probennahmestelle: "weitere_beschreibung_der_probennahmestelle",
+      untersuchung_durch: [code("CodeUeberwachungAufbereitungType","1234")],
+      zu_untersuchende_parameter: [code("CodeShapthParameterType","1234")],
+      probennahmeverfahren: [code("CodeProbennahmeverfahrenType","1234")],
+      kommentar: "kommentar", 
+    }
+}
 
-//   }
-// }
+function geokoordinatenShapthType():GeokoordinatenShapthType {
+  return {
+    geografische_position_und_ausdehnung: "geografische_position_und_ausdehnung",
+    name_shapefile: "name_shapefile",
+    geokoordinaten_breitengrad: 1.11,
+    geokoordinaten_laengengrad: 1.11,
+    geokoordinaten_rechtswert: 1,
+    geokoordinaten_hochwert: 1,
+  }
+}
+
+function derogationRemedialActionType():DerogationRemedialActionType {
+    return {
+      derogation_remedial_action_identifier: "derogation_remedial_action_identifier",
+      derogation_remedial_action: code("CodeAbhilfemassnahmeType","1234"),
+      derogation_remedial_action_start_date: "derogation_remedial_action_start_date",
+      derogation_remedial_action_end_date: "derogation_remedial_action_end_date",
+      derogation_remedial_action_cost: 1.11,
+      remarks: "remarks",
+    }
+}
+
+function qualityAndMonitoringType():QualityAndMonitoringType {
+  return {
+    quality_and_monitoring_requirement_identifier: "quality_and_monitoring_requirement_identifier",
+    parameter_code: code("CodeShapthParameterType","1234"),
+    parameter_threshold_value: 1.11,
+    parameter_threshold_value_unit: code("CodeShapthParameterEinheitType","1234"),
+    sampling_frequency: 1,
+    sampling_period: code("CodeProbennahmezeitraumType","1234"),
+    sampling_location_type: [code("CodeArtProbennahmestelleEUType","1234")],
+    remarks: "remarks",
+  }
+}
+
+function derogationType():DerogationType {
+  return {
+    derogation_identifier: "derogation_identifier",
+    trivial_derogation: true,
+    trivial_derogation_justification: "trivial_derogation_justification",
+    derogation_start_date: "derogation_start_date",
+    derogation_end_date: "derogation_end_date",
+    volume_of_water_supplied: 1.11,
+    derogation_affected_population: 1,
+    food_production_affected: true,
+    derogation_under_recast_dwd: true,
+    derogation_grounds: code("CodeGrundAusnahmeregelungType","1234"),
+    previous_derogation_identifier: "previous_derogation_identifier",
+    previous_derogation_conclusions: "previous_derogation_conclusions",
+    previous_derogation_start_date: "previous_derogation_start_date",
+    previous_derogation_end_date: "previous_derogation_end_date",
+    previous_derogation_grounds: code("CodeGrundAusnahmeregelungType","1234"),
+    remarks: "remarks",
+    derogation_remedial_action: [derogationRemedialActionType()],
+    quality_and_monitoring: [qualityAndMonitoringType()],
+  }
+}
+
+function exceedanceCauseAndRemedialActionType():ExceedanceCauseAndRemedialActionType {
+  return {
+    exceedance_cause_and_remedial_action_identifier: "exceedance_cause_and_remedial_action_identifier",
+    exceedance_cause: code("CodeIncidentExceedanceCauseType","1234"),
+    exceedance_remedial_action: code("CodeMassnahmeType","1234"),
+    exceedance_remedial_action_start_date: "exceedance_remedial_action_start_date",
+    exceedance_remedial_action_end_date: "exceedance_remedial_action_end_date",
+    remarks: "remarks",
+  }
+}
+
+function exceedanceType():ExceedanceType {
+  return {
+    exceedance_identifier: "exceedance_identifier",
+    trivial_exceedance: true,
+    trivial_exceedance_justification: "trivial_exceedance_justification",
+    parameter_code: code("CodeShapthParameterType","1234"),
+    exceedance_start_date: "exceedance_start_date",
+    exceedance_end_date: "exceedance_end_date",
+    exceedance_affected_population: 1,
+    point_of_compliance_type: [code("CodeArtProbennahmestelleEUType","1234")],
+    number_of_samples_per_year: 1,
+    incident_identifier: "incident_identifier",
+    derogation_identifier: "derogation_identifier",
+    remarks: "remarks",
+    exceedance_cause_and_remedial_action: [exceedanceCauseAndRemedialActionType()],
+  }
+}
+
+function incidentCauseAndRemedialActionType():IncidentCauseAndRemedialActionType {
+  return {
+    incident_cause_and_action_identifier: "incident_cause_and_action_identifier",
+    incident_cause: code("CodeIncidentExceedanceCauseType","1234"),
+    incident_remedial_action: code("CodeMassnahmeType","1234"),
+    incident_remedial_action_start_date: "incident_remedial_action_start_date",
+    incident_remedial_action_end_date: "incident_remedial_action_end_date",
+    remarks: "remarks",
+  }
+}
+
+function incidentType():IncidentType {
+  return {
+    incident_identifier: "incident_identifier",
+    exceedance: ["exceedanceString"],
+    incident_start_date: "incident_start_date",
+    incident_end_date: "incident_end_date",
+    incident_category: [code("CodeIncidentCategoryType","1234")],
+    incident_affected_population: 1,
+    remarks: "remarks",
+    incident_cause_and_remedial_action: [incidentCauseAndRemedialActionType()],
+  }
+}
+
+function wasserversorgungsgebietType(): WasserversorgungsgebietType {
+  return {
+    wasserversorgungsgebiet_id: "wasserversorgungsgebiet_id",
+    name_wasserversorgungsgebiet: code("CodeWasserversorgungsgebietType","1234"),
+    lau2_code: "lau2_code",
+    zustaendige_behoerde: [zustaendigeBehoerde()],
+    geokoordinaten_shapth: geokoordinatenShapthType(),
+    datum_der_einrichtung: "datum_der_einrichtung",
+    datum_der_schliessung: "datum_der_schliessung",
+    grund_der_schliessung: code("CodeGrundSchliessungWasserversorgungsgebietType","11234"),
+    nachfolger_wvg_bei_schliessung: ["nachfolger_wvgbei_schliessung"],
+    wvg_fremdbezogen: ["wvg_fremdbezogenString"],
+    abgegebene_wassermenge: 1.11,
+    anzahl_versorgte_personen_wvg: 1,
+    referenzjahr_angaben_wvg: 1,
+    art_der_wasserressource: [code("CodeArtWasserressourceType","1234")],
+    anteil_der_wasserressource: [1],
+    vorgeschriebene_untersuchungshaeufigkeit_parameter_a: 1,
+    vorgeschriebene_untersuchungshaeufigkeit_parameter_b: 1,
+    alt_id: "alt_id",
+    kommentar: "kommentar",
+    derogation: [derogationType()],
+    exceedance: [exceedanceType()],
+    incident: [incidentType()],
+  }
+}
+
+function artDerPerson(): ArtDerPerson {
+  return {
+    t: "NatuerlichePerson",
+    c: natuerlichePerson(),
+  }
+}
+
+function betreiberType():BetreiberType {
+  return {
+    betreiber_id: "betreiber_id",
+    art_der_person: artDerPerson(),
+    kommentar: "kommentar",
+  }
+}
+
+function objektType():ObjektType {
+  return {
+    objekt_id: "objekt_id",
+    wasserversorgungsgebiet: "wasserversorgungsgebiet",
+    anschrift_objekt: [anschrift()],
+    art_objekt: code("CodeArtObjektType","1234"),
+    name_objekt: "name_objekt",
+    betriebszustand_des_objekts: code("CodeBetriebszustandType","1234"),
+    datum_in_betriebnahme: "datum_in_betriebnahme",
+    datum_ausser_betriebnahme: "datum_ausser_betriebnahme",
+    rahmen_der_trinkwasserbereitstellung: [code("CodeRahmenTrinkwasserbereitstellungType","1234")],
+    geokoordinaten_objekt: geokoordinatenShapthType(),
+    alt_id: "alt_id",
+    kommentar: "kommentar",
+    betreiber: [betreiberType()],
+    objekt_probennahmestelle: [probennahmestelle()],
+  }
+}
+
+function anlageNachTrinkwVType():AnlageNachTrinkwVType {
+  return {
+    anlage_nach_trinkw_vid: "anlage_nach_trinkw_vid",
+    zustaendige_behoerde_id: "zustaendige_behoerde_id",
+    untersuchungsplan_id: ["untersuchungsplan_id"],
+    art_anlage: code("CodeArtTrinkwasseranlageType","1234"),
+    name_der_anlage: "name_der_anlage",
+    abgegebene_wassermenge_der_anlage_pro_tag: 5.55,
+    anzahl_durch_anlage_versorgte_personen: 10000,
+    alt_id: "alt_id",
+    kommentar: "kommentar",
+    wasserversorgungsgebiet: [wasserversorgungsgebietType()],
+    anlage_nach_trinw_v_objekt: [objektType()],
+  }
+}
+
+function untersuchungsplanType(): UntersuchungsplanType { 
+  return {
+      untersuchungsplan_id: "untersuchungsplan_id",
+      wasserversorgungsgebiet: ["wasserversorgungsgebiet"],
+      jahr: ["jahr"],
+      wasserabgabe_vorjahr: 5.01,
+      art_von_wva_und_wvg: code("CodeWVAType","1234"),
+      erlaeuterung_zur_wasserabgabemenge: code("CodeErlaeuterungWasserabgabemengeType","1234"),
+      flockung: code("CodeFlockungType","1234"),
+      oberflaechenwassereinfluss: true,
+      desinfektion_durchgefuehrt_mit: code("CodeDesinfektionsartType","1234"),
+      abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen: true,
+      acrylamid: code("CodeNachweisartType","1234"),
+      epichlorhydrin: code("CodeNachweisartType","1234"),
+      vinylchlorid: code("CodeNachweisartType","1234"),
+      ph_wert_wasserwerksausgang: true,
+      wasserabgabe_vorjahr_pro_tag: 1.11,
+      anzahl_untersuchungenpro_jahr_gruppe_a: 1,
+      abzudecken_durch_betreiber_gruppe_a: 1,
+      anzahl_untersuchungenpro_jahr_gruppe_b: 1,
+      abzudecken_durch_betreiber_gruppe_b: 1,
+      rap_durchgefuehrt: true,
+      status_untersuchungsplan: code("CodeStatusUntersuchungsplanType","1234"),
+      kommentar: "Kommentar",
+      terminplan: [terminplanType()],
+      anlage_nach_trinkw_v: anlageNachTrinkwVType(),
+      auftraggeber: auftraggeber(),
+      zustaendige_behoerde: zustaendigeBehoerde(),
+      probe_rel: [probe()],
+      erweiterung: erweiterung(),
+  }
+}
 
 function vorgangType(): VorgangType {
   return {
-    t: "Pruefbericht",
-    c: pruefberichtType(),
+    // t: "Pruefbericht",
+    // c: pruefberichtType(),
+    t: "Untersuchungsplan",
+    c: untersuchungsplanType(),
   }
 }
 
@@ -475,7 +711,7 @@ function qualityReport():QualityReport {
 
 describe("simple xml generation via wasm", async () => {
   it("should be able to create and parse quality report xml", async () => {
-    console.log(JSON.stringify(qualityReport(), null, 4));
+    console.log(JSON.stringify(qualityReport(), null, 2));
     
     // const xml = create_quality_report_xml(qualityReport());
     // console.log(xml);

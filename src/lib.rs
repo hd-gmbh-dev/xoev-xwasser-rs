@@ -1346,7 +1346,7 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"grundDerSchliessung", ty = "child")]
     pub grund_der_schliessung: Option<CodeGrundSchliessungWasserversorgungsgebietType>,
     #[xml(ns = b"xwas", name = b"nachfolgerWVGbeiSchliessung", ty = "child")]
-    pub nachfolger_wvgbei_schliessung: Vec<String>, // xs:IDREF
+    pub nachfolger_wvg_bei_schliessung: Vec<String>, // xs:IDREF
     #[xml(ns = b"xwas", name = b"wvgFremdbezogen", ty = "child")]
     pub wvg_fremdbezogen: Vec<String>, // xs:IDREF
     #[xml(ns = b"xwas", name = b"abgegebeneWassermenge", ty = "child")]
@@ -1516,14 +1516,17 @@ pub struct CodeRahmenTrinkwasserbereitstellungType {
 /// Informationen zu einem Auftraggeber [Ergänzende Angaben zu den jeweiligen
 /// Informationen aus den Registern von Betreibern/Behörden].
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"auftraggeber")]
-pub struct ArtDerPerson {
+#[serde(tag = "t", content = "c")]
+pub enum ArtDerPerson {
     // #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
     // pub organisation: OrganisationType,
-    #[xml(ns = b"xwas", name = b"natuerlichePerson", ty = "child")]
-    pub natuerliche_person: NatuerlichePersonType,
     // #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
     // pub zustaendige_behoerde: ZustaendigeBehoerdeType,
+    #[xml(ns = b"xwas", name = b"natuerlichePerson")]
+    NatuerlichePerson(NatuerlichePersonType),
+    #[default]
+    #[xml(ns = b"xwas", name = b"unknown")]
+    None,
 
 }
 
@@ -1694,6 +1697,8 @@ pub struct CodeAuftraggeberartType {
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[serde(tag = "t", content = "c")]
 pub enum Auftraggeber {
+    #[xml(ns = b"xwas", name = b"organisation")]
+    Organisation(OrganisationType),
     #[xml(ns = b"xwas", name = b"natuerlichePerson")]
     NatuerlichePerson(NatuerlichePersonType),
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde")]
