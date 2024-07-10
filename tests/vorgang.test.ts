@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {AusweisdokumentType,StaatType,StaatsangehoerigkeitType,FamilienstandType,CodeDokumenttypType, SignaturenType,DokumentRepraesentationType, DokumentType,BetreiberType, ObjektType,IncidentCauseAndRemedialActionType, IncidentType, ExceedanceCauseAndRemedialActionType, ExceedanceType, QualityAndMonitoringType, DerogationRemedialActionType, DerogationType, GeokoordinatenShapthType, WasserversorgungsgebietType, AnlageNachTrinkwVType, TerminplanType, UntersuchungsplanType, VorgangType, NameOrganisationType, OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, create_quality_report_xml, parse_quality_report_xml, AuftraggeberType, Auftraggeber, QualityReport, ArtDerPerson } from "../pkg/xwasser_rs";
+import {NachrichtenTyp,Code,GeburtType,AlternativeRepraesentationType,AllgemeinerNameType,VerwaltungspolitischeKodierungType,AnschriftType,IdentifikationType,KommunikationType,SpracheType,VertreterBevollmaechtigterType,BehoerdeType,RegistrierungType,AnalyseergebnisParameter,Probennehmer,ProbennahmestelleType,ZugelasseneUntersuchungsstelleType,BeauftragteUntersuchungsstelleType,AusweisdokumentType,StaatType,StaatsangehoerigkeitType,FamilienstandType,CodeDokumenttypType, SignaturenType,DokumentRepraesentationType, DokumentType,BetreiberType, ObjektType,IncidentCauseAndRemedialActionType, IncidentType, ExceedanceCauseAndRemedialActionType, ExceedanceType, QualityAndMonitoringType, DerogationRemedialActionType, DerogationType, GeokoordinatenShapthType, WasserversorgungsgebietType, AnlageNachTrinkwVType, TerminplanType, UntersuchungsplanType, VorgangType, NameOrganisationType, OrganisationType, PruefberichtType, NameNatuerlichePersonType, ZeitraumType, AuskunftssperreType, NatuerlichePersonType, ProbeType, ZustaendigeBehoerdeType, create_quality_report_xml, parse_quality_report_xml, AuftraggeberType, Auftraggeber, QualityReport, ArtDerPerson } from "../pkg/xwasser_rs";
 
 function createHeadInfo(kennung: string, name: string): any {
   return {
@@ -15,7 +15,7 @@ function createHeadInfo(kennung: string, name: string): any {
   }
 }
 
-function nachrichtenTyp():any {
+function nachrichtenTyp(): NachrichtenTyp {
   return {
     code: {
         list_uri: "",
@@ -32,15 +32,15 @@ function code(name: string, code: string): any {
   }
 }
 
-function geburt(): any {
+function geburtType():GeburtType {
   return {
     datum: "asdf",
     zusatz: "asokdfm",
-    geburtsort: anschrift(),
+    geburtsort: anschriftType(),
   }
 }
 
-function alternativeRepraesentation(): any {
+function alternativeRepraesentationType():AlternativeRepraesentationType {
   return {
     repraesentation: "r1",
     algorithmus: "bubble_sort",
@@ -48,18 +48,18 @@ function alternativeRepraesentation(): any {
   }
 }
 
-function allgemeinerNameType(name: string): any {
+function allgemeinerNameType(name: string): AllgemeinerNameType {
   return {
     name: name,
     nicht_vorhanden: false,
     namensart: {
         code: "1010"
     },
-    alternative_repraesentation: [alternativeRepraesentation()],
+    alternative_repraesentation: [alternativeRepraesentationType()],
   }
 }
 
-function verwaltungspolitischeKodierung(): any {
+function verwaltungspolitischeKodierungType():VerwaltungspolitischeKodierungType {
   return {
     kreis: code("name","1111"),
     bezirk: code("name","1111"),
@@ -71,7 +71,7 @@ function verwaltungspolitischeKodierung(): any {
 }
 
 
-function anschrift(): any {
+function anschriftType(): AnschriftType {
   return  {
     id: "IDfcfd2538-f074-4848-b443-d15997e42c9e",
     strassenschluessel: code("name","1234"),
@@ -86,7 +86,7 @@ function anschrift(): any {
     zusatz: "",
     typ: [code("anschriftType","1234")],
     staat: code("absurdistan","1111"),
-    verwaltungspolitische_kodierung: verwaltungspolitischeKodierung(),
+    verwaltungspolitische_kodierung: verwaltungspolitischeKodierungType(),
   }
 }
 
@@ -98,7 +98,7 @@ function zeitraumType(beginn: string, ende: string, zusatz: string): ZeitraumTyp
   }
 }
 
-function identifikationType() {
+function identifikationType(): IdentifikationType {
   return {
     id: "238b7cc7-6d64-4db8-9c69-779bb65d60b1",
     beschreibung: "bal bla bla",
@@ -107,7 +107,7 @@ function identifikationType() {
   }
 }
 
-function kommunikationType(kennung: string, ist_dienstlich: boolean, zusatz: string): any {
+function kommunikationType(kennung: string, ist_dienstlich: boolean, zusatz: string): KommunikationType {
   return {
     kanal: code("e","1"),
     kennung: kennung,
@@ -116,14 +116,14 @@ function kommunikationType(kennung: string, ist_dienstlich: boolean, zusatz: str
   }
 }
 
-function spracheType(sprache: string, zusatz: string): any {
+function spracheType(sprache: string, zusatz: string):SpracheType {
   return {
     sprache: sprache, 
     zusatz: zusatz
   }
 }
 
-function vertreterBevollmaechtigterType(): any {
+function  vertreterBevollmaechtigterType():VertreterBevollmaechtigterType {
   return {
     vertreter_bevollmaechtigter_id: "1234",
     art_vertreter: code("vertretungsart","1233")
@@ -143,7 +143,7 @@ function familienstandType():FamilienstandType {
       familienstand: code("CodeFamilienstandType","1234"),
       zusatz: "zusatz",
       grund: code("CodeFamilienstandBeendigungsgrundType","1234"),
-      gueltigkeit: zeitraumType(),
+      gueltigkeit: zeitraumType("9","19","zusatz"),
       behoerde: behoerdeType(),
     }
 }
@@ -164,7 +164,7 @@ function staatType():StaatType {
 function ausweisdokumentType():AusweisdokumentType {
     return {
       ausweisart: code("CodeAusweisdokumenteType","1234"),
-      gueltigkeit: zeitraumType(),
+      gueltigkeit: zeitraumType("9","19","zusatz"),
       ausweis_id: identifikationType(),
       ausstellende_behoerde: behoerdeType(),
       ausstellender_staat: staatType(),
@@ -188,7 +188,7 @@ function nameNatuerlichePersonType(): NameNatuerlichePersonType {
     vorname: allgemeinerNameType("Alexander"),
     rufname: allgemeinerNameType("Alex"),
     frueherer_vorname: allgemeinerNameType("Nadine"),
-    alternative_repraesentation: alternativeRepraesentation(),
+    alternative_repraesentation: alternativeRepraesentationType(),
     ordensname: allgemeinerNameType("Andechs"),
     kuenstlername: [allgemeinerNameType("sikis")],
     weiterer_name: [allgemeinerNameType("superman")],
@@ -200,13 +200,13 @@ function natuerlichePerson(): NatuerlichePersonType {
     auskunftssperre: [auskunftssperreType()],
     name_natuerliche_person: nameNatuerlichePersonType(),
     familienstand: [code("familienstand","1111")],
-    geburt: geburt(),
+    geburt: geburtType(),
     doktorgrad: {
         bezeichnung: "DR."
       },
     staatsangehoerigkeit: [code("staatsangehoerigkeit","1111")],
     ausweisdokument: [code("ausweisdokument","1234")],
-    anschrift: [anschrift()],
+    anschrift: [anschriftType()],
     geschlecht: [code("geschlecht","1111")],
     identifikationsnummer: [identifikationType()],
     kommunikation: [kommunikationType("text", true, "zusatz")],
@@ -232,7 +232,7 @@ function nameOrganisationType(name: string, kurzbezeichnung: string, gueltigkeit
   }
 }
 
-function behoerdeType():any {
+function  behoerdeType():BehoerdeType {
   return {
     id: "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
     typ: code("behoerde","1234"),
@@ -245,13 +245,13 @@ function behoerdeType():any {
     behoerdenidentifikation: identifikationType(),
     behoerdenname: [nameOrganisationType("behorde 1", "does stuff", zeitraumType("9","19","zusatz"))],
     nachgeordnete_behoerde: [],
-    verwaltungspolitische_zustaendigkeit: [verwaltungspolitischeKodierung()],
-    anschrift: [anschrift()],
+    verwaltungspolitische_zustaendigkeit: [verwaltungspolitischeKodierungType()],
+    anschrift: [anschriftType()],
     organisationsstruktur: [organisationseinheitType()]
   }
 }
 
-function registrierungType():any {
+function  registrierungType():RegistrierungType {
   return {
     id: "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
     registertyp: code("registertyp","1234"),
@@ -271,11 +271,11 @@ function organisationType(): OrganisationType  {
     registrierung: [registrierungType()],
     identifikation: [identifikationType()],
     existenzzeitraum: zeitraumType("9","19","zusatz"),
-    anschrift: [anschrift()]
+    anschrift: [anschriftType()]
   }
 }
 
-function analyseergebnisParameter(): any {
+function  analyseergebnisParameter():AnalyseergebnisParameter {
   return {
     analyseergebnis_parameter_id: "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
     probe_id: "ID3cd3c929-ee22-4056-a2a0-6c2d1c295c5c",
@@ -313,7 +313,7 @@ function zustaendigeBehoerde():ZustaendigeBehoerdeType {
   }
 }
 
-function probennehmer():any {
+function  probennehmer():Probennehmer {
   return {
     probennehmer_id: "IDb05bfc54-c2a9-4ff1-92c8-47b2c4fd9804",
     probennehmer: {
@@ -357,7 +357,7 @@ function probe(): ProbeType {
   }
 }
 
-function probennahmestelle() {
+function  probennahmestelleType():ProbennahmestelleType {
   return {
     probennahmestelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
     objekt_id: "",
@@ -390,7 +390,7 @@ function auftraggeberType():AuftraggeberType {
   }
 }
 
-function zugelasseneUntersuchungsstelle(): any {
+function  zugelasseneUntersuchungsstelleType():ZugelasseneUntersuchungsstelleType {
   return {
     organisation: organisationType(),
     zugelassene_untersuchungsstelle_id: "ID14aeb6dd-bc5e-443f-890c-cbdfe6f50c86",
@@ -404,9 +404,9 @@ function zugelasseneUntersuchungsstelle(): any {
   }
 }
 
-function beauftragteUntersuchungsstelle(): any {
+function  beauftragteUntersuchungsstelleType():BeauftragteUntersuchungsstelleType {
   return {
-    zugelassene_untersuchungsstelle: zugelasseneUntersuchungsstelle(),
+    zugelassene_untersuchungsstelle: zugelasseneUntersuchungsstelleType(),
     kommentar_beauftragte_untersuchungsstelle: "",
   }
 }
@@ -441,7 +441,7 @@ function pruefberichtType():PruefberichtType {
   return {
     pruefbericht_uuid: "IDcd7df392-08ca-4915-bbd9-c14be7b69d02",
     untersuchungsplan_id: "IDcd7df392-08ca-4915-bbd9-c14be7b69d02",
-    probennahmestelle: [probennahmestelle()],
+    probennahmestelle: [probennahmestelleType()],
     name_beauftragte_untersuchungsstelle: code("name","1010"),
     pruefbericht_enthaelt_teilergebnisse: true,
     pruefgericht_gem_vorgaben_akkredition: true,
@@ -459,8 +459,8 @@ function pruefberichtType():PruefberichtType {
     kommentar: "kommentar",
     auftraggeber: auftraggeberType(),
     zustaendige_behoerde: [zustaendigeBehoerde()],
-    beauftragte_untersuchungsstelle: beauftragteUntersuchungsstelle(),
-    ort_der_labortaetigkeiten: [anschrift()],
+    beauftragte_untersuchungsstelle: beauftragteUntersuchungsstelleType(),
+    ort_der_labortaetigkeiten: [anschriftType()],
     anhang: ["anhang"],
     erweiterung: erweiterung(),
   }
@@ -637,7 +637,7 @@ function objektType():ObjektType {
   return {
     objekt_id: "objekt_id",
     wasserversorgungsgebiet: "wasserversorgungsgebiet",
-    anschrift_objekt: [anschrift()],
+    anschrift_objekt: [anschriftType()],
     art_objekt: code("CodeArtObjektType","1234"),
     name_objekt: "name_objekt",
     betriebszustand_des_objekts: code("CodeBetriebszustandType","1234"),
@@ -648,7 +648,7 @@ function objektType():ObjektType {
     alt_id: "alt_id",
     kommentar: "kommentar",
     betreiber: [betreiberType()],
-    objekt_probennahmestelle: [probennahmestelle()],
+    objekt_probennahmestelle: [probennahmestelleType()],
   }
 }
 
