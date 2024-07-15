@@ -435,6 +435,7 @@ dependencies = [
  "derive_builder",
  "raxb",
  "serde",
+ "serde_json",
  "tsify",
  "wasm-bindgen",
 ]
