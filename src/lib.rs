@@ -1,7 +1,5 @@
 #![allow(non_snake_case, dead_code)]
 
-use std::default;
-
 use _raxb::quick_xml::{events::Event, name::ResolveResult};
 use raxb::ty::S;
 use raxb::{de::XmlDeserializeError, value::ConstStr, XmlDeserialize, XmlSerialize};
