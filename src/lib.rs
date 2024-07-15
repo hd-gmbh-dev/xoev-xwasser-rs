@@ -2348,13 +2348,4 @@ mod test {
         // })
     }
 
-    #[test]
-    fn test_quality_report() {
-        let v = serde_json::from_str::<QualityReport>(include_str!("../fixtures/simple_test.json"));
-        eprintln!("{v:#?}");
-
-        // serde_json::json!({
-
-        // })
-    }
 }
