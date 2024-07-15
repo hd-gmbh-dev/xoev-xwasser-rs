@@ -1,8 +1,13 @@
 [package]
-name = "xwasser-rs"
+name = "xoev-xwasser"
 version = "0.1.0"
-authors = ["Jürgen Seitz <juergen.seitz@h-d-gmbh.de>"]
-edition = "2018"
+authors = ["H & D GmbH Open Source <contact-oss@h-d-gmbh.de>"]
+edition = "2021"
+description = "XOEV XWasser XML Standard"
+license = "MIT"
+repository = "https://github.com/hd-gmbh-dev/xoev-xwasser-rs.git"
+categories = []
+keywords = []
 
 [lib]
 crate-type = ["cdylib", "rlib"]
