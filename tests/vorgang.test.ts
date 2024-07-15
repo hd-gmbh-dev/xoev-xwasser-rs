@@ -56,7 +56,7 @@ import {
   Auftraggeber,
   QualityReport,
   ArtDerPerson 
-} from "../pkg/xwasser_rs";
+} from "../pkg/xoev_xwasser";
 
 function createHeadInfo(kennung: string, name: string): any {
   return {
@@ -91,8 +91,8 @@ function code(name: string, code: string): any {
 
 function geburtType():GeburtType {
   return {
-    datum: "asdf",
-    zusatz: "asokdfm",
+    datum: "datum",
+    zusatz: "zusatz",
     geburtsort: anschriftType(),
   }
 }
@@ -100,8 +100,8 @@ function geburtType():GeburtType {
 function alternativeRepraesentationType():AlternativeRepraesentationType {
   return {
     repraesentation: "r1",
-    algorithmus: "bubble_sort",
-    hinweis: "be careful",
+    algorithmus: "algorithm",
+    hinweis: "hinweis",
   }
 }
 
@@ -132,17 +132,17 @@ function anschriftType(): AnschriftType {
   return  {
     id: "IDfcfd2538-f074-4848-b443-d15997e42c9e",
     strassenschluessel: code("name","1234"),
-    strasse: "Mustermann Strasse",
+    strasse: "Musterstr.",
     hausnummer: "1",
     postfach: "1234",
     postleitzahl: "123456",
-    ort: "Musterhausen",
-    ortsteil: "Neuhausen",
-    ort_frueherer_gemeindename: "wurstling",
+    ort: "Musterort",
+    ortsteil: "Ortsteil",
+    ort_frueherer_gemeindename: "frueherer_gemeindename",
     wohnungsgeber: "",
     zusatz: "",
     typ: [code("anschriftType","1234")],
-    staat: code("absurdistan","1111"),
+    staat: code("staat","1111"),
     verwaltungspolitische_kodierung: verwaltungspolitischeKodierungType(),
   }
 }
@@ -158,7 +158,7 @@ function zeitraumType(beginn: string, ende: string, zusatz: string): ZeitraumTyp
 function identifikationType(): IdentifikationType {
   return {
     id: "238b7cc7-6d64-4db8-9c69-779bb65d60b1",
-    beschreibung: "bal bla bla",
+    beschreibung: "beschreibung",
     gueltigkeit: zeitraumType("9","19","zusatz"),
 
   }
@@ -166,7 +166,7 @@ function identifikationType(): IdentifikationType {
 
 function kommunikationType(kennung: string, ist_dienstlich: boolean, zusatz: string): KommunikationType {
   return {
-    kanal: code("e","1"),
+    kanal: code("kanal","1"),
     kennung: kennung,
     ist_dienstlich: ist_dienstlich,
     zusatz:zusatz,
@@ -237,18 +237,18 @@ function nameNatuerlichePersonType(): NameNatuerlichePersonType {
       "Jr"
     ],
 
-    familienname: allgemeinerNameType("Doe"),
-    ehename: allgemeinerNameType("Meier"),
-    lebenspartnerschaftsname: allgemeinerNameType("Mueller"),
-    geburtsname: allgemeinerNameType("Schroeder"),
-    frueherer_familienname: [allgemeinerNameType("Heinz")],
-    vorname: allgemeinerNameType("Alexander"),
-    rufname: allgemeinerNameType("Alex"),
-    frueherer_vorname: allgemeinerNameType("Nadine"),
+    familienname: allgemeinerNameType("familienname"),
+    ehename: allgemeinerNameType("ehename"),
+    lebenspartnerschaftsname: allgemeinerNameType("lebenspartnerschaftsname"),
+    geburtsname: allgemeinerNameType("geburtsname"),
+    frueherer_familienname: [allgemeinerNameType("frueherer_familienname")],
+    vorname: allgemeinerNameType("vorname"),
+    rufname: allgemeinerNameType("rufname"),
+    frueherer_vorname: allgemeinerNameType("frueherer_vorname"),
     alternative_repraesentation: alternativeRepraesentationType(),
-    ordensname: allgemeinerNameType("Andechs"),
-    kuenstlername: [allgemeinerNameType("sikis")],
-    weiterer_name: [allgemeinerNameType("superman")],
+    ordensname: allgemeinerNameType("Ordensname"),
+    kuenstlername: [allgemeinerNameType("kuenstlername")],
+    weiterer_name: [allgemeinerNameType("weiterer_name")],
   } 
 }
 
@@ -300,7 +300,7 @@ function  behoerdeType():BehoerdeType {
     },
     kommunikation: [kommunikationType("text", true, "zusatz")],
     behoerdenidentifikation: identifikationType(),
-    behoerdenname: [nameOrganisationType("behorde 1", "does stuff", zeitraumType("9","19","zusatz"))],
+    behoerdenname: [nameOrganisationType("behorde 1", "", zeitraumType("9","19","zusatz"))],
     nachgeordnete_behoerde: [],
     verwaltungspolitische_zustaendigkeit: [verwaltungspolitischeKodierungType()],
     anschrift: [anschriftType()],
@@ -322,8 +322,8 @@ function organisationType(): OrganisationType  {
     rechtsform: code("rechtsform", "0815"),
     branche: [code("branche", "666")],
     zweck: [code("zweck", "666")],
-    name: nameOrganisationType("abc corp", "produces stuff",zeitraumType("9","19","zusatz")),
-    unterorganisation: [], // hier kann man noch eine weitere organisation eintragen
+    name: nameOrganisationType("abc gmbh", "produces stuff",zeitraumType("9","19","zusatz")),
+    unterorganisation: [],
     kommunikation: [kommunikationType("text", true, "zusatz")],
     registrierung: [registrierungType()],
     identifikation: [identifikationType()],
@@ -435,7 +435,6 @@ function auftraggeber(): Auftraggeber {
       t: "NatuerlichePerson",
       c: natuerlichePerson(),
   }
-
 }
 
 
