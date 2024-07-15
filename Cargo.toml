@@ -1,6 +1,6 @@
 [package]
 name = "xoev-xwasser"
-version = "0.1.0"
+version = "0.2.1"
 authors = ["H & D GmbH Open Source <contact-oss@h-d-gmbh.de>"]
 edition = "2021"
 description = "XOEV XWasser XML Standard"
