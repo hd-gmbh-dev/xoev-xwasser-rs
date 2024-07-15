@@ -363,32 +363,6 @@ pub struct CodeAnlassUntersuchungType {
     pub name: Option<String>,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct Laenderkuerzel {
-    #[xml(name = b"code", ty = "child")]
-    pub code: Code,
-    // #[xml(name = b"name", ty = "child")]
-    // pub name: String,
-}
-
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct Vorname {
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: String,
-    // #[xml(name = b"nichtVorhanden", ty = "child")]
-    // pub nicht_vorhanden: bool,
-}
-
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct Familienname {
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: String,
-    // #[xml(name = b"nichtVorhanden", ty = "child")]
-    // pub nicht_vorhanden: bool,
-    // #[xml(name = b"namensart", ty = "child")]
-    // pub namensart: Namensart,
-}
-
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeRechtsformenType")]
 pub struct CodeRechtsformenType {
@@ -587,11 +561,6 @@ pub struct OrganisationType {
     pub anschrift: Vec<AnschriftType>,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-pub struct RegistrierendeBehoerde {
-    #[xml(name = b"id", ty = "child")]
-    pub id: String,
-}
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"codeAnschrifttypType")]
@@ -836,13 +805,6 @@ pub struct BeauftragteUntersuchungsstelleType {
         ty = "child"
     )]
     pub kommentar_beauftragte_untersuchungsstelle: Option<String>,
-}
-
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"ZugelasseneUntersuchungsstelleType")]
-pub struct OrtDerLabortaetigkeiten {
-    #[xml(name = b"id", ty = "attr", value = "H & D GmbH")]
-    _id: String,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1732,20 +1694,6 @@ pub struct CodeAuftraggeberartType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
 }
-
-/// Informationen zu einem Auftraggeber [Ergänzende Angaben zu den jeweiligen
-/// Informationen aus den Registern von Betreibern/Behörden].
-// #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(root = b"auftraggeber")]
-// pub struct Auftraggeber {
-//     // #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
-//     // pub organisation: OrganisationType,
-//     #[xml(ns = b"xwas", name = b"natuerlichePerson", ty = "child")]
-//     pub natuerliche_person: NatuerlichePersonType,
-//     // #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
-//     // pub zustaendige_behoerde: ZustaendigeBehoerdeType,
-
-// }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[serde(tag = "t", content = "c")]
