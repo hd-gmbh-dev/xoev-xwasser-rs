@@ -251,20 +251,6 @@ pub struct CodeBewertungUntersuchungswertType {
     pub name: Option<String>,
 }
 
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"codeStatusFachlichType")]
-pub struct CodeStatusFachlichType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
-    pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Option<String>,
-    #[xml(ns = b"xwas", name = b"listURI", ty = "attr")]
-    pub list_uri: String,
-    #[xml(ns = b"xwas", name = b"listVersionID", ty = "attr")]
-    pub list_version_id: String,
-}
-
-
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"analyseergebnisParameter")]
 // #[xml(tns(b"xwas", b"xwasser"))]
