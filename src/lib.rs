@@ -9,8 +9,6 @@ use serde::{Deserialize, Serialize};
 use tsify::Tsify;
 use wasm_bindgen::prelude::*;
 
-// #[cfg(test)]
-// mod gen;
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 pub struct Code {
@@ -43,7 +41,6 @@ pub struct NachrichtenkopfG2g {
 #[xml(root = b"identifikationNachricht")]
 pub struct IdentifikationNachricht {
     #[xml(name = b"nachrichtenUUID", ty = "child")]
-    // #[serde(skip)]
     pub nachrichten_uuid: Option<String>, //ConstStr,
     #[xml(name = b"nachrichtentyp", ty = "child")]
     pub nachrichten_typ: Option<NachrichtenTyp>,
@@ -253,6 +250,20 @@ pub struct CodeBewertungUntersuchungswertType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
 }
+
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeStatusFachlichType")]
+pub struct CodeStatusFachlichType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+    #[xml(ns = b"xwas", name = b"listURI", ty = "attr")]
+    pub list_uri: String,
+    #[xml(ns = b"xwas", name = b"listVersionID", ty = "attr")]
+    pub list_version_id: String,
+}
+
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"analyseergebnisParameter")]
@@ -731,7 +742,7 @@ pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"artProbennahmestelle", ty = "child")]
     pub art_probennahmestelle: CodeArtProbennahmestelleType,
     #[xml(ns = b"xwas", name = b"stockwerkProbennahmestelle", ty = "child")]
-    pub stockwerk_probennahmestelle: Option<u8>,
+    pub stockwerk_probennahmestelle: Option<u32>,
     #[xml(ns = b"xwas", name = b"mediumAnDerProbennahmestelle", ty = "child")]
     pub medium_an_der_probennahmestelle: Vec<CodeMediumType>,
     #[xml(
@@ -903,8 +914,6 @@ pub struct ErweiterungType {
 pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
     pub pruefbericht_uuid: String,
-    #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
-    pub untersuchungsplan_id: Option<String>,
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
     pub probennahmestelle: Vec<ProbennahmestelleType>,
     #[xml(
@@ -913,12 +922,16 @@ pub struct PruefberichtType {
         ty = "child"
     )]
     pub name_beauftragte_untersuchungsstelle: CodeNameBeauftragteUntersuchungsstelle,
+    #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
+    pub probennehmer: Vec<ProbennehmerType>,
     #[xml(
         ns = b"xwas",
         name = b"pruefberichtEnthaeltTeilergebnisse",
         ty = "child"
     )]
     pub pruefbericht_enthaelt_teilergebnisse: Option<bool>,
+    #[xml(ns = b"xwas", name = b"korrekturvermerk", ty = "child")]
+    pub korrekturvermerk: Option<String>,
     #[xml(
         ns = b"xwas",
         name = b"pruefgerichtGemVorgabenAkkredition",
@@ -965,6 +978,8 @@ pub struct PruefberichtType {
     pub anhang: Vec<String>,
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
     pub erweiterung: Option<ErweiterungType>,
+    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    pub id: String,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1464,12 +1479,20 @@ pub struct TerminplanType {
     pub weitere_beschreibung_der_probennahmestelle: Option<String>,
     #[xml(ns = b"xwas", name = b"untersuchungDurch", ty = "child")]
     pub untersuchung_durch: Vec<CodeUeberwachungAufbereitungType>,
+    #[xml(ns = b"xwas", name = b"untersuchungDurchErlaeuterung", ty = "child")]
+    pub untersuchung_durch_erlaeuterung: Option<String>,
+    #[xml(ns = b"xwas", name = b"anlassDerUntersuchung", ty = "child")]
+    pub anlass_der_untersuchung: Vec<CodeAnlassUntersuchungType>,
     #[xml(ns = b"xwas", name = b"zuUntersuchendeParameter", ty = "child")]
     pub zu_untersuchende_parameter: Vec<CodeShapthParameterType>,
     #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
     pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
+    #[xml(ns = b"xwas", name = b"ersatzFuerTerminplanMitDerID", ty = "child")]
+    pub ersatz_fuer_terminplan_mit_der_id: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
+    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    pub _id: String,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1680,10 +1703,10 @@ pub struct UntersuchungsplanType {
     pub auftraggeber: Auftraggeber,
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
     pub zustaendige_behoerde: ZustaendigeBehoerdeType,
-    #[xml(ns = b"xwas", name = b"probe_Rel", ty = "child")]
-    pub probe_rel: Vec<ProbeType>,
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
     pub erweiterung: Option<ErweiterungType>,
+    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    pub id: String,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
@@ -1743,12 +1766,10 @@ pub struct CodeLaenderkennzeichenType {
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"ZustaendigeBehoerdeType")]
 pub struct ZustaendigeBehoerdeType {
-    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[xml(ns = b"xwas", name = b"behoerde", ty = "child")]
     pub behoerde: BehoerdeType,
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
     pub anlage_nach_trinkw_vid: Vec<String>,
-    #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
-    pub probennehmer_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"laenderkuerzel", ty = "child")]
     pub laenderkuerzel: CodeLaenderkennzeichenType,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
@@ -1920,12 +1941,25 @@ pub struct CodeGeschlechtType {
     pub name: Option<String>,
 }
 
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(root = b"codeSpracheType")]
+pub struct CodeSpracheType {
+    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    pub code: String,
+    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    pub name: Option<String>,
+    #[xml(ns = b"xwas", name = b"listURI", ty = "attr")]
+    pub list_uri: String,
+    #[xml(ns = b"xwas", name = b"listVersionID", ty = "attr")]
+    pub list_version_id: String,
+}
+
 /// Unter "Sprache" werden Informationen über Sprachen zusammengefasst.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"SpracheType")]
 pub struct SpracheType {
     #[xml(ns = b"xwas", name = b"sprache", ty = "child")]
-    pub sprache: String,
+    pub sprache: CodeSpracheType,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
     pub zusatz: Option<String>,
 }
@@ -2120,26 +2154,27 @@ pub struct PersonType {
     pub person: Person,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-// #[xml(tns(b"xwas", b"xwasser"))]
-pub struct ProbennehmerType {
-    // #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
-    // pub organisation: OrganisationType,
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[xml(tns(b"xwas", b"xwasser"))]
+#[serde(tag = "t", content = "c")]
+pub enum Probennehmer {
+    #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
+    Organisation(OrganisationType),
     #[xml(ns = b"xwas", name = b"natuerlichePerson", ty = "child")]
-    pub natuerliche_person: NatuerlichePersonType,
-    // #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
-    // pub zustaendige_behoerde: ZustaendigeBehoerdeType,
+    NatuerlichePerson(NatuerlichePersonType),
+    #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
+    ZustaendigeBehoerde(ZustaendigeBehoerdeType),
 }
 
 /// Klasse für den Transport von Informationen zu einem Probennehmer [Durch das Labor mit
 /// dem Prüfbericht mit zu übermittelnde Informationen].
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
 #[xml(root = b"ProbennehmerType")]
-pub struct Probennehmer {
+pub struct ProbennehmerType {
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
     pub probennehmer_id: String,
     #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
-    pub probennehmer: ProbennehmerType,
+    pub probennehmer: Probennehmer,
     #[xml(ns = b"xwas", name = b"fremdsystemID_Probennehmer", ty = "child")]
     pub fremdsystem_id_probennehmer: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
