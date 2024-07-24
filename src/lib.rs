@@ -132,12 +132,11 @@ pub struct QualityReport {
         ns = b"xsi",
         name = b"schemaLocation",
         ty = "attr",
-        // value = "xwasser xwasser.xsd"
-        value = "xwasser ../schemas/V0_2_0/xwasser.xsd"
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1 xwasser-vorgang.xsd"
     )]
     #[serde(skip)]
     schema_location: ConstStr,
-    #[xml(ns = b"xmlns", name = b"xwas", ty = "attr", value = "xwasser")]
+    #[xml(ns = b"xmlns", name = b"xwas", ty = "attr", value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1")]
     #[serde(skip)]
     _xmlns: ConstStr,
     #[xml(name = b"produkt", ty = "attr")]
@@ -154,7 +153,7 @@ pub struct QualityReport {
     #[xml(name = b"test", ty = "attr")]
     #[serde(default)]
     pub test: bool,
-    #[xml(name = b"version", ty = "attr", value = "0.2.0")]
+    #[xml(name = b"version", ty = "attr", value = "0.2.1")]
     #[serde(skip)]
     _version: ConstStr,
 
