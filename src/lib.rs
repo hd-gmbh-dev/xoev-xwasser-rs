@@ -1,16 +1,17 @@
 #![allow(non_snake_case, dead_code)]
 
-use std::default;
-
-use _raxb::quick_xml::{events::Event, name::ResolveResult};
+use raxb::quick_xml::{events::Event, name::ResolveResult};
 use raxb::ty::S;
 use raxb::{de::XmlDeserializeError, value::ConstStr, XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
+
+#[cfg(feature = "wasm")]
 use tsify::Tsify;
+#[cfg(feature = "wasm")]
 use wasm_bindgen::prelude::*;
 
-
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct Code {
     #[serde(default)]
     #[xml(name = b"listURI", ty = "attr")]
@@ -22,7 +23,8 @@ pub struct Code {
     pub code: String,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"nachrichtenkopf.g2g")]
 pub struct NachrichtenkopfG2g {
     #[xml(name = b"identifikation.nachricht", ty = "child")]
@@ -37,7 +39,8 @@ pub struct NachrichtenkopfG2g {
     pub dvdv_dienstkennung: String, //DvdvDienstkennung,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"identifikationNachricht")]
 pub struct IdentifikationNachricht {
     #[xml(name = b"nachrichtenUUID", ty = "child")]
@@ -48,7 +51,8 @@ pub struct IdentifikationNachricht {
     pub erstellungszeitpunkt: Option<String>,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"")]
 pub struct NachrichtenTyp {
     #[xml(
@@ -65,7 +69,8 @@ pub struct NachrichtenTyp {
     pub code: Code,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"autor")]
 pub struct Autor {
     #[xml(name = b"verzeichnisdienst", ty = "child")]
@@ -76,7 +81,8 @@ pub struct Autor {
     pub name: String,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"verzeichnisdienst")]
 pub struct Verzeichnisdienst {
     #[xml(name = b"listVersionID", ty = "attr", value = "")]
@@ -86,7 +92,8 @@ pub struct Verzeichnisdienst {
     pub code: Code,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"leser")]
 pub struct Leser {
     #[xml(name = b"verzeichnisdienst", ty = "child")]
@@ -101,7 +108,8 @@ pub struct Leser {
 
 /// Unter "Identifikation" werden die Informationen zusammengefasst, die die eindeutige
 /// Identifikation von Objekten in einem fachlichen Kontext erlauben.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"IdentifikationType")]
 pub struct IdentifikationType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
@@ -112,8 +120,8 @@ pub struct IdentifikationType {
     pub gueltigkeit: Option<ZeitraumType>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[tsify(into_wasm_abi, from_wasm_abi)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
 #[xml(root = b"vorgang.transportieren.2010")]
 // #[xml(tns(b"xwas", b"xwasser"))]
 pub struct QualityReport {
@@ -129,12 +137,11 @@ pub struct QualityReport {
         ns = b"xsi",
         name = b"schemaLocation",
         ty = "attr",
-        // value = "xwasser xwasser.xsd"
-        value = "xwasser ../schemas/V0_2_0/xwasser.xsd"
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1 xwasser-vorgang.xsd"
     )]
     #[serde(skip)]
     schema_location: ConstStr,
-    #[xml(ns = b"xmlns", name = b"xwas", ty = "attr", value = "xwasser")]
+    #[xml(ns = b"xmlns", name = b"xwas", ty = "attr", value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1")]
     #[serde(skip)]
     _xmlns: ConstStr,
     #[xml(name = b"produkt", ty = "attr")]
@@ -151,7 +158,7 @@ pub struct QualityReport {
     #[xml(name = b"test", ty = "attr")]
     #[serde(default)]
     pub test: bool,
-    #[xml(name = b"version", ty = "attr", value = "0.2.0")]
+    #[xml(name = b"version", ty = "attr", value = "0.2.1")]
     #[serde(skip)]
     _version: ConstStr,
 
@@ -163,7 +170,8 @@ pub struct QualityReport {
 }
 
 /// Dieser Datentyp enthält die Angaben zu einem Vorgang.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"vorgang")]
 // #[tsify(into_wasm_abi, from_wasm_abi)]
 // #[xml(tns(b"xwas", b"xwasser"))]
@@ -180,7 +188,8 @@ pub struct Vorgang {
     // pub anlage: Vec<Anlage>,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"identifikationVorgang")]
 pub struct IdentifikationVorgang {
     #[xml(ns = b"xwas", name = b"vorgangsID", ty = "child")]
@@ -189,7 +198,8 @@ pub struct IdentifikationVorgang {
     // pub aktenzeichen: String,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct RegisterTyp {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
@@ -197,7 +207,8 @@ pub struct RegisterTyp {
     pub name: String,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeUntersuchungsverfahrenType")]
 pub struct CodeUntersuchungsverfahrenType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -206,7 +217,8 @@ pub struct CodeUntersuchungsverfahrenType {
     pub name: Option<String>,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeSHAPTH-Parameter-EinheitType")]
 pub struct CodeShapthParameterEinheitType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -215,7 +227,8 @@ pub struct CodeShapthParameterEinheitType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeParameterauspraegungType")]
 pub struct CodeParameterauspraegungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -224,7 +237,8 @@ pub struct CodeParameterauspraegungType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeParameterunterauswahlType")]
 pub struct CodeParameterunterauswahlType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -233,7 +247,8 @@ pub struct CodeParameterunterauswahlType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeMesswertergaenzungType")]
 pub struct CodeMesswertergaenzungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -242,7 +257,8 @@ pub struct CodeMesswertergaenzungType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeBewertungUntersuchungswertType")]
 pub struct CodeBewertungUntersuchungswertType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -251,7 +267,8 @@ pub struct CodeBewertungUntersuchungswertType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"analyseergebnisParameter")]
 // #[xml(tns(b"xwas", b"xwasser"))]
 pub struct AnalyseergebnisParameterType {
@@ -317,7 +334,8 @@ pub struct AnalyseergebnisParameterType {
     pub kommentar: Option<String>,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct CodeUntersuchterParameter {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
@@ -325,7 +343,8 @@ pub struct CodeUntersuchterParameter {
     pub name: Option<String>,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct CodeBewertungUntersuchungswert {
     #[xml(name = b"code", ty = "child")]
     pub code: String,
@@ -333,7 +352,8 @@ pub struct CodeBewertungUntersuchungswert {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeProbennahmeverfahrenType")]
 pub struct CodeProbennahmeverfahrenType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -342,7 +362,8 @@ pub struct CodeProbennahmeverfahrenType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeMediumType")]
 pub struct CodeMediumType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -351,7 +372,8 @@ pub struct CodeMediumType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeAnlassUntersuchungType")]
 pub struct CodeAnlassUntersuchungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -360,7 +382,8 @@ pub struct CodeAnlassUntersuchungType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeRechtsformenType")]
 pub struct CodeRechtsformenType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -370,7 +393,8 @@ pub struct CodeRechtsformenType {
 }
 
 /// "NameOrganisation" fasst die Angaben zum Namen einer Organisation zusammen.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"NameOrganisationType")]
 pub struct NameOrganisationType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -381,7 +405,8 @@ pub struct NameOrganisationType {
     pub gueltigkeit: Option<ZeitraumType>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeKommunikationType")]
 pub struct CodeKommunikationType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -392,7 +417,8 @@ pub struct CodeKommunikationType {
 
 /// "Kommunikation" fasst Angaben zur Erreichbarkeit über elektronische
 /// Kommunikationskanäle (z.B. Telefon, Fax, E-Mail) zusammen.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"KommunikationType")]
 pub struct KommunikationType {
     #[xml(ns = b"xwas", name = b"kanal", ty = "child")]
@@ -405,7 +431,8 @@ pub struct KommunikationType {
     pub zusatz: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeRegisterType")]
 pub struct CodeRegisterType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -414,7 +441,8 @@ pub struct CodeRegisterType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeBehoerdeType")]
 pub struct CodeBehoerdeType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -426,7 +454,8 @@ pub struct CodeBehoerdeType {
 /// Die Organisationseinheit fasst Angaben zur Darstellung der internen hierarchischen
 /// Organisationsstruktur einer Institution zusammen, z.B. zur Darstellung von
 /// Abteilungen oder Referaten.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"organisationseinheitType")]
 pub struct OrganisationseinheitType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -440,7 +469,8 @@ pub struct OrganisationseinheitType {
 /// Die zu verwendende Schlüsseltabelle ergibt sich aus dem Nachrichtenkontext. Zum
 /// Beispiel ist bei der Datenübermittlung an ein Standesamt die Schlüsseltabelle der
 /// Standesamtsnummern und somit eine Standesamtsnummer als Behördenkennung zu verwenden.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeBehoerdenkennungType")]
 pub struct CodeBehoerdenkennungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -451,7 +481,8 @@ pub struct CodeBehoerdenkennungType {
 
 /// Die mit der genutzten Codeliste beschriebenen Präfixe werden für die fachliche
 /// Adressierung über das DVDV verwendet.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codePraefixType")]
 pub struct CodePraefixType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -471,7 +502,8 @@ pub struct CodePraefixType {
 /// auf kommunaler Ebene anhand des amtlichen Gemeindeschlüssels (AGS) der Gemeinde, für
 /// die die Behörde zuständig ist, lautet der Präfix "ags:", die Kennung ist dann der AGS
 /// der jeweiligen Gemeinde.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"BehoerdenkennungType")]
 pub struct BehoerdenkennungType {
     #[xml(ns = b"xwas", name = b"kennung", ty = "child")]
@@ -484,7 +516,8 @@ pub struct BehoerdenkennungType {
 /// Verwaltungsträger berechtigt ist, mit Außenwirkung Aufgaben öffentlichen Handelns
 /// (insbes. der Erlass von Verwaltungsakten und das Schließen öffentlich-rechtlicher
 /// Verträge) wahrzunehmen.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"BehoerdeType")]
 pub struct BehoerdeType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
@@ -516,7 +549,8 @@ pub struct BehoerdeType {
 }
 
 /// Angaben zum Registereintrag.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"RegistrierungType")]
 pub struct RegistrierungType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
@@ -533,7 +567,8 @@ pub struct RegistrierungType {
 /// Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z.B.
 /// im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen
 /// Bereich. Behörden werden über eine eigene Kernkomponente "Behoerde" abgebildet.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"OrganisationType")]
 pub struct OrganisationType {
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
@@ -558,8 +593,8 @@ pub struct OrganisationType {
     pub anschrift: Vec<AnschriftType>,
 }
 
-
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeAnschrifttypType")]
 pub struct CodeAnschrifttypType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -568,7 +603,8 @@ pub struct CodeAnschrifttypType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeStaatType")]
 pub struct CodeStaatType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -577,7 +613,8 @@ pub struct CodeStaatType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeKreisType")]
 pub struct CodeKreisType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -586,7 +623,8 @@ pub struct CodeKreisType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeBezirkType")]
 pub struct CodeBezirkType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -595,7 +633,8 @@ pub struct CodeBezirkType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeBundeslandType")]
 pub struct CodeBundeslandType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -604,7 +643,8 @@ pub struct CodeBundeslandType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeAGSType")]
 pub struct CodeAGSType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -613,7 +653,8 @@ pub struct CodeAGSType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeRegionalschluesselType")]
 pub struct CodeRegionalschluesselType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -624,7 +665,8 @@ pub struct CodeRegionalschluesselType {
 
 /// Die Komponente "VerwaltungspolitischeKodierung" beinhaltet Information, die eine
 /// verwaltungspolitisch eindeutige Zuordnung ermöglichen.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"VerwaltungspolitischeKodierungType")]
 pub struct VerwaltungspolitischeKodierungType {
     #[xml(ns = b"xwas", name = b"kreis", ty = "child")]
@@ -651,7 +693,8 @@ pub struct VerwaltungspolitischeKodierungType {
 /// erlaubt. Die Anschrift kann auch über eine Subkomponente verfügen, die eine
 /// verwaltungspolitische Zuordnung des Ortes erlaubt (Zuordnung zu einer Gemeinde über
 /// den AGS, eines Bundesland, etc.).
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(root = b"AnschriftType")]
 pub struct AnschriftType {
     #[xml(ns = b"xwas", name = b"id", ty = "attr")]
@@ -684,7 +727,8 @@ pub struct AnschriftType {
     pub verwaltungspolitische_kodierung: Option<VerwaltungspolitischeKodierungType>,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct CodeBrancheType {
     // typ xoev-code:Code
     #[xml(name = b"code", ty = "child")]
@@ -693,7 +737,8 @@ pub struct CodeBrancheType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeArtProbennahmestelleType")]
 pub struct CodeArtProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -702,7 +747,8 @@ pub struct CodeArtProbennahmestelleType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeAufbereitungsstoffDesinfektionsverfahrenType")]
 pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -712,7 +758,8 @@ pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
 }
 
 /// Klasse für den Transport von Informationen zu einer Probennahmestelle.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"ProbennahmestelleType")]
 pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
@@ -747,7 +794,8 @@ pub struct ProbennahmestelleType {
     pub _id: ConstStr,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct CodeZweckType {
     // xoev-code:Code
     #[xml(name = b"code", ty = "child")]
@@ -756,7 +804,8 @@ pub struct CodeZweckType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeUntersuchungsstelleType")]
 pub struct CodeUntersuchungsstelleType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -766,7 +815,8 @@ pub struct CodeUntersuchungsstelleType {
 }
 
 /// Klasse für den Transport von Informationen zu einer zugelassenen Untersuchungsstelle.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"zugelasseneUntersuchungsstelleType")]
 pub struct ZugelasseneUntersuchungsstelleType {
     #[xml(name = b"organisation", ty = "child")]
@@ -791,7 +841,8 @@ pub struct ZugelasseneUntersuchungsstelleType {
 
 /// Klasse für den Transport von ergänzenden Informationen zu den Daten aus dem Register
 /// für Zugelassene Untersuchungsstellen im Falle der Beauftragung einer Untersuchung.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"BeauftragteUntersuchungsstelleType")]
 pub struct BeauftragteUntersuchungsstelleType {
     #[xml(ns = b"xwas", name = b"zugelasseneUntersuchungsstelle", ty = "child")]
@@ -804,7 +855,8 @@ pub struct BeauftragteUntersuchungsstelleType {
     pub kommentar_beauftragte_untersuchungsstelle: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeGesamtbewertungType")]
 pub struct CodeGesamtbewertungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -813,7 +865,8 @@ pub struct CodeGesamtbewertungType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeAmtsspracheEUType")]
 pub struct CodeAmtsspracheEUType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -829,7 +882,8 @@ pub struct CodeAmtsspracheEUType {
 /// Metadaten zu spezifizieren. Es können beliebige XML-Schemata mit unterschiedlichen
 /// Namensräumen angegeben werden. Die XML-Schema-Validierung der weiterführenden
 /// Metadaten erfolgt innerhalb der XWasser-Nachricht selbst (prozessContents = "lax").
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"erweiterungXMLType")]
 pub struct ErweiterungXmlType {
     // weiteres xml schema
@@ -837,7 +891,8 @@ pub struct ErweiterungXmlType {
     pub any: Vec<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeDatentypType")]
 pub struct CodeDatentypType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -848,7 +903,8 @@ pub struct CodeDatentypType {
 
 /// Ein Feld ist ein anwendungsspezifisches Metadatum. Die Konfiguration eines Feldes
 /// muss zwischen den Kommunikationspartnern abgesprochen sein.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"erweiterungFeldType")]
 pub struct ErweiterungFeldType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -862,7 +918,8 @@ pub struct ErweiterungFeldType {
 }
 
 /// Eine Erweiterungsgruppe fasst mehrere Felder (Metadaten) zu einem Objekt zusammen .
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"erweiterungGruppeType")]
 pub struct ErweiterungGruppeType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -882,7 +939,8 @@ pub struct ErweiterungGruppeType {
 /// Zwischen Sender und Empfänger wird bilateral die Übermittlung einer strukturierten
 /// Information vereinbart, die sich mit den vorhandenen Klassen und Elemente nicht
 /// abbilden lässt.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"ErweiterungType")]
 pub struct ErweiterungType {
     #[xml(ns = b"xwas", name = b"feld", ty = "child")]
@@ -895,7 +953,8 @@ pub struct ErweiterungType {
 
 /// Klasse zur Erfassung bzw. zum Transport der Daten eines Prüfberichts. Prüfberichte
 /// werden erstellt, nachdem eine Wasserprobe im Labor analysiert wurde.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"PruefberichtType")]
 pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
@@ -968,7 +1027,8 @@ pub struct PruefberichtType {
     pub id: String,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeWasserversorgungsgebietType")]
 pub struct CodeWasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -978,7 +1038,8 @@ pub struct CodeWasserversorgungsgebietType {
 }
 
 /// Klasse zur Abbildung von SHAPTH-spezifischen Geokoordinaten.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"geokoordinatenShapthType")]
 pub struct GeokoordinatenShapthType {
     #[xml(
@@ -999,7 +1060,8 @@ pub struct GeokoordinatenShapthType {
     pub geokoordinaten_hochwert: Option<u8>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeGrundSchliessungWasserversorgungsgebietType")]
 pub struct CodeGrundSchliessungWasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1008,7 +1070,8 @@ pub struct CodeGrundSchliessungWasserversorgungsgebietType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeArtWasserressourceType")]
 pub struct CodeArtWasserressourceType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1017,7 +1080,8 @@ pub struct CodeArtWasserressourceType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeGrundAusnahmeregelungType")]
 pub struct CodeGrundAusnahmeregelungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1026,7 +1090,8 @@ pub struct CodeGrundAusnahmeregelungType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeAbhilfemassnahmeType")]
 pub struct CodeAbhilfemassnahmeType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1037,7 +1102,8 @@ pub struct CodeAbhilfemassnahmeType {
 
 /// Transport von Informationen, die für die Maßnahmen zur Ausnahmeregelungen gem. de
 /// neuen Vorgaben für das EU-Berichtsformat benötigt werden.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"DerogationRemedialActionType")]
 pub struct DerogationRemedialActionType {
     #[xml(
@@ -1065,7 +1131,8 @@ pub struct DerogationRemedialActionType {
     pub _id: ConstStr,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeShapthParameterType")]
 pub struct CodeShapthParameterType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1074,7 +1141,8 @@ pub struct CodeShapthParameterType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeProbennahmezeitraumType")]
 pub struct CodeProbennahmezeitraumType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1083,7 +1151,8 @@ pub struct CodeProbennahmezeitraumType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeArtProbennahmestelleEUType")]
 pub struct CodeArtProbennahmestelleEUType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1094,7 +1163,8 @@ pub struct CodeArtProbennahmestelleEUType {
 
 /// Transport der Informationen, die für Qualität und Überwachung gem. dem neuen Vorgaben
 /// für das EU-Berichtsformat benötigt werden.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"QualityAndMonitoringType")]
 pub struct QualityAndMonitoringType {
     #[xml(
@@ -1124,7 +1194,8 @@ pub struct QualityAndMonitoringType {
 
 /// Transport solcher Informationen, die für die Ausnahmeregelungen gem. den neuen
 /// Vorgaben für das EU-Berichtsformat benötigt werden.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"DerogationType")]
 pub struct DerogationType {
     #[xml(ns = b"xwas", name = b"derogationIdentifier", ty = "child")]
@@ -1168,7 +1239,8 @@ pub struct DerogationType {
     pub _id: ConstStr,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeMassnahmeType")]
 pub struct CodeMassnahmeType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1177,7 +1249,8 @@ pub struct CodeMassnahmeType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeIncidentExceedanceCauseType")]
 pub struct CodeIncidentExceedanceCauseType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1188,7 +1261,8 @@ pub struct CodeIncidentExceedanceCauseType {
 
 /// Klasse für den Transport von Informationen, die für Ursachen und Maßnahmen von
 /// Überschreitungen gem. den neuen Vorgaben für das EU-Berichtsformat benötigt werden.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"ExceedanceCauseAndRemedialActionType")]
 pub struct ExceedanceCauseAndRemedialActionType {
     #[xml(
@@ -1218,7 +1292,8 @@ pub struct ExceedanceCauseAndRemedialActionType {
 
 /// Klasse für den Transport von Informationen, die für Überschreitungen gem. den neuen
 /// Vorgaben für das EU-Berichtsformat benötigt werden.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"ExceedanceType")]
 pub struct ExceedanceType {
     #[xml(ns = b"xwas", name = b"exceedanceIdentifier", ty = "child")]
@@ -1252,7 +1327,8 @@ pub struct ExceedanceType {
     pub _id: ConstStr,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeIncidentCategoryType")]
 pub struct CodeIncidentCategoryType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1264,7 +1340,8 @@ pub struct CodeIncidentCategoryType {
 /// Klasse für den Transport von Informationen, die zur Beschreibung von Ursache und
 /// Maßnahmen von Vorfällen gem. den neuen Vorgaben für das EU-Berichtsformat benötigt
 /// werden.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"IncidentCauseAndRemedialActionType")]
 pub struct IncidentCauseAndRemedialActionType {
     #[xml(ns = b"xwas", name = b"incidentCauseAndActionIdentifier", ty = "child")]
@@ -1286,7 +1363,8 @@ pub struct IncidentCauseAndRemedialActionType {
 
 /// Klasse für den Transport von Informationen, die für Vorfälle gem. den neuen Vorgaben
 /// für das EU-Berichtsformat benötigt werden.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"IncidentType")]
 pub struct IncidentType {
     #[xml(ns = b"xwas", name = b"incidentIdentifier", ty = "child")]
@@ -1312,7 +1390,8 @@ pub struct IncidentType {
 
 /// Klasse für den Transport von Informationen zu einem Wasserversorgungsgebiet [Soweit
 /// möglich in Register zu pflegen].
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"WasserversorgungsgebietType")]
 pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
@@ -1372,7 +1451,8 @@ pub struct WasserversorgungsgebietType {
     pub _id: ConstStr,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeWVAType")]
 pub struct CodeWVAType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1381,7 +1461,8 @@ pub struct CodeWVAType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeErlaeuterungWasserabgabemengeType")]
 pub struct CodeErlaeuterungWasserabgabemengeType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1390,7 +1471,8 @@ pub struct CodeErlaeuterungWasserabgabemengeType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeFlockungType")]
 pub struct CodeFlockungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1399,7 +1481,8 @@ pub struct CodeFlockungType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeDesinfektionsartType")]
 pub struct CodeDesinfektionsartType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1408,7 +1491,8 @@ pub struct CodeDesinfektionsartType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeNachweisartType")]
 pub struct CodeNachweisartType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1417,7 +1501,8 @@ pub struct CodeNachweisartType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeStatusUntersuchungsplanType")]
 pub struct CodeStatusUntersuchungsplanType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1426,7 +1511,8 @@ pub struct CodeStatusUntersuchungsplanType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeKategorieProbennahmestelleType")]
 pub struct CodeKategorieProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1435,7 +1521,8 @@ pub struct CodeKategorieProbennahmestelleType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeUeberwachungAufbereitungType")]
 pub struct CodeUeberwachungAufbereitungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1446,7 +1533,8 @@ pub struct CodeUeberwachungAufbereitungType {
 
 /// Klasse für den Transport von Informationen, die für die Erstellung von Terminplänen
 /// als Teil des Untersuchungsplans für a- und b-Anlagen relevant sind.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"TerminplanType")]
 pub struct TerminplanType {
     #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
@@ -1481,7 +1569,8 @@ pub struct TerminplanType {
     pub _id: String,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeArtTrinkwasseranlageType")]
 pub struct CodeArtTrinkwasseranlageType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1490,7 +1579,8 @@ pub struct CodeArtTrinkwasseranlageType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeArtObjektType")]
 pub struct CodeArtObjektType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1499,7 +1589,8 @@ pub struct CodeArtObjektType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeBetriebszustandType")]
 pub struct CodeBetriebszustandType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1508,7 +1599,8 @@ pub struct CodeBetriebszustandType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeRahmenTrinkwasserbereitstellungType")]
 pub struct CodeRahmenTrinkwasserbereitstellungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1519,7 +1611,8 @@ pub struct CodeRahmenTrinkwasserbereitstellungType {
 
 /// Informationen zu einem Auftraggeber [Ergänzende Angaben zu den jeweiligen
 /// Informationen aus den Registern von Betreibern/Behörden].
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[serde(tag = "t", content = "c")]
 pub enum ArtDerPerson {
     // #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
@@ -1535,7 +1628,8 @@ pub enum ArtDerPerson {
 
 /// Klasse zum Transport von Informationen zu einem Betreiber einer WVA [Soweit möglich
 /// in Register zu pflegen].
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"BetreiberType")]
 pub struct BetreiberType {
     #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
@@ -1547,7 +1641,8 @@ pub struct BetreiberType {
 }
 
 /// Klasse für den Transport von Informationen zu einem Objekt.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"ObjektType")]
 pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
@@ -1587,7 +1682,8 @@ pub struct ObjektType {
 }
 
 /// Klasse für den Transport von Informationen zu einer Trinkwasserversorgungsanlage.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"AnlageNachTrinkwVType")]
 pub struct AnlageNachTrinkwVType {
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
@@ -1626,7 +1722,8 @@ pub struct AnlageNachTrinkwVType {
 
 /// Klasse für den Transport von Informationen, die für die Erstellung eines
 /// Untersuchungsplans für a- und b-Anlagen relevant sind.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"UntersuchungsplanType")]
 pub struct UntersuchungsplanType {
     #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
@@ -1699,7 +1796,8 @@ pub struct UntersuchungsplanType {
     pub id: String,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeAuftraggeberartType")]
 pub struct CodeAuftraggeberartType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1708,7 +1806,8 @@ pub struct CodeAuftraggeberartType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[serde(tag = "t", content = "c")]
 pub enum Auftraggeber {
     #[xml(ns = b"xwas", name = b"organisation")]
@@ -1724,8 +1823,8 @@ pub enum Auftraggeber {
 
 /// Informationen zu einem Auftraggeber [Ergänzende Angaben zu den jeweiligen
 /// Informationen aus den Registern von Betreibern/Behörden].
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"auftraggeberType")]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct AuftraggeberType {
     #[xml(ns = b"xwas", name = b"auftraggeberID", ty = "child")]
     pub auftraggeber_id: String,
@@ -1735,7 +1834,8 @@ pub struct AuftraggeberType {
     pub auftraggeber: Auftraggeber,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct CodeNameBeauftragteUntersuchungsstelle {
     #[xml(name = b"code", ty = "child")]
     pub code: String,
@@ -1743,7 +1843,8 @@ pub struct CodeNameBeauftragteUntersuchungsstelle {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeLaenderkennzeichenType")]
 pub struct CodeLaenderkennzeichenType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1754,7 +1855,8 @@ pub struct CodeLaenderkennzeichenType {
 
 /// Klasse für den Transport von Informationen zu einer Zuständigen Behörde [Ergänzende
 /// Angaben zu einer im Register Behörden gepflegte Behörde].
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"ZustaendigeBehoerdeType")]
 pub struct ZustaendigeBehoerdeType {
     #[xml(ns = b"xwas", name = b"behoerde", ty = "child")]
@@ -1782,7 +1884,8 @@ pub struct CodeNamensartType {
  
 /// Der AllgemeineName dient der Darstellung von Vor- und Nachnamen und fasst deren
 /// gemeinsame Eigenschaften zusammen.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"AllgemeinerNameType")]
 pub struct AllgemeinerNameType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -1805,7 +1908,8 @@ pub struct AllgemeinerNameType {
 /// für die Verwendung einer alternativen Repraesentation ist die Übermittlung von Namen.
 /// Der Name "Andrè Müller" würde nach ICAO-Standard, in dem keine Umlaute erlaubt sind,
 /// daher alternativ als "ANDRE MUELLER" übertragen.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"AlternativeRepraesentationType")]
 pub struct AlternativeRepraesentationType {
     #[xml(ns = b"xwas", name = b"repraesentation", ty = "child")]
@@ -1818,7 +1922,8 @@ pub struct AlternativeRepraesentationType {
 
 /// Der Name einer Person ist eine Benennung dieser Person, die dazu dient, diese Person
 /// von anderen Personen zu unterscheiden.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"nameNatuerlichePersonType")]
 pub struct NameNatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"titel", ty = "child")]
@@ -1853,7 +1958,8 @@ pub struct NameNatuerlichePersonType {
     pub weiterer_name: Vec<AllgemeinerNameType>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeAuskunftssperreType")]
 pub struct CodeAuskunftssperreType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1864,7 +1970,8 @@ pub struct CodeAuskunftssperreType {
 
 /// Der Zeitraum kennzeichnet einen Abschnitt auf einem Zeitstrahl durch Angabe von
 /// Beginn und/oder Ende.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"ZeitraumType")]
 pub struct ZeitraumType {
     #[xml(ns = b"xwas", name = b"beginn", ty = "child")]
@@ -1876,7 +1983,8 @@ pub struct ZeitraumType {
 }
 
 /// Die Auskunftssperre beschränkt die Weitergabe von Informationen an Dritte.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"AuskunftssperreType")]
 pub struct AuskunftssperreType {
     #[xml(ns = b"xwas", name = b"grund", ty = "child")]
@@ -1885,7 +1993,8 @@ pub struct AuskunftssperreType {
     pub gueltigkeit: Option<ZeitraumType>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeFamilienstandType")]
 pub struct CodeFamilienstandType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1895,7 +2004,8 @@ pub struct CodeFamilienstandType {
 }
 
 /// Unter "Geburt" werden geburtsbezogene Informationen zusammengefasst.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"geburtType")]
 pub struct GeburtType {
     #[xml(ns = b"xwas", name = b"datum", ty = "child")]
@@ -1910,7 +2020,8 @@ pub struct GeburtType {
 /// Doktorgrade anzugeben, die in Pässe eingetragen werden dürfen. Sind mehrere
 /// Doktorgrade anzugeben, so sind sie durch ein Leerzeichen zu trennen. Zulässig sind
 /// derzeit: „DR.“, „Dr.“, „DR.HC.“, „Dr.hc.“, „Dr.EH.“ und „Dr.eh.“.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"DoktorgradType")]
 pub struct DoktorgradType {
     // hier gibt es eine striction mit max length 120, wie umsetzen ?
@@ -1918,7 +2029,8 @@ pub struct DoktorgradType {
     pub bezeichnung: String,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeStaatsangehoerigkeitType")]
 pub struct CodeStaatsangehoerigkeitType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1927,7 +2039,8 @@ pub struct CodeStaatsangehoerigkeitType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeAusweisdokumenteType")]
 pub struct CodeAusweisdokumenteType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1936,7 +2049,8 @@ pub struct CodeAusweisdokumenteType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeGeschlechtType")]
 pub struct CodeGeschlechtType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1959,8 +2073,9 @@ pub struct CodeSpracheType {
 }
 
 /// Unter "Sprache" werden Informationen über Sprachen zusammengefasst.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"SpracheType")]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[xml(root = b"spracheType")]
 pub struct SpracheType {
     #[xml(ns = b"xwas", name = b"sprache", ty = "child")]
     pub sprache: CodeSpracheType,
@@ -1968,7 +2083,8 @@ pub struct SpracheType {
     pub zusatz: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeVertretungsartType")]
 pub struct CodeVertretungsartType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1979,7 +2095,8 @@ pub struct CodeVertretungsartType {
 
 /// Mit diesem Datentyp wird ein gesetzlicher Vertreter oder ein Bevollmächtigter einer
 /// nichtnatürlichen Person abgebildet.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"VertreterBevollmaechtigterType")]
 pub struct VertreterBevollmaechtigterType {
     #[xml(ns = b"xwas", name = b"vertreterBevollmaechtigterID", ty = "child")]
@@ -1988,7 +2105,8 @@ pub struct VertreterBevollmaechtigterType {
     pub art_vertreter: CodeVertretungsartType,
 }
 
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeFamilienstandBeendigungsgrundType")]
 pub struct CodeFamilienstandBeendigungsgrundType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -1998,7 +2116,8 @@ pub struct CodeFamilienstandBeendigungsgrundType {
 }
 
 /// Hier werden Angaben zum Familienstand einer natürlichen Person zusammengefasst.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"familienstandType")]
 pub struct FamilienstandType {
     #[xml(ns = b"xwas", name = b"familienstand", ty = "child")]
@@ -2014,7 +2133,8 @@ pub struct FamilienstandType {
 }
 
 /// Hier werden Angaben zur Staatsangehörigkeit zusammengefasst.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"StaatsangehoerigkeitType")]
 pub struct StaatsangehoerigkeitType {
     #[xml(ns = b"xwas", name = b"staatsangehoerigkeit", ty = "child")]
@@ -2024,7 +2144,8 @@ pub struct StaatsangehoerigkeitType {
 /// Als Staat bezeichnet man eine politische Ordnung, die ein gemeinsames als
 /// Staatsgebiet abgegrenztes Territorium, ein dazugehöriges Staatsvolk und eine
 /// Machtausübung über dieses umfasst.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"staatType")]
 pub struct StaatType {
     #[xml(ns = b"xwas", name = b"staat", ty = "child")]
@@ -2033,7 +2154,8 @@ pub struct StaatType {
 
 /// Ein Ausweis ist eine öffentliche oder private Urkunde, die die Identität des Inhabers
 /// schriftlich und offiziell darstellt. Er enthält meist persönliche Daten.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"ausweisdokumentType")]
 pub struct AusweisdokumentType {
     #[xml(ns = b"xwas", name = b"ausweisart", ty = "child")]
@@ -2056,7 +2178,8 @@ pub struct AusweisdokumentType {
 /// Selbstverwaltungskörperschaften, sonstige Körperschaften des öffentlichen Rechts)
 /// erfasst. Die konkrete Rechtsform der juristischen Person kann mittels einer Codeliste
 /// angegeben werden.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"juristischePersonType")]
 pub struct JuristischePersonType {
     #[xml(
@@ -2092,7 +2215,8 @@ pub struct JuristischePersonType {
 /// rechtsfähig und damit zu einer natürlichen Person (§ 1 BGB). Der Mensch verliert
 /// seine Rechtsfähigkeit mit dem Tod. Rechtssubjekte, die keine natürlichen Personen
 /// sind, nennt man juristische Personen.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"natuerlichePersonType")]
 pub struct NatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"auskunftssperre", ty = "child")]
@@ -2125,7 +2249,8 @@ pub struct NatuerlichePersonType {
     pub vertreter_bevollmaechtigter: Vec<VertreterBevollmaechtigterType>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[serde(tag = "t", content = "c")]
 pub enum Person {
     #[xml(ns = b"xwas", name = b"natuerlichePerson")]
@@ -2137,7 +2262,8 @@ pub enum Person {
     None,
 }
 
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codePersonenrolleType")]
 pub struct CodePersonenrolleType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -2149,7 +2275,8 @@ pub struct CodePersonenrolleType {
 /// Mit diesem Datentyp wird eine allgemeine Person, natürlich oder nichtnatürlich,
 /// spezifiziert
 /// dieser Datentype wird bisher nirgends verwendet
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"PersonType")]
 pub struct PersonType {
     #[xml(ns = b"xwas", name = b"personRolle", ty = "child")]
@@ -2162,8 +2289,9 @@ pub struct PersonType {
     pub id: String,
 }
 
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[xml(tns(b"xwas", b"xwasser"))]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[serde(tag = "t", content = "c")]
 pub enum Probennehmer {
     #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
@@ -2176,8 +2304,9 @@ pub enum Probennehmer {
 
 /// Klasse für den Transport von Informationen zu einem Probennehmer [Durch das Labor mit
 /// dem Prüfbericht mit zu übermittelnde Informationen].
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"ProbennehmerType")]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[xml(root = b"probennehmerType")]
 pub struct ProbennehmerType {
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
     pub probennehmer_id: String,
@@ -2192,7 +2321,8 @@ pub struct ProbennehmerType {
     pub _id: ConstStr,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeProbenentnahmegeraetType")]
 pub struct CodeProbenentnahmegeraetType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -2201,7 +2331,8 @@ pub struct CodeProbenentnahmegeraetType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeGefaessType")]
 pub struct CodeProbengefaessType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -2210,7 +2341,8 @@ pub struct CodeProbengefaessType {
     pub name: Option<String>,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeProbenbewertungType")]
 pub struct CodeProbenbewertungType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -2221,8 +2353,9 @@ pub struct CodeProbenbewertungType {
 
 /// Klasse zum Transport von Informationen, welche über eine Probe vorliegen sollen, die
 /// im Rahmen eines Prüfberichts via SHAPTH übermittelt wird.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
-#[xml(root = b"ProbeType")]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[xml(root = b"probeType")]
 pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
     pub probe_id: String,
@@ -2290,7 +2423,8 @@ pub struct ProbeType {
     pub _id: ConstStr,
 }
 
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"codeDokumenttypType")]
 pub struct CodeDokumenttypType {
     #[xml(ns = b"xwas", name = b"code", ty = "child")]
@@ -2302,7 +2436,8 @@ pub struct CodeDokumenttypType {
 /// Sofern das Dokument signiert wurde findet sich hier eine Referenzliste auf die
 /// Signaturen. Diese sind ihrerseits wieder Dokumente, die auch als Dokumentelemente in
 /// der Nachricht zu finden sind.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"SignaturenType")]
 pub struct SignaturenType {
     #[xml(ns = b"xwas", name = b"signaturDokumentID", ty = "child")]
@@ -2312,7 +2447,8 @@ pub struct SignaturenType {
 /// Dokument-Repräsentation, eine Darstellungsform des Dokumentes. Es muss das Element
 /// content oder die Elemente externalReferenceIndex und externalReferenceType oder alle
 /// 3 vorhanden sein.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"dokumentRepraesentationType")]
 pub struct DokumentRepraesentationType {
     #[xml(ns = b"xwas", name = b"referenz", ty = "child")]
@@ -2338,7 +2474,8 @@ pub struct DokumentRepraesentationType {
 /// Eine zum Antrag gehörige Unterlage in verschiedenen Dokumentendarstellungen, z. B.
 /// PDF oder eine Datendarstellung. Es muss immer das komplette Dokument mit allen
 /// Darstellungen übertragen werden.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(root = b"DokumentType")]
 pub struct DokumentType {
     #[xml(ns = b"xwas", name = b"dokumentTyp", ty = "child")]
@@ -2357,7 +2494,8 @@ pub struct DokumentType {
     pub dokument_id: String,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize, Tsify)]
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
 #[serde(tag = "t", content = "c")]
 pub enum VorgangType {
     #[xml(ns = b"xwas", name = b"pruefbericht")]
@@ -2371,14 +2509,14 @@ pub enum VorgangType {
     None,
 }
 
-extern crate raxb as _raxb;
-
+#[cfg(feature = "wasm")]
 #[wasm_bindgen]
 pub fn create_quality_report_xml(data: QualityReport) -> Result<String, JsValue> {
     Ok(raxb::ser::to_string_pretty_with_decl(&data)
         .map_err(|err| JsValue::from_str(&err.to_string()))?)
 }
 
+#[cfg(feature = "wasm")]
 #[wasm_bindgen]
 pub fn parse_quality_report_xml(xml: String) -> Result<QualityReport, JsValue> {
     Ok(raxb::de::from_str(&xml).map_err(|err| JsValue::from_str(&err.to_string()))?)
@@ -2402,5 +2540,4 @@ mod test {
 
         // })
     }
-
 }
