@@ -142,7 +142,12 @@ pub struct QualityReport {
     )]
     #[serde(skip)]
     schema_location: ConstStr,
-    #[xml(ns = b"xmlns", name = b"xwas", ty = "attr", value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1")]
+    #[xml(
+        ns = b"xmlns",
+        name = b"xwas",
+        ty = "attr",
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+    )]
     #[serde(skip)]
     _xmlns: ConstStr,
     #[xml(name = b"produkt", ty = "attr")]
