@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           xmlns:bn-uq-g2g="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"
+           xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           version="0.5.0"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XWasser</nameLang>
+            <nameKurz>XWasser</nameKurz>
+            <nameTechnisch>xwasser</nameTechnisch>
+            <kennung>urn:xoev-de:lgl:standard:xwasser</kennung>
+            <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>0.5.0</version>
+            <versionXOEVProfil>3.0.2</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>2024x</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xwasser-basisnachricht.xsd"/>
+   <xs:include schemaLocation="xwasser-baukasten.xsd"/>
+   <xs:include schemaLocation="xwasser-rueckweisung.xsd"/>
+   <xs:import schemaLocation="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1/xoev-basisnachricht-unqualified-g2g_1.1.xsd"
+              namespace="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"/>
+   <xs:import schemaLocation="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:element name="administration.rueckweisung.0010">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>TrinkwV</rechtsgrundlage>
+            <title>Rückweisung einer Nachricht</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht wird eine an den Leser gerichtete Ursprungsnachricht als fehlerhaft an den Autor zurückgewiesen. Die erhaltene Nachricht wurde nicht verarbeitet. Diese Nachricht ist für die Verwendung in asynchronen Prozessen konzipiert. Anmerkung: Sofern mehrere Fehlerbedingungen gleichzeitig auftreten, wird nur die zuerst gefundene bemängelt. Eine Prüfungsreihenfolge ist nicht definiert.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xwas:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="rueckweisung" type="xwas:RueckweisungType">
+                     <xs:annotation>
+                        <xs:documentation>Hier werden alle Informationen zur Rückweisung einer Nachricht angegeben.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="administration.quittung.0020">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>TrinkwV</rechtsgrundlage>
+            <title>Quittung transportieren</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht wird eine Quittung transportiert. Diese wird durch jede Nachricht ausgelöst. Die ID der Quittungsnachricht wird im Feld nachrichtenkopf/identifikation.nachricht/nachrichtenUUID und die ID der Nachricht, die quittiert wird, wird im Feld nachrichtenkopf/referenzUUID abgelegt. Auf eine Nachricht vom Typ administration.quittung.0020 wird keine Antwort mehr übermittelt, auch keine weitere Quittungsnachricht.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xwas:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="identifikationVorgang" type="xwas:Identifikation.VorgangType">
+                     <xs:annotation>
+                        <xs:documentation>Eindeutige Identifizierung des Vorgangs.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="quittung" type="xwas:QuittungType">
+                     <xs:annotation>
+                        <xs:documentation>Mit diesem Element wird eine Nachricht in Form eines technischen Status quittiert.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="administration.indexanfrage.0030">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>TrinkwV</rechtsgrundlage>
+            <title>Suche vorhandene Nachrichten</title>
+         </xs:appinfo>
+         <xs:documentation>Transport der Suchkriterien, zur Abfrage auf vorhandene Nachrichten Beispielsweise sollen bei einem zentralen Messenger System alle an die eigene Behörde adressierten Nachrichten identifiziert werden, die seit einem bestimmten Zeitpunkt dazugekommen sind.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xwas:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="indexanfrage"
+                              maxOccurs="unbounded"
+                              type="xwas:IndexanfrageType">
+                     <xs:annotation>
+                        <xs:documentation>Suchkriterien, zur Abfrage auf vorhandene Nachrichten</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="administration.indexantwort.0040">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>TrinkwV</rechtsgrundlage>
+            <title>Transport eines Indexes</title>
+         </xs:appinfo>
+         <xs:documentation>Transport eines Indexes der abholbaren Nachrichten. Hierbei handelt es sich um eine Liste von Schlüsseln, nach denen gezielt Nachrichten abgefragt werden können. Mit Hilfe eines Index kann sehr schnell und direkt auf bestimmte Informationen innerhalb einer großen Datenmenge zugegriffen werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xwas:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="index"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xwas:IndexType">
+                     <xs:annotation>
+                        <xs:documentation>Kurzsteckbrief für eine Nachricht</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

@@ -13,19 +13,36 @@ keywords = []
 crate-type = ["cdylib", "rlib"]
 
 [features]
-default = ["wasm"]
+default = ["schema"]
 wasm = ["dep:wasm-bindgen", "dep:tsify"]
+schema = [
+    "dep:rust-embed",
+    "dep:raxb-validate",
+    "dep:raxb-xmlschema",
+    "dep:anyhow",
+]
 
 [dependencies]
 # raxb = "0.3.7"
+anyhow = { version = "1", optional = true }
+rust-embed = { version = "8.5.0", optional = true }
 raxb = { path = "../raxb/crates/raxb" }
+raxb-validate = { path = "../raxb/crates/raxb-validate", optional = true }
+raxb-xmlschema = { path = "../raxb/crates/raxb-xmlschema", optional = true }
+
 serde = { version = "1.0.203", features = ["derive"] }
 
 wasm-bindgen = { version = "0.2.84", optional = true }
 tsify = { version = "0.4.5", features = ["js"], optional = true }
 
+[build-dependencies]
+raxb-xmlschema-build = { path = "../raxb/crates/raxb-xmlschema-build" }
+anyhow = "1"
+
 [dev-dependencies]
+raxb-xmlschema-build = { path = "../raxb/crates/raxb-xmlschema-build" }
 serde_json = "1"
+anyhow = "1"
 
 [profile.release]
 # Tell `rustc` to optimize for small code size.

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           xmlns:bn-uq-g2g="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"
+           xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           version="0.5.0"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XWasser</nameLang>
+            <nameKurz>XWasser</nameKurz>
+            <nameTechnisch>xwasser</nameTechnisch>
+            <kennung>urn:xoev-de:lgl:standard:xwasser</kennung>
+            <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>0.5.0</version>
+            <versionXOEVProfil>3.0.2</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>2024x</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:import schemaLocation="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1/xoev-basisnachricht-unqualified-g2g_1.1.xsd"
+              namespace="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"/>
+   <xs:import schemaLocation="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:simpleType name="Identifikation.Ereignis.ZeichenType">
+      <xs:annotation>
+         <xs:documentation>Das ein Ereignis identifizierende Zeichen darf maximal 100 Zeichen umfassen. Außer den Zeichen A..Z, a..z sowie den Ziffern 0..9 sind maximal acht Sonderzeichen erlaubt. Umlaute und das ß gelten als Sonderzeichen.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="din91379:datatypeC">
+         <xs:pattern value=".{1,100}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:complexType name="Identifikation.EreignisType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Identifikation Ereignis</title>
+         </xs:appinfo>
+         <xs:documentation>Dieser Typ enthält Angaben, die ein Ereignis eindeutig identifizieren und es dem Leser einer Nachricht ermöglichen, die Reihenfolge von Ereignissen beim Autor nachzuvollziehen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="ereignis.zeitpunkt" type="xs:dateTime">
+            <xs:annotation>
+               <xs:documentation>Dieses Element kann verwendet werden, um beim Leser die ursprüngliche Chronologie der Ereignisse beim Autor der Nachricht zu rekonstruieren. Der Ereigniszeitpunkt muss neben einer Angabe zum Datum eine zeitliche Information beinhalten. Diese ist mit einer Genauigkeit auf Ebene von Millisekunden und der Angabe zur Zeitzone zu übermitteln. Der hier übermittelte Zeitpunkt kann von dem Erstellungszeitpunkt der Nachricht, in der das Ereignis übermittelt wird, abweichen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="ereignis.zeichen" type="xwas:Identifikation.Ereignis.ZeichenType">
+            <xs:annotation>
+               <xs:documentation>Mit diesem Element wird ein (Geschäfts-)Zeichen zu dem Ereignis übermittelt, das das Ereignis innerhalb einer Nachricht eindeutig identifiziert. Das (Geschäfts-)Zeichen kann durch den Autor der Nachricht beliebig gestaltet werden, es muss nur sichergestellt werden, dass ein Ereignis innerhalb einer Nachricht eindeutig identifiziert (nur relevant bei Sammelnachrichten) wird und dass der Autor einer Nachricht in der Lage ist, das übermittelte Ereignis mithilfe des (Geschäfts-)Zeichens und den identifizierenden Angaben zur Nachricht wieder aufzufinden. Ein solches Zeichen darf maximal 100 Zeichen umfassen. Außer den Zeichen A..Z, a..z sowie den Ziffern 0..9 sind maximal acht Sonderzeichen erlaubt. Umlaute und das ß gelten ebenfalls als Sonderzeichen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="WeiterleitendeStelleType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Weiterleitende Stelle</title>
+         </xs:appinfo>
+         <xs:documentation>Dieser Datentyp enthält Informationen zu einer Stelle, die eine Nachricht weitergeleitet hat. Sollte eine Nachricht über mehrere Stellen weitergeleitet worden sein, kann anhand des Zeitpunktes der Weiterleitung die Reihenfolge bestimmt werden.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="stelle" type="bn-uq-g2g:BehoerdeType">
+            <xs:annotation>
+               <xs:documentation>Angaben zur weiterleitenden Stelle</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="zeitpunkt" type="xs:dateTime">
+            <xs:annotation>
+               <xs:documentation>Hier wird das Datum und die Zeit übermittelt, an dem die im Kindelement stelle bezeichnete Stelle die Nachricht weitergeleitet hat. Der hier übermittelte Zeitpunkt entspricht dabei dem erstellungszeitpunkt der Weiterleitungsnachricht, mit der die Stelle die Weiterleitung vorgenommen hat.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

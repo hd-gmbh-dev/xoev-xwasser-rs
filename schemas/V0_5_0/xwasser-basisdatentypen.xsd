@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           version="0.5.0"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XWasser</nameLang>
+            <nameKurz>XWasser</nameKurz>
+            <nameTechnisch>xwasser</nameTechnisch>
+            <kennung>urn:xoev-de:lgl:standard:xwasser</kennung>
+            <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>0.5.0</version>
+            <versionXOEVProfil>3.0.2</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>2024x</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:import schemaLocation="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:simpleType name="DoktorgradType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Doktorgrad</title>
+         </xs:appinfo>
+         <xs:documentation>Dieser Datentyp erlaubt die Angabe von Doktorgraden. Es sind nur diejenigen Doktorgrade anzugeben, die in Pässe eingetragen werden dürfen. Sind mehrere Doktorgrade anzugeben, so sind sie durch ein Leerzeichen zu trennen. Zulässig sind derzeit: „DR.“, „Dr.“, „DR.HC.“, „Dr.hc.“, „Dr.EH.“ und „Dr.eh.“.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="din91379:datatypeC">
+         <xs:maxLength value="120"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="GeldwertType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Geldwert</title>
+         </xs:appinfo>
+         <xs:documentation>Der Geldwert wird mit zwei Nachkommastellen angegeben. Über ein eigenständiges Informationselement wird dem Geldwert eine Währung zugeordnet.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:decimal">
+         <xs:fractionDigits value="2"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="JahrType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Jahr</title>
+         </xs:appinfo>
+         <xs:documentation>Mit diesem Datentyp wird ein teilweise bekanntes Datum übermittelt. Vom Datum ist nur das Jahr bekannt.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:gYear">
+         <xs:pattern value="[0-9]{4}"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>
