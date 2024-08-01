@@ -758,9 +758,9 @@
                     <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
                   </xwas:gueltigkeit>
                 </xwas:ausweisID>
-                <xwas:ausstellendeBehoerde>
+                <!-- <xwas:ausstellendeBehoerde>
                   todo
-                </xwas:ausstellendeBehoerde>
+                </xwas:ausstellendeBehoerde> -->
               </xwas:ausweisdokument>
               <xwas:anschrift id="anschrift3">
                 <xwas:strassenschluessel>
@@ -851,30 +851,738 @@
           <xwas:fremdsystemID_Probennehmer></xwas:fremdsystemID_Probennehmer>
           <xwas:kommentar></xwas:kommentar>
         </xwas:probennehmer>
-        <xwas:korrekturvermerk></xwas:korrekturvermerk>
+        <xwas:pruefberichtEnthaeltTeilergebnisse>true</xwas:pruefberichtEnthaeltTeilergebnisse>
+        <xwas:korrekturvermerk>Korrekturvermerk</xwas:korrekturvermerk>
         <xwas:pruefberichtGemVorgabenAkkredition>true</xwas:pruefberichtGemVorgabenAkkredition>
-        <xwas:titel>Minimaler Prüfbericht</xwas:titel>
+        <xwas:titel>Maximaler Prüfbericht</xwas:titel>
         <xwas:gesamtbewertung>
           <code>1010</code>
         </xwas:gesamtbewertung>
-        <xwas:auffaelligkeiten></xwas:auffaelligkeiten>
+        <xwas:auffaelligkeiten>
+          Hoher gehalt von
+        </xwas:auffaelligkeiten>
+        <xwas:auffaelligkeiten>
+          Bakterien
+        </xwas:auffaelligkeiten>
         <xwas:zeitpunktValidierungPruefbericht>2024-12-21T00:00:12</xwas:zeitpunktValidierungPruefbericht>
         <xwas:fuerValidierungVerantwortlichePerson>
-          <xwas:nameNatuerlichePerson>
-            <xwas:familienname>
-              <xwas:name>Bauer</xwas:name>
-            </xwas:familienname>
-            <xwas:vorname>
-              <xwas:name>Martin</xwas:name>
-            </xwas:vorname>
-          </xwas:nameNatuerlichePerson>
+              <xwas:auskunftssperre>
+                <xwas:grund>
+                  <code>1234</code>
+                </xwas:grund>
+                <xwas:gueltigkeit>
+                  <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                  <xwas:ende>2024-07-26+10:00</xwas:ende>
+                  <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
+                </xwas:gueltigkeit>
+              </xwas:auskunftssperre>
+              <xwas:nameNatuerlichePerson>
+                <xwas:anrede>Herr</xwas:anrede>
+                <xwas:namenssuffix>Jr.</xwas:namenssuffix>
+                <xwas:familienname>
+                  <xwas:name>Mustermann</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:familienname>
+                <xwas:ehename>
+                  <xwas:name>Mustermann</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:ehename>
+                <xwas:lebenspartnerschaftsname>
+                  <xwas:name>Mustermann</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:lebenspartnerschaftsname>
+                <xwas:geburtsname>
+                  <xwas:name>Mustermann</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:geburtsname>
+                <xwas:fruehererFamilienname>
+                  <xwas:name>Mueller</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:fruehererFamilienname>
+                <xwas:vorname>
+                  <xwas:name>Max</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:vorname>
+                <xwas:rufname>
+                  <xwas:name>Maxi</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:rufname>
+                <xwas:fruehererVorname>
+                  <xwas:name>Maxime</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:fruehererVorname>
+                <xwas:fruehererVorname>
+                  <xwas:name>Maximer</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:fruehererVorname>
+                <xwas:fruehererVorname>
+                  <xwas:name>Maximillian</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:fruehererVorname>
+                <xwas:alternativeRepraesentation>
+                  <xwas:repraesentation></xwas:repraesentation>
+                  <xwas:algorithmus></xwas:algorithmus>
+                  <xwas:hinweis></xwas:hinweis>
+                </xwas:alternativeRepraesentation>
+                <xwas:alternativeRepraesentation>
+                  <xwas:repraesentation></xwas:repraesentation>
+                  <xwas:algorithmus></xwas:algorithmus>
+                  <xwas:hinweis></xwas:hinweis>
+                </xwas:alternativeRepraesentation>
+                <xwas:alternativeRepraesentation>
+                  <xwas:repraesentation></xwas:repraesentation>
+                  <xwas:algorithmus></xwas:algorithmus>
+                  <xwas:hinweis></xwas:hinweis>
+                </xwas:alternativeRepraesentation>
+                <xwas:alternativeRepraesentation>
+                  <xwas:repraesentation></xwas:repraesentation>
+                  <xwas:algorithmus></xwas:algorithmus>
+                  <xwas:hinweis></xwas:hinweis>
+                </xwas:alternativeRepraesentation>
+                <xwas:alternativeRepraesentation>
+                  <xwas:repraesentation></xwas:repraesentation>
+                  <xwas:algorithmus></xwas:algorithmus>
+                  <xwas:hinweis></xwas:hinweis>
+                </xwas:alternativeRepraesentation>
+                <xwas:ordensname>
+                  <xwas:name>Jakobiner</xwas:name>
+                  <xwas:nichtVorhanden>false</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:ordensname>
+                <xwas:kuenstlername>
+                  <xwas:name>Maxwell</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:kuenstlername>
+                <xwas:kuenstlername>
+                  <xwas:name>Maxwellius</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:kuenstlername>
+                <xwas:kuenstlername>
+                  <xwas:name>Maximus</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:kuenstlername>
+                <xwas:weitererName>
+                  <xwas:name>Peter</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:weitererName>
+              </xwas:nameNatuerlichePerson>
+              <xwas:familienstand>
+                <xwas:behoerde>
+                  <xwas:id>ID5e08e073-4e06-438d-9454-1275f6cbf021</xwas:id>
+                  <xwas:typ>
+                    <code>1234</code>
+                  </xwas:typ>
+                  <xwas:zusatz>Zusatzinformationen für die Behörde</xwas:zusatz>
+                  <xwas:behoerdenkennung>
+                    <xwas:kennung listURI="ID5e08e073-4e06-438d-9444-1275f6cbf061" listVersionID="ID5e08e073-4e06-438d-9444-1275f6cbf061">
+                      <code>1234</code>
+                    </xwas:kennung>
+                    <xwas:praefix listVersionID="ID5e08e073-4e06-438d-9444-1275f6cbf061">
+                      <code>1234</code>
+                    </xwas:praefix>
+                  </xwas:behoerdenkennung>
+                  <xwas:kommunikation>
+                    <xwas:kanal>
+                      <code>1234</code>
+                    </xwas:kanal>
+                    <xwas:kennung>1</xwas:kennung>
+                    <xwas:istDienstlich>true</xwas:istDienstlich>
+                    <xwas:zusatz>Zusatz für die Kommunikation</xwas:zusatz>
+                  </xwas:kommunikation>
+                  <xwas:behoerdenidentifikation>
+                    <xwas:beschreibung>
+                      Eine tolle Behörde
+                    </xwas:beschreibung>
+                    <xwas:gueltigkeit>
+                      <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                      <xwas:ende>2024-07-26+05:00</xwas:ende>
+                      <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                    </xwas:gueltigkeit>
+                  </xwas:behoerdenidentifikation>
+                  <xwas:behoerdenname>
+                    <xwas:name>Behoerde fuer komplizierte Vorgänge</xwas:name>
+                    <xwas:kurzbezeichnung>Eine Kurzbezeichnung</xwas:kurzbezeichnung>
+                    <xwas:gueltigkeit>
+                      <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                      <xwas:ende>2024-07-26+05:00</xwas:ende>
+                      <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                    </xwas:gueltigkeit>
+                  </xwas:behoerdenname>
+                  <xwas:nachgeordneteBehoerde>
+                    <xwas:id>ID5e08e073-4e06-438e-9444-1275f6cbf029</xwas:id>
+                    <xwas:typ>
+                      <code>1234</code>
+                    </xwas:typ>
+                    <xwas:zusatz>Zusatzinformationen für die Behörde</xwas:zusatz>
+                    <xwas:behoerdenkennung>
+                      <xwas:kennung listURI="ID5e08e073-4e06-438d-9444-1275f6cbf061" listVersionID="ID5e08e073-4e06-438d-9444-1275f6cbf061">
+                        <code>1234</code>
+                      </xwas:kennung>
+                      <xwas:praefix listVersionID="ID5e08e073-4e06-438d-9444-1275f6cbf061">
+                        <code>1234</code>
+                      </xwas:praefix>
+                    </xwas:behoerdenkennung>
+                    <xwas:kommunikation>
+                      <xwas:kanal>
+                        <code>1234</code>
+                      </xwas:kanal>
+                      <xwas:kennung>1</xwas:kennung>
+                      <xwas:istDienstlich>true</xwas:istDienstlich>
+                      <xwas:zusatz>Zusatz für die Kommunikation</xwas:zusatz>
+                    </xwas:kommunikation>
+                    <xwas:behoerdenidentifikation>
+                      <xwas:beschreibung>
+                        Eine tolle Behörde
+                      </xwas:beschreibung>
+                      <xwas:gueltigkeit>
+                        <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                        <xwas:ende>2024-07-26+05:00</xwas:ende>
+                        <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                      </xwas:gueltigkeit>
+                    </xwas:behoerdenidentifikation>
+                    <xwas:behoerdenname>
+                      <xwas:name>Behoerde fuer komplizierte Vorgänge</xwas:name>
+                      <xwas:kurzbezeichnung>Eine Kurzbezeichnung</xwas:kurzbezeichnung>
+                      <xwas:gueltigkeit>
+                        <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                        <xwas:ende>2024-07-26+05:00</xwas:ende>
+                        <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                      </xwas:gueltigkeit>
+                    </xwas:behoerdenname>
+                    <xwas:nachgeordneteBehoerde>
+                      <xwas:id>ID5e08e073-4e06-439d-9444-2275f6cbf021</xwas:id>
+                      <xwas:typ>
+                        <code>1234</code>
+                      </xwas:typ>
+                      <xwas:zusatz>Zusatzinformationen für die Behörde</xwas:zusatz>
+                      <xwas:behoerdenkennung>
+                        <xwas:kennung listURI="ID5e08e073-4e06-438d-9444-1275f6cbf061" listVersionID="ID5e08e073-4e06-438d-9444-1275f6cbf061">
+                          <code>1234</code>
+                        </xwas:kennung>
+                        <xwas:praefix listVersionID="ID5e08e073-4e06-438d-9444-1275f6cbf061">
+                          <code>1234</code>
+                        </xwas:praefix>
+                      </xwas:behoerdenkennung>
+                      <xwas:kommunikation>
+                        <xwas:kanal>
+                          <code>1234</code>
+                        </xwas:kanal>
+                        <xwas:kennung>1</xwas:kennung>
+                        <xwas:istDienstlich>true</xwas:istDienstlich>
+                        <xwas:zusatz>Zusatz für die Kommunikation</xwas:zusatz>
+                      </xwas:kommunikation>
+                      <xwas:behoerdenidentifikation>
+                        <xwas:beschreibung>
+                          Eine tolle Behörde
+                        </xwas:beschreibung>
+                        <xwas:gueltigkeit>
+                          <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                          <xwas:ende>2024-07-26+05:00</xwas:ende>
+                          <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                        </xwas:gueltigkeit>
+                      </xwas:behoerdenidentifikation>
+                      <xwas:behoerdenname>
+                        <xwas:name>Behoerde fuer komplizierte Vorgänge</xwas:name>
+                        <xwas:kurzbezeichnung>Eine Kurzbezeichnung</xwas:kurzbezeichnung>
+                        <xwas:gueltigkeit>
+                          <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                          <xwas:ende>2024-07-26+05:00</xwas:ende>
+                          <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                        </xwas:gueltigkeit>
+                      </xwas:behoerdenname>
+                      <xwas:nachgeordneteBehoerde></xwas:nachgeordneteBehoerde>
+                      <xwas:verwaltungspolitischeZustaendigkeit>
+                        <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>12345</code>
+                        </xwas:bezirk>
+                        <xwas:bundesland>
+                          <code>1</code>
+                        </xwas:bundesland>
+                        <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>6667</code>
+                        </xwas:gemeindeschluessel>
+                        <xwas:nation>
+                          <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>2</code>
+                          </xwas:staat>
+                        </xwas:nation>
+                      </xwas:verwaltungspolitischeZustaendigkeit>
+                      <xwas:anschrift id="ID6e08e973-4e06-438d-9444-1275f6cbf061">
+                        <xwas:strassenschluessel>
+                          <code>1234</code>
+                        </xwas:strassenschluessel>
+                        <xwas:strasse>In der Stadt</xwas:strasse>
+                        <xwas:hausnummer>1</xwas:hausnummer>
+                        <xwas:postfach>12345</xwas:postfach>
+                        <xwas:postleitzahl>90909</xwas:postleitzahl>
+                        <xwas:ort>Hintertupfingen</xwas:ort>
+                        <xwas:ortsteil>Worzen</xwas:ortsteil>
+                        <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
+                        <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
+                        <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
+                        <xwas:typ>
+                          <code>1234</code>
+                        </xwas:typ>
+                        <xwas:staat>
+                          <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>1234</code>
+                          </xwas:staat>
+                        </xwas:staat>
+                        <xwas:verwaltungspolitischeKodierung>
+                          <xwas:kreis listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>1111</code>
+                          </xwas:kreis>
+                          <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>1231</code>
+                          </xwas:bezirk>
+                          <xwas:bundesland>
+                            <code>1</code>
+                          </xwas:bundesland>
+                          <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>9090</code>
+                          </xwas:gemeindeschluessel>
+                          <xwas:regionalschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>9897</code>
+                          </xwas:regionalschluessel>
+                          <xwas:nation>
+                            <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                              <code>123456</code>
+                            </xwas:staat>
+                          </xwas:nation>
+                        </xwas:verwaltungspolitischeKodierung>
+                      </xwas:anschrift>
+                      <xwas:organisationsstruktur>
+                        <xwas:name>Name der Organisationsstruktur</xwas:name>
+                        <xwas:hierarchieebene>2</xwas:hierarchieebene>
+                        <xwas:hierarchiename>Zweiter Hierarchie</xwas:hierarchiename>
+                      </xwas:organisationsstruktur>
+                    </xwas:nachgeordneteBehoerde>
+                    <xwas:verwaltungspolitischeZustaendigkeit>
+                      <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>12345</code>
+                      </xwas:bezirk>
+                      <xwas:bundesland>
+                        <code>1</code>
+                      </xwas:bundesland>
+                      <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>6667</code>
+                      </xwas:gemeindeschluessel>
+                      <xwas:nation>
+                        <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>2</code>
+                        </xwas:staat>
+                      </xwas:nation>
+                    </xwas:verwaltungspolitischeZustaendigkeit>
+                    <xwas:anschrift id="ID5e08e973-7e06-439d-9444-1275f6cbf061">
+                      <xwas:strassenschluessel>
+                        <code>1234</code>
+                      </xwas:strassenschluessel>
+                      <xwas:strasse>In der Stadt</xwas:strasse>
+                      <xwas:hausnummer>1</xwas:hausnummer>
+                      <xwas:postfach>12345</xwas:postfach>
+                      <xwas:postleitzahl>90909</xwas:postleitzahl>
+                      <xwas:ort>Hintertupfingen</xwas:ort>
+                      <xwas:ortsteil>Worzen</xwas:ortsteil>
+                      <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
+                      <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
+                      <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
+                      <xwas:typ>
+                        <code>1234</code>
+                      </xwas:typ>
+                      <xwas:staat>
+                        <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>1234</code>
+                        </xwas:staat>
+                      </xwas:staat>
+                      <xwas:verwaltungspolitischeKodierung>
+                        <xwas:kreis listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>1111</code>
+                        </xwas:kreis>
+                        <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>1231</code>
+                        </xwas:bezirk>
+                        <xwas:bundesland>
+                          <code>1</code>
+                        </xwas:bundesland>
+                        <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>9090</code>
+                        </xwas:gemeindeschluessel>
+                        <xwas:regionalschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>9897</code>
+                        </xwas:regionalschluessel>
+                        <xwas:nation>
+                          <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>123456</code>
+                          </xwas:staat>
+                        </xwas:nation>
+                      </xwas:verwaltungspolitischeKodierung>
+                    </xwas:anschrift>
+                    <xwas:organisationsstruktur>
+                      <xwas:name>Name der Organisationsstruktur</xwas:name>
+                      <xwas:hierarchieebene>2</xwas:hierarchieebene>
+                      <xwas:hierarchiename>Zweiter Hierarchie</xwas:hierarchiename>
+                    </xwas:organisationsstruktur>
+                  </xwas:nachgeordneteBehoerde>
+                  <xwas:verwaltungspolitischeZustaendigkeit>
+                    <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>12345</code>
+                    </xwas:bezirk>
+                    <xwas:bundesland>
+                      <code>1</code>
+                    </xwas:bundesland>
+                    <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>6667</code>
+                    </xwas:gemeindeschluessel>
+                    <xwas:nation>
+                      <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>2</code>
+                      </xwas:staat>
+                    </xwas:nation>
+                  </xwas:verwaltungspolitischeZustaendigkeit>
+                  <xwas:anschrift id="ID5e08e973-4e26-438d-9444-1275f6cbf061">
+                    <xwas:strassenschluessel>
+                      <code>1234</code>
+                    </xwas:strassenschluessel>
+                    <xwas:strasse>In der Stadt</xwas:strasse>
+                    <xwas:hausnummer>1</xwas:hausnummer>
+                    <xwas:postfach>12345</xwas:postfach>
+                    <xwas:postleitzahl>90909</xwas:postleitzahl>
+                    <xwas:ort>Hintertupfingen</xwas:ort>
+                    <xwas:ortsteil>Worzen</xwas:ortsteil>
+                    <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
+                    <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
+                    <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
+                    <xwas:typ>
+                      <code>1234</code>
+                    </xwas:typ>
+                    <xwas:staat>
+                      <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>1234</code>
+                      </xwas:staat>
+                    </xwas:staat>
+                    <xwas:verwaltungspolitischeKodierung>
+                      <xwas:kreis listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>1111</code>
+                      </xwas:kreis>
+                      <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>1231</code>
+                      </xwas:bezirk>
+                      <xwas:bundesland>
+                        <code>1</code>
+                      </xwas:bundesland>
+                      <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>9090</code>
+                      </xwas:gemeindeschluessel>
+                      <xwas:regionalschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>9897</code>
+                      </xwas:regionalschluessel>
+                      <xwas:nation>
+                        <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>123456</code>
+                        </xwas:staat>
+                      </xwas:nation>
+                    </xwas:verwaltungspolitischeKodierung>
+                  </xwas:anschrift>
+                  <xwas:organisationsstruktur>
+                    <xwas:name>Name der Organisationsstruktur</xwas:name>
+                    <xwas:hierarchieebene>2</xwas:hierarchieebene>
+                    <xwas:hierarchiename>Zweiter Hierarchie</xwas:hierarchiename>
+                  </xwas:organisationsstruktur>
+                </xwas:behoerde>
+              </xwas:familienstand>
+              <xwas:geburt>
+                <xwas:datum>
+                  2024-07-26+05:00
+                </xwas:datum>
+                <xwas:zusatz>Ein Zusatz zur Geburt</xwas:zusatz>
+                <xwas:geburtsort id="geburtstort4">
+                  <xwas:strassenschluessel>
+                    <code>1234</code>
+                  </xwas:strassenschluessel>
+                  <xwas:strasse>In der Strasse</xwas:strasse>
+                  <xwas:hausnummer>2</xwas:hausnummer>
+                  <xwas:postfach>12345</xwas:postfach>
+                  <xwas:postleitzahl>90909</xwas:postleitzahl>
+                  <xwas:ort>Hintertupfingen</xwas:ort>
+                  <xwas:ortsteil>Worzen</xwas:ortsteil>
+                  <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
+                  <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
+                  <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
+                  <xwas:typ>
+                    <code>1234</code>
+                  </xwas:typ>
+                  <xwas:staat>
+                    <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>1234</code>
+                    </xwas:staat>
+                  </xwas:staat>
+                  <xwas:verwaltungspolitischeKodierung>
+                    <xwas:kreis listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>1111</code>
+                    </xwas:kreis>
+                    <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>1231</code>
+                    </xwas:bezirk>
+                    <xwas:bundesland>
+                      <code>1</code>
+                    </xwas:bundesland>
+                    <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>9090</code>
+                    </xwas:gemeindeschluessel>
+                    <xwas:regionalschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>9897</code>
+                    </xwas:regionalschluessel>
+                    <xwas:nation>
+                      <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>123456</code>
+                      </xwas:staat>
+                    </xwas:nation>
+                  </xwas:verwaltungspolitischeKodierung>
+                </xwas:geburtsort>
+              </xwas:geburt>
+              <xwas:doktorgrad>Dr. rer. nat.</xwas:doktorgrad>
+              <xwas:staatsangehoerigkeit>
+                <xwas:staatsangehoerigkeit listVersionID="ID5e08e973-4e06-438d-9444-1275g6cbf061">
+                  <code>6543</code>
+                </xwas:staatsangehoerigkeit>
+              </xwas:staatsangehoerigkeit>
+              <xwas:ausweisdokument>
+                <xwas:ausweisart listVersionID="ID5e08e973-4e06-438d-9444-1275g6cbf061">
+                  <code>5432</code>
+                </xwas:ausweisart>
+                <xwas:gueltigkeit>
+                  <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                  <xwas:ende>2024-07-26+10:00</xwas:ende>
+                  <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
+                </xwas:gueltigkeit>
+                <xwas:ausweisID>
+                  <xwas:id>ID5e08e973-4e06-438d-9555-1275g6cbf061</xwas:id>
+                  <xwas:beschreibung>Eine beschreibung zur AusweisID</xwas:beschreibung>
+                  <xwas:gueltigkeit>
+                    <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                    <xwas:ende>2024-07-26+10:00</xwas:ende>
+                    <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
+                  </xwas:gueltigkeit>
+                </xwas:ausweisID>
+                <!-- <xwas:ausstellendeBehoerde>
+                  todo
+                </xwas:ausstellendeBehoerde> -->
+              </xwas:ausweisdokument>
+              <xwas:anschrift id="anschrift7">
+                <xwas:strassenschluessel>
+                  <code>1234</code>
+                </xwas:strassenschluessel>
+                <xwas:strasse>In der Stadt</xwas:strasse>
+                <xwas:hausnummer>1</xwas:hausnummer>
+                <xwas:postfach>12345</xwas:postfach>
+                <xwas:postleitzahl>90909</xwas:postleitzahl>
+                <xwas:ort>Hintertupfingen</xwas:ort>
+                <xwas:ortsteil>Worzen</xwas:ortsteil>
+                <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
+                <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
+                <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
+                <xwas:typ>
+                  <code>1234</code>
+                </xwas:typ>
+                <xwas:staat>
+                  <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                    <code>1234</code>
+                  </xwas:staat>
+                </xwas:staat>
+                <xwas:verwaltungspolitischeKodierung>
+                  <xwas:kreis listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                    <code>1111</code>
+                  </xwas:kreis>
+                  <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                    <code>1231</code>
+                  </xwas:bezirk>
+                  <xwas:bundesland>
+                    <code>1</code>
+                  </xwas:bundesland>
+                  <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                    <code>9090</code>
+                  </xwas:gemeindeschluessel>
+                  <xwas:regionalschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                    <code>9897</code>
+                  </xwas:regionalschluessel>
+                  <xwas:nation>
+                    <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>123456</code>
+                    </xwas:staat>
+                  </xwas:nation>
+                </xwas:verwaltungspolitischeKodierung>
+              </xwas:anschrift>
+              <xwas:geschlecht>
+                <xwas:geschlecht>
+                  <code>d</code>
+                </xwas:geschlecht>
+              </xwas:geschlecht>
+              <xwas:identifikationsnummer>
+                <xwas:id>id</xwas:id>
+                <xwas:beschreibung>Eine Beschreibung zur Identifikationsnummer</xwas:beschreibung>
+                <xwas:gueltigkeit>
+                  <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                  <xwas:ende>2024-07-26+10:00</xwas:ende>
+                  <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
+                </xwas:gueltigkeit>
+              </xwas:identifikationsnummer>
+              <xwas:kommunikation>
+                <xwas:kanal>
+                  <code>1234</code>
+                </xwas:kanal>
+                <xwas:kennung>1</xwas:kennung>
+                <xwas:istDienstlich>true</xwas:istDienstlich>
+                <xwas:zusatz>Zusatz für die Kommunikation</xwas:zusatz>
+              </xwas:kommunikation> 
+              <xwas:muttersprache>
+                <xwas:sprache listVersionID="englisch">
+                  <code>1234</code>
+                </xwas:sprache>
+              </xwas:muttersprache> 
+              <xwas:fremdsprache>
+                <xwas:sprache listVersionID="deutsch">
+                  <code>2</code>
+                </xwas:sprache>
+              </xwas:fremdsprache>
+              <xwas:vertreterBevollmaechtigter>
+                <xwas:vertreterBevollmaechtigterID>
+                  ID5e08e973-4e06-438d-9444-1275f6cbf061
+                </xwas:vertreterBevollmaechtigterID>
+                <xwas:artVertreter>
+                  <code>1</code>
+                </xwas:artVertreter>
+              </xwas:vertreterBevollmaechtigter>
         </xwas:fuerValidierungVerantwortlichePerson>
         <xwas:freigabeUebermittlungBetreiber>true</xwas:freigabeUebermittlungBetreiber>
-        <xwas:pruefberichtIDLabor></xwas:pruefberichtIDLabor>
+        <xwas:pruefberichtIDLabor>787665</xwas:pruefberichtIDLabor>
         <xwas:swVersion>1</xwas:swVersion>
-        <xwas:sprachePruefbericht listURI="urn:xoev-de:xfahrtenschreiber:codeliste:sprache-eu" listVersionID="2"><code>1234</code></xwas:sprachePruefbericht>
-        <xwas:rechtlicherDisclaimer></xwas:rechtlicherDisclaimer>
+        <xwas:sprachePruefbericht listURI="urn:xoev-de:xfahrtenschreiber:codeliste:sprache-eu" listVersionID="2">
+          <code>1234</code>
+        </xwas:sprachePruefbericht>
+        <xwas:rechtlicherDisclaimer>
+          AGB 
+        </xwas:rechtlicherDisclaimer>
         <xwas:zeitpunktUebermittlungAnSHAPTH>2024-12-21T00:00:12</xwas:zeitpunktUebermittlungAnSHAPTH>
+        <xwas:kommentar>Kommentar zum Prüfbericht</xwas:kommentar>
         <xwas:auftraggeber>
           <xwas:auftraggeberID></xwas:auftraggeberID>
           <xwas:auftraggeberart>
@@ -882,12 +1590,711 @@
           </xwas:auftraggeberart>
           <xwas:auftraggeber>
             <xwas:natuerlichePerson>
-              <xwas:anschrift id="anscrift1">
-                <xwas:strasse></xwas:strasse>
-                <xwas:hausnummer></xwas:hausnummer>
-                <xwas:postleitzahl></xwas:postleitzahl>
-                <xwas:ort></xwas:ort>                
+              <xwas:auskunftssperre>
+                <xwas:grund>
+                  <code>1234</code>
+                </xwas:grund>
+                <xwas:gueltigkeit>
+                  <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                  <xwas:ende>2024-07-26+10:00</xwas:ende>
+                  <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
+                </xwas:gueltigkeit>
+              </xwas:auskunftssperre>
+              <xwas:nameNatuerlichePerson>
+                <xwas:anrede>Herr</xwas:anrede>
+                <xwas:namenssuffix>Jr.</xwas:namenssuffix>
+                <xwas:familienname>
+                  <xwas:name>Mustermann</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:familienname>
+                <xwas:ehename>
+                  <xwas:name>Mustermann</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:ehename>
+                <xwas:lebenspartnerschaftsname>
+                  <xwas:name>Mustermann</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:lebenspartnerschaftsname>
+                <xwas:geburtsname>
+                  <xwas:name>Mustermann</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:geburtsname>
+                <xwas:fruehererFamilienname>
+                  <xwas:name>Mueller</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:fruehererFamilienname>
+                <xwas:vorname>
+                  <xwas:name>Max</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:vorname>
+                <xwas:rufname>
+                  <xwas:name>Maxi</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:rufname>
+                <xwas:fruehererVorname>
+                  <xwas:name>Maxime</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:fruehererVorname>
+                <xwas:fruehererVorname>
+                  <xwas:name>Maximer</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:fruehererVorname>
+                <xwas:fruehererVorname>
+                  <xwas:name>Maximillian</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:fruehererVorname>
+                <xwas:alternativeRepraesentation>
+                  <xwas:repraesentation></xwas:repraesentation>
+                  <xwas:algorithmus></xwas:algorithmus>
+                  <xwas:hinweis></xwas:hinweis>
+                </xwas:alternativeRepraesentation>
+                <xwas:alternativeRepraesentation>
+                  <xwas:repraesentation></xwas:repraesentation>
+                  <xwas:algorithmus></xwas:algorithmus>
+                  <xwas:hinweis></xwas:hinweis>
+                </xwas:alternativeRepraesentation>
+                <xwas:alternativeRepraesentation>
+                  <xwas:repraesentation></xwas:repraesentation>
+                  <xwas:algorithmus></xwas:algorithmus>
+                  <xwas:hinweis></xwas:hinweis>
+                </xwas:alternativeRepraesentation>
+                <xwas:alternativeRepraesentation>
+                  <xwas:repraesentation></xwas:repraesentation>
+                  <xwas:algorithmus></xwas:algorithmus>
+                  <xwas:hinweis></xwas:hinweis>
+                </xwas:alternativeRepraesentation>
+                <xwas:alternativeRepraesentation>
+                  <xwas:repraesentation></xwas:repraesentation>
+                  <xwas:algorithmus></xwas:algorithmus>
+                  <xwas:hinweis></xwas:hinweis>
+                </xwas:alternativeRepraesentation>
+                <xwas:ordensname>
+                  <xwas:name>Jakobiner</xwas:name>
+                  <xwas:nichtVorhanden>false</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:ordensname>
+                <xwas:kuenstlername>
+                  <xwas:name>Maxwell</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:kuenstlername>
+                <xwas:kuenstlername>
+                  <xwas:name>Maxwellius</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:kuenstlername>
+                <xwas:kuenstlername>
+                  <xwas:name>Maximus</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:kuenstlername>
+                <xwas:weitererName>
+                  <xwas:name>Peter</xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>1111</code>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:weitererName>
+              </xwas:nameNatuerlichePerson>
+              <xwas:familienstand>
+                <xwas:behoerde>
+                  <xwas:id>ID5e08e074-4e06-438d-9444-1275f6cbf021</xwas:id>
+                  <xwas:typ>
+                    <code>1234</code>
+                  </xwas:typ>
+                  <xwas:zusatz>Zusatzinformationen für die Behörde</xwas:zusatz>
+                  <xwas:behoerdenkennung>
+                    <xwas:kennung listURI="ID5e08e073-4e06-438d-9444-1275f6cbf061" listVersionID="ID5e08e073-4e06-438d-9444-1275f6cbf061">
+                      <code>1234</code>
+                    </xwas:kennung>
+                    <xwas:praefix listVersionID="ID5e08e073-4e06-438d-9444-1275f6cbf061">
+                      <code>1234</code>
+                    </xwas:praefix>
+                  </xwas:behoerdenkennung>
+                  <xwas:kommunikation>
+                    <xwas:kanal>
+                      <code>1234</code>
+                    </xwas:kanal>
+                    <xwas:kennung>1</xwas:kennung>
+                    <xwas:istDienstlich>true</xwas:istDienstlich>
+                    <xwas:zusatz>Zusatz für die Kommunikation</xwas:zusatz>
+                  </xwas:kommunikation>
+                  <xwas:behoerdenidentifikation>
+                    <xwas:beschreibung>
+                      Eine tolle Behörde
+                    </xwas:beschreibung>
+                    <xwas:gueltigkeit>
+                      <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                      <xwas:ende>2024-07-26+05:00</xwas:ende>
+                      <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                    </xwas:gueltigkeit>
+                  </xwas:behoerdenidentifikation>
+                  <xwas:behoerdenname>
+                    <xwas:name>Behoerde fuer komplizierte Vorgänge</xwas:name>
+                    <xwas:kurzbezeichnung>Eine Kurzbezeichnung</xwas:kurzbezeichnung>
+                    <xwas:gueltigkeit>
+                      <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                      <xwas:ende>2024-07-26+05:00</xwas:ende>
+                      <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                    </xwas:gueltigkeit>
+                  </xwas:behoerdenname>
+                  <xwas:nachgeordneteBehoerde>
+                    <xwas:id>ID5e08e073-4e06-438d-9434-1275f6cbf029</xwas:id>
+                    <xwas:typ>
+                      <code>1234</code>
+                    </xwas:typ>
+                    <xwas:zusatz>Zusatzinformationen für die Behörde</xwas:zusatz>
+                    <xwas:behoerdenkennung>
+                      <xwas:kennung listURI="ID5e08e073-4e06-438d-9444-1275f6cbf061" listVersionID="ID5e08e073-4e06-438d-9444-1275f6cbf061">
+                        <code>1234</code>
+                      </xwas:kennung>
+                      <xwas:praefix listVersionID="ID5e08e073-4e06-438d-9444-1275f6cbf061">
+                        <code>1234</code>
+                      </xwas:praefix>
+                    </xwas:behoerdenkennung>
+                    <xwas:kommunikation>
+                      <xwas:kanal>
+                        <code>1234</code>
+                      </xwas:kanal>
+                      <xwas:kennung>1</xwas:kennung>
+                      <xwas:istDienstlich>true</xwas:istDienstlich>
+                      <xwas:zusatz>Zusatz für die Kommunikation</xwas:zusatz>
+                    </xwas:kommunikation>
+                    <xwas:behoerdenidentifikation>
+                      <xwas:beschreibung>
+                        Eine tolle Behörde
+                      </xwas:beschreibung>
+                      <xwas:gueltigkeit>
+                        <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                        <xwas:ende>2024-07-26+05:00</xwas:ende>
+                        <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                      </xwas:gueltigkeit>
+                    </xwas:behoerdenidentifikation>
+                    <xwas:behoerdenname>
+                      <xwas:name>Behoerde fuer komplizierte Vorgänge</xwas:name>
+                      <xwas:kurzbezeichnung>Eine Kurzbezeichnung</xwas:kurzbezeichnung>
+                      <xwas:gueltigkeit>
+                        <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                        <xwas:ende>2024-07-26+05:00</xwas:ende>
+                        <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                      </xwas:gueltigkeit>
+                    </xwas:behoerdenname>
+                    <xwas:nachgeordneteBehoerde>
+                      <xwas:id>ID5e08e073-4e06-438d-9444-2275f6cbf921</xwas:id>
+                      <xwas:typ>
+                        <code>1234</code>
+                      </xwas:typ>
+                      <xwas:zusatz>Zusatzinformationen für die Behörde</xwas:zusatz>
+                      <xwas:behoerdenkennung>
+                        <xwas:kennung listURI="ID5e08e073-4e06-438d-9444-1275f6cbf061" listVersionID="ID5e08e073-4e06-438d-9444-1275f6cbf061">
+                          <code>1234</code>
+                        </xwas:kennung>
+                        <xwas:praefix listVersionID="ID5e08e073-4e06-438d-9444-1275f6cbf061">
+                          <code>1234</code>
+                        </xwas:praefix>
+                      </xwas:behoerdenkennung>
+                      <xwas:kommunikation>
+                        <xwas:kanal>
+                          <code>1234</code>
+                        </xwas:kanal>
+                        <xwas:kennung>1</xwas:kennung>
+                        <xwas:istDienstlich>true</xwas:istDienstlich>
+                        <xwas:zusatz>Zusatz für die Kommunikation</xwas:zusatz>
+                      </xwas:kommunikation>
+                      <xwas:behoerdenidentifikation>
+                        <xwas:beschreibung>
+                          Eine tolle Behörde
+                        </xwas:beschreibung>
+                        <xwas:gueltigkeit>
+                          <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                          <xwas:ende>2024-07-26+05:00</xwas:ende>
+                          <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                        </xwas:gueltigkeit>
+                      </xwas:behoerdenidentifikation>
+                      <xwas:behoerdenname>
+                        <xwas:name>Behoerde fuer komplizierte Vorgänge</xwas:name>
+                        <xwas:kurzbezeichnung>Eine Kurzbezeichnung</xwas:kurzbezeichnung>
+                        <xwas:gueltigkeit>
+                          <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                          <xwas:ende>2024-07-26+05:00</xwas:ende>
+                          <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                        </xwas:gueltigkeit>
+                      </xwas:behoerdenname>
+                      <xwas:nachgeordneteBehoerde></xwas:nachgeordneteBehoerde>
+                      <xwas:verwaltungspolitischeZustaendigkeit>
+                        <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>12345</code>
+                        </xwas:bezirk>
+                        <xwas:bundesland>
+                          <code>1</code>
+                        </xwas:bundesland>
+                        <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>6667</code>
+                        </xwas:gemeindeschluessel>
+                        <xwas:nation>
+                          <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>2</code>
+                          </xwas:staat>
+                        </xwas:nation>
+                      </xwas:verwaltungspolitischeZustaendigkeit>
+                      <xwas:anschrift id="ID5e08e973-4e06-438d-9446-1275f6cbf061">
+                        <xwas:strassenschluessel>
+                          <code>1234</code>
+                        </xwas:strassenschluessel>
+                        <xwas:strasse>In der Stadt</xwas:strasse>
+                        <xwas:hausnummer>1</xwas:hausnummer>
+                        <xwas:postfach>12345</xwas:postfach>
+                        <xwas:postleitzahl>90909</xwas:postleitzahl>
+                        <xwas:ort>Hintertupfingen</xwas:ort>
+                        <xwas:ortsteil>Worzen</xwas:ortsteil>
+                        <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
+                        <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
+                        <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
+                        <xwas:typ>
+                          <code>1234</code>
+                        </xwas:typ>
+                        <xwas:staat>
+                          <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>1234</code>
+                          </xwas:staat>
+                        </xwas:staat>
+                        <xwas:verwaltungspolitischeKodierung>
+                          <xwas:kreis listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>1111</code>
+                          </xwas:kreis>
+                          <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>1231</code>
+                          </xwas:bezirk>
+                          <xwas:bundesland>
+                            <code>1</code>
+                          </xwas:bundesland>
+                          <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>9090</code>
+                          </xwas:gemeindeschluessel>
+                          <xwas:regionalschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>9897</code>
+                          </xwas:regionalschluessel>
+                          <xwas:nation>
+                            <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                              <code>123456</code>
+                            </xwas:staat>
+                          </xwas:nation>
+                        </xwas:verwaltungspolitischeKodierung>
+                      </xwas:anschrift>
+                      <xwas:organisationsstruktur>
+                        <xwas:name>Name der Organisationsstruktur</xwas:name>
+                        <xwas:hierarchieebene>2</xwas:hierarchieebene>
+                        <xwas:hierarchiename>Zweiter Hierarchie</xwas:hierarchiename>
+                      </xwas:organisationsstruktur>
+                    </xwas:nachgeordneteBehoerde>
+                    <xwas:verwaltungspolitischeZustaendigkeit>
+                      <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>12345</code>
+                      </xwas:bezirk>
+                      <xwas:bundesland>
+                        <code>1</code>
+                      </xwas:bundesland>
+                      <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>6667</code>
+                      </xwas:gemeindeschluessel>
+                      <xwas:nation>
+                        <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>2</code>
+                        </xwas:staat>
+                      </xwas:nation>
+                    </xwas:verwaltungspolitischeZustaendigkeit>
+                    <xwas:anschrift id="ID5e08e973-4e06-439u-9444-1275f6cbf061">
+                      <xwas:strassenschluessel>
+                        <code>1234</code>
+                      </xwas:strassenschluessel>
+                      <xwas:strasse>In der Stadt</xwas:strasse>
+                      <xwas:hausnummer>1</xwas:hausnummer>
+                      <xwas:postfach>12345</xwas:postfach>
+                      <xwas:postleitzahl>90909</xwas:postleitzahl>
+                      <xwas:ort>Hintertupfingen</xwas:ort>
+                      <xwas:ortsteil>Worzen</xwas:ortsteil>
+                      <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
+                      <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
+                      <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
+                      <xwas:typ>
+                        <code>1234</code>
+                      </xwas:typ>
+                      <xwas:staat>
+                        <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>1234</code>
+                        </xwas:staat>
+                      </xwas:staat>
+                      <xwas:verwaltungspolitischeKodierung>
+                        <xwas:kreis listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>1111</code>
+                        </xwas:kreis>
+                        <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>1231</code>
+                        </xwas:bezirk>
+                        <xwas:bundesland>
+                          <code>1</code>
+                        </xwas:bundesland>
+                        <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>9090</code>
+                        </xwas:gemeindeschluessel>
+                        <xwas:regionalschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>9897</code>
+                        </xwas:regionalschluessel>
+                        <xwas:nation>
+                          <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                            <code>123456</code>
+                          </xwas:staat>
+                        </xwas:nation>
+                      </xwas:verwaltungspolitischeKodierung>
+                    </xwas:anschrift>
+                    <xwas:organisationsstruktur>
+                      <xwas:name>Name der Organisationsstruktur</xwas:name>
+                      <xwas:hierarchieebene>2</xwas:hierarchieebene>
+                      <xwas:hierarchiename>Zweiter Hierarchie</xwas:hierarchiename>
+                    </xwas:organisationsstruktur>
+                  </xwas:nachgeordneteBehoerde>
+                  <xwas:verwaltungspolitischeZustaendigkeit>
+                    <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>12345</code>
+                    </xwas:bezirk>
+                    <xwas:bundesland>
+                      <code>1</code>
+                    </xwas:bundesland>
+                    <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>6667</code>
+                    </xwas:gemeindeschluessel>
+                    <xwas:nation>
+                      <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>2</code>
+                      </xwas:staat>
+                    </xwas:nation>
+                  </xwas:verwaltungspolitischeZustaendigkeit>
+                  <xwas:anschrift id="ID5e08w973-4e16-438d-9444-1275f6cbf061">
+                    <xwas:strassenschluessel>
+                      <code>1234</code>
+                    </xwas:strassenschluessel>
+                    <xwas:strasse>In der Stadt</xwas:strasse>
+                    <xwas:hausnummer>1</xwas:hausnummer>
+                    <xwas:postfach>12345</xwas:postfach>
+                    <xwas:postleitzahl>90909</xwas:postleitzahl>
+                    <xwas:ort>Hintertupfingen</xwas:ort>
+                    <xwas:ortsteil>Worzen</xwas:ortsteil>
+                    <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
+                    <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
+                    <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
+                    <xwas:typ>
+                      <code>1234</code>
+                    </xwas:typ>
+                    <xwas:staat>
+                      <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>1234</code>
+                      </xwas:staat>
+                    </xwas:staat>
+                    <xwas:verwaltungspolitischeKodierung>
+                      <xwas:kreis listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>1111</code>
+                      </xwas:kreis>
+                      <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>1231</code>
+                      </xwas:bezirk>
+                      <xwas:bundesland>
+                        <code>1</code>
+                      </xwas:bundesland>
+                      <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>9090</code>
+                      </xwas:gemeindeschluessel>
+                      <xwas:regionalschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>9897</code>
+                      </xwas:regionalschluessel>
+                      <xwas:nation>
+                        <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                          <code>123456</code>
+                        </xwas:staat>
+                      </xwas:nation>
+                    </xwas:verwaltungspolitischeKodierung>
+                  </xwas:anschrift>
+                  <xwas:organisationsstruktur>
+                    <xwas:name>Name der Organisationsstruktur</xwas:name>
+                    <xwas:hierarchieebene>2</xwas:hierarchieebene>
+                    <xwas:hierarchiename>Zweiter Hierarchie</xwas:hierarchiename>
+                  </xwas:organisationsstruktur>
+                </xwas:behoerde>
+              </xwas:familienstand>
+              <xwas:geburt>
+                <xwas:datum>
+                  2024-07-26+05:00
+                </xwas:datum>
+                <xwas:zusatz>Ein Zusatz zur Geburt</xwas:zusatz>
+                <xwas:geburtsort id="geburtstort11">
+                  <xwas:strassenschluessel>
+                    <code>1234</code>
+                  </xwas:strassenschluessel>
+                  <xwas:strasse>In der Strasse</xwas:strasse>
+                  <xwas:hausnummer>2</xwas:hausnummer>
+                  <xwas:postfach>12345</xwas:postfach>
+                  <xwas:postleitzahl>90909</xwas:postleitzahl>
+                  <xwas:ort>Hintertupfingen</xwas:ort>
+                  <xwas:ortsteil>Worzen</xwas:ortsteil>
+                  <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
+                  <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
+                  <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
+                  <xwas:typ>
+                    <code>1234</code>
+                  </xwas:typ>
+                  <xwas:staat>
+                    <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>1234</code>
+                    </xwas:staat>
+                  </xwas:staat>
+                  <xwas:verwaltungspolitischeKodierung>
+                    <xwas:kreis listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>1111</code>
+                    </xwas:kreis>
+                    <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>1231</code>
+                    </xwas:bezirk>
+                    <xwas:bundesland>
+                      <code>1</code>
+                    </xwas:bundesland>
+                    <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>9090</code>
+                    </xwas:gemeindeschluessel>
+                    <xwas:regionalschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>9897</code>
+                    </xwas:regionalschluessel>
+                    <xwas:nation>
+                      <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                        <code>123456</code>
+                      </xwas:staat>
+                    </xwas:nation>
+                  </xwas:verwaltungspolitischeKodierung>
+                </xwas:geburtsort>
+              </xwas:geburt>
+              <xwas:doktorgrad>Dr. rer. nat.</xwas:doktorgrad>
+              <xwas:staatsangehoerigkeit>
+                <xwas:staatsangehoerigkeit listVersionID="ID5e08e973-4e06-438d-9444-1275g6cbf061">
+                  <code>6543</code>
+                </xwas:staatsangehoerigkeit>
+              </xwas:staatsangehoerigkeit>
+              <xwas:ausweisdokument>
+                <xwas:ausweisart listVersionID="ID5e08e973-4e06-438d-9444-1275g6cbf061">
+                  <code>5432</code>
+                </xwas:ausweisart>
+                <xwas:gueltigkeit>
+                  <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                  <xwas:ende>2024-07-26+10:00</xwas:ende>
+                  <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
+                </xwas:gueltigkeit>
+                <xwas:ausweisID>
+                  <xwas:id>ID5e08e973-4e06-438d-9555-1275g6cbf061</xwas:id>
+                  <xwas:beschreibung>Eine beschreibung zur AusweisID</xwas:beschreibung>
+                  <xwas:gueltigkeit>
+                    <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                    <xwas:ende>2024-07-26+10:00</xwas:ende>
+                    <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
+                  </xwas:gueltigkeit>
+                </xwas:ausweisID>
+                <!-- <xwas:ausstellendeBehoerde>
+                  todo
+                </xwas:ausstellendeBehoerde> -->
+              </xwas:ausweisdokument>
+              <xwas:anschrift id="anschrift4">
+                <xwas:strassenschluessel>
+                  <code>1234</code>
+                </xwas:strassenschluessel>
+                <xwas:strasse>In der Stadt</xwas:strasse>
+                <xwas:hausnummer>1</xwas:hausnummer>
+                <xwas:postfach>12345</xwas:postfach>
+                <xwas:postleitzahl>90909</xwas:postleitzahl>
+                <xwas:ort>Hintertupfingen</xwas:ort>
+                <xwas:ortsteil>Worzen</xwas:ortsteil>
+                <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
+                <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
+                <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
+                <xwas:typ>
+                  <code>1234</code>
+                </xwas:typ>
+                <xwas:staat>
+                  <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                    <code>1234</code>
+                  </xwas:staat>
+                </xwas:staat>
+                <xwas:verwaltungspolitischeKodierung>
+                  <xwas:kreis listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                    <code>1111</code>
+                  </xwas:kreis>
+                  <xwas:bezirk listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                    <code>1231</code>
+                  </xwas:bezirk>
+                  <xwas:bundesland>
+                    <code>1</code>
+                  </xwas:bundesland>
+                  <xwas:gemeindeschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                    <code>9090</code>
+                  </xwas:gemeindeschluessel>
+                  <xwas:regionalschluessel listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                    <code>9897</code>
+                  </xwas:regionalschluessel>
+                  <xwas:nation>
+                    <xwas:staat listVersionID="ID5e08e973-4e06-438d-9444-1275f6cbf061">
+                      <code>123456</code>
+                    </xwas:staat>
+                  </xwas:nation>
+                </xwas:verwaltungspolitischeKodierung>
               </xwas:anschrift>
+              <xwas:geschlecht>
+                <xwas:geschlecht>
+                  <code>d</code>
+                </xwas:geschlecht>
+              </xwas:geschlecht>
+              <xwas:identifikationsnummer>
+                <xwas:id>id</xwas:id>
+                <xwas:beschreibung>Eine Beschreibung zur Identifikationsnummer</xwas:beschreibung>
+                <xwas:gueltigkeit>
+                  <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                  <xwas:ende>2024-07-26+10:00</xwas:ende>
+                  <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
+                </xwas:gueltigkeit>
+              </xwas:identifikationsnummer>
+              <xwas:kommunikation>
+                <xwas:kanal>
+                  <code>1234</code>
+                </xwas:kanal>
+                <xwas:kennung>1</xwas:kennung>
+                <xwas:istDienstlich>true</xwas:istDienstlich>
+                <xwas:zusatz>Zusatz für die Kommunikation</xwas:zusatz>
+              </xwas:kommunikation> 
+              <xwas:muttersprache>
+                <xwas:sprache listVersionID="englisch">
+                  <code>1234</code>
+                </xwas:sprache>
+              </xwas:muttersprache> 
+              <xwas:fremdsprache>
+                <xwas:sprache listVersionID="deutsch">
+                  <code>2</code>
+                </xwas:sprache>
+              </xwas:fremdsprache>
+              <xwas:vertreterBevollmaechtigter>
+                <xwas:vertreterBevollmaechtigterID>
+                  ID5e08e973-4e06-438d-9444-1275f6cbf061
+                </xwas:vertreterBevollmaechtigterID>
+                <xwas:artVertreter>
+                  <code>1</code>
+                </xwas:artVertreter>
+              </xwas:vertreterBevollmaechtigter>
             </xwas:natuerlichePerson>
           </xwas:auftraggeber>
         </xwas:auftraggeber>
