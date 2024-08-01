@@ -17,7 +17,8 @@ default = ["wasm"]
 wasm = ["dep:wasm-bindgen", "dep:tsify"]
 
 [dependencies]
-raxb = "0.3.7"
+# raxb = "0.3.7"
+raxb = { path = "../raxb/crates/raxb" }
 serde = { version = "1.0.203", features = ["derive"] }
 
 wasm-bindgen = { version = "0.2.84", optional = true }

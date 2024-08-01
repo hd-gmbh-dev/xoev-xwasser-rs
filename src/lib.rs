@@ -25,7 +25,6 @@ pub struct Code {
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"nachrichtenkopf.g2g")]
 pub struct NachrichtenkopfG2g {
     #[xml(name = b"identifikation.nachricht", ty = "child")]
     pub identifikation_nachricht: IdentifikationNachricht,
@@ -33,15 +32,14 @@ pub struct NachrichtenkopfG2g {
     pub leser: Leser,
     #[xml(name = b"autor", ty = "child")]
     pub autor: Autor,
-    #[xml(name = b"referenzUUID", ty = "child")]
+    #[xml(default, name = b"referenzUUID", ty = "child")]
     pub referenz_uuid: String,
-    #[xml(name = b"dvdvDienstkennung", ty = "child")]
+    #[xml(default, name = b"dvdvDienstkennung", ty = "child")]
     pub dvdv_dienstkennung: String, //DvdvDienstkennung,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"identifikationNachricht")]
 pub struct IdentifikationNachricht {
     #[xml(name = b"nachrichtenUUID", ty = "child")]
     // #[serde(skip)]
@@ -54,16 +52,16 @@ pub struct IdentifikationNachricht {
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"")]
 pub struct NachrichtenTyp {
     #[xml(
+        default,
         name = b"listURI",
         ty = "attr",
         value = "urn:xoev-de:xwasser:codeliste:nachrichtentyp"
     )]
     #[serde(skip)]
     pub _list_uri: ConstStr,
-    #[xml(name = b"listVersionID", ty = "attr", value = "1")]
+    #[xml(default, name = b"listVersionID", ty = "attr", value = "1")]
     #[serde(skip)]
     pub _list_version_id: ConstStr,
     #[xml(name = b"code", ty = "child")]
@@ -72,7 +70,6 @@ pub struct NachrichtenTyp {
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"autor")]
 pub struct Autor {
     #[xml(name = b"verzeichnisdienst", ty = "child")]
     pub verzeichnisdienst: Verzeichnisdienst,
@@ -84,7 +81,6 @@ pub struct Autor {
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"verzeichnisdienst")]
 pub struct Verzeichnisdienst {
     #[xml(name = b"listVersionID", ty = "attr", value = "")]
     #[serde(skip)]
@@ -95,7 +91,6 @@ pub struct Verzeichnisdienst {
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"leser")]
 pub struct Leser {
     #[xml(name = b"verzeichnisdienst", ty = "child")]
     pub verzeichnisdienst: Verzeichnisdienst,
@@ -111,7 +106,6 @@ pub struct Leser {
 /// Identifikation von Objekten in einem fachlichen Kontext erlauben.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"IdentifikationType")]
 pub struct IdentifikationType {
     #[xml(name = b"id", ty = "child")]
     pub id: Option<String>,
@@ -123,9 +117,12 @@ pub struct IdentifikationType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
-#[xml(root = b"vorgang.transportieren.2010")]
-// #[xml(tns(b"xwas", b"xwasser"))]
-pub struct QualityReport {
+#[xml(root=b"vorgang.transportieren.2010")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
+pub struct VorgangTransportieren2010 {
     #[xml(
         ns = b"xmlns",
         name = b"xsi",
@@ -161,7 +158,7 @@ pub struct QualityReport {
     #[xml(name = b"standard", ty = "attr", value = "XWasser")]
     #[serde(skip)]
     _standard: ConstStr,
-    #[xml(name = b"test", ty = "attr")]
+    #[xml(default, name = b"test", ty = "attr")]
     #[serde(default)]
     pub test: bool,
     #[xml(name = b"version", ty = "attr", value = "0.2.1")]
@@ -178,9 +175,11 @@ pub struct QualityReport {
 /// Dieser Datentyp enthält die Angaben zu einem Vorgang.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"vorgang")]
 // #[tsify(into_wasm_abi, from_wasm_abi)]
-// #[xml(tns(b"xwas", b"xwasser"))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct Vorgang {
     #[xml(ns = b"xwas", name = b"identifikationVorgang", ty = "child")]
     pub identifikation_vorgang: IdentifikationVorgang,
@@ -190,13 +189,17 @@ pub struct Vorgang {
     pub bemerkung: Option<String>,
     // #[xml(name = b"erweiterung", ty = "child")]
     // pub erweiterung: Option<Erweiterung>,
-    // #[xml(name = b"anlage", ty = "child")]
+    // #[xml(ns=b"xwas", name = b"anlage", ty = "child")]
+    // #[serde(default)]
     // pub anlage: Vec<Anlage>,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"identifikationVorgang")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct IdentifikationVorgang {
     #[xml(ns = b"xwas", name = b"vorgangsID", ty = "child")]
     pub vorgangs_id: String,
@@ -206,6 +209,10 @@ pub struct IdentifikationVorgang {
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct RegisterTyp {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
@@ -215,73 +222,93 @@ pub struct RegisterTyp {
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeUntersuchungsverfahrenType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeUntersuchungsverfahrenType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeSHAPTH-Parameter-EinheitType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeShapthParameterEinheitType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeParameterauspraegungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeParameterauspraegungType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeParameterunterauswahlType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeParameterunterauswahlType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeMesswertergaenzungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeMesswertergaenzungType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeBewertungUntersuchungswertType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeBewertungUntersuchungswertType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"analyseergebnisParameter")]
-// #[xml(tns(b"xwas", b"xwasser"))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct AnalyseergebnisParameter {
     #[xml(ns = b"xwas", name = b"analyseergebnisParameterID", ty = "child")]
     pub analyseergebnis_parameter_id: String,
-    #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
-    pub probe_id: String,
+    // #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
+    // pub probe_id: String,
     #[xml(ns = b"xwas", name = b"zugelasseneUntersuchungsstelleID", ty = "child")]
     pub zugelassene_untersuchungsstelle_id: String,
     #[xml(ns = b"xwas", name = b"anschriftID", ty = "child")]
@@ -289,6 +316,7 @@ pub struct AnalyseergebnisParameter {
     #[xml(ns = b"xwas", name = b"analyseImRahmenDerAkkreditierung", ty = "child")]
     pub analyse_im_rahmen_der_akkreditierung: bool,
     #[xml(ns = b"xwas", name = b"untersuchungsverfahren", ty = "child")]
+    #[serde(default)]
     pub untersuchungsverfahren: Vec<CodeUntersuchungsverfahrenType>,
     #[xml(
         ns = b"xwas",
@@ -296,7 +324,7 @@ pub struct AnalyseergebnisParameter {
         ty = "child"
     )]
     pub ergaenzung_zum_untersuchungsverfahren: Option<String>,
-    #[xml(ns = b"xwas", name = b"untersuchterParameter", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"untersuchterParameter", ty = "child")]
     pub untersuchter_parameter: CodeShapthParameterEinheitType,
     #[xml(ns = b"xwas", name = b"parameterauspraegung", ty = "child")]
     pub parameterauspraegung: Option<CodeParameterauspraegungType>,
@@ -323,8 +351,14 @@ pub struct AnalyseergebnisParameter {
     #[xml(ns = b"xwas", name = b"ausgewertetesAnsatzvolumen", ty = "child")]
     pub ausgewertetes_ansatzvolumen: Option<String>,
     #[xml(ns = b"xwas", name = b"shapthParameterNummer", ty = "child")]
+    #[serde(default)]
     pub shapth_parameter_nummer: Vec<String>,
-    #[xml(ns = b"xwas", name = b"bewertungUntersuchungswert", ty = "child")]
+    #[xml(
+        default,
+        ns = b"xwas",
+        name = b"bewertungUntersuchungswert",
+        ty = "child"
+    )]
     pub bewertung_untersuchungswert: CodeBewertungUntersuchungswertType,
     #[xml(ns = b"xwas", name = b"parameterauffaelligkeit", ty = "child")]
     pub parameterauffaelligkeit: Option<String>,
@@ -342,6 +376,10 @@ pub struct AnalyseergebnisParameter {
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeUntersuchterParameter {
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
@@ -351,6 +389,10 @@ pub struct CodeUntersuchterParameter {
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeBewertungUntersuchungswert {
     #[xml(name = b"code", ty = "child")]
     pub code: String,
@@ -360,48 +402,63 @@ pub struct CodeBewertungUntersuchungswert {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeProbennahmeverfahrenType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeProbennahmeverfahrenType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeMediumType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeMediumType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeAnlassUntersuchungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeAnlassUntersuchungType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeRechtsformenType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeRechtsformenType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 /// "NameOrganisation" fasst die Angaben zum Namen einer Organisation zusammen.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"NameOrganisationType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct NameOrganisationType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
@@ -413,11 +470,14 @@ pub struct NameOrganisationType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeKommunikationType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeKommunikationType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -425,7 +485,10 @@ pub struct CodeKommunikationType {
 /// Kommunikationskanäle (z.B. Telefon, Fax, E-Mail) zusammen.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"KommunikationType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct KommunikationType {
     #[xml(ns = b"xwas", name = b"kanal", ty = "child")]
     pub kanal: Option<CodeKommunikationType>,
@@ -439,21 +502,27 @@ pub struct KommunikationType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeRegisterType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeRegisterType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeBehoerdeType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeBehoerdeType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -462,7 +531,10 @@ pub struct CodeBehoerdeType {
 /// Abteilungen oder Referaten.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"organisationseinheitType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct OrganisationseinheitType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: String,
@@ -477,11 +549,14 @@ pub struct OrganisationseinheitType {
 /// Standesamtsnummern und somit eine Standesamtsnummer als Behördenkennung zu verwenden.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeBehoerdenkennungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeBehoerdenkennungType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -489,11 +564,14 @@ pub struct CodeBehoerdenkennungType {
 /// Adressierung über das DVDV verwendet.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codePraefixType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodePraefixType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -510,11 +588,16 @@ pub struct CodePraefixType {
 /// der jeweiligen Gemeinde.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"BehoerdenkennungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct BehoerdenkennungType {
     #[xml(ns = b"xwas", name = b"kennung", ty = "child")]
+    #[serde(default)]
     pub kennung: Vec<CodeBehoerdenkennungType>,
     #[xml(ns = b"xwas", name = b"praefix", ty = "child")]
+    #[serde(default)]
     pub praefix: Vec<CodePraefixType>,
 }
 
@@ -524,7 +607,10 @@ pub struct BehoerdenkennungType {
 /// Verträge) wahrzunehmen.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"BehoerdeType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct BehoerdeType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
     pub id: Option<String>,
@@ -535,29 +621,38 @@ pub struct BehoerdeType {
     #[xml(ns = b"xwas", name = b"behoerdenkennung", ty = "child")]
     pub behoerdenkennung: Option<BehoerdenkennungType>,
     #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
+    #[serde(default)]
     pub kommunikation: Vec<KommunikationType>,
     #[xml(ns = b"xwas", name = b"behoerdenidentifikation", ty = "child")]
     pub behoerdenidentifikation: Option<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"behoerdenname", ty = "child")]
+    #[serde(default)]
     pub behoerdenname: Vec<NameOrganisationType>, //Option<NameOrganisationType>,
     #[xml(ns = b"xwas", name = b"nachgeordneteBehoerde", ty = "child")]
+    #[serde(default)]
     pub nachgeordnete_behoerde: Vec<BehoerdeType>,
     #[xml(
         ns = b"xwas",
         name = b"verwaltungspolitischeZustaendigkeit",
         ty = "child"
     )]
+    #[serde(default)]
     pub verwaltungspolitische_zustaendigkeit: Vec<VerwaltungspolitischeKodierungType>,
     #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
+    #[serde(default)]
     pub anschrift: Vec<AnschriftType>,
     #[xml(ns = b"xwas", name = b"organisationsstruktur", ty = "child")]
+    #[serde(default)]
     pub organisationsstruktur: Vec<OrganisationseinheitType>,
 }
 
 /// Angaben zum Registereintrag.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"RegistrierungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct RegistrierungType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
     pub id: Option<String>,
@@ -575,97 +670,128 @@ pub struct RegistrierungType {
 /// Bereich. Behörden werden über eine eigene Kernkomponente "Behoerde" abgebildet.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"OrganisationType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct OrganisationType {
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]
+    #[serde(default)]
     pub branche: Vec<CodeBrancheType>,
     #[xml(ns = b"xwas", name = b"zweck", ty = "child")]
+    #[serde(default)]
     pub zweck: Vec<CodeZweckType>,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<NameOrganisationType>,
     #[xml(ns = b"xwas", name = b"unterorganisation", ty = "child")]
+    #[serde(default)]
     pub unterorganisation: Vec<OrganisationType>,
     #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
+    #[serde(default)]
     pub kommunikation: Vec<KommunikationType>,
     #[xml(ns = b"xwas", name = b"registrierung", ty = "child")]
+    #[serde(default)]
     pub registrierung: Vec<RegistrierungType>,
     #[xml(ns = b"xwas", name = b"identifikation", ty = "child")]
+    #[serde(default)]
     pub identifikation: Vec<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"existenzzeitraum", ty = "child")]
     pub existenzzeitraum: Option<ZeitraumType>,
     #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
+    #[serde(default)]
     pub anschrift: Vec<AnschriftType>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeAnschrifttypType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeAnschrifttypType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeStaatType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeStaatType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeKreisType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeKreisType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeBezirkType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeBezirkType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeBundeslandType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeBundeslandType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeAGSType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeAGSType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeRegionalschluesselType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeRegionalschluesselType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -673,7 +799,10 @@ pub struct CodeRegionalschluesselType {
 /// verwaltungspolitisch eindeutige Zuordnung ermöglichen.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"VerwaltungspolitischeKodierungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct VerwaltungspolitischeKodierungType {
     #[xml(ns = b"xwas", name = b"kreis", ty = "child")]
     pub kreis: Option<CodeKreisType>,
@@ -701,40 +830,48 @@ pub struct VerwaltungspolitischeKodierungType {
 /// den AGS, eines Bundesland, etc.).
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-// #[xml(root = b"AnschriftType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct AnschriftType {
     #[xml(name = b"id", ty = "attr")]
     pub id: Option<String>,
-    #[xml(name = b"strassenschluessel", ty = "child")]
-    pub strassenschluessel: Code,
-    #[xml(name = b"strasse", ty = "child")]
+    #[xml(ns = b"xwas", name = b"strassenschluessel", ty = "child")]
+    pub strassenschluessel: Option<Code>,
+    #[xml(ns = b"xwas", name = b"strasse", ty = "child")]
     pub strasse: Option<String>,
-    #[xml(name = b"hausnummer", ty = "child")]
+    #[xml(ns = b"xwas", name = b"hausnummer", ty = "child")]
     pub hausnummer: Option<String>,
-    #[xml(name = b"postfach", ty = "child")]
+    #[xml(ns = b"xwas", name = b"postfach", ty = "child")]
     pub postfach: Option<String>,
-    #[xml(name = b"postleitzahl", ty = "child")]
+    #[xml(ns = b"xwas", name = b"postleitzahl", ty = "child")]
     pub postleitzahl: Option<String>,
-    #[xml(name = b"ort", ty = "child")]
+    #[xml(ns = b"xwas", name = b"ort", ty = "child")]
     pub ort: Option<String>,
-    #[xml(name = b"ortsteil", ty = "child")]
+    #[xml(ns = b"xwas", name = b"ortsteil", ty = "child")]
     pub ortsteil: Option<String>,
-    #[xml(name = b"ortFruehererGemeindename", ty = "child")]
+    #[xml(ns = b"xwas", name = b"ortFruehererGemeindename", ty = "child")]
     pub ort_frueherer_gemeindename: Option<String>,
-    #[xml(name = b"wohnungsgeber", ty = "child")]
+    #[xml(ns = b"xwas", name = b"wohnungsgeber", ty = "child")]
     pub wohnungsgeber: Option<String>,
-    #[xml(name = b"zusatz", ty = "child")]
+    #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
     pub zusatz: Option<String>,
-    #[xml(name = b"typ", ty = "child")]
+    #[xml(ns = b"xwas", name = b"typ", ty = "child")]
+    #[serde(default)]
     pub typ: Vec<CodeAnschrifttypType>,
-    #[xml(name = b"staat", ty = "child")]
+    #[xml(ns = b"xwas", name = b"staat", ty = "child")]
     pub staat: Option<CodeStaatType>,
-    #[xml(name = b"verwaltungspolitischeKodierung", ty = "child")]
+    #[xml(ns = b"xwas", name = b"verwaltungspolitischeKodierung", ty = "child")]
     pub verwaltungspolitische_kodierung: Option<VerwaltungspolitischeKodierungType>,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeBrancheType {
     // typ xoev-code:Code
     #[xml(name = b"code", ty = "child")]
@@ -745,44 +882,56 @@ pub struct CodeBrancheType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeArtProbennahmestelleType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeArtProbennahmestelleType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeAufbereitungsstoffDesinfektionsverfahrenType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 /// Klasse für den Transport von Informationen zu einer Probennahmestelle.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"ProbennahmestelleType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
     pub probennahmestelle_id: String,
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
     pub objekt_id: String,
     #[xml(ns = b"xwas", name = b"probe", ty = "child")]
+    #[serde(default)]
     pub probe: Vec<ProbeType>,
     #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
+    #[serde(default)]
     pub terminplan_id: Vec<String>,
-    #[xml(ns = b"xwas", name = b"nameProbennahmestelle", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"nameProbennahmestelle", ty = "child")]
     pub name_probennahmestelle: String,
-    #[xml(ns = b"xwas", name = b"artProbennahmestelle", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"artProbennahmestelle", ty = "child")]
     pub art_probennahmestelle: CodeArtProbennahmestelleType,
     #[xml(ns = b"xwas", name = b"stockwerkProbennahmestelle", ty = "child")]
     pub stockwerk_probennahmestelle: Option<u8>,
     #[xml(ns = b"xwas", name = b"mediumAnDerProbennahmestelle", ty = "child")]
+    #[serde(default)]
     pub medium_an_der_probennahmestelle: Vec<CodeMediumType>,
     #[xml(
         ns = b"xwas",
@@ -795,13 +944,17 @@ pub struct ProbennahmestelleType {
     pub alt_id: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
-    #[xml(ns = b"xwas", name = b"probennehmerID", ty = "attr")]
+    #[xml(default, ns = b"xwas", name = b"probennehmerID", ty = "attr")]
     #[serde(skip)]
     pub _id: ConstStr,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeZweckType {
     // xoev-code:Code
     #[xml(name = b"code", ty = "child")]
@@ -812,18 +965,24 @@ pub struct CodeZweckType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeUntersuchungsstelleType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeUntersuchungsstelleType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 /// Klasse für den Transport von Informationen zu einer zugelassenen Untersuchungsstelle.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"zugelasseneUntersuchungsstelleType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct ZugelasseneUntersuchungsstelleType {
     #[xml(name = b"organisation", ty = "child")]
     pub organisation: OrganisationType,
@@ -849,7 +1008,10 @@ pub struct ZugelasseneUntersuchungsstelleType {
 /// für Zugelassene Untersuchungsstellen im Falle der Beauftragung einer Untersuchung.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"BeauftragteUntersuchungsstelleType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct BeauftragteUntersuchungsstelleType {
     #[xml(ns = b"xwas", name = b"zugelasseneUntersuchungsstelle", ty = "child")]
     pub zugelassene_untersuchungsstelle: ZugelasseneUntersuchungsstelleType,
@@ -863,21 +1025,27 @@ pub struct BeauftragteUntersuchungsstelleType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeGesamtbewertungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeGesamtbewertungType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeAmtsspracheEUType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeAmtsspracheEUType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -890,20 +1058,27 @@ pub struct CodeAmtsspracheEUType {
 /// Metadaten erfolgt innerhalb der XWasser-Nachricht selbst (prozessContents = "lax").
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"erweiterungXMLType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct ErweiterungXmlType {
     // weiteres xml schema
     #[xml(ns = b"xwas", name = b"any", ty = "child")]
+    #[serde(default)]
     pub any: Vec<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeDatentypType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeDatentypType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -911,7 +1086,10 @@ pub struct CodeDatentypType {
 /// muss zwischen den Kommunikationspartnern abgesprochen sein.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"erweiterungFeldType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct ErweiterungFeldType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: String,
@@ -926,15 +1104,20 @@ pub struct ErweiterungFeldType {
 /// Eine Erweiterungsgruppe fasst mehrere Felder (Metadaten) zu einem Objekt zusammen .
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"erweiterungGruppeType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct ErweiterungGruppeType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: String,
     #[xml(ns = b"xwas", name = b"beschreibung", ty = "child")]
     pub beschreibung: String,
     #[xml(ns = b"xwas", name = b"untergruppe", ty = "child")]
+    #[serde(default)]
     pub untergruppe: Vec<ErweiterungGruppeType>,
     #[xml(ns = b"xwas", name = b"feld", ty = "child")]
+    #[serde(default)]
     pub feld: Vec<ErweiterungFeldType>,
 }
 
@@ -947,11 +1130,16 @@ pub struct ErweiterungGruppeType {
 /// abbilden lässt.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"ErweiterungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct ErweiterungType {
     #[xml(ns = b"xwas", name = b"feld", ty = "child")]
+    #[serde(default)]
     pub feld: Vec<ErweiterungFeldType>,
     #[xml(ns = b"xwas", name = b"gruppe", ty = "child")]
+    #[serde(default)]
     pub gruppe: Vec<ErweiterungGruppeType>,
     #[xml(ns = b"xwas", name = b"xml", ty = "child")]
     pub xml: Option<ErweiterungXmlType>,
@@ -961,15 +1149,20 @@ pub struct ErweiterungType {
 /// werden erstellt, nachdem eine Wasserprobe im Labor analysiert wurde.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"PruefberichtType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
     pub pruefbericht_uuid: String,
     #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
     pub untersuchungsplan_id: Option<String>,
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
+    #[serde(default)]
     pub probennahmestelle: Vec<ProbennahmestelleType>,
     #[xml(
+        default,
         ns = b"xwas",
         name = b"nameBeauftragteUntersuchungsstelle",
         ty = "child"
@@ -982,6 +1175,7 @@ pub struct PruefberichtType {
     )]
     pub pruefbericht_enthaelt_teilergebnisse: Option<bool>,
     #[xml(
+        default,
         ns = b"xwas",
         name = b"pruefgerichtGemVorgabenAkkredition",
         ty = "child"
@@ -989,41 +1183,61 @@ pub struct PruefberichtType {
     pub pruefgericht_gem_vorgaben_akkredition: bool,
     #[xml(ns = b"xwas", name = b"titel", ty = "child")]
     pub titel: String,
-    #[xml(ns = b"xwas", name = b"gesamtbewertung", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"gesamtbewertung", ty = "child")]
     pub gesamtbewertung: CodeGesamtbewertungType,
     #[xml(ns = b"xwas", name = b"auffaelligkeiten", ty = "child")]
+    #[serde(default)]
     pub auffaelligkeiten: Vec<String>,
-    #[xml(ns = b"xwas", name = b"zeitpunktValidierungPruefbericht", ty = "child")]
+    #[xml(
+        default,
+        ns = b"xwas",
+        name = b"zeitpunktValidierungPruefbericht",
+        ty = "child"
+    )]
     pub zeitpunkt_validierung_pruefbericht: String, //datetime
     #[xml(
         ns = b"xwas",
         name = b"fuerValidierungVerantwortlichePerson",
         ty = "child"
     )]
+    #[serde(default)]
     pub fuer_validierung_verantwortliche_person: Vec<NatuerlichePersonType>,
     #[xml(ns = b"xwas", name = b"freigabeUebermittlungBetreiber", ty = "child")]
     pub freigabe_uebermittlung_betreiber: Option<bool>,
-    #[xml(ns = b"xwas", name = b"pruefberichtIDLabor", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"pruefberichtIDLabor", ty = "child")]
     pub pruefbericht_id_labor: String,
-    #[xml(ns = b"xwas", name = b"swVersion", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"swVersion", ty = "child")]
     pub sw_version: CodeAmtsspracheEUType,
-    #[xml(ns = b"xwas", name = b"sprachePruefbericht", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"sprachePruefbericht", ty = "child")]
     pub sprache_pruefbericht: CodeAmtsspracheEUType,
-    #[xml(ns = b"xwas", name = b"rechtlicherDisclaimer", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"rechtlicherDisclaimer", ty = "child")]
     pub rechtlicher_disclaimer: String, //datetime
-    #[xml(ns = b"xwas", name = b"zeitpunktUebermittlungAnSHAPTH", ty = "child")]
+    #[xml(
+        default,
+        ns = b"xwas",
+        name = b"zeitpunktUebermittlungAnSHAPTH",
+        ty = "child"
+    )]
     pub zeitpunkt_uebermittlung_an_shapth: String, //datetime
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
-    #[xml(ns = b"xwas", name = b"auftraggeber", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"auftraggeber", ty = "child")]
     pub auftraggeber: AuftraggeberType,
-    #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
+    #[xml(ns = b"xwas", name = b"zustaemdigeBehoerde", ty = "child")]
+    #[serde(default)]
     pub zustaendige_behoerde: Vec<ZustaendigeBehoerdeType>,
-    #[xml(ns = b"xwas", name = b"beauftragteUntersuchungsstelle", ty = "child")]
+    #[xml(
+        default,
+        ns = b"xwas",
+        name = b"beauftragteUntersuchungsstelle",
+        ty = "child"
+    )]
     pub beauftragte_untersuchungsstelle: BeauftragteUntersuchungsstelleType,
     #[xml(ns = b"xwas", name = b"ortDerLabortaetigkeiten", ty = "child")]
+    #[serde(default)]
     pub ort_der_labortaetigkeiten: Vec<AnschriftType>,
     #[xml(ns = b"xwas", name = b"anhang", ty = "child")]
+    #[serde(default)]
     pub anhang: Vec<String>,
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
     pub erweiterung: Option<ErweiterungType>,
@@ -1031,18 +1245,20 @@ pub struct PruefberichtType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeWasserversorgungsgebietType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeWasserversorgungsgebietType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 /// Klasse zur Abbildung von SHAPTH-spezifischen Geokoordinaten.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"geokoordinatenShapthType")]
 pub struct GeokoordinatenShapthType {
     #[xml(
         ns = b"xwas",
@@ -1064,41 +1280,53 @@ pub struct GeokoordinatenShapthType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeGrundSchliessungWasserversorgungsgebietType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeGrundSchliessungWasserversorgungsgebietType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeArtWasserressourceType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeArtWasserressourceType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeGrundAusnahmeregelungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeGrundAusnahmeregelungType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeAbhilfemassnahmeType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeAbhilfemassnahmeType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -1106,7 +1334,10 @@ pub struct CodeAbhilfemassnahmeType {
 /// neuen Vorgaben für das EU-Berichtsformat benötigt werden.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"DerogationRemedialActionType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct DerogationRemedialActionType {
     #[xml(
         ns = b"xwas",
@@ -1135,31 +1366,40 @@ pub struct DerogationRemedialActionType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeShapthParameterType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeShapthParameterType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeProbennahmezeitraumType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeProbennahmezeitraumType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeArtProbennahmestelleEUType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeArtProbennahmestelleEUType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -1167,7 +1407,10 @@ pub struct CodeArtProbennahmestelleEUType {
 /// für das EU-Berichtsformat benötigt werden.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"QualityAndMonitoringType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct QualityAndMonitoringType {
     #[xml(
         ns = b"xwas",
@@ -1186,6 +1429,7 @@ pub struct QualityAndMonitoringType {
     #[xml(ns = b"xwas", name = b"samplingPeriod", ty = "child")]
     pub sampling_period: CodeProbennahmezeitraumType,
     #[xml(ns = b"xwas", name = b"samplingLocationType", ty = "child")]
+    #[serde(default)]
     pub sampling_location_type: Vec<CodeArtProbennahmestelleEUType>,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
     pub remarks: Option<String>,
@@ -1198,7 +1442,10 @@ pub struct QualityAndMonitoringType {
 /// Vorgaben für das EU-Berichtsformat benötigt werden.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"DerogationType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct DerogationType {
     #[xml(ns = b"xwas", name = b"derogationIdentifier", ty = "child")]
     pub derogation_identifier: String, // bn-uq-g2g:UUID
@@ -1233,8 +1480,10 @@ pub struct DerogationType {
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
     pub remarks: Option<String>,
     #[xml(ns = b"xwas", name = b"derogationRemedialAction", ty = "child")]
+    #[serde(default)]
     pub derogation_remedial_action: Vec<DerogationRemedialActionType>,
     #[xml(ns = b"xwas", name = b"qualityAndMonitoring", ty = "child")]
+    #[serde(default)]
     pub quality_and_monitoring: Vec<QualityAndMonitoringType>,
     #[xml(ns = b"xwas", name = b"_id", ty = "attr")]
     #[serde(skip)]
@@ -1243,21 +1492,27 @@ pub struct DerogationType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeMassnahmeType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeMassnahmeType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeIncidentExceedanceCauseType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeIncidentExceedanceCauseType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -1265,7 +1520,10 @@ pub struct CodeIncidentExceedanceCauseType {
 /// Überschreitungen gem. den neuen Vorgaben für das EU-Berichtsformat benötigt werden.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"ExceedanceCauseAndRemedialActionType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct ExceedanceCauseAndRemedialActionType {
     #[xml(
         ns = b"xwas",
@@ -1296,7 +1554,10 @@ pub struct ExceedanceCauseAndRemedialActionType {
 /// Vorgaben für das EU-Berichtsformat benötigt werden.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"ExceedanceType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct ExceedanceType {
     #[xml(ns = b"xwas", name = b"exceedanceIdentifier", ty = "child")]
     pub exceedance_identifier: String, // bn-uq-g2g:UUID
@@ -1313,6 +1574,7 @@ pub struct ExceedanceType {
     #[xml(ns = b"xwas", name = b"exceedanceAffectedPopulation", ty = "child")]
     pub exceedance_affected_population: u32,
     #[xml(ns = b"xwas", name = b"pointOfComplianceType", ty = "child")]
+    #[serde(default)]
     pub point_of_compliance_type: Vec<CodeArtProbennahmestelleEUType>,
     #[xml(ns = b"xwas", name = b"numberOfSamplesPerYear", ty = "child")]
     pub number_of_samples_per_year: u32,
@@ -1323,6 +1585,7 @@ pub struct ExceedanceType {
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
     pub remarks: Option<String>,
     #[xml(ns = b"xwas", name = b"exceedanceCauseAndRemedialAction", ty = "child")]
+    #[serde(default)]
     pub exceedance_cause_and_remedial_action: Vec<ExceedanceCauseAndRemedialActionType>,
     #[xml(ns = b"xwas", name = b"_id", ty = "attr")]
     #[serde(skip)]
@@ -1331,11 +1594,14 @@ pub struct ExceedanceType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeIncidentCategoryType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeIncidentCategoryType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -1344,7 +1610,10 @@ pub struct CodeIncidentCategoryType {
 /// werden.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"IncidentCauseAndRemedialActionType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct IncidentCauseAndRemedialActionType {
     #[xml(ns = b"xwas", name = b"incidentCauseAndActionIdentifier", ty = "child")]
     pub incident_cause_and_action_identifier: String, // bn-uq-g2g:UUID
@@ -1367,23 +1636,29 @@ pub struct IncidentCauseAndRemedialActionType {
 /// für das EU-Berichtsformat benötigt werden.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"IncidentType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct IncidentType {
     #[xml(ns = b"xwas", name = b"incidentIdentifier", ty = "child")]
     pub incident_identifier: String, // bn-uq-g2g:UUID
     #[xml(ns = b"xwas", name = b"exceedance", ty = "child")]
+    #[serde(default)]
     pub exceedance: Vec<String>, // xs:IDREF
     #[xml(ns = b"xwas", name = b"incidentStartDate", ty = "child")]
     pub incident_start_date: String, // xs:date
     #[xml(ns = b"xwas", name = b"incidentEndDate", ty = "child")]
     pub incident_end_date: String, // xs:date
     #[xml(ns = b"xwas", name = b"incidentCategory", ty = "child")]
+    #[serde(default)]
     pub incident_category: Vec<CodeIncidentCategoryType>,
     #[xml(ns = b"xwas", name = b"incidentAffectedPopulation", ty = "child")]
     pub incident_affected_population: u32,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
     pub remarks: Option<String>,
     #[xml(ns = b"xwas", name = b"incidentCauseAndRemedialAction", ty = "child")]
+    #[serde(default)]
     pub incident_cause_and_remedial_action: Vec<IncidentCauseAndRemedialActionType>,
     #[xml(ns = b"xwas", name = b"_id", ty = "attr")]
     #[serde(skip)]
@@ -1394,7 +1669,10 @@ pub struct IncidentType {
 /// möglich in Register zu pflegen].
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"WasserversorgungsgebietType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
     pub wasserversorgungsgebiet_id: String,
@@ -1403,6 +1681,7 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"lau2Code", ty = "child")]
     pub lau2_code: Option<String>,
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
+    #[serde(default)]
     pub zustaendige_behoerde: Vec<ZustaendigeBehoerdeType>,
     #[xml(ns = b"xwas", name = b"geokoordinatenSHAPTH", ty = "child")]
     pub geokoordinaten_shapth: Option<GeokoordinatenShapthType>,
@@ -1413,8 +1692,10 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"grundDerSchliessung", ty = "child")]
     pub grund_der_schliessung: Option<CodeGrundSchliessungWasserversorgungsgebietType>,
     #[xml(ns = b"xwas", name = b"nachfolgerWVGbeiSchliessung", ty = "child")]
+    #[serde(default)]
     pub nachfolger_wvg_bei_schliessung: Vec<String>, // xs:IDREF
     #[xml(ns = b"xwas", name = b"wvgFremdbezogen", ty = "child")]
+    #[serde(default)]
     pub wvg_fremdbezogen: Vec<String>, // xs:IDREF
     #[xml(ns = b"xwas", name = b"abgegebeneWassermenge", ty = "child")]
     pub abgegebene_wassermenge: f64,
@@ -1423,8 +1704,10 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"referenzjahrAngabenWVG", ty = "child")]
     pub referenzjahr_angaben_wvg: u32,
     #[xml(ns = b"xwas", name = b"artDerWasserressource", ty = "child")]
+    #[serde(default)]
     pub art_der_wasserressource: Vec<CodeArtWasserressourceType>,
     #[xml(ns = b"xwas", name = b"anteilDerWasserressource", ty = "child")]
+    #[serde(default)]
     pub anteil_der_wasserressource: Vec<u32>,
     #[xml(
         ns = b"xwas",
@@ -1443,10 +1726,13 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"derogation", ty = "child")]
+    #[serde(default)]
     pub derogation: Vec<DerogationType>,
     #[xml(ns = b"xwas", name = b"exceedance", ty = "child")]
+    #[serde(default)]
     pub exceedance: Vec<ExceedanceType>,
     #[xml(ns = b"xwas", name = b"incident", ty = "child")]
+    #[serde(default)]
     pub incident: Vec<IncidentType>,
     #[xml(ns = b"xwas", name = b"_id", ty = "attr")]
     #[serde(skip)]
@@ -1455,81 +1741,105 @@ pub struct WasserversorgungsgebietType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeWVAType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeWVAType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeErlaeuterungWasserabgabemengeType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeErlaeuterungWasserabgabemengeType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeFlockungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeFlockungType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeDesinfektionsartType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeDesinfektionsartType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeNachweisartType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeNachweisartType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeStatusUntersuchungsplanType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeStatusUntersuchungsplanType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeKategorieProbennahmestelleType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeKategorieProbennahmestelleType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeUeberwachungAufbereitungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeUeberwachungAufbereitungType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -1537,13 +1847,17 @@ pub struct CodeUeberwachungAufbereitungType {
 /// als Teil des Untersuchungsplans für a- und b-Anlagen relevant sind.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"TerminplanType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct TerminplanType {
     #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
     pub terminplan_id: String,
     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
     pub probennahmestelle_id: Option<String>,
     #[xml(ns = b"xwas", name = b"datumZeitraum", ty = "child")]
+    #[serde(default)]
     pub datum_zeitraum: Vec<String>,
     #[xml(ns = b"xwas", name = b"probennahmestelleKategorie", ty = "child")]
     pub probennahmestelle_kategorie: CodeKategorieProbennahmestelleType,
@@ -1554,10 +1868,13 @@ pub struct TerminplanType {
     )]
     pub weitere_beschreibung_der_probennahmestelle: Option<String>,
     #[xml(ns = b"xwas", name = b"untersuchungDurch", ty = "child")]
+    #[serde(default)]
     pub untersuchung_durch: Vec<CodeUeberwachungAufbereitungType>,
     #[xml(ns = b"xwas", name = b"zuUntersuchendeParameter", ty = "child")]
+    #[serde(default)]
     pub zu_untersuchende_parameter: Vec<CodeShapthParameterType>,
     #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
+    #[serde(default)]
     pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
@@ -1565,41 +1882,53 @@ pub struct TerminplanType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeArtTrinkwasseranlageType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeArtTrinkwasseranlageType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeArtObjektType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeArtObjektType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeBetriebszustandType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeBetriebszustandType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeRahmenTrinkwasserbereitstellungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeRahmenTrinkwasserbereitstellungType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -1608,6 +1937,10 @@ pub struct CodeRahmenTrinkwasserbereitstellungType {
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[serde(tag = "t", content = "c")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub enum ArtDerPerson {
     // #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
     // pub organisation: OrganisationType,
@@ -1624,7 +1957,10 @@ pub enum ArtDerPerson {
 /// in Register zu pflegen].
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"BetreiberType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct BetreiberType {
     #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
     pub betreiber_id: String,
@@ -1637,13 +1973,17 @@ pub struct BetreiberType {
 /// Klasse für den Transport von Informationen zu einem Objekt.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"ObjektType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
     pub objekt_id: String,
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebiet", ty = "child")]
     pub wasserversorgungsgebiet: Option<String>,
     #[xml(ns = b"xwas", name = b"anschriftObjekt", ty = "child")]
+    #[serde(default)]
     pub anschrift_objekt: Vec<AnschriftType>,
     #[xml(ns = b"xwas", name = b"artObjekt", ty = "child")]
     pub art_objekt: CodeArtObjektType,
@@ -1660,6 +2000,7 @@ pub struct ObjektType {
         name = b"rahmenDerTrinkwasserbereitstellung",
         ty = "child"
     )]
+    #[serde(default)]
     pub rahmen_der_trinkwasserbereitstellung: Vec<CodeRahmenTrinkwasserbereitstellungType>,
     #[xml(ns = b"xwas", name = b"geokoordinatenObjekt", ty = "child")]
     pub geokoordinaten_objekt: GeokoordinatenShapthType,
@@ -1668,21 +2009,27 @@ pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"betreiber", ty = "child")]
+    #[serde(default)]
     pub betreiber: Vec<BetreiberType>,
     #[xml(ns = b"xwas", name = b"objekt_probennahmestelle", ty = "child")]
+    #[serde(default)]
     pub objekt_probennahmestelle: Vec<ProbennahmestelleType>,
 }
 
 /// Klasse für den Transport von Informationen zu einer Trinkwasserversorgungsanlage.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"AnlageNachTrinkwVType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct AnlageNachTrinkwVType {
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
     pub anlage_nach_trinkw_vid: String,
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerdeID", ty = "child")]
     pub zustaendige_behoerde_id: String,
     #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
+    #[serde(default)]
     pub untersuchungsplan_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"artAnlage", ty = "child")]
     pub art_anlage: CodeArtTrinkwasseranlageType,
@@ -1705,8 +2052,10 @@ pub struct AnlageNachTrinkwVType {
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebiet", ty = "child")]
+    #[serde(default)]
     pub wasserversorgungsgebiet: Vec<WasserversorgungsgebietType>,
     #[xml(ns = b"xwas", name = b"anlageNachTrinwV_Objekt", ty = "child")]
+    #[serde(default)]
     pub anlage_nach_trinw_v_objekt: Vec<ObjektType>,
 }
 
@@ -1714,13 +2063,18 @@ pub struct AnlageNachTrinkwVType {
 /// Untersuchungsplans für a- und b-Anlagen relevant sind.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"UntersuchungsplanType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct UntersuchungsplanType {
     #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
     pub untersuchungsplan_id: String,
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebiet", ty = "child")]
+    #[serde(default)]
     pub wasserversorgungsgebiet: Vec<String>,
     #[xml(ns = b"xwas", name = b"jahr", ty = "child")]
+    #[serde(default)]
     pub jahr: Vec<String>, // JahrType
     #[xml(ns = b"xwas", name = b"wasserabgabeVorjahr", ty = "child")]
     pub wasserabgabe_vorjahr: f64,
@@ -1773,6 +2127,7 @@ pub struct UntersuchungsplanType {
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"terminplan", ty = "child")]
+    #[serde(default)]
     pub terminplan: Vec<TerminplanType>,
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwV", ty = "child")]
     pub anlage_nach_trinkw_v: AnlageNachTrinkwVType,
@@ -1781,6 +2136,7 @@ pub struct UntersuchungsplanType {
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
     pub zustaendige_behoerde: ZustaendigeBehoerdeType,
     #[xml(ns = b"xwas", name = b"probe_Rel", ty = "child")]
+    #[serde(default)]
     pub probe_rel: Vec<ProbeType>,
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
     pub erweiterung: Option<ErweiterungType>,
@@ -1788,17 +2144,24 @@ pub struct UntersuchungsplanType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeAuftraggeberartType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeAuftraggeberartType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[serde(tag = "t", content = "c")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub enum Auftraggeber {
     #[xml(ns = b"xwas", name = b"organisation")]
     Organisation(OrganisationType),
@@ -1815,6 +2178,10 @@ pub enum Auftraggeber {
 /// Informationen aus den Registern von Betreibern/Behörden].
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct AuftraggeberType {
     #[xml(ns = b"xwas", name = b"auftraggeberID", ty = "child")]
     pub auftraggeber_id: String,
@@ -1826,6 +2193,10 @@ pub struct AuftraggeberType {
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeNameBeauftragteUntersuchungsstelle {
     #[xml(name = b"code", ty = "child")]
     pub code: String,
@@ -1835,11 +2206,14 @@ pub struct CodeNameBeauftragteUntersuchungsstelle {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeLaenderkennzeichenType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeLaenderkennzeichenType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -1847,13 +2221,20 @@ pub struct CodeLaenderkennzeichenType {
 /// Angaben zu einer im Register Behörden gepflegte Behörde].
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"ZustaendigeBehoerdeType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct ZustaendigeBehoerdeType {
-    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    pub behoerde: BehoerdeType,
+    #[xml(default, ns = b"xwas", name = b"id", ty = "child")]
+    pub id: String,
+    // #[xml(default, ns = b"xwas", name = b"kommentar", ty = "child")]
+    // pub behoerde: BehoerdeType,
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
+    #[serde(default)]
     pub anlage_nach_trinkw_vid: Vec<String>,
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
+    #[serde(default)]
     pub probennehmer_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"laenderkuerzel", ty = "child")]
     pub laenderkuerzel: CodeLaenderkennzeichenType,
@@ -1865,7 +2246,10 @@ pub struct ZustaendigeBehoerdeType {
 /// gemeinsame Eigenschaften zusammen.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"AllgemeinerNameType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct AllgemeinerNameType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
@@ -1874,6 +2258,7 @@ pub struct AllgemeinerNameType {
     #[xml(ns = b"xwas", name = b"namensart", ty = "child")]
     pub namensart: Option<Code>,
     #[xml(ns = b"xwas", name = b"alternativeRepraesentation", ty = "child")]
+    #[serde(default)]
     pub alternative_repraesentation: Vec<AlternativeRepraesentationType>,
 }
 
@@ -1889,7 +2274,10 @@ pub struct AllgemeinerNameType {
 /// daher alternativ als "ANDRE MUELLER" übertragen.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"AlternativeRepraesentationType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct AlternativeRepraesentationType {
     #[xml(ns = b"xwas", name = b"repraesentation", ty = "child")]
     pub repraesentation: String,
@@ -1903,13 +2291,18 @@ pub struct AlternativeRepraesentationType {
 /// von anderen Personen zu unterscheiden.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"nameNatuerlichePersonType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct NameNatuerlichePersonType {
     #[xml(name = b"titel", ty = "child")]
     pub titel: Option<String>,
     #[xml(name = b"anrede", ty = "child")]
+    #[serde(default)]
     pub anrede: Vec<String>,
     #[xml(name = b"namenssuffix", ty = "child")]
+    #[serde(default)]
     pub namenssuffix: Vec<String>,
     #[xml(ns = b"xwas", name = b"familienname", ty = "child")]
     pub familienname: Option<AllgemeinerNameType>,
@@ -1920,6 +2313,7 @@ pub struct NameNatuerlichePersonType {
     #[xml(name = b"geburtsname", ty = "child")]
     pub geburtsname: Option<AllgemeinerNameType>,
     #[xml(name = b"fruehererFamilienname", ty = "child")]
+    #[serde(default)]
     pub frueherer_familienname: Vec<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"vorname", ty = "child")]
     pub vorname: Option<AllgemeinerNameType>,
@@ -1932,18 +2326,23 @@ pub struct NameNatuerlichePersonType {
     #[xml(name = b"ordensname", ty = "child")]
     pub ordensname: Option<AllgemeinerNameType>,
     #[xml(name = b"kuenstlername", ty = "child")]
+    #[serde(default)]
     pub kuenstlername: Vec<AllgemeinerNameType>,
     #[xml(name = b"weitererName", ty = "child")]
+    #[serde(default)]
     pub weiterer_name: Vec<AllgemeinerNameType>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeAuskunftssperreType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeAuskunftssperreType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -1951,7 +2350,10 @@ pub struct CodeAuskunftssperreType {
 /// Beginn und/oder Ende.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"ZeitraumType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct ZeitraumType {
     #[xml(ns = b"xwas", name = b"beginn", ty = "child")]
     pub beginn: Option<String>, // eigentlich of tyype xs:date
@@ -1964,7 +2366,10 @@ pub struct ZeitraumType {
 /// Die Auskunftssperre beschränkt die Weitergabe von Informationen an Dritte.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"AuskunftssperreType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct AuskunftssperreType {
     #[xml(ns = b"xwas", name = b"grund", ty = "child")]
     pub grund: Option<CodeAuskunftssperreType>,
@@ -1974,18 +2379,24 @@ pub struct AuskunftssperreType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeFamilienstandType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeFamilienstandType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 /// Unter "Geburt" werden geburtsbezogene Informationen zusammengefasst.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"Geburt")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct GeburtType {
     #[xml(ns = b"xwas", name = b"datum", ty = "child")]
     pub datum: Option<String>,
@@ -2001,7 +2412,10 @@ pub struct GeburtType {
 /// derzeit: „DR.“, „Dr.“, „DR.HC.“, „Dr.hc.“, „Dr.EH.“ und „Dr.eh.“.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"DoktorgradType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct DoktorgradType {
     // hier gibt es eine striction mit max length 120, wie umsetzen ?
     #[xml(ns = b"xwas", name = b"bezeichnung", ty = "child")]
@@ -2010,38 +2424,50 @@ pub struct DoktorgradType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeStaatsangehoerigkeitType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeStaatsangehoerigkeitType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeAusweisdokumenteType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeAusweisdokumenteType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeGeschlechtType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeGeschlechtType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 /// Unter "Sprache" werden Informationen über Sprachen zusammengefasst.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"SpracheType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct SpracheType {
     #[xml(ns = b"xwas", name = b"sprache", ty = "child")]
     pub sprache: String,
@@ -2051,11 +2477,14 @@ pub struct SpracheType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeVertretungsartType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeVertretungsartType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -2063,7 +2492,10 @@ pub struct CodeVertretungsartType {
 /// nichtnatürlichen Person abgebildet.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"VertreterBevollmaechtigterType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct VertreterBevollmaechtigterType {
     #[xml(ns = b"xwas", name = b"vertreterBevollmaechtigterID", ty = "child")]
     pub vertreter_bevollmaechtigter_id: String,
@@ -2073,18 +2505,24 @@ pub struct VertreterBevollmaechtigterType {
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeFamilienstandBeendigungsgrundType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeFamilienstandBeendigungsgrundType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 /// Hier werden Angaben zum Familienstand einer natürlichen Person zusammengefasst.
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"familienstandType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct FamilienstandType {
     #[xml(ns = b"xwas", name = b"familienstand", ty = "child")]
     pub familienstand: Option<CodeFamilienstandType>,
@@ -2101,7 +2539,10 @@ pub struct FamilienstandType {
 /// Hier werden Angaben zur Staatsangehörigkeit zusammengefasst.
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"StaatsangehoerigkeitType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct StaatsangehoerigkeitType {
     #[xml(ns = b"xwas", name = b"staatsangehoerigkeit", ty = "child")]
     pub staatsangehoerigkeit: CodeStaatsangehoerigkeitType,
@@ -2112,7 +2553,10 @@ pub struct StaatsangehoerigkeitType {
 /// Machtausübung über dieses umfasst.
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"staatType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct StaatType {
     #[xml(ns = b"xwas", name = b"staat", ty = "child")]
     pub staat: CodeStaatType,
@@ -2122,7 +2566,10 @@ pub struct StaatType {
 /// schriftlich und offiziell darstellt. Er enthält meist persönliche Daten.
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"ausweisdokumentType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct AusweisdokumentType {
     #[xml(ns = b"xwas", name = b"ausweisart", ty = "child")]
     pub ausweisart: Option<CodeAusweisdokumenteType>,
@@ -2146,7 +2593,10 @@ pub struct AusweisdokumentType {
 /// angegeben werden.
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"juristischePersonType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct JuristischePersonType {
     #[xml(
         ns = b"xwas",
@@ -2163,14 +2613,17 @@ pub struct JuristischePersonType {
     #[xml(ns = b"xwas", name = b"geschaeftsbezeichnung", ty = "child")]
     pub geschaeftsbezeichnung: Option<String>,
     #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
+    #[serde(default)]
     pub anschrift: Vec<AnschriftType>,
     #[xml(ns = b"xwas", name = b"sitz", ty = "child")]
     pub sitz: Option<String>,
     #[xml(ns = b"xwas", name = b"effektiverVerwaltungssitz", ty = "child")]
     pub effektiver_verwaltungssitz: Option<String>,
     #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
+    #[serde(default)]
     pub kommunikation: Vec<KommunikationType>,
     #[xml(ns = b"xwas", name = b"vertreterBevollmaechtigter", ty = "child")]
+    #[serde(default)]
     pub vertreter_bevollmaechtigter: Vec<VertreterBevollmaechtigterType>,
 }
 
@@ -2181,41 +2634,61 @@ pub struct JuristischePersonType {
 /// sind, nennt man juristische Personen.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"natuerlichePersonType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct NatuerlichePersonType {
     #[xml(name = b"auskunftssperre", ty = "child")]
+    #[serde(default)]
     pub auskunftssperre: Vec<AuskunftssperreType>,
     #[xml(ns = b"xwas", name = b"nameNatuerlichePerson", ty = "child")]
     pub name_natuerliche_person: Option<NameNatuerlichePersonType>,
     #[xml(name = b"familienstand", ty = "child")]
+    #[serde(default)]
     pub familienstand: Vec<FamilienstandType>,
     #[xml(name = b"geburt", ty = "child")]
     pub geburt: Option<GeburtType>,
     #[xml(name = b"doktorgrad", ty = "child")]
     pub doktorgrad: Option<DoktorgradType>,
     #[xml(name = b"staatsangehoerigkeit", ty = "child")]
+    #[serde(default)]
     pub staatsangehoerigkeit: Vec<StaatsangehoerigkeitType>,
     #[xml(name = b"ausweisdokument", ty = "child")]
+    #[serde(default)]
     pub ausweisdokument: Vec<AusweisdokumentType>,
     #[xml(name = b"anschrift", ty = "child")]
+    #[serde(default)]
     pub anschrift: Vec<AnschriftType>,
     #[xml(name = b"geschlecht", ty = "child")]
+    #[serde(default)]
     pub geschlecht: Vec<CodeGeschlechtType>,
     #[xml(name = b"identifikationsnummer", ty = "child")]
+    #[serde(default)]
     pub identifikationsnummer: Vec<IdentifikationType>,
     #[xml(name = b"kommunikation", ty = "child")]
+    #[serde(default)]
     pub kommunikation: Vec<KommunikationType>,
     #[xml(name = b"muttersprache", ty = "child")]
+    #[serde(default)]
     pub muttersprache: Vec<SpracheType>,
     #[xml(name = b"fremdsprache", ty = "child")]
+    #[serde(default)]
     pub fremdsprache: Vec<SpracheType>,
     #[xml(name = b"vertreterBevollmaechtigter", ty = "child")]
+    #[serde(default)]
     pub vertreter_bevollmaechtigter: Vec<VertreterBevollmaechtigterType>,
 }
 
+// TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
+#[allow(clippy::large_enum_variant)]
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[serde(tag = "t", content = "c")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub enum Person {
     #[xml(ns = b"xwas", name = b"natuerlichePerson")]
     NatuerlichePerson(NatuerlichePersonType),
@@ -2228,11 +2701,14 @@ pub enum Person {
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codePersonenrolleType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodePersonenrolleType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -2241,11 +2717,16 @@ pub struct CodePersonenrolleType {
 /// dieser Datentype wird bisher nirgends verwendet
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"PersonType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct PersonType {
     #[xml(ns = b"xwas", name = b"personRolle", ty = "child")]
+    #[serde(default)]
     pub person_rolle: Vec<CodePersonenrolleType>,
     #[xml(ns = b"xwas", name = b"dokumentReferenzID", ty = "child")]
+    #[serde(default)]
     pub dokument_referenz_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"person", ty = "child")]
     pub person: Person,
@@ -2253,7 +2734,10 @@ pub struct PersonType {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-// #[xml(tns(b"xwas", b"xwasser"))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct ProbennehmerType {
     // #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
     // pub organisation: OrganisationType,
@@ -2267,7 +2751,10 @@ pub struct ProbennehmerType {
 /// dem Prüfbericht mit zu übermittelnde Informationen].
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"ProbennehmerType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct Probennehmer {
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
     pub probennehmer_id: String,
@@ -2284,31 +2771,40 @@ pub struct Probennehmer {
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeProbenentnahmegeraetType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeProbenentnahmegeraetType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeGefaessType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeProbengefaessType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeProbenbewertungType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeProbenbewertungType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -2316,23 +2812,29 @@ pub struct CodeProbenbewertungType {
 /// im Rahmen eines Prüfberichts via SHAPTH übermittelt wird.
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"Probe")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct ProbeType {
-    #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
-    pub probe_id: String,
+    // #[xml(default, ns = b"xwas", name = b"probeID", ty = "child")]
+    // pub probe_id: String,
     #[xml(ns = b"xwas", name = b"analyseergebnisParameter", ty = "child")]
+    #[serde(default)]
     pub analyseergebnis_parameter: Vec<AnalyseergebnisParameter>,
-    #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
-    pub probennehmer: Probennehmer,
+    // #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
+    // pub probennehmer: Probennehmer,
     #[xml(ns = b"xwas", name = b"anlassDerUntersuchung", ty = "child")]
+    #[serde(default)]
     pub anlass_der_untersuchung: Vec<CodeAnlassUntersuchungType>,
-    #[xml(ns = b"xwas", name = b"medium", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"medium", ty = "child")]
     pub medium: CodeMediumType,
     #[xml(name = b"ergaenzungZumMedium", ty = "child")]
     pub ergaenzung_zum_medium: Option<String>,
-    #[xml(ns = b"xwas", name = b"zeitpunktProbennahme", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"zeitpunktProbennahme", ty = "child")]
     pub zeitpunkt_probennahme: String, //datetime
     #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
+    #[serde(default)]
     pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
     #[xml(name = b"probenentnahmegeraet", ty = "child")]
     pub probenentnahmegeraet: Option<CodeProbenentnahmegeraetType>,
@@ -2345,46 +2847,61 @@ pub struct ProbeType {
     #[xml(name = b"konservierungAufbereitungDesinfektionProbe", ty = "child")]
     pub konservierung_aufbereitung_desinfektion_probe:
         Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
-    #[xml(ns = b"xwas", name = b"kommentarZurProbennahme", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"kommentarZurProbennahme", ty = "child")]
     pub kommentar_zur_probennahme: String,
     #[xml(name = b"informationenZumProbentransport", ty = "child")]
     pub informationen_zum_probentransport: Option<String>,
     #[xml(
+        default,
         ns = b"xwas",
         name = b"eingangProbeBeiUntersuchungsstelle",
         ty = "child"
     )]
     pub eingang_probe_bei_untersuchungsstelle: String, //xs dateTime
-    #[xml(ns = b"xwas", name = b"beginnAnalytik", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"beginnAnalytik", ty = "child")]
     pub beginn_analytik: String, //datetime
-    #[xml(ns = b"xwas", name = b"abschlussAnalytik", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"abschlussAnalytik", ty = "child")]
     pub abschluss_analytik: String,
-    #[xml(ns = b"xwas", name = b"probenbewertung", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"probenbewertung", ty = "child")]
     pub probenbewertung: CodeProbenbewertungType,
-    #[xml(ns = b"xwas", name = b"analyseergebnisParameterID", ty = "child")]
+    #[xml(
+        default,
+        ns = b"xwas",
+        name = b"analyseergebnisParameterID",
+        ty = "child"
+    )]
     pub analyseergebnis_parameter_id: String,
     #[xml(name = b"berichtspflichtig", ty = "child")]
     pub berichtspflichtig: Option<bool>,
-    #[xml(ns = b"xwas", name = b"vonProbennehmerVergebeneProbeID", ty = "child")]
+    #[xml(
+        default,
+        ns = b"xwas",
+        name = b"vonProbennehmerVergebeneProbeID",
+        ty = "child"
+    )]
     pub von_probennehmer_vergebene_probe_id: String,
-    #[xml(ns = b"xwas", name = b"probeID_ausLabor", ty = "child")]
+    #[xml(default, ns = b"xwas", name = b"probeID_ausLabor", ty = "child")]
     pub probe_id_aus_labor: String,
     #[xml(name = b"anhang", ty = "child")]
+    #[serde(default)]
     pub anhang: Vec<String>,
     #[xml(name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
-    #[xml(ns = b"xwas", name = b"probennehmerID", ty = "attr")]
+    #[xml(default, ns = b"xwas", name = b"probennehmerID", ty = "attr")]
     #[serde(skip)]
     pub _id: ConstStr,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"codeDokumenttypType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct CodeDokumenttypType {
-    #[xml(ns = b"xwas", name = b"code", ty = "child")]
+    #[xml(name = b"code", ty = "child")]
     pub code: String,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
 }
 
@@ -2393,9 +2910,13 @@ pub struct CodeDokumenttypType {
 /// der Nachricht zu finden sind.
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"SignaturenType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct SignaturenType {
     #[xml(ns = b"xwas", name = b"signaturDokumentID", ty = "child")]
+    #[serde(default)]
     pub signatur_dokument_id: Vec<String>,
 }
 
@@ -2404,7 +2925,10 @@ pub struct SignaturenType {
 /// 3 vorhanden sein.
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"dokumentRepraesentationType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct DokumentRepraesentationType {
     #[xml(ns = b"xwas", name = b"referenz", ty = "child")]
     pub referenz: Option<String>,
@@ -2427,7 +2951,10 @@ pub struct DokumentRepraesentationType {
 /// Darstellungen übertragen werden.
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(root = b"DokumentType")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub struct DokumentType {
     #[xml(ns = b"xwas", name = b"dokumentTyp", ty = "child")]
     pub dokument_typ: CodeDokumenttypType,
@@ -2438,20 +2965,26 @@ pub struct DokumentType {
     #[xml(ns = b"xwas", name = b"letzteVersion", ty = "child")]
     pub letzte_version: Option<String>,
     #[xml(ns = b"xwas", name = b"dokumentRepraesentation", ty = "child")]
+    #[serde(default)]
     pub dokument_repraesentation: Vec<DokumentRepraesentationType>,
     #[xml(ns = b"xwas", name = b"personReferenzID", ty = "child")]
+    #[serde(default)]
     pub person_referenz_id: Vec<String>,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[serde(tag = "t", content = "c")]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_2_1"
+))]
 pub enum VorgangType {
     #[xml(ns = b"xwas", name = b"pruefbericht")]
     Pruefbericht(PruefberichtType),
     #[xml(ns = b"xwas", name = b"untersuchungsplan")]
     Untersuchungsplan(UntersuchungsplanType),
-    #[xml(ns = b"xwas", name = b"olgBericht", ty = "child")]
+    #[xml(ns = b"xwas", name = b"olgBericht")]
     OlgBericht(DokumentType),
     #[default]
     #[xml(ns = b"xwas", name = b"unknown")]
@@ -2460,15 +2993,20 @@ pub enum VorgangType {
 
 #[cfg(feature = "wasm")]
 #[wasm_bindgen]
-pub fn create_quality_report_xml(data: QualityReport) -> Result<String, JsValue> {
-    Ok(raxb::ser::to_string_pretty_with_decl(&data)
-        .map_err(|err| JsValue::from_str(&err.to_string()))?)
+pub fn create_vorgang_transportieren_2010(data: VorgangTransportieren2010) -> Result<String, JsValue> {
+    raxb::ser::to_string_pretty_with_decl(&data).map_err(|err| JsValue::from_str(&err.to_string()))
 }
 
 #[cfg(feature = "wasm")]
 #[wasm_bindgen]
-pub fn parse_quality_report_xml(xml: String) -> Result<QualityReport, JsValue> {
-    Ok(raxb::de::from_str(&xml).map_err(|err| JsValue::from_str(&err.to_string()))?)
+pub fn parse_vorgang_transportieren_2010(xml: String) -> Result<VorgangTransportieren2010, JsValue> {
+    use raxb::quick_xml::NsReader;
+
+    let mut rdr = NsReader::from_str(&xml);
+    rdr.trim_text(true);
+    rdr.check_comments(false);
+    rdr.trim_markup_names_in_closing_tags(true);
+    raxb::de::deserialize_with_reader(rdr).map_err(|err| JsValue::from_str(&err.to_string()))
 }
 
 #[cfg(test)]

@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it } from "vitest";
 import {
   JuristischePersonType,
   NachrichtenTyp,
@@ -50,12 +50,14 @@ import {
   NatuerlichePersonType,
   ProbeType,
   ZustaendigeBehoerdeType,
-  create_quality_report_xml,
-  parse_quality_report_xml,
+  create_vorgang_transportieren_2010,
+  parse_vorgang_transportieren_2010,
   AuftraggeberType,
   Auftraggeber,
-  QualityReport,
-  ArtDerPerson 
+  ArtDerPerson,
+  VorgangTransportieren2010,
+  NachrichtenkopfG2g,
+  Vorgang,
 } from "../pkg/xoev_xwasser";
 
 function createHeadInfo(kennung: string, name: string): any {
@@ -235,8 +237,7 @@ function nameNatuerlichePersonType(): NameNatuerlichePersonType {
     namenssuffix: [
       "Sir",
       "Jr"
-    ],
-
+    ],    
     familienname: allgemeinerNameType("familienname"),
     ehename: allgemeinerNameType("ehename"),
     lebenspartnerschaftsname: allgemeinerNameType("lebenspartnerschaftsname"),
@@ -261,7 +262,7 @@ function natuerlichePerson(): NatuerlichePersonType {
     doktorgrad: {
         bezeichnung: "DR."
       },
-    staatsangehoerigkeit: [code("staatsangehoerigkeit","1111")],
+    staatsangehoerigkeit: [{staatsangehoerigkeit: code("staatsangehoerigkeit","1111")}],
     ausweisdokument: [code("ausweisdokument","1234")],
     anschrift: [anschriftType()],
     geschlecht: [code("geschlecht","1111")],
@@ -335,7 +336,6 @@ function organisationType(): OrganisationType  {
 function  analyseergebnisParameter():AnalyseergebnisParameter {
   return {
     analyseergebnis_parameter_id: "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
-    probe_id: "ID3cd3c929-ee22-4056-a2a0-6c2d1c295c5c",
     zugelassene_untersuchungsstelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
     anschrift_id: "IDfcfd2538-f074-4848-b443-d15997e42c9e",
     analyse_im_rahmen_der_akkreditierung: true,
@@ -362,7 +362,7 @@ function  analyseergebnisParameter():AnalyseergebnisParameter {
 
 function zustaendigeBehoerde():ZustaendigeBehoerdeType {
   return {
-    behoerde: behoerdeType(),
+    id: "1234",
     anlage_nach_trinkw_vid: ["IDfcfd2538-f074-4848-b443-d15997e42c9e"],
     probennehmer_id: ["1234"],
     laenderkuerzel: code("laenderkuerzel","DEAA"),
@@ -386,9 +386,8 @@ function  probennehmer():Probennehmer {
 
 function probe(): ProbeType {
   return {
-    probe_id: "ID3cd3c929-ee22-4056-a2a0-6c2d1c295c5c",
     analyseergebnis_parameter: [analyseergebnisParameter()],
-    probennehmer: probennehmer(),
+    // probennehmer: probennehmer(),
     anlass_der_untersuchung: [code("name","1010")],
     medium: code("medium","1010"),
     ergaenzung_zum_medium: "Wasser",
@@ -417,7 +416,7 @@ function probe(): ProbeType {
 function  probennahmestelleType():ProbennahmestelleType {
   return {
     probennahmestelle_id: "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
-    objekt_id: "",
+    objekt_id: "abcd",
     probe: [probe()],
     terminplan_id: ["terminplan id"],
     name_probennahmestelle: "wasserloch um die ecke",
@@ -501,7 +500,7 @@ function pruefberichtType():PruefberichtType {
     name_beauftragte_untersuchungsstelle: code("name","1010"),
     pruefbericht_enthaelt_teilergebnisse: true,
     pruefgericht_gem_vorgaben_akkredition: true,
-    titel: "",
+    titel: "Wasserqualität Prüfbericht Nr.1",
     gesamtbewertung: code("name","1010"),
     auffaelligkeiten: ["ids are duplicated, makes no sense"],
     zeitpunkt_validierung_pruefbericht: "2024-05-28T09:10:00",
@@ -813,7 +812,7 @@ function vorgangType(): VorgangType {
   }
 }
 
-function vorgang():any {
+function vorgang(): Vorgang {
   return {
     identifikation_vorgang: {
         vorgangs_id: "5e08e073-4e06-438d-9444-1275f6cbf061",
@@ -823,7 +822,7 @@ function vorgang():any {
   }
 }
 
-function nachrichtenkopf():any {
+function nachrichtenkopf(): NachrichtenkopfG2g {
   return {
     leser: createHeadInfo("psw:11113110", "Reader"),
     autor: createHeadInfo("psw:01003110", "Author"),
@@ -837,7 +836,7 @@ function nachrichtenkopf():any {
   }
 }
 
-function qualityReport():QualityReport {
+function qualityReport(): VorgangTransportieren2010 {
   return {
     produkt: "SHAPTH CLI",
     test: true,
@@ -848,9 +847,10 @@ function qualityReport():QualityReport {
 
 describe("simple xml generation via wasm", async () => {
   it("should be able to create and parse quality report xml", async () => {
-    console.log(JSON.stringify(qualityReport(), null, 2));
-    
-    // const xml = create_quality_report_xml(qualityReport());
-    // console.log(xml);
+    // console.log(JSON.stringify(qualityReport(), null, 2));
+    const xml = create_vorgang_transportieren_2010(qualityReport());
+    console.log(xml);
+    const obj = parse_vorgang_transportieren_2010(xml);
+    console.log(obj);
   });
 });
