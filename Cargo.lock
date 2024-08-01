@@ -1923,6 +1923,18 @@ dependencies = [
  "serde_json",
  "tsify",
  "wasm-bindgen",
+ "xoev-xwasser-derive-rs",
+]
+
+[[package]]
+name = "xoev-xwasser-derive-rs"
+version = "0.2.2+0.2.1"
+dependencies = [
+ "darling",
+ "heck",
+ "proc-macro2",
+ "quote",
+ "syn",
 ]
 
 [[package]]
