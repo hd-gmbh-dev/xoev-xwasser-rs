@@ -20,13 +20,21 @@ for (const file of files) {
                 const structName = camelCase(name, { pascalCase: true });
                 const desc = node.get('xs:annotation/xs:appinfo/codeliste/beschreibung', { xs: 'http://www.w3.org/2001/XMLSchema' })?.text();
                 const urn = node.get('xs:annotation/xs:appinfo/codeliste/kennung', { xs: 'http://www.w3.org/2001/XMLSchema' })?.text();
+                const version = node.get('xs:annotation/xs:appinfo/versionCodeliste/version', { xs: 'http://www.w3.org/2001/XMLSchema' })?.text();
                 if (desc && urn) {
-                 
-                    console.log(`
+                    if (version) {
+                        console.log(`
+/// Type name: ${name}
+/// ${desc}
+#[xoev_xwasser_code("${urn}", "${version}")]
+pub struct ${structName};`);
+                    } else {
+                        console.log(`
 /// Type name: ${name}
 /// ${desc}
 #[xoev_xwasser_code("${urn}")]
-pub struct ${structName};`);   
+pub struct ${structName};`);
+                    }
                 }
             }
         }

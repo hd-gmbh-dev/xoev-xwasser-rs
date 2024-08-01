@@ -138,9 +138,8 @@ pub struct VorgangTransportieren2010 {
     #[xml(name = b"standard", ty = "attr", value = "XWasser")]
     #[serde(skip)]
     _standard: ConstStr,
-    #[xml(default, name = b"test", ty = "attr")]
-    #[serde(default)]
-    pub test: bool,
+    #[xml(name = b"test", ty = "attr")]
+    pub test: Option<bool>,
     #[xml(name = b"version", ty = "attr", value = "0.2.1")]
     #[serde(skip)]
     _version: ConstStr,

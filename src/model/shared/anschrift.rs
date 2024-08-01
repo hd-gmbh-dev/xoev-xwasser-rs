@@ -6,9 +6,9 @@ use serde::{Deserialize, Serialize};
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 
-use crate::model::codes::{CodeAnschrifttypType, CodeStaatType};
+use crate::model::codes::{CodeAnschrifttypType};
 
-use super::{behoerde::VerwaltungspolitischeKodierungType, xoev::XoevCode};
+use super::{behoerde::VerwaltungspolitischeKodierungType, staat::StaatType, xoev::XoevCode};
 
 /// Eine Anschrift beschreibt einen Ort mit den klassischen Ordnungsbegriffen wie Orts-
 /// und Straßennamen sowie ergänzenden Informationen wie Ortsteil und Postfach. Eine
@@ -27,8 +27,6 @@ use super::{behoerde::VerwaltungspolitischeKodierungType, xoev::XoevCode};
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
 ))]
 pub struct AnschriftType {
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
-    pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"strassenschluessel", ty = "child")]
     pub strassenschluessel: Option<XoevCode>,
     #[xml(ns = b"xwas", name = b"strasse", ty = "child")]
@@ -53,7 +51,9 @@ pub struct AnschriftType {
     #[serde(default)]
     pub typ: Vec<CodeAnschrifttypType>,
     #[xml(ns = b"xwas", name = b"staat", ty = "child")]
-    pub staat: Option<CodeStaatType>,
+    pub staat: Option<StaatType>,
     #[xml(ns = b"xwas", name = b"verwaltungspolitischeKodierung", ty = "child")]
     pub verwaltungspolitische_kodierung: Option<VerwaltungspolitischeKodierungType>,
+    #[xml(name = b"id", ty = "attr")]
+    pub id: String,
 }

@@ -11,14 +11,9 @@ use crate::model::codes::{
 };
 
 use super::{
-    anschrift::AnschriftType,
-    behoerde::ZustaendigeBehoerdeType,
-    misc::{GeokoordinatenShapthType},
-    organisation::{OrganisationType},
-    person::NatuerlichePersonType,
-    probe::ProbennahmestelleType,
+    anschrift::AnschriftType, behoerde::ZustaendigeBehoerdeType, misc::GeokoordinatenShapthType,
+    organisation::OrganisationType, person::NatuerlichePersonType, probe::ProbennahmestelleType,
 };
-
 
 /// Informationen zu einem Auftraggeber [Ergänzende Angaben zu den jeweiligen
 /// Informationen aus den Registern von Betreibern/Behörden].

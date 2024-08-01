@@ -6,13 +6,10 @@ use serde::{Deserialize, Serialize};
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 
-use crate::model::codes::{
-    CodeAuftraggeberartType,
-};
+use crate::model::codes::CodeAuftraggeberartType;
 
 use super::{
-    behoerde::ZustaendigeBehoerdeType,
-    organisation::{OrganisationType},
+    behoerde::ZustaendigeBehoerdeType, organisation::OrganisationType,
     person::NatuerlichePersonType,
 };
 
@@ -32,7 +29,6 @@ pub struct AuftraggeberType {
     #[xml(ns = b"xwas", name = b"auftraggeber", ty = "child")]
     pub auftraggeber: Auftraggeber,
 }
-
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
 #[allow(clippy::large_enum_variant)]
