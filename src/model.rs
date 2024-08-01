@@ -134,7 +134,7 @@ pub struct VorgangTransportieren2010 {
         ns = b"xsi",
         name = b"schemaLocation",
         ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0 xwasser-vorgang.xsd"
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0 xwasser.xsd"
     )]
     #[serde(skip)]
     schema_location: ConstStr,
@@ -903,6 +903,15 @@ pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
     pub code: String,
     #[xml(name = b"name", ty = "child")]
     pub name: Option<String>,
+    #[xml(
+        name = b"listURI",
+        ty = "attr",
+        value = "urn:xoev-de:xwasser:codeliste:aufbereitungsstoffe-desinfektionsverfahren"
+    )]
+    #[serde(skip)]
+    _list_uri: ConstStr,
+    #[xml(name = b"listVersionID", ty = "attr")]
+    pub list_version_id: String,
 }
 
 /// Klasse für den Transport von Informationen zu einer Probennahmestelle.
@@ -920,18 +929,18 @@ pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probe", ty = "child")]
     #[serde(default)]
     pub probe: Vec<ProbeType>,
-    #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
-    #[serde(default)]
-    pub terminplan_id: Vec<String>,
-    #[xml(default, ns = b"xwas", name = b"nameProbennahmestelle", ty = "child")]
-    pub name_probennahmestelle: String,
-    #[xml(default, ns = b"xwas", name = b"artProbennahmestelle", ty = "child")]
-    pub art_probennahmestelle: CodeArtProbennahmestelleType,
-    #[xml(ns = b"xwas", name = b"stockwerkProbennahmestelle", ty = "child")]
-    pub stockwerk_probennahmestelle: Option<u32>,
-    #[xml(ns = b"xwas", name = b"mediumAnDerProbennahmestelle", ty = "child")]
-    #[serde(default)]
-    pub medium_an_der_probennahmestelle: Vec<CodeMediumType>,
+    // #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
+    // #[serde(default)]
+    // pub terminplan_id: Vec<String>,
+    // #[xml(default, ns = b"xwas", name = b"nameProbennahmestelle", ty = "child")]
+    // pub name_probennahmestelle: String,
+    // #[xml(default, ns = b"xwas", name = b"artProbennahmestelle", ty = "child")]
+    // pub art_probennahmestelle: CodeArtProbennahmestelleType,
+    // #[xml(ns = b"xwas", name = b"stockwerkProbennahmestelle", ty = "child")]
+    // pub stockwerk_probennahmestelle: Option<u32>,
+    // #[xml(ns = b"xwas", name = b"mediumAnDerProbennahmestelle", ty = "child")]
+    // #[serde(default)]
+    // pub medium_an_der_probennahmestelle: Vec<CodeMediumType>,
     #[xml(
         ns = b"xwas",
         name = b"desinfektionUndAufbereitungDesWassers",
@@ -943,9 +952,8 @@ pub struct ProbennahmestelleType {
     pub alt_id: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
-    #[xml(default, ns = b"xwas", name = b"probennehmerID", ty = "attr")]
-    #[serde(skip)]
-    pub _id: ConstStr,
+    #[xml(name = b"id", ty = "attr")]
+    pub id: String,
 }
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
@@ -1165,85 +1173,87 @@ pub struct PruefberichtType {
         ty = "child"
     )]
     pub name_beauftragte_untersuchungsstelle: CodeNameBeauftragteUntersuchungsstelle,
-    #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
-    pub probennehmer: Vec<ProbennehmerType>,
+    // #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
+    // pub probennehmer: Vec<ProbennehmerType>,
     #[xml(
+        default,
         ns = b"xwas",
         name = b"pruefberichtEnthaeltTeilergebnisse",
         ty = "child"
     )]
-    pub pruefbericht_enthaelt_teilergebnisse: Option<bool>,
+    #[serde(default)]
+    pub pruefbericht_enthaelt_teilergebnisse: bool,
     #[xml(ns = b"xwas", name = b"korrekturvermerk", ty = "child")]
     pub korrekturvermerk: Option<String>,
     #[xml(
         default,
         ns = b"xwas",
-        name = b"pruefgerichtGemVorgabenAkkredition",
+        name = b"pruefberichtGemVorgabenAkkredition",
         ty = "child"
     )]
     pub pruefgericht_gem_vorgaben_akkredition: bool,
     #[xml(ns = b"xwas", name = b"titel", ty = "child")]
     pub titel: String,
-    #[xml(default, ns = b"xwas", name = b"gesamtbewertung", ty = "child")]
-    pub gesamtbewertung: CodeGesamtbewertungType,
-    #[xml(ns = b"xwas", name = b"auffaelligkeiten", ty = "child")]
-    #[serde(default)]
-    pub auffaelligkeiten: Vec<String>,
-    #[xml(
-        default,
-        ns = b"xwas",
-        name = b"zeitpunktValidierungPruefbericht",
-        ty = "child"
-    )]
-    pub zeitpunkt_validierung_pruefbericht: String, //datetime
-    #[xml(
-        ns = b"xwas",
-        name = b"fuerValidierungVerantwortlichePerson",
-        ty = "child"
-    )]
-    #[serde(default)]
-    pub fuer_validierung_verantwortliche_person: Vec<NatuerlichePersonType>,
-    #[xml(ns = b"xwas", name = b"freigabeUebermittlungBetreiber", ty = "child")]
-    pub freigabe_uebermittlung_betreiber: Option<bool>,
-    #[xml(default, ns = b"xwas", name = b"pruefberichtIDLabor", ty = "child")]
-    pub pruefbericht_id_labor: String,
-    #[xml(default, ns = b"xwas", name = b"swVersion", ty = "child")]
-    pub sw_version: CodeAmtsspracheEUType,
-    #[xml(default, ns = b"xwas", name = b"sprachePruefbericht", ty = "child")]
-    pub sprache_pruefbericht: CodeAmtsspracheEUType,
-    #[xml(default, ns = b"xwas", name = b"rechtlicherDisclaimer", ty = "child")]
-    pub rechtlicher_disclaimer: String, //datetime
-    #[xml(
-        default,
-        ns = b"xwas",
-        name = b"zeitpunktUebermittlungAnSHAPTH",
-        ty = "child"
-    )]
-    pub zeitpunkt_uebermittlung_an_shapth: String, //datetime
-    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    pub kommentar: Option<String>,
-    #[xml(default, ns = b"xwas", name = b"auftraggeber", ty = "child")]
-    pub auftraggeber: AuftraggeberType,
-    #[xml(ns = b"xwas", name = b"zustaemdigeBehoerde", ty = "child")]
-    #[serde(default)]
-    pub zustaendige_behoerde: Vec<ZustaendigeBehoerdeType>,
-    #[xml(
-        default,
-        ns = b"xwas",
-        name = b"beauftragteUntersuchungsstelle",
-        ty = "child"
-    )]
-    pub beauftragte_untersuchungsstelle: BeauftragteUntersuchungsstelleType,
-    #[xml(ns = b"xwas", name = b"ortDerLabortaetigkeiten", ty = "child")]
-    #[serde(default)]
-    pub ort_der_labortaetigkeiten: Vec<AnschriftType>,
-    #[xml(ns = b"xwas", name = b"anhang", ty = "child")]
-    #[serde(default)]
-    pub anhang: Vec<String>,
-    #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
-    pub erweiterung: Option<ErweiterungType>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
-    pub id: String,
+    // #[xml(default, ns = b"xwas", name = b"gesamtbewertung", ty = "child")]
+    // pub gesamtbewertung: CodeGesamtbewertungType,
+    // #[xml(ns = b"xwas", name = b"auffaelligkeiten", ty = "child")]
+    // #[serde(default)]
+    // pub auffaelligkeiten: Vec<String>,
+    // #[xml(
+    //     default,
+    //     ns = b"xwas",
+    //     name = b"zeitpunktValidierungPruefbericht",
+    //     ty = "child"
+    // )]
+    // pub zeitpunkt_validierung_pruefbericht: String, //datetime
+    // #[xml(
+    //     ns = b"xwas",
+    //     name = b"fuerValidierungVerantwortlichePerson",
+    //     ty = "child"
+    // )]
+    // #[serde(default)]
+    // pub fuer_validierung_verantwortliche_person: Vec<NatuerlichePersonType>,
+    // #[xml(ns = b"xwas", name = b"freigabeUebermittlungBetreiber", ty = "child")]
+    // pub freigabe_uebermittlung_betreiber: Option<bool>,
+    // #[xml(default, ns = b"xwas", name = b"pruefberichtIDLabor", ty = "child")]
+    // pub pruefbericht_id_labor: String,
+    // #[xml(default, ns = b"xwas", name = b"swVersion", ty = "child")]
+    // pub sw_version: CodeAmtsspracheEUType,
+    // #[xml(default, ns = b"xwas", name = b"sprachePruefbericht", ty = "child")]
+    // pub sprache_pruefbericht: CodeAmtsspracheEUType,
+    // #[xml(default, ns = b"xwas", name = b"rechtlicherDisclaimer", ty = "child")]
+    // pub rechtlicher_disclaimer: String, //datetime
+    // #[xml(
+    //     default,
+    //     ns = b"xwas",
+    //     name = b"zeitpunktUebermittlungAnSHAPTH",
+    //     ty = "child"
+    // )]
+    // pub zeitpunkt_uebermittlung_an_shapth: String, //datetime
+    // #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    // pub kommentar: Option<String>,
+    // #[xml(default, ns = b"xwas", name = b"auftraggeber", ty = "child")]
+    // pub auftraggeber: AuftraggeberType,
+    // #[xml(ns = b"xwas", name = b"zustaemdigeBehoerde", ty = "child")]
+    // #[serde(default)]
+    // pub zustaendige_behoerde: Vec<ZustaendigeBehoerdeType>,
+    // #[xml(
+    //     default,
+    //     ns = b"xwas",
+    //     name = b"beauftragteUntersuchungsstelle",
+    //     ty = "child"
+    // )]
+    // pub beauftragte_untersuchungsstelle: BeauftragteUntersuchungsstelleType,
+    // #[xml(ns = b"xwas", name = b"ortDerLabortaetigkeiten", ty = "child")]
+    // #[serde(default)]
+    // pub ort_der_labortaetigkeiten: Vec<AnschriftType>,
+    // #[xml(ns = b"xwas", name = b"anhang", ty = "child")]
+    // #[serde(default)]
+    // pub anhang: Vec<String>,
+    // #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
+    // pub erweiterung: Option<ErweiterungType>,
+    // #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    // pub id: String,
 }
 
 #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
@@ -2886,82 +2896,82 @@ pub struct CodeProbenbewertungType {
 pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
     pub probe_id: String,
-    #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
-    pub untersuchungsplan_id: Option<String>,
-    #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
-    pub probennehmer: Probennehmer,
-    #[xml(ns = b"xwas", name = b"analyseergebnisParameter", ty = "child")]
-    pub analyseergebnis_parameter: Vec<AnalyseergebnisParameterType>,
-    #[xml(ns = b"xwas", name = b"anlassDerUntersuchung", ty = "child")]
-    #[serde(default)]
-    pub anlass_der_untersuchung: Vec<CodeAnlassUntersuchungType>,
-    #[xml(default, ns = b"xwas", name = b"medium", ty = "child")]
-    pub medium: CodeMediumType,
-    #[xml(default, ns = b"xwas", name = b"akkreditierteDurchfuehrungDerProbennahme", ty = "child")]
-    pub akkreditierte_durchfuehrung_der_probennahme: bool,
-    #[xml(name = b"ergaenzungZumMedium", ty = "child")]
-    pub ergaenzung_zum_medium: Option<String>,
-    #[xml(default, ns = b"xwas", name = b"zeitpunktProbennahme", ty = "child")]
-    pub zeitpunkt_probennahme: String, //datetime
-    #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
-    #[serde(default)]
-    pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
-    #[xml(name = b"probenentnahmegeraet", ty = "child")]
-    pub probenentnahmegeraet: Option<CodeProbenentnahmegeraetType>,
-    #[xml(name = b"probengefaess", ty = "child")]
-    pub probengefaess: Option<CodeProbengefaessType>,
-    #[xml(name = b"ergaenzendeInformationenZuProbenentnahmegeraet", ty = "child")]
-    pub ergaenzende_informationen_zu_probenentnahmegeraet: Option<String>,
-    #[xml(name = b"desinfektionProbenentnahmegeraetDurchgefuehrt", ty = "child")]
-    pub desinfektion_probenentnahmegeraet_durchgefuehrt: Option<bool>,
-    #[xml(name = b"konservierungAufbereitungDesinfektionProbe", ty = "child")]
-    pub konservierung_aufbereitung_desinfektion_probe:
-        Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
-    #[xml(default, ns = b"xwas", name = b"kommentarZurProbennahme", ty = "child")]
-    pub kommentar_zur_probennahme: String,
-    #[xml(name = b"informationenZumProbentransport", ty = "child")]
-    pub informationen_zum_probentransport: Option<String>,
-    #[xml(
-        default,
-        ns = b"xwas",
-        name = b"eingangProbeBeiUntersuchungsstelle",
-        ty = "child"
-    )]
-    pub eingang_probe_bei_untersuchungsstelle: String, //xs dateTime
-    #[xml(default, ns = b"xwas", name = b"beginnAnalytik", ty = "child")]
-    pub beginn_analytik: String, //datetime
-    #[xml(default, ns = b"xwas", name = b"abschlussAnalytik", ty = "child")]
-    pub abschluss_analytik: String,
-    #[xml(default, ns = b"xwas", name = b"probenbewertung", ty = "child")]
-    pub probenbewertung: CodeProbenbewertungType,
-    #[xml(
-        default,
-        ns = b"xwas",
-        name = b"analyseergebnisParameterID",
-        ty = "child"
-    )]
-    pub analyseergebnis_parameter_id: String,
-    #[xml(ns = b"xwas", name = b"konformitaetsbewertungDerProbe", ty = "child")]
-    pub konformitaetsbewertung_der_probe: Option<CodeProbenbewertungType>,
-    #[xml(name = b"berichtspflichtig", ty = "child")]
-    pub berichtspflichtig: Option<bool>,
-    #[xml(
-        default,
-        ns = b"xwas",
-        name = b"vonProbennehmerVergebeneProbeID",
-        ty = "child"
-    )]
-    pub von_probennehmer_vergebene_probe_id: String,
-    #[xml(default, ns = b"xwas", name = b"probeID_ausLabor", ty = "child")]
-    pub probe_id_aus_labor: String,
-    #[xml(ns = b"xwas", name = b"anhang", ty = "child")]
-    #[serde(default)]
-    pub anhang: Vec<String>,
-    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    pub kommentar: Option<String>,
-    #[xml(default, ns = b"xwas", name = b"probennehmerID", ty = "attr")]
-    #[serde(skip)]
-    pub _id: ConstStr,
+    // #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
+    // pub untersuchungsplan_id: Option<String>,
+    // #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
+    // pub probennehmer: Probennehmer,
+    // #[xml(ns = b"xwas", name = b"analyseergebnisParameter", ty = "child")]
+    // pub analyseergebnis_parameter: Vec<AnalyseergebnisParameterType>,
+    // #[xml(ns = b"xwas", name = b"anlassDerUntersuchung", ty = "child")]
+    // #[serde(default)]
+    // pub anlass_der_untersuchung: Vec<CodeAnlassUntersuchungType>,
+    // #[xml(default, ns = b"xwas", name = b"medium", ty = "child")]
+    // pub medium: CodeMediumType,
+    // #[xml(default, ns = b"xwas", name = b"akkreditierteDurchfuehrungDerProbennahme", ty = "child")]
+    // pub akkreditierte_durchfuehrung_der_probennahme: bool,
+    // #[xml(name = b"ergaenzungZumMedium", ty = "child")]
+    // pub ergaenzung_zum_medium: Option<String>,
+    // #[xml(default, ns = b"xwas", name = b"zeitpunktProbennahme", ty = "child")]
+    // pub zeitpunkt_probennahme: String, //datetime
+    // #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
+    // #[serde(default)]
+    // pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
+    // #[xml(name = b"probenentnahmegeraet", ty = "child")]
+    // pub probenentnahmegeraet: Option<CodeProbenentnahmegeraetType>,
+    // #[xml(name = b"probengefaess", ty = "child")]
+    // pub probengefaess: Option<CodeProbengefaessType>,
+    // #[xml(name = b"ergaenzendeInformationenZuProbenentnahmegeraet", ty = "child")]
+    // pub ergaenzende_informationen_zu_probenentnahmegeraet: Option<String>,
+    // #[xml(name = b"desinfektionProbenentnahmegeraetDurchgefuehrt", ty = "child")]
+    // pub desinfektion_probenentnahmegeraet_durchgefuehrt: Option<bool>,
+    // #[xml(name = b"konservierungAufbereitungDesinfektionProbe", ty = "child")]
+    // pub konservierung_aufbereitung_desinfektion_probe:
+    //     Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
+    // #[xml(default, ns = b"xwas", name = b"kommentarZurProbennahme", ty = "child")]
+    // pub kommentar_zur_probennahme: String,
+    // #[xml(name = b"informationenZumProbentransport", ty = "child")]
+    // pub informationen_zum_probentransport: Option<String>,
+    // #[xml(
+    //     default,
+    //     ns = b"xwas",
+    //     name = b"eingangProbeBeiUntersuchungsstelle",
+    //     ty = "child"
+    // )]
+    // pub eingang_probe_bei_untersuchungsstelle: String, //xs dateTime
+    // #[xml(default, ns = b"xwas", name = b"beginnAnalytik", ty = "child")]
+    // pub beginn_analytik: String, //datetime
+    // #[xml(default, ns = b"xwas", name = b"abschlussAnalytik", ty = "child")]
+    // pub abschluss_analytik: String,
+    // #[xml(default, ns = b"xwas", name = b"probenbewertung", ty = "child")]
+    // pub probenbewertung: CodeProbenbewertungType,
+    // #[xml(
+    //     default,
+    //     ns = b"xwas",
+    //     name = b"analyseergebnisParameterID",
+    //     ty = "child"
+    // )]
+    // pub analyseergebnis_parameter_id: String,
+    // #[xml(ns = b"xwas", name = b"konformitaetsbewertungDerProbe", ty = "child")]
+    // pub konformitaetsbewertung_der_probe: Option<CodeProbenbewertungType>,
+    // #[xml(name = b"berichtspflichtig", ty = "child")]
+    // pub berichtspflichtig: Option<bool>,
+    // #[xml(
+    //     default,
+    //     ns = b"xwas",
+    //     name = b"vonProbennehmerVergebeneProbeID",
+    //     ty = "child"
+    // )]
+    // pub von_probennehmer_vergebene_probe_id: String,
+    // #[xml(default, ns = b"xwas", name = b"probeID_ausLabor", ty = "child")]
+    // pub probe_id_aus_labor: String,
+    // #[xml(ns = b"xwas", name = b"anhang", ty = "child")]
+    // #[serde(default)]
+    // pub anhang: Vec<String>,
+    // #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    // pub kommentar: Option<String>,
+    // #[xml(default, ns = b"xwas", name = b"probennehmerID", ty = "attr")]
+    // #[serde(skip)]
+    // pub _id: ConstStr,
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
