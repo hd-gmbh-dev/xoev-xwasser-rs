@@ -36,11 +36,11 @@ jobs:
       - name: Build WASM
         run: |
           wasm-pack build --release --target nodejs --reference-types --weak-refs --features wasm
-          cp target/schemas/out/980faa7cf81d51eab3f26de770ae345d.xsdb pkg/xwasser-v050.xsdb.bin
+          cp target/schemas/out/*.xsdb pkg/xwasser-v050.xsdb.bin
           cp package.tmp.json pkg/package.json
       - name: Test WASM
         run: |
-          pnpm i
+          pnpm install --no-frozen-lockfile
           pnpm test
       - name: Archive NPM package
         uses: actions/upload-artifact@v4
