@@ -40,7 +40,7 @@ jobs:
           cp package.tmp.json pkg/package.json
       - name: Test WASM
         run: |
-          pnpm install --no-frozen-lockfile
+          pnpm install
           pnpm test
       - name: Archive NPM package
         uses: actions/upload-artifact@v4
