@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
+           xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           version="0.5.0"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XWasser</nameLang>
+            <nameKurz>XWasser</nameKurz>
+            <nameTechnisch>xwasser</nameTechnisch>
+            <kennung>urn:xoev-de:lgl:standard:xwasser</kennung>
+            <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>0.5.0</version>
+            <versionXOEVProfil>3.0.2</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>2024x</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xwasser-basisnachricht.xsd"/>
+   <xs:include schemaLocation="xwasser-baukasten.xsd"/>
+   <xs:import schemaLocation="https://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd"
+              namespace="http://www.w3.org/2000/09/xmldsig#"/>
+   <xs:import schemaLocation="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:element name="vorgang.transportieren.2010">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>TrinkwV</rechtsgrundlage>
+            <title>Vorgang transportieren</title>
+         </xs:appinfo>
+         <xs:documentation>Nachricht zum Transport eines Vorgangs (Untersuchungsplan / Prüfbericht) zwischen den Partnern.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xwas:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="vorgang" type="xwas:VorgangType">
+                     <xs:annotation>
+                        <xs:documentation>Hier werden Daten zum Vorgang übermittelt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element ref="ds:Signature" minOccurs="0">
+                     <xs:annotation>
+                        <xs:documentation>Mit diesem Element kann die Nachricht elektronisch unterschrieben werden, entsprechend der W3C Spezifiaktion für elektronische Signaturen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="vorgang.nachricht.2020">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>TrinkwV</rechtsgrundlage>
+            <title>Freie Nachricht</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht dient zum Transport von Informationen in Freitext, zum Beispiel anstatt einer E-Mail oder eines Telefonanrufes, oder zur Übermittlung von Unterlagen zu einem bereits existierenden Vorgang. Dieser Nachricht muss zuerst eine Nachricht vom Typ vorgang.transportieren.2010 vorausgegangen sein. Der Vorgang, auf den sich diese Nachricht bezieht, wird mit dem Element identifikationVorgang referenziert. Die Nachricht, auf die Bezug genommen wird, ist mit dem Element nachrichtenkopf.g2g/referenzUUID anzugeben.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xwas:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="identifikationVorgang" type="xwas:Identifikation.VorgangType">
+                     <xs:annotation>
+                        <xs:documentation>Eindeutige Identifizierung des Vorgangs, auf den Bezug genommen werden soll</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="freieNachricht" minOccurs="0" type="xwas:FreieNachrichtType">
+                     <xs:annotation>
+                        <xs:documentation>Hier können Freitextinformation zwischen den beteiligten Partnern übertragen werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlage"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xwas:DokumentType">
+                     <xs:annotation>
+                        <xs:documentation>Zum Vorgang oder zur freien Nachricht gehörige Unterlage(n)</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="vorgang.statusanfrage.2030">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>TrinkwV</rechtsgrundlage>
+            <title>Statusanfrage</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht wird der aktuelle fachliche Status eines Vorgangs explizit angefragt. Der Empfänger der Nachricht antwortet auf diese Nachricht mit der Nachricht vorgang.statusantwort.2040 und gibt dann den aktuellen fachlichen Status zurück.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xwas:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="identifikationVorgang" type="xwas:Identifikation.VorgangType">
+                     <xs:annotation>
+                        <xs:documentation>Eindeutige Identifizierung des Vorgangs, zu dem der Status abgefragt werden kann</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="vorgang.statusantwort.2040">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>TrinkwV</rechtsgrundlage>
+            <title>Statusantwort (Fachliche Quittung)</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht wird der fachliche Status zu einem Vorgang übermittelt. Dieser Nachricht muss zunächst eine Nachricht vorgang.transportieren.2010 oder vorgang.statusanfrage.2030 vorausgegangen sein. Im Element identifikationVorgang/vorgangsID ist dabei die UUID des Vorgangs anzugeben, auf die sich diese fachliche Quittung bezieht. Da es sich um eine Antwortnachricht handelt, ist im Element nachrichtenkopf/referenzUUID die UUID der Nachricht anzugeben, auf die geantwortet wird.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xwas:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="identifikationVorgang" type="xwas:Identifikation.VorgangType">
+                     <xs:annotation>
+                        <xs:documentation>Eindeutige Identifizierung des Vorgangs, zu dem der fachliche Status gesendet wird.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="status" type="xwas:FachlicherStatusType">
+                     <xs:annotation>
+                        <xs:documentation>Mit diesem Element wird der fachliche Status übermittelt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="vorgang.transportanfrage.2050">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>TrinkwV</rechtsgrundlage>
+            <title>Anfrage zur Abholung einer Nachricht</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht dient als Anfrage zur Abholung einer eindeutig identifizierten Nachricht.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xwas:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="index" type="xwas:IndexType">
+                     <xs:annotation>
+                        <xs:documentation>Index der Nachricht, die transportiert (abgeholt) werden soll</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

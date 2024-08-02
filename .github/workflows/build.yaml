@@ -19,25 +19,28 @@ jobs:
         with:
           submodules: recursive
       - uses: dtolnay/rust-toolchain@1.78.0
+      - name: get-cmake
+        uses: lukka/get-cmake@latest
       - uses: jetli/wasm-pack-action@v0.4.0
         with:
           version: "v0.12.1"
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
       - name: Check
         run: |
           rustup component add clippy
           cargo clippy --no-deps
       - name: Build
-        run: cargo build --release
+        run: cargo build --features schema,trace --release
       - name: Test Rust
-        run: cargo test
+        run: cargo test --features schema,trace
       - name: Build WASM
-        run: wasm-pack build --release --target nodejs --reference-types --weak-refs
+        run: |
+          wasm-pack build --release --target nodejs --reference-types --weak-refs --features wasm
+          cp target/schemas/out/*.xsdb pkg/xwasser-v050.xsdb.bin
+          cp package.tmp.json pkg/package.json
       - name: Test WASM
         run: |
-          pnpm i
+          pnpm install
           pnpm test
       - name: Archive NPM package
         uses: actions/upload-artifact@v4

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           xmlns:bn-uq-g2g="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"
+           xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
+           xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           version="0.5.0"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XWasser</nameLang>
+            <nameKurz>XWasser</nameKurz>
+            <nameTechnisch>xwasser</nameTechnisch>
+            <kennung>urn:xoev-de:lgl:standard:xwasser</kennung>
+            <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>0.5.0</version>
+            <versionXOEVProfil>3.0.2</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>2024x</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:import schemaLocation="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1/xoev-basisnachricht-unqualified-g2g_1.1.xsd"
+              namespace="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"/>
+   <xs:import schemaLocation="http://xoev.de/schemata/code/1_0/xoev-code.xsd"
+              namespace="http://xoev.de/schemata/code/1_0"/>
+   <xs:import schemaLocation="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:complexType name="Code.NachrichtentypType">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Nachrichtentyp</nameLang>
+               <nameKurz>Nachrichtentyp</nameKurz>
+               <nameTechnisch>nachrichtentyp</nameTechnisch>
+               <kennung>urn:xoev-de:xwasser:codeliste:nachrichtentyp</kennung>
+               <beschreibung>Die Liste von eindeutigen Bezeichner für Nachrichtentypen von XWasser.</beschreibung>
+               <herausgebernameLang>XWasser</herausgebernameLang>
+               <herausgebernameKurz>XWasser</herausgebernameKurz>
+            </codeliste>
+            <versionCodeliste>
+               <version>1</version>
+               <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+            </versionCodeliste>
+            <codelistenspalten>
+               <Key>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>true</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
+               </Key>
+               <Nachricht>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </Nachricht>
+            </codelistenspalten>
+            <genutzteCodeSpalte>Key</genutzteCodeSpalte>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xwas:nachrichtentyp"/>
+               <xs:element name="name" type="xs:normalizedString" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xwasser:codeliste:nachrichtentyp"/>
+            <xs:attribute name="listVersionID"
+                          type="xs:normalizedString"
+                          use="optional"
+                          fixed="1"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Identifikation.NachrichtType">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ enthält Angaben zur eindeutigen Identifikation einer Nachricht.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="bn-uq-g2g:Identifikation.NachrichtType">
+            <xs:sequence>
+               <xs:element name="nachrichtenUUID" type="bn-uq-g2g:UUID">
+                  <xs:annotation>
+                     <xs:documentation>Dieses Element enthält den „Universally Unique IDentifier (UUID)“ der Nachricht, der das primäre Identifikationsmerkmal einer Nachricht darstellt. Der UUID der Nachricht wird entsprechend rfc4122 gebildet und ermöglicht Nachrichten hersteller- und anwendungsübergreifend weltweit eindeutig zu identifizieren. Für jede Nachricht muss ein neuer UUID erzeugt werden, um eine eindeutige Identifikation der Nachricht sicherzustellen. Insbesondere ist es nicht zulässig, in einer korrigierten Nachricht den UUID der ursprünglichen Nachricht wiederzuverwenden. Sofern eine einmal erzeugte Nachricht ein weiteres Mal gesendet werden soll (bspw. aufgrund von Problemen beim Nachrichtentransport), muss der UUID nicht angepasst werden.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="nachrichtentyp" type="xwas:Code.NachrichtentypType">
+                  <xs:annotation>
+                     <xs:documentation>Dieses Element enthält eine eindeutige Kennzeichnung des Nachrichtentyps. Die Identifikation erfolgt über eine Codeliste des entsprechenden XÖV-Standards.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="erstellungszeitpunkt" type="xs:dateTime">
+                  <xs:annotation>
+                     <xs:documentation>Dieses Element enthält den Erstellungszeitpunkt der Nachricht - es enthält explizit nicht den Sende- und Empfangszeitpunkt. Der Erstellungszeitpunkt muss neben einer Angabe zum Datum eine zeitliche Information beinhalten. Diese ist mit einer Genauigkeit auf Ebene von Millisekunden und der Angabe zur Zeitzone zu übermitteln.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Nachricht.G2GType">
+      <xs:annotation>
+         <xs:documentation>Basistyp für alle Nachrichten zwischen Behörden und anderen öffentlichen Stellen (government-to-government).</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="nachrichtenkopf.g2g" type="xwas:Nachrichtenkopf.G2GType">
+            <xs:annotation>
+               <xs:documentation>Nachrichtenkopf für Nachrichten zwischen Behörden und anderen (öffentlichen) Stellen. Der Nachrichtenkopf umfasst Angaben zur eindeutigen Identifikation des Autors und des Lesers der Nachricht sowie der Nachricht selbst.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+      <xs:attribute name="produkt" type="din91379:datatypeC" use="required">
+         <xs:annotation>
+            <xs:documentation>In diesem Attribut ist der Name des Produktes (der Software) einzutragen, mit dem die Nachricht erstellt worden ist.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="produkthersteller" type="din91379:datatypeC" use="required">
+         <xs:annotation>
+            <xs:documentation>In diesem Attribut wird der Name der Organisation / Firma übermittelt, die für das Produkt (die Software) verantwortlich ist, mit dem die Nachricht erstellt wurde.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="produktversion" type="din91379:datatypeC" use="optional">
+         <xs:annotation>
+            <xs:documentation>In diesem Attribut werden ergänzende Hinweise zu dem Produkt eingetragen. Dies sind Angaben, die für eine möglichst präzise Identifikation im Fehlerfall hilfreich sind, wie zum Beispiel Version und Patchlevel.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="standard"
+                    type="din91379:datatypeC"
+                    use="required"
+                    fixed="XWasser">
+         <xs:annotation>
+            <xs:documentation>In diesem Attribut wird der Name des XÖV-Standards angegeben, aus dem die Nachricht stammt.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="test" type="din91379:datatypeC" use="optional">
+         <xs:annotation>
+            <xs:documentation>Ist dieses Attribut vorhanden, handelt es sich aus Sicht des Autors um eine Testnachricht, die nicht im normalen Produktivbetrieb verarbeitet werden darf. Autor und Leser können bilateral weitere Absprachen über den konkreten Inhalt des Attributs treffen.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="version"
+                    type="din91379:datatypeC"
+                    use="required"
+                    fixed="0.2.1">
+         <xs:annotation>
+            <xs:documentation>In diesem Attribut wird die Version des XÖV-Standards eingetragen, aus dem die Nachricht stammt.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+   </xs:complexType>
+   <xs:complexType name="Nachrichtenkopf.G2GType">
+      <xs:annotation>
+         <xs:documentation>Nachrichtenkopf für Nachrichten zwischen Behörden und anderen (öffentlichen) Stellen. Der Nachrichtenkopf umfasst Angaben zur eindeutigen Identifikation des Autors und des Lesers der Nachricht sowie der Nachricht selbst.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="identifikation.nachricht"
+                     type="xwas:Identifikation.NachrichtType">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält Angaben zur eindeutigen Identifikation einer Nachricht.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="leser" type="bn-uq-g2g:BehoerdeType">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält Angaben zum Leser der Nachricht. Der Leser ist die fachlich zuständige Behörde / öffentliche Stelle, der die Nachricht zugestellt werden soll und die die Nachricht fachlich verarbeiten soll.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="autor" type="bn-uq-g2g:BehoerdeType">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält Angaben zum Autor der Nachricht, die es dem Leser ermöglichen, bei Bedarf mit dem Autor in Verbindung zu treten. Der Autor ist die fachlich zuständige Behörde / öffentliche Stelle, die die Nachricht erstellt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="referenzUUID" minOccurs="0" type="bn-uq-g2g:UUID">
+            <xs:annotation>
+               <xs:documentation>UUID der Nachricht, auf welche mit dieser Nachricht geantwortet wird.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="dvdvDienstkennung" minOccurs="0" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Damit eine Nachricht versendet werden kann, muss zuvor im DVDV ein entsprechender Dienst angelegt worden sein. Zu jeder Version eines Dienstes gehört eine entsprechende WSDL WSDL Web Services Description Language -Datei. Hier ist der targetNamespace dieser WSDL-Datei einzutragen, unter dem diese WSDL-Datei im DVDV DVDV Deutsches Verwaltungsdiensteverzeichnis zu finden ist. Diese Information dient zur Unterstützung für Sender und Empfänger, wenn die zu verwendende WSDL-Datei nicht anhand anderer Kriterien eindeutig ermittelt werden kann.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="nachrichtentyp">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Nachrichtentyp</nameLang>
+               <nameKurz>Nachrichtentyp</nameKurz>
+               <nameTechnisch>nachrichtentyp</nameTechnisch>
+               <kennung>urn:xoev-de:xwasser:codeliste:nachrichtentyp</kennung>
+               <beschreibung>Die Liste von eindeutigen Bezeichner für Nachrichtentypen von XWasser.</beschreibung>
+               <herausgebernameLang>XWasser</herausgebernameLang>
+               <herausgebernameKurz>XWasser</herausgebernameKurz>
+            </codeliste>
+            <versionCodeliste>
+               <version>1</version>
+               <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+            </versionCodeliste>
+            <codelistenspalten>
+               <Key>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>true</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
+               </Key>
+               <Nachricht>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </Nachricht>
+            </codelistenspalten>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="0010">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Nachricht>administration.rueckweisung.0010</Nachricht>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="0020">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Nachricht>administration.quittung.0020</Nachricht>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1010">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Nachricht>weiterleitung.weiterleitung.1010</Nachricht>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1020">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Nachricht>weiterleitung.abgabe.1020</Nachricht>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1030">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Nachricht>weiterleitung.nichtzustaendigkeit.1030</Nachricht>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2010">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Nachricht>vorgang.transportieren.2010</Nachricht>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2020">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Nachricht>vorgang.nachricht.2020</Nachricht>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2030">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Nachricht>vorgang.statusanfrage.2030</Nachricht>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="2040">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Nachricht>vorgang.statusantwort.2040</Nachricht>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           xmlns:bn-uq-g2g="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"
+           xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
+           xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           version="0.5.0"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XWasser</nameLang>
+            <nameKurz>XWasser</nameKurz>
+            <nameTechnisch>xwasser</nameTechnisch>
+            <kennung>urn:xoev-de:lgl:standard:xwasser</kennung>
+            <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>0.5.0</version>
+            <versionXOEVProfil>3.0.2</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>2024x</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:import schemaLocation="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1/xoev-basisnachricht-unqualified-g2g_1.1.xsd"
+              namespace="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"/>
+   <xs:import schemaLocation="http://xoev.de/schemata/code/1_0/xoev-code.xsd"
+              namespace="http://xoev.de/schemata/code/1_0"/>
+   <xs:import schemaLocation="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:complexType name="Code.RueckweisungsgrundSpezifischType">
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
+               <xs:element name="name"
+                           type="xs:normalizedString"
+                           form="unqualified"
+                           minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="listURI" type="xs:anyURI" use="required"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.RueckweisungsgrundType">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Rückweisungsgründe</nameLang>
+               <nameKurz>Rückweisungsgründe</nameKurz>
+               <nameTechnisch>rueckweisungsgruende</nameTechnisch>
+               <kennung>urn:xoev-de:xgewerbeordnung:codeliste:rueckweisungsgruende</kennung>
+               <beschreibung>Die Codeliste urn:xoev-de:xgewerbeordnung:codeliste:rueckweisungsgruende führt mögliche Gründe für eine Rücksendung einer Nachricht an den Absender auf. Mit dem Präfix des jeweiligen Schlüssels wird folgende Systematik festgelegt: T (Transportproblem), X (formales Problem mit XML), V (Versionsproblem), S (nicht spezifikationskonform).</beschreibung>
+               <herausgebernameLang>Betreiber XGewerbeordnung (KoSIT und d-NRW im Auftrag des Bundesministeriums für Wirtschaft und Energie)</herausgebernameLang>
+               <herausgebernameKurz>XGewerbeordnung</herausgebernameKurz>
+            </codeliste>
+            <versionCodeliste>
+               <version>1</version>
+               <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+            </versionCodeliste>
+            <codelistenspalten/>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" form="unqualified" type="xs:token"/>
+               <xs:element name="name"
+                           type="xs:normalizedString"
+                           form="unqualified"
+                           minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xgewerbeordnung:codeliste:rueckweisungsgruende"/>
+            <xs:attribute name="listVersionID"
+                          type="xs:normalizedString"
+                          use="optional"
+                          fixed="1"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Rueckweisung.GrundSpezifischType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Spezifischer Rückweisungsgrund</title>
+         </xs:appinfo>
+         <xs:documentation>In diesem Datentyp wird ein Grund für die Rückweisung der Nachricht in Form eines beliebigen kontextspezifischen Fehlercodes oder einer Fehlerbeschreibung genauer spezifiziert. Sofern bei einer Leistung kontextspezifische Fehlercodes verwendet werden, ist dies durch die Leistungsbeschreibung vorzugeben und die zu verwendende Schlüsseltabelle festzulegen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="fehlercode"
+                     minOccurs="0"
+                     type="xwas:Code.RueckweisungsgrundSpezifischType">
+            <xs:annotation>
+               <xs:documentation>In diesem Element wird ein Fehlercode übermittelt. Die zugrundeliegende Schlüsseltabelle muss mit der listURI (bspw. urn:xoev-de:bund:destatis:codeliste:xmeld.zensus.rueckweisung-fehlercodes) und listVersionID (bspw. 2) identifiziert werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="fehlerbeschreibung" minOccurs="0" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Alternativ oder ergänzend zu dem übermittelten Fehlercode können hier weitere Hinweise übermittelt werden, die der Klärung des Sachverhalts dienen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Rueckweisung.RueckweisendeStelleType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Rückweisende Stelle</title>
+         </xs:appinfo>
+         <xs:documentation>Die rückweisende Stelle kann eine der Institutionen sein, die sich auf dem Weg zwischen Autor und Leser befinden.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="pruefinstanz" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Mit diesem Element wird die Stelle bezeichnet, die die Nachricht beanstandet hat.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="kommunikation"
+                     maxOccurs="unbounded"
+                     type="bn-uq-g2g:KommunikationType">
+            <xs:annotation>
+               <xs:documentation>Mit diesem Element wird der elektronische Kommunikationskanal angegeben, über den die rückweisende Stelle erreichbar ist.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Rueckweisung.RueckweisungsgrundType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Rückweisungsgrund</title>
+         </xs:appinfo>
+         <xs:documentation>In diesem Element werden die Gründe mitgeteilt, aufgrund derer die Nachricht zurückgewiesen wird. Generell ist so vorzugehen, dass die Gründe für die Rückweisung so präzise und vollständig wie möglich bezeichnet werden, um eine schnelle Klärung des Sachverhalts zu ermöglichen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="grund" type="xwas:Code.RueckweisungsgrundType">
+            <xs:annotation>
+               <xs:documentation>Mit diesem Element wird ein Grund übermittelt, aus dem die Nachricht zurückgewiesen wird. Die im Rahmen der hier zu verwendenden Schlüsseltabelle zur Verfügung gestellten Rückweisungsgründe sind kontextunabhängig und finden daher bei allen Leistungen Anwendung. Sofern der Schlüssel S999 verwendet wird, sind ergänzende Angaben in dem Element grundSpezifisch verpflichtend zu übermitteln.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="grundSpezifisch"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xwas:Rueckweisung.GrundSpezifischType">
+            <xs:annotation>
+               <xs:documentation>In diesem Element können weitere - im Allgemeinen kontextspezifische Angaben - zu dem Grund übermittelt werden, aus dem die Nachricht zurückgewiesen wird.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Rueckweisung.TransportinformationenType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Transportinformationen zu einer Rückweisung</title>
+         </xs:appinfo>
+         <xs:documentation>Mit diesem Typ können Angaben zu den Transportinformationen der zurückgewiesenen Nachricht übermittelt werden.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="nachrichtenId" minOccurs="0" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Hier kann eine Identifikation der aus den genannten Gründen zurückgewiesenen Nachricht übermittelt werden, sofern sich diese aus dem Transportprotokoll entnehmen lässt. Im Falle von OSCI-Transport wäre hier die messageID des Transportumschlages zu nutzen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="betreff" minOccurs="0" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Hier kann der Inhalt der „Betreff“- oder „Subject“-Zeile der aus den genannten Gründen zurückgewiesenen Nachricht übermittelt werden, sofern sich diese aus dem Transportprotokoll entnehmen lässt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="sendezeitpunkt" minOccurs="0" type="xs:dateTime">
+            <xs:annotation>
+               <xs:documentation>Hier kann der Zeitpunkt des Versands der aus den genannten Gründen zurückgewiesenen Nachricht übermittelt werden, sofern sich dieser aus dem Transportprotokoll entnehmen lässt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="ergaenzendeHinweise" minOccurs="0" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Hier können weitere Angaben gemacht werden, die dem Empfänger der aus den genannten Gründen zurückgewiesenen Nachricht helfen, diese in seinem Verfahren zu identifizieren.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="RueckweisungType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Rückweisung</title>
+         </xs:appinfo>
+         <xs:documentation>Dieser Typ beinhaltet die Informationen für die Rückweisung von Nachrichten.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="rueckweisendeStelle"
+                     minOccurs="0"
+                     type="xwas:Rueckweisung.RueckweisendeStelleType">
+            <xs:annotation>
+               <xs:documentation>Dieses Kindelement ist nur dann zu übermitteln, wenn die Nachricht nicht von dem ursprünglich adressierten Leser zurückgesandt wird, sondern von einer anderen Stelle (zum Beispiel einer Clearingstelle, die im Auftrag der ursprünglich adressierten Behörde eine Prüfung eingehender Nachrichten nach formalen Kriterien durchführt). Wird dieses Element nicht übermittelt, ist die rückweisende Stelle der zurückgewiesenen Nachricht (Kindelement nachricht) zu entnehmen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="rueckweisungsgrund"
+                     maxOccurs="unbounded"
+                     type="xwas:Rueckweisung.RueckweisungsgrundType">
+            <xs:annotation>
+               <xs:documentation>In diesem Element werden die Gründe mitgeteilt, aufgrund derer die Nachricht zurückgesandt wird. Generell ist so vorzugehen, dass die Gründe für die Rückweisung so präzise und vollständig wie möglich bezeichnet werden, um eine schnelle Klärung des Sachverhalts zu ermöglichen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="transportinformationen"
+                     minOccurs="0"
+                     type="xwas:Rueckweisung.TransportinformationenType">
+            <xs:annotation>
+               <xs:documentation>In diesem Element sind Informationen zu übermitteln, die bei dem Empfang einer als fehlerhaft betrachteten Nachricht möglicherweise der Transportebene entnommen werden konnten. Diese Angaben können gemacht werden, um dem Leser oder Empfänger einer Rücksendenachricht die Identifikation der als fehlerhaft betrachteten und nunmehr zurückgesandten Nachricht zu erleichtern. Alle Kindelemente dieses Elementes sind optional, da keine verbindlichen Anforderungen an das Transportprotokoll gestellt werden können.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="nachricht" minOccurs="0" type="xs:base64Binary">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält die aus den genannten Gründen zurückgewiesene ursprüngliche Nachricht. Um technische Probleme mit verschachtelten XML-Dokumenten zu vermeiden, ist der zurückgewiesene Inhalt immer base64-codiert zurückzusenden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

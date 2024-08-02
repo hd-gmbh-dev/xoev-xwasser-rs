@@ -1,0 +1,15 @@
+pub mod anschrift;
+pub mod auftraggeber;
+pub mod behoerde;
+pub mod betreiber;
+pub mod dokument;
+pub mod kommunikation;
+pub mod misc;
+pub mod organisation;
+pub mod person;
+pub mod probe;
+pub mod sprache;
+pub mod staat;
+pub mod unterssuchungsstelle;
+pub mod xoev;
+pub mod zeitraum;

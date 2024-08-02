@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
+           xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           version="0.5.0"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XWasser</nameLang>
+            <nameKurz>XWasser</nameKurz>
+            <nameTechnisch>xwasser</nameTechnisch>
+            <kennung>urn:xoev-de:lgl:standard:xwasser</kennung>
+            <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>0.5.0</version>
+            <versionXOEVProfil>3.0.2</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>2024x</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:import schemaLocation="http://xoev.de/schemata/code/1_0/xoev-code.xsd"
+              namespace="http://xoev.de/schemata/code/1_0"/>
+   <xs:import schemaLocation="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:complexType name="Code.DatentypType">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Datentyp</nameLang>
+               <nameKurz>Datentyp</nameKurz>
+               <nameTechnisch>datentyp</nameTechnisch>
+               <kennung>urn:xoev-de:xdomea:codeliste:datentyp</kennung>
+               <beschreibung>Die Werteliste der W3C-Datentypen (http://www.w3.org/TR/xmlschema, W3C Recommendation 5 April 2012) ergänzt um anySimpleType als Metadatentyp.</beschreibung>
+               <herausgebernameLang>AG xdomea des IT-Planungsrates</herausgebernameLang>
+               <herausgebernameKurz>ag-xdomea</herausgebernameKurz>
+            </codeliste>
+            <versionCodeliste>
+               <version>1.1</version>
+               <datumGueltigkeitAb>2021-10-01</datumGueltigkeitAb>
+               <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+            </versionCodeliste>
+            <codelistenspalten/>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" form="unqualified" type="xs:token"/>
+               <xs:element name="name"
+                           type="xs:normalizedString"
+                           form="unqualified"
+                           minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xdomea:codeliste:datentyp"/>
+            <xs:attribute name="listVersionID"
+                          type="xs:normalizedString"
+                          use="optional"
+                          fixed="1.1"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Erweiterung.FeldType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Erweiterung Feld</title>
+         </xs:appinfo>
+         <xs:documentation>Ein Feld ist ein anwendungsspezifisches Metadatum. Die Konfiguration eines Feldes muss zwischen den Kommunikationspartnern abgesprochen sein.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="name" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Der Name des Feldes.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="beschreibung" minOccurs="0" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Die Hinweise und Erläuterungen zu einem Feld.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="datentyp" type="xwas:Code.DatentypType">
+            <xs:annotation>
+               <xs:documentation>Der Datentyp des Feldwertes. Gültige Angaben sind die W3C-Datentypen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="wert" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>Der Wert des Feldes.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Erweiterung.GruppeType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Erweiterung Gruppe</title>
+         </xs:appinfo>
+         <xs:documentation>Eine Erweiterungsgruppe fasst mehrere Felder (Metadaten) zu einem Objekt zusammen .</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="name" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Der Name der Gruppe.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="beschreibung" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Die Hinweise und Erläuterungen zu einer Gruppe.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="untergruppe"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xwas:Erweiterung.GruppeType">
+            <xs:annotation>
+               <xs:documentation>Über eine untergruppe erfolgt die hierarchische Unterteilung einer Gruppe in weitere Gruppen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="feld"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xwas:Erweiterung.FeldType">
+            <xs:annotation>
+               <xs:documentation>Mit feld wird eine Gruppe in konkrete Felder unterteilt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Erweiterung.XMLType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Erweiterung XML</title>
+         </xs:appinfo>
+         <xs:documentation>Erweiterung.XML darf nur dazu genutzt werden, weitere (z. B. fachspezifische) Metadaten zu spezifizieren, deren Übermittlung mit den bereits in XWasser spezifizierten Metadaten nicht möglich ist. Erweiterung.XML bietet über ein xs:any-Element die Möglichkeit, mittels Einbindung externer XML-Schemata diese Metadaten zu spezifizieren. Es können beliebige XML-Schemata mit unterschiedlichen Namensräumen angegeben werden. Die XML-Schema-Validierung der weiterführenden Metadaten erfolgt innerhalb der XWasser-Nachricht selbst (prozessContents = "lax").</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:any minOccurs="0"
+                 maxOccurs="unbounded"
+                 namespace="##any"
+                 processContents="lax"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ErweiterungType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Erweiterung</title>
+         </xs:appinfo>
+         <xs:documentation>Die Klasse Erweiterung dient zur Übertragung generischer Informationen. Die Verwendung ist für folgende Fälle vorgesehen: Es müssen zeitnah Informationen übertragen werden (zum Beispiel aufgrund einer Gesetzesänderung), für die es in der aktuellen Version des Standards noch keine geeigneten Klassen und Elemente gibt. Zwischen Sender und Empfänger wird bilateral die Übermittlung einer strukturierten Information vereinbart, die sich mit den vorhandenen Klassen und Elemente nicht abbilden lässt.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="feld"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xwas:Erweiterung.FeldType">
+            <xs:annotation>
+               <xs:documentation>Ein der Erweiterung zugeordnetes Feld.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="gruppe"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xwas:Erweiterung.GruppeType">
+            <xs:annotation>
+               <xs:documentation>Eine der Erweiterung zugeordnete Gruppe.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="xml" minOccurs="0" type="xwas:Erweiterung.XMLType">
+            <xs:annotation>
+               <xs:documentation>Ein der Erweiterung zugeordnetes XML-Schemata.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

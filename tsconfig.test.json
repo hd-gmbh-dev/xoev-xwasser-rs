@@ -12,6 +12,7 @@
     },
     "resolvePackageJsonExports": false,
     "allowJs": true,
+    "resolveJsonModule": true,
     "noImplicitThis": false,
     "maxNodeModuleJsDepth": 10,
     "module": "esnext",

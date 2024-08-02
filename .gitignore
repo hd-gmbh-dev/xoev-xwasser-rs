@@ -4,3 +4,5 @@ bin/
 pkg/
 wasm-pack.log
 node_modules
+out.txt
+tests/*.log

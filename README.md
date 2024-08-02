@@ -35,7 +35,7 @@ TBD.
 wasm-pack watcher:
 
 ```sh
-cargo watch --watch src -s "wasm-pack build --release --target nodejs --reference-types --weak-refs"
+cargo watch --watch src -s "wasm-pack build --release --target nodejs --reference-types --weak-refs --features wasm --no-default-features"
 ```
 
 vitest:
