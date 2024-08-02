@@ -9,7 +9,7 @@ use super::anschrift::AnschriftType;
 use super::behoerde::BehoerdeType;
 use super::kommunikation::KommunikationType;
 use super::misc::IdentifikationType;
-use super::xoev::XoevCode;
+use super::xoev::XWasserXoevCode;
 use super::zeitraum::ZeitraumType;
 
 /// Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer
@@ -27,10 +27,10 @@ pub struct OrganisationType {
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]
     #[serde(default)]
-    pub branche: Vec<XoevCode>,
+    pub branche: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zweck", ty = "child")]
     #[serde(default)]
-    pub zweck: Vec<XoevCode>,
+    pub zweck: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<NameOrganisationType>,
     #[xml(ns = b"xwas", name = b"unterorganisation", ty = "child")]
@@ -63,7 +63,7 @@ pub struct RegistrierungType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"registertyp", ty = "child")]
-    pub registertyp: Option<XoevCode>,
+    pub registertyp: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"registrierendeBehoerde", ty = "child")]
     pub registrierende_behoerde: Vec<BehoerdeType>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]

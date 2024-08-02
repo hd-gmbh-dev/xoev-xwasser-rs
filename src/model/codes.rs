@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 
-use xoev_xwasser_derive_rs::{xoev_xwasser_code};
+use xoev_xwasser_derive_rs::xoev_xwasser_code;
 
 use raxb::de::XmlDeserializeError;
 use std::str::FromStr;

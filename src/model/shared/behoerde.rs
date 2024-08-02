@@ -16,7 +16,7 @@ use super::{
     kommunikation::KommunikationType,
     misc::IdentifikationType,
     organisation::{NameOrganisationType, OrganisationseinheitType},
-    xoev::XoevCode,
+    xoev::XWasserXoevCode,
 };
 
 /// Klasse für den Transport von Informationen zu einer Zuständigen Behörde [Ergänzende
@@ -34,7 +34,7 @@ pub struct ZustaendigeBehoerdeType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"typ", ty = "child")]
-    pub typ: Option<XoevCode>,
+    pub typ: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
     pub zusatz: Option<String>,
     #[xml(ns = b"xwas", name = b"behoerdenkennung", ty = "child")]
@@ -112,7 +112,7 @@ pub struct BehoerdeType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"typ", ty = "child")]
-    pub typ: Option<XoevCode>,
+    pub typ: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
     pub zusatz: Option<String>,
     #[xml(ns = b"xwas", name = b"behoerdenkennung", ty = "child")]

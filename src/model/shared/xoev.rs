@@ -8,7 +8,11 @@ use tsify::Tsify;
 
 #[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-pub struct XoevCode {
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+))]
+pub struct XWasserXoevCode {
     #[xml(name = b"code", ty = "child")]
     pub code: String,
     #[xml(name = b"name", ty = "child")]

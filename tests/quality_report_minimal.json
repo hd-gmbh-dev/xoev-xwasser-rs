@@ -66,16 +66,16 @@
                       "zugelassene_untersuchungsstelle_id": "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
                       "name_zugelassene_untersuchungsstelle": {
                         "code": "09010",
-                        "name": null,
+                        "name": "",
                         "_list_uri": null,
                         "_list_version_id": null
                       },
                       "pruefgebiete_untersuchungen_phys_chem": true,
                       "pruefgebiete_untersuchungen_mikrobio": true,
                       "pruefgebiete_untersuchungen_radionuklide": true,
-                      "akkreditierungsnummer": null,
+                      "akkreditierungsnummer": "",
                       "kommentar_beauftragte_untersuchungsstelle": null,
-                      "kommentar_zugelassene_untersuchungsstelle": null
+                      "kommentar_zugelassene_untersuchungsstelle": ""
                     },
                     "anschrift_id": "anschrift1",
                     "akkreditierte_durchfuehrung_analyse": true,
@@ -158,7 +158,7 @@
                   "_list_uri": null,
                   "_list_version_id": null
                 },
-                "ergaenzende_informationen_zu_probenentnahmegeraet": null,
+                "ergaenzende_informationen_zu_probenentnahmegeraet": "",
                 "desinfektion_probenentnahmegeraet_durchgefuehrt": true,
                 "konservierung_aufbereitung_desinfektion_probe": [
                   {
@@ -262,13 +262,13 @@
                 "anschrift": [
                   {
                     "strassenschluessel": null,
-                    "strasse": null,
-                    "hausnummer": null,
+                    "strasse": "",
+                    "hausnummer": "",
                     "postfach": null,
                     "postleitzahl": null,
-                    "ort": null,
+                    "ort": "",
                     "ortsteil": null,
-                    "ort_frueherer_gemeindename": null,
+                    "ort_frueherer_gemeindename": "",
                     "wohnungsgeber": null,
                     "zusatz": null,
                     "typ": [],
@@ -297,13 +297,13 @@
                 "vertreter_bevollmaechtigter": []
               }
             },
-            "fremdsystem_id_probennehmer": null,
-            "kommentar": null,
+            "fremdsystem_id_probennehmer": "",
+            "kommentar": "",
             "id": "probennehmer1"
           }
         ],
         "pruefbericht_enthaelt_teilergebnisse": false,
-        "korrekturvermerk": null,
+        "korrekturvermerk": "",
         "pruefbericht_gem_vorgaben_akkredition": true,
         "titel": "Minimaler Prüfbericht",
         "gesamtbewertung": {
@@ -312,7 +312,9 @@
           "_list_uri": null,
           "_list_version_id": null
         },
-        "auffaelligkeiten": [],
+        "auffaelligkeiten": [
+          ""
+        ],
         "zeitpunkt_validierung_pruefbericht": "2024-12-21T00:00:12",
         "fuer_validierung_verantwortliche_person": [
           {
@@ -391,11 +393,11 @@
               "anschrift": [
                 {
                   "strassenschluessel": null,
-                  "strasse": null,
-                  "hausnummer": null,
+                  "strasse": "",
+                  "hausnummer": "",
                   "postfach": null,
-                  "postleitzahl": null,
-                  "ort": null,
+                  "postleitzahl": "",
+                  "ort": "",
                   "ortsteil": null,
                   "ort_frueherer_gemeindename": null,
                   "wohnungsgeber": null,
@@ -428,7 +430,9 @@
             "verwaltungspolitische_zustaendigkeit": [],
             "anschrift": [],
             "organisationsstruktur": [],
-            "anlage_nach_trinkw_vid": [],
+            "anlage_nach_trinkw_vid": [
+              ""
+            ],
             "laenderkuerzel": {
               "code": "DEAA",
               "name": null,
@@ -448,10 +452,44 @@
           "registrierung": [],
           "identifikation": [],
           "existenzzeitraum": null,
-          "anschrift": [],
-          "zugelassene_untersuchungsstelle_id": "",
+          "anschrift": [
+            {
+              "strassenschluessel": {
+                "code": "1235",
+                "name": null,
+                "list_uri": "",
+                "list_version_id": ""
+              },
+              "strasse": "",
+              "hausnummer": "",
+              "postfach": null,
+              "postleitzahl": null,
+              "ort": "",
+              "ortsteil": null,
+              "ort_frueherer_gemeindename": "",
+              "wohnungsgeber": null,
+              "zusatz": null,
+              "typ": [],
+              "staat": {
+                "staat": {
+                  "code": "34323",
+                  "name": null
+                }
+              },
+              "verwaltungspolitische_kodierung": {
+                "kreis": null,
+                "bezirk": null,
+                "bundesland": null,
+                "gemeindeschluessel": null,
+                "regionalschluessel": null,
+                "nation": null
+              },
+              "id": "anschrift2"
+            }
+          ],
+          "zugelassene_untersuchungsstelle_id": "abcdef",
           "name_zugelassene_untersuchungsstelle": {
-            "code": "",
+            "code": "09010",
             "name": null,
             "_list_uri": null,
             "_list_version_id": null
@@ -463,12 +501,48 @@
           "kommentar_beauftragte_untersuchungsstelle": null,
           "kommentar_zugelassene_untersuchungsstelle": null
         },
-        "ort_der_labortaetigkeiten": [],
+        "ort_der_labortaetigkeiten": [
+          {
+            "strassenschluessel": null,
+            "strasse": "Teststr.",
+            "hausnummer": "1",
+            "postfach": null,
+            "postleitzahl": "12345",
+            "ort": "Testort",
+            "ortsteil": null,
+            "ort_frueherer_gemeindename": null,
+            "wohnungsgeber": null,
+            "zusatz": null,
+            "typ": [
+              {
+                "code": "1312",
+                "name": null,
+                "_list_uri": null,
+                "_list_version_id": null
+              }
+            ],
+            "staat": {
+              "staat": {
+                "code": "34323",
+                "name": null
+              }
+            },
+            "verwaltungspolitische_kodierung": {
+              "kreis": null,
+              "bezirk": null,
+              "bundesland": null,
+              "gemeindeschluessel": null,
+              "regionalschluessel": null,
+              "nation": null
+            },
+            "id": "ortDerLabortaetigkeiten1"
+          }
+        ],
         "anhang": [],
         "erweiterung": null,
         "id": "ID5e08e073-4e06-438d-9444-1275f6cbf061"
       }
     },
-    "bemerkung": null
+    "bemerkung": "Bemerkung"
   }
 }

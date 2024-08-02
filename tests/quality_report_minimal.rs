@@ -28,15 +28,13 @@ fn test_minimal_quality_report_against_schema() -> anyhow::Result<()> {
     Ok(())
 }
 
-#[test]
+#[test_log::test]
 fn test_minimal_quality_report_against_deserialize() -> anyhow::Result<()> {
     let s = minimal_quality_report();
-    let e: Result<VorgangTransportieren2010, raxb::de::XmlDeserializeError> =
-        raxb::de::from_str(&s);
-    eprintln!("{e:#?}");
-    let json = serde_json::to_string_pretty(&e.unwrap()).unwrap();
-    eprintln!("{json}");
+    let e: VorgangTransportieren2010 = raxb::de::from_str(&s)?;
+    let json = serde_json::to_string_pretty(&e).unwrap();
     std::fs::write("tests/quality_report_minimal.json", json)?;
+    std::fs::write("tests/quality_report_minimal.debug.log", format!("{e:#?}"))?;
     Ok(())
 }
 

@@ -6,9 +6,11 @@ use serde::{Deserialize, Serialize};
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 
-use crate::model::codes::{CodeAnschrifttypType};
+use crate::model::codes::CodeAnschrifttypType;
 
-use super::{behoerde::VerwaltungspolitischeKodierungType, staat::StaatType, xoev::XoevCode};
+use super::{
+    behoerde::VerwaltungspolitischeKodierungType, staat::StaatType, xoev::XWasserXoevCode,
+};
 
 /// Eine Anschrift beschreibt einen Ort mit den klassischen Ordnungsbegriffen wie Orts-
 /// und Straßennamen sowie ergänzenden Informationen wie Ortsteil und Postfach. Eine
@@ -28,7 +30,7 @@ use super::{behoerde::VerwaltungspolitischeKodierungType, staat::StaatType, xoev
 ))]
 pub struct AnschriftType {
     #[xml(ns = b"xwas", name = b"strassenschluessel", ty = "child")]
-    pub strassenschluessel: Option<XoevCode>,
+    pub strassenschluessel: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"strasse", ty = "child")]
     pub strasse: Option<String>,
     #[xml(ns = b"xwas", name = b"hausnummer", ty = "child")]

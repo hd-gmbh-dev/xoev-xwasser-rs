@@ -13,7 +13,7 @@ use super::{
     kommunikation::KommunikationType,
     misc::IdentifikationType,
     organisation::{NameOrganisationType, OrganisationType, RegistrierungType},
-    xoev::XoevCode,
+    xoev::XWasserXoevCode,
     zeitraum::ZeitraumType,
 };
 
@@ -30,10 +30,10 @@ pub struct ZugelasseneUntersuchungsstelleType {
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]
     #[serde(default)]
-    pub branche: Vec<XoevCode>,
+    pub branche: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zweck", ty = "child")]
     #[serde(default)]
-    pub zweck: Vec<XoevCode>,
+    pub zweck: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<NameOrganisationType>,
     #[xml(ns = b"xwas", name = b"unterorganisation", ty = "child")]
@@ -109,10 +109,10 @@ pub struct BeauftragteUntersuchungsstelleType {
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]
     #[serde(default)]
-    pub branche: Vec<XoevCode>,
+    pub branche: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zweck", ty = "child")]
     #[serde(default)]
-    pub zweck: Vec<XoevCode>,
+    pub zweck: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<NameOrganisationType>,
     #[xml(ns = b"xwas", name = b"unterorganisation", ty = "child")]
