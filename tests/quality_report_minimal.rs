@@ -1,7 +1,5 @@
 use xoev_xwasser::model::transport::VorgangTransportieren2010;
 
-// const SOURCE: &'static str = include_str!("./quality_report_minimal.xml");
-
 fn minimal_quality_report() -> String {
     std::fs::read_to_string(
         std::env::current_dir()
@@ -10,6 +8,8 @@ fn minimal_quality_report() -> String {
     )
     .unwrap()
 }
+
+#[cfg(feature = "schema")]
 fn minimal_quality_report_json() -> String {
     std::fs::read_to_string(
         std::env::current_dir()

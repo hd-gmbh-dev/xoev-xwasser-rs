@@ -25,6 +25,7 @@ pub fn xoev_xwasser_code(attr: TokenStream, item: TokenStream) -> TokenStream {
                 pub code: String,
                 #[xml(name = b"name", ty = "child")]
                 pub name: Option<String>,
+                #[serde(skip)]
                 #[xml(
                     default,
                     name = b"listURI",
@@ -32,6 +33,7 @@ pub fn xoev_xwasser_code(attr: TokenStream, item: TokenStream) -> TokenStream {
                     value = #uri
                 )]
                 _list_uri: ConstStr,
+                #[serde(skip)]
                 #[xml(
                     default,
                     name = b"listVersionID",
@@ -54,21 +56,21 @@ pub fn xoev_xwasser_code(attr: TokenStream, item: TokenStream) -> TokenStream {
                 pub code: String,
                 #[xml(name = b"name", ty = "child")]
                 pub name: Option<String>,
+                #[serde(skip)]
                 #[xml(
                     default,
                     name = b"listURI",
                     ty = "attr",
                     value = #uri
                 )]
-                #[serde(skip)]
                 _list_uri: ConstStr,
+                #[serde(skip)]
                 #[xml(
                     default,
                     name = b"listVersionID",
                     ty = "attr",
                     value = ""
                 )]
-                #[serde(skip)]
                 _list_version_id: ConstStr,
             }
         }

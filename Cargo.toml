@@ -4,7 +4,7 @@ members = ["crates/*"]
 
 [workspace.package]
 edition = "2021"
-version = "0.2.2+0.2.1"
+version = "0.2.3+0.5.0"
 description = """
 "XOEV XWasser XML Standard"
 """
@@ -16,7 +16,7 @@ categories = []
 keywords = []
 
 [workspace.dependencies]
-xoev-xwasser-derive-rs = { version = "0.2.2+0.2.1", path = "crates/derive" }
+xoev-xwasser-derive-rs = { version = "0.2.3", path = "crates/derive" }
 
 [package]
 name = "xoev-xwasser"
@@ -34,7 +34,7 @@ keywords.workspace = true
 crate-type = ["cdylib", "rlib"]
 
 [features]
-default = ["schema", "trace"]
+default = []
 trace = []
 wasm = ["dep:wasm-bindgen", "dep:tsify"]
 schema = [
@@ -45,7 +45,6 @@ schema = [
 ]
 
 [dependencies]
-# raxb = "0.3.7"
 
 xoev-xwasser-derive-rs.workspace = true
 anyhow = { version = "1", optional = true }
@@ -53,9 +52,7 @@ rust-embed = { version = "8.5.0", optional = true }
 raxb = { path = "../raxb/crates/raxb", features = ["trace"] }
 raxb-validate = { path = "../raxb/crates/raxb-validate", optional = true }
 raxb-xmlschema = { path = "../raxb/crates/raxb-xmlschema", optional = true }
-
 serde = { version = "1.0.203", features = ["derive"] }
-
 wasm-bindgen = { version = "0.2.84", optional = true }
 tsify = { version = "0.4.5", features = ["js"], optional = true }
 
@@ -67,7 +64,7 @@ anyhow = "1"
 raxb-xmlschema-build = { path = "../raxb/crates/raxb-xmlschema-build" }
 serde_json = "1"
 anyhow = "1"
-test-log = { version = "0.2.16", default-features = false, features = ["trace", "color"] }
+test-log = { version = "0.2.16", features = ["trace", "color"] }
 
 [profile.release]
 # Tell `rustc` to optimize for small code size.

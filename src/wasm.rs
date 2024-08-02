@@ -1,3 +1,4 @@
+use crate::model::transport::VorgangTransportieren2010;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -14,8 +15,6 @@ pub fn parse_vorgang_transportieren_2010(
     use raxb::quick_xml::NsReader;
 
     let mut rdr = NsReader::from_str(&xml);
-    rdr.trim_text(true);
-    rdr.check_comments(false);
-    rdr.trim_markup_names_in_closing_tags(true);
+    rdr.config_mut().trim_text(true);
     raxb::de::deserialize_with_reader(rdr).map_err(|err| JsValue::from_str(&err.to_string()))
 }

@@ -187,6 +187,9 @@
                 "id": "probe1"
               }
             ],
+            "terminplan_id": [
+              "terminplan id"
+            ],
             "name_probennahmestelle": "wasserloch um die ecke",
             "art_probennahmestelle": {
               "code": "1010",
@@ -543,6 +546,32 @@
         "id": "ID5e08e073-4e06-438d-9444-1275f6cbf061"
       }
     },
-    "bemerkung": "Bemerkung"
+    "bemerkung": "Bemerkung",
+    "anlage": [
+      {
+        "dokument_typ": {
+          "code": "1010",
+          "name": null,
+          "_list_uri": null,
+          "_list_version_id": null
+        },
+        "name": "Anlage 1",
+        "aktuelle_version": null,
+        "letzte_version": null,
+        "dokument_repraesentation": {
+          "referenz": null,
+          "mime_type": "application/pdf",
+          "inhalt": null,
+          "externer_referenz_typ": null,
+          "externer_referenz_index": null,
+          "dateiname": "Test.pdf",
+          "inhalt_typ": "pdf",
+          "signaturen": null,
+          "dokument_repraesentation_id": "doc1"
+        },
+        "person_referenz_id": [],
+        "dokument_id": "anhang1"
+      }
+    ]
   }
 }

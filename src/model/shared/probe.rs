@@ -76,6 +76,9 @@ pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probe", ty = "child")]
     #[serde(default)]
     pub probe: Vec<ProbeType>,
+    #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
+    #[serde(default)]
+    pub terminplan_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"nameProbennahmestelle", ty = "child")]
     pub name_probennahmestelle: String,
     #[xml(ns = b"xwas", name = b"artProbennahmestelle", ty = "child")]

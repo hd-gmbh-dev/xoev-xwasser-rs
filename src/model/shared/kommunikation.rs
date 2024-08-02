@@ -3,6 +3,9 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+#[cfg(feature = "wasm")]
+use tsify::Tsify;
+
 use crate::model::codes::CodeKommunikationType;
 
 /// "Kommunikation" fasst Angaben zur Erreichbarkeit über elektronische

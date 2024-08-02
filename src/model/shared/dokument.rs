@@ -11,7 +11,7 @@ use crate::model::codes::CodeDokumenttypType;
 /// Sofern das Dokument signiert wurde findet sich hier eine Referenzliste auf die
 /// Signaturen. Diese sind ihrerseits wieder Dokumente, die auch als Dokumentelemente in
 /// der Nachricht zu finden sind.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -26,7 +26,7 @@ pub struct SignaturenType {
 /// Dokument-Repräsentation, eine Darstellungsform des Dokumentes. Es muss das Element
 /// content oder die Elemente externalReferenceIndex und externalReferenceType oder alle
 /// 3 vorhanden sein.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -49,7 +49,7 @@ pub struct DokumentRepraesentationType {
     pub inhalt_typ: Option<String>,
     #[xml(ns = b"xwas", name = b"signaturen", ty = "child")]
     pub signaturen: Option<SignaturenType>,
-    #[xml(ns = b"xwas", name = b"dokumentRepraesentationID", ty = "attr")]
+    #[xml(name = b"dokumentRepraesentationID", ty = "attr")]
     pub dokument_repraesentation_id: String,
 }
 

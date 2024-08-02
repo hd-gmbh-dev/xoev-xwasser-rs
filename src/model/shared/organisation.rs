@@ -3,6 +3,9 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+#[cfg(feature = "wasm")]
+use tsify::Tsify;
+
 use crate::model::codes::CodeRechtsformenType;
 
 use super::anschrift::AnschriftType;

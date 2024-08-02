@@ -3,6 +3,9 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+#[cfg(feature = "wasm")]
+use tsify::Tsify;
+
 use super::codes::{CodeAmtsspracheEuType, CodeGesamtbewertungType, CodeUntersuchungsstelleType};
 use super::shared::anschrift::AnschriftType;
 use super::shared::auftraggeber::AuftraggeberType;
