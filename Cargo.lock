@@ -993,6 +993,8 @@ dependencies = [
 [[package]]
 name = "raxb"
 version = "0.4.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a43a719ef1c9b5051bc5223603e0c422cdec0c73e885d53262dc2ba0bf5769ce"
 dependencies = [
  "quick-xml",
  "raxb-derive",
@@ -1003,6 +1005,8 @@ dependencies = [
 [[package]]
 name = "raxb-derive"
 version = "0.4.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8e20ef368dab8c97216271bd20a125492cbf984054c352f5e9467bdeb8b93f4f"
 dependencies = [
  "darling",
  "heck",
@@ -1016,6 +1020,8 @@ dependencies = [
 [[package]]
 name = "raxb-libxml2-sys"
 version = "0.4.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2867d8264004ead64778cc190f22066f009277ffd075ca58c17e135472716295"
 dependencies = [
  "bindgen",
  "cmake",
@@ -1024,6 +1030,8 @@ dependencies = [
 [[package]]
 name = "raxb-validate"
 version = "0.4.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cc59c99c5fcb4bfbed8e9fdf6584a50dce233a7259f365ed20eec872278429da"
 dependencies = [
  "byteorder",
  "libc",
@@ -1040,6 +1048,8 @@ dependencies = [
 [[package]]
 name = "raxb-xmlschema"
 version = "0.4.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0886668f5fc3a8e58c8925be867df2ff36a8f1ac957f1aeb637cd2d969549d14"
 dependencies = [
  "byteorder",
  "lz4_flex",
@@ -1052,6 +1062,8 @@ dependencies = [
 [[package]]
 name = "raxb-xmlschema-build"
 version = "0.4.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "add49d3d705b359f64326e32972c89aa27769a2e0e26e6611d1850751a42642d"
 dependencies = [
  "byteorder",
  "raxb",
@@ -2150,7 +2162,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser"
-version = "0.2.3+0.5.0"
+version = "0.3.0+0.5.0"
 dependencies = [
  "anyhow",
  "raxb",
@@ -2163,12 +2175,12 @@ dependencies = [
  "test-log",
  "tsify",
  "wasm-bindgen",
- "xoev-xwasser-derive-rs",
+ "xoev-xwasser-derive",
 ]
 
 [[package]]
-name = "xoev-xwasser-derive-rs"
-version = "0.2.3+0.5.0"
+name = "xoev-xwasser-derive"
+version = "0.3.0+0.5.0"
 dependencies = [
  "darling",
  "heck",

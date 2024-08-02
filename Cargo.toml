@@ -4,7 +4,7 @@ members = ["crates/*"]
 
 [workspace.package]
 edition = "2021"
-version = "0.2.3+0.5.0"
+version = "0.3.0+0.5.0"
 description = """
 "XOEV XWasser XML Standard"
 """
@@ -16,7 +16,16 @@ categories = []
 keywords = []
 
 [workspace.dependencies]
-xoev-xwasser-derive-rs = { version = "0.2.3", path = "crates/derive" }
+anyhow = "1"
+xoev-xwasser-derive = { version = "0.3.0", path = "crates/derive" }
+raxb = "0.4.1"
+raxb-validate = "0.4.1"
+raxb-xmlschema = "0.4.1"
+raxb-xmlschema-build = "0.4.1"
+# raxb = { path = "../raxb/crates/raxb" }
+# raxb-validate = { path = "../raxb/crates/raxb-validate"}
+# raxb-xmlschema = { path = "../raxb/crates/raxb-xmlschema"}
+# raxb-xmlschema-build = { path = "../raxb/crates/raxb-xmlschema-build"}
 
 [package]
 name = "xoev-xwasser"
@@ -45,25 +54,24 @@ schema = [
 ]
 
 [dependencies]
-
-xoev-xwasser-derive-rs.workspace = true
+xoev-xwasser-derive.workspace = true
 anyhow = { version = "1", optional = true }
 rust-embed = { version = "8.5.0", optional = true }
-raxb = { path = "../raxb/crates/raxb", features = ["trace"] }
-raxb-validate = { path = "../raxb/crates/raxb-validate", optional = true }
-raxb-xmlschema = { path = "../raxb/crates/raxb-xmlschema", optional = true }
-serde = { version = "1.0.203", features = ["derive"] }
+raxb = { workspace = true, features = ["trace"] }
+raxb-validate = { workspace = true, optional = true }
+raxb-xmlschema = { workspace = true, optional = true }
 wasm-bindgen = { version = "0.2.84", optional = true }
 tsify = { version = "0.4.5", features = ["js"], optional = true }
+serde = { version = "1.0.203", features = ["derive"] }
 
 [build-dependencies]
-raxb-xmlschema-build = { path = "../raxb/crates/raxb-xmlschema-build" }
-anyhow = "1"
+anyhow.workspace = true
+raxb-xmlschema-build.workspace = true
 
 [dev-dependencies]
-raxb-xmlschema-build = { path = "../raxb/crates/raxb-xmlschema-build" }
+anyhow.workspace = true
+raxb-xmlschema-build.workspace = true
 serde_json = "1"
-anyhow = "1"
 test-log = { version = "0.2.16", features = ["trace", "color"] }
 
 [profile.release]

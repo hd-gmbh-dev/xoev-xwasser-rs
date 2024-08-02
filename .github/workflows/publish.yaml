@@ -20,9 +20,12 @@ jobs:
       with:
         submodules: recursive
     - uses: dtolnay/rust-toolchain@1.78.0
+    - name: get-cmake
+      uses: lukka/get-cmake@latest
     - name: Publish to crates.io.
       run: |
-        cargo publish --token ${CRATES_TOKEN}
+        cargo publish --token ${CRATES_TOKEN} -p xoev-xwasser-derive
+        cargo publish --token ${CRATES_TOKEN} -p xoev-xwasser
       env:
         CRATES_TOKEN: ${{ secrets.CRATES_TOKEN }}
     - uses: actions/setup-node@v4

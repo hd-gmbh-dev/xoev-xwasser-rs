@@ -1,5 +1,5 @@
 [package]
-name = "xoev-xwasser-derive-rs"
+name = "xoev-xwasser-derive"
 edition.workspace = true
 version.workspace = true
 description.workspace = true

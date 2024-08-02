@@ -66,9 +66,7 @@
                       "zugelassene_untersuchungsstelle_id": "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
                       "name_zugelassene_untersuchungsstelle": {
                         "code": "09010",
-                        "name": "",
-                        "_list_uri": null,
-                        "_list_version_id": null
+                        "name": ""
                       },
                       "pruefgebiete_untersuchungen_phys_chem": true,
                       "pruefgebiete_untersuchungen_mikrobio": true,
@@ -82,9 +80,7 @@
                     "untersuchungsverfahren": [
                       {
                         "code": "1010",
-                        "name": "untersuchungsverfahren",
-                        "_list_uri": null,
-                        "_list_version_id": null
+                        "name": "untersuchungsverfahren"
                       }
                     ],
                     "ergaenzung_zum_untersuchungsverfahren": "ergaenzung_zum_untersuchungsverfahren",
@@ -94,9 +90,7 @@
                     },
                     "parameterauspraegung": {
                       "code": "1210",
-                      "name": "parameterauspraegung",
-                      "_list_uri": null,
-                      "_list_version_id": null
+                      "name": "parameterauspraegung"
                     },
                     "parameter_durch_betreiber_untersucht": true,
                     "wurde_der_parameter_korrigiert": null,
@@ -109,9 +103,7 @@
                     "shapth_parameter_nummer": [],
                     "bewertung_untersuchungswert": {
                       "code": "1010",
-                      "name": null,
-                      "_list_uri": null,
-                      "_list_version_id": null
+                      "name": null
                     },
                     "parameterauffaelligkeit": null,
                     "messunsicherheit_untersuchungswert_absolut": null,
@@ -124,16 +116,12 @@
                 "anlass_der_untersuchung": [
                   {
                     "code": "1010",
-                    "name": "name",
-                    "_list_uri": null,
-                    "_list_version_id": null
+                    "name": "name"
                   }
                 ],
                 "medium": {
                   "code": "1010",
-                  "name": "medium",
-                  "_list_uri": null,
-                  "_list_version_id": null
+                  "name": "medium"
                 },
                 "akkreditierte_durchfuehrung_der_probennahme": true,
                 "ergaenzung_zum_medium": "Wasser",
@@ -141,22 +129,16 @@
                 "probennahmeverfahren": [
                   {
                     "code": "1010",
-                    "name": "probennahmeverfahren",
-                    "_list_uri": null,
-                    "_list_version_id": null
+                    "name": "probennahmeverfahren"
                   }
                 ],
                 "probenentnahmegeraet": {
                   "code": "1010",
-                  "name": "probenentnahmegeraet",
-                  "_list_uri": null,
-                  "_list_version_id": null
+                  "name": "probenentnahmegeraet"
                 },
                 "probengefaess": {
                   "code": "1010",
-                  "name": "probengefaess",
-                  "_list_uri": null,
-                  "_list_version_id": null
+                  "name": "probengefaess"
                 },
                 "ergaenzende_informationen_zu_probenentnahmegeraet": "",
                 "desinfektion_probenentnahmegeraet_durchgefuehrt": true,
@@ -173,9 +155,7 @@
                 "abschluss_analytik": "2024-05-27T10:02:00",
                 "konformitaetsbewertung_der_probe": {
                   "code": "1010",
-                  "name": null,
-                  "_list_uri": null,
-                  "_list_version_id": null
+                  "name": null
                 },
                 "berichtspflichtig": true,
                 "von_probennehmer_vergebene_probe_id": "123456789",
@@ -193,17 +173,13 @@
             "name_probennahmestelle": "wasserloch um die ecke",
             "art_probennahmestelle": {
               "code": "1010",
-              "name": "wasserloch",
-              "_list_uri": null,
-              "_list_version_id": null
+              "name": "wasserloch"
             },
             "stockwerk_probennahmestelle": 1,
             "medium_an_der_probennahmestelle": [
               {
                 "code": "1010",
-                "name": "medium probennahmestelle",
-                "_list_uri": null,
-                "_list_version_id": null
+                "name": "medium probennahmestelle"
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [
@@ -219,9 +195,7 @@
         ],
         "name_beauftragte_untersuchungsstelle": {
           "code": "09010",
-          "name": "name",
-          "_list_uri": null,
-          "_list_version_id": null
+          "name": "name"
         },
         "probennehmer": [
           {
@@ -311,9 +285,7 @@
         "titel": "Minimaler Prüfbericht",
         "gesamtbewertung": {
           "code": "1010",
-          "name": null,
-          "_list_uri": null,
-          "_list_version_id": null
+          "name": null
         },
         "auffaelligkeiten": [
           ""
@@ -368,9 +340,7 @@
         "sw_version": "1",
         "sprache_pruefbericht": {
           "code": "1234",
-          "name": null,
-          "_list_uri": null,
-          "_list_version_id": null
+          "name": null
         },
         "rechtlicher_disclaimer": "DUMMY",
         "zeitpunkt_uebermittlung_an_shapth": "2024-12-21T00:00:12",
@@ -379,9 +349,7 @@
           "auftraggeber_id": "DUMMY",
           "auftraggeberart": {
             "code": "1010",
-            "name": null,
-            "_list_uri": null,
-            "_list_version_id": null
+            "name": null
           },
           "auftraggeber": {
             "t": "NatuerlichePerson",
@@ -438,9 +406,7 @@
             ],
             "laenderkuerzel": {
               "code": "DEAA",
-              "name": null,
-              "_list_uri": null,
-              "_list_version_id": null
+              "name": null
             },
             "kommentar": null
           }
@@ -493,9 +459,7 @@
           "zugelassene_untersuchungsstelle_id": "abcdef",
           "name_zugelassene_untersuchungsstelle": {
             "code": "09010",
-            "name": null,
-            "_list_uri": null,
-            "_list_version_id": null
+            "name": null
           },
           "pruefgebiete_untersuchungen_phys_chem": null,
           "pruefgebiete_untersuchungen_mikrobio": null,
@@ -519,9 +483,7 @@
             "typ": [
               {
                 "code": "1312",
-                "name": null,
-                "_list_uri": null,
-                "_list_version_id": null
+                "name": null
               }
             ],
             "staat": {
@@ -551,9 +513,7 @@
       {
         "dokument_typ": {
           "code": "1010",
-          "name": null,
-          "_list_uri": null,
-          "_list_version_id": null
+          "name": null
         },
         "name": "Anlage 1",
         "aktuelle_version": null,
