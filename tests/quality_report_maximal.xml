@@ -117,6 +117,90 @@
             <xwas:anhang>anhang1</xwas:anhang>
             <xwas:kommentar>Unangekündigte Stichprobenentnahme</xwas:kommentar>
           </xwas:probe>
+          <xwas:probe id="probe2">
+            <xwas:probeID>2f23a123-1b23-4e56-b567-1a23b45c678d</xwas:probeID>
+            <xwas:untersuchungsplanID>6789</xwas:untersuchungsplanID>
+            <xwas:probennehmer>Trinkwasser-AG</xwas:probennehmer>
+            <xwas:analyseergebnisParameter id="analyseergebnisParameter2">
+              <xwas:analyseergebnisParameterID>1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f</xwas:analyseergebnisParameterID>
+              <xwas:zugelasseneUntersuchungsstelle>
+                <xwas:zugelasseneUntersuchungsstelleID>ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f</xwas:zugelasseneUntersuchungsstelleID>
+                <xwas:nameZugelasseneUntersuchungsstelle>
+                  <code>09020</code>
+                  <name>Wassersicherheits-Institut</name>
+                </xwas:nameZugelasseneUntersuchungsstelle>
+                <xwas:pruefgebieteUntersuchungenPhysChem>true</xwas:pruefgebieteUntersuchungenPhysChem>
+                <xwas:pruefgebieteUntersuchungenMikrobio>true</xwas:pruefgebieteUntersuchungenMikrobio>
+                <xwas:pruefgebieteUntersuchungenRadionuklide>false</xwas:pruefgebieteUntersuchungenRadionuklide>
+                <xwas:akkreditierungsnummer>12345</xwas:akkreditierungsnummer>
+                <xwas:kommentarZugelasseneUntersuchungsstelle>Top Qualität</xwas:kommentarZugelasseneUntersuchungsstelle>
+              </xwas:zugelasseneUntersuchungsstelle>
+              <xwas:anschriftID>anschrift2</xwas:anschriftID>
+              <xwas:akkreditierteDurchfuehrungAnalyse>false</xwas:akkreditierteDurchfuehrungAnalyse>
+              <xwas:untersuchungsverfahren>
+                <code>2020</code>
+                <name>Spektrometrie</name>
+              </xwas:untersuchungsverfahren>
+              <xwas:ergaenzungZumUntersuchungsverfahren>Spektrometrie mit Erweiterungen</xwas:ergaenzungZumUntersuchungsverfahren>
+              <xwas:untersuchterParameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
+                <code>2000</code>
+                <name>Chlor</name>
+              </xwas:untersuchterParameter>
+              <xwas:parameterauspraegung>
+                <code>1010</code>
+                <name>Mäßig</name>
+              </xwas:parameterauspraegung>
+              <xwas:parameterDurchBetreiberUntersucht>false</xwas:parameterDurchBetreiberUntersucht>
+              <xwas:ausgewertetesAnsatzvolumen>10.5</xwas:ausgewertetesAnsatzvolumen>
+              <xwas:bewertungUntersuchungswert>
+                <code>1010</code>
+              </xwas:bewertungUntersuchungswert>
+              <xwas:bestimmungsgrenzeLoQ>150</xwas:bestimmungsgrenzeLoQ>
+              <xwas:kommentar>Probe zeigt leicht erhöhte Werte.</xwas:kommentar>
+            </xwas:analyseergebnisParameter>
+            <xwas:anlassDerUntersuchung>
+              <code>1010</code>
+              <name>Regelmäßige Kontrolle</name>
+            </xwas:anlassDerUntersuchung>
+            <xwas:medium>
+              <code>1010</code>
+              <name>Leitungswasser</name>
+            </xwas:medium>
+            <xwas:akkreditierteDurchfuehrungDerProbennahme>false</xwas:akkreditierteDurchfuehrungDerProbennahme>
+            <xwas:ergaenzungZumMedium>Kunststoffflasche</xwas:ergaenzungZumMedium>
+            <xwas:zeitpunktProbennahme>2024-06-15T08:30:00</xwas:zeitpunktProbennahme>
+            <xwas:probennahmeverfahren>
+              <code>1010</code>
+              <name>Direkte Entnahme am Wasserhahn</name>
+            </xwas:probennahmeverfahren>
+            <xwas:probenentnahmegeraet listURI="urn:xoev-de:xwasser:codeliste:probenentnahmegeraet" listVersionID="1">
+              <code>1010</code>
+              <name>Plastikbecher</name>
+            </xwas:probenentnahmegeraet>
+            <xwas:probengefaess listURI="urn:xoev-de:xwasser:codeliste:probengefaess" listVersionID="1">
+              <code>1010</code>
+              <name>Kunststoffbehälter</name>
+            </xwas:probengefaess>
+            <xwas:ergaenzendeInformationenZuProbenentnahmegeraet>Vor Gebrauch gereinigt</xwas:ergaenzendeInformationenZuProbenentnahmegeraet>
+            <xwas:desinfektionProbenentnahmegeraetDurchgefuehrt>false</xwas:desinfektionProbenentnahmegeraetDurchgefuehrt>
+            <xwas:konservierungAufbereitungDesinfektionProbe listURI="urn:xoev-de:xwasser:codeliste:aufbereitungsstoffe-desinfektionsverfahren" listVersionID="">
+              <code>1010</code>
+              <name>Filterung</name>
+            </xwas:konservierungAufbereitungDesinfektionProbe>
+            <xwas:kommentarZurProbennahme>Regelmäßige Überprüfung</xwas:kommentarZurProbennahme>
+            <xwas:informationenZumProbentransport>Kühlbox</xwas:informationenZumProbentransport>
+            <xwas:eingangProbeBeiUntersuchungsstelle>2024-06-15T09:00:00</xwas:eingangProbeBeiUntersuchungsstelle>
+            <xwas:beginnAnalytik>2024-06-15T09:05:00</xwas:beginnAnalytik>
+            <xwas:abschlussAnalytik>2024-06-15T09:30:00</xwas:abschlussAnalytik>
+            <xwas:konformitaetsbewertungDerProbe>
+              <code>1020</code>
+            </xwas:konformitaetsbewertungDerProbe>
+            <xwas:berichtspflichtig>true</xwas:berichtspflichtig>
+            <xwas:vonProbennehmerVergebeneProbeID>987654321</xwas:vonProbennehmerVergebeneProbeID>
+            <xwas:probeID_ausLabor>5678</xwas:probeID_ausLabor>
+            <xwas:anhang>anhang1</xwas:anhang>
+            <xwas:kommentar>Routinekontrolle</xwas:kommentar>
+          </xwas:probe>
           <xwas:terminplanID>terminplanid1</xwas:terminplanID>
           <xwas:nameProbennahmestelle></xwas:nameProbennahmestelle>
           <xwas:artProbennahmestelle>
@@ -139,7 +223,7 @@
           <code>09010</code>
           <name>Frischwasserlabor-Gmbh in Deutschland</name>
         </xwas:nameBeauftragteUntersuchungsstelle>
-        <xwas:probennehmer id="Flaschenwasser-Gmbh">
+        <xwas:probennehmer id="Trinkwasser-AG">
           <xwas:probennehmerID>ACABEE82-00E2-49C1-80DC-4E973EC3D445</xwas:probennehmerID>
           <xwas:probennehmer>
             <xwas:natuerlichePerson id="Bevollmächtigter2">
@@ -373,51 +457,49 @@
                   </xwas:verwaltungspolitischeZustaendigkeit>
                   <xwas:anschrift id="anschrift1">
                     <xwas:strassenschluessel>
-                      <code>1234</code>
+                      <code>3456</code>
                     </xwas:strassenschluessel>
-                    <xwas:strasse>In der Stadt</xwas:strasse>
-                    <xwas:hausnummer>1</xwas:hausnummer>
-                    <xwas:postfach>12345</xwas:postfach>
-                    <xwas:postleitzahl>90909</xwas:postleitzahl>
-                    <xwas:ort>Hotzingmussen</xwas:ort>
-                    <xwas:ortsteil>Worzen</xwas:ortsteil>
-                    <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
-                    <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
-                    <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
+                    <xwas:strasse>Hinterhofstraße</xwas:strasse>
+                    <xwas:hausnummer>19</xwas:hausnummer>
+                    <xwas:postfach>23456</xwas:postfach>
+                    <xwas:postleitzahl>4321</xwas:postleitzahl>
+                    <xwas:ort>Wehrstetten</xwas:ort>
+                    <xwas:wohnungsgeber>Privatperson</xwas:wohnungsgeber>
+                    <xwas:zusatz>Keine Angabe</xwas:zusatz>
                     <xwas:typ>
-                      <code>1234</code>
+                      <code>1254</code>
                       <name></name>
                     </xwas:typ>
                     <xwas:staat>
                       <xwas:staat listVersionID="">
-                        <code>1234</code>
+                        <code>2342</code>
                         <name></name>
                       </xwas:staat>
                     </xwas:staat>
                     <xwas:verwaltungspolitischeKodierung>
                       <xwas:kreis listVersionID="">
-                        <code>1111</code>
+                        <code>6666</code>
                         <name></name>
                       </xwas:kreis>
-                      <xwas:bezirk listVersionID="bezirk2">
-                        <code>1231</code>
+                      <xwas:bezirk listVersionID="bezirk3">
+                        <code>2342</code>
                         <name></name>
                       </xwas:bezirk>
                       <xwas:bundesland>
-                        <code>1</code>
+                        <code>3</code>
                         <name></name>
                       </xwas:bundesland>
                       <xwas:gemeindeschluessel listVersionID="">
-                        <code>9090</code>
+                        <code>4444</code>
                         <name></name>
                       </xwas:gemeindeschluessel>
                       <xwas:regionalschluessel listVersionID="">
-                        <code>9897</code>
+                        <code>2222</code>
                         <name></name>
                       </xwas:regionalschluessel>
                       <xwas:nation>
                         <xwas:staat listVersionID="">
-                          <code>123456</code>
+                          <code>12345</code>
                           <name></name>
                         </xwas:staat>
                       </xwas:nation>
@@ -617,6 +699,482 @@
           <xwas:fremdsystemID_Probennehmer></xwas:fremdsystemID_Probennehmer>
           <xwas:kommentar></xwas:kommentar>
         </xwas:probennehmer>
+        <xwas:probennehmer id="Flaschenwasser-Gmbh">
+          <xwas:probennehmerID>ACABEE82-00E2-49C1-80DC-4E973EC3D445</xwas:probennehmerID>
+          <xwas:probennehmer>
+            <xwas:natuerlichePerson id="Bevollmächtigter1">
+              <xwas:auskunftssperre>
+                <xwas:grund>
+                  <code>1234</code>
+                  <name>Übermittlungssperre nach § 50 Abs. 5 i.V.m. § 50 Abs. 3 BMG (Widerspruchsrecht zur Auskunft an Adressbuchverlage)</name>
+                </xwas:grund>
+                <xwas:gueltigkeit>
+                  <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                  <xwas:ende>2024-07-26+10:00</xwas:ende>
+                  <xwas:zusatz>Für diesen Zeitraum besteht eine Auskunftssperre nach dem obig genannten Grund.</xwas:zusatz>
+                </xwas:gueltigkeit>
+              </xwas:auskunftssperre>
+              <xwas:nameNatuerlichePerson>
+                <xwas:anrede>Herr</xwas:anrede>
+                <xwas:namenssuffix>Jr.</xwas:namenssuffix>
+                <xwas:familienname>
+                  <xwas:name>Schmidt</xwas:name>
+                  <xwas:nichtVorhanden>false</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>e</code>
+                    <name>Eigenname</name>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus>namensgebender Bestandteil, Präfix</xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:familienname>
+                <xwas:ehename>
+                  <xwas:name>Schhmidt</xwas:name>
+                  <xwas:nichtVorhanden>false</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>e</code>
+                    <name>Eigenname</name>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:ehename>
+                <xwas:lebenspartnerschaftsname>
+                  <xwas:name>Schmidt</xwas:name>
+                  <xwas:nichtVorhanden>false</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>e</code>
+                    <name>Eigenname</name>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:lebenspartnerschaftsname>
+                <xwas:geburtsname>
+                  <xwas:name>Schmidt</xwas:name>
+                  <xwas:nichtVorhanden>false</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>e</code>
+                    <name>Eigenname</name>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:geburtsname>
+                <xwas:fruehererFamilienname>
+                  <xwas:name></xwas:name>
+                  <xwas:nichtVorhanden>true</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>e</code>
+                    <name>Eigenname</name>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:fruehererFamilienname>
+                <xwas:vorname>
+                  <xwas:name>Peter</xwas:name>
+                  <xwas:nichtVorhanden>false</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>vv</code>
+                    <name>Vorname und Vatersname</name>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:vorname>
+                <xwas:rufname>
+                  <xwas:name>Pete</xwas:name>
+                  <xwas:nichtVorhanden>false</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>e</code>
+                    <name>Eigenname</name>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:rufname>
+                <xwas:fruehererVorname>
+                  <xwas:name></xwas:name>
+                  <xwas:nichtVorhanden>false</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>e</code>
+                    <name>Eigenname</name>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:fruehererVorname>
+                <xwas:alternativeRepraesentation>
+                  <xwas:repraesentation></xwas:repraesentation>
+                  <xwas:algorithmus></xwas:algorithmus>
+                  <xwas:hinweis></xwas:hinweis>
+                </xwas:alternativeRepraesentation>
+                <xwas:ordensname>
+                  <xwas:name>Bruder Schmidt</xwas:name>
+                  <xwas:nichtVorhanden>false</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>e</code>
+                    <name>Eigenname</name>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:ordensname>
+                <xwas:kuenstlername>
+                  <xwas:name></xwas:name>
+                  <xwas:nichtVorhanden>false</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>e</code>
+                    <name>Eigenname</name>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:kuenstlername>
+                <xwas:weitererName>
+                  <xwas:name>Peterson</xwas:name>
+                  <xwas:nichtVorhanden>false</xwas:nichtVorhanden>
+                  <xwas:namensart>
+                    <code>e</code>
+                    <name>Eigenname</name>
+                  </xwas:namensart>
+                  <xwas:alternativeRepraesentation>
+                    <xwas:repraesentation></xwas:repraesentation>
+                    <xwas:algorithmus></xwas:algorithmus>
+                    <xwas:hinweis></xwas:hinweis>
+                  </xwas:alternativeRepraesentation>
+                </xwas:weitererName>
+              </xwas:nameNatuerlichePerson>
+              <xwas:familienstand>
+                <xwas:behoerde>
+                  <xwas:id>behoerde2</xwas:id>
+                  <xwas:typ>
+                    <code>VH</code>
+                    <name>Verheiratet</name>
+                  </xwas:typ>
+                  <xwas:zusatz>Gemeinde Hotzingmussen</xwas:zusatz>
+                  <xwas:behoerdenkennung>
+                    <xwas:kennung listURI="" listVersionID="">
+                      <code>1234</code>
+                      <name>Behoerde Hotzingmussen</name>
+                    </xwas:kennung>
+                    <xwas:praefix listVersionID="praefix1">
+                      <code>1234</code>
+                      <name>von</name>
+                    </xwas:praefix>
+                  </xwas:behoerdenkennung>
+                  <xwas:kommunikation>
+                    <xwas:kanal>
+                      <code>1234</code>
+                      <name>E-Mail</name>
+                    </xwas:kanal>
+                    <xwas:kennung>1</xwas:kennung>
+                    <xwas:istDienstlich>true</xwas:istDienstlich>
+                    <xwas:zusatz>Austausch über Email</xwas:zusatz>
+                  </xwas:kommunikation>
+                  <xwas:behoerdenidentifikation>
+                    <xwas:beschreibung>
+                      Gesundheitsamt
+                    </xwas:beschreibung>
+                    <xwas:gueltigkeit>
+                      <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                      <xwas:ende>2024-07-26+05:00</xwas:ende>
+                      <xwas:zusatz>Ein</xwas:zusatz>
+                    </xwas:gueltigkeit>
+                  </xwas:behoerdenidentifikation>
+                  <xwas:behoerdenname>
+                    <xwas:name>Gesundheitsamt der Gemeinde Hotzingmussen</xwas:name>
+                    <xwas:kurzbezeichnung>GdGH</xwas:kurzbezeichnung>
+                    <xwas:gueltigkeit>
+                      <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                      <xwas:ende>2024-07-26+05:00</xwas:ende>
+                      <xwas:zusatz>Seit Bestehen und zukünftig</xwas:zusatz>
+                    </xwas:gueltigkeit>
+                  </xwas:behoerdenname>
+                  <xwas:verwaltungspolitischeZustaendigkeit>
+                    <xwas:bezirk listVersionID="bezirk1">
+                      <code>9999</code>
+                      <name>Reg.-Bez. Hotzingmussen</name>
+                    </xwas:bezirk>
+                    <xwas:bundesland>
+                      <code>1</code>
+                    </xwas:bundesland>
+                    <xwas:gemeindeschluessel listVersionID="gemeindeschluessel1">
+                      <code>6667</code>
+                      <name>Gemeine Hotzingen</name>
+                    </xwas:gemeindeschluessel>
+                    <xwas:nation>
+                      <xwas:staat listVersionID="staat1">
+                        <code>2</code>
+                        <name>LandLand</name>
+                      </xwas:staat>
+                    </xwas:nation>
+                  </xwas:verwaltungspolitischeZustaendigkeit>
+                  <xwas:anschrift id="anschrift34">
+                    <xwas:strassenschluessel>
+                      <code>7890</code>
+                    </xwas:strassenschluessel>
+                    <xwas:strasse>Sonnenallee</xwas:strasse>
+                    <xwas:hausnummer>45</xwas:hausnummer>
+                    <xwas:postfach>67890</xwas:postfach>
+                    <xwas:postleitzahl>8765</xwas:postleitzahl>
+                    <xwas:ort>Neustadt</xwas:ort>
+                    <xwas:wohnungsgeber>Wohnungsbaugesellschaft</xwas:wohnungsgeber>
+                    <xwas:zusatz>Nahe Park</xwas:zusatz>
+                    <xwas:typ>
+                      <code>5678</code>
+                      <name></name>
+                    </xwas:typ>
+                    <xwas:staat>
+                      <xwas:staat listVersionID="">
+                        <code>6789</code>
+                        <name></name>
+                      </xwas:staat>
+                    </xwas:staat>
+                    <xwas:verwaltungspolitischeKodierung>
+                      <xwas:kreis listVersionID="">
+                        <code>8888</code>
+                        <name></name>
+                      </xwas:kreis>
+                      <xwas:bezirk listVersionID="bezirk7">
+                        <code>6789</code>
+                        <name></name>
+                      </xwas:bezirk>
+                      <xwas:bundesland>
+                        <code>5</code>
+                        <name></name>
+                      </xwas:bundesland>
+                      <xwas:gemeindeschluessel listVersionID="">
+                        <code>5555</code>
+                        <name></name>
+                      </xwas:gemeindeschluessel>
+                      <xwas:regionalschluessel listVersionID="">
+                        <code>3333</code>
+                        <name></name>
+                      </xwas:regionalschluessel>
+                      <xwas:nation>
+                        <xwas:staat listVersionID="">
+                          <code>54321</code>
+                          <name></name>
+                        </xwas:staat>
+                      </xwas:nation>
+                    </xwas:verwaltungspolitischeKodierung>
+                  </xwas:anschrift>
+                  <xwas:organisationsstruktur>
+                    <xwas:name>Wasserprobeneinheit</xwas:name>
+                    <xwas:hierarchieebene>2</xwas:hierarchieebene>
+                    <xwas:hierarchiename>Zweiter Hierarchie</xwas:hierarchiename>
+                  </xwas:organisationsstruktur>
+                </xwas:behoerde>
+              </xwas:familienstand>
+              <xwas:geburt>
+                <xwas:datum>2024-07-26+05:00</xwas:datum>
+                <xwas:zusatz>Geburt im Krankenhaus</xwas:zusatz>
+                <xwas:geburtsort id="geburtsort2">
+                  <xwas:strassenschluessel>
+                    <code>5678</code>
+                    <name>Sonnenweg</name>
+                  </xwas:strassenschluessel>
+                  <xwas:strasse>Am Hafen</xwas:strasse>
+                  <xwas:hausnummer>10</xwas:hausnummer>
+                  <xwas:postfach>67890</xwas:postfach>
+                  <xwas:postleitzahl>80808</xwas:postleitzahl>
+                  <xwas:ort>Neustadt</xwas:ort>
+                  <xwas:ortsteil>Altstadt</xwas:ortsteil>
+                  <xwas:ortFruehererGemeindename>Altdorf</xwas:ortFruehererGemeindename>
+                  <xwas:wohnungsgeber>Immobilien GmbH</xwas:wohnungsgeber>
+                  <xwas:zusatz>Nähe Park</xwas:zusatz>
+                  <xwas:typ>
+                    <code>5678</code>
+                    <name></name>
+                  </xwas:typ>
+                  <xwas:staat>
+                    <xwas:staat listVersionID="">
+                      <code>5678</code>
+                      <name></name>
+                    </xwas:staat>
+                  </xwas:staat>
+                  <xwas:verwaltungspolitischeKodierung>
+                    <xwas:kreis listVersionID="">
+                      <code>2222</code>
+                      <name></name>
+                    </xwas:kreis>
+                    <xwas:bezirk listVersionID="">
+                      <code>5678</code>
+                      <name></name>
+                    </xwas:bezirk>
+                    <xwas:bundesland>
+                      <code>2</code>
+                      <name></name>
+                    </xwas:bundesland>
+                    <xwas:gemeindeschluessel listVersionID="">
+                      <code>8080</code>
+                      <name></name>
+                    </xwas:gemeindeschluessel>
+                    <xwas:regionalschluessel listVersionID="">
+                      <code>7979</code>
+                      <name></name>
+                    </xwas:regionalschluessel>
+                    <xwas:nation>
+                      <xwas:staat listVersionID="">
+                        <code>654321</code>
+                        <name></name>
+                      </xwas:staat>
+                    </xwas:nation>
+                  </xwas:verwaltungspolitischeKodierung>
+                </xwas:geburtsort>
+              </xwas:geburt>
+              <xwas:doktorgrad>Dr. rer. nat.</xwas:doktorgrad>
+              <xwas:staatsangehoerigkeit>
+                <xwas:staatsangehoerigkeit listVersionID="ID5e08e973-4e06-438d-9444-1275g6cbf061">
+                  <code>6543</code>
+                  <name></name>
+                </xwas:staatsangehoerigkeit>
+              </xwas:staatsangehoerigkeit>
+              <xwas:ausweisdokument>
+                <xwas:ausweisart listVersionID="ID5e08e973-4e06-438d-9444-1275g6cbf061">
+                  <code>5432</code>
+                  <name></name>
+                </xwas:ausweisart>
+                <xwas:gueltigkeit>
+                  <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                  <xwas:ende>2024-07-26+10:00</xwas:ende>
+                  <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
+                </xwas:gueltigkeit>
+                <xwas:ausweisID>
+                  <xwas:id>ID5e08e973-4e06-438d-9555-1275g6cbf061</xwas:id>
+                  <xwas:beschreibung>Eine beschreibung zur AusweisID</xwas:beschreibung>
+                  <xwas:gueltigkeit>
+                    <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                    <xwas:ende>2024-07-26+10:00</xwas:ende>
+                    <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
+                  </xwas:gueltigkeit>
+                </xwas:ausweisID>
+                <!-- <xwas:ausstellendeBehoerde>
+                  todo
+                </xwas:ausstellendeBehoerde> -->
+              </xwas:ausweisdokument>
+              <xwas:anschrift id="anschrift44">
+                <xwas:strassenschluessel>
+                  <code>5678</code>
+                </xwas:strassenschluessel>
+                <xwas:strasse>Rathausstraße</xwas:strasse>
+                <xwas:hausnummer>45</xwas:hausnummer>
+                <xwas:postfach>67890</xwas:postfach>
+                <xwas:postleitzahl>20202</xwas:postleitzahl>
+                <xwas:ort>Beckingen</xwas:ort>
+                <xwas:ortsteil>Oberstadt</xwas:ortsteil>
+                <xwas:ortFruehererGemeindename>Neuenburg</xwas:ortFruehererGemeindename>
+                <xwas:wohnungsgeber>Stadtverwaltung</xwas:wohnungsgeber>
+                <xwas:zusatz>Direkt am Platz</xwas:zusatz>
+                <xwas:typ>
+                  <code>5678</code>
+                  <name></name>
+                </xwas:typ>
+                <xwas:staat>
+                  <xwas:staat listVersionID="">
+                    <code>5678</code>
+                    <name></name>
+                  </xwas:staat>
+                </xwas:staat>
+                <xwas:verwaltungspolitischeKodierung>
+                  <xwas:kreis listVersionID="">
+                    <code>2222</code>
+                    <name></name>
+                  </xwas:kreis>
+                  <xwas:bezirk listVersionID="bezirk3">
+                    <code>5678</code>
+                    <name></name>
+                  </xwas:bezirk>
+                  <xwas:bundesland>
+                    <code>2</code>
+                    <name></name>
+                  </xwas:bundesland>
+                  <xwas:gemeindeschluessel listVersionID="">
+                    <code>2020</code>
+                    <name></name>
+                  </xwas:gemeindeschluessel>
+                  <xwas:regionalschluessel listVersionID="">
+                    <code>7878</code>
+                    <name></name>
+                  </xwas:regionalschluessel>
+                  <xwas:nation>
+                    <xwas:staat listVersionID="">
+                      <code>654321</code>
+                      <name></name>
+                    </xwas:staat>
+                  </xwas:nation>
+                </xwas:verwaltungspolitischeKodierung>
+              </xwas:anschrift>
+              <xwas:geschlecht>
+                <xwas:geschlecht>
+                  <code>m</code>
+                  <name>männlich</name>
+                </xwas:geschlecht>
+              </xwas:geschlecht>
+              <xwas:identifikationsnummer>
+                <xwas:id>id</xwas:id>
+                <xwas:beschreibung>Eine Beschreibung zur Identifikationsnummer</xwas:beschreibung>
+                <xwas:gueltigkeit>
+                  <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                  <xwas:ende>2024-07-26+10:00</xwas:ende>
+                  <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
+                </xwas:gueltigkeit>
+              </xwas:identifikationsnummer>
+              <xwas:kommunikation>
+                <xwas:kanal>
+                  <code>1234</code>
+                </xwas:kanal>
+                <xwas:kennung>1</xwas:kennung>
+                <xwas:istDienstlich>true</xwas:istDienstlich>
+                <xwas:zusatz>Zusatz für die Kommunikation</xwas:zusatz>
+              </xwas:kommunikation>
+              <xwas:muttersprache>
+                <xwas:sprache listVersionID="englisch">
+                  <code>1234</code>
+                  <name></name>
+                </xwas:sprache>
+              </xwas:muttersprache>
+              <xwas:fremdsprache>
+                <xwas:sprache listVersionID="deutsch">
+                  <code>2</code>
+                  <name></name>
+                </xwas:sprache>
+              </xwas:fremdsprache>
+              <xwas:vertreterBevollmaechtigter>
+                <xwas:vertreterBevollmaechtigterID>
+                  Bevollmächtigter1
+                </xwas:vertreterBevollmaechtigterID>
+                <xwas:artVertreter>
+                  <code>1</code>
+                </xwas:artVertreter>
+              </xwas:vertreterBevollmaechtigter>
+            </xwas:natuerlichePerson>
+          </xwas:probennehmer>
+          <xwas:fremdsystemID_Probennehmer></xwas:fremdsystemID_Probennehmer>
+          <xwas:kommentar></xwas:kommentar>
+        </xwas:probennehmer>
         <xwas:pruefberichtEnthaeltTeilergebnisse>true</xwas:pruefberichtEnthaeltTeilergebnisse>
         <xwas:korrekturvermerk>Korrekturvermerk</xwas:korrekturvermerk>
         <xwas:pruefberichtGemVorgabenAkkredition>true</xwas:pruefberichtGemVorgabenAkkredition>
@@ -629,7 +1187,7 @@
           Hoher Gehalt von Kalk
         </xwas:auffaelligkeiten>
         <xwas:zeitpunktValidierungPruefbericht>2024-12-21T00:00:12</xwas:zeitpunktValidierungPruefbericht>
-        <xwas:fuerValidierungVerantwortlichePerson id="Bevollmächtigter1">
+        <xwas:fuerValidierungVerantwortlichePerson id="Bevollmächtigter3">
               <xwas:auskunftssperre>
                 <xwas:grund>
                   <code>1234</code>
@@ -892,7 +1450,245 @@
                     </xwas:gueltigkeit>
                   </xwas:behoerdenname>
                   <xwas:nachgeordneteBehoerde>
-
+                    <!-- <xwas:behoerde> -->
+                  <xwas:id>ID6e09f183-5e17-548e-9555-2386g7dcg072</xwas:id>
+                  <xwas:typ>
+                    <code>VH</code>
+                    <name>Verheiratet</name>
+                  </xwas:typ>
+                  <xwas:zusatz>Gemeinde Neustadt</xwas:zusatz>
+                  <xwas:behoerdenkennung>
+                    <xwas:kennung listURI="" listVersionID="">
+                      <code>5678</code>
+                      <name>Behoerde Neustadt</name>
+                    </xwas:kennung>
+                    <xwas:praefix listVersionID="praefix2">
+                      <code>5678</code>
+                      <name>von</name>
+                    </xwas:praefix>
+                  </xwas:behoerdenkennung>
+                  <xwas:kommunikation>
+                    <xwas:kanal>
+                      <code>5678</code>
+                      <name>Telefon</name>
+                    </xwas:kanal>
+                    <xwas:kennung>2</xwas:kennung>
+                    <xwas:istDienstlich>true</xwas:istDienstlich>
+                    <xwas:zusatz>Anruf über Festnetz</xwas:zusatz>
+                  </xwas:kommunikation>
+                  <xwas:behoerdenidentifikation>
+                    <xwas:beschreibung>
+                      Ordnungsamt
+                    </xwas:beschreibung>
+                    <xwas:gueltigkeit>
+                      <xwas:beginn>2024-08-01+05:00</xwas:beginn>
+                      <xwas:ende>2024-08-01+05:00</xwas:ende>
+                      <xwas:zusatz>Einmalig</xwas:zusatz>
+                    </xwas:gueltigkeit>
+                  </xwas:behoerdenidentifikation>
+                  <xwas:behoerdenname>
+                    <xwas:name>Ordnungsamt der Gemeinde Neustadt</xwas:name>
+                    <xwas:kurzbezeichnung>OGN</xwas:kurzbezeichnung>
+                    <xwas:gueltigkeit>
+                      <xwas:beginn>2024-08-01+05:00</xwas:beginn>
+                      <xwas:ende>2024-08-01+05:00</xwas:ende>
+                      <xwas:zusatz>Seit Gründung</xwas:zusatz>
+                    </xwas:gueltigkeit>
+                  </xwas:behoerdenname>
+                  <xwas:verwaltungspolitischeZustaendigkeit>
+                    <xwas:bezirk listVersionID="bezirk2">
+                      <code>8888</code>
+                      <name>Reg.-Bez. Neustadt</name>
+                    </xwas:bezirk>
+                    <xwas:bundesland>
+                      <code>2</code>
+                    </xwas:bundesland>
+                    <xwas:gemeindeschluessel listVersionID="gemeindeschluessel2">
+                      <code>3333</code>
+                      <name>Gemeine Neustadt</name>
+                    </xwas:gemeindeschluessel>
+                    <xwas:nation>
+                      <xwas:staat listVersionID="staat2">
+                        <code>3</code>
+                        <name>LandB</name>
+                      </xwas:staat>
+                    </xwas:nation>
+                  </xwas:verwaltungspolitischeZustaendigkeit>
+                  <xwas:anschrift id="anschrift2">
+                    <xwas:strassenschluessel>
+                      <code>7890</code>
+                    </xwas:strassenschluessel>
+                    <xwas:strasse>Marktstraße</xwas:strasse>
+                    <xwas:hausnummer>42</xwas:hausnummer>
+                    <xwas:postfach>7890</xwas:postfach>
+                    <xwas:postleitzahl>5678</xwas:postleitzahl>
+                    <xwas:ort>Neustadt</xwas:ort>
+                    <xwas:wohnungsgeber>Stadtverwaltung</xwas:wohnungsgeber>
+                    <xwas:zusatz>Im Zentrum</xwas:zusatz>
+                    <xwas:typ>
+                      <code>5678</code>
+                      <name>Hauptamt</name>
+                    </xwas:typ>
+                    <xwas:staat>
+                      <xwas:staat listVersionID="">
+                        <code>3456</code>
+                        <name>LandB</name>
+                      </xwas:staat>
+                    </xwas:staat>
+                    <xwas:verwaltungspolitischeKodierung>
+                      <xwas:kreis listVersionID="">
+                        <code>7890</code>
+                        <name>Kreis Neustadt</name>
+                      </xwas:kreis>
+                      <xwas:bezirk listVersionID="bezirk4">
+                        <code>4567</code>
+                        <name>Bezirk Nord</name>
+                      </xwas:bezirk>
+                      <xwas:bundesland>
+                        <code>4</code>
+                        <name>BundeslandB</name>
+                      </xwas:bundesland>
+                      <xwas:gemeindeschluessel listVersionID="">
+                        <code>8901</code>
+                        <name>Neustadt</name>
+                      </xwas:gemeindeschluessel>
+                      <xwas:regionalschluessel listVersionID="">
+                        <code>3456</code>
+                        <name>Region Nord</name>
+                      </xwas:regionalschluessel>
+                      <xwas:nation>
+                        <xwas:staat listVersionID="">
+                          <code>12346</code>
+                          <name>LandB</name>
+                        </xwas:staat>
+                      </xwas:nation>
+                    </xwas:verwaltungspolitischeKodierung>
+                  </xwas:anschrift>
+                  <xwas:organisationsstruktur>
+                    <xwas:name>Einheit für Ordnungsaufgaben</xwas:name>
+                    <xwas:hierarchieebene>3</xwas:hierarchieebene>
+                    <xwas:hierarchiename>Dritte Hierarchie</xwas:hierarchiename>
+                  </xwas:organisationsstruktur>
+                  </xwas:nachgeordneteBehoerde>
+                  <xwas:nachgeordneteBehoerde>
+                      <xwas:id>ID7g12h193-6f18-659f-a666-3498h8edf083</xwas:id>
+                      <xwas:typ>
+                        <code>VH</code>
+                        <name>Verheiratet</name>
+                      </xwas:typ>
+                      <xwas:zusatz>Gemeinde Dorfheim</xwas:zusatz>
+                      <xwas:behoerdenkennung>
+                        <xwas:kennung listURI="" listVersionID="">
+                          <code>9101</code>
+                          <name>Behoerde Dorfheim</name>
+                        </xwas:kennung>
+                        <xwas:praefix listVersionID="praefix3">
+                          <code>9101</code>
+                          <name>von</name>
+                        </xwas:praefix>
+                      </xwas:behoerdenkennung>
+                      <xwas:kommunikation>
+                        <xwas:kanal>
+                          <code>9101</code>
+                          <name>Fax</name>
+                        </xwas:kanal>
+                        <xwas:kennung>3</xwas:kennung>
+                        <xwas:istDienstlich>true</xwas:istDienstlich>
+                        <xwas:zusatz>Nachricht über Fax</xwas:zusatz>
+                      </xwas:kommunikation>
+                      <xwas:behoerdenidentifikation>
+                        <xwas:beschreibung>
+                          Umweltamt
+                        </xwas:beschreibung>
+                        <xwas:gueltigkeit>
+                          <xwas:beginn>2024-08-10+05:00</xwas:beginn>
+                          <xwas:ende>2024-08-10+05:00</xwas:ende>
+                          <xwas:zusatz>Regelmäßig</xwas:zusatz>
+                        </xwas:gueltigkeit>
+                      </xwas:behoerdenidentifikation>
+                      <xwas:behoerdenname>
+                        <xwas:name>Umweltamt der Gemeinde Dorfheim</xwas:name>
+                        <xwas:kurzbezeichnung>UDGH</xwas:kurzbezeichnung>
+                        <xwas:gueltigkeit>
+                          <xwas:beginn>2024-08-10+05:00</xwas:beginn>
+                          <xwas:ende>2024-08-10+05:00</xwas:ende>
+                          <xwas:zusatz>Aktuell</xwas:zusatz>
+                        </xwas:gueltigkeit>
+                      </xwas:behoerdenname>
+                      <xwas:verwaltungspolitischeZustaendigkeit>
+                        <xwas:bezirk listVersionID="bezirk3">
+                          <code>7777</code>
+                          <name>Reg.-Bez. Dorfheim</name>
+                        </xwas:bezirk>
+                        <xwas:bundesland>
+                          <code>3</code>
+                        </xwas:bundesland>
+                        <xwas:gemeindeschluessel listVersionID="gemeindeschluessel3">
+                          <code>4444</code>
+                          <name>Gemeinde Dorfheim</name>
+                        </xwas:gemeindeschluessel>
+                        <xwas:nation>
+                          <xwas:staat listVersionID="staat3">
+                            <code>4</code>
+                            <name>LandC</name>
+                          </xwas:staat>
+                        </xwas:nation>
+                      </xwas:verwaltungspolitischeZustaendigkeit>
+                      <xwas:anschrift id="anschrift11">
+                        <xwas:strassenschluessel>
+                          <code>8901</code>
+                        </xwas:strassenschluessel>
+                        <xwas:strasse>Wiesenweg</xwas:strasse>
+                        <xwas:hausnummer>78</xwas:hausnummer>
+                        <xwas:postfach>8901</xwas:postfach>
+                        <xwas:postleitzahl>6789</xwas:postleitzahl>
+                        <xwas:ort>Dorfheim</xwas:ort>
+                        <xwas:wohnungsgeber>Öffentliche Verwaltung</xwas:wohnungsgeber>
+                        <xwas:zusatz>Am Ortsrand</xwas:zusatz>
+                        <xwas:typ>
+                          <code>6789</code>
+                          <name>Zweigstelle</name>
+                        </xwas:typ>
+                        <xwas:staat>
+                          <xwas:staat listVersionID="">
+                            <code>4567</code>
+                            <name>LandC</name>
+                          </xwas:staat>
+                        </xwas:staat>
+                        <xwas:verwaltungspolitischeKodierung>
+                          <xwas:kreis listVersionID="">
+                            <code>8901</code>
+                            <name>Kreis Dorfheim</name>
+                          </xwas:kreis>
+                          <xwas:bezirk listVersionID="bezirk5">
+                            <code>5678</code>
+                            <name>Bezirk Süd</name>
+                          </xwas:bezirk>
+                          <xwas:bundesland>
+                            <code>5</code>
+                            <name>BundeslandC</name>
+                          </xwas:bundesland>
+                          <xwas:gemeindeschluessel listVersionID="">
+                            <code>9012</code>
+                            <name>Dorfheim</name>
+                          </xwas:gemeindeschluessel>
+                          <xwas:regionalschluessel listVersionID="">
+                            <code>4567</code>
+                            <name>Region Süd</name>
+                          </xwas:regionalschluessel>
+                          <xwas:nation>
+                            <xwas:staat listVersionID="">
+                              <code>23456</code>
+                              <name>LandC</name>
+                            </xwas:staat>
+                          </xwas:nation>
+                        </xwas:verwaltungspolitischeKodierung>
+                      </xwas:anschrift>
+                      <xwas:organisationsstruktur>
+                        <xwas:name>Umweltschutzabteilung</xwas:name>
+                        <xwas:hierarchieebene>4</xwas:hierarchieebene>
+                        <xwas:hierarchiename>Vierte Hierarchie</xwas:hierarchiename>
+                      </xwas:organisationsstruktur>
                   </xwas:nachgeordneteBehoerde>
                   <xwas:verwaltungspolitischeZustaendigkeit>
                     <xwas:bezirk listVersionID="">
@@ -1302,7 +2098,7 @@
                   <xwas:zusatz>Identifiziert für einen bestimmten Zeitraum</xwas:zusatz>
                 </xwas:gueltigkeit>
               </xwas:identifikation>
-              <xwas:anschrift id="anschrift2">
+              <xwas:anschrift id="anschrift9">
                 <xwas:strassenschluessel>
                   <code>1234</code>
                 </xwas:strassenschluessel>
@@ -1358,7 +2154,7 @@
           </xwas:auftraggeber>
         </xwas:auftraggeber>
         <xwas:zustaemdigeBehoerde>
-            <xwas:id>behoerde2</xwas:id>
+            <xwas:id>behoerde22</xwas:id>
             <xwas:typ>
               <code></code>
               <name></name>
