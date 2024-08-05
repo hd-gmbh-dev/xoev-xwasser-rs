@@ -13,12 +13,7 @@ use crate::model::codes::{
 };
 
 use super::{
-    anschrift::AnschriftType,
-    kommunikation::KommunikationType,
-    misc::IdentifikationType,
-    sprache::SpracheType,
-    staat::{StaatType, StaatsangehoerigkeitType},
-    zeitraum::ZeitraumType, // AnschriftType, AuskunftssperreType, DoktorgradType, GeburtType, NameNatuerlichePersonType, VertreterBevollmaechtigterType
+    anschrift::AnschriftType, behoerde::BehoerdeType, kommunikation::KommunikationType, misc::IdentifikationType, sprache::SpracheType, staat::{StaatType, StaatsangehoerigkeitType}, zeitraum::ZeitraumType // AnschriftType, AuskunftssperreType, DoktorgradType, GeburtType, NameNatuerlichePersonType, VertreterBevollmaechtigterType
 };
 
 /// Der AllgemeineName dient der Darstellung von Vor- und Nachnamen und fasst deren
@@ -189,9 +184,8 @@ pub struct FamilienstandType {
     pub grund: Option<CodeFamilienstandBeendigungsgrundType>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
     pub gueltigkeit: Option<ZeitraumType>,
-    // TODO: check BehoerdeType
-    // #[xml(ns = b"xwas", name = b"behoerde", ty = "child")]
-    // pub behoerde: Option<BehoerdeType>,
+    #[xml(ns = b"xwas", name = b"behoerde", ty = "child")]
+    pub behoerde: Option<BehoerdeType>,
 }
 
 /// Ein Ausweis ist eine öffentliche oder private Urkunde, die die Identität des Inhabers
