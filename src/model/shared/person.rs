@@ -256,6 +256,20 @@ pub struct JuristischePersonType {
     pub id: String,
 }
 
+/// Die Komponente "Geschlecht" dient der Repräsentation des biologischen Geschlechts.
+#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+))]
+pub struct GeschlechtType {
+    #[xml(ns = b"xwas", name = b"geschlecht", ty = "child")]
+    pub geschlecht: CodeGeschlechtType,
+    #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
+    pub gueltigkeit: Option<ZeitraumType>
+}
+
 /// Eine natürliche Person ist der Mensch in seiner Rolle als Rechtssubjekt, d. h. als
 /// Träger von Rechten und Pflichten. Mit der Vollendung seiner Geburt wird ein Mensch
 /// rechtsfähig und damit zu einer natürlichen Person (§ 1 BGB). Der Mensch verliert
@@ -285,7 +299,7 @@ pub struct NatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
     pub anschrift: Vec<AnschriftType>,
     #[xml(ns = b"xwas", name = b"geschlecht", ty = "child")]
-    pub geschlecht: Vec<CodeGeschlechtType>,
+    pub geschlecht: Vec<GeschlechtType>,
     #[xml(ns = b"xwas", name = b"identifikationsnummer", ty = "child")]
     pub identifikationsnummer: Vec<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]

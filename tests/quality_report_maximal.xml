@@ -418,11 +418,12 @@
                     <xwas:zusatz>Austausch über Email</xwas:zusatz>
                   </xwas:kommunikation>
                   <xwas:behoerdenidentifikation>
-                    <xwas:beschreibung>Hauptsitz des Landgerichts Neustadt</xwas:beschreibung>
+                    <xwas:id>someid</xwas:id>
+                    <xwas:beschreibung>Gesundheitsamt</xwas:beschreibung>
                     <xwas:gueltigkeit>
-                      <xwas:beginn>2024-09-01+01:00</xwas:beginn>
-                      <xwas:ende>2024-09-01+01:00</xwas:ende>
-                      <xwas:zusatz>Gültig für das laufende Jahr</xwas:zusatz>
+                      <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                      <xwas:ende>2024-07-26+05:00</xwas:ende>
+                      <xwas:zusatz>Ein</xwas:zusatz>
                     </xwas:gueltigkeit>
                   </xwas:behoerdenidentifikation>
                   <xwas:behoerdenname>
