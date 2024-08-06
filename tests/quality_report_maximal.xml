@@ -1450,7 +1450,6 @@
                     </xwas:gueltigkeit>
                   </xwas:behoerdenname>
                   <xwas:nachgeordneteBehoerde>
-                    <!-- <xwas:behoerde> -->
                   <xwas:id>ID6e09f183-5e17-548e-9555-2386g7dcg072</xwas:id>
                   <xwas:typ>
                     <code>VH</code>
@@ -1829,9 +1828,378 @@
                     <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
                   </xwas:gueltigkeit>
                 </xwas:ausweisID>
-                <!-- <xwas:ausstellendeBehoerde>
-                  todo
-                </xwas:ausstellendeBehoerde> -->
+                <xwas:ausstellendeBehoerde>
+                    <xwas:id>ID5e08e073-4e06-438d-9453-1275f6cbf021</xwas:id>
+                    <xwas:typ>
+                      <code>1234</code>
+                    </xwas:typ>
+                    <xwas:zusatz>Zusatzinformationen für die Behörde</xwas:zusatz>
+                    <xwas:behoerdenkennung>
+                      <xwas:kennung listURI="ID5e08e073-4e06-438d-9444-1275f6cbf061" listVersionID="ID5e08e073-4e06-438d-9444-1275f6cbf061">
+                        <code>1234</code>
+                      </xwas:kennung>
+                      <xwas:praefix listVersionID="praefix2">
+                        <code>1234</code>
+                      </xwas:praefix>
+                    </xwas:behoerdenkennung>
+                    <xwas:kommunikation>
+                      <xwas:kanal>
+                        <code>1234</code>
+                      </xwas:kanal>
+                      <xwas:kennung>1</xwas:kennung>
+                      <xwas:istDienstlich>true</xwas:istDienstlich>
+                      <xwas:zusatz>Zusatz für die Kommunikation</xwas:zusatz>
+                    </xwas:kommunikation>
+                    <xwas:behoerdenidentifikation>
+                      <xwas:beschreibung>Eine tolle Behörde</xwas:beschreibung>
+                      <xwas:gueltigkeit>
+                        <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                        <xwas:ende>2024-07-26+05:00</xwas:ende>
+                        <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                      </xwas:gueltigkeit>
+                    </xwas:behoerdenidentifikation>
+                    <xwas:behoerdenname>
+                      <xwas:name>Behoerde fuer komplizierte Vorgänge</xwas:name>
+                      <xwas:kurzbezeichnung>Eine Kurzbezeichnung</xwas:kurzbezeichnung>
+                      <xwas:gueltigkeit>
+                        <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+                        <xwas:ende>2024-07-26+05:00</xwas:ende>
+                        <xwas:zusatz>Ein Zusatz</xwas:zusatz>
+                      </xwas:gueltigkeit>
+                    </xwas:behoerdenname>
+                    <xwas:nachgeordneteBehoerde>
+                      <xwas:id>ID6e09f183-5e17-548e-9555-2386g7dcg078</xwas:id>
+                      <xwas:typ>
+                        <code>VH</code>
+                        <name>Verheiratet</name>
+                      </xwas:typ>
+                      <xwas:zusatz>Gemeinde Neustadt</xwas:zusatz>
+                      <xwas:behoerdenkennung>
+                        <xwas:kennung listURI="" listVersionID="">
+                          <code>5678</code>
+                          <name>Behoerde Neustadt</name>
+                        </xwas:kennung>
+                        <xwas:praefix listVersionID="praefix2">
+                          <code>5678</code>
+                          <name>von</name>
+                        </xwas:praefix>
+                      </xwas:behoerdenkennung>
+                      <xwas:kommunikation>
+                        <xwas:kanal>
+                          <code>5678</code>
+                          <name>Telefon</name>
+                        </xwas:kanal>
+                        <xwas:kennung>2</xwas:kennung>
+                        <xwas:istDienstlich>true</xwas:istDienstlich>
+                        <xwas:zusatz>Anruf über Festnetz</xwas:zusatz>
+                      </xwas:kommunikation>
+                      <xwas:behoerdenidentifikation>
+                        <xwas:beschreibung>Ordnungsamt</xwas:beschreibung>
+                        <xwas:gueltigkeit>
+                          <xwas:beginn>2024-08-01+05:00</xwas:beginn>
+                          <xwas:ende>2024-08-01+05:00</xwas:ende>
+                          <xwas:zusatz>Einmalig</xwas:zusatz>
+                        </xwas:gueltigkeit>
+                      </xwas:behoerdenidentifikation>
+                      <xwas:behoerdenname>
+                        <xwas:name>Ordnungsamt der Gemeinde Neustadt</xwas:name>
+                        <xwas:kurzbezeichnung>OGN</xwas:kurzbezeichnung>
+                        <xwas:gueltigkeit>
+                          <xwas:beginn>2024-08-01+05:00</xwas:beginn>
+                          <xwas:ende>2024-08-01+05:00</xwas:ende>
+                          <xwas:zusatz>Seit Gründung</xwas:zusatz>
+                        </xwas:gueltigkeit>
+                      </xwas:behoerdenname>
+                      <xwas:verwaltungspolitischeZustaendigkeit>
+                        <xwas:bezirk listVersionID="bezirk2">
+                          <code>8888</code>
+                          <name>Reg.-Bez. Neustadt</name>
+                        </xwas:bezirk>
+                        <xwas:bundesland>
+                          <code>2</code>
+                        </xwas:bundesland>
+                        <xwas:gemeindeschluessel listVersionID="gemeindeschluessel2">
+                          <code>3333</code>
+                          <name>Gemeine Neustadt</name>
+                        </xwas:gemeindeschluessel>
+                        <xwas:nation>
+                          <xwas:staat listVersionID="staat2">
+                            <code>3</code>
+                            <name>LandB</name>
+                          </xwas:staat>
+                        </xwas:nation>
+                      </xwas:verwaltungspolitischeZustaendigkeit>
+                      <xwas:anschrift id="anschrift22">
+                        <xwas:strassenschluessel>
+                          <code>7890</code>
+                        </xwas:strassenschluessel>
+                        <xwas:strasse>Marktstraße</xwas:strasse>
+                        <xwas:hausnummer>42</xwas:hausnummer>
+                        <xwas:postfach>7890</xwas:postfach>
+                        <xwas:postleitzahl>5678</xwas:postleitzahl>
+                        <xwas:ort>Neustadt</xwas:ort>
+                        <xwas:wohnungsgeber>Stadtverwaltung</xwas:wohnungsgeber>
+                        <xwas:zusatz>Im Zentrum</xwas:zusatz>
+                        <xwas:typ>
+                          <code>5678</code>
+                          <name>Hauptamt</name>
+                        </xwas:typ>
+                        <xwas:staat>
+                          <xwas:staat listVersionID="">
+                            <code>3456</code>
+                            <name>LandB</name>
+                          </xwas:staat>
+                        </xwas:staat>
+                        <xwas:verwaltungspolitischeKodierung>
+                          <xwas:kreis listVersionID="">
+                            <code>7890</code>
+                            <name>Kreis Neustadt</name>
+                          </xwas:kreis>
+                          <xwas:bezirk listVersionID="bezirk4">
+                            <code>4567</code>
+                            <name>Bezirk Nord</name>
+                          </xwas:bezirk>
+                          <xwas:bundesland>
+                            <code>4</code>
+                            <name>BundeslandB</name>
+                          </xwas:bundesland>
+                          <xwas:gemeindeschluessel listVersionID="">
+                            <code>8901</code>
+                            <name>Neustadt</name>
+                            </xwas:gemeindeschluessel>
+                          <xwas:regionalschluessel listVersionID="">
+                            <code>3456</code>
+                            <name>Region Nord</name>
+                          </xwas:regionalschluessel>
+                          <xwas:nation>
+                            <xwas:staat listVersionID="">
+                              <code>12346</code>
+                              <name>LandB</name>
+                            </xwas:staat>
+                          </xwas:nation>
+                        </xwas:verwaltungspolitischeKodierung>
+                      </xwas:anschrift>
+                      <xwas:organisationsstruktur>
+                        <xwas:name>Einheit für Ordnungsaufgaben</xwas:name>
+                        <xwas:hierarchieebene>3</xwas:hierarchieebene>
+                        <xwas:hierarchiename>Dritte Hierarchie</xwas:hierarchiename>
+                      </xwas:organisationsstruktur>
+                    </xwas:nachgeordneteBehoerde>
+                    <xwas:nachgeordneteBehoerde>
+                        <xwas:id>ID6b18h183-6f17-548f-9555-1286h7dcg078</xwas:id>
+                        <xwas:typ>
+                          <code>5678</code>
+                        </xwas:typ>
+                        <xwas:zusatz>Weitere Informationen zur Behörde</xwas:zusatz>
+                        <xwas:behoerdenkennung>
+                          <xwas:kennung listURI="ID6b18h183-6f17-548f-9555-1286h7dcg078" listVersionID="ID6b18h183-6f17-548f-9555-1286h7dcg078">
+                            <code>5678</code>
+                          </xwas:kennung>
+                          <xwas:praefix listVersionID="praefix2">
+                            <code>5678</code>
+                          </xwas:praefix>
+                        </xwas:behoerdenkennung>
+                        <xwas:kommunikation>
+                          <xwas:kanal>
+                            <code>5678</code>
+                          </xwas:kanal>
+                          <xwas:kennung>1</xwas:kennung>
+                          <xwas:istDienstlich>true</xwas:istDienstlich>
+                          <xwas:zusatz>Zusatz für die Kommunikation</xwas:zusatz>
+                        </xwas:kommunikation>
+                        <xwas:behoerdenidentifikation>
+                          <xwas:beschreibung>Eine andere Behörde</xwas:beschreibung>
+                          <xwas:gueltigkeit>
+                            <xwas:beginn>2024-08-06+05:00</xwas:beginn>
+                            <xwas:ende>2024-08-06+05:00</xwas:ende>
+                            <xwas:zusatz>Ein anderer Zusatz</xwas:zusatz>
+                          </xwas:gueltigkeit>
+                        </xwas:behoerdenidentifikation>
+                        <xwas:behoerdenname>
+                          <xwas:name>Behörde für andere Vorgänge</xwas:name>
+                          <xwas:kurzbezeichnung>Eine andere Kurzbezeichnung</xwas:kurzbezeichnung>
+                          <xwas:gueltigkeit>
+                            <xwas:beginn>2024-08-06+05:00</xwas:beginn>
+                            <xwas:ende>2024-08-06+05:00</xwas:ende>
+                            <xwas:zusatz>Ein anderer Zusatz</xwas:zusatz>
+                          </xwas:gueltigkeit>
+                        </xwas:behoerdenname>
+                        <xwas:nachgeordneteBehoerde>
+                          <xwas:id>ID7f19h284-5f27-549e-9455-2386h7dcf083</xwas:id>
+                          <xwas:typ>
+                            <code>VH</code>
+                            <name>Verheiratet</name>
+                          </xwas:typ>
+                          <xwas:zusatz>Gemeinde Oberstadt</xwas:zusatz>
+                          <xwas:behoerdenkennung>
+                            <xwas:kennung listURI="" listVersionID="">
+                              <code>6789</code>
+                              <name>Behoerde Oberstadt</name>
+                            </xwas:kennung>
+                            <xwas:praefix listVersionID="praefix2">
+                              <code>6789</code>
+                              <name>von</name>
+                            </xwas:praefix>
+                          </xwas:behoerdenkennung>
+                          <xwas:kommunikation>
+                            <xwas:kanal>
+                              <code>6789</code>
+                              <name>Email</name>
+                            </xwas:kanal>
+                            <xwas:kennung>3</xwas:kennung>
+                            <xwas:istDienstlich>true</xwas:istDienstlich>
+                            <xwas:zusatz>Email für offizielle Anfragen</xwas:zusatz>
+                          </xwas:kommunikation>
+                          <xwas:behoerdenidentifikation>
+                            <xwas:beschreibung>Verwaltungsamt</xwas:beschreibung>
+                            <xwas:gueltigkeit>
+                              <xwas:beginn>2024-09-01+05:00</xwas:beginn>
+                              <xwas:ende>2024-09-01+05:00</xwas:ende>
+                              <xwas:zusatz>Regelmäßig</xwas:zusatz>
+                            </xwas:gueltigkeit>
+                          </xwas:behoerdenidentifikation>
+                          <xwas:behoerdenname>
+                            <xwas:name>Verwaltungsamt der Gemeinde Oberstadt</xwas:name>
+                            <xwas:kurzbezeichnung>VGO</xwas:kurzbezeichnung>
+                            <xwas:gueltigkeit>
+                              <xwas:beginn>2024-09-01+05:00</xwas:beginn>
+                              <xwas:ende>2024-09-01+05:00</xwas:ende>
+                              <xwas:zusatz>Seit Einführung</xwas:zusatz>
+                            </xwas:gueltigkeit>
+                          </xwas:behoerdenname>
+                          <xwas:verwaltungspolitischeZustaendigkeit>
+                            <xwas:bezirk listVersionID="bezirk2">
+                              <code>9999</code>
+                              <name>Reg.-Bez. Oberstadt</name>
+                            </xwas:bezirk>
+                            <xwas:bundesland>
+                              <code>2</code>
+                            </xwas:bundesland>
+                            <xwas:gemeindeschluessel listVersionID="gemeindeschluessel2">
+                              <code>4444</code>
+                              <name>Gemeinde Oberstadt</name>
+                            </xwas:gemeindeschluessel>
+                            <xwas:nation>
+                              <xwas:staat listVersionID="staat2">
+                                <code>4</code>
+                                <name>LandC</name>
+                              </xwas:staat>
+                            </xwas:nation>
+                          </xwas:verwaltungspolitischeZustaendigkeit>
+                          <xwas:anschrift id="anschrift23">
+                            <xwas:strassenschluessel>
+                              <code>8901</code>
+                            </xwas:strassenschluessel>
+                            <xwas:strasse>Bahnhofstraße</xwas:strasse>
+                            <xwas:hausnummer>11</xwas:hausnummer>
+                            <xwas:postfach>8901</xwas:postfach>
+                            <xwas:postleitzahl>6789</xwas:postleitzahl>
+                            <xwas:ort>Oberstadt</xwas:ort>
+                            <xwas:wohnungsgeber>Stadtverwaltung</xwas:wohnungsgeber>
+                            <xwas:zusatz>In der Nähe des Bahnhofs</xwas:zusatz>
+                            <xwas:typ>
+                              <code>6789</code>
+                              <name>Verwaltungsamt</name>
+                            </xwas:typ>
+                            <xwas:staat>
+                              <xwas:staat listVersionID="">
+                                <code>4567</code>
+                                <name>LandC</name>
+                              </xwas:staat>
+                            </xwas:staat>
+                            <xwas:verwaltungspolitischeKodierung>
+                              <xwas:kreis listVersionID="">
+                                <code>8901</code>
+                                <name>Kreis Oberstadt</name>
+                              </xwas:kreis>
+                              <xwas:bezirk listVersionID="bezirk4">
+                                <code>5678</code>
+                                <name>Bezirk Süd</name>
+                              </xwas:bezirk>
+                              <xwas:bundesland>
+                                <code>5</code>
+                                <name>BundeslandC</name>
+                              </xwas:bundesland>
+                              <xwas:gemeindeschluessel listVersionID="">
+                                <code>6789</code>
+                                <name>Oberstadt</name>
+                              </xwas:gemeindeschluessel>
+                              <xwas:regionalschluessel listVersionID="">
+                                <code>4567</code>
+                                <name>Region Süd</name>
+                              </xwas:regionalschluessel>
+                              <xwas:nation>
+                                <xwas:staat listVersionID="">
+                                  <code>56789</code>
+                                  <name>LandC</name>
+                                </xwas:staat>
+                              </xwas:nation>
+                            </xwas:verwaltungspolitischeKodierung>
+                          </xwas:anschrift>
+                          <xwas:organisationsstruktur>
+                            <xwas:name>Abteilung für Verwaltung</xwas:name>
+                            <xwas:hierarchieebene>4</xwas:hierarchieebene>
+                            <xwas:hierarchiename>Vierte Hierarchie</xwas:hierarchiename>
+                          </xwas:organisationsstruktur>
+                        </xwas:nachgeordneteBehoerde>
+                    </xwas:nachgeordneteBehoerde>
+                    <xwas:anschrift id="anschrift77">
+                    <xwas:strassenschluessel>
+                      <code>5678</code>
+                    </xwas:strassenschluessel>
+                    <xwas:strasse>Hauptstraße</xwas:strasse>
+                    <xwas:hausnummer>15</xwas:hausnummer>
+                    <xwas:postfach>67890</xwas:postfach>
+                    <xwas:postleitzahl>10101</xwas:postleitzahl>
+                    <xwas:ort>Neustadt</xwas:ort>
+                    <xwas:ortsteil>Altstadt</xwas:ortsteil>
+                    <xwas:ortFruehererGemeindename>Neuendorf</xwas:ortFruehererGemeindename>
+                    <xwas:wohnungsgeber>Gemeindeverwaltung</xwas:wohnungsgeber>
+                    <xwas:zusatz>Direkt am Marktplatz</xwas:zusatz>
+                    <xwas:typ>
+                      <code>5678</code>
+                    </xwas:typ>
+                    <xwas:staat>
+                      <xwas:staat listVersionID="">
+                        <code>5678</code>
+                        <name>LandX</name>
+                      </xwas:staat>
+                    </xwas:staat>
+                    <xwas:verwaltungspolitischeKodierung>
+                      <xwas:kreis listVersionID="">
+                        <code>2222</code>
+                        <name>Kreis Neustadt</name>
+                      </xwas:kreis>
+                      <xwas:bezirk listVersionID="">
+                        <code>2345</code>
+                        <name>Bezirk Mitte</name>
+                      </xwas:bezirk>
+                      <xwas:bundesland>
+                        <code>3</code>
+                        <name>BundeslandX</name>
+                      </xwas:bundesland>
+                      <xwas:gemeindeschluessel listVersionID="">
+                        <code>5678</code>
+                        <name>Neustadt</name>
+                      </xwas:gemeindeschluessel>
+                      <xwas:regionalschluessel listVersionID="">
+                        <code>3456</code>
+                        <name>Region Mitte</name>
+                      </xwas:regionalschluessel>
+                      <xwas:nation>
+                        <xwas:staat listVersionID="">
+                          <code>7890</code>
+                          <name>LandX</name>
+                        </xwas:staat>
+                      </xwas:nation>
+                    </xwas:verwaltungspolitischeKodierung>
+                  </xwas:anschrift>
+                  <xwas:organisationsstruktur>
+                    <xwas:name>Wasserprobeneinheit</xwas:name>
+                    <xwas:hierarchieebene>2</xwas:hierarchieebene>
+                    <xwas:hierarchiename>Zweiter Hierarchie</xwas:hierarchiename>
+                  </xwas:organisationsstruktur>
+                </xwas:ausstellendeBehoerde>
               </xwas:ausweisdokument>
               <xwas:anschrift id="anschrift7">
                 <xwas:strassenschluessel>
@@ -1949,7 +2317,441 @@
                 <code>1234</code>
                 <name>Standarduntersuchung</name>
               </xwas:zweck>
-              <xwas:unterorganisation></xwas:unterorganisation>
+              <xwas:unterorganisation>
+                  <xwas:rechtsform listVersionID="">
+                    <code>GmbH</code>
+                    <name>Gesellschaft mit beschränkter Haftung (GmbH)</name>
+                  </xwas:rechtsform>
+                  <xwas:branche>
+                    <code>5678</code>
+                    <name>Lebensmittel</name>
+                  </xwas:branche>
+                  <xwas:zweck>
+                    <code>5678</code>
+                    <name>Qualitätskontrolle</name>
+                  </xwas:zweck>
+                  <xwas:unterorganisation>
+                        <xwas:rechtsform listVersionID="">
+                          <code>AG</code>
+                          <name>Aktiengesellschaft (AG)</name>
+                        </xwas:rechtsform>
+                        <xwas:branche>
+                          <code>1234</code>
+                          <name>Technologie</name>
+                        </xwas:branche>
+                        <xwas:zweck>
+                          <code>1234</code>
+                          <name>Forschung und Entwicklung</name>
+                        </xwas:zweck>
+                        <xwas:unterorganisation></xwas:unterorganisation>
+                        <xwas:kommunikation>
+                          <xwas:kanal>
+                            <code>1234</code>
+                            <name>Email</name>
+                          </xwas:kanal>
+                          <xwas:kennung>1</xwas:kennung>
+                          <xwas:istDienstlich>false</xwas:istDienstlich>
+                          <xwas:zusatz>Allgemeine Anfragen</xwas:zusatz>
+                        </xwas:kommunikation>
+                        <xwas:registrierung>
+                          <xwas:id>1234</xwas:id>
+                          <xwas:registrierendeBehoerde>
+                            <xwas:id>handelsregister1</xwas:id>
+                            <xwas:typ>
+                              <code></code>
+                              <name></name>
+                            </xwas:typ>
+                            <xwas:zusatz>Industrie- und Handelskammer</xwas:zusatz>
+                            <xwas:behoerdenkennung>
+                              <xwas:kennung listURI="" listVersionID="">
+                                <code>1234</code>
+                                <name>Handelsregister</name>
+                              </xwas:kennung>
+                              <xwas:praefix listVersionID="praefix1">
+                                <code>1234</code>
+                                <name>Nr.</name>
+                              </xwas:praefix>
+                            </xwas:behoerdenkennung>
+                            <xwas:kommunikation>
+                              <xwas:kanal>
+                                <code>1234</code>
+                                <name>Fax</name>
+                              </xwas:kanal>
+                              <xwas:kennung>1</xwas:kennung>
+                              <xwas:istDienstlich>true</xwas:istDienstlich>
+                              <xwas:zusatz>Behördliche Kommunikation</xwas:zusatz>
+                            </xwas:kommunikation>
+                            <xwas:behoerdenidentifikation>
+                              <xwas:beschreibung>
+                                Gewerbeamt
+                              </xwas:beschreibung>
+                              <xwas:gueltigkeit>
+                                <xwas:beginn>2024-09-01+05:00</xwas:beginn>
+                                <xwas:ende>2024-09-01+05:00</xwas:ende>
+                                <xwas:zusatz>Einmalig</xwas:zusatz>
+                              </xwas:gueltigkeit>
+                            </xwas:behoerdenidentifikation>
+                            <xwas:behoerdenname>
+                              <xwas:name>Gewerbeamt der Stadt Techstadt</xwas:name>
+                              <xwas:kurzbezeichnung>GdT</xwas:kurzbezeichnung>
+                              <xwas:gueltigkeit>
+                                <xwas:beginn>2024-09-01+05:00</xwas:beginn>
+                                <xwas:ende>2024-09-01+05:00</xwas:ende>
+                                <xwas:zusatz>Aktuell</xwas:zusatz>
+                              </xwas:gueltigkeit>
+                            </xwas:behoerdenname>
+                            <xwas:verwaltungspolitischeZustaendigkeit>
+                              <xwas:bezirk listVersionID="bezirk4">
+                                <code>8888</code>
+                                <name>Reg.-Bez. Techstadt</name>
+                              </xwas:bezirk>
+                              <xwas:bundesland>
+                                <code>4</code>
+                                <name>Technoland</name>
+                              </xwas:bundesland>
+                              <xwas:gemeindeschluessel listVersionID="gemeindeschluessel4">
+                                <code>9999</code>
+                                <name>Gemeinde Techstadt</name>
+                              </xwas:gemeindeschluessel>
+                              <xwas:nation>
+                                <xwas:staat listVersionID="staat4">
+                                  <code>4</code>
+                                  <name>Technoland</name>
+                                </xwas:staat>
+                              </xwas:nation>
+                            </xwas:verwaltungspolitischeZustaendigkeit>
+                            <xwas:anschrift id="anschrift123">
+                              <xwas:strassenschluessel>
+                                <code>1234</code>
+                              </xwas:strassenschluessel>
+                              <xwas:strasse>Technologieallee</xwas:strasse>
+                              <xwas:hausnummer>12</xwas:hausnummer>
+                              <xwas:postfach>12345</xwas:postfach>
+                              <xwas:postleitzahl>90001</xwas:postleitzahl>
+                              <xwas:ort>Techstadt</xwas:ort>
+                              <xwas:ortsteil>Industriepark</xwas:ortsteil>
+                              <xwas:ortFruehererGemeindename>Technodorf</xwas:ortFruehererGemeindename>
+                              <xwas:wohnungsgeber>Techstadt Verwaltung</xwas:wohnungsgeber>
+                              <xwas:zusatz>Innovationszentrum</xwas:zusatz>
+                              <xwas:typ>
+                                <code>1234</code>
+                                <name>Forschungslabor</name>
+                              </xwas:typ>
+                              <xwas:staat>
+                                <xwas:staat listVersionID="">
+                                  <code>1234</code>
+                                  <name>Technoland</name>
+                                </xwas:staat>
+                              </xwas:staat>
+                              <xwas:verwaltungspolitischeKodierung>
+                                <xwas:kreis listVersionID="">
+                                  <code>3333</code>
+                                  <name>Kreis Techstadt</name>
+                                </xwas:kreis>
+                                <xwas:bezirk listVersionID="bezirk5">
+                                  <code>4567</code>
+                                  <name>Bezirk Nord</name>
+                                </xwas:bezirk>
+                                <xwas:bundesland>
+                                  <code>4</code>
+                                  <name>Technoland</name>
+                                </xwas:bundesland>
+                                <xwas:gemeindeschluessel listVersionID="">
+                                  <code>1234</code>
+                                  <name>Techstadt</name>
+                                </xwas:gemeindeschluessel>
+                                <xwas:regionalschluessel listVersionID="">
+                                  <code>5678</code>
+                                  <name>Region Nord</name>
+                                </xwas:regionalschluessel>
+                                <xwas:nation>
+                                  <xwas:staat listVersionID="">
+                                    <code>1234</code>
+                                    <name>Technoland</name>
+                                  </xwas:staat>
+                                </xwas:nation>
+                              </xwas:verwaltungspolitischeKodierung>
+                            </xwas:anschrift>
+                          </xwas:registrierendeBehoerde>
+                          <xwas:gueltigkeit>
+                            <xwas:beginn>2024-09-01+05:00</xwas:beginn>
+                            <xwas:ende>2024-09-01+10:00</xwas:ende>
+                            <xwas:zusatz>Für diesen Zeitraum ist eine zusätzliche Genehmigung erforderlich.</xwas:zusatz>
+                          </xwas:gueltigkeit>
+                        </xwas:registrierung>
+                        <xwas:identifikation>
+                          <xwas:id>1234</xwas:id>
+                          <xwas:beschreibung>Beschreibung des Technologieprojekts</xwas:beschreibung>
+                          <xwas:gueltigkeit>
+                            <xwas:beginn>2024-09-01+05:00</xwas:beginn>
+                            <xwas:ende>2024-09-01+10:00</xwas:ende>
+                            <xwas:zusatz>Identifikation nur für den genannten Zeitraum</xwas:zusatz>
+                          </xwas:gueltigkeit>
+                        </xwas:identifikation>
+                        <xwas:existenzzeitraum>
+                          <xwas:beginn>2024-09-01+08:00</xwas:beginn>
+                          <xwas:ende>2024-09-02+01:00</xwas:ende>
+                          <xwas:zusatz>Geplante Tests und Erhebungen</xwas:zusatz>
+                        </xwas:existenzzeitraum>
+                        <xwas:anschrift id="anschrift789">
+                        <xwas:strassenschluessel>
+                          <code>9876</code>
+                        </xwas:strassenschluessel>
+                        <xwas:strasse>Parkstraße</xwas:strasse>
+                        <xwas:hausnummer>12</xwas:hausnummer>
+                        <xwas:postfach>98765</xwas:postfach>
+                        <xwas:postleitzahl>90909</xwas:postleitzahl>
+                        <xwas:ort>Grünstadt</xwas:ort>
+                        <xwas:ortsteil>Parkviertel</xwas:ortsteil>
+                        <xwas:ortFruehererGemeindename>Grünbach</xwas:ortFruehererGemeindename>
+                        <xwas:wohnungsgeber>Stadtverwaltung Grünstadt</xwas:wohnungsgeber>
+                        <xwas:zusatz>Nahe dem Stadtpark</xwas:zusatz>
+                        <xwas:typ>
+                          <code>9876</code>
+                          <name>Filiale</name>
+                        </xwas:typ>
+                        <xwas:staat>
+                          <xwas:staat listVersionID="">
+                            <code>9876</code>
+                            <name>Grünland</name>
+                          </xwas:staat>
+                        </xwas:staat>
+                        <xwas:verwaltungspolitischeKodierung>
+                          <xwas:kreis listVersionID="">
+                            <code>3333</code>
+                            <name>Kreis Grünstadt</name>
+                          </xwas:kreis>
+                          <xwas:bezirk listVersionID="bezirk5">
+                            <code>4567</code>
+                            <name>Bezirk West</name>
+                          </xwas:bezirk>
+                          <xwas:bundesland>
+                            <code>4</code>
+                            <name>Grünland</name>
+                          </xwas:bundesland>
+                          <xwas:gemeindeschluessel listVersionID="">
+                            <code>8765</code>
+                            <name>Grünstadt</name>
+                          </xwas:gemeindeschluessel>
+                          <xwas:regionalschluessel listVersionID="">
+                            <code>5678</code>
+                            <name>Region West</name>
+                          </xwas:regionalschluessel>
+                          <xwas:nation>
+                            <xwas:staat listVersionID="">
+                              <code>8901</code>
+                              <name>Grünland</name>
+                            </xwas:staat>
+                          </xwas:nation>
+                        </xwas:verwaltungspolitischeKodierung>
+                      </xwas:anschrift>
+                  </xwas:unterorganisation>
+                  <xwas:kommunikation>
+                    <xwas:kanal>
+                      <code>5678</code>
+                      <name>Telefon</name>
+                    </xwas:kanal>
+                    <xwas:kennung>2</xwas:kennung>
+                    <xwas:istDienstlich>true</xwas:istDienstlich>
+                    <xwas:zusatz>Geschäftliche Kommunikation</xwas:zusatz>
+                  </xwas:kommunikation>
+                  <xwas:registrierung>
+                    <xwas:id>5678</xwas:id>
+                    <xwas:registrierendeBehoerde>
+                      <xwas:id>amtsgericht3</xwas:id>
+                      <xwas:typ>
+                        <code></code>
+                        <name></name>
+                      </xwas:typ>
+                      <xwas:zusatz>Stadtverwaltung Altdorf</xwas:zusatz>
+                      <xwas:behoerdenkennung>
+                        <xwas:kennung listURI="" listVersionID="">
+                          <code>5678</code>
+                          <name>Behörde Altdorf</name>
+                        </xwas:kennung>
+                        <xwas:praefix listVersionID="praefix2">
+                          <code>5678</code>
+                          <name>zu</name>
+                        </xwas:praefix>
+                      </xwas:behoerdenkennung>
+                      <xwas:kommunikation>
+                        <xwas:kanal>
+                          <code>5678</code>
+                          <name>Telefon</name>
+                        </xwas:kanal>
+                        <xwas:kennung>2</xwas:kennung>
+                        <xwas:istDienstlich>true</xwas:istDienstlich>
+                        <xwas:zusatz>Geschäftliche Kommunikation</xwas:zusatz>
+                      </xwas:kommunikation>
+                      <xwas:behoerdenidentifikation>
+                        <xwas:beschreibung>
+                          Ordnungsamt
+                        </xwas:beschreibung>
+                        <xwas:gueltigkeit>
+                          <xwas:beginn>2024-08-01+05:00</xwas:beginn>
+                          <xwas:ende>2024-08-01+05:00</xwas:ende>
+                          <xwas:zusatz>Einmalig</xwas:zusatz>
+                        </xwas:gueltigkeit>
+                      </xwas:behoerdenidentifikation>
+                      <xwas:behoerdenname>
+                        <xwas:name>Ordnungsamt der Stadt Altdorf</xwas:name>
+                        <xwas:kurzbezeichnung>OdSA</xwas:kurzbezeichnung>
+                        <xwas:gueltigkeit>
+                          <xwas:beginn>2024-08-01+05:00</xwas:beginn>
+                          <xwas:ende>2024-08-01+05:00</xwas:ende>
+                          <xwas:zusatz>Aktuell</xwas:zusatz>
+                        </xwas:gueltigkeit>
+                      </xwas:behoerdenname>
+                      <xwas:verwaltungspolitischeZustaendigkeit>
+                        <xwas:bezirk listVersionID="bezirk3">
+                          <code>7777</code>
+                          <name>Reg.-Bez. Altdorf</name>
+                        </xwas:bezirk>
+                        <xwas:bundesland>
+                          <code>2</code>
+                        </xwas:bundesland>
+                        <xwas:gemeindeschluessel listVersionID="gemeindeschluessel3">
+                          <code>8888</code>
+                          <name>Gemeine Altdorf</name>
+                        </xwas:gemeindeschluessel>
+                        <xwas:nation>
+                          <xwas:staat listVersionID="staat3">
+                            <code>3</code>
+                            <name>Bundland</name>
+                          </xwas:staat>
+                        </xwas:nation>
+                      </xwas:verwaltungspolitischeZustaendigkeit>
+                      <xwas:anschrift id="anschrift6">
+                        <xwas:strassenschluessel>
+                          <code>5678</code>
+                        </xwas:strassenschluessel>
+                        <xwas:strasse>Hauptstraße</xwas:strasse>
+                        <xwas:hausnummer>5</xwas:hausnummer>
+                        <xwas:postfach>56789</xwas:postfach>
+                        <xwas:postleitzahl>80808</xwas:postleitzahl>
+                        <xwas:ort>Altdorf</xwas:ort>
+                        <xwas:ortsteil>Innenstadt</xwas:ortsteil>
+                        <xwas:ortFruehererGemeindename>Altgemeinde</xwas:ortFruehererGemeindename>
+                        <xwas:wohnungsgeber>Gemeindeverwaltung</xwas:wohnungsgeber>
+                        <xwas:zusatz>Im Herzen der Stadt</xwas:zusatz>
+                        <xwas:typ>
+                          <code>5678</code>
+                          <name>Hauptsitz</name>
+                        </xwas:typ>
+                        <xwas:staat>
+                          <xwas:staat listVersionID="">
+                            <code>5678</code>
+                            <name>Bundland</name>
+                          </xwas:staat>
+                        </xwas:staat>
+                        <xwas:verwaltungspolitischeKodierung>
+                          <xwas:kreis listVersionID="">
+                            <code>2222</code>
+                            <name>Kreis Altdorf</name>
+                          </xwas:kreis>
+                          <xwas:bezirk listVersionID="bezirk4">
+                            <code>2345</code>
+                            <name>Bezirk Süd</name>
+                          </xwas:bezirk>
+                          <xwas:bundesland>
+                            <code>3</code>
+                            <name>Bundland</name>
+                          </xwas:bundesland>
+                          <xwas:gemeindeschluessel listVersionID="">
+                            <code>5678</code>
+                            <name>Altdorf</name>
+                          </xwas:gemeindeschluessel>
+                          <xwas:regionalschluessel listVersionID="">
+                            <code>3456</code>
+                            <name>Region Süd</name>
+                          </xwas:regionalschluessel>
+                          <xwas:nation>
+                            <xwas:staat listVersionID="">
+                              <code>7890</code>
+                              <name>Bundland</name>
+                            </xwas:staat>
+                          </xwas:nation>
+                        </xwas:verwaltungspolitischeKodierung>
+                      </xwas:anschrift>
+                      <xwas:organisationsstruktur>
+                        <xwas:name>Qualitätssicherungseinheit</xwas:name>
+                        <xwas:hierarchieebene>3</xwas:hierarchieebene>
+                        <xwas:hierarchiename>Dritte Hierarchie</xwas:hierarchiename>
+                      </xwas:organisationsstruktur>
+                    </xwas:registrierendeBehoerde>
+                    <xwas:gueltigkeit>
+                      <xwas:beginn>2024-08-01+05:00</xwas:beginn>
+                      <xwas:ende>2024-08-01+10:00</xwas:ende>
+                      <xwas:zusatz>Für diesen Zeitraum ist eine besondere Erlaubnis erforderlich.</xwas:zusatz>
+                    </xwas:gueltigkeit>
+                  </xwas:registrierung>
+                  <xwas:identifikation>
+                    <xwas:id>5678</xwas:id>
+                    <xwas:beschreibung>Beschreibung des Tätigkeitsbereichs</xwas:beschreibung>
+                    <xwas:gueltigkeit>
+                      <xwas:beginn>2024-08-01+05:00</xwas:beginn>
+                      <xwas:ende>2024-08-01+10:00</xwas:ende>
+                      <xwas:zusatz>Identifikation nur für den genannten Zeitraum</xwas:zusatz>
+                    </xwas:gueltigkeit>
+                  </xwas:identifikation>
+                  <xwas:existenzzeitraum>
+                    <xwas:beginn>2024-08-15+08:00</xwas:beginn>
+                    <xwas:ende>2024-08-16+01:00</xwas:ende>
+                    <xwas:zusatz>Während dieses Zeitraums finden Wartungsarbeiten statt.</xwas:zusatz>
+                  </xwas:existenzzeitraum>
+                  <xwas:anschrift id="anschrift111">
+                    <xwas:strassenschluessel>
+                      <code>5678</code>
+                    </xwas:strassenschluessel>
+                    <xwas:strasse>Hauptstraße</xwas:strasse>
+                    <xwas:hausnummer>10</xwas:hausnummer>
+                    <xwas:postfach>67890</xwas:postfach>
+                    <xwas:postleitzahl>80808</xwas:postleitzahl>
+                    <xwas:ort>Berlin</xwas:ort>
+                    <xwas:ortsteil>Kreuzberg</xwas:ortsteil>
+                    <xwas:ortFruehererGemeindename>Altesdorf</xwas:ortFruehererGemeindename>
+                    <xwas:wohnungsgeber>Berliner Wohnen</xwas:wohnungsgeber>
+                    <xwas:zusatz>Bürogebäude B</xwas:zusatz>
+                    <xwas:typ>
+                      <code>5678</code>
+                      <name>Hauptsitz</name>
+                    </xwas:typ>
+                    <xwas:staat>
+                      <xwas:staat listVersionID="">
+                        <code>5678</code>
+                        <name>Deutschland</name>
+                      </xwas:staat>
+                    </xwas:staat>
+                    <xwas:verwaltungspolitischeKodierung>
+                      <xwas:kreis listVersionID="">
+                        <code>2222</code>
+                        <name>Kreis Berlin</name>
+                      </xwas:kreis>
+                      <xwas:bezirk listVersionID="bezirk3">
+                        <code>3456</code>
+                        <name>Bezirk Mitte</name>
+                      </xwas:bezirk>
+                      <xwas:bundesland>
+                        <code>2</code>
+                        <name>Berlin</name>
+                      </xwas:bundesland>
+                      <xwas:gemeindeschluessel listVersionID="">
+                        <code>5678</code>
+                        <name>Berlin</name>
+                      </xwas:gemeindeschluessel>
+                      <xwas:regionalschluessel listVersionID="">
+                        <code>6789</code>
+                        <name>Region Nord</name>
+                      </xwas:regionalschluessel>
+                      <xwas:nation>
+                        <xwas:staat listVersionID="">
+                          <code>7890</code>
+                          <name>Deutschland</name>
+                        </xwas:staat>
+                      </xwas:nation>
+                    </xwas:verwaltungspolitischeKodierung>
+                  </xwas:anschrift>
+              </xwas:unterorganisation>
               <xwas:kommunikation>
                 <xwas:kanal>
                   <code>1234</code>
@@ -2296,7 +3098,222 @@
               <code>1234</code>
               <name>Standarduntersuchung</name>
             </xwas:zweck>
-            <xwas:unterorganisation></xwas:unterorganisation>
+            <xwas:unterorganisation>
+              <xwas:rechtsform listVersionID="">
+                <code>AG</code>
+                <name>Aktiengesellschaft (AG)</name>
+              </xwas:rechtsform>
+              <xwas:branche>
+                <code>1234</code>
+                <name>Technologie</name>
+              </xwas:branche>
+              <xwas:zweck>
+                <code>8765</code>
+                <name>Forschung und Entwicklung</name>
+              </xwas:zweck>
+              <xwas:unterorganisation></xwas:unterorganisation>
+              <xwas:kommunikation>
+                <xwas:kanal>
+                  <code>1234</code>
+                  <name>Email</name>
+                </xwas:kanal>
+                <xwas:kennung>3</xwas:kennung>
+                <xwas:istDienstlich>false</xwas:istDienstlich>
+                <xwas:zusatz>Private Kommunikation</xwas:zusatz>
+              </xwas:kommunikation>
+              <xwas:registrierung>
+                <xwas:id>1234</xwas:id>
+                <xwas:registrierendeBehoerde>
+                  <xwas:id>amtsgericht4</xwas:id>
+                  <xwas:typ>
+                    <code></code>
+                    <name></name>
+                  </xwas:typ>
+                  <xwas:zusatz>Stadtverwaltung Neumünster</xwas:zusatz>
+                  <xwas:behoerdenkennung>
+                    <xwas:kennung listURI="" listVersionID="">
+                      <code>1234</code>
+                      <name>Behörde Neumünster</name>
+                    </xwas:kennung>
+                    <xwas:praefix listVersionID="praefix3">
+                      <code>1234</code>
+                      <name>von</name>
+                    </xwas:praefix>
+                  </xwas:behoerdenkennung>
+                  <xwas:kommunikation>
+                    <xwas:kanal>
+                      <code>1234</code>
+                      <name>Fax</name>
+                    </xwas:kanal>
+                    <xwas:kennung>1</xwas:kennung>
+                    <xwas:istDienstlich>true</xwas:istDienstlich>
+                    <xwas:zusatz>Offizielle Korrespondenz</xwas:zusatz>
+                  </xwas:kommunikation>
+                  <xwas:behoerdenidentifikation>
+                    <xwas:beschreibung>
+                      Wirtschaftsamt
+                    </xwas:beschreibung>
+                    <xwas:gueltigkeit>
+                      <xwas:beginn>2024-09-01+05:00</xwas:beginn>
+                      <xwas:ende>2024-09-01+05:00</xwas:ende>
+                      <xwas:zusatz>Einmalig</xwas:zusatz>
+                    </xwas:gueltigkeit>
+                  </xwas:behoerdenidentifikation>
+                  <xwas:behoerdenname>
+                    <xwas:name>Wirtschaftsamt der Stadt Neumünster</xwas:name>
+                    <xwas:kurzbezeichnung>WiNe</xwas:kurzbezeichnung>
+                    <xwas:gueltigkeit>
+                      <xwas:beginn>2024-09-01+05:00</xwas:beginn>
+                      <xwas:ende>2024-09-01+05:00</xwas:ende>
+                      <xwas:zusatz>Aktuell</xwas:zusatz>
+                    </xwas:gueltigkeit>
+                  </xwas:behoerdenname>
+                  <xwas:verwaltungspolitischeZustaendigkeit>
+                    <xwas:bezirk listVersionID="bezirk7">
+                      <code>8888</code>
+                      <name>Reg.-Bez. Neumünster</name>
+                    </xwas:bezirk>
+                    <xwas:bundesland>
+                      <code>4</code>
+                      <name>Neumünsterland</name>
+                    </xwas:bundesland>
+                    <xwas:gemeindeschluessel listVersionID="gemeindeschluessel4">
+                      <code>9999</code>
+                      <name>Neumünster</name>
+                    </xwas:gemeindeschluessel>
+                    <xwas:nation>
+                      <xwas:staat listVersionID="staat4">
+                        <code>4567</code>
+                        <name>Neumünsterland</name>
+                      </xwas:staat>
+                    </xwas:nation>
+                  </xwas:verwaltungspolitischeZustaendigkeit>
+                  <xwas:anschrift id="anschrift1235">
+                    <xwas:strassenschluessel>
+                      <code>1234</code>
+                    </xwas:strassenschluessel>
+                    <xwas:strasse>Industriestraße</xwas:strasse>
+                    <xwas:hausnummer>12</xwas:hausnummer>
+                    <xwas:postfach>67890</xwas:postfach>
+                    <xwas:postleitzahl>90909</xwas:postleitzahl>
+                    <xwas:ort>Neumünster</xwas:ort>
+                    <xwas:ortsteil>Gewerbepark</xwas:ortsteil>
+                    <xwas:ortFruehererGemeindename>Neutal</xwas:ortFruehererGemeindename>
+                    <xwas:wohnungsgeber>Neumünster Verwaltung</xwas:wohnungsgeber>
+                    <xwas:zusatz>Im Gewerbegebiet</xwas:zusatz>
+                    <xwas:typ>
+                      <code>1234</code>
+                      <name>Filiale</name>
+                    </xwas:typ>
+                    <xwas:staat>
+                      <xwas:staat listVersionID="">
+                        <code>1234</code>
+                        <name>Neumünsterland</name>
+                      </xwas:staat>
+                    </xwas:staat>
+                    <xwas:verwaltungspolitischeKodierung>
+                      <xwas:kreis listVersionID="">
+                        <code>3333</code>
+                        <name>Kreis Neumünster</name>
+                      </xwas:kreis>
+                      <xwas:bezirk listVersionID="bezirk8">
+                        <code>4567</code>
+                        <name>Bezirk Nord</name>
+                      </xwas:bezirk>
+                      <xwas:bundesland>
+                        <code>4</code>
+                        <name>Neumünsterland</name>
+                      </xwas:bundesland>
+                      <xwas:gemeindeschluessel listVersionID="">
+                        <code>6789</code>
+                        <name>Neumünster</name>
+                      </xwas:gemeindeschluessel>
+                      <xwas:regionalschluessel listVersionID="">
+                        <code>8901</code>
+                        <name>Region Nord</name>
+                      </xwas:regionalschluessel>
+                      <xwas:nation>
+                        <xwas:staat listVersionID="">
+                          <code>2345</code>
+                          <name>Neumünsterland</name>
+                        </xwas:staat>
+                      </xwas:nation>
+                    </xwas:verwaltungspolitischeKodierung>
+                  </xwas:anschrift>
+                </xwas:registrierendeBehoerde>
+                <xwas:gueltigkeit>
+                  <xwas:beginn>2024-09-01+05:00</xwas:beginn>
+                  <xwas:ende>2024-09-01+10:00</xwas:ende>
+                  <xwas:zusatz>Erforderliche Genehmigung für diesen Zeitraum</xwas:zusatz>
+                </xwas:gueltigkeit>
+              </xwas:registrierung>
+              <xwas:identifikation>
+                <xwas:id>1234</xwas:id>
+                <xwas:beschreibung>Beschreibung der Forschungsabteilung</xwas:beschreibung>
+                <xwas:gueltigkeit>
+                  <xwas:beginn>2024-09-01+05:00</xwas:beginn>
+                  <xwas:ende>2024-09-01+10:00</xwas:ende>
+                  <xwas:zusatz>Gültig für den angegebenen Zeitraum</xwas:zusatz>
+                </xwas:gueltigkeit>
+              </xwas:identifikation>
+              <xwas:existenzzeitraum>
+                <xwas:beginn>2024-09-10+08:00</xwas:beginn>
+                <xwas:ende>2024-09-12+01:00</xwas:ende>
+                <xwas:zusatz>Wartungs- und Umstellungsarbeiten</xwas:zusatz>
+              </xwas:existenzzeitraum>
+              <xwas:anschrift id="anschrift1234">
+                <xwas:strassenschluessel>
+                  <code>4321</code>
+                </xwas:strassenschluessel>
+                <xwas:strasse>Wiesenweg</xwas:strasse>
+                <xwas:hausnummer>24</xwas:hausnummer>
+                <xwas:postfach>54321</xwas:postfach>
+                <xwas:postleitzahl>67676</xwas:postleitzahl>
+                <xwas:ort>Rosenstadt</xwas:ort>
+                <xwas:ortsteil>Blumenviertel</xwas:ortsteil>
+                <xwas:ortFruehererGemeindename>Rosental</xwas:ortFruehererGemeindename>
+                <xwas:wohnungsgeber>Rosenstadt Verwaltung</xwas:wohnungsgeber>
+                <xwas:zusatz>Am Rand des Rosenparks</xwas:zusatz>
+                <xwas:typ>
+                  <code>4321</code>
+                  <name>Niederlassung</name>
+                </xwas:typ>
+                <xwas:staat>
+                  <xwas:staat listVersionID="">
+                    <code>4321</code>
+                    <name>Rosien</name>
+                  </xwas:staat>
+                </xwas:staat>
+                <xwas:verwaltungspolitischeKodierung>
+                  <xwas:kreis listVersionID="">
+                    <code>4444</code>
+                    <name>Kreis Rosenstadt</name>
+                  </xwas:kreis>
+                  <xwas:bezirk listVersionID="bezirk6">
+                    <code>5678</code>
+                    <name>Bezirk Ost</name>
+                  </xwas:bezirk>
+                  <xwas:bundesland>
+                    <code>5</code>
+                    <name>Rosien</name>
+                  </xwas:bundesland>
+                  <xwas:gemeindeschluessel listVersionID="">
+                    <code>6789</code>
+                    <name>Rosenstadt</name>
+                  </xwas:gemeindeschluessel>
+                  <xwas:regionalschluessel listVersionID="">
+                    <code>7890</code>
+                    <name>Region Ost</name>
+                  </xwas:regionalschluessel>
+                  <xwas:nation>
+                    <xwas:staat listVersionID="">
+                      <code>9012</code>
+                      <name>Rosien</name>
+                    </xwas:staat>
+                  </xwas:nation>
+                </xwas:verwaltungspolitischeKodierung>
+              </xwas:anschrift>
+            </xwas:unterorganisation>
             <xwas:kommunikation>
               <xwas:kanal>
                 <code>1234</code>
@@ -2372,7 +3389,7 @@
                       </xwas:staat>
                     </xwas:nation>
                   </xwas:verwaltungspolitischeZustaendigkeit>
-                  <xwas:anschrift id="anschrift6">
+                  <xwas:anschrift id="anschrift66">
                     <xwas:strassenschluessel>
                       <code>1234</code>
                     </xwas:strassenschluessel>
