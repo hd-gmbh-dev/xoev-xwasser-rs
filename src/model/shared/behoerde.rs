@@ -113,30 +113,30 @@ pub struct BehoerdeType {
     pub zusatz: Option<String>,
     #[xml(ns = b"xwas", name = b"behoerdenkennung", ty = "child")]
     pub behoerdenkennung: Option<BehoerdenkennungType>,
-    // #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
-    // #[serde(default)]
-    // pub kommunikation: Vec<KommunikationType>,
-    // #[xml(ns = b"xwas", name = b"behoerdenidentifikation", ty = "child")]
-    // pub behoerdenidentifikation: Option<IdentifikationType>,
-    // #[xml(ns = b"xwas", name = b"behoerdenname", ty = "child")]
-    // #[serde(default)]
-    // pub behoerdenname: Vec<NameOrganisationType>,
-    // #[xml(ns = b"xwas", name = b"nachgeordneteBehoerde", ty = "child")]
-    // #[serde(default)]
-    // pub nachgeordnete_behoerde: Vec<BehoerdeType>,
-    // #[xml(
-    //     ns = b"xwas",
-    //     name = b"verwaltungspolitischeZustaendigkeit",
-    //     ty = "child"
-    // )]
-    // #[serde(default)]
-    // pub verwaltungspolitische_zustaendigkeit: Vec<VerwaltungspolitischeKodierungType>,
-    // #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
-    // #[serde(default)]
-    // pub anschrift: Vec<AnschriftType>,
-    // #[xml(ns = b"xwas", name = b"organisationsstruktur", ty = "child")]
-    // #[serde(default)]
-    // pub organisationsstruktur: Vec<OrganisationseinheitType>,
+    #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
+    #[serde(default)]
+    pub kommunikation: Vec<KommunikationType>,
+    #[xml(ns = b"xwas", name = b"behoerdenidentifikation", ty = "child")]
+    pub behoerdenidentifikation: Option<IdentifikationType>,
+    #[xml(ns = b"xwas", name = b"behoerdenname", ty = "child")]
+    #[serde(default)]
+    pub behoerdenname: Vec<NameOrganisationType>,
+    #[xml(ns = b"xwas", name = b"nachgeordneteBehoerde", ty = "child")]
+    #[serde(default)]
+    pub nachgeordnete_behoerde: Vec<BehoerdeType>,
+    #[xml(
+        ns = b"xwas",
+        name = b"verwaltungspolitischeZustaendigkeit",
+        ty = "child"
+    )]
+    #[serde(default)]
+    pub verwaltungspolitische_zustaendigkeit: Vec<VerwaltungspolitischeKodierungType>,
+    #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
+    #[serde(default)]
+    pub anschrift: Vec<AnschriftType>,
+    #[xml(ns = b"xwas", name = b"organisationsstruktur", ty = "child")]
+    #[serde(default)]
+    pub organisationsstruktur: Vec<OrganisationseinheitType>,
 }
 
 /// Die Komponente "VerwaltungspolitischeKodierung" beinhaltet Information, die eine

@@ -418,13 +418,11 @@
                     <xwas:zusatz>Austausch über Email</xwas:zusatz>
                   </xwas:kommunikation>
                   <xwas:behoerdenidentifikation>
-                    <xwas:beschreibung>
-                      Gesundheitsamt
-                    </xwas:beschreibung>
+                    <xwas:beschreibung>Hauptsitz des Landgerichts Neustadt</xwas:beschreibung>
                     <xwas:gueltigkeit>
-                      <xwas:beginn>2024-07-26+05:00</xwas:beginn>
-                      <xwas:ende>2024-07-26+05:00</xwas:ende>
-                      <xwas:zusatz>Ein</xwas:zusatz>
+                      <xwas:beginn>2024-09-01+01:00</xwas:beginn>
+                      <xwas:ende>2024-09-01+01:00</xwas:ende>
+                      <xwas:zusatz>Gültig für das laufende Jahr</xwas:zusatz>
                     </xwas:gueltigkeit>
                   </xwas:behoerdenidentifikation>
                   <xwas:behoerdenname>
@@ -622,9 +620,7 @@
                       <xwas:zusatz>Offizielle Kommunikation</xwas:zusatz>
                     </xwas:kommunikation>
                     <xwas:behoerdenidentifikation>
-                      <xwas:beschreibung>
-                        Hauptsitz des Landgerichts Neustadt
-                      </xwas:beschreibung>
+                      <xwas:beschreibung>Hauptsitz des Landgerichts Neustadt</xwas:beschreibung>
                       <xwas:gueltigkeit>
                         <xwas:beginn>2024-09-01+01:00</xwas:beginn>
                         <xwas:ende>2024-09-01+01:00</xwas:ende>
@@ -717,6 +713,11 @@
                       </xwas:verwaltungspolitischeKodierung>
                     </xwas:anschrift>
                 </xwas:ausstellendeBehoerde>
+                <xwas:ausstellenderStaat>
+                  <xwas:staat listVersionID="1">
+                    <code>1</code>
+                  </xwas:staat>
+                </xwas:ausstellenderStaat>
               </xwas:ausweisdokument>
               <xwas:anschrift id="anschrift3">
                 <xwas:strassenschluessel>
@@ -1013,9 +1014,7 @@
                     <xwas:zusatz>Austausch über Email</xwas:zusatz>
                   </xwas:kommunikation>
                   <xwas:behoerdenidentifikation>
-                    <xwas:beschreibung>
-                      Gesundheitsamt
-                    </xwas:beschreibung>
+                    <xwas:beschreibung>Gesundheitsamt</xwas:beschreibung>
                     <xwas:gueltigkeit>
                       <xwas:beginn>2024-07-26+05:00</xwas:beginn>
                       <xwas:ende>2024-07-26+05:00</xwas:ende>
@@ -1190,9 +1189,6 @@
                     <xwas:zusatz>Zusatzinformation fuer die Gueltigkeit</xwas:zusatz>
                   </xwas:gueltigkeit>
                 </xwas:ausweisID>
-                <!-- <xwas:ausstellendeBehoerde>
-                  todo
-                </xwas:ausstellendeBehoerde> -->
               </xwas:ausweisdokument>
               <xwas:anschrift id="anschrift44">
                 <xwas:strassenschluessel>
@@ -1489,9 +1485,7 @@
                     <xwas:zusatz>Erreichbar während Bürozeiten</xwas:zusatz>
                   </xwas:kommunikation>
                   <xwas:behoerdenidentifikation>
-                    <xwas:beschreibung>
-                      Bürgeramt
-                    </xwas:beschreibung>
+                    <xwas:beschreibung>Bürgeramt</xwas:beschreibung>
                     <xwas:gueltigkeit>
                       <xwas:beginn>2024-08-01+05:00</xwas:beginn>
                       <xwas:ende>2024-08-01+05:00</xwas:ende>
@@ -1638,15 +1632,15 @@
                 </xwas:staatsangehoerigkeit>
               </xwas:staatsangehoerigkeit>
               <xwas:ausweisdokument>
-            <xwas:ausweisart listVersionID="ID9f09e973-3b07-438d-9444-2678g9d3b060">
+              <xwas:ausweisart listVersionID="ID9f09e973-3b07-438d-9444-2678g9d3b060">
               <code>6789</code>
-            </xwas:ausweisart>
-            <xwas:gueltigkeit>
+              </xwas:ausweisart>
+              <xwas:gueltigkeit>
               <xwas:beginn>2024-08-01+05:00</xwas:beginn>
               <xwas:ende>2024-08-01+10:00</xwas:ende>
               <xwas:zusatz>Zusatzinformation zur Gültigkeit</xwas:zusatz>
-            </xwas:gueltigkeit>
-            <xwas:ausweisID>
+              </xwas:gueltigkeit>
+              <xwas:ausweisID>
               <xwas:id>ID9f09e973-3b07-438d-9555-2678g9d3b060</xwas:id>
               <xwas:beschreibung>Beschreibung zur AusweisID</xwas:beschreibung>
               <xwas:gueltigkeit>
@@ -1654,8 +1648,8 @@
                 <xwas:ende>2024-08-01+10:00</xwas:ende>
                 <xwas:zusatz>Zusatzinformation zur Gültigkeit</xwas:zusatz>
               </xwas:gueltigkeit>
-            </xwas:ausweisID>
-            <xwas:ausstellendeBehoerde>
+              </xwas:ausweisID>
+              <xwas:ausstellendeBehoerde>
               <xwas:id>ID8f07d083-6e18-549e-9555-3486h8dcf074</xwas:id>
               <xwas:typ>
                 <code>5678</code>
@@ -1807,13 +1801,13 @@
                   </xwas:verwaltungspolitischeKodierung>
                 </xwas:anschrift>
               </xwas:nachgeordneteBehoerde>
-            </xwas:ausstellendeBehoerde>
-            <xwas:ausstellenderStaat>
+              </xwas:ausstellendeBehoerde>
+              <xwas:ausstellenderStaat>
               <xwas:staat listVersionID="1">
                 <code>1234</code>
                 <name>StaatX</name>
               </xwas:staat>
-            </xwas:ausstellenderStaat>
+              </xwas:ausstellenderStaat>
               </xwas:ausweisdokument>
               <xwas:anschrift id="anschrift2901">
                 <xwas:strassenschluessel>
@@ -1881,8 +1875,8 @@
                 <xwas:ende>2025-09-01+10:00</xwas:ende>
                 <xwas:zusatz>Gültig für alle Projektmanagement-Dokumente</xwas:zusatz>
               </xwas:gueltigkeit>
-            </xwas:identifikationsnummer>
-            <xwas:kommunikation>
+              </xwas:identifikationsnummer>
+              <xwas:kommunikation>
               <xwas:kanal>
                 <code>5678</code>
                 <name>Telefon</name>
@@ -1890,30 +1884,30 @@
               <xwas:kennung>2</xwas:kennung>
               <xwas:istDienstlich>false</xwas:istDienstlich>
               <xwas:zusatz>Für private Anfragen</xwas:zusatz>
-            </xwas:kommunikation>
-            <xwas:muttersprache>
+              </xwas:kommunikation>
+              <xwas:muttersprache>
               <xwas:sprache listVersionID="1">
                 <code>es</code>
               </xwas:sprache>
-            </xwas:muttersprache>
-            <xwas:fremdsprache>
+              </xwas:muttersprache>
+              <xwas:fremdsprache>
               <xwas:sprache listVersionID="1">
                 <code>fr</code>
               </xwas:sprache>
-            </xwas:fremdsprache>
-            <xwas:fremdsprache>
+              </xwas:fremdsprache>
+              <xwas:fremdsprache>
               <xwas:sprache listVersionID="1">
                 <code>en</code>
               </xwas:sprache>
-            </xwas:fremdsprache>
-            <xwas:vertreterBevollmaechtigter>
+              </xwas:fremdsprache>
+              <xwas:vertreterBevollmaechtigter>
               <xwas:vertreterBevollmaechtigterID>
                 Bevollmächtigter2
               </xwas:vertreterBevollmaechtigterID>
               <xwas:artVertreter>
                 <code>1</code>
               </xwas:artVertreter>
-            </xwas:vertreterBevollmaechtigter>
+              </xwas:vertreterBevollmaechtigter>
             </xwas:natuerlichePerson>
           </xwas:probennehmer>
         </xwas:probennehmer>
@@ -2173,9 +2167,7 @@
                     <xwas:zusatz>Zusatz für die Kommunikation</xwas:zusatz>
                   </xwas:kommunikation>
                   <xwas:behoerdenidentifikation>
-                    <xwas:beschreibung>
-                      Eine tolle Behörde
-                    </xwas:beschreibung>
+                    <xwas:beschreibung>Eine tolle Behörde</xwas:beschreibung>
                     <xwas:gueltigkeit>
                       <xwas:beginn>2024-07-26+05:00</xwas:beginn>
                       <xwas:ende>2024-07-26+05:00</xwas:ende>
@@ -2218,9 +2210,7 @@
                     <xwas:zusatz>Anruf über Festnetz</xwas:zusatz>
                   </xwas:kommunikation>
                   <xwas:behoerdenidentifikation>
-                    <xwas:beschreibung>
-                      Ordnungsamt
-                    </xwas:beschreibung>
+                    <xwas:beschreibung>Ordnungsamt</xwas:beschreibung>
                     <xwas:gueltigkeit>
                       <xwas:beginn>2024-08-01+05:00</xwas:beginn>
                       <xwas:ende>2024-08-01+05:00</xwas:ende>
@@ -2338,9 +2328,7 @@
                         <xwas:zusatz>Nachricht über Fax</xwas:zusatz>
                       </xwas:kommunikation>
                       <xwas:behoerdenidentifikation>
-                        <xwas:beschreibung>
-                          Umweltamt
-                        </xwas:beschreibung>
+                        <xwas:beschreibung>Umweltamt</xwas:beschreibung>
                         <xwas:gueltigkeit>
                           <xwas:beginn>2024-08-10+05:00</xwas:beginn>
                           <xwas:ende>2024-08-10+05:00</xwas:ende>
@@ -3137,9 +3125,7 @@
                                       <xwas:zusatz>Offizielle Mitteilungen</xwas:zusatz>
                                     </xwas:kommunikation>
                                     <xwas:behoerdenidentifikation>
-                                      <xwas:beschreibung>
-                                        Registrierungsbehörde für Finanzdienstleister
-                                      </xwas:beschreibung>
+                                      <xwas:beschreibung>Registrierungsbehörde für Finanzdienstleister</xwas:beschreibung>
                                       <xwas:gueltigkeit>
                                         <xwas:beginn>2024-11-01+05:00</xwas:beginn>
                                         <xwas:ende>2024-11-01+05:00</xwas:ende>
@@ -3340,9 +3326,7 @@
                               <xwas:zusatz>Behördliche Kommunikation</xwas:zusatz>
                             </xwas:kommunikation>
                             <xwas:behoerdenidentifikation>
-                              <xwas:beschreibung>
-                                Gewerbeamt
-                              </xwas:beschreibung>
+                              <xwas:beschreibung>Gewerbeamt</xwas:beschreibung>
                               <xwas:gueltigkeit>
                                 <xwas:beginn>2024-09-01+05:00</xwas:beginn>
                                 <xwas:ende>2024-09-01+05:00</xwas:ende>
@@ -3542,9 +3526,7 @@
                         <xwas:zusatz>Geschäftliche Kommunikation</xwas:zusatz>
                       </xwas:kommunikation>
                       <xwas:behoerdenidentifikation>
-                        <xwas:beschreibung>
-                          Ordnungsamt
-                        </xwas:beschreibung>
+                        <xwas:beschreibung>Ordnungsamt</xwas:beschreibung>
                         <xwas:gueltigkeit>
                           <xwas:beginn>2024-08-01+05:00</xwas:beginn>
                           <xwas:ende>2024-08-01+05:00</xwas:ende>
@@ -3748,9 +3730,7 @@
                     <xwas:zusatz>Austausch über Email</xwas:zusatz>
                   </xwas:kommunikation>
                   <xwas:behoerdenidentifikation>
-                    <xwas:beschreibung>
-                      Gesundheitsamt
-                    </xwas:beschreibung>
+                    <xwas:beschreibung>Gesundheitsamt</xwas:beschreibung>
                     <xwas:gueltigkeit>
                       <xwas:beginn>2024-07-26+05:00</xwas:beginn>
                       <xwas:ende>2024-07-26+05:00</xwas:ende>
@@ -4123,9 +4103,7 @@
                         <xwas:zusatz>Offizielle Korrespondenz</xwas:zusatz>
                       </xwas:kommunikation>
                       <xwas:behoerdenidentifikation>
-                        <xwas:beschreibung>
-                          Verwaltungsbehörde für Unternehmensregistrierungen
-                        </xwas:beschreibung>
+                        <xwas:beschreibung>Verwaltungsbehörde für Unternehmensregistrierungen</xwas:beschreibung>
                         <xwas:gueltigkeit>
                           <xwas:beginn>2024-09-01+02:00</xwas:beginn>
                           <xwas:ende>2024-09-01+02:00</xwas:ende>
@@ -4330,9 +4308,7 @@
                     <xwas:zusatz>Offizielle Korrespondenz</xwas:zusatz>
                   </xwas:kommunikation>
                   <xwas:behoerdenidentifikation>
-                    <xwas:beschreibung>
-                      Wirtschaftsamt
-                    </xwas:beschreibung>
+                    <xwas:beschreibung>Wirtschaftsamt</xwas:beschreibung>
                     <xwas:gueltigkeit>
                       <xwas:beginn>2024-09-01+05:00</xwas:beginn>
                       <xwas:ende>2024-09-01+05:00</xwas:ende>
@@ -4532,9 +4508,7 @@
                     <xwas:zusatz>Austausch über Email</xwas:zusatz>
                   </xwas:kommunikation>
                   <xwas:behoerdenidentifikation>
-                    <xwas:beschreibung>
-                      Gesundheitsamt
-                    </xwas:beschreibung>
+                    <xwas:beschreibung>Gesundheitsamt</xwas:beschreibung>
                     <xwas:gueltigkeit>
                       <xwas:beginn>2024-07-26+05:00</xwas:beginn>
                       <xwas:ende>2024-07-26+05:00</xwas:ende>
@@ -4770,8 +4744,7 @@
           <xwas:gruppe>
             <xwas:name>
             </xwas:name>
-            <xwas:beschreibung>
-            </xwas:beschreibung>
+            <xwas:beschreibung>Hier stehet eine Beschreibung</xwas:beschreibung>
           </xwas:gruppe>
           <xwas:xml>
           </xwas:xml>

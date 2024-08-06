@@ -204,8 +204,8 @@ pub struct AusweisdokumentType {
     #[xml(ns = b"xwas", name = b"ausweisID", ty = "child")]
     pub ausweis_id: Option<IdentifikationType>,
     // TODO: check BehoerdeType
-    // #[xml(ns = b"xwas", name = b"ausstellendeBehoerde", ty = "child")]
-    // pub ausstellende_behoerde: Option<BehoerdeType>,
+    #[xml(ns = b"xwas", name = b"ausstellendeBehoerde", ty = "child")]
+    pub ausstellende_behoerde: Option<BehoerdeType>,
     #[xml(ns = b"xwas", name = b"ausstellenderStaat", ty = "child")]
     pub ausstellender_staat: Option<StaatType>,
 }
