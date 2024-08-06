@@ -137,21 +137,21 @@ pub struct GeburtType {
     pub geburtsort: Option<AnschriftType>,
 }
 
-/// Dieser Datentyp erlaubt die Angabe von Doktorgraden. Es sind nur diejenigen
-/// Doktorgrade anzugeben, die in Pässe eingetragen werden dürfen. Sind mehrere
-/// Doktorgrade anzugeben, so sind sie durch ein Leerzeichen zu trennen. Zulässig sind
-/// derzeit: „DR.“, „Dr.“, „DR.HC.“, „Dr.hc.“, „Dr.EH.“ und „Dr.eh.“.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
-#[cfg_attr(feature = "wasm", derive(Tsify))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
-))]
-pub struct DoktorgradType {
-    // hier gibt es eine striction mit max length 120, wie umsetzen ?
-    #[xml(ns = b"xwas", name = b"bezeichnung", ty = "child")]
-    pub bezeichnung: String,
-}
+// /// Dieser Datentyp erlaubt die Angabe von Doktorgraden. Es sind nur diejenigen
+// /// Doktorgrade anzugeben, die in Pässe eingetragen werden dürfen. Sind mehrere
+// /// Doktorgrade anzugeben, so sind sie durch ein Leerzeichen zu trennen. Zulässig sind
+// /// derzeit: „DR.“, „Dr.“, „DR.HC.“, „Dr.hc.“, „Dr.EH.“ und „Dr.eh.“.
+// #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+// #[cfg_attr(feature = "wasm", derive(Tsify))]
+// #[xml(tns(
+//     b"xwas",
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+// ))]
+// pub struct DoktorgradType {
+//     // hier gibt es eine striction mit max length 120, wie umsetzen ?
+//     #[xml(ns = b"xwas", name = b"bezeichnung", ty = "child")]
+//     pub bezeichnung: String,
+// }
 
 /// Mit diesem Datentyp wird ein gesetzlicher Vertreter oder ein Bevollmächtigter einer
 /// nichtnatürlichen Person abgebildet.
@@ -277,7 +277,7 @@ pub struct NatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"geburt", ty = "child")]
     pub geburt: Option<GeburtType>,
     #[xml(ns = b"xwas", name = b"doktorgrad", ty = "child")]
-    pub doktorgrad: Option<DoktorgradType>,
+    pub doktorgrad: Option<String>,
     #[xml(ns = b"xwas", name = b"staatsangehoerigkeit", ty = "child")]
     pub staatsangehoerigkeit: Vec<StaatsangehoerigkeitType>,
     #[xml(ns = b"xwas", name = b"ausweisdokument", ty = "child")]
