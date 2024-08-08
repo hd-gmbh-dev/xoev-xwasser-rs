@@ -12,15 +12,15 @@
       <verzeichnisdienst listVersionID="">
         <code></code>
       </verzeichnisdienst>
-      <kennung>psw:11113110</kennung>
-      <name>Reader</name>
+      <kennung>psw:01003110</kennung>
+      <name>Author</name>
     </leser>
     <autor>
       <verzeichnisdienst listVersionID="">
         <code></code>
       </verzeichnisdienst>
-      <kennung>psw:01003110</kennung>
-      <name>Author</name>
+      <kennung>psw:11113110</kennung>
+      <name>Reader</name>
     </autor>
     <referenzUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</referenzUUID>
     <dvdvDienstkennung>s</dvdvDienstkennung>

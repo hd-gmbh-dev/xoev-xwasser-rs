@@ -17,8 +17,8 @@
           "code": ""
         }
       },
-      "kennung": "psw:11113110",
-      "name": "Reader"
+      "kennung": "psw:01003110",
+      "name": "Author"
     },
     "autor": {
       "verzeichnisdienst": {
@@ -26,8 +26,8 @@
           "code": ""
         }
       },
-      "kennung": "psw:01003110",
-      "name": "Author"
+      "kennung": "psw:11113110",
+      "name": "Reader"
     },
     "referenz_uuid": "693c64d6-456f-4d14-abe7-fe9681c74aae",
     "dvdv_dienstkennung": "s"
