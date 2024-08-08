@@ -1,7 +1,7 @@
 
 // /// Klasse für den Transport von Informationen, die für die Erstellung eines
 // /// Untersuchungsplans für a- und b-Anlagen relevant sind.
-// #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+// #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
@@ -85,7 +85,7 @@
 
 // /// Klasse für den Transport von Informationen, die für die Erstellung von Terminplänen
 // /// als Teil des Untersuchungsplans für a- und b-Anlagen relevant sind.
-// #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+// #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
@@ -131,7 +131,7 @@
 
 // /// Klasse für den Transport von Informationen, die für Vorfälle gem. den neuen Vorgaben
 // /// für das EU-Berichtsformat benötigt werden.
-// #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+// #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
@@ -165,7 +165,7 @@
 
 // /// Transport der Informationen, die für Qualität und Überwachung gem. dem neuen Vorgaben
 // /// für das EU-Berichtsformat benötigt werden.
-// #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+// #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
@@ -200,7 +200,7 @@
 
 // /// Transport solcher Informationen, die für die Ausnahmeregelungen gem. den neuen
 // /// Vorgaben für das EU-Berichtsformat benötigt werden.
-// #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+// #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
@@ -252,7 +252,7 @@
 
 // /// Klasse für den Transport von Informationen, die für Ursachen und Maßnahmen von
 // /// Überschreitungen gem. den neuen Vorgaben für das EU-Berichtsformat benötigt werden.
-// #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+// #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
@@ -286,7 +286,7 @@
 
 // /// Klasse für den Transport von Informationen, die für Überschreitungen gem. den neuen
 // /// Vorgaben für das EU-Berichtsformat benötigt werden.
-// #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+// #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
@@ -329,7 +329,7 @@
 // /// Klasse für den Transport von Informationen, die zur Beschreibung von Ursache und
 // /// Maßnahmen von Vorfällen gem. den neuen Vorgaben für das EU-Berichtsformat benötigt
 // /// werden.
-// #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+// #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
@@ -356,7 +356,7 @@
 
 // /// Klasse für den Transport von Informationen zu einem Wasserversorgungsgebiet [Soweit
 // /// möglich in Register zu pflegen].
-// #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+// #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
@@ -429,7 +429,7 @@
 // }
 
 // /// Klasse für den Transport von Informationen zu einer Trinkwasserversorgungsanlage.
-// #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+// #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",

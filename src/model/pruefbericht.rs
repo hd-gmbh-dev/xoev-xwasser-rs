@@ -17,7 +17,7 @@ use super::shared::unterssuchungsstelle::BeauftragteUntersuchungsstelleType;
 
 /// Klasse zur Erfassung bzw. zum Transport der Daten eines Prüfberichts. Prüfberichte
 /// werden erstellt, nachdem eine Wasserprobe im Labor analysiert wurde.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
