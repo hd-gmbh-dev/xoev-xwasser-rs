@@ -23,9 +23,9 @@ pub struct NachrichtenkopfG2g {
     #[xml(name = b"identifikation.nachricht", ty = "child")]
     pub identifikation_nachricht: IdentifikationNachricht,
     #[xml(name = b"leser", ty = "child")]
-    pub leser: Leser,
+    pub leser: BehoerdeG2GType,
     #[xml(name = b"autor", ty = "child")]
-    pub autor: Autor,
+    pub autor: BehoerdeG2GType,
     #[xml(name = b"referenzUUID", ty = "child")]
     pub referenz_uuid: Option<String>,
     #[xml(default, name = b"dvdvDienstkennung", ty = "child")]
@@ -63,7 +63,7 @@ pub struct NachrichtenTyp {
 
 #[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-pub struct Autor {
+pub struct BehoerdeG2GType {
     #[xml(name = b"verzeichnisdienst", ty = "child")]
     pub verzeichnisdienst: Verzeichnisdienst,
     #[xml(name = b"kennung", ty = "child")]
@@ -80,19 +80,6 @@ pub struct Verzeichnisdienst {
     pub _list_version_id: ConstStr,
     #[xml(name = b"code", ty = "child")]
     pub code: Code,
-}
-
-#[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
-#[cfg_attr(feature = "wasm", derive(Tsify))]
-pub struct Leser {
-    #[xml(name = b"verzeichnisdienst", ty = "child")]
-    pub verzeichnisdienst: Verzeichnisdienst,
-    #[xml(name = b"kennung", ty = "child")]
-    pub kennung: String,
-    #[xml(name = b"name", ty = "child")]
-    pub name: String,
-    // #[xml(name = b"erreichbarkeit", ty = "child")]
-    // pub erreichbarkeit: Erreichbarkeit,
 }
 
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
