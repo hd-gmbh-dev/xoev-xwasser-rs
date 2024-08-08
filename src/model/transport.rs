@@ -26,8 +26,8 @@ pub struct NachrichtenkopfG2g {
     pub leser: Leser,
     #[xml(name = b"autor", ty = "child")]
     pub autor: Autor,
-    #[xml(default, name = b"referenzUUID", ty = "child")]
-    pub referenz_uuid: String,
+    #[xml(name = b"referenzUUID", ty = "child")]
+    pub referenz_uuid: Option<String>,
     #[xml(default, name = b"dvdvDienstkennung", ty = "child")]
     pub dvdv_dienstkennung: String, //DvdvDienstkennung,
 }
