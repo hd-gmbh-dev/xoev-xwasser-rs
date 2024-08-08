@@ -10,7 +10,7 @@ use crate::model::codes::CodeKommunikationType;
 
 /// "Kommunikation" fasst Angaben zur Erreichbarkeit über elektronische
 /// Kommunikationskanäle (z.B. Telefon, Fax, E-Mail) zusammen.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",

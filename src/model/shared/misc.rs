@@ -12,7 +12,7 @@ use super::zeitraum::ZeitraumType;
 
 /// Unter "Identifikation" werden die Informationen zusammengefasst, die die eindeutige
 /// Identifikation von Objekten in einem fachlichen Kontext erlauben.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct IdentifikationType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
@@ -30,7 +30,7 @@ pub struct IdentifikationType {
 /// Metadaten zu spezifizieren. Es können beliebige XML-Schemata mit unterschiedlichen
 /// Namensräumen angegeben werden. Die XML-Schema-Validierung der weiterführenden
 /// Metadaten erfolgt innerhalb der XWasser-Nachricht selbst (prozessContents = "lax").
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -45,7 +45,7 @@ pub struct ErweiterungXmlType {
 
 /// Ein Feld ist ein anwendungsspezifisches Metadatum. Die Konfiguration eines Feldes
 /// muss zwischen den Kommunikationspartnern abgesprochen sein.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -63,7 +63,7 @@ pub struct ErweiterungFeldType {
 }
 
 /// Eine Erweiterungsgruppe fasst mehrere Felder (Metadaten) zu einem Objekt zusammen .
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -89,7 +89,7 @@ pub struct ErweiterungGruppeType {
 /// Zwischen Sender und Empfänger wird bilateral die Übermittlung einer strukturierten
 /// Information vereinbart, die sich mit den vorhandenen Klassen und Elemente nicht
 /// abbilden lässt.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -107,7 +107,7 @@ pub struct ErweiterungType {
 }
 
 /// Klasse zur Abbildung von SHAPTH-spezifischen Geokoordinaten.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct GeokoordinatenShapthType {
     #[xml(

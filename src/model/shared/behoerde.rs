@@ -21,7 +21,7 @@ use super::{
 
 /// Klasse für den Transport von Informationen zu einer Zuständigen Behörde [Ergänzende
 /// Angaben zu einer im Register Behörden gepflegte Behörde].
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -83,7 +83,7 @@ pub struct ZustaendigeBehoerdeType {
 /// auf kommunaler Ebene anhand des amtlichen Gemeindeschlüssels (AGS) der Gemeinde, für
 /// die die Behörde zuständig ist, lautet der Präfix "ags:", die Kennung ist dann der AGS
 /// der jeweiligen Gemeinde.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -102,7 +102,7 @@ pub struct BehoerdenkennungType {
 /// Verwaltungsträger berechtigt ist, mit Außenwirkung Aufgaben öffentlichen Handelns
 /// (insbes. der Erlass von Verwaltungsakten und das Schließen öffentlich-rechtlicher
 /// Verträge) wahrzunehmen.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -145,7 +145,7 @@ pub struct BehoerdeType {
 
 /// Die Komponente "VerwaltungspolitischeKodierung" beinhaltet Information, die eine
 /// verwaltungspolitisch eindeutige Zuordnung ermöglichen.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",

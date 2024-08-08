@@ -14,7 +14,7 @@ pub fn xoev_xwasser_code(attr: TokenStream, item: TokenStream) -> TokenStream {
     let name = ast.ident;
     if let Some(version) = iter.next() {
         quote! {
-            #[derive(Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
+            #[derive(Clone, Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
             #[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
             #[xml(tns(
                 b"xwas",
@@ -45,7 +45,7 @@ pub fn xoev_xwasser_code(attr: TokenStream, item: TokenStream) -> TokenStream {
         }
     } else {
         quote! {
-            #[derive(Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
+            #[derive(Clone, Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
             #[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
             #[xml(tns(
                 b"xwas",

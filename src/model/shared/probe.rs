@@ -22,7 +22,7 @@ use super::{
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
 #[allow(clippy::large_enum_variant)]
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[xml(tns(b"xwas", b"xwasser"))]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[serde(tag = "t", content = "c")]
@@ -42,7 +42,7 @@ pub enum Probennehmer {
 
 /// Klasse für den Transport von Informationen zu einem Probennehmer [Durch das Labor mit
 /// dem Prüfbericht mit zu übermittelnde Informationen].
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -62,7 +62,7 @@ pub struct ProbennehmerType {
 }
 
 /// Klasse für den Transport von Informationen zu einer Probennahmestelle.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -105,7 +105,7 @@ pub struct ProbennahmestelleType {
 
 /// Klasse zum Transport von Informationen, welche über eine Probe vorliegen sollen, die
 /// im Rahmen eines Prüfberichts via SHAPTH übermittelt wird.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -193,7 +193,7 @@ pub struct ProbeType {
     pub id: String,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",

@@ -21,7 +21,7 @@ impl FromStr for ConstStr {
     }
 }
 
-// #[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+// #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
@@ -42,7 +42,7 @@ impl FromStr for ConstStr {
 //     list_version_id: String,
 // }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -59,7 +59,7 @@ pub struct CodeBehoerdenkennungType {
     pub list_version_id: String,
 }
 
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
