@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xwas:administration.quittung.0020 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0 ../schemas/V0_5_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.2.1">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aaf</nachrichtenUUID>
+      <nachrichtentyp listURI="urn:xoev-de:xwasser:codeliste:nachrichtentyp" listVersionID="1">
+        <code>0010</code>
+      </nachrichtentyp>
+      <erstellungszeitpunkt>2024-05-28T09:00:00</erstellungszeitpunkt>
+    </identifikation.nachricht>
+    <leser>
+      <verzeichnisdienst listVersionID="">
+        <code></code>
+      </verzeichnisdienst>
+      <kennung>psw:01003110</kennung>
+      <name>Author</name>
+    </leser>
+    <autor>
+      <verzeichnisdienst listVersionID="">
+        <code></code>
+      </verzeichnisdienst>
+      <kennung>psw:11113110</kennung>
+      <name>Reader</name>
+    </autor>
+    <referenzUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</referenzUUID>
+    <dvdvDienstkennung>s</dvdvDienstkennung>
+  </nachrichtenkopf.g2g>
+  <xwas:identifikationVorgang>
+    <xwas:vorgangsID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:vorgangsID>
+  </xwas:identifikationVorgang>
+  <xwas:quittung>
+    <xwas:aktuellerStatusTechnisch listURI="urn:xoev-de:xewaffe:codeliste:statustechnisch" listVersionID="1">
+      <code>200</code>
+    </xwas:aktuellerStatusTechnisch>
+  </xwas:quittung>
+</xwas:administration.quittung.0020>
