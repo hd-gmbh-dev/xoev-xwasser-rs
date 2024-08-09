@@ -14,6 +14,10 @@ use super::zeitraum::ZeitraumType;
 /// Identifikation von Objekten in einem fachlichen Kontext erlauben.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+))]
 pub struct IdentifikationType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
     pub id: Option<String>,

@@ -13,12 +13,7 @@ use crate::model::codes::{
 };
 
 use super::{
-    anschrift::AnschriftType,
-    kommunikation::KommunikationType,
-    misc::IdentifikationType,
-    sprache::SpracheType,
-    staat::{StaatType, StaatsangehoerigkeitType},
-    zeitraum::ZeitraumType, // AnschriftType, AuskunftssperreType, DoktorgradType, GeburtType, NameNatuerlichePersonType, VertreterBevollmaechtigterType
+    anschrift::AnschriftType, behoerde::BehoerdeType, kommunikation::KommunikationType, misc::IdentifikationType, sprache::SpracheType, staat::{StaatType, StaatsangehoerigkeitType}, zeitraum::ZeitraumType // AnschriftType, AuskunftssperreType, DoktorgradType, GeburtType, NameNatuerlichePersonType, VertreterBevollmaechtigterType
 };
 
 /// Der AllgemeineName dient der Darstellung von Vor- und Nachnamen und fasst deren
@@ -189,9 +184,8 @@ pub struct FamilienstandType {
     pub grund: Option<CodeFamilienstandBeendigungsgrundType>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
     pub gueltigkeit: Option<ZeitraumType>,
-    // TODO: check BehoerdeType
-    // #[xml(ns = b"xwas", name = b"behoerde", ty = "child")]
-    // pub behoerde: Option<BehoerdeType>,
+    #[xml(ns = b"xwas", name = b"behoerde", ty = "child")]
+    pub behoerde: Option<BehoerdeType>,
 }
 
 /// Ein Ausweis ist eine öffentliche oder private Urkunde, die die Identität des Inhabers
@@ -210,8 +204,8 @@ pub struct AusweisdokumentType {
     #[xml(ns = b"xwas", name = b"ausweisID", ty = "child")]
     pub ausweis_id: Option<IdentifikationType>,
     // TODO: check BehoerdeType
-    // #[xml(ns = b"xwas", name = b"ausstellendeBehoerde", ty = "child")]
-    // pub ausstellende_behoerde: Option<BehoerdeType>,
+    #[xml(ns = b"xwas", name = b"ausstellendeBehoerde", ty = "child")]
+    pub ausstellende_behoerde: Option<BehoerdeType>,
     #[xml(ns = b"xwas", name = b"ausstellenderStaat", ty = "child")]
     pub ausstellender_staat: Option<StaatType>,
 }
@@ -262,6 +256,20 @@ pub struct JuristischePersonType {
     pub id: String,
 }
 
+/// Die Komponente "Geschlecht" dient der Repräsentation des biologischen Geschlechts.
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+))]
+pub struct GeschlechtType {
+    #[xml(ns = b"xwas", name = b"geschlecht", ty = "child")]
+    pub geschlecht: CodeGeschlechtType,
+    #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
+    pub gueltigkeit: Option<ZeitraumType>
+}
+
 /// Eine natürliche Person ist der Mensch in seiner Rolle als Rechtssubjekt, d. h. als
 /// Träger von Rechten und Pflichten. Mit der Vollendung seiner Geburt wird ein Mensch
 /// rechtsfähig und damit zu einer natürlichen Person (§ 1 BGB). Der Mensch verliert
@@ -283,7 +291,7 @@ pub struct NatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"geburt", ty = "child")]
     pub geburt: Option<GeburtType>,
     #[xml(ns = b"xwas", name = b"doktorgrad", ty = "child")]
-    pub doktorgrad: Option<DoktorgradType>,
+    pub doktorgrad: Option<String>,
     #[xml(ns = b"xwas", name = b"staatsangehoerigkeit", ty = "child")]
     pub staatsangehoerigkeit: Vec<StaatsangehoerigkeitType>,
     #[xml(ns = b"xwas", name = b"ausweisdokument", ty = "child")]
@@ -291,7 +299,7 @@ pub struct NatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
     pub anschrift: Vec<AnschriftType>,
     #[xml(ns = b"xwas", name = b"geschlecht", ty = "child")]
-    pub geschlecht: Vec<CodeGeschlechtType>,
+    pub geschlecht: Vec<GeschlechtType>,
     #[xml(ns = b"xwas", name = b"identifikationsnummer", ty = "child")]
     pub identifikationsnummer: Vec<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
@@ -302,6 +310,8 @@ pub struct NatuerlichePersonType {
     pub fremdsprache: Vec<SpracheType>,
     #[xml(ns = b"xwas", name = b"vertreterBevollmaechtigter", ty = "child")]
     pub vertreter_bevollmaechtigter: Vec<VertreterBevollmaechtigterType>,
+    #[xml(name = b"id", ty = "attr")]
+    pub id: Option<String>,
 }
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
