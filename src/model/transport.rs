@@ -10,29 +10,29 @@ use wasm_bindgen::prelude::*;
 
 use super::vorgang::Vorgang;
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct Code {
     #[xml(ty = "text", default)]
     pub code: String,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct NachrichtenkopfG2g {
     #[xml(name = b"identifikation.nachricht", ty = "child")]
     pub identifikation_nachricht: IdentifikationNachricht,
     #[xml(name = b"leser", ty = "child")]
-    pub leser: Leser,
+    pub leser: BehoerdeG2GType,
     #[xml(name = b"autor", ty = "child")]
-    pub autor: Autor,
-    #[xml(default, name = b"referenzUUID", ty = "child")]
-    pub referenz_uuid: String,
+    pub autor: BehoerdeG2GType,
+    #[xml(name = b"referenzUUID", ty = "child")]
+    pub referenz_uuid: Option<String>,
     #[xml(default, name = b"dvdvDienstkennung", ty = "child")]
     pub dvdv_dienstkennung: String, //DvdvDienstkennung,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct IdentifikationNachricht {
     #[xml(name = b"nachrichtenUUID", ty = "child")]
@@ -43,7 +43,7 @@ pub struct IdentifikationNachricht {
     pub erstellungszeitpunkt: Option<String>,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct NachrichtenTyp {
     #[xml(
@@ -61,9 +61,9 @@ pub struct NachrichtenTyp {
     pub code: Code,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
-pub struct Autor {
+pub struct BehoerdeG2GType {
     #[xml(name = b"verzeichnisdienst", ty = "child")]
     pub verzeichnisdienst: Verzeichnisdienst,
     #[xml(name = b"kennung", ty = "child")]
@@ -72,7 +72,7 @@ pub struct Autor {
     pub name: String,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 pub struct Verzeichnisdienst {
     #[xml(name = b"listVersionID", ty = "attr", value = "")]
@@ -82,20 +82,7 @@ pub struct Verzeichnisdienst {
     pub code: Code,
 }
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
-#[cfg_attr(feature = "wasm", derive(Tsify))]
-pub struct Leser {
-    #[xml(name = b"verzeichnisdienst", ty = "child")]
-    pub verzeichnisdienst: Verzeichnisdienst,
-    #[xml(name = b"kennung", ty = "child")]
-    pub kennung: String,
-    #[xml(name = b"name", ty = "child")]
-    pub name: String,
-    // #[xml(name = b"erreichbarkeit", ty = "child")]
-    // pub erreichbarkeit: Erreichbarkeit,
-}
-
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
 #[xml(root = b"vorgang.transportieren.2010")]
 #[xml(tns(

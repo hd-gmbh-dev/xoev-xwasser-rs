@@ -8,7 +8,7 @@ use tsify::Tsify;
 
 /// Der Zeitraum kennzeichnet einen Abschnitt auf einem Zeitstrahl durch Angabe von
 /// Beginn und/oder Ende.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",

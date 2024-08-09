@@ -19,7 +19,7 @@ use super::{
 /// Informationen aus den Registern von Betreibern/Behörden].
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
 #[allow(clippy::large_enum_variant)]
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
@@ -40,7 +40,7 @@ pub enum ArtDerPerson {
 
 /// Klasse zum Transport von Informationen zu einem Betreiber einer WVA [Soweit möglich
 /// in Register zu pflegen].
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -56,7 +56,7 @@ pub struct BetreiberType {
 }
 
 /// Klasse für den Transport von Informationen zu einem Objekt.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",

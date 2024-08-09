@@ -19,7 +19,7 @@ use super::zeitraum::ZeitraumType;
 /// Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z.B.
 /// im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen
 /// Bereich. Behörden werden über eine eigene Kernkomponente "Behoerde" abgebildet.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -56,7 +56,7 @@ pub struct OrganisationType {
 }
 
 /// Angaben zum Registereintrag.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -74,7 +74,7 @@ pub struct RegistrierungType {
 }
 
 /// "NameOrganisation" fasst die Angaben zum Namen einer Organisation zusammen.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -92,7 +92,7 @@ pub struct NameOrganisationType {
 /// Die Organisationseinheit fasst Angaben zur Darstellung der internen hierarchischen
 /// Organisationsstruktur einer Institution zusammen, z.B. zur Darstellung von
 /// Abteilungen oder Referaten.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",

@@ -22,7 +22,7 @@ use super::{
 /// erlaubt. Die Anschrift kann auch über eine Subkomponente verfügen, die eine
 /// verwaltungspolitische Zuordnung des Ortes erlaubt (Zuordnung zu einer Gemeinde über
 /// den AGS, eines Bundesland, etc.).
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",

@@ -18,7 +18,7 @@ use super::{
 };
 
 /// Klasse für den Transport von Informationen zu einer zugelassenen Untersuchungsstelle.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -97,7 +97,7 @@ pub struct ZugelasseneUntersuchungsstelleType {
 
 /// Klasse für den Transport von ergänzenden Informationen zu den Daten aus dem Register
 /// für Zugelassene Untersuchungsstellen im Falle der Beauftragung einer Untersuchung.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",

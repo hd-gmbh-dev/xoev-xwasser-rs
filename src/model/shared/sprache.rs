@@ -9,7 +9,7 @@ use crate::model::codes::CodeSpracheType;
 use tsify::Tsify;
 
 /// Unter "Sprache" werden Informationen über Sprachen zusammengefasst.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",

@@ -9,7 +9,7 @@ use tsify::Tsify;
 use crate::model::codes::{CodeStaatType, CodeStaatsangehoerigkeitType};
 
 /// Hier werden Angaben zur Staatsangehörigkeit zusammengefasst.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -23,7 +23,7 @@ pub struct StaatsangehoerigkeitType {
 /// Als Staat bezeichnet man eine politische Ordnung, die ein gemeinsames als
 /// Staatsgebiet abgegrenztes Territorium, ein dazugehöriges Staatsvolk und eine
 /// Machtausübung über dieses umfasst.
-#[derive(Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",

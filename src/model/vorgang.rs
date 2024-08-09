@@ -13,7 +13,7 @@ use super::{
     shared::dokument::DokumentRepraesentationType,
 };
 
-#[derive(Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -27,7 +27,7 @@ pub struct IdentifikationVorgang {
 }
 
 /// Dieser Datentyp enthält die Angaben zu einem Vorgang.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -46,7 +46,7 @@ pub struct Vorgang {
 }
 
 /// Eine zum Antrag gehörige Unterlage in verschiedenen Dokumentendarstellungen, z. B. PDF oder eine Datendarstellung. Es muss immer das komplette Dokument mit allen Darstellungen übertragen werden.
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -72,7 +72,7 @@ pub struct DokumentType {
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
 #[allow(clippy::large_enum_variant)]
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[serde(tag = "t", content = "c")]
 #[xml(tns(

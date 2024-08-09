@@ -1,3 +1,4 @@
+pub mod administration;
 pub mod codes;
 pub mod pruefbericht;
 pub mod shared;

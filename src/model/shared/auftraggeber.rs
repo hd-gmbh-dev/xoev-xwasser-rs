@@ -15,7 +15,7 @@ use super::{
 
 /// Informationen zu einem Auftraggeber [Ergänzende Angaben zu den jeweiligen
 /// Informationen aus den Registern von Betreibern/Behörden].
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
@@ -32,7 +32,7 @@ pub struct AuftraggeberType {
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
 #[allow(clippy::large_enum_variant)]
-#[derive(Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
