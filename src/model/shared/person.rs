@@ -310,6 +310,8 @@ pub struct NatuerlichePersonType {
     pub fremdsprache: Vec<SpracheType>,
     #[xml(ns = b"xwas", name = b"vertreterBevollmaechtigter", ty = "child")]
     pub vertreter_bevollmaechtigter: Vec<VertreterBevollmaechtigterType>,
+    #[xml(name = b"id", ty = "attr")]
+    pub id: Option<String>,
 }
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb

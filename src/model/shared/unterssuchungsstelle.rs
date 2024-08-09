@@ -162,14 +162,14 @@ pub struct BeauftragteUntersuchungsstelleType {
     pub akkreditierungsnummer: Option<String>,
     #[xml(
         ns = b"xwas",
-        name = b"kommentarBeauftragteUntersuchungsstelle",
-        ty = "child"
-    )]
-    pub kommentar_beauftragte_untersuchungsstelle: Option<String>,
-    #[xml(
-        ns = b"xwas",
         name = b"kommentarZugelasseneUntersuchungsstelle",
         ty = "child"
     )]
     pub kommentar_zugelassene_untersuchungsstelle: Option<String>,
+    #[xml(
+        ns = b"xwas",
+        name = b"kommentarBeauftragteUntersuchungsstelle",
+        ty = "child"
+    )]
+    pub kommentar_beauftragte_untersuchungsstelle: Option<String>,
 }

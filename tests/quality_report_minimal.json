@@ -271,7 +271,8 @@
                 "kommunikation": [],
                 "muttersprache": [],
                 "fremdsprache": [],
-                "vertreter_bevollmaechtigter": []
+                "vertreter_bevollmaechtigter": [],
+                "id": null
               }
             },
             "fremdsystem_id_probennehmer": "",
@@ -332,7 +333,8 @@
             "kommunikation": [],
             "muttersprache": [],
             "fremdsprache": [],
-            "vertreter_bevollmaechtigter": []
+            "vertreter_bevollmaechtigter": [],
+            "id": null
           }
         ],
         "freigabe_uebermittlung_betreiber": true,
@@ -384,7 +386,8 @@
               "kommunikation": [],
               "muttersprache": [],
               "fremdsprache": [],
-              "vertreter_bevollmaechtigter": []
+              "vertreter_bevollmaechtigter": [],
+              "id": null
             }
           }
         },
@@ -465,8 +468,8 @@
           "pruefgebiete_untersuchungen_mikrobio": null,
           "pruefgebiete_untersuchungen_radionuklide": null,
           "akkreditierungsnummer": null,
-          "kommentar_beauftragte_untersuchungsstelle": null,
-          "kommentar_zugelassene_untersuchungsstelle": null
+          "kommentar_zugelassene_untersuchungsstelle": null,
+          "kommentar_beauftragte_untersuchungsstelle": null
         },
         "ort_der_labortaetigkeiten": [
           {
