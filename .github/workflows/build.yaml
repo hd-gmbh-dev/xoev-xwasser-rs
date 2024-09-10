@@ -36,7 +36,7 @@ jobs:
       - name: Build WASM
         run: |
           wasm-pack build --release --target nodejs --reference-types --weak-refs --features wasm
-          cp target/schemas/out/*.xsdb pkg/xwasser-v050.xsdb.bin
+          cp target/schemas/out/*.xsdb pkg/xwasser-v051.xsdb.bin
           cp package.tmp.json pkg/package.json
       - name: Test WASM
         run: |

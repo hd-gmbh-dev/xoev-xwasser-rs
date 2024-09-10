@@ -17,7 +17,7 @@ use tsify::Tsify;
 
 use super::{
     behoerde::ZustaendigeBehoerdeType, organisation::OrganisationType,
-    person::NatuerlichePersonType, unterssuchungsstelle::ZugelasseneUntersuchungsstelleType,
+    person::NatuerlichePersonType,
 };
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
@@ -28,7 +28,7 @@ use super::{
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 ))]
 pub enum Probennehmer {
     #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
@@ -36,7 +36,7 @@ pub enum Probennehmer {
     #[xml(ns = b"xwas", name = b"natuerlichePerson", ty = "child")]
     NatuerlichePerson(NatuerlichePersonType),
     // TODO: fix typo once it is fixed in XSD
-    #[xml(ns = b"xwas", name = b"zustaemdigeBehoerde", ty = "child")]
+    #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
     ZustaendigeBehoerde(ZustaendigeBehoerdeType),
 }
 
@@ -46,7 +46,7 @@ pub enum Probennehmer {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 ))]
 pub struct ProbennehmerType {
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
@@ -66,7 +66,7 @@ pub struct ProbennehmerType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 ))]
 pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
@@ -109,7 +109,7 @@ pub struct ProbennahmestelleType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 ))]
 pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
@@ -197,15 +197,15 @@ pub struct ProbeType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 ))]
 pub struct AnalyseergebnisParameterType {
     #[xml(ns = b"xwas", name = b"analyseergebnisParameterID", ty = "child")]
     pub analyseergebnis_parameter_id: String, // TODO: Invent UUID
-    #[xml(ns = b"xwas", name = b"zugelasseneUntersuchungsstelle", ty = "child")]
-    pub zugelassene_untersuchungsstelle: ZugelasseneUntersuchungsstelleType,
     #[xml(ns = b"xwas", name = b"anschriftID", ty = "child")]
     pub anschrift_id: String,
+    #[xml(ns = b"xwas", name = b"zugelasseneUntersuchungsstelle", ty = "child")]
+    pub zugelassene_untersuchungsstelle: String,
     #[xml(
         ns = b"xwas",
         name = b"akkreditierteDurchfuehrungAnalyse",

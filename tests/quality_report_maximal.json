@@ -52,30 +52,8 @@
                 "analyseergebnis_parameter": [
                   {
                     "analyseergebnis_parameter_id": "753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
-                    "zugelassene_untersuchungsstelle": {
-                      "rechtsform": null,
-                      "branche": [],
-                      "zweck": [],
-                      "name": null,
-                      "unterorganisation": [],
-                      "kommunikation": [],
-                      "registrierung": [],
-                      "identifikation": [],
-                      "existenzzeitraum": null,
-                      "anschrift": [],
-                      "zugelassene_untersuchungsstelle_id": "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
-                      "name_zugelassene_untersuchungsstelle": {
-                        "code": "09010",
-                        "name": "Frischwasserlabor-Gmbh"
-                      },
-                      "pruefgebiete_untersuchungen_phys_chem": true,
-                      "pruefgebiete_untersuchungen_mikrobio": true,
-                      "pruefgebiete_untersuchungen_radionuklide": true,
-                      "akkreditierungsnummer": "",
-                      "kommentar_beauftragte_untersuchungsstelle": null,
-                      "kommentar_zugelassene_untersuchungsstelle": "Standardmässige Untersuchungsstelle"
-                    },
                     "anschrift_id": "anschrift1",
+                    "zugelassene_untersuchungsstelle": "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
                     "akkreditierte_durchfuehrung_analyse": true,
                     "untersuchungsverfahren": [
                       {
@@ -173,30 +151,8 @@
                 "analyseergebnis_parameter": [
                   {
                     "analyseergebnis_parameter_id": "1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
-                    "zugelassene_untersuchungsstelle": {
-                      "rechtsform": null,
-                      "branche": [],
-                      "zweck": [],
-                      "name": null,
-                      "unterorganisation": [],
-                      "kommunikation": [],
-                      "registrierung": [],
-                      "identifikation": [],
-                      "existenzzeitraum": null,
-                      "anschrift": [],
-                      "zugelassene_untersuchungsstelle_id": "ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
-                      "name_zugelassene_untersuchungsstelle": {
-                        "code": "09020",
-                        "name": "Wassersicherheits-Institut"
-                      },
-                      "pruefgebiete_untersuchungen_phys_chem": true,
-                      "pruefgebiete_untersuchungen_mikrobio": true,
-                      "pruefgebiete_untersuchungen_radionuklide": false,
-                      "akkreditierungsnummer": "12345",
-                      "kommentar_beauftragte_untersuchungsstelle": null,
-                      "kommentar_zugelassene_untersuchungsstelle": "Top Qualität"
-                    },
                     "anschrift_id": "anschrift2",
+                    "zugelassene_untersuchungsstelle": "ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
                     "akkreditierte_durchfuehrung_analyse": false,
                     "untersuchungsverfahren": [
                       {
@@ -5933,6 +5889,54 @@
           "kommentar_zugelassene_untersuchungsstelle": "kommentar zugelassene Untersuchungsstelle",
           "kommentar_beauftragte_untersuchungsstelle": "Kommentar der beauftragten Untersuchungsstelle"
         },
+        "zugelassene_untersuchungsstelle": [
+          {
+            "rechtsform": null,
+            "branche": [],
+            "zweck": [],
+            "name": null,
+            "unterorganisation": [],
+            "kommunikation": [],
+            "registrierung": [],
+            "identifikation": [],
+            "existenzzeitraum": null,
+            "anschrift": [],
+            "zugelassene_untersuchungsstelle_id": "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
+            "name_zugelassene_untersuchungsstelle": {
+              "code": "09010",
+              "name": "Frischwasserlabor-Gmbh"
+            },
+            "pruefgebiete_untersuchungen_phys_chem": true,
+            "pruefgebiete_untersuchungen_mikrobio": true,
+            "pruefgebiete_untersuchungen_radionuklide": true,
+            "akkreditierungsnummer": "",
+            "kommentar_beauftragte_untersuchungsstelle": null,
+            "kommentar_zugelassene_untersuchungsstelle": "Standardmässige Untersuchungsstelle"
+          },
+          {
+            "rechtsform": null,
+            "branche": [],
+            "zweck": [],
+            "name": null,
+            "unterorganisation": [],
+            "kommunikation": [],
+            "registrierung": [],
+            "identifikation": [],
+            "existenzzeitraum": null,
+            "anschrift": [],
+            "zugelassene_untersuchungsstelle_id": "ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
+            "name_zugelassene_untersuchungsstelle": {
+              "code": "09020",
+              "name": "Wassersicherheits-Institut"
+            },
+            "pruefgebiete_untersuchungen_phys_chem": true,
+            "pruefgebiete_untersuchungen_mikrobio": true,
+            "pruefgebiete_untersuchungen_radionuklide": false,
+            "akkreditierungsnummer": "12345",
+            "kommentar_beauftragte_untersuchungsstelle": null,
+            "kommentar_zugelassene_untersuchungsstelle": "Top Qualität"
+          }
+        ],
         "ort_der_labortaetigkeiten": [
           {
             "strassenschluessel": {

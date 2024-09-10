@@ -52,30 +52,8 @@
                 "analyseergebnis_parameter": [
                   {
                     "analyseergebnis_parameter_id": "753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
-                    "zugelassene_untersuchungsstelle": {
-                      "rechtsform": null,
-                      "branche": [],
-                      "zweck": [],
-                      "name": null,
-                      "unterorganisation": [],
-                      "kommunikation": [],
-                      "registrierung": [],
-                      "identifikation": [],
-                      "existenzzeitraum": null,
-                      "anschrift": [],
-                      "zugelassene_untersuchungsstelle_id": "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
-                      "name_zugelassene_untersuchungsstelle": {
-                        "code": "09010",
-                        "name": ""
-                      },
-                      "pruefgebiete_untersuchungen_phys_chem": true,
-                      "pruefgebiete_untersuchungen_mikrobio": true,
-                      "pruefgebiete_untersuchungen_radionuklide": true,
-                      "akkreditierungsnummer": "",
-                      "kommentar_beauftragte_untersuchungsstelle": null,
-                      "kommentar_zugelassene_untersuchungsstelle": ""
-                    },
                     "anschrift_id": "anschrift1",
+                    "zugelassene_untersuchungsstelle": "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
                     "akkreditierte_durchfuehrung_analyse": true,
                     "untersuchungsverfahren": [
                       {
@@ -471,6 +449,31 @@
           "kommentar_zugelassene_untersuchungsstelle": null,
           "kommentar_beauftragte_untersuchungsstelle": null
         },
+        "zugelassene_untersuchungsstelle": [
+          {
+            "rechtsform": null,
+            "branche": [],
+            "zweck": [],
+            "name": null,
+            "unterorganisation": [],
+            "kommunikation": [],
+            "registrierung": [],
+            "identifikation": [],
+            "existenzzeitraum": null,
+            "anschrift": [],
+            "zugelassene_untersuchungsstelle_id": "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
+            "name_zugelassene_untersuchungsstelle": {
+              "code": "09010",
+              "name": ""
+            },
+            "pruefgebiete_untersuchungen_phys_chem": true,
+            "pruefgebiete_untersuchungen_mikrobio": true,
+            "pruefgebiete_untersuchungen_radionuklide": true,
+            "akkreditierungsnummer": "",
+            "kommentar_beauftragte_untersuchungsstelle": null,
+            "kommentar_zugelassene_untersuchungsstelle": ""
+          }
+        ],
         "ort_der_labortaetigkeiten": [
           {
             "strassenschluessel": null,

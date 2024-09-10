@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0 ../schemas/V0_5_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.2.1">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1 ../schemas/V0_5_1/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.5.1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
@@ -41,19 +41,8 @@
             <xwas:probennehmer>Flaschenwasser-Gmbh</xwas:probennehmer>
             <xwas:analyseergebnisParameter id="analyseergebnisParameter1">
               <xwas:analyseergebnisParameterID>753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:analyseergebnisParameterID>
-              <xwas:zugelasseneUntersuchungsstelle>
-                <xwas:zugelasseneUntersuchungsstelleID>ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:zugelasseneUntersuchungsstelleID>
-                <xwas:nameZugelasseneUntersuchungsstelle listURI="urn:xoev-de:xwasser:codeliste:untersuchungsstelle" listVersionID="1">
-                  <code>09010</code>
-                  <name>Frischwasserlabor-Gmbh</name>
-                </xwas:nameZugelasseneUntersuchungsstelle>
-                <xwas:pruefgebieteUntersuchungenPhysChem>true</xwas:pruefgebieteUntersuchungenPhysChem>
-                <xwas:pruefgebieteUntersuchungenMikrobio>true</xwas:pruefgebieteUntersuchungenMikrobio>
-                <xwas:pruefgebieteUntersuchungenRadionuklide>true</xwas:pruefgebieteUntersuchungenRadionuklide>
-                <xwas:akkreditierungsnummer></xwas:akkreditierungsnummer>
-                <xwas:kommentarZugelasseneUntersuchungsstelle>Standardmässige Untersuchungsstelle</xwas:kommentarZugelasseneUntersuchungsstelle>
-              </xwas:zugelasseneUntersuchungsstelle>
               <xwas:anschriftID>anschrift1</xwas:anschriftID>
+              <xwas:zugelasseneUntersuchungsstelle>ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:zugelasseneUntersuchungsstelle>
               <xwas:akkreditierteDurchfuehrungAnalyse>true</xwas:akkreditierteDurchfuehrungAnalyse>
               <xwas:untersuchungsverfahren listURI="urn:xoev-de:xwasser:codeliste:untersuchungsverfahren" listVersionID="1">
                 <code>1010</code>
@@ -125,19 +114,8 @@
             <xwas:probennehmer>Trinkwasser-AG</xwas:probennehmer>
             <xwas:analyseergebnisParameter id="analyseergebnisParameter2">
               <xwas:analyseergebnisParameterID>1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f</xwas:analyseergebnisParameterID>
-              <xwas:zugelasseneUntersuchungsstelle>
-                <xwas:zugelasseneUntersuchungsstelleID>ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f</xwas:zugelasseneUntersuchungsstelleID>
-                <xwas:nameZugelasseneUntersuchungsstelle listURI="urn:xoev-de:xwasser:codeliste:untersuchungsstelle" listVersionID="1">
-                  <code>09020</code>
-                  <name>Wassersicherheits-Institut</name>
-                </xwas:nameZugelasseneUntersuchungsstelle>
-                <xwas:pruefgebieteUntersuchungenPhysChem>true</xwas:pruefgebieteUntersuchungenPhysChem>
-                <xwas:pruefgebieteUntersuchungenMikrobio>true</xwas:pruefgebieteUntersuchungenMikrobio>
-                <xwas:pruefgebieteUntersuchungenRadionuklide>false</xwas:pruefgebieteUntersuchungenRadionuklide>
-                <xwas:akkreditierungsnummer>12345</xwas:akkreditierungsnummer>
-                <xwas:kommentarZugelasseneUntersuchungsstelle>Top Qualität</xwas:kommentarZugelasseneUntersuchungsstelle>
-              </xwas:zugelasseneUntersuchungsstelle>
               <xwas:anschriftID>anschrift2</xwas:anschriftID>
+              <xwas:zugelasseneUntersuchungsstelle>ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f</xwas:zugelasseneUntersuchungsstelle>
               <xwas:akkreditierteDurchfuehrungAnalyse>false</xwas:akkreditierteDurchfuehrungAnalyse>
               <xwas:untersuchungsverfahren listURI="urn:xoev-de:xwasser:codeliste:untersuchungsverfahren" listVersionID="1">
                 <code>2020</code>
@@ -3841,7 +3819,7 @@
             </xwas:organisation>
           </xwas:auftraggeber>
         </xwas:auftraggeber>
-        <xwas:zustaemdigeBehoerde>
+        <xwas:zustaendigeBehoerde>
           <xwas:id>behoerde22</xwas:id>
           <xwas:typ>
             <code></code>
@@ -3966,7 +3944,7 @@
             <code>DEMV</code>
             <name></name>
           </xwas:laenderkuerzel>
-        </xwas:zustaemdigeBehoerde>
+        </xwas:zustaendigeBehoerde>
         <xwas:beauftragteUntersuchungsstelle>
           <xwas:rechtsform listURI="urn:xoev-de:xunternehmen:codeliste:rechtsformen" listVersionID="">
             <code>PHG</code>
@@ -4620,6 +4598,30 @@
           <xwas:kommentarZugelasseneUntersuchungsstelle>kommentar zugelassene Untersuchungsstelle</xwas:kommentarZugelasseneUntersuchungsstelle>
           <xwas:kommentarBeauftragteUntersuchungsstelle>Kommentar der beauftragten Untersuchungsstelle</xwas:kommentarBeauftragteUntersuchungsstelle>
         </xwas:beauftragteUntersuchungsstelle>
+        <xwas:zugelasseneUntersuchungsstelle>
+          <xwas:zugelasseneUntersuchungsstelleID>ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:zugelasseneUntersuchungsstelleID>
+          <xwas:nameZugelasseneUntersuchungsstelle listURI="urn:xoev-de:xwasser:codeliste:untersuchungsstelle" listVersionID="1">
+            <code>09010</code>
+            <name>Frischwasserlabor-Gmbh</name>
+          </xwas:nameZugelasseneUntersuchungsstelle>
+          <xwas:pruefgebieteUntersuchungenPhysChem>true</xwas:pruefgebieteUntersuchungenPhysChem>
+          <xwas:pruefgebieteUntersuchungenMikrobio>true</xwas:pruefgebieteUntersuchungenMikrobio>
+          <xwas:pruefgebieteUntersuchungenRadionuklide>true</xwas:pruefgebieteUntersuchungenRadionuklide>
+          <xwas:akkreditierungsnummer></xwas:akkreditierungsnummer>
+          <xwas:kommentarZugelasseneUntersuchungsstelle>Standardmässige Untersuchungsstelle</xwas:kommentarZugelasseneUntersuchungsstelle>
+        </xwas:zugelasseneUntersuchungsstelle>
+        <xwas:zugelasseneUntersuchungsstelle>
+          <xwas:zugelasseneUntersuchungsstelleID>ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f</xwas:zugelasseneUntersuchungsstelleID>
+          <xwas:nameZugelasseneUntersuchungsstelle listURI="urn:xoev-de:xwasser:codeliste:untersuchungsstelle" listVersionID="1">
+            <code>09020</code>
+            <name>Wassersicherheits-Institut</name>
+          </xwas:nameZugelasseneUntersuchungsstelle>
+          <xwas:pruefgebieteUntersuchungenPhysChem>true</xwas:pruefgebieteUntersuchungenPhysChem>
+          <xwas:pruefgebieteUntersuchungenMikrobio>true</xwas:pruefgebieteUntersuchungenMikrobio>
+          <xwas:pruefgebieteUntersuchungenRadionuklide>false</xwas:pruefgebieteUntersuchungenRadionuklide>
+          <xwas:akkreditierungsnummer>12345</xwas:akkreditierungsnummer>
+          <xwas:kommentarZugelasseneUntersuchungsstelle>Top Qualität</xwas:kommentarZugelasseneUntersuchungsstelle>
+        </xwas:zugelasseneUntersuchungsstelle>
         <xwas:ortDerLabortaetigkeiten id="ortDerLabortaetigkeiten1">
           <xwas:strassenschluessel>
             <code>1234</code>

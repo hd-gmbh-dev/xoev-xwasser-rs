@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
            xmlns:bn-uq-g2g="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"
            xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
            xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
-           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
-           version="0.5.0"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
+           version="0.5.1"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
    <xs:annotation>
@@ -18,7 +18,7 @@
             <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
          </standard>
          <versionStandard>
-            <version>0.5.0</version>
+            <version>0.5.1</version>
             <versionXOEVProfil>3.0.2</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -106,15 +106,14 @@
                <xs:documentation>UUID zur eindeutigen Identifikation des Analyseergebnisses eines Parameters in SHAPTH.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="zugelasseneUntersuchungsstelle"
-                     type="xwas:ZugelasseneUntersuchungsstelleType">
-            <xs:annotation>
-               <xs:documentation>Informationen zu einer zugelassenen Untersuchungsstelle.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
          <xs:element name="anschriftID" type="xs:IDREF">
             <xs:annotation>
                <xs:documentation>Hier ist die ID der Anschrift einzutragen, an der die Labortätigkeiten durchgeführt werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="zugelasseneUntersuchungsstelle" type="xs:IDREF">
+            <xs:annotation>
+               <xs:documentation>Referenz auf die ID einer erfassten zugelassenen Untersuchungsstelle.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="akkreditierteDurchfuehrungAnalyse" type="xs:boolean">
@@ -6356,7 +6355,7 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Hier werden die Angaben zum Auftraggeber übermitelt.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="zustaemdigeBehoerde"
+         <xs:element name="zustaendigeBehoerde"
                      maxOccurs="unbounded"
                      type="xwas:ZustaendigeBehoerdeType">
             <xs:annotation>
@@ -6367,6 +6366,14 @@ Untersuchungsplan</nameKurz>
                      type="xwas:BeauftragteUntersuchungsstelleType">
             <xs:annotation>
                <xs:documentation>Hier ist die beauftragte Untersuchungsstelle anzugeben.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="zugelasseneUntersuchungsstelle"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xwas:ZugelasseneUntersuchungsstelleType">
+            <xs:annotation>
+               <xs:documentation>Hier werden die Angaben zur zugelassenen Untersuchungsstelle gemacht.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ortDerLabortaetigkeiten"
@@ -7178,7 +7185,7 @@ Untersuchungsplan</nameKurz>
       <xs:complexContent>
          <xs:extension base="xwas:OrganisationType">
             <xs:sequence>
-               <xs:element name="zugelasseneUntersuchungsstelleID" type="xs:ID">
+               <xs:element name="zugelasseneUntersuchungsstelleID" type="din91379:datatypeC">
                   <xs:annotation>
                      <xs:documentation>ID zur eindeutigen Identifikation einer zugelassenen Untersuchungsstelle. ToDocolon Noch festzulegen!</xs:documentation>
                   </xs:annotation>
