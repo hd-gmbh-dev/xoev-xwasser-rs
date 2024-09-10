@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0 ../schemas/V0_5_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.2.1">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1 ../schemas/V0_5_1/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.5.1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
@@ -40,19 +40,8 @@
             <xwas:probennehmer>probennehmer1</xwas:probennehmer>
             <xwas:analyseergebnisParameter id="analyseergebnisParameter1">
               <xwas:analyseergebnisParameterID>753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:analyseergebnisParameterID>
-              <xwas:zugelasseneUntersuchungsstelle>
-                <xwas:zugelasseneUntersuchungsstelleID>ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:zugelasseneUntersuchungsstelleID>
-                <xwas:nameZugelasseneUntersuchungsstelle>
-                  <code>09010</code>
-                  <name></name>
-                </xwas:nameZugelasseneUntersuchungsstelle>
-                <xwas:pruefgebieteUntersuchungenPhysChem>true</xwas:pruefgebieteUntersuchungenPhysChem>
-                <xwas:pruefgebieteUntersuchungenMikrobio>true</xwas:pruefgebieteUntersuchungenMikrobio>
-                <xwas:pruefgebieteUntersuchungenRadionuklide>true</xwas:pruefgebieteUntersuchungenRadionuklide>
-                <xwas:akkreditierungsnummer></xwas:akkreditierungsnummer>
-                <xwas:kommentarZugelasseneUntersuchungsstelle></xwas:kommentarZugelasseneUntersuchungsstelle>
-              </xwas:zugelasseneUntersuchungsstelle>
               <xwas:anschriftID>anschrift1</xwas:anschriftID>
+              <xwas:zugelasseneUntersuchungsstelle>ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:zugelasseneUntersuchungsstelle>
               <xwas:akkreditierteDurchfuehrungAnalyse>true</xwas:akkreditierteDurchfuehrungAnalyse>
               <xwas:untersuchungsverfahren>
                 <code>1010</code>
@@ -201,13 +190,13 @@
             </xwas:natuerlichePerson>
           </xwas:auftraggeber>
         </xwas:auftraggeber>
-        <xwas:zustaemdigeBehoerde>
+        <xwas:zustaendigeBehoerde>
           <xwas:id>T1000212</xwas:id>
           <xwas:anlageNachTrinkwVID></xwas:anlageNachTrinkwVID>
           <xwas:laenderkuerzel>
             <code>DEAA</code>
           </xwas:laenderkuerzel>
-        </xwas:zustaemdigeBehoerde>
+        </xwas:zustaendigeBehoerde>
         <xwas:beauftragteUntersuchungsstelle>
           <xwas:anschrift id="anschrift2">
             <xwas:strassenschluessel listURI="" listVersionID=""><code>1235</code></xwas:strassenschluessel>
@@ -222,6 +211,18 @@
           <xwas:zugelasseneUntersuchungsstelleID>abcdef</xwas:zugelasseneUntersuchungsstelleID>
           <xwas:nameZugelasseneUntersuchungsstelle><code>09010</code></xwas:nameZugelasseneUntersuchungsstelle>
         </xwas:beauftragteUntersuchungsstelle>
+        <xwas:zugelasseneUntersuchungsstelle>
+          <xwas:zugelasseneUntersuchungsstelleID>ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:zugelasseneUntersuchungsstelleID>
+          <xwas:nameZugelasseneUntersuchungsstelle>
+            <code>09010</code>
+            <name></name>
+          </xwas:nameZugelasseneUntersuchungsstelle>
+          <xwas:pruefgebieteUntersuchungenPhysChem>true</xwas:pruefgebieteUntersuchungenPhysChem>
+          <xwas:pruefgebieteUntersuchungenMikrobio>true</xwas:pruefgebieteUntersuchungenMikrobio>
+          <xwas:pruefgebieteUntersuchungenRadionuklide>true</xwas:pruefgebieteUntersuchungenRadionuklide>
+          <xwas:akkreditierungsnummer></xwas:akkreditierungsnummer>
+          <xwas:kommentarZugelasseneUntersuchungsstelle></xwas:kommentarZugelasseneUntersuchungsstelle>
+        </xwas:zugelasseneUntersuchungsstelle>
         <xwas:ortDerLabortaetigkeiten id="ortDerLabortaetigkeiten1">
           <xwas:strasse>Teststr.</xwas:strasse>
           <xwas:hausnummer>1</xwas:hausnummer>

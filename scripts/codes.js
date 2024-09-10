@@ -4,10 +4,10 @@ import { readFileSync } from 'fs'
 
 const files = [
     "schemas/remote/0fd6e3cbcdf3573e93d05085f352b4ac",
-    "schemas/V0_5_0/xwasser-basisnachricht.xsd",
-    "schemas/V0_5_0/xwasser-baukasten-erweiterung.xsd",
-    "schemas/V0_5_0/xwasser-baukasten.xsd",
-    "schemas/V0_5_0/xwasser-rueckweisung.xsd",
+    "schemas/V0_5_1/xwasser-basisnachricht.xsd",
+    "schemas/V0_5_1/xwasser-baukasten-erweiterung.xsd",
+    "schemas/V0_5_1/xwasser-baukasten.xsd",
+    "schemas/V0_5_1/xwasser-rueckweisung.xsd",
 ]
 
 for (const file of files) {

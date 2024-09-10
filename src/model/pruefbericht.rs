@@ -6,14 +6,20 @@ use serde::{Deserialize, Serialize};
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 
-use super::codes::{CodeAmtsspracheEuType, CodeGesamtbewertungType, CodeUntersuchungsstelleType};
-use super::shared::anschrift::AnschriftType;
-use super::shared::auftraggeber::AuftraggeberType;
-use super::shared::behoerde::ZustaendigeBehoerdeType;
-use super::shared::misc::ErweiterungType;
-use super::shared::person::NatuerlichePersonType;
-use super::shared::probe::{ProbennahmestelleType, ProbennehmerType};
-use super::shared::unterssuchungsstelle::BeauftragteUntersuchungsstelleType;
+use super::{
+    codes::{CodeAmtsspracheEuType, CodeGesamtbewertungType, CodeUntersuchungsstelleType},
+    shared::{
+        anschrift::AnschriftType,
+        auftraggeber::AuftraggeberType,
+        behoerde::ZustaendigeBehoerdeType,
+        misc::ErweiterungType,
+        person::NatuerlichePersonType,
+        probe::{ProbennahmestelleType, ProbennehmerType},
+        unterssuchungsstelle::{
+            BeauftragteUntersuchungsstelleType, ZugelasseneUntersuchungsstelleType,
+        },
+    },
+};
 
 /// Klasse zur Erfassung bzw. zum Transport der Daten eines Prüfberichts. Prüfberichte
 /// werden erstellt, nachdem eine Wasserprobe im Labor analysiert wurde.
@@ -21,7 +27,7 @@ use super::shared::unterssuchungsstelle::BeauftragteUntersuchungsstelleType;
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 ))]
 pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
@@ -99,7 +105,7 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"auftraggeber", ty = "child")]
     pub auftraggeber: AuftraggeberType,
     // TODO: fix typo once fixed in XWasser
-    #[xml(ns = b"xwas", name = b"zustaemdigeBehoerde", ty = "child")]
+    #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
     #[serde(default)]
     pub zustaendige_behoerde: Vec<ZustaendigeBehoerdeType>,
     #[xml(
@@ -109,6 +115,13 @@ pub struct PruefberichtType {
         ty = "child"
     )]
     pub beauftragte_untersuchungsstelle: BeauftragteUntersuchungsstelleType,
+    #[xml(
+        ns = b"xwas",
+        name = b"zugelasseneUntersuchungsstelle",
+        ty = "child"
+    )]
+    #[serde(default)]
+    pub zugelassene_untersuchungsstelle: Vec<ZugelasseneUntersuchungsstelleType>,
     #[xml(ns = b"xwas", name = b"ortDerLabortaetigkeiten", ty = "child")]
     #[serde(default)]
     pub ort_der_labortaetigkeiten: Vec<AnschriftType>,

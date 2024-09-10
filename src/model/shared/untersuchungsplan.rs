@@ -5,7 +5,7 @@
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 // ))]
 // pub struct UntersuchungsplanType {
 //     #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
@@ -89,7 +89,7 @@
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 // ))]
 // pub struct TerminplanType {
 //     #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
@@ -135,7 +135,7 @@
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 // ))]
 // pub struct IncidentType {
 //     #[xml(ns = b"xwas", name = b"incidentIdentifier", ty = "child")]
@@ -169,7 +169,7 @@
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 // ))]
 // pub struct QualityAndMonitoringType {
 //     #[xml(
@@ -204,7 +204,7 @@
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 // ))]
 // pub struct DerogationType {
 //     #[xml(ns = b"xwas", name = b"derogationIdentifier", ty = "child")]
@@ -256,7 +256,7 @@
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 // ))]
 // pub struct ExceedanceCauseAndRemedialActionType {
 //     #[xml(
@@ -290,7 +290,7 @@
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 // ))]
 // pub struct ExceedanceType {
 //     #[xml(ns = b"xwas", name = b"exceedanceIdentifier", ty = "child")]
@@ -333,7 +333,7 @@
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 // ))]
 // pub struct IncidentCauseAndRemedialActionType {
 //     #[xml(ns = b"xwas", name = b"incidentCauseAndActionIdentifier", ty = "child")]
@@ -360,7 +360,7 @@
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 // ))]
 // pub struct WasserversorgungsgebietType {
 //     #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
@@ -433,7 +433,7 @@
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_5_0"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
 // ))]
 // pub struct AnlageNachTrinkwVType {
 //     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
