@@ -12,13 +12,15 @@ Licensed under `MIT` license.
 
 This crate follows the latest minor and patch versions for each maintained major version.
 
-The crate versions follow the `X.Y.Z+B` pattern:
+The crate versions follow the `X.Y.Z+A.B.C` pattern:
 
 - The major version `X` is the upstream XÖV XWasser API compatibility version:
   - `300` for 3.Y.Z
-- The minor `Y` and patch `Z` versions are incremented when making changes
-  to the crate, either XÖV XWasser update or internal changes.
-- `B` contains the full upstream XÖV XWasser version, like `0.2.1` or `0.5.0`.
+- The patch `Y` version is incremented when making XÖV XWasser update. It is
+  equal to `B*100 + C`.
+- The patch `Z` version is incremented when making internal changes
+  to the crate.
+- `A.B.C` contains the full upstream XÖV XWasser version, like `0.2.1` or `0.5.0`.
   Note that this field is actually ignored in comparisons and only there for
   documentation.
 
