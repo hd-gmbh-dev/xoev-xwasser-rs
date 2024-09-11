@@ -12,7 +12,12 @@ use crate::model::codes::{
 };
 
 use super::{
-    anschrift::AnschriftType, kommunikation::KommunikationType, misc::IdentifikationType, organisation::{NameOrganisationType, OrganisationseinheitType}, staat::StaatType, xoev::XWasserXoevCode
+    anschrift::AnschriftType,
+    kommunikation::KommunikationType,
+    misc::IdentifikationType,
+    organisation::{NameOrganisationType, OrganisationseinheitType},
+    staat::StaatType,
+    xoev::XWasserXoevCode,
 };
 
 /// Klasse für den Transport von Informationen zu einer Zuständigen Behörde [Ergänzende

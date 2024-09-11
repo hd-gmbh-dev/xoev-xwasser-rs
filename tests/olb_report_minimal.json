@@ -37,7 +37,7 @@
       "vorgangs_id": "5e08e073-4e06-438d-9444-1275f6cbf061"
     },
     "vorgang_type": {
-      "t": "OlgBericht",
+      "t": "OlbBericht",
       "c": {
         "dokument_typ": {
           "code": "1010",

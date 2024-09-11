@@ -11,14 +11,14 @@ const __dirname = import.meta.dirname;
 import xmlvalidate, { XmlValidatorError } from "@raxb/validate-wasm";
 const xsdBundle = fs.readFileSync(path.resolve(__dirname, '../pkg/xwasser-v051.xsdb.bin')).buffer;
 
-describe("simple xml generation via wasm", async () => {
+describe("administration receipt xml generation via wasm", async () => {
   const { XmlValidator } = await xmlvalidate();
   const validator = new XmlValidator(new Uint8Array(xsdBundle));
   validator.init((err: string) => {
     console.error(err);
   });
 
-  it("should be able to create quality report xml", async () => {
+  it("should be able to create administration receipt xml", async () => {
     const xml = create_administration_quittung_0020(
       administration_receipt as any as AdministrationQuittung0020,
     ).replace(
@@ -35,7 +35,7 @@ describe("simple xml generation via wasm", async () => {
     });
   });
 
-  it("should be able to parse quality report xml", async () => {
+  it("should be able to parse administration receipt xml", async () => {
     const source = fs.readFileSync(
       path.resolve(__dirname, "./administration_receipt.xml"),
       "utf-8",

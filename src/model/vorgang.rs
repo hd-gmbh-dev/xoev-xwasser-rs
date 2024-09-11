@@ -85,7 +85,7 @@ pub enum VorgangType {
     // #[xml(ns = b"xwas", name = b"untersuchungsplan")]
     // Untersuchungsplan(UntersuchungsplanType),
     #[xml(ns = b"xwas", name = b"olb_bericht")]
-    OlgBericht(DokumentType),
+    OlbBericht(DokumentType),
     #[default]
     #[xml(ns = b"xwas", name = b"unknown")]
     None,

@@ -13,7 +13,13 @@ use crate::model::codes::{
 };
 
 use super::{
-    anschrift::AnschriftType, behoerde::BehoerdeType, kommunikation::KommunikationType, misc::IdentifikationType, sprache::SpracheType, staat::{StaatType, StaatsangehoerigkeitType}, zeitraum::ZeitraumType // AnschriftType, AuskunftssperreType, DoktorgradType, GeburtType, NameNatuerlichePersonType, VertreterBevollmaechtigterType
+    anschrift::AnschriftType,
+    behoerde::BehoerdeType,
+    kommunikation::KommunikationType,
+    misc::IdentifikationType,
+    sprache::SpracheType,
+    staat::{StaatType, StaatsangehoerigkeitType},
+    zeitraum::ZeitraumType, // AnschriftType, AuskunftssperreType, DoktorgradType, GeburtType, NameNatuerlichePersonType, VertreterBevollmaechtigterType
 };
 
 /// Der AllgemeineName dient der Darstellung von Vor- und Nachnamen und fasst deren
@@ -267,7 +273,7 @@ pub struct GeschlechtType {
     #[xml(ns = b"xwas", name = b"geschlecht", ty = "child")]
     pub geschlecht: CodeGeschlechtType,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
-    pub gueltigkeit: Option<ZeitraumType>
+    pub gueltigkeit: Option<ZeitraumType>,
 }
 
 /// Eine natürliche Person ist der Mensch in seiner Rolle als Rechtssubjekt, d. h. als
