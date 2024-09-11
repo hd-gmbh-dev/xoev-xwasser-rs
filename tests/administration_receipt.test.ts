@@ -9,7 +9,7 @@ import fs from "fs";
 import path from "path";
 const __dirname = import.meta.dirname;
 import xmlvalidate, { XmlValidatorError } from "@raxb/validate-wasm";
-const xsdBundle = fs.readFileSync(path.resolve(__dirname, '../pkg/xwasser-v051.xsdb.bin')).buffer;
+const xsdBundle = fs.readFileSync(path.resolve(__dirname, '../pkg/xwasser-v052.xsdb.bin')).buffer;
 
 describe("administration receipt xml generation via wasm", async () => {
   const { XmlValidator } = await xmlvalidate();
@@ -22,8 +22,8 @@ describe("administration receipt xml generation via wasm", async () => {
     const xml = create_administration_quittung_0020(
       administration_receipt as any as AdministrationQuittung0020,
     ).replace(
-      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1 xwasser.xsd",
-      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1 ../schemas/V0_5_1/xwasser.xsd",
+      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ xwasser.xsd",
+      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ ../schemas/V0_5_2/xwasser.xsd",
     );
     const expected_xml = fs.readFileSync(
       path.resolve(__dirname, "./administration_receipt_test_result.xml"),

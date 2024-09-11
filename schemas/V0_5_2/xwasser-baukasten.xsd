@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
            xmlns:bn-uq-g2g="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"
            xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
            xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
-           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
-           version="0.5.1"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
+           version="0.5.2"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
    <xs:annotation>
@@ -18,7 +18,7 @@
             <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
          </standard>
          <versionStandard>
-            <version>0.5.1</version>
+            <version>0.5.2</version>
             <versionXOEVProfil>3.0.2</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -200,7 +200,7 @@
                      maxOccurs="unbounded"
                      type="xs:integer">
             <xs:annotation>
-               <xs:documentation>Verweis auf andere untersuchte Parameter, die fast zeitgleich untersucht wurden, und direkte Relevanz für den untersuchten Parameter haben. Beispielsweise die Wassertemperatur während der Untersuchung eines Parameters; Insbesondere sollte dies dies für pH-Wert, Säure- und Basekapazität, die elektrische Leitfähigkeit und Sauerstoffgehalt (+sättigung) ergänzend angegeben werden.</xs:documentation>
+               <xs:documentation>Verweis auf andere untersuchte Parameter, die fast zeitgleich untersucht wurden, und direkte Relevanz für den untersuchten Parameter haben. Beispielsweise die Wassertemperatur während der Untersuchung eines Parameters; Insbesondere sollte dies dies für pH-Wert, Säure- und Basenkapazität, die elektrische Leitfähigkeit und Sauerstoffgehalt (+sättigung) ergänzend angegeben werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="bewertungUntersuchungswert"
@@ -230,9 +230,9 @@
                <xs:documentation>Messunsicherheit des Untersuchungswerts bei der Untersuchung des Parameters in relativen Werten.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="bestimmungsgrenzeLoQ" minOccurs="0" type="din91379:datatypeC">
+         <xs:element name="bestimmungsgrenzeLoQ" minOccurs="0" type="xs:double">
             <xs:annotation>
-               <xs:documentation>Die Bestimmungsgrenze/LoQ (Limit of Quantitation) des Parameters ist für quantitative Parameter (ausgenommen Summenparameter) empfohlen und gem. dem neuen EU Berichtsformat eine Pflichtangabe, falls der Untersuchungswert gt/lt LoQ ist, oder der Parameter eine "hazardous substance" gem. EU-Berichtsformat ist. Im Falle einer erhöten Bestimmungsgrenze hat eine Begründung im Kommentarfeld des Analyseergebnises des Parameters zu erfolgen. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
+               <xs:documentation>Die Bestimmungsgrenze/LoQ (Limit of Quantitation) des Parameters ist für quantitative Parameter (ausgenommen Summenparameter) empfohlen und gem. dem neuen EU Berichtsformat eine Pflichtangabe, falls der Untersuchungswert gt/lt LoQ ist, oder der Parameter eine "hazardous substance" gem. EU-Berichtsformat ist. Im Falle einer erhöhten Bestimmungsgrenze hat eine Begründung im Kommentarfeld des Analyseergebnisses des Parameters zu erfolgen. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
@@ -5154,7 +5154,7 @@ Untersuchungsplan</nameKurz>
          <xs:documentation>Klasse für den Transport von Informationen, die zur Beschreibung von Ursache und Maßnahmen von Vorfällen gem. den neuen Vorgaben für das EU-Berichtsformat benötigt werden.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="incidentCauseAndActionIdentifier" type="bn-uq-g2g:UUID">
+         <xs:element name="incidentCauseAndRemidialActionIdentifier" type="bn-uq-g2g:UUID">
             <xs:annotation>
                <xs:documentation>UUID zur nachrichtenübergreifenden eindeutigen Identifikation einer Vorfall-Ursache-Maßnahme (-Gruppe).</xs:documentation>
             </xs:annotation>
@@ -5179,7 +5179,7 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Enddatum der Maßnahmen zur Adressierung des Vorfalls.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="remarks" minOccurs="0" type="xs:integer">
+         <xs:element name="remarks" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
                <xs:documentation>Kommentarmöglichkeit zu einem Vorfall.</xs:documentation>
             </xs:annotation>
@@ -6048,12 +6048,12 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Das Datum und die Zeit, an dem die Probe bei der Untersuchungsstelle eingegangen ist. Falls die Uhrzeit nicht angegeben werden kann, ist 00:00 h zu setzen.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="beginnAnalytik" type="xs:dateTime">
+         <xs:element name="beginnLabortaetigkeitAnalytik" type="xs:dateTime">
             <xs:annotation>
                <xs:documentation>Der Zeitpunkt, zu dem die Analytik einer Probe begonnen hat (Start der Analytik für den ersten Parameter); Datum ist Pflicht, Zeitangabe ist optional aber empfohlen; [nicht bekannt kann alternativ als Information gegeben werden].</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="abschlussAnalytik" type="xs:dateTime">
+         <xs:element name="abschlussLabortaetigkeitAnalytik" type="xs:dateTime">
             <xs:annotation>
                <xs:documentation>Der Zeitpunkt, zu dem die Analytik einer Probe beendet wurde (Abschluss der Analytik des als letztes untersuchten Parameters); Datum ist Pflicht, Zeitangabe ist optional aber empfohlen; [nicht bekannt kann alternativ als Information gegeben werden].</xs:documentation>
             </xs:annotation>
@@ -6165,6 +6165,11 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Eine Alt-ID der Probennahmestelle, welche noch nicht dem neuen SHAPTH ID-Format entspricht, und aus Gründen der Kompatibilität und Nutzerfreundlichkeit mitgeführt wird.</xs:documentation>
             </xs:annotation>
          </xs:element>
+         <xs:element name="berichtspflichtig" minOccurs="0" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>Angabe ob Proben, welche an dieser Probennahmestelle entnommen wurden, für den Untersuchungsplan und den Sekoralen Bericht genutzt werden sollen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
          <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
                <xs:documentation>Kommentar zu der Probennahmestelle.</xs:documentation>
@@ -6246,6 +6251,16 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>UUID zur eindeutigen Identifikation eines Prüfberichts in SHAPTH.</xs:documentation>
             </xs:annotation>
          </xs:element>
+         <xs:element name="vorgaengerPruefberichtID" minOccurs="0" type="bn-uq-g2g:UUID">
+            <xs:annotation>
+               <xs:documentation>Angabe muss getätigt werden, falls der Prüfbericht die Korrektur eines anderen Prüfberichts ist. Dann ist hier die ID des alten, ersetzten Prüfberichts anzugeben.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="auftragsnummer" type="bn-uq-g2g:UUID">
+            <xs:annotation>
+               <xs:documentation>ID zur eindeutigen Identifikation eines Auftrags.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
          <xs:element name="probennahmestelle"
                      maxOccurs="unbounded"
                      type="xwas:ProbennahmestelleType">
@@ -6270,7 +6285,7 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Ja ist auszuwählen, falls der Prüfbericht Teilergebnisse enthält. Z.B. bei der Meldung einer Grenzwertüberschreitung an ein Gesundheitsamt, bevor alle Parameter analysiert sind. Im Titel ist verpflichtend der Grund der Teilübermittlung mit anzugeben! Z.B. Korrektur oder Vorabübermittlung bei Grenzwertüberschreitung. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Ja ist auszuwählen, falls der Prüfbericht Teilergebnisse enthält. Z.B. bei der Meldung einer Grenzwertüberschreitung an ein Gesundheitsamt, bevor alle Parameter analysiert sind. Im Titel ist verpflichtend der Grund der Teilübermittlung mit anzugeben! Z.B. Korrektur oder Vorabübermittlung bei Grenzwertüberschreitung; Pflichtangabe falls nur Teilergebnisse, ohne Angabe wird angenommen, dass es ein vollständiger Prüfbericht ist. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="korrekturvermerk" minOccurs="0" type="din91379:datatypeC">
@@ -6290,7 +6305,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="gesamtbewertung" type="xwas:Code.GesamtbewertungType">
             <xs:annotation>
-               <xs:documentation>Bewertung der Untersuchung aller Proben des Prüfberichts(Falls eine oder mehrere auffällige Proben vorliegen gilt der Prüfbericht als auffällig); Auffällig ist jede Probe, wo mindestens ein Parameter einen Grenzwert überschreitet, oder nicht innerhalb der für Trinkwasser annehmbaren Norm liegt. [Falls keine eigene Angabe getätigt wird kann es automatisch durch Aggregation von Bewertung Untersuchungswert befüllt werden].</xs:documentation>
+               <xs:documentation>Bewertung der Untersuchung aller Proben des Prüfberichts(Falls eine oder mehrere auffällige Proben vorliegen gilt der Prüfbericht als auffällig); Auffällig ist jede Probe, wo mindestens ein Parameter einen Grenzwert überschreitet, oder nicht innerhalb der für Trinkwasser annehmbaren Norm liegt. [Falls keine eigene Angabe getätigt wird, kann die Angabe automatisch durch die Aggregation der Bewertung des Untersuchungswerts der einzelnen Parameter befüllt werden]</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="auffaelligkeiten"
@@ -7036,7 +7051,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="referenzjahrAngabenWVG" type="xs:integer">
             <xs:annotation>
-               <xs:documentation>Referenzjahr für die Angaben zu der abgegbenen Wassermenge und versorgten Personen des WVG.</xs:documentation>
+               <xs:documentation>Referenzjahr für die Angaben zu der abgegebenen Wassermenge und versorgten Personen des WVG.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="artDerWasserressource"
@@ -7050,7 +7065,7 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xs:integer">
             <xs:annotation>
-               <xs:documentation>Anteil der Wasserressoure(n) in % der gesamten Wasserabgabe im WVG.</xs:documentation>
+               <xs:documentation>Anteil der Wasserressource(n) in % der gesamten Wasserabgabe im WVG.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="vorgeschriebeneUntersuchungshaeufigkeitParameterA"
@@ -8693,7 +8708,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <Betriebszustand>Zeitweilig außer Betrieb (für f-Anlagen)</Betriebszustand>
-                  <Beschreibung>Objekt ist zeiweilig außer Betrieb (für f-Anlagen)</Beschreibung>
+                  <Beschreibung>Objekt ist zeitweilig außer Betrieb (für f-Anlagen)</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -8701,7 +8716,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <Betriebszustand>Zeitweilig in Betrieb (für f-Anlagen)</Betriebszustand>
-                  <Beschreibung>Objekt ist zeiweilig in Betrieb (für f-Anlagen)</Beschreibung>
+                  <Beschreibung>Objekt ist zeitweilig in Betrieb (für f-Anlagen)</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -9159,7 +9174,7 @@ Untersuchungsplan</nameKurz>
          <xs:enumeration value="1030">
             <xs:annotation>
                <xs:appinfo>
-                  <Gesamtbewertung>Ohne Abweichung</Gesamtbewertung>
+                  <Gesamtbewertung>Ergebnis ohne Abweichung</Gesamtbewertung>
                   <Beschreibung>Es wurde keine Abweichungen gefunden</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
@@ -13153,7 +13168,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <Probenbewertung>Ergebnis mit Klärungsbedarf</Probenbewertung>
-                  <Beschreibung>Mindestens zu einem Aspekt des Prüfberichts ist noch etwas zu klären. Genauere Informationen sind im Kommentarfeld des Prüfberichts verpflichtend anzugeben.</Beschreibung>
+                  <Beschreibung>Mindestens zu einem Aspekt der Probe ist noch etwas zu klären. Genauere Informationen sind im Kommentarfeld der Probe verpflichtend anzugeben.</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -14440,8 +14455,8 @@ Untersuchungsplan</nameKurz>
          <xs:enumeration value="1190">
             <xs:annotation>
                <xs:appinfo>
-                  <Untersuchungsanlass>Weitergehende Untersuchung nach Erreichen des technischen Maßnahmewertes nach §51 TrinkwV</Untersuchungsanlass>
-                  <Beschreibung>Weitergehende Untersuchung nach Erreichen des technischen Maßnahmewertes nach §51 TrinkwV (entspricht auch UBA-Empfehlung/DVGW-Arbeitsblatt W 551)</Beschreibung>
+                  <Untersuchungsanlass>Weitergehende Untersuchung nach Erreichen des technischen Maßnahmenwertes nach §51 TrinkwV</Untersuchungsanlass>
+                  <Beschreibung>Weitergehende Untersuchung nach Erreichen des technischen Maßnahmenwertes nach §51 TrinkwV (entspricht auch UBA-Empfehlung/DVGW-Arbeitsblatt W 551)</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>

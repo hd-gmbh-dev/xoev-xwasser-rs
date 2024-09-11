@@ -48,6 +48,7 @@ fn test_minimal_olb_report_against_serialize() -> anyhow::Result<()> {
     if let Err(e) = result {
         eprintln!("{e}");
     }
-    std::fs::write("tests/olb_report_minimal_test_result.xml", xml.replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1 xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1 ../schemas/V0_5_1/xwasser.xsd"))?;
+    dbg!(&xml);
+    std::fs::write("tests/olb_report_minimal_test_result.xml", xml.replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ ../schemas/V0_5_2/xwasser.xsd"))?;
     Ok(())
 }
