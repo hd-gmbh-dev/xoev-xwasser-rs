@@ -1,0 +1,67 @@
+{
+  "produkt": "SHAPTH CLI",
+  "test": true,
+  "nachrichtenkopf_g2g": {
+    "identifikation_nachricht": {
+      "nachrichten_uuid": "693c64d6-456f-4d14-abe7-fe9681c74aae",
+      "nachrichten_typ": {
+        "code": {
+          "code": "0010"
+        }
+      },
+      "erstellungszeitpunkt": "2024-05-28T09:00:00"
+    },
+    "leser": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "psw:11113110",
+      "name": "Reader"
+    },
+    "autor": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "psw:01003110",
+      "name": "Author"
+    },
+    "referenz_uuid": null,
+    "dvdv_dienstkennung": "s"
+  },
+  "vorgang": {
+    "identifikation_vorgang": {
+      "vorgangs_id": "5e08e073-4e06-438d-9444-1275f6cbf061"
+    },
+    "vorgang_type": {
+      "t": "OlgBericht",
+      "c": {
+        "dokument_typ": {
+          "code": "1010",
+          "name": null
+        },
+        "name": "Anlage 1",
+        "aktuelle_version": null,
+        "letzte_version": null,
+        "dokument_repraesentation": {
+          "referenz": null,
+          "mime_type": "application/pdf",
+          "inhalt": "",
+          "externer_referenz_typ": null,
+          "externer_referenz_index": null,
+          "dateiname": "Test.pdf",
+          "inhalt_typ": "pdf",
+          "signaturen": null,
+          "dokument_repraesentation_id": "doc1"
+        },
+        "person_referenz_id": [],
+        "dokument_id": "anhang1"
+      }
+    },
+    "bemerkung": "Bemerkung",
+    "anlage": []
+  }
+}
