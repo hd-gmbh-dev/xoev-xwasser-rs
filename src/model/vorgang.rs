@@ -17,7 +17,7 @@ use super::{
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
 ))]
 pub struct IdentifikationVorgang {
     #[xml(ns = b"xwas", name = b"vorgangsID", ty = "child")]
@@ -31,7 +31,7 @@ pub struct IdentifikationVorgang {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
 ))]
 pub struct Vorgang {
     #[xml(ns = b"xwas", name = b"identifikationVorgang", ty = "child")]
@@ -50,7 +50,7 @@ pub struct Vorgang {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
 ))]
 pub struct DokumentType {
     #[xml(ns = b"xwas", name = b"dokumentTyp", ty = "child")]
@@ -77,7 +77,7 @@ pub struct DokumentType {
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
 ))]
 pub enum VorgangType {
     #[xml(ns = b"xwas", name = b"pruefbericht")]

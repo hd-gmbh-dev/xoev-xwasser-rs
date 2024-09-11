@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1 ../schemas/V0_5_1/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.5.1">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ ../schemas/V0_5_2/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.5.2">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
@@ -32,6 +32,8 @@
     <xwas:vorgangType>
       <xwas:pruefbericht id="pruefbericht1">
         <xwas:pruefberichtUUID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:pruefberichtUUID>
+        <xwas:vorgaengerPruefberichtID>ebbf07dd-b7ca-4d74-93c1-d5b68a2fd91f</xwas:vorgaengerPruefberichtID>
+        <xwas:auftragsnummer>54713a94-983e-4a36-93b8-af5d0ebfd191</xwas:auftragsnummer>
         <xwas:probennahmestelle id="probennahmestelleid1">
           <xwas:probennahmestelleID>ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86</xwas:probennahmestelleID>
           <xwas:objektID>abcd</xwas:objektID>
@@ -97,8 +99,8 @@
             <xwas:kommentarZurProbennahme></xwas:kommentarZurProbennahme>
             <xwas:informationenZumProbentransport>Getränkekiste</xwas:informationenZumProbentransport>
             <xwas:eingangProbeBeiUntersuchungsstelle>2024-05-27T10:00:00</xwas:eingangProbeBeiUntersuchungsstelle>
-            <xwas:beginnAnalytik>2024-05-27T10:01:00</xwas:beginnAnalytik>
-            <xwas:abschlussAnalytik>2024-05-27T10:02:00</xwas:abschlussAnalytik>
+            <xwas:beginnLabortaetigkeitAnalytik>2024-05-27T10:01:00</xwas:beginnLabortaetigkeitAnalytik>
+            <xwas:abschlussLabortaetigkeitAnalytik>2024-05-27T10:02:00</xwas:abschlussLabortaetigkeitAnalytik>
             <xwas:konformitaetsbewertungDerProbe listURI="urn:xoev-de:xwasser:codeliste:probenbewertung" listVersionID="1">
               <code>1010</code>
             </xwas:konformitaetsbewertungDerProbe>
@@ -170,8 +172,8 @@
             <xwas:kommentarZurProbennahme>Regelmäßige Überprüfung</xwas:kommentarZurProbennahme>
             <xwas:informationenZumProbentransport>Kühlbox</xwas:informationenZumProbentransport>
             <xwas:eingangProbeBeiUntersuchungsstelle>2024-06-15T09:00:00</xwas:eingangProbeBeiUntersuchungsstelle>
-            <xwas:beginnAnalytik>2024-06-15T09:05:00</xwas:beginnAnalytik>
-            <xwas:abschlussAnalytik>2024-06-15T09:30:00</xwas:abschlussAnalytik>
+            <xwas:beginnLabortaetigkeitAnalytik>2024-06-15T09:05:00</xwas:beginnLabortaetigkeitAnalytik>
+            <xwas:abschlussLabortaetigkeitAnalytik>2024-06-15T09:30:00</xwas:abschlussLabortaetigkeitAnalytik>
             <xwas:konformitaetsbewertungDerProbe listURI="urn:xoev-de:xwasser:codeliste:probenbewertung" listVersionID="1">
               <code>1020</code>
             </xwas:konformitaetsbewertungDerProbe>
@@ -197,6 +199,7 @@
             <name>Adsorption, Entfernung von Chlor und Ozon, biol. Filtration, Entfernung von Partikeln</name>
           </xwas:desinfektionUndAufbereitungDesWassers>
           <xwas:altID>altid2</xwas:altID>
+          <xwas:berichtspflichtig>true</xwas:berichtspflichtig>
           <xwas:kommentar></xwas:kommentar>
         </xwas:probennahmestelle>
         <xwas:nameBeauftragteUntersuchungsstelle listURI="urn:xoev-de:xwasser:codeliste:untersuchungsstelle" listVersionID="1">

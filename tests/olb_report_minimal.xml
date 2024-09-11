@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1 ../schemas/V0_5_1/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.5.1">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ ../schemas/V0_5_2/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.5.2">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
@@ -31,13 +31,13 @@
     <xwas:vorgangType>
       <xwas:olb_bericht dokumentID="anhang1">
         <xwas:dokumentTyp><code>1010</code></xwas:dokumentTyp>
-        <xwas:name>Anlage 1</xwas:name>        
+        <xwas:name>Anlage 1</xwas:name>
         <xwas:dokumentRepraesentation dokumentRepraesentationID="doc1">
           <xwas:mimeType>application/pdf</xwas:mimeType>
           <xwas:inhalt>PERVTU1ZIC8+</xwas:inhalt>
           <xwas:dateiname>Test.pdf</xwas:dateiname>
           <xwas:inhaltTyp>pdf</xwas:inhaltTyp>
-        </xwas:dokumentRepraesentation>        
+        </xwas:dokumentRepraesentation>
       </xwas:olb_bericht>
     </xwas:vorgangType>
     <xwas:bemerkung>Bemerkung</xwas:bemerkung>

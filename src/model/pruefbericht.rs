@@ -27,11 +27,15 @@ use super::{
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
 ))]
 pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
     pub pruefbericht_uuid: String,
+    #[xml(ns = b"xwas", name = b"vorgaengerPruefberichtID", ty = "child")]
+    pub vorgaenger_pruefbericht_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"auftragsnummer", ty = "child")]
+    pub auftragsnummer: String,
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
     #[serde(default)]
     pub probennahmestelle: Vec<ProbennahmestelleType>,

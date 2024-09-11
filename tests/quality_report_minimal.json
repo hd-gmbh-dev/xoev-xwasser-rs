@@ -40,6 +40,8 @@
       "t": "Pruefbericht",
       "c": {
         "pruefbericht_uuid": "5e08e073-4e06-438d-9444-1275f6cbf061",
+        "vorgaenger_pruefbericht_id": null,
+        "auftragsnummer": "54713a94-983e-4a36-93b8-af5d0ebfd191",
         "probennahmestelle": [
           {
             "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
@@ -129,8 +131,8 @@
                 "kommentar_zur_probennahme": "DUMMY",
                 "informationen_zum_probentransport": "Lieferwagen",
                 "eingang_probe_bei_untersuchungsstelle": "2024-05-27T10:00:00",
-                "beginn_analytik": "2024-05-27T10:01:00",
-                "abschluss_analytik": "2024-05-27T10:02:00",
+                "beginn_labortaetigkeit_analytik": "2024-05-27T10:01:00",
+                "abschluss_labortaetigkeit_analytik": "2024-05-27T10:02:00",
                 "konformitaetsbewertung_der_probe": {
                   "code": "1010",
                   "name": null
@@ -167,6 +169,7 @@
               }
             ],
             "alt_id": "altid2",
+            "berichtspflichtig": null,
             "kommentar": "kommentar zur proebennahmestelle",
             "id": "probennahmestelleid1"
           }
