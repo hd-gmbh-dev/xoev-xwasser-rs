@@ -13,14 +13,14 @@ const __dirname = import.meta.dirname;
 import xmlvalidate, { XmlValidatorError } from '@raxb/validate-wasm'
 const xsdBundle = fs.readFileSync(path.resolve(__dirname, '../pkg/xwasser-v051.xsdb.bin')).buffer;
 
-describe("simple xml generation via wasm", async () => {
+describe("minimal olb report xml generation via wasm", async () => {
   const { XmlValidator } = await xmlvalidate();
   const validator = new XmlValidator(new Uint8Array(xsdBundle));
   validator.init((err: string) => {
     console.error(err);
   });
 
-  it("should be able to create quality report xml", async () => {
+  it("should be able to create minimal olb report xml", async () => {
     const xml = create_vorgang_transportieren_2010(olb_report_minimal as any as VorgangTransportieren2010)
       .replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1 xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_1 ../schemas/V0_5_1/xwasser.xsd");
     const expected_xml = fs.readFileSync(path.resolve(__dirname, './olb_report_minimal_test_result.xml'), 'utf-8');
@@ -30,7 +30,7 @@ describe("simple xml generation via wasm", async () => {
     })
   });
 
-  it("should be able to parse quality report xml", async () => {
+  it("should be able to parse minimal olb report xml", async () => {
     const source = fs.readFileSync(path.resolve(__dirname, './olb_report_minimal.xml'), 'utf-8');
     const obj = parse_vorgang_transportieren_2010(source)
     expect(obj.vorgang.vorgang_type.t).to.equal("OlbBericht");
