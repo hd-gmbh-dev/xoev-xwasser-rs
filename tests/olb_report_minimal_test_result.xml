@@ -12,14 +12,14 @@
       <verzeichnisdienst listVersionID="">
         <code></code>
       </verzeichnisdienst>
-      <kennung>psw:11113110</kennung>
+      <kennung>olb:09000000</kennung>
       <name>Reader</name>
     </leser>
     <autor>
       <verzeichnisdienst listVersionID="">
         <code></code>
       </verzeichnisdienst>
-      <kennung>psw:01003110</kennung>
+      <kennung>gha:090</kennung>
       <name>Author</name>
     </autor>
     <dvdvDienstkennung>s</dvdvDienstkennung>
@@ -36,7 +36,7 @@
         <xwas:name>Anlage 1</xwas:name>
         <xwas:dokumentRepraesentation dokumentRepraesentationID="doc1">
           <xwas:mimeType>application/pdf</xwas:mimeType>
-          <xwas:inhalt></xwas:inhalt>
+          <xwas:inhalt>PERVTU1ZIC8+</xwas:inhalt>
           <xwas:dateiname>Test.pdf</xwas:dateiname>
           <xwas:inhaltTyp>pdf</xwas:inhaltTyp>
         </xwas:dokumentRepraesentation>

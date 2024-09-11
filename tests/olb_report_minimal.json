@@ -17,7 +17,7 @@
           "code": ""
         }
       },
-      "kennung": "psw:11113110",
+      "kennung": "olb:09000000",
       "name": "Reader"
     },
     "autor": {
@@ -26,7 +26,7 @@
           "code": ""
         }
       },
-      "kennung": "psw:01003110",
+      "kennung": "gha:090",
       "name": "Author"
     },
     "referenz_uuid": null,
@@ -49,7 +49,7 @@
         "dokument_repraesentation": {
           "referenz": null,
           "mime_type": "application/pdf",
-          "inhalt": "",
+          "inhalt": "PERVTU1ZIC8+",
           "externer_referenz_typ": null,
           "externer_referenz_index": null,
           "dateiname": "Test.pdf",
