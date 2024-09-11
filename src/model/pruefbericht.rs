@@ -115,11 +115,7 @@ pub struct PruefberichtType {
         ty = "child"
     )]
     pub beauftragte_untersuchungsstelle: BeauftragteUntersuchungsstelleType,
-    #[xml(
-        ns = b"xwas",
-        name = b"zugelasseneUntersuchungsstelle",
-        ty = "child"
-    )]
+    #[xml(ns = b"xwas", name = b"zugelasseneUntersuchungsstelle", ty = "child")]
     #[serde(default)]
     pub zugelassene_untersuchungsstelle: Vec<ZugelasseneUntersuchungsstelleType>,
     #[xml(ns = b"xwas", name = b"ortDerLabortaetigkeiten", ty = "child")]
