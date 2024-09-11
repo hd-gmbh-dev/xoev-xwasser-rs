@@ -336,8 +336,8 @@
 //     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
 // ))]
 // pub struct IncidentCauseAndRemedialActionType {
-//     #[xml(ns = b"xwas", name = b"incidentCauseAndActionIdentifier", ty = "child")]
-//     pub incident_cause_and_action_identifier: String, // bn-uq-g2g:UUID
+//     #[xml(ns = b"xwas", name = b"incidentCauseAndRemidialActionIdentifier", ty = "child")]
+//     pub incident_cause_and_remidial_action_identifier: String, // bn-uq-g2g:UUID
 //     #[xml(ns = b"xwas", name = b"incidentCause", ty = "child")]
 //     pub incident_cause: CodeIncidentExceedanceCauseType,
 //     #[xml(ns = b"xwas", name = b"incidentRemedialAction", ty = "child")]
@@ -347,7 +347,7 @@
 //     #[xml(ns = b"xwas", name = b"incidentRemedialActionEndDate", ty = "child")]
 //     pub incident_remedial_action_end_date: String, // xs:date
 //     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
-//     pub remarks: Option<u32>,
+//     pub remarks: Option<String>,
 //     #[xml(ns = b"xwas", name = b"_id", ty = "attr")]
 //     #[serde(skip)]
 //     pub _id: ConstStr,

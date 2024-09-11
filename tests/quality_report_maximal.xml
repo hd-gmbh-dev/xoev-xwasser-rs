@@ -32,6 +32,8 @@
     <xwas:vorgangType>
       <xwas:pruefbericht id="pruefbericht1">
         <xwas:pruefberichtUUID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:pruefberichtUUID>
+        <xwas:vorgaengerPruefberichtID>ebbf07dd-b7ca-4d74-93c1-d5b68a2fd91f</xwas:vorgaengerPruefberichtID>
+        <xwas:auftragsnummer>54713a94-983e-4a36-93b8-af5d0ebfd191</xwas:auftragsnummer>
         <xwas:probennahmestelle id="probennahmestelleid1">
           <xwas:probennahmestelleID>ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86</xwas:probennahmestelleID>
           <xwas:objektID>abcd</xwas:objektID>
@@ -97,8 +99,8 @@
             <xwas:kommentarZurProbennahme></xwas:kommentarZurProbennahme>
             <xwas:informationenZumProbentransport>Getränkekiste</xwas:informationenZumProbentransport>
             <xwas:eingangProbeBeiUntersuchungsstelle>2024-05-27T10:00:00</xwas:eingangProbeBeiUntersuchungsstelle>
-            <xwas:beginnAnalytik>2024-05-27T10:01:00</xwas:beginnAnalytik>
-            <xwas:abschlussAnalytik>2024-05-27T10:02:00</xwas:abschlussAnalytik>
+            <xwas:beginnLabortaetigkeitAnalytik>2024-05-27T10:01:00</xwas:beginnLabortaetigkeitAnalytik>
+            <xwas:abschlussLabortaetigkeitAnalytik>2024-05-27T10:02:00</xwas:abschlussLabortaetigkeitAnalytik>
             <xwas:konformitaetsbewertungDerProbe><code>1010</code></xwas:konformitaetsbewertungDerProbe>
             <xwas:berichtspflichtig>true</xwas:berichtspflichtig>
             <xwas:vonProbennehmerVergebeneProbeID>123456789</xwas:vonProbennehmerVergebeneProbeID>
@@ -168,8 +170,8 @@
             <xwas:kommentarZurProbennahme>Regelmäßige Überprüfung</xwas:kommentarZurProbennahme>
             <xwas:informationenZumProbentransport>Kühlbox</xwas:informationenZumProbentransport>
             <xwas:eingangProbeBeiUntersuchungsstelle>2024-06-15T09:00:00</xwas:eingangProbeBeiUntersuchungsstelle>
-            <xwas:beginnAnalytik>2024-06-15T09:05:00</xwas:beginnAnalytik>
-            <xwas:abschlussAnalytik>2024-06-15T09:30:00</xwas:abschlussAnalytik>
+            <xwas:beginnLabortaetigkeitAnalytik>2024-06-15T09:05:00</xwas:beginnLabortaetigkeitAnalytik>
+            <xwas:abschlussLabortaetigkeitAnalytik>2024-06-15T09:30:00</xwas:abschlussLabortaetigkeitAnalytik>
             <xwas:konformitaetsbewertungDerProbe>
               <code>1020</code>
             </xwas:konformitaetsbewertungDerProbe>
@@ -195,6 +197,7 @@
             <name>Adsorption, Entfernung von Chlor und Ozon, biol. Filtration, Entfernung von Partikeln</name>
           </xwas:desinfektionUndAufbereitungDesWassers>
           <xwas:altID>altid2</xwas:altID>
+          <xwas:berichtspflichtig>true</xwas:berichtspflichtig>
           <xwas:kommentar></xwas:kommentar>
         </xwas:probennahmestelle>
         <xwas:nameBeauftragteUntersuchungsstelle listURI="urn:xoev-de:xwasser:codeliste:untersuchungsstelle" listVersionID="1">

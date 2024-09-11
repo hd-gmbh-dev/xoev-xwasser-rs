@@ -31,6 +31,7 @@
     <xwas:vorgangType>
       <xwas:pruefbericht id="ID5e08e073-4e06-438d-9444-1275f6cbf061">
         <xwas:pruefberichtUUID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:pruefberichtUUID>
+        <xwas:auftragsnummer>54713a94-983e-4a36-93b8-af5d0ebfd191</xwas:auftragsnummer>
         <xwas:probennahmestelle id="probennahmestelleid1">
           <xwas:probennahmestelleID>ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86</xwas:probennahmestelleID>
           <xwas:objektID>abcd</xwas:objektID>
@@ -94,8 +95,8 @@
             <xwas:kommentarZurProbennahme>DUMMY</xwas:kommentarZurProbennahme>
             <xwas:informationenZumProbentransport>Lieferwagen</xwas:informationenZumProbentransport>
             <xwas:eingangProbeBeiUntersuchungsstelle>2024-05-27T10:00:00</xwas:eingangProbeBeiUntersuchungsstelle>
-            <xwas:beginnAnalytik>2024-05-27T10:01:00</xwas:beginnAnalytik>
-            <xwas:abschlussAnalytik>2024-05-27T10:02:00</xwas:abschlussAnalytik>
+            <xwas:beginnLabortaetigkeitAnalytik>2024-05-27T10:01:00</xwas:beginnLabortaetigkeitAnalytik>
+            <xwas:abschlussLabortaetigkeitAnalytik>2024-05-27T10:02:00</xwas:abschlussLabortaetigkeitAnalytik>
             <xwas:konformitaetsbewertungDerProbe><code>1010</code></xwas:konformitaetsbewertungDerProbe>
             <xwas:berichtspflichtig>true</xwas:berichtspflichtig>
             <xwas:vonProbennehmerVergebeneProbeID>123456789</xwas:vonProbennehmerVergebeneProbeID>

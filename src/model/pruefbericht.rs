@@ -32,6 +32,10 @@ use super::{
 pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
     pub pruefbericht_uuid: String,
+    #[xml(ns = b"xwas", name = b"vorgaengerPruefberichtID", ty = "child")]
+    pub vorgaenger_pruefbericht_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"auftragsnummer", ty = "child")]
+    pub auftragsnummer: String,
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
     #[serde(default)]
     pub probennahmestelle: Vec<ProbennahmestelleType>,

@@ -97,6 +97,8 @@ pub struct ProbennahmestelleType {
         Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
     #[xml(ns = b"xwas", name = b"altID", ty = "child")]
     pub alt_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"berichtspflichtig", ty = "child")]
+    pub berichtspflichtig: Option<bool>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]
@@ -172,10 +174,10 @@ pub struct ProbeType {
         ty = "child"
     )]
     pub eingang_probe_bei_untersuchungsstelle: String, // TODO: Invent xs:dateTime
-    #[xml(ns = b"xwas", name = b"beginnAnalytik", ty = "child")]
-    pub beginn_analytik: String, // TODO: Invent xs:dateTime
-    #[xml(ns = b"xwas", name = b"abschlussAnalytik", ty = "child")]
-    pub abschluss_analytik: String,
+    #[xml(ns = b"xwas", name = b"beginnLabortaetigkeitAnalytik", ty = "child")]
+    pub beginn_labortaetigkeit_analytik: String, // TODO: Invent xs:dateTime
+    #[xml(ns = b"xwas", name = b"abschlussLabortaetigkeitAnalytik", ty = "child")]
+    pub abschluss_labortaetigkeit_analytik: String,
     #[xml(ns = b"xwas", name = b"konformitaetsbewertungDerProbe", ty = "child")]
     pub konformitaetsbewertung_der_probe: CodeProbenbewertungType,
     #[xml(ns = b"xwas", name = b"berichtspflichtig", ty = "child")]
