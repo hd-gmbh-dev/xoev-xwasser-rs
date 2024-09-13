@@ -7,38 +7,22 @@ use serde::{Deserialize, Serialize};
 use tsify::Tsify;
 
 use crate::model::codes::{
-    CodeAnlassUntersuchungType, 
-    CodeArtProbennahmestelleEuType, 
-    CodeArtTrinkwasseranlageType, 
-    CodeArtWasserressourceType, CodeDesinfektionsartType,
-    CodeErlaeuterungWasserabgabemengeType,
-    CodeFlockungType,
-    CodeGrundAusnahmeregelungType,
-    CodeGrundSchliessungWasserversorgungsgebietType,
-    CodeIncidentCategoryType,
-    CodeIncidentExceedanceCauseType,
-    CodeKategorieProbennahmestelleType,
-    CodeMassnahmeType,
-    CodeNachweisartType,
-    CodeProbennahmeverfahrenType,
-    CodeShapthParameterEinheitType,
-    CodeShapthParameterType,
-    CodeStatusUntersuchungsplanType,
-    CodeUeberwachungAufbereitungType,
-    CodeWasserversorgungsgebietType,
-    CodeWvaType,
-    CodeProbennahmezeitraumType,
-    CodeAbhilfemassnahmeType
+    CodeAbhilfemassnahmeType, CodeAnlassUntersuchungType, CodeArtProbennahmestelleEuType,
+    CodeArtTrinkwasseranlageType, CodeArtWasserressourceType, CodeDesinfektionsartType,
+    CodeErlaeuterungWasserabgabemengeType, CodeFlockungType, CodeGrundAusnahmeregelungType,
+    CodeGrundSchliessungWasserversorgungsgebietType, CodeIncidentCategoryType,
+    CodeIncidentExceedanceCauseType, CodeKategorieProbennahmestelleType, CodeMassnahmeType,
+    CodeNachweisartType, CodeProbennahmeverfahrenType, CodeProbennahmezeitraumType,
+    CodeShapthParameterEinheitType, CodeShapthParameterType, CodeStatusUntersuchungsplanType,
+    CodeUeberwachungAufbereitungType, CodeWasserversorgungsgebietType, CodeWvaType,
 };
 
 use super::{
-    behoerde::{BehoerdeType, ZustaendigeBehoerdeType},
     auftraggeber::AuftraggeberType,
-    misc::{ErweiterungType, GeokoordinatenShapthType},
+    behoerde::{BehoerdeType, ZustaendigeBehoerdeType},
     betreiber::ObjektType,
+    misc::{ErweiterungType, GeokoordinatenShapthType},
 };
-
-
 
 /// Klasse für den Transport von Informationen, die für die Erstellung eines
 /// Untersuchungsplans für a- und b-Anlagen relevant sind.
@@ -67,7 +51,11 @@ pub struct UntersuchungsplanType {
     pub oberflaechenwassereinfluss: bool,
     #[xml(ns = b"xwas", name = b"desinfektionDurchgefuehrtMit", ty = "child")]
     pub desinfektion_durchgefuehrt_mit: CodeDesinfektionsartType,
-    #[xml(ns = b"xwas", name = b"abfuellungZurAbgabeInVerschlossenenBehaeltnissen", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"abfuellungZurAbgabeInVerschlossenenBehaeltnissen",
+        ty = "child"
+    )]
     pub abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen: bool,
     #[xml(ns = b"xwas", name = b"acrylamid", ty = "child")]
     pub acrylamid: CodeNachweisartType,
@@ -79,11 +67,19 @@ pub struct UntersuchungsplanType {
     pub ph_wert_wasserwerksausgang: bool,
     #[xml(ns = b"xwas", name = b"wasserabgabeVorjahrProTag", ty = "child")]
     pub wasserabgabe_vorjahr_pro_tag: f64,
-    #[xml(ns = b"xwas", name = b"anzahlUntersuchungenproJahrGruppeA", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"anzahlUntersuchungenproJahrGruppeA",
+        ty = "child"
+    )]
     pub anzahl_untersuchungen_pro_jahr_gruppe_a: u32,
     #[xml(ns = b"xwas", name = b"abzudeckenDurchBetreiberGruppeA", ty = "child")]
     pub abzudecken_durch_betreiber_gruppe_a: Option<u32>,
-    #[xml(ns = b"xwas", name = b"anzahlUntersuchungenproJahrGruppeB", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"anzahlUntersuchungenproJahrGruppeB",
+        ty = "child"
+    )]
     pub anzahl_untersuchungenpro_jahr_gruppe_b: u32,
     #[xml(ns = b"xwas", name = b"abzudeckenDurchBetreiberGruppeB", ty = "child")]
     pub abzudecken_durch_betreiber_gruppe_b: Option<u32>,
@@ -107,7 +103,6 @@ pub struct UntersuchungsplanType {
     pub id: String,
 }
 
-
 /// Klasse für den Transport von Informationen, die für die Erstellung von Terminplänen
 /// als Teil des Untersuchungsplans für a- und b-Anlagen relevant sind.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
@@ -125,7 +120,11 @@ pub struct TerminplanType {
     pub datum_zeitraum: Vec<String>,
     #[xml(ns = b"xwas", name = b"probennahmestelleKategorie", ty = "child")]
     pub probennahmestelle_kategorie: CodeKategorieProbennahmestelleType,
-    #[xml(ns = b"xwas", name = b"weitereBeschreibungDerProbennahmestelle", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"weitereBeschreibungDerProbennahmestelle",
+        ty = "child"
+    )]
     pub weitere_beschreibung_der_probennahmestelle: Option<String>,
     #[xml(ns = b"xwas", name = b"untersuchungDurch", ty = "child")]
     pub untersuchung_durch: Vec<CodeUeberwachungAufbereitungType>,
@@ -174,8 +173,6 @@ pub struct IncidentType {
     pub id: String,
 }
 
-
-
 /// Transport der Informationen, die für Qualität und Überwachung gem. dem neuen Vorgaben
 /// für das EU-Berichtsformat benötigt werden.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
@@ -185,7 +182,11 @@ pub struct IncidentType {
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
 ))]
 pub struct QualityAndMonitoringType {
-    #[xml(ns = b"xwas", name = b"qualityAndMonitoringRequirementIdentifier", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"qualityAndMonitoringRequirementIdentifier",
+        ty = "child"
+    )]
     pub quality_and_monitoring_requirement_identifier: String,
     #[xml(ns = b"xwas", name = b"parameterCode", ty = "child")]
     pub parameter_code: String,
@@ -214,11 +215,19 @@ pub struct QualityAndMonitoringType {
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
 ))]
 pub struct DerogationRemedialActionType {
-    #[xml(ns = b"xwas", name = b"derogationRemedialActionIdentifier", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"derogationRemedialActionIdentifier",
+        ty = "child"
+    )]
     pub derogation_remedial_action_identifier: String,
     #[xml(ns = b"xwas", name = b"derogationRemedialAction", ty = "child")]
     pub derogation_remedial_action: CodeAbhilfemassnahmeType,
-    #[xml(ns = b"xwas", name = b"derogationRemedialActionStartDate", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"derogationRemedialActionStartDate",
+        ty = "child"
+    )]
     pub derogation_remedial_action_start_date: String,
     #[xml(ns = b"xwas", name = b"derogationRemedialActionEndDate", ty = "child")]
     pub derogation_remedial_action_end_date: String,
@@ -229,7 +238,6 @@ pub struct DerogationRemedialActionType {
     #[xml(ns = b"xwas", name = b"id", ty = "attr")]
     pub id: String,
 }
-
 
 /// Transport solcher Informationen, die für die Ausnahmeregelungen gem. den neuen
 /// Vorgaben für das EU-Berichtsformat benötigt werden.
@@ -280,7 +288,6 @@ pub struct DerogationType {
     pub id: String,
 }
 
-
 /// Klasse für den Transport von Informationen, die für Ursachen und Maßnahmen von
 /// Überschreitungen gem. den neuen Vorgaben für das EU-Berichtsformat benötigt werden.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
@@ -290,13 +297,21 @@ pub struct DerogationType {
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
 ))]
 pub struct ExceedanceCauseAndRemedialActionType {
-    #[xml(ns = b"xwas", name = b"exceedanceCauseAndRemedialActionIdentifier", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"exceedanceCauseAndRemedialActionIdentifier",
+        ty = "child"
+    )]
     pub exceedance_cause_and_remedial_action_identifier: String,
     #[xml(ns = b"xwas", name = b"exceedanceCause", ty = "child")]
     pub exceedance_cause: CodeIncidentExceedanceCauseType,
     #[xml(ns = b"xwas", name = b"exceedanceRemedialAction", ty = "child")]
     pub exceedance_remedial_action: CodeMassnahmeType,
-    #[xml(ns = b"xwas", name = b"exceedanceRemedialActionStartDate", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"exceedanceRemedialActionStartDate",
+        ty = "child"
+    )]
     pub exceedance_remedial_action_start_date: String,
     #[xml(ns = b"xwas", name = b"exceedanceRemedialActionEndDate", ty = "child")]
     pub exceedance_remedial_action_end_date: String,
@@ -305,7 +320,6 @@ pub struct ExceedanceCauseAndRemedialActionType {
     #[xml(ns = b"xwas", name = b"id", ty = "attr")]
     pub id: String,
 }
-
 
 /// Klasse für den Transport von Informationen, die für Überschreitungen gem. den neuen
 /// Vorgaben für das EU-Berichtsformat benötigt werden.
@@ -346,7 +360,6 @@ pub struct ExceedanceType {
     pub id: String,
 }
 
-
 /// Klasse für den Transport von Informationen, die zur Beschreibung von Ursache und
 /// Maßnahmen von Vorfällen gem. den neuen Vorgaben für das EU-Berichtsformat benötigt
 /// werden.
@@ -357,7 +370,11 @@ pub struct ExceedanceType {
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
 ))]
 pub struct IncidentCauseAndRemedialActionType {
-    #[xml(ns = b"xwas", name = b"incidentCauseAndRemidialActionIdentifier", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"incidentCauseAndRemidialActionIdentifier",
+        ty = "child"
+    )]
     pub incident_cause_and_remidial_action_identifier: String,
     #[xml(ns = b"xwas", name = b"incidentCause", ty = "child")]
     pub incident_cause: CodeIncidentExceedanceCauseType,
@@ -412,9 +429,17 @@ pub struct WasserversorgungsgebietType {
     pub art_der_wasserressource: Vec<CodeArtWasserressourceType>,
     #[xml(ns = b"xwas", name = b"anteilDerWasserressource", ty = "child")]
     pub anteil_der_wasserressource: Vec<u32>,
-    #[xml(ns = b"xwas", name = b"vorgeschriebeneUntersuchungshaeufigkeitParameterA", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"vorgeschriebeneUntersuchungshaeufigkeitParameterA",
+        ty = "child"
+    )]
     pub vorgeschriebene_untersuchungshaeufigkeit_parameter_a: u32,
-    #[xml(ns = b"xwas", name = b"vorgeschriebeneUntersuchungshaeufigkeitParameterB", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"vorgeschriebeneUntersuchungshaeufigkeitParameterB",
+        ty = "child"
+    )]
     pub vorgeschriebene_untersuchungshaeufigkeit_parameter_b: u32,
     #[xml(ns = b"xwas", name = b"altID", ty = "child")]
     pub alt_id: Option<String>,
@@ -429,7 +454,6 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"id", ty = "attr")]
     pub id: String,
 }
-
 
 /// Klasse für den Transport von Informationen zu einer Trinkwasserversorgungsanlage.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
@@ -449,9 +473,17 @@ pub struct AnlageNachTrinkwVType {
     pub art_anlage: CodeArtTrinkwasseranlageType,
     #[xml(ns = b"xwas", name = b"nameDerAnlage", ty = "child")]
     pub name_der_anlage: String,
-    #[xml(ns = b"xwas", name = b"abgegebeneWassermengeDerAnlageProTag", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"abgegebeneWassermengeDerAnlageProTag",
+        ty = "child"
+    )]
     pub abgegebene_wassermenge_der_anlage_pro_tag: Option<f64>,
-    #[xml(ns = b"xwas", name = b"anzahlDurchAnlageVersorgtePersonen", ty = "child")]
+    #[xml(
+        ns = b"xwas",
+        name = b"anzahlDurchAnlageVersorgtePersonen",
+        ty = "child"
+    )]
     pub anzahl_durch_anlage_versorgte_personen: Option<u32>,
     #[xml(ns = b"xwas", name = b"altID", ty = "child")]
     pub alt_id: Option<String>,

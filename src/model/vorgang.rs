@@ -10,7 +10,8 @@ use wasm_bindgen::prelude::*;
 
 use super::{
     codes::CodeDokumenttypType, pruefbericht::PruefberichtType,
-    shared::dokument::DokumentRepraesentationType, shared::untersuchungsplan::UntersuchungsplanType,
+    shared::dokument::DokumentRepraesentationType,
+    shared::untersuchungsplan::UntersuchungsplanType,
 };
 
 #[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
