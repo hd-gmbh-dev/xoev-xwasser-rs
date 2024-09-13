@@ -224,7 +224,7 @@
           <xwas:akkreditierungsnummer></xwas:akkreditierungsnummer>
           <xwas:kommentarZugelasseneUntersuchungsstelle></xwas:kommentarZugelasseneUntersuchungsstelle>
         </xwas:zugelasseneUntersuchungsstelle>
-        <xwas:ortDerLabortaetigkeiten id="ortDerLabortaetigkeiten1">
+        <xwas:ortDerLabortaetigkeiten id="ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a">
           <xwas:strasse>Teststr.</xwas:strasse>
           <xwas:hausnummer>1</xwas:hausnummer>
           <xwas:postleitzahl>12345</xwas:postleitzahl>
