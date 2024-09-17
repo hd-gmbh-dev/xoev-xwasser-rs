@@ -2,4 +2,5 @@
     "rust-analyzer.runnables.extraEnv": {
         "RUST_LOG":"debug"
     },
+    "liveServer.settings.port": 5501,
 }

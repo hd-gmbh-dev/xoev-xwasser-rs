@@ -1,0 +1,397 @@
+{
+  "produkt": "SHAPTH CLI",
+  "test": true,
+  "nachrichtenkopf_g2g": {
+    "identifikation_nachricht": {
+      "nachrichten_uuid": "693c64d6-456f-4d14-abe7-fe9681c74aae",
+      "nachrichten_typ": {
+        "code": {
+          "code": "0010"
+        }
+      },
+      "erstellungszeitpunkt": "2024-05-28T09:00:00"
+    },
+    "leser": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "mp:09000000",
+      "name": "Reader"
+    },
+    "autor": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "gha:090",
+      "name": "Author"
+    },
+    "referenz_uuid": null,
+    "dvdv_dienstkennung": "s"
+  },
+  "vorgang": {
+    "identifikation_vorgang": {
+      "vorgangs_id": "5e08e073-4e06-438d-9444-1275f6cbf061"
+    },
+    "vorgang_type": {
+      "t": "Untersuchungsplan",
+      "c": {
+        "untersuchungsplan_id": "1234",
+        "wasserversorgungsgebiet": [
+          "WVA"
+        ],
+        "jahr": [
+          2024
+        ],
+        "wasserabgabe_vorjahr": 5000.0,
+        "art_von_wva_und_wvg": {
+          "code": "1010",
+          "name": null
+        },
+        "erlaeuterung_zur_wasserabgabemenge": {
+          "code": "1010",
+          "name": null
+        },
+        "flockung": {
+          "code": "1010",
+          "name": null
+        },
+        "oberflaechenwassereinfluss": true,
+        "desinfektion_durchgefuehrt_mit": {
+          "code": "1010",
+          "name": null
+        },
+        "abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen": true,
+        "acrylamid": {
+          "code": "1010",
+          "name": null
+        },
+        "epichlorhydrin": {
+          "code": "1010",
+          "name": null
+        },
+        "vinylchlorid": {
+          "code": "1010",
+          "name": null
+        },
+        "ph_wert_wasserwerksausgang": true,
+        "wasserabgabe_vorjahr_pro_tag": 225.0,
+        "anzahl_untersuchungen_pro_jahr_gruppe_a": 1,
+        "abzudecken_durch_betreiber_gruppe_a": null,
+        "anzahl_untersuchungenpro_jahr_gruppe_b": 2,
+        "abzudecken_durch_betreiber_gruppe_b": null,
+        "rap_durchgefuehrt": true,
+        "status_untersuchungsplan": {
+          "code": "1010",
+          "name": null
+        },
+        "kommentar": null,
+        "terminplan": [
+          {
+            "terminplan_id": "0001",
+            "probennahmestelle_id": null,
+            "datum_zeitraum": [
+              "2024-06-15T09:00:00"
+            ],
+            "probennahmestelle_kategorie": {
+              "code": "L",
+              "name": null
+            },
+            "weitere_beschreibung_der_probennahmestelle": null,
+            "untersuchung_durch": [
+              {
+                "code": "1010",
+                "name": null
+              }
+            ],
+            "untersuchung_durch_erlaeuterung": null,
+            "anlass_der_untersuchung": [
+              {
+                "code": "1010",
+                "name": null
+              }
+            ],
+            "zu_untersuchende_parameter": [
+              {
+                "code": "",
+                "name": null
+              }
+            ],
+            "probennahmeverfahren": [
+              {
+                "code": "1010",
+                "name": null
+              }
+            ],
+            "ersatz_fuer_terminplan_mit_derI_d": null,
+            "kommentar": null,
+            "id": "terminplan1"
+          }
+        ],
+        "anlage_nach_trinkw_v": {
+          "anlage_nach_trinkw_v_id": "",
+          "zustaendige_behoerde_id": "GHA1",
+          "untersuchungsplan_id": [],
+          "art_anlage": {
+            "code": "1010",
+            "name": null
+          },
+          "name_der_anlage": "Anlage1",
+          "abgegebene_wassermenge_der_anlage_pro_tag": null,
+          "anzahl_durch_anlage_versorgte_personen": null,
+          "alt_id": null,
+          "kommentar": null,
+          "wasserversorgungsgebiet": [],
+          "anlage_nach_trinw_v_objekt": [
+            {
+              "objekt_id": "anlage",
+              "wasserversorgungsgebiet": null,
+              "anschrift_objekt": [],
+              "art_objekt": {
+                "code": "1010",
+                "name": null
+              },
+              "name_objekt": "Anhang1",
+              "betriebszustand_des_objekts": null,
+              "datum_in_betriebnahme": null,
+              "datum_ausser_betriebnahme": null,
+              "rahmen_der_trinkwasserbereitstellung": [
+                {
+                  "code": "1010",
+                  "name": null
+                }
+              ],
+              "geokoordinaten_objekt": {
+                "geografische_position_und_ausdehnung": null,
+                "name_shapefile": null,
+                "geokoordinaten_breitengrad": null,
+                "geokoordinaten_laengengrad": null,
+                "geokoordinaten_rechtswert": null,
+                "geokoordinaten_hochwert": null
+              },
+              "alt_id": null,
+              "kommentar": null,
+              "betreiber": [
+                {
+                  "betreiber_id": "WVA",
+                  "art_der_person": {
+                    "t": "Organisation",
+                    "c": {
+                      "rechtsform": null,
+                      "branche": [],
+                      "zweck": [],
+                      "name": null,
+                      "unterorganisation": [],
+                      "kommunikation": [],
+                      "registrierung": [],
+                      "identifikation": [],
+                      "existenzzeitraum": null,
+                      "anschrift": [
+                        {
+                          "strassenschluessel": null,
+                          "strasse": null,
+                          "hausnummer": null,
+                          "postfach": null,
+                          "postleitzahl": null,
+                          "ort": null,
+                          "ortsteil": null,
+                          "ort_frueherer_gemeindename": null,
+                          "wohnungsgeber": null,
+                          "zusatz": null,
+                          "typ": [],
+                          "staat": null,
+                          "verwaltungspolitische_kodierung": null,
+                          "id": "anschrift1"
+                        }
+                      ]
+                    }
+                  },
+                  "kommentar": null
+                }
+              ],
+              "objekt_probennahmestelle": [
+                {
+                  "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
+                  "objekt_id": "probennahmestelle1",
+                  "probe": [
+                    {
+                      "probe_id": "5e08e073-4e06-438d-9444-1275f6cbf061",
+                      "untersuchungsplan_id": "1234",
+                      "probennehmer": "probennehmer1",
+                      "analyseergebnis_parameter": [
+                        {
+                          "analyseergebnis_parameter_id": "753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
+                          "anschrift_id": "anschrift1",
+                          "zugelassene_untersuchungsstelle": "abcd",
+                          "akkreditierte_durchfuehrung_analyse": true,
+                          "untersuchungsverfahren": [
+                            {
+                              "code": "1010",
+                              "name": "untersuchungsverfahren"
+                            }
+                          ],
+                          "ergaenzung_zum_untersuchungsverfahren": null,
+                          "untersuchter_parameter": {
+                            "code": "1000",
+                            "name": "untersuchter_parameter"
+                          },
+                          "parameterauspraegung": null,
+                          "parameter_durch_betreiber_untersucht": true,
+                          "wurde_der_parameter_korrigiert": null,
+                          "parameter_unterauswahl": null,
+                          "untersuchungswert_parameter": null,
+                          "einheit_des_untersuchungswerts": null,
+                          "ergaenzung_zum_untersuchungswert_parameter": null,
+                          "parameterwert_ergaenzung": null,
+                          "ausgewertetes_ansatzvolumen": null,
+                          "shapth_parameter_nummer": [],
+                          "bewertung_untersuchungswert": {
+                            "code": "1010",
+                            "name": null
+                          },
+                          "parameterauffaelligkeit": null,
+                          "messunsicherheit_untersuchungswert_absolut": null,
+                          "messunsicherheit_untersuchungswert_relativ": null,
+                          "bestimmungsgrenze_lo_q": null,
+                          "kommentar": null,
+                          "id": "analyseergebnisParameter1"
+                        }
+                      ],
+                      "anlass_der_untersuchung": [
+                        {
+                          "code": "1010",
+                          "name": "name"
+                        }
+                      ],
+                      "medium": null,
+                      "akkreditierte_durchfuehrung_der_probennahme": true,
+                      "ergaenzung_zum_medium": null,
+                      "zeitpunkt_probennahme": "2024-05-27T09:00:00",
+                      "probennahmeverfahren": [
+                        {
+                          "code": "1010",
+                          "name": "probennahmeverfahren"
+                        }
+                      ],
+                      "probenentnahmegeraet": null,
+                      "probengefaess": null,
+                      "ergaenzende_informationen_zu_probenentnahmegeraet": null,
+                      "desinfektion_probenentnahmegeraet_durchgefuehrt": null,
+                      "konservierung_aufbereitung_desinfektion_probe": [
+                        {
+                          "code": "",
+                          "name": null
+                        }
+                      ],
+                      "kommentar_zur_probennahme": "Kommentar",
+                      "informationen_zum_probentransport": null,
+                      "eingang_probe_bei_untersuchungsstelle": "2024-05-27T10:00:00",
+                      "beginn_labortaetigkeit_analytik": "2024-05-27T10:01:00",
+                      "abschluss_labortaetigkeit_analytik": "2024-05-27T10:02:00",
+                      "konformitaetsbewertung_der_probe": {
+                        "code": "1010",
+                        "name": null
+                      },
+                      "berichtspflichtig": null,
+                      "von_probennehmer_vergebene_probe_id": "123456789",
+                      "probe_id_aus_labor": "1233",
+                      "anhang": [],
+                      "kommentar": null,
+                      "id": "probe1"
+                    }
+                  ],
+                  "terminplan_id": [
+                    ""
+                  ],
+                  "name_probennahmestelle": "",
+                  "art_probennahmestelle": {
+                    "code": "1010",
+                    "name": null
+                  },
+                  "stockwerk_probennahmestelle": 1,
+                  "medium_an_der_probennahmestelle": [
+                    {
+                      "code": "1010",
+                      "name": null
+                    }
+                  ],
+                  "desinfektion_und_aufbereitung_des_wassers": [
+                    {
+                      "code": "",
+                      "name": null
+                    }
+                  ],
+                  "alt_id": null,
+                  "berichtspflichtig": null,
+                  "kommentar": null,
+                  "id": "probennahmestelle1"
+                }
+              ],
+              "id": "anlage_objekt1"
+            }
+          ],
+          "id": "abcd"
+        },
+        "auftraggeber": {
+          "auftraggeber_id": "probennehmer1",
+          "auftraggeberart": {
+            "code": "1010",
+            "name": null
+          },
+          "auftraggeber": {
+            "t": "ZustaendigeBehoerde",
+            "c": {
+              "id": "probennehmer1",
+              "typ": null,
+              "zusatz": null,
+              "behoerdenkennung": null,
+              "kommunikation": [],
+              "behoerdenidentifikation": null,
+              "behoerdenname": [],
+              "nachgeordnete_behoerde": [],
+              "verwaltungspolitische_zustaendigkeit": [],
+              "anschrift": [],
+              "organisationsstruktur": [],
+              "anlage_nach_trinkw_vid": [
+                ""
+              ],
+              "laenderkuerzel": {
+                "code": "DEAA",
+                "name": null
+              },
+              "kommentar": null
+            }
+          }
+        },
+        "zustaendige_behoerde": {
+          "id": "GHA1",
+          "typ": null,
+          "zusatz": null,
+          "behoerdenkennung": null,
+          "kommunikation": [],
+          "behoerdenidentifikation": null,
+          "behoerdenname": [],
+          "nachgeordnete_behoerde": [],
+          "verwaltungspolitische_zustaendigkeit": [],
+          "anschrift": [],
+          "organisationsstruktur": [],
+          "anlage_nach_trinkw_vid": [
+            ""
+          ],
+          "laenderkuerzel": {
+            "code": "DEAA",
+            "name": null
+          },
+          "kommentar": null
+        },
+        "erweiterung": null,
+        "id": "untersuchungsplan1"
+      }
+    },
+    "bemerkung": "Bemerkung",
+    "anlage": []
+  }
+}
