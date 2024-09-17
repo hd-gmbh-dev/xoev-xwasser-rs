@@ -189,7 +189,7 @@ pub struct QualityAndMonitoringType {
     )]
     pub quality_and_monitoring_requirement_identifier: String,
     #[xml(ns = b"xwas", name = b"parameterCode", ty = "child")]
-    pub parameter_code: String,
+    pub parameter_code: CodeShapthParameterType,
     #[xml(ns = b"xwas", name = b"parameterThresholdValue", ty = "child")]
     pub parameter_threshold_value: f64,
     #[xml(ns = b"xwas", name = b"parameterThresholdValueUnit", ty = "child")]
@@ -337,7 +337,7 @@ pub struct ExceedanceType {
     #[xml(ns = b"xwas", name = b"trivialExceedanceJustification", ty = "child")]
     pub trivial_exceedance_justification: Option<String>,
     #[xml(ns = b"xwas", name = b"parameterCode", ty = "child")]
-    pub parameter_code: String,
+    pub parameter_code: CodeShapthParameterType,
     #[xml(ns = b"xwas", name = b"exceedanceStartDate", ty = "child")]
     pub exceedance_start_date: String,
     #[xml(ns = b"xwas", name = b"exceedanceEndDate", ty = "child")]
