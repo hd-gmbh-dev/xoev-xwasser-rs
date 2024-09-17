@@ -258,7 +258,7 @@ pub struct JuristischePersonType {
     #[xml(ns = b"xwas", name = b"vertreterBevollmaechtigter", ty = "child")]
     #[serde(default)]
     pub vertreter_bevollmaechtigter: Vec<VertreterBevollmaechtigterType>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
 
@@ -357,6 +357,6 @@ pub struct PersonType {
     pub dokument_referenz_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"person", ty = "child")]
     pub person: Person,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }

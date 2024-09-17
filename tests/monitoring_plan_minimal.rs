@@ -42,6 +42,6 @@ fn test_minimal_monitoring_plan_against_serialize() -> anyhow::Result<()> {
         eprintln!("{e}");
     }
     dbg!(&xml);
-    std::fs::write("tests/monitoring_plan_minimal.xml", xml.replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ ../schemas/V0_5_2/xwasser.xsd"))?;
+    std::fs::write("tests/monitoring_plan_minimal_test_result.xml", xml.replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ ../schemas/V0_5_2/xwasser.xsd"))?;
     Ok(())
 }

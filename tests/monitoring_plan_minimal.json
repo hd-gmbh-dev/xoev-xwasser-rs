@@ -108,24 +108,14 @@
               }
             ],
             "untersuchung_durch_erlaeuterung": null,
-            "anlass_der_untersuchung": [
-              {
-                "code": "1010",
-                "name": null
-              }
-            ],
+            "anlass_der_untersuchung": [],
             "zu_untersuchende_parameter": [
               {
                 "code": "",
                 "name": null
               }
             ],
-            "probennahmeverfahren": [
-              {
-                "code": "1010",
-                "name": null
-              }
-            ],
+            "probennahmeverfahren": [],
             "ersatz_fuer_terminplan_mit_derI_d": null,
             "kommentar": null,
             "id": "terminplan1"
@@ -158,12 +148,7 @@
               "betriebszustand_des_objekts": null,
               "datum_in_betriebnahme": null,
               "datum_ausser_betriebnahme": null,
-              "rahmen_der_trinkwasserbereitstellung": [
-                {
-                  "code": "1010",
-                  "name": null
-                }
-              ],
+              "rahmen_der_trinkwasserbereitstellung": [],
               "geokoordinaten_objekt": {
                 "geografische_position_und_ausdehnung": null,
                 "name_shapefile": null,
@@ -283,12 +268,7 @@
                       "probengefaess": null,
                       "ergaenzende_informationen_zu_probenentnahmegeraet": null,
                       "desinfektion_probenentnahmegeraet_durchgefuehrt": null,
-                      "konservierung_aufbereitung_desinfektion_probe": [
-                        {
-                          "code": "",
-                          "name": null
-                        }
-                      ],
+                      "konservierung_aufbereitung_desinfektion_probe": [],
                       "kommentar_zur_probennahme": "Kommentar",
                       "informationen_zum_probentransport": null,
                       "eingang_probe_bei_untersuchungsstelle": "2024-05-27T10:00:00",
@@ -306,27 +286,20 @@
                       "id": "probe1"
                     }
                   ],
-                  "terminplan_id": [
-                    ""
-                  ],
+                  "terminplan_id": [],
                   "name_probennahmestelle": "",
                   "art_probennahmestelle": {
                     "code": "1010",
                     "name": null
                   },
-                  "stockwerk_probennahmestelle": 1,
+                  "stockwerk_probennahmestelle": null,
                   "medium_an_der_probennahmestelle": [
                     {
                       "code": "1010",
                       "name": null
                     }
                   ],
-                  "desinfektion_und_aufbereitung_des_wassers": [
-                    {
-                      "code": "",
-                      "name": null
-                    }
-                  ],
+                  "desinfektion_und_aufbereitung_des_wassers": [],
                   "alt_id": null,
                   "berichtspflichtig": null,
                   "kommentar": null,
@@ -339,7 +312,7 @@
           "id": "abcd"
         },
         "auftraggeber": {
-          "auftraggeber_id": "probennehmer1",
+          "auftraggeber_id": "Auftraggeber1",
           "auftraggeberart": {
             "code": "1010",
             "name": null
