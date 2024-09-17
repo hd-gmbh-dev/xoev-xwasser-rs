@@ -2,7 +2,7 @@ use xoev_xwasser::model::transport::VorgangTransportieren2010;
 
 
 
-fn minimal_monitoring_plan_report() -> String {
+fn minimal_monitoring_plan() -> String {
     std::fs::read_to_string(
         std::env::current_dir()
             .unwrap()
@@ -11,10 +11,19 @@ fn minimal_monitoring_plan_report() -> String {
     .unwrap()
 }
 
+#[cfg(feature = "schema")]
+fn minimal_monitoring_plan_json() -> String {
+    std::fs::read_to_string(
+        std::env::current_dir()
+            .unwrap()
+            .join("tests/monitoring_plan_minimal.json"),
+    )
+    .unwrap()
+}
 
 #[test_log::test]
 fn test_minimal_monitoring_plan_against_deserialize() -> anyhow::Result<()> {
-    let s = minimal_monitoring_plan_report();
+    let s = minimal_monitoring_plan();
     let e: VorgangTransportieren2010 = raxb::de::from_str(&s)?;
     let json = serde_json::to_string_pretty(&e).unwrap();
     std::fs::write("tests/monitoring_plan_minimal.json", json)?;
@@ -22,3 +31,17 @@ fn test_minimal_monitoring_plan_against_deserialize() -> anyhow::Result<()> {
     Ok(())
 }
 
+#[cfg(feature = "schema")]
+#[test]
+fn test_minimal_monitoring_plan_against_serialize() -> anyhow::Result<()> {
+    let s: VorgangTransportieren2010 = serde_json::from_str(&minimal_monitoring_plan_json())?;
+    let xml = raxb::ser::to_string_pretty_with_decl(&s)?;
+    let validation = xoev_xwasser::schemas::XmlValidation::new()?;
+    let result = validation.validate(xml.as_bytes());
+    if let Err(e) = result {
+        eprintln!("{e}");
+    }
+    dbg!(&xml);
+    std::fs::write("tests/monitoring_plan_minimal.xml", xml.replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ ../schemas/V0_5_2/xwasser.xsd"))?;
+    Ok(())
+}

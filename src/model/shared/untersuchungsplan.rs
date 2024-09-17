@@ -99,7 +99,7 @@ pub struct UntersuchungsplanType {
     pub zustaendige_behoerde: ZustaendigeBehoerdeType,
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
     pub erweiterung: Option<ErweiterungType>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
 
@@ -140,7 +140,7 @@ pub struct TerminplanType {
     pub ersatz_fuer_terminplan_mit_derI_d: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
 
@@ -169,7 +169,7 @@ pub struct IncidentType {
     pub remarks: Option<String>,
     #[xml(ns = b"xwas", name = b"incidentCauseAndRemedialAction", ty = "child")]
     pub incident_cause_and_remedial_action: Vec<IncidentCauseAndRemedialActionType>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
 
@@ -202,7 +202,7 @@ pub struct QualityAndMonitoringType {
     pub sampling_location_type: Vec<CodeArtProbennahmestelleEuType>,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
     pub remarks: Option<String>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
 
@@ -235,7 +235,7 @@ pub struct DerogationRemedialActionType {
     pub derogation_remedial_action_cost: f64,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
     pub remarks: Option<String>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
 
@@ -284,7 +284,7 @@ pub struct DerogationType {
     pub derogation_remedial_action: Vec<DerogationRemedialActionType>,
     #[xml(ns = b"xwas", name = b"qualityAndMonitoring", ty = "child")]
     pub quality_and_monitoring: Vec<QualityAndMonitoringType>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
 
@@ -317,7 +317,7 @@ pub struct ExceedanceCauseAndRemedialActionType {
     pub exceedance_remedial_action_end_date: String,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
     pub remarks: Option<String>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
 
@@ -356,7 +356,7 @@ pub struct ExceedanceType {
     pub remarks: Option<String>,
     #[xml(ns = b"xwas", name = b"exceedanceCauseAndRemedialAction", ty = "child")]
     pub exceedance_cause_and_remedial_action: Vec<ExceedanceCauseAndRemedialActionType>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
 
@@ -386,7 +386,7 @@ pub struct IncidentCauseAndRemedialActionType {
     pub incident_remedial_action_end_date: String,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
     pub remarks: Option<String>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
 
@@ -451,7 +451,7 @@ pub struct WasserversorgungsgebietType {
     pub exceedance: Vec<ExceedanceType>,
     #[xml(ns = b"xwas", name = b"incident", ty = "child")]
     pub incident: Vec<IncidentType>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
 
@@ -493,6 +493,6 @@ pub struct AnlageNachTrinkwVType {
     pub wasserversorgungsgebiet: Vec<WasserversorgungsgebietType>,
     #[xml(ns = b"xwas", name = b"anlageNachTrinwV_Objekt", ty = "child")]
     pub anlage_nach_trinw_v_objekt: Vec<ObjektType>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }

@@ -50,7 +50,9 @@ pub struct BetreiberType {
     #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
     pub betreiber_id: String,
     #[xml(ns = b"xwas", name = b"artDerPerson", ty = "child")]
-    pub art_der_person: ArtDerPerson, // enum .. heisst eigentlich ArtDerPerson
+    pub art_der_person: ArtDerPerson,
+    #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
+    pub objekt_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
 }
@@ -99,6 +101,6 @@ pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"objekt_probennahmestelle", ty = "child")]
     #[serde(default)]
     pub objekt_probennahmestelle: Vec<ProbennahmestelleType>,
-    #[xml(ns = b"xwas", name = b"id", ty = "attr")]
+    #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
