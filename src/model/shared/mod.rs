@@ -11,5 +11,6 @@ pub mod probe;
 pub mod sprache;
 pub mod staat;
 pub mod unterssuchungsstelle;
+pub mod untersuchungsplan;
 pub mod xoev;
 pub mod zeitraum;

@@ -11,6 +11,7 @@ use wasm_bindgen::prelude::*;
 use super::{
     codes::CodeDokumenttypType, pruefbericht::PruefberichtType,
     shared::dokument::DokumentRepraesentationType,
+    shared::untersuchungsplan::UntersuchungsplanType,
 };
 
 #[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
@@ -82,8 +83,8 @@ pub struct DokumentType {
 pub enum VorgangType {
     #[xml(ns = b"xwas", name = b"pruefbericht")]
     Pruefbericht(PruefberichtType),
-    // #[xml(ns = b"xwas", name = b"untersuchungsplan")]
-    // Untersuchungsplan(UntersuchungsplanType),
+    #[xml(ns = b"xwas", name = b"untersuchungsplan")]
+    Untersuchungsplan(UntersuchungsplanType),
     #[xml(ns = b"xwas", name = b"olb_bericht")]
     OlbBericht(DokumentType),
     #[default]

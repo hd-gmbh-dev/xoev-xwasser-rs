@@ -44,7 +44,7 @@
             <xwas:analyseergebnisParameter id="analyseergebnisParameter1">
               <xwas:analyseergebnisParameterID>753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:analyseergebnisParameterID>
               <xwas:anschriftID>anschrift1</xwas:anschriftID>
-              <xwas:zugelasseneUntersuchungsstelle>ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:zugelasseneUntersuchungsstelle>
+              <xwas:zugelasseneUntersuchungsstelle>ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f</xwas:zugelasseneUntersuchungsstelle>
               <xwas:akkreditierteDurchfuehrungAnalyse>true</xwas:akkreditierteDurchfuehrungAnalyse>
               <xwas:untersuchungsverfahren>
                 <code>1010</code>
@@ -4683,7 +4683,7 @@
           <xwas:akkreditierungsnummer>12345</xwas:akkreditierungsnummer>
           <xwas:kommentarZugelasseneUntersuchungsstelle>Top Qualität</xwas:kommentarZugelasseneUntersuchungsstelle>
         </xwas:zugelasseneUntersuchungsstelle>
-        <xwas:ortDerLabortaetigkeiten id="ortDerLabortaetigkeiten1">
+        <xwas:ortDerLabortaetigkeiten id="ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f">
           <xwas:strassenschluessel>
                 <code>1234</code>
               </xwas:strassenschluessel>

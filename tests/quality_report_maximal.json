@@ -55,7 +55,7 @@
                   {
                     "analyseergebnis_parameter_id": "753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
                     "anschrift_id": "anschrift1",
-                    "zugelassene_untersuchungsstelle": "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
+                    "zugelassene_untersuchungsstelle": "ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
                     "akkreditierte_durchfuehrung_analyse": true,
                     "untersuchungsverfahren": [
                       {
@@ -5997,7 +5997,7 @@
                 }
               }
             },
-            "id": "ortDerLabortaetigkeiten1"
+            "id": "ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f"
           }
         ],
         "anhang": [
