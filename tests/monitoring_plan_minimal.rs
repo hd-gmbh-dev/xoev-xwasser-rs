@@ -1,7 +1,5 @@
 use xoev_xwasser::model::transport::VorgangTransportieren2010;
 
-
-
 fn minimal_monitoring_plan() -> String {
     std::fs::read_to_string(
         std::env::current_dir()
