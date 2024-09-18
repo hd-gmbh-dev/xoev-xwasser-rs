@@ -1,4 +1,4 @@
-#![allow(non_snake_case, dead_code)]
+#![allow(dead_code)]
 
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
@@ -137,7 +137,7 @@ pub struct TerminplanType {
     #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
     pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
     #[xml(ns = b"xwas", name = b"ersatzFuerTerminplanMitDerID", ty = "child")]
-    pub ersatz_fuer_terminplan_mit_derI_d: Option<String>,
+    pub ersatz_fuer_terminplan_mit_der_id: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]
@@ -422,7 +422,7 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"abgegebeneWassermenge", ty = "child")]
     pub abgegebene_wassermenge: f64,
     #[xml(ns = b"xwas", name = b"anzahlVersorgtePersonenWVG", ty = "child")]
-    pub anzahl_versorgte_personenW_vG: u32,
+    pub anzahl_versorgte_personen_wvg: u32,
     #[xml(ns = b"xwas", name = b"referenzjahrAngabenWVG", ty = "child")]
     pub referenzjahr_angaben_wvg: u32,
     #[xml(ns = b"xwas", name = b"artDerWasserressource", ty = "child")]
