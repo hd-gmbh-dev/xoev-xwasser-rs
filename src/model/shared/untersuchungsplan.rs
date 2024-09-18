@@ -404,7 +404,7 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"nameWasserversorgungsgebiet", ty = "child")]
     pub name_wasserversorgungsgebiet: CodeWasserversorgungsgebietType,
     #[xml(ns = b"xwas", name = b"lau2Code", ty = "child")]
-    pub lau2_code: Option<String>,
+    pub lau2_code: Option<u32>,
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
     pub zustaendige_behoerde: Vec<BehoerdeType>,
     #[xml(ns = b"xwas", name = b"geokoordinatenSHAPTH", ty = "child")]
@@ -416,7 +416,7 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"grundDerSchliessung", ty = "child")]
     pub grund_der_schliessung: Option<CodeGrundSchliessungWasserversorgungsgebietType>,
     #[xml(ns = b"xwas", name = b"nachfolgerWVGbeiSchliessung", ty = "child")]
-    pub nachfolger_wvgbei_schliessung: Vec<String>,
+    pub nachfolger_wvg_bei_schliessung: Vec<String>,
     #[xml(ns = b"xwas", name = b"wvgFremdbezogen", ty = "child")]
     pub wvg_fremdbezogen: Vec<String>,
     #[xml(ns = b"xwas", name = b"abgegebeneWassermenge", ty = "child")]

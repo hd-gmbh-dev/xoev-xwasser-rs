@@ -84,7 +84,7 @@ pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"artProbennahmestelle", ty = "child")]
     pub art_probennahmestelle: CodeArtProbennahmestelleType,
     #[xml(ns = b"xwas", name = b"stockwerkProbennahmestelle", ty = "child")]
-    pub stockwerk_probennahmestelle: Option<u64>,
+    pub stockwerk_probennahmestelle: Option<u32>,
     #[xml(ns = b"xwas", name = b"mediumAnDerProbennahmestelle", ty = "child")]
     #[serde(default)]
     pub medium_an_der_probennahmestelle: Vec<CodeMediumType>,
