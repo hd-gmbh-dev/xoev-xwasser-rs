@@ -1,0 +1,2371 @@
+{
+  "produkt": "SHAPTH CLI",
+  "test": true,
+  "nachrichtenkopf_g2g": {
+    "identifikation_nachricht": {
+      "nachrichten_uuid": "693c64d6-456f-4d14-abe7-fe9681c74aae",
+      "nachrichten_typ": {
+        "code": {
+          "code": "0010"
+        }
+      },
+      "erstellungszeitpunkt": "2024-05-28T09:00:00"
+    },
+    "leser": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "mp:09000000",
+      "name": "Reader"
+    },
+    "autor": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "gha:090",
+      "name": "Author"
+    },
+    "referenz_uuid": null,
+    "dvdv_dienstkennung": "s"
+  },
+  "vorgang": {
+    "identifikation_vorgang": {
+      "vorgangs_id": "5e08e073-4e06-438d-9444-1275f6cbf061"
+    },
+    "vorgang_type": {
+      "t": "Untersuchungsplan",
+      "c": {
+        "untersuchungsplan_id": "1234",
+        "wasserversorgungsgebiet": [
+          "WVA"
+        ],
+        "jahr": [
+          2024
+        ],
+        "wasserabgabe_vorjahr": 5000.0,
+        "art_von_wva_und_wvg": {
+          "code": "1010",
+          "name": null
+        },
+        "erlaeuterung_zur_wasserabgabemenge": {
+          "code": "1010",
+          "name": null
+        },
+        "flockung": {
+          "code": "1010",
+          "name": null
+        },
+        "oberflaechenwassereinfluss": true,
+        "desinfektion_durchgefuehrt_mit": {
+          "code": "1010",
+          "name": null
+        },
+        "abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen": true,
+        "acrylamid": {
+          "code": "1010",
+          "name": null
+        },
+        "epichlorhydrin": {
+          "code": "1010",
+          "name": null
+        },
+        "vinylchlorid": {
+          "code": "1010",
+          "name": null
+        },
+        "ph_wert_wasserwerksausgang": true,
+        "wasserabgabe_vorjahr_pro_tag": 225.0,
+        "anzahl_untersuchungen_pro_jahr_gruppe_a": 1,
+        "abzudecken_durch_betreiber_gruppe_a": 12,
+        "anzahl_untersuchungenpro_jahr_gruppe_b": 2,
+        "abzudecken_durch_betreiber_gruppe_b": 123,
+        "rap_durchgefuehrt": true,
+        "status_untersuchungsplan": {
+          "code": "1010",
+          "name": null
+        },
+        "kommentar": "Reguläre Untersuchung im ersten Quartal",
+        "terminplan": [
+          {
+            "terminplan_id": "0001",
+            "probennahmestelle_id": "123",
+            "datum_zeitraum": [
+              "2024-06-15T09:00:00"
+            ],
+            "probennahmestelle_kategorie": {
+              "code": "L",
+              "name": null
+            },
+            "weitere_beschreibung_der_probennahmestelle": "Probennahmestelle ist eine durch das Gesundheitsamt ausgewiesener Ort beim Wasserversorger, der eine fachgerechte Entnahme der Probe ermöglicht.",
+            "untersuchung_durch": [
+              {
+                "code": "1010",
+                "name": null
+              },
+              {
+                "code": "1020",
+                "name": null
+              }
+            ],
+            "untersuchung_durch_erlaeuterung": "Die Probe wird durch WVA und GHA untersucht.",
+            "anlass_der_untersuchung": [
+              {
+                "code": "1010",
+                "name": null
+              },
+              {
+                "code": "1040",
+                "name": null
+              },
+              {
+                "code": "1050",
+                "name": null
+              },
+              {
+                "code": "1060",
+                "name": null
+              }
+            ],
+            "zu_untersuchende_parameter": [
+              {
+                "code": "1",
+                "name": null
+              },
+              {
+                "code": "2",
+                "name": null
+              },
+              {
+                "code": "3",
+                "name": null
+              },
+              {
+                "code": "4",
+                "name": null
+              },
+              {
+                "code": "5",
+                "name": null
+              }
+            ],
+            "probennahmeverfahren": [
+              {
+                "code": "1010",
+                "name": null
+              },
+              {
+                "code": "1020",
+                "name": null
+              },
+              {
+                "code": "1030",
+                "name": null
+              }
+            ],
+            "ersatz_fuer_terminplan_mit_der_id": "123",
+            "kommentar": "Hier sind die zu untersuchenden Parameter und Probennahmeverfahren angegeben.",
+            "id": "terminplan1"
+          },
+          {
+            "terminplan_id": "0002",
+            "probennahmestelle_id": "124",
+            "datum_zeitraum": [
+              "2024-08-01T10:00:00",
+              "2024-08-31T14:00:00"
+            ],
+            "probennahmestelle_kategorie": {
+              "code": "N",
+              "name": null
+            },
+            "weitere_beschreibung_der_probennahmestelle": "Probennahmestelle befindet sich am Hauptsitz des Versorgers.",
+            "untersuchung_durch": [
+              {
+                "code": "1030",
+                "name": null
+              },
+              {
+                "code": "1030",
+                "name": null
+              }
+            ],
+            "untersuchung_durch_erlaeuterung": "Untersuchung erfolgt durch das Labor und das Gesundheitsamt.",
+            "anlass_der_untersuchung": [
+              {
+                "code": "1020",
+                "name": null
+              },
+              {
+                "code": "1070",
+                "name": null
+              },
+              {
+                "code": "1080",
+                "name": null
+              }
+            ],
+            "zu_untersuchende_parameter": [
+              {
+                "code": "6",
+                "name": null
+              },
+              {
+                "code": "",
+                "name": null
+              },
+              {
+                "code": "8",
+                "name": null
+              },
+              {
+                "code": "9",
+                "name": null
+              }
+            ],
+            "probennahmeverfahren": [
+              {
+                "code": "1040",
+                "name": null
+              },
+              {
+                "code": "1050",
+                "name": null
+              }
+            ],
+            "ersatz_fuer_terminplan_mit_der_id": "124",
+            "kommentar": "Untersuchung an verschiedenen Zeitpunkten durchgeführt.",
+            "id": "terminplan2"
+          },
+          {
+            "terminplan_id": "0003",
+            "probennahmestelle_id": "125",
+            "datum_zeitraum": [
+              "2024-09-01T08:00:00",
+              "2024-09-15T16:00:00"
+            ],
+            "probennahmestelle_kategorie": {
+              "code": "W",
+              "name": null
+            },
+            "weitere_beschreibung_der_probennahmestelle": "Probennahmestelle in einem ländlichen Versorgungsgebiet.",
+            "untersuchung_durch": [
+              {
+                "code": "1010",
+                "name": null
+              },
+              {
+                "code": "1020",
+                "name": null
+              }
+            ],
+            "untersuchung_durch_erlaeuterung": "Untersuchung durchgeführt durch das regionale Labor.",
+            "anlass_der_untersuchung": [
+              {
+                "code": "1030",
+                "name": null
+              },
+              {
+                "code": "1090",
+                "name": null
+              }
+            ],
+            "zu_untersuchende_parameter": [
+              {
+                "code": "10",
+                "name": null
+              },
+              {
+                "code": "11",
+                "name": null
+              },
+              {
+                "code": "12",
+                "name": null
+              }
+            ],
+            "probennahmeverfahren": [
+              {
+                "code": "1080",
+                "name": null
+              },
+              {
+                "code": "1090",
+                "name": null
+              }
+            ],
+            "ersatz_fuer_terminplan_mit_der_id": "125",
+            "kommentar": "Aufgrund besonderer Bedingungen wurde eine zweite Untersuchung angeordnet.",
+            "id": "terminplan3"
+          }
+        ],
+        "anlage_nach_trinkw_v": {
+          "anlage_nach_trinkw_v_id": "",
+          "zustaendige_behoerde_id": "GHA1",
+          "untersuchungsplan_id": [
+            "untersuchungsplan1"
+          ],
+          "art_anlage": {
+            "code": "1010",
+            "name": null
+          },
+          "name_der_anlage": "Anlage1",
+          "abgegebene_wassermenge_der_anlage_pro_tag": 123456.0121234,
+          "anzahl_durch_anlage_versorgte_personen": 123499,
+          "alt_id": "altid",
+          "kommentar": "Pumpe eines Wasserversorgers",
+          "wasserversorgungsgebiet": [
+            {
+              "wasserversorgungsgebiet_id": "wvg1",
+              "name_wasserversorgungsgebiet": {
+                "code": "",
+                "name": null
+              },
+              "lau2_code": 2,
+              "zustaendige_behoerde": [
+                {
+                  "id": "behoerde22",
+                  "typ": {
+                    "code": "",
+                    "name": "",
+                    "list_uri": null,
+                    "list_version_id": null
+                  },
+                  "zusatz": "Gemeinde Hotzingmussen",
+                  "behoerdenkennung": {
+                    "kennung": [
+                      {
+                        "code": "1234",
+                        "name": "Behoerde Hotzingmussen",
+                        "list_uri": "",
+                        "list_version_id": ""
+                      }
+                    ],
+                    "praefix": [
+                      {
+                        "code": "1234",
+                        "name": "von"
+                      }
+                    ]
+                  },
+                  "kommunikation": [
+                    {
+                      "kanal": {
+                        "code": "1234",
+                        "name": "E-Mail"
+                      },
+                      "kennung": "1",
+                      "ist_dienstlich": true,
+                      "zusatz": "Austausch über Email"
+                    }
+                  ],
+                  "behoerdenidentifikation": {
+                    "id": null,
+                    "beschreibung": "Gesundheitsamt",
+                    "gueltigkeit": {
+                      "beginn": "2024-07-26+05:00",
+                      "ende": "2024-07-26+05:00",
+                      "zusatz": "Ein"
+                    }
+                  },
+                  "behoerdenname": [
+                    {
+                      "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                      "kurzbezeichnung": "GdGH",
+                      "gueltigkeit": {
+                        "beginn": "2024-07-26+05:00",
+                        "ende": "2024-07-26+05:00",
+                        "zusatz": "Seit Bestehen und zukünftig"
+                      }
+                    }
+                  ],
+                  "nachgeordnete_behoerde": [],
+                  "verwaltungspolitische_zustaendigkeit": [
+                    {
+                      "kreis": null,
+                      "bezirk": {
+                        "code": "9999",
+                        "name": "Reg.-Bez. Hotzingmussen"
+                      },
+                      "bundesland": {
+                        "code": "1",
+                        "name": null
+                      },
+                      "gemeindeschluessel": {
+                        "code": "6667",
+                        "name": "Gemeine Hotzingen"
+                      },
+                      "regionalschluessel": null,
+                      "nation": {
+                        "staat": {
+                          "code": "2",
+                          "name": "LandLand"
+                        }
+                      }
+                    }
+                  ],
+                  "anschrift": [
+                    {
+                      "strassenschluessel": {
+                        "code": "1234",
+                        "name": null,
+                        "list_uri": null,
+                        "list_version_id": null
+                      },
+                      "strasse": "In der Stadt",
+                      "hausnummer": "1",
+                      "postfach": "12345",
+                      "postleitzahl": "90909",
+                      "ort": "Hotzingmussen",
+                      "ortsteil": "Worzen",
+                      "ort_frueherer_gemeindename": "Vordertupfingen",
+                      "wohnungsgeber": "Wohnfirma",
+                      "zusatz": "Zusatz zur Anschrift",
+                      "typ": [
+                        {
+                          "code": "1234",
+                          "name": ""
+                        }
+                      ],
+                      "staat": {
+                        "staat": {
+                          "code": "1234",
+                          "name": ""
+                        }
+                      },
+                      "verwaltungspolitische_kodierung": {
+                        "kreis": {
+                          "code": "1111",
+                          "name": ""
+                        },
+                        "bezirk": {
+                          "code": "1231",
+                          "name": ""
+                        },
+                        "bundesland": {
+                          "code": "1",
+                          "name": ""
+                        },
+                        "gemeindeschluessel": {
+                          "code": "9090",
+                          "name": ""
+                        },
+                        "regionalschluessel": {
+                          "code": "9897",
+                          "name": ""
+                        },
+                        "nation": {
+                          "staat": {
+                            "code": "123456",
+                            "name": ""
+                          }
+                        }
+                      },
+                      "id": "anschrift4"
+                    }
+                  ],
+                  "organisationsstruktur": [
+                    {
+                      "name": "Wasserprobeneinheit",
+                      "hierarchieebene": 2,
+                      "hierarchiename": "Zweiter Hierarchie"
+                    }
+                  ]
+                }
+              ],
+              "geokoordinaten_shapth": {
+                "geografische_position_und_ausdehnung": "SGVsbG8sIHdvcmxkIQ==",
+                "name_shapefile": "shapefile",
+                "geokoordinaten_breitengrad": 1.2,
+                "geokoordinaten_laengengrad": 1.3,
+                "geokoordinaten_rechtswert": 3,
+                "geokoordinaten_hochwert": 3
+              },
+              "datum_der_einrichtung": "2024-12-12",
+              "datum_der_schliessung": "2025-12-12",
+              "grund_der_schliessung": {
+                "code": "N",
+                "name": null
+              },
+              "nachfolger_wvg_bei_schliessung": [
+                "NachfolgerWVG"
+              ],
+              "wvg_fremdbezogen": [
+                "wvgfremdbezogen"
+              ],
+              "abgegebene_wassermenge": 5000.0,
+              "anzahl_versorgte_personen_wvg": 200000,
+              "referenzjahr_angaben_wvg": 4,
+              "art_der_wasserressource": [
+                {
+                  "code": "1010",
+                  "name": null
+                }
+              ],
+              "anteil_der_wasserressource": [
+                3,
+                4,
+                5
+              ],
+              "vorgeschriebene_untersuchungshaeufigkeit_parameter_a": 1,
+              "vorgeschriebene_untersuchungshaeufigkeit_parameter_b": 1,
+              "alt_id": "altID",
+              "kommentar": "Wasserversorgungsgebiet des Landkreises Kaffhausen",
+              "derogation": [
+                {
+                  "derogation_identifier": "550e8400-e29b-41d4-a716-446655440000",
+                  "trivial_derogation": true,
+                  "trivial_derogation_justification": "trivialderogationjustification",
+                  "derogation_start_date": "2024-10-10",
+                  "derogation_end_date": "2024-12-12",
+                  "volume_of_water_supplied": 123.9,
+                  "derogation_affected_population": 12345,
+                  "food_production_affected": true,
+                  "derogation_under_recast_dwd": true,
+                  "derogation_grounds": {
+                    "code": "1010",
+                    "name": null
+                  },
+                  "previous_derogation_identifier": "derogationidentifier",
+                  "previous_derogation_conclusions": "conclusions",
+                  "previous_derogation_start_date": "2024-09-09",
+                  "previous_derogation_end_date": "2024-09-10",
+                  "previous_derogation_grounds": {
+                    "code": "1010",
+                    "name": null
+                  },
+                  "remarks": "remarks",
+                  "derogation_remedial_action": [
+                    {
+                      "derogation_remedial_action_identifier": "derogationremedialactiontype1",
+                      "derogation_remedial_action": {
+                        "code": "1010",
+                        "name": null
+                      },
+                      "derogation_remedial_action_start_date": "2024-09-15",
+                      "derogation_remedial_action_end_date": "2024-09-15",
+                      "derogation_remedial_action_cost": 1.11,
+                      "remarks": "remarks",
+                      "id": "derogation_identifier_1"
+                    },
+                    {
+                      "derogation_remedial_action_identifier": "derogationremedialactiontype2",
+                      "derogation_remedial_action": {
+                        "code": "1020",
+                        "name": null
+                      },
+                      "derogation_remedial_action_start_date": "2024-10-01",
+                      "derogation_remedial_action_end_date": "2024-12-01",
+                      "derogation_remedial_action_cost": 2.5,
+                      "remarks": "Remedial action scheduled for the end of the year.",
+                      "id": "derogation_identifier"
+                    },
+                    {
+                      "derogation_remedial_action_identifier": "derogationremedialactiontype3",
+                      "derogation_remedial_action": {
+                        "code": "1030",
+                        "name": null
+                      },
+                      "derogation_remedial_action_start_date": "2025-01-15",
+                      "derogation_remedial_action_end_date": "2025-03-15",
+                      "derogation_remedial_action_cost": 3.75,
+                      "remarks": "Second round of corrective actions.",
+                      "id": "derogation_identifier_3"
+                    },
+                    {
+                      "derogation_remedial_action_identifier": "derogationremedialactiontype4",
+                      "derogation_remedial_action": {
+                        "code": "1040",
+                        "name": null
+                      },
+                      "derogation_remedial_action_start_date": "2025-05-01",
+                      "derogation_remedial_action_end_date": "2025-06-30",
+                      "derogation_remedial_action_cost": 4.9,
+                      "remarks": "Final phase of remedial work.",
+                      "id": "derogation_identifier_2"
+                    }
+                  ],
+                  "quality_and_monitoring": [
+                    {
+                      "quality_and_monitoring_requirement_identifier": "554e8400-e29b-41d4-a716-446655440000",
+                      "parameter_code": {
+                        "code": "1711",
+                        "name": null
+                      },
+                      "parameter_threshold_value": 1.11,
+                      "parameter_threshold_value_unit": {
+                        "code": "1010",
+                        "name": null
+                      },
+                      "sampling_frequency": 2,
+                      "sampling_period": {
+                        "code": "a",
+                        "name": null
+                      },
+                      "sampling_location_type": [
+                        {
+                          "code": "1010",
+                          "name": null
+                        },
+                        {
+                          "code": "1020",
+                          "name": null
+                        },
+                        {
+                          "code": "1030",
+                          "name": null
+                        },
+                        {
+                          "code": "1040",
+                          "name": null
+                        }
+                      ],
+                      "remarks": "remarks",
+                      "id": "qam1"
+                    },
+                    {
+                      "quality_and_monitoring_requirement_identifier": "664e8400-e29b-41d4-a716-446655440001",
+                      "parameter_code": {
+                        "code": "1722",
+                        "name": null
+                      },
+                      "parameter_threshold_value": 2.22,
+                      "parameter_threshold_value_unit": {
+                        "code": "1020",
+                        "name": null
+                      },
+                      "sampling_frequency": 3,
+                      "sampling_period": {
+                        "code": "d",
+                        "name": null
+                      },
+                      "sampling_location_type": [
+                        {
+                          "code": "1050",
+                          "name": null
+                        },
+                        {
+                          "code": "1010",
+                          "name": null
+                        },
+                        {
+                          "code": "1040",
+                          "name": null
+                        }
+                      ],
+                      "remarks": "Monitoring for secondary parameters.",
+                      "id": "anhang"
+                    },
+                    {
+                      "quality_and_monitoring_requirement_identifier": "774e8400-e29b-41d4-a716-446655440002",
+                      "parameter_code": {
+                        "code": "1733",
+                        "name": null
+                      },
+                      "parameter_threshold_value": 3.33,
+                      "parameter_threshold_value_unit": {
+                        "code": "1030",
+                        "name": null
+                      },
+                      "sampling_frequency": 4,
+                      "sampling_period": {
+                        "code": "a",
+                        "name": null
+                      },
+                      "sampling_location_type": [
+                        {
+                          "code": "1050",
+                          "name": null
+                        }
+                      ],
+                      "remarks": "Quarterly monitoring for critical parameters.",
+                      "id": "wvg1"
+                    },
+                    {
+                      "quality_and_monitoring_requirement_identifier": "884e8400-e29b-41d4-a716-446655440003",
+                      "parameter_code": {
+                        "code": "1744",
+                        "name": null
+                      },
+                      "parameter_threshold_value": 4.44,
+                      "parameter_threshold_value_unit": {
+                        "code": "1040",
+                        "name": null
+                      },
+                      "sampling_frequency": 5,
+                      "sampling_period": {
+                        "code": "d",
+                        "name": null
+                      },
+                      "sampling_location_type": [
+                        {
+                          "code": "1020",
+                          "name": null
+                        },
+                        {
+                          "code": "1010",
+                          "name": null
+                        }
+                      ],
+                      "remarks": "Annual monitoring with expanded parameter set.",
+                      "id": "NachfolgerWVG"
+                    }
+                  ],
+                  "id": "derogationidentifier"
+                }
+              ],
+              "exceedance": [
+                {
+                  "exceedance_identifier": "557e8400-e29b-41d4-a716-446655440000",
+                  "trivial_exceedance": true,
+                  "trivial_exceedance_justification": "justification",
+                  "parameter_code": {
+                    "code": "1711",
+                    "name": null
+                  },
+                  "exceedance_start_date": "2024-09-15",
+                  "exceedance_end_date": "2024-09-15",
+                  "exceedance_affected_population": 1,
+                  "point_of_compliance_type": [
+                    {
+                      "code": "1010",
+                      "name": null
+                    },
+                    {
+                      "code": "1020",
+                      "name": null
+                    },
+                    {
+                      "code": "1030",
+                      "name": null
+                    },
+                    {
+                      "code": "1040",
+                      "name": null
+                    },
+                    {
+                      "code": "1050",
+                      "name": null
+                    }
+                  ],
+                  "number_of_samples_per_year": 1,
+                  "incident_identifier": "incident_identifier",
+                  "derogation_identifier": "derogation_identifier",
+                  "remarks": "remarks",
+                  "exceedance_cause_and_remedial_action": [
+                    {
+                      "exceedance_cause_and_remedial_action_identifier": "557e8400-e29b-41d4-a716-446655440001",
+                      "exceedance_cause": {
+                        "code": "1010",
+                        "name": null
+                      },
+                      "exceedance_remedial_action": {
+                        "code": "1010",
+                        "name": null
+                      },
+                      "exceedance_remedial_action_start_date": "2024-09-15",
+                      "exceedance_remedial_action_end_date": "2024-09-15",
+                      "remarks": "remarks",
+                      "id": "ex1"
+                    }
+                  ],
+                  "id": "e1"
+                }
+              ],
+              "incident": [
+                {
+                  "incident_identifier": "557e8400-e29b-41d5-a716-446655440000",
+                  "exceedance": [
+                    "ex1"
+                  ],
+                  "incident_start_date": "2024-09-15",
+                  "incident_end_date": "2024-09-15",
+                  "incident_category": [
+                    {
+                      "code": "1010",
+                      "name": null
+                    },
+                    {
+                      "code": "1020",
+                      "name": null
+                    },
+                    {
+                      "code": "1030",
+                      "name": null
+                    },
+                    {
+                      "code": "1040",
+                      "name": null
+                    }
+                  ],
+                  "incident_affected_population": 1,
+                  "remarks": "remarks",
+                  "incident_cause_and_remedial_action": [
+                    {
+                      "incident_cause_and_remidial_action_identifier": "557e8400-e29b-21d4-a716-446655440001",
+                      "incident_cause": {
+                        "code": "1010",
+                        "name": null
+                      },
+                      "incident_remedial_action": {
+                        "code": "1010",
+                        "name": null
+                      },
+                      "incident_remedial_action_start_date": "2024-09-15",
+                      "incident_remedial_action_end_date": "2024-09-15",
+                      "remarks": "remarks",
+                      "id": "remaction1"
+                    }
+                  ],
+                  "id": "incident_identifier"
+                }
+              ],
+              "id": "wvgfremdbezogen"
+            }
+          ],
+          "anlage_nach_trinw_v_objekt": [
+            {
+              "objekt_id": "anlage",
+              "wasserversorgungsgebiet": "wvg1",
+              "anschrift_objekt": [
+                {
+                  "strassenschluessel": {
+                    "code": "3456",
+                    "name": null,
+                    "list_uri": null,
+                    "list_version_id": null
+                  },
+                  "strasse": "Hinterhofstraße",
+                  "hausnummer": "19",
+                  "postfach": "23456",
+                  "postleitzahl": "4321",
+                  "ort": "Wehrstetten",
+                  "ortsteil": null,
+                  "ort_frueherer_gemeindename": null,
+                  "wohnungsgeber": "Privatperson",
+                  "zusatz": "Keine Angabe",
+                  "typ": [
+                    {
+                      "code": "1254",
+                      "name": ""
+                    }
+                  ],
+                  "staat": {
+                    "staat": {
+                      "code": "2342",
+                      "name": ""
+                    }
+                  },
+                  "verwaltungspolitische_kodierung": {
+                    "kreis": {
+                      "code": "6666",
+                      "name": ""
+                    },
+                    "bezirk": {
+                      "code": "2342",
+                      "name": ""
+                    },
+                    "bundesland": {
+                      "code": "3",
+                      "name": ""
+                    },
+                    "gemeindeschluessel": {
+                      "code": "4444",
+                      "name": ""
+                    },
+                    "regionalschluessel": {
+                      "code": "2222",
+                      "name": ""
+                    },
+                    "nation": {
+                      "staat": {
+                        "code": "12345",
+                        "name": ""
+                      }
+                    }
+                  },
+                  "id": "anschrift1"
+                }
+              ],
+              "art_objekt": {
+                "code": "1010",
+                "name": null
+              },
+              "name_objekt": "anhang",
+              "betriebszustand_des_objekts": {
+                "code": "1010",
+                "name": null
+              },
+              "datum_in_betriebnahme": "2024-09-09",
+              "datum_ausser_betriebnahme": "2024-09-10",
+              "rahmen_der_trinkwasserbereitstellung": [
+                {
+                  "code": "1010",
+                  "name": null
+                },
+                {
+                  "code": "1020",
+                  "name": null
+                },
+                {
+                  "code": "1030",
+                  "name": null
+                },
+                {
+                  "code": "1040",
+                  "name": null
+                }
+              ],
+              "geokoordinaten_objekt": {
+                "geografische_position_und_ausdehnung": "SGVsbG8sIHdvcmxkIQ==",
+                "name_shapefile": "shapefile",
+                "geokoordinaten_breitengrad": 1.2,
+                "geokoordinaten_laengengrad": 1.3,
+                "geokoordinaten_rechtswert": 3,
+                "geokoordinaten_hochwert": 3
+              },
+              "alt_id": "altid",
+              "kommentar": "kommentar",
+              "betreiber": [
+                {
+                  "betreiber_id": "WVA",
+                  "art_der_person": {
+                    "t": "Organisation",
+                    "c": {
+                      "rechtsform": {
+                        "code": "PHG",
+                        "name": "Personenhandelsgesellschaft (PHG)"
+                      },
+                      "branche": [
+                        {
+                          "code": "1234",
+                          "name": "Getränke",
+                          "list_uri": null,
+                          "list_version_id": null
+                        }
+                      ],
+                      "zweck": [
+                        {
+                          "code": "1234",
+                          "name": "Standarduntersuchung",
+                          "list_uri": null,
+                          "list_version_id": null
+                        }
+                      ],
+                      "name": null,
+                      "unterorganisation": [
+                        {
+                          "rechtsform": {
+                            "code": "GmbH",
+                            "name": "Gesellschaft mit beschränkter Haftung (GmbH)"
+                          },
+                          "branche": [
+                            {
+                              "code": "5678",
+                              "name": "Lebensmittel",
+                              "list_uri": null,
+                              "list_version_id": null
+                            }
+                          ],
+                          "zweck": [
+                            {
+                              "code": "5678",
+                              "name": "Qualitätskontrolle",
+                              "list_uri": null,
+                              "list_version_id": null
+                            }
+                          ],
+                          "name": {
+                            "name": "Wasserversorgername",
+                            "kurzbezeichnung": null,
+                            "gueltigkeit": null
+                          },
+                          "unterorganisation": [
+                            {
+                              "rechtsform": {
+                                "code": "AG",
+                                "name": "Aktiengesellschaft (AG)"
+                              },
+                              "branche": [
+                                {
+                                  "code": "1234",
+                                  "name": "Technologie",
+                                  "list_uri": null,
+                                  "list_version_id": null
+                                }
+                              ],
+                              "zweck": [
+                                {
+                                  "code": "1234",
+                                  "name": "Forschung und Entwicklung",
+                                  "list_uri": null,
+                                  "list_version_id": null
+                                }
+                              ],
+                              "name": null,
+                              "unterorganisation": [
+                                {
+                                  "rechtsform": {
+                                    "code": "GmbH",
+                                    "name": "Gesellschaft mit beschränkter Haftung (GmbH)"
+                                  },
+                                  "branche": [
+                                    {
+                                      "code": "5678",
+                                      "name": "Finanzdienstleistungen",
+                                      "list_uri": null,
+                                      "list_version_id": null
+                                    }
+                                  ],
+                                  "zweck": [
+                                    {
+                                      "code": "7890",
+                                      "name": "Investmentberatung",
+                                      "list_uri": null,
+                                      "list_version_id": null
+                                    }
+                                  ],
+                                  "name": null,
+                                  "unterorganisation": [
+                                    {
+                                      "rechtsform": null,
+                                      "branche": [],
+                                      "zweck": [],
+                                      "name": null,
+                                      "unterorganisation": [],
+                                      "kommunikation": [],
+                                      "registrierung": [],
+                                      "identifikation": [],
+                                      "existenzzeitraum": null,
+                                      "anschrift": []
+                                    }
+                                  ],
+                                  "kommunikation": [
+                                    {
+                                      "kanal": {
+                                        "code": "5678",
+                                        "name": "Telefon"
+                                      },
+                                      "kennung": "2",
+                                      "ist_dienstlich": true,
+                                      "zusatz": "Kundendienst"
+                                    }
+                                  ],
+                                  "registrierung": [
+                                    {
+                                      "id": "5678",
+                                      "registertyp": null,
+                                      "registrierende_behoerde": [
+                                        {
+                                          "id": "amtsgericht6",
+                                          "typ": {
+                                            "code": "",
+                                            "name": "",
+                                            "list_uri": null,
+                                            "list_version_id": null
+                                          },
+                                          "zusatz": "Handelsregisteramt",
+                                          "behoerdenkennung": {
+                                            "kennung": [
+                                              {
+                                                "code": "5678",
+                                                "name": "Handelsregister",
+                                                "list_uri": "",
+                                                "list_version_id": ""
+                                              }
+                                            ],
+                                            "praefix": [
+                                              {
+                                                "code": "5678",
+                                                "name": "Dr."
+                                              }
+                                            ]
+                                          },
+                                          "kommunikation": [
+                                            {
+                                              "kanal": {
+                                                "code": "5678",
+                                                "name": "Email"
+                                              },
+                                              "kennung": "2",
+                                              "ist_dienstlich": true,
+                                              "zusatz": "Offizielle Mitteilungen"
+                                            }
+                                          ],
+                                          "behoerdenidentifikation": {
+                                            "id": null,
+                                            "beschreibung": "Registrierungsbehörde für Finanzdienstleister",
+                                            "gueltigkeit": {
+                                              "beginn": "2024-11-01+05:00",
+                                              "ende": "2024-11-01+05:00",
+                                              "zusatz": "Erstregistrierung"
+                                            }
+                                          },
+                                          "behoerdenname": [
+                                            {
+                                              "name": "Handelsregisteramt der Stadt F",
+                                              "kurzbezeichnung": "Handelsamt",
+                                              "gueltigkeit": {
+                                                "beginn": "2024-11-01+05:00",
+                                                "ende": "2024-11-01+05:00",
+                                                "zusatz": "Aktuell"
+                                              }
+                                            }
+                                          ],
+                                          "nachgeordnete_behoerde": [],
+                                          "verwaltungspolitische_zustaendigkeit": [
+                                            {
+                                              "kreis": null,
+                                              "bezirk": {
+                                                "code": "7777",
+                                                "name": "Reg.-Bez. F"
+                                              },
+                                              "bundesland": {
+                                                "code": "6",
+                                                "name": "Bundesland F"
+                                              },
+                                              "gemeindeschluessel": {
+                                                "code": "2222",
+                                                "name": "Stadt F"
+                                              },
+                                              "regionalschluessel": null,
+                                              "nation": {
+                                                "staat": {
+                                                  "code": "1234",
+                                                  "name": "Land F"
+                                                }
+                                              }
+                                            }
+                                          ],
+                                          "anschrift": [
+                                            {
+                                              "strassenschluessel": {
+                                                "code": "5678",
+                                                "name": null,
+                                                "list_uri": null,
+                                                "list_version_id": null
+                                              },
+                                              "strasse": "Finanzstraße",
+                                              "hausnummer": "30",
+                                              "postfach": "87654",
+                                              "postleitzahl": "50505",
+                                              "ort": "Stadt F",
+                                              "ortsteil": "Zentrum",
+                                              "ort_frueherer_gemeindename": "Altstadt",
+                                              "wohnungsgeber": "Stadtverwaltung F",
+                                              "zusatz": "In der Nähe des Finanzamts",
+                                              "typ": [
+                                                {
+                                                  "code": "5678",
+                                                  "name": "Hauptsitz"
+                                                }
+                                              ],
+                                              "staat": {
+                                                "staat": {
+                                                  "code": "5678",
+                                                  "name": "Land F"
+                                                }
+                                              },
+                                              "verwaltungspolitische_kodierung": {
+                                                "kreis": {
+                                                  "code": "4444",
+                                                  "name": "Kreis Stadt F"
+                                                },
+                                                "bezirk": {
+                                                  "code": "5555",
+                                                  "name": "Bezirk Mitte"
+                                                },
+                                                "bundesland": {
+                                                  "code": "6",
+                                                  "name": "Bundesland F"
+                                                },
+                                                "gemeindeschluessel": {
+                                                  "code": "6666",
+                                                  "name": "Stadt F"
+                                                },
+                                                "regionalschluessel": {
+                                                  "code": "7777",
+                                                  "name": "Region Mitte"
+                                                },
+                                                "nation": {
+                                                  "staat": {
+                                                    "code": "8888",
+                                                    "name": "Land F"
+                                                  }
+                                                }
+                                              },
+                                              "id": "anschrift654"
+                                            }
+                                          ],
+                                          "organisationsstruktur": []
+                                        }
+                                      ],
+                                      "gueltigkeit": {
+                                        "beginn": "2024-11-01+05:00",
+                                        "ende": "2024-11-01+10:00",
+                                        "zusatz": "Erforderliche Genehmigung für diesen Zeitraum"
+                                      }
+                                    }
+                                  ],
+                                  "identifikation": [
+                                    {
+                                      "id": "5678",
+                                      "beschreibung": "Finanzberatung und Management",
+                                      "gueltigkeit": {
+                                        "beginn": "2024-11-01+05:00",
+                                        "ende": "2024-11-01+10:00",
+                                        "zusatz": "Gültig für die angegebenen Tätigkeiten"
+                                      }
+                                    }
+                                  ],
+                                  "existenzzeitraum": {
+                                    "beginn": "2024-11-10+08:00",
+                                    "ende": "2024-11-12+01:00",
+                                    "zusatz": "Planmäßige Systemwartung"
+                                  },
+                                  "anschrift": [
+                                    {
+                                      "strassenschluessel": {
+                                        "code": "1234",
+                                        "name": "Gartenstraße",
+                                        "list_uri": null,
+                                        "list_version_id": null
+                                      },
+                                      "strasse": "Gartenstraße",
+                                      "hausnummer": "42",
+                                      "postfach": "78901",
+                                      "postleitzahl": "12345",
+                                      "ort": "Musterdorf",
+                                      "ortsteil": "Westend",
+                                      "ort_frueherer_gemeindename": "Altstadt",
+                                      "wohnungsgeber": "Musterdorf Stadtverwaltung",
+                                      "zusatz": "Direkt gegenüber dem Park",
+                                      "typ": [
+                                        {
+                                          "code": "001",
+                                          "name": "Hauptsitz"
+                                        }
+                                      ],
+                                      "staat": {
+                                        "staat": {
+                                          "code": "DE",
+                                          "name": "Deutschland"
+                                        }
+                                      },
+                                      "verwaltungspolitische_kodierung": {
+                                        "kreis": {
+                                          "code": "0123",
+                                          "name": "Kreis Musterstadt"
+                                        },
+                                        "bezirk": {
+                                          "code": "0456",
+                                          "name": "Bezirk Süd"
+                                        },
+                                        "bundesland": {
+                                          "code": "03",
+                                          "name": "Bundesland Musterland"
+                                        },
+                                        "gemeindeschluessel": {
+                                          "code": "0789",
+                                          "name": "Gemeinde Musterdorf"
+                                        },
+                                        "regionalschluessel": {
+                                          "code": "0345",
+                                          "name": "Region West"
+                                        },
+                                        "nation": {
+                                          "staat": {
+                                            "code": "DE",
+                                            "name": "Deutschland"
+                                          }
+                                        }
+                                      },
+                                      "id": "anschrift2"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "kommunikation": [
+                                {
+                                  "kanal": {
+                                    "code": "1234",
+                                    "name": "Email"
+                                  },
+                                  "kennung": "1",
+                                  "ist_dienstlich": false,
+                                  "zusatz": "Allgemeine Anfragen"
+                                }
+                              ],
+                              "registrierung": [
+                                {
+                                  "id": "1234",
+                                  "registertyp": null,
+                                  "registrierende_behoerde": [
+                                    {
+                                      "id": "handelsregister1",
+                                      "typ": {
+                                        "code": "",
+                                        "name": "",
+                                        "list_uri": null,
+                                        "list_version_id": null
+                                      },
+                                      "zusatz": "Industrie- und Handelskammer",
+                                      "behoerdenkennung": {
+                                        "kennung": [
+                                          {
+                                            "code": "1234",
+                                            "name": "Handelsregister",
+                                            "list_uri": "",
+                                            "list_version_id": ""
+                                          }
+                                        ],
+                                        "praefix": [
+                                          {
+                                            "code": "1234",
+                                            "name": "Nr."
+                                          }
+                                        ]
+                                      },
+                                      "kommunikation": [
+                                        {
+                                          "kanal": {
+                                            "code": "1234",
+                                            "name": "Fax"
+                                          },
+                                          "kennung": "1",
+                                          "ist_dienstlich": true,
+                                          "zusatz": "Behördliche Kommunikation"
+                                        }
+                                      ],
+                                      "behoerdenidentifikation": {
+                                        "id": null,
+                                        "beschreibung": "Gewerbeamt",
+                                        "gueltigkeit": {
+                                          "beginn": "2024-09-01+05:00",
+                                          "ende": "2024-09-01+05:00",
+                                          "zusatz": "Einmalig"
+                                        }
+                                      },
+                                      "behoerdenname": [
+                                        {
+                                          "name": "Gewerbeamt der Stadt Techstadt",
+                                          "kurzbezeichnung": "GdT",
+                                          "gueltigkeit": {
+                                            "beginn": "2024-09-01+05:00",
+                                            "ende": "2024-09-01+05:00",
+                                            "zusatz": "Aktuell"
+                                          }
+                                        }
+                                      ],
+                                      "nachgeordnete_behoerde": [],
+                                      "verwaltungspolitische_zustaendigkeit": [
+                                        {
+                                          "kreis": null,
+                                          "bezirk": {
+                                            "code": "8888",
+                                            "name": "Reg.-Bez. Techstadt"
+                                          },
+                                          "bundesland": {
+                                            "code": "4",
+                                            "name": "Technoland"
+                                          },
+                                          "gemeindeschluessel": {
+                                            "code": "9999",
+                                            "name": "Gemeinde Techstadt"
+                                          },
+                                          "regionalschluessel": null,
+                                          "nation": {
+                                            "staat": {
+                                              "code": "4",
+                                              "name": "Technoland"
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "anschrift": [
+                                        {
+                                          "strassenschluessel": {
+                                            "code": "1234",
+                                            "name": null,
+                                            "list_uri": null,
+                                            "list_version_id": null
+                                          },
+                                          "strasse": "Technologieallee",
+                                          "hausnummer": "12",
+                                          "postfach": "12345",
+                                          "postleitzahl": "90001",
+                                          "ort": "Techstadt",
+                                          "ortsteil": "Industriepark",
+                                          "ort_frueherer_gemeindename": "Technodorf",
+                                          "wohnungsgeber": "Techstadt Verwaltung",
+                                          "zusatz": "Innovationszentrum",
+                                          "typ": [
+                                            {
+                                              "code": "1234",
+                                              "name": "Forschungslabor"
+                                            }
+                                          ],
+                                          "staat": {
+                                            "staat": {
+                                              "code": "1234",
+                                              "name": "Technoland"
+                                            }
+                                          },
+                                          "verwaltungspolitische_kodierung": {
+                                            "kreis": {
+                                              "code": "3333",
+                                              "name": "Kreis Techstadt"
+                                            },
+                                            "bezirk": {
+                                              "code": "4567",
+                                              "name": "Bezirk Nord"
+                                            },
+                                            "bundesland": {
+                                              "code": "4",
+                                              "name": "Technoland"
+                                            },
+                                            "gemeindeschluessel": {
+                                              "code": "1234",
+                                              "name": "Techstadt"
+                                            },
+                                            "regionalschluessel": {
+                                              "code": "5678",
+                                              "name": "Region Nord"
+                                            },
+                                            "nation": {
+                                              "staat": {
+                                                "code": "1234",
+                                                "name": "Technoland"
+                                              }
+                                            }
+                                          },
+                                          "id": "anschrift3"
+                                        }
+                                      ],
+                                      "organisationsstruktur": []
+                                    }
+                                  ],
+                                  "gueltigkeit": {
+                                    "beginn": "2024-09-01+05:00",
+                                    "ende": "2024-09-01+10:00",
+                                    "zusatz": "Für diesen Zeitraum ist eine zusätzliche Genehmigung erforderlich."
+                                  }
+                                }
+                              ],
+                              "identifikation": [
+                                {
+                                  "id": "1234",
+                                  "beschreibung": "Beschreibung des Technologieprojekts",
+                                  "gueltigkeit": {
+                                    "beginn": "2024-09-01+05:00",
+                                    "ende": "2024-09-01+10:00",
+                                    "zusatz": "Identifikation nur für den genannten Zeitraum"
+                                  }
+                                }
+                              ],
+                              "existenzzeitraum": {
+                                "beginn": "2024-09-01+08:00",
+                                "ende": "2024-09-02+01:00",
+                                "zusatz": "Geplante Tests und Erhebungen"
+                              },
+                              "anschrift": [
+                                {
+                                  "strassenschluessel": {
+                                    "code": "9876",
+                                    "name": null,
+                                    "list_uri": null,
+                                    "list_version_id": null
+                                  },
+                                  "strasse": "Parkstraße",
+                                  "hausnummer": "12",
+                                  "postfach": "98765",
+                                  "postleitzahl": "90909",
+                                  "ort": "Grünstadt",
+                                  "ortsteil": "Parkviertel",
+                                  "ort_frueherer_gemeindename": "Grünbach",
+                                  "wohnungsgeber": "Stadtverwaltung Grünstadt",
+                                  "zusatz": "Nahe dem Stadtpark",
+                                  "typ": [
+                                    {
+                                      "code": "9876",
+                                      "name": "Filiale"
+                                    }
+                                  ],
+                                  "staat": {
+                                    "staat": {
+                                      "code": "9876",
+                                      "name": "Grünland"
+                                    }
+                                  },
+                                  "verwaltungspolitische_kodierung": {
+                                    "kreis": {
+                                      "code": "3333",
+                                      "name": "Kreis Grünstadt"
+                                    },
+                                    "bezirk": {
+                                      "code": "4567",
+                                      "name": "Bezirk West"
+                                    },
+                                    "bundesland": {
+                                      "code": "4",
+                                      "name": "Grünland"
+                                    },
+                                    "gemeindeschluessel": {
+                                      "code": "8765",
+                                      "name": "Grünstadt"
+                                    },
+                                    "regionalschluessel": {
+                                      "code": "5678",
+                                      "name": "Region West"
+                                    },
+                                    "nation": {
+                                      "staat": {
+                                        "code": "8901",
+                                        "name": "Grünland"
+                                      }
+                                    }
+                                  },
+                                  "id": "anschrift7589"
+                                }
+                              ]
+                            }
+                          ],
+                          "kommunikation": [
+                            {
+                              "kanal": {
+                                "code": "5678",
+                                "name": "Telefon"
+                              },
+                              "kennung": "2",
+                              "ist_dienstlich": true,
+                              "zusatz": "Geschäftliche Kommunikation"
+                            }
+                          ],
+                          "registrierung": [
+                            {
+                              "id": "5678",
+                              "registertyp": null,
+                              "registrierende_behoerde": [
+                                {
+                                  "id": "amtsgericht3",
+                                  "typ": {
+                                    "code": "",
+                                    "name": "",
+                                    "list_uri": null,
+                                    "list_version_id": null
+                                  },
+                                  "zusatz": "Stadtverwaltung Altdorf",
+                                  "behoerdenkennung": {
+                                    "kennung": [
+                                      {
+                                        "code": "5678",
+                                        "name": "Behörde Altdorf",
+                                        "list_uri": "",
+                                        "list_version_id": ""
+                                      }
+                                    ],
+                                    "praefix": [
+                                      {
+                                        "code": "5678",
+                                        "name": "zu"
+                                      }
+                                    ]
+                                  },
+                                  "kommunikation": [
+                                    {
+                                      "kanal": {
+                                        "code": "5678",
+                                        "name": "Telefon"
+                                      },
+                                      "kennung": "2",
+                                      "ist_dienstlich": true,
+                                      "zusatz": "Geschäftliche Kommunikation"
+                                    }
+                                  ],
+                                  "behoerdenidentifikation": {
+                                    "id": null,
+                                    "beschreibung": "Ordnungsamt",
+                                    "gueltigkeit": {
+                                      "beginn": "2024-08-01+05:00",
+                                      "ende": "2024-08-01+05:00",
+                                      "zusatz": "Einmalig"
+                                    }
+                                  },
+                                  "behoerdenname": [
+                                    {
+                                      "name": "Ordnungsamt der Stadt Altdorf",
+                                      "kurzbezeichnung": "OdSA",
+                                      "gueltigkeit": {
+                                        "beginn": "2024-08-01+05:00",
+                                        "ende": "2024-08-01+05:00",
+                                        "zusatz": "Aktuell"
+                                      }
+                                    }
+                                  ],
+                                  "nachgeordnete_behoerde": [],
+                                  "verwaltungspolitische_zustaendigkeit": [
+                                    {
+                                      "kreis": null,
+                                      "bezirk": {
+                                        "code": "7777",
+                                        "name": "Reg.-Bez. Altdorf"
+                                      },
+                                      "bundesland": {
+                                        "code": "2",
+                                        "name": null
+                                      },
+                                      "gemeindeschluessel": {
+                                        "code": "8888",
+                                        "name": "Gemeine Altdorf"
+                                      },
+                                      "regionalschluessel": null,
+                                      "nation": {
+                                        "staat": {
+                                          "code": "3",
+                                          "name": "Bundland"
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "anschrift": [
+                                    {
+                                      "strassenschluessel": {
+                                        "code": "5678",
+                                        "name": null,
+                                        "list_uri": null,
+                                        "list_version_id": null
+                                      },
+                                      "strasse": "Hauptstraße",
+                                      "hausnummer": "5",
+                                      "postfach": "56789",
+                                      "postleitzahl": "80808",
+                                      "ort": "Altdorf",
+                                      "ortsteil": "Innenstadt",
+                                      "ort_frueherer_gemeindename": "Altgemeinde",
+                                      "wohnungsgeber": "Gemeindeverwaltung",
+                                      "zusatz": "Im Herzen der Stadt",
+                                      "typ": [
+                                        {
+                                          "code": "5678",
+                                          "name": "Hauptsitz"
+                                        }
+                                      ],
+                                      "staat": {
+                                        "staat": {
+                                          "code": "5678",
+                                          "name": "Bundland"
+                                        }
+                                      },
+                                      "verwaltungspolitische_kodierung": {
+                                        "kreis": {
+                                          "code": "2222",
+                                          "name": "Kreis Altdorf"
+                                        },
+                                        "bezirk": {
+                                          "code": "2345",
+                                          "name": "Bezirk Süd"
+                                        },
+                                        "bundesland": {
+                                          "code": "3",
+                                          "name": "Bundland"
+                                        },
+                                        "gemeindeschluessel": {
+                                          "code": "5678",
+                                          "name": "Altdorf"
+                                        },
+                                        "regionalschluessel": {
+                                          "code": "3456",
+                                          "name": "Region Süd"
+                                        },
+                                        "nation": {
+                                          "staat": {
+                                            "code": "7890",
+                                            "name": "Bundland"
+                                          }
+                                        }
+                                      },
+                                      "id": "anschrift6"
+                                    }
+                                  ],
+                                  "organisationsstruktur": [
+                                    {
+                                      "name": "Qualitätssicherungseinheit",
+                                      "hierarchieebene": 3,
+                                      "hierarchiename": "Dritte Hierarchie"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "gueltigkeit": {
+                                "beginn": "2024-08-01+05:00",
+                                "ende": "2024-08-01+10:00",
+                                "zusatz": "Für diesen Zeitraum ist eine besondere Erlaubnis erforderlich."
+                              }
+                            }
+                          ],
+                          "identifikation": [
+                            {
+                              "id": "5678",
+                              "beschreibung": "Beschreibung des Tätigkeitsbereichs",
+                              "gueltigkeit": {
+                                "beginn": "2024-08-01+05:00",
+                                "ende": "2024-08-01+10:00",
+                                "zusatz": "Identifikation nur für den genannten Zeitraum"
+                              }
+                            }
+                          ],
+                          "existenzzeitraum": {
+                            "beginn": "2024-08-15+08:00",
+                            "ende": "2024-08-16+01:00",
+                            "zusatz": "Während dieses Zeitraums finden Wartungsarbeiten statt."
+                          },
+                          "anschrift": [
+                            {
+                              "strassenschluessel": {
+                                "code": "5678",
+                                "name": null,
+                                "list_uri": null,
+                                "list_version_id": null
+                              },
+                              "strasse": "Hauptstraße",
+                              "hausnummer": "10",
+                              "postfach": "67890",
+                              "postleitzahl": "80808",
+                              "ort": "Berlin",
+                              "ortsteil": "Kreuzberg",
+                              "ort_frueherer_gemeindename": "Altesdorf",
+                              "wohnungsgeber": "Berliner Wohnen",
+                              "zusatz": "Bürogebäude B",
+                              "typ": [
+                                {
+                                  "code": "5678",
+                                  "name": "Hauptsitz"
+                                }
+                              ],
+                              "staat": {
+                                "staat": {
+                                  "code": "5678",
+                                  "name": "Deutschland"
+                                }
+                              },
+                              "verwaltungspolitische_kodierung": {
+                                "kreis": {
+                                  "code": "2222",
+                                  "name": "Kreis Berlin"
+                                },
+                                "bezirk": {
+                                  "code": "3456",
+                                  "name": "Bezirk Mitte"
+                                },
+                                "bundesland": {
+                                  "code": "2",
+                                  "name": "Berlin"
+                                },
+                                "gemeindeschluessel": {
+                                  "code": "5678",
+                                  "name": "Berlin"
+                                },
+                                "regionalschluessel": {
+                                  "code": "6789",
+                                  "name": "Region Nord"
+                                },
+                                "nation": {
+                                  "staat": {
+                                    "code": "7890",
+                                    "name": "Deutschland"
+                                  }
+                                }
+                              },
+                              "id": "anschrift111"
+                            }
+                          ]
+                        }
+                      ],
+                      "kommunikation": [
+                        {
+                          "kanal": {
+                            "code": "1234",
+                            "name": "E-Mail"
+                          },
+                          "kennung": "1",
+                          "ist_dienstlich": true,
+                          "zusatz": "Austausch über Email"
+                        }
+                      ],
+                      "registrierung": [
+                        {
+                          "id": "1234",
+                          "registertyp": null,
+                          "registrierende_behoerde": [
+                            {
+                              "id": "amtsgericht2",
+                              "typ": {
+                                "code": "",
+                                "name": "",
+                                "list_uri": null,
+                                "list_version_id": null
+                              },
+                              "zusatz": "Gemeinde Hotzingmussen",
+                              "behoerdenkennung": {
+                                "kennung": [
+                                  {
+                                    "code": "1234",
+                                    "name": "Behoerde Hotzingmussen",
+                                    "list_uri": "",
+                                    "list_version_id": ""
+                                  }
+                                ],
+                                "praefix": [
+                                  {
+                                    "code": "1234",
+                                    "name": "von"
+                                  }
+                                ]
+                              },
+                              "kommunikation": [
+                                {
+                                  "kanal": {
+                                    "code": "1234",
+                                    "name": "E-Mail"
+                                  },
+                                  "kennung": "1",
+                                  "ist_dienstlich": true,
+                                  "zusatz": "Austausch über Email"
+                                }
+                              ],
+                              "behoerdenidentifikation": {
+                                "id": null,
+                                "beschreibung": "Gesundheitsamt",
+                                "gueltigkeit": {
+                                  "beginn": "2024-07-26+05:00",
+                                  "ende": "2024-07-26+05:00",
+                                  "zusatz": "Ein"
+                                }
+                              },
+                              "behoerdenname": [
+                                {
+                                  "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                                  "kurzbezeichnung": "GdGH",
+                                  "gueltigkeit": {
+                                    "beginn": "2024-07-26+05:00",
+                                    "ende": "2024-07-26+05:00",
+                                    "zusatz": "Seit Bestehen und zukünftig"
+                                  }
+                                }
+                              ],
+                              "nachgeordnete_behoerde": [],
+                              "verwaltungspolitische_zustaendigkeit": [
+                                {
+                                  "kreis": null,
+                                  "bezirk": {
+                                    "code": "9999",
+                                    "name": "Reg.-Bez. Hotzingmussen"
+                                  },
+                                  "bundesland": {
+                                    "code": "1",
+                                    "name": null
+                                  },
+                                  "gemeindeschluessel": {
+                                    "code": "6667",
+                                    "name": "Gemeine Hotzingen"
+                                  },
+                                  "regionalschluessel": null,
+                                  "nation": {
+                                    "staat": {
+                                      "code": "2",
+                                      "name": "LandLand"
+                                    }
+                                  }
+                                }
+                              ],
+                              "anschrift": [
+                                {
+                                  "strassenschluessel": {
+                                    "code": "1234",
+                                    "name": null,
+                                    "list_uri": null,
+                                    "list_version_id": null
+                                  },
+                                  "strasse": "In der Stadt",
+                                  "hausnummer": "1",
+                                  "postfach": "12345",
+                                  "postleitzahl": "90909",
+                                  "ort": "Hotzingmussen",
+                                  "ortsteil": "Worzen",
+                                  "ort_frueherer_gemeindename": "Vordertupfingen",
+                                  "wohnungsgeber": "Wohnfirma",
+                                  "zusatz": "Zusatz zur Anschrift",
+                                  "typ": [
+                                    {
+                                      "code": "1234",
+                                      "name": ""
+                                    }
+                                  ],
+                                  "staat": {
+                                    "staat": {
+                                      "code": "1234",
+                                      "name": ""
+                                    }
+                                  },
+                                  "verwaltungspolitische_kodierung": {
+                                    "kreis": {
+                                      "code": "1111",
+                                      "name": ""
+                                    },
+                                    "bezirk": {
+                                      "code": "1231",
+                                      "name": ""
+                                    },
+                                    "bundesland": {
+                                      "code": "1",
+                                      "name": ""
+                                    },
+                                    "gemeindeschluessel": {
+                                      "code": "9090",
+                                      "name": ""
+                                    },
+                                    "regionalschluessel": {
+                                      "code": "9897",
+                                      "name": ""
+                                    },
+                                    "nation": {
+                                      "staat": {
+                                        "code": "123456",
+                                        "name": ""
+                                      }
+                                    }
+                                  },
+                                  "id": "anschrift5"
+                                }
+                              ],
+                              "organisationsstruktur": [
+                                {
+                                  "name": "Wasserprobeneinheit",
+                                  "hierarchieebene": 2,
+                                  "hierarchiename": "Zweiter Hierarchie"
+                                }
+                              ]
+                            }
+                          ],
+                          "gueltigkeit": {
+                            "beginn": "2024-07-26+05:00",
+                            "ende": "2024-07-26+10:00",
+                            "zusatz": "Für diesen Zeitraum besteht eine Auskunftssperre nach dem obig genannten Grund."
+                          }
+                        }
+                      ],
+                      "identifikation": [
+                        {
+                          "id": "1234",
+                          "beschreibung": "Beschreibung des fachlichen Kontextes",
+                          "gueltigkeit": {
+                            "beginn": "2024-07-26+05:00",
+                            "ende": "2024-07-26+10:00",
+                            "zusatz": "Identifiziert für einen bestimmten Zeitraum"
+                          }
+                        }
+                      ],
+                      "existenzzeitraum": null,
+                      "anschrift": [
+                        {
+                          "strassenschluessel": {
+                            "code": "1234",
+                            "name": null,
+                            "list_uri": null,
+                            "list_version_id": null
+                          },
+                          "strasse": "Am Stadtrand",
+                          "hausnummer": "1",
+                          "postfach": "12345",
+                          "postleitzahl": "90909",
+                          "ort": "Hamburg",
+                          "ortsteil": "Eimsbüttel",
+                          "ort_frueherer_gemeindename": "",
+                          "wohnungsgeber": "Hamburger Wohnen",
+                          "zusatz": "Zusatz zur Anschrift",
+                          "typ": [
+                            {
+                              "code": "1234",
+                              "name": ""
+                            }
+                          ],
+                          "staat": {
+                            "staat": {
+                              "code": "1234",
+                              "name": ""
+                            }
+                          },
+                          "verwaltungspolitische_kodierung": {
+                            "kreis": {
+                              "code": "1111",
+                              "name": ""
+                            },
+                            "bezirk": {
+                              "code": "1231",
+                              "name": ""
+                            },
+                            "bundesland": {
+                              "code": "1",
+                              "name": ""
+                            },
+                            "gemeindeschluessel": {
+                              "code": "9090",
+                              "name": ""
+                            },
+                            "regionalschluessel": {
+                              "code": "9897",
+                              "name": ""
+                            },
+                            "nation": {
+                              "staat": {
+                                "code": "123456",
+                                "name": ""
+                              }
+                            }
+                          },
+                          "id": "anschrift9"
+                        }
+                      ]
+                    }
+                  },
+                  "objekt_id": [
+                    "probennehmer1"
+                  ],
+                  "kommentar": null
+                }
+              ],
+              "objekt_probennahmestelle": [
+                {
+                  "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
+                  "objekt_id": "probennahmestelle1",
+                  "probe": [
+                    {
+                      "probe_id": "5e08e073-4e06-438d-9444-1275f6cbf061",
+                      "untersuchungsplan_id": "1234",
+                      "probennehmer": "probennehmer1",
+                      "analyseergebnis_parameter": [
+                        {
+                          "analyseergebnis_parameter_id": "753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
+                          "anschrift_id": "anschrift1",
+                          "zugelassene_untersuchungsstelle": "abcd",
+                          "akkreditierte_durchfuehrung_analyse": true,
+                          "untersuchungsverfahren": [
+                            {
+                              "code": "1010",
+                              "name": "untersuchungsverfahren"
+                            }
+                          ],
+                          "ergaenzung_zum_untersuchungsverfahren": null,
+                          "untersuchter_parameter": {
+                            "code": "1000",
+                            "name": "untersuchter_parameter"
+                          },
+                          "parameterauspraegung": null,
+                          "parameter_durch_betreiber_untersucht": true,
+                          "wurde_der_parameter_korrigiert": null,
+                          "parameter_unterauswahl": null,
+                          "untersuchungswert_parameter": null,
+                          "einheit_des_untersuchungswerts": null,
+                          "ergaenzung_zum_untersuchungswert_parameter": null,
+                          "parameterwert_ergaenzung": null,
+                          "ausgewertetes_ansatzvolumen": null,
+                          "shapth_parameter_nummer": [],
+                          "bewertung_untersuchungswert": {
+                            "code": "1010",
+                            "name": null
+                          },
+                          "parameterauffaelligkeit": null,
+                          "messunsicherheit_untersuchungswert_absolut": null,
+                          "messunsicherheit_untersuchungswert_relativ": null,
+                          "bestimmungsgrenze_lo_q": null,
+                          "kommentar": null,
+                          "id": "analyseergebnisParameter1"
+                        }
+                      ],
+                      "anlass_der_untersuchung": [
+                        {
+                          "code": "1010",
+                          "name": "name"
+                        },
+                        {
+                          "code": "1010",
+                          "name": "name"
+                        },
+                        {
+                          "code": "1010",
+                          "name": "name"
+                        },
+                        {
+                          "code": "1010",
+                          "name": "name"
+                        },
+                        {
+                          "code": "1010",
+                          "name": "name"
+                        }
+                      ],
+                      "medium": {
+                        "code": "1010",
+                        "name": null
+                      },
+                      "akkreditierte_durchfuehrung_der_probennahme": true,
+                      "ergaenzung_zum_medium": null,
+                      "zeitpunkt_probennahme": "2024-05-27T09:00:00",
+                      "probennahmeverfahren": [
+                        {
+                          "code": "1010",
+                          "name": "probennahmeverfahren"
+                        },
+                        {
+                          "code": "1010",
+                          "name": "probennahmeverfahren"
+                        },
+                        {
+                          "code": "1010",
+                          "name": "probennahmeverfahren"
+                        }
+                      ],
+                      "probenentnahmegeraet": {
+                        "code": "1010",
+                        "name": null
+                      },
+                      "probengefaess": {
+                        "code": "1010",
+                        "name": null
+                      },
+                      "ergaenzende_informationen_zu_probenentnahmegeraet": "Becher",
+                      "desinfektion_probenentnahmegeraet_durchgefuehrt": true,
+                      "konservierung_aufbereitung_desinfektion_probe": [
+                        {
+                          "code": "1",
+                          "name": null
+                        },
+                        {
+                          "code": "2",
+                          "name": null
+                        },
+                        {
+                          "code": "3",
+                          "name": null
+                        }
+                      ],
+                      "kommentar_zur_probennahme": "Kommentar",
+                      "informationen_zum_probentransport": null,
+                      "eingang_probe_bei_untersuchungsstelle": "2024-05-27T10:00:00",
+                      "beginn_labortaetigkeit_analytik": "2024-05-27T10:01:00",
+                      "abschluss_labortaetigkeit_analytik": "2024-05-27T10:02:00",
+                      "konformitaetsbewertung_der_probe": {
+                        "code": "1010",
+                        "name": null
+                      },
+                      "berichtspflichtig": true,
+                      "von_probennehmer_vergebene_probe_id": "123456789",
+                      "probe_id_aus_labor": "1233",
+                      "anhang": [
+                        "anhang"
+                      ],
+                      "kommentar": "kommentar",
+                      "id": "probe1"
+                    }
+                  ],
+                  "terminplan_id": [
+                    ""
+                  ],
+                  "name_probennahmestelle": "pns",
+                  "art_probennahmestelle": {
+                    "code": "1010",
+                    "name": null
+                  },
+                  "stockwerk_probennahmestelle": 123,
+                  "medium_an_der_probennahmestelle": [
+                    {
+                      "code": "1010",
+                      "name": null
+                    },
+                    {
+                      "code": "1010",
+                      "name": null
+                    },
+                    {
+                      "code": "1010",
+                      "name": null
+                    },
+                    {
+                      "code": "1010",
+                      "name": null
+                    }
+                  ],
+                  "desinfektion_und_aufbereitung_des_wassers": [
+                    {
+                      "code": "",
+                      "name": null
+                    }
+                  ],
+                  "alt_id": "altID",
+                  "berichtspflichtig": true,
+                  "kommentar": "kommentar",
+                  "id": "probennahmestelle1"
+                }
+              ],
+              "id": "anlage_objekt1"
+            }
+          ],
+          "id": "abcd"
+        },
+        "auftraggeber": {
+          "auftraggeber_id": "Auftraggeber1",
+          "auftraggeberart": {
+            "code": "1010",
+            "name": null
+          },
+          "auftraggeber": {
+            "t": "ZustaendigeBehoerde",
+            "c": {
+              "id": "probennehmer1",
+              "typ": null,
+              "zusatz": null,
+              "behoerdenkennung": null,
+              "kommunikation": [],
+              "behoerdenidentifikation": null,
+              "behoerdenname": [],
+              "nachgeordnete_behoerde": [],
+              "verwaltungspolitische_zustaendigkeit": [],
+              "anschrift": [],
+              "organisationsstruktur": [],
+              "anlage_nach_trinkw_vid": [
+                ""
+              ],
+              "laenderkuerzel": {
+                "code": "DEAA",
+                "name": null
+              },
+              "kommentar": null
+            }
+          }
+        },
+        "zustaendige_behoerde": {
+          "id": "GHA1",
+          "typ": null,
+          "zusatz": null,
+          "behoerdenkennung": null,
+          "kommunikation": [],
+          "behoerdenidentifikation": null,
+          "behoerdenname": [],
+          "nachgeordnete_behoerde": [],
+          "verwaltungspolitische_zustaendigkeit": [],
+          "anschrift": [],
+          "organisationsstruktur": [],
+          "anlage_nach_trinkw_vid": [
+            ""
+          ],
+          "laenderkuerzel": {
+            "code": "DEAA",
+            "name": null
+          },
+          "kommentar": null
+        },
+        "erweiterung": {
+          "feld": [
+            {
+              "name": "feldname",
+              "beschreibung": "beschreibung",
+              "datentyp": {
+                "code": "",
+                "name": null
+              },
+              "wert": "feldwert"
+            }
+          ],
+          "gruppe": [
+            {
+              "name": "gruppenname",
+              "beschreibung": "gruppenbeschreibung",
+              "untergruppe": [
+                {
+                  "name": "untergruppenname",
+                  "beschreibung": "untergruppenbeschreibung",
+                  "untergruppe": [
+                    {
+                      "name": "unteruntergruppennanme",
+                      "beschreibung": "unteruntergruppenbeschreibung",
+                      "untergruppe": [],
+                      "feld": [
+                        {
+                          "name": "feldname2",
+                          "beschreibung": "beschreibung2",
+                          "datentyp": {
+                            "code": "1020",
+                            "name": null
+                          },
+                          "wert": "feldwert2"
+                        },
+                        {
+                          "name": "feldname3",
+                          "beschreibung": "beschreibung3",
+                          "datentyp": {
+                            "code": "1030",
+                            "name": null
+                          },
+                          "wert": "feldwert3"
+                        },
+                        {
+                          "name": "feldname4",
+                          "beschreibung": "beschreibung4",
+                          "datentyp": {
+                            "code": "1040",
+                            "name": null
+                          },
+                          "wert": "feldwert4"
+                        }
+                      ]
+                    }
+                  ],
+                  "feld": [
+                    {
+                      "name": "feldname2",
+                      "beschreibung": "beschreibung2",
+                      "datentyp": {
+                        "code": "1020",
+                        "name": null
+                      },
+                      "wert": "feldwert2"
+                    },
+                    {
+                      "name": "feldname3",
+                      "beschreibung": "beschreibung3",
+                      "datentyp": {
+                        "code": "1030",
+                        "name": null
+                      },
+                      "wert": "feldwert3"
+                    },
+                    {
+                      "name": "feldname4",
+                      "beschreibung": "beschreibung4",
+                      "datentyp": {
+                        "code": "1040",
+                        "name": null
+                      },
+                      "wert": "feldwert4"
+                    }
+                  ]
+                }
+              ],
+              "feld": []
+            }
+          ],
+          "xml": {
+            "any": [
+              "some more xml"
+            ]
+          }
+        },
+        "id": "untersuchungsplan1"
+      }
+    },
+    "bemerkung": "Bemerkung",
+    "anlage": []
+  }
+}
