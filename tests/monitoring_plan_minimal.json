@@ -173,7 +173,7 @@
               "datum_der_einrichtung": "2024-12-12",
               "datum_der_schliessung": null,
               "grund_der_schliessung": null,
-              "nachfolger_wvgbei_schliessung": [
+              "nachfolger_wvg_bei_schliessung": [
                 "NachfolgerWVG"
               ],
               "wvg_fremdbezogen": [
