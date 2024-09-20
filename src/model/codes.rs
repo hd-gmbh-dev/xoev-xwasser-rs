@@ -25,7 +25,7 @@ impl FromStr for ConstStr {
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
 // ))]
 // pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
 //     #[xml(name = b"code", ty = "child")]
@@ -46,7 +46,7 @@ impl FromStr for ConstStr {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
 ))]
 pub struct CodeBehoerdenkennungType {
     #[xml(name = b"code", ty = "child")]
@@ -63,7 +63,7 @@ pub struct CodeBehoerdenkennungType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
 ))]
 pub struct CodePersonenrolleType {
     #[xml(name = b"code", ty = "child")]
@@ -120,6 +120,11 @@ pub struct CodeAnlassUntersuchungType;
 /// Codeliste für Anschriftentypen. Diese dienen zur näheren Bestimmung der Art von Anschriften.
 #[xoev_xwasser_code("urn:xoev-de:fim:codeliste:xzufi.anschrifttyp", "2.0")]
 pub struct CodeAnschrifttypType;
+
+/// Type name: Code.ArtEntnahmearmaturType
+/// In dieser Codeliste werden Arten von Entnahmearmaturen definiert.
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-entnahmearmatur", "1")]
+pub struct CodeArtEntnahmearmaturType;
 
 /// Type name: Code.ArtGesetzlicherVertreterType
 /// Diese Codeliste definiert Arten der gesetzlichen Vertreter.
@@ -406,6 +411,11 @@ pub struct CodeUeberschreitungsursacheType;
 /// Mit dieser Codeliste wird im Kontext von XWasser definiert, wie die Überwachung der Trinkwasseraufbereitung erfolgt.
 #[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung", "1")]
 pub struct CodeUeberwachungAufbereitungType;
+
+/// Type name: Code.UnterkategorieProbennahmestelleType
+/// In dieser Codeliste werden Unterkategorien von Probennahmestellen definiert.
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle", "1")]
+pub struct CodeUnterkategorieProbennahmestelleType;
 
 /// Type name: Code.UntersuchungsstelleType
 /// Beschreibung der Codeliste. Diese Codeliste definiert alle im Kontext von XWasser zugelassenen Untersuchungsstellen (Diese Codeliste soll langfristig über das Register für zugelassene Untersuchungsstellen abgelöst werden).

@@ -23,7 +23,7 @@ use super::zeitraum::ZeitraumType;
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
 ))]
 pub struct OrganisationType {
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
@@ -60,7 +60,7 @@ pub struct OrganisationType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
 ))]
 pub struct RegistrierungType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
@@ -78,7 +78,7 @@ pub struct RegistrierungType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
 ))]
 pub struct NameOrganisationType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -96,7 +96,7 @@ pub struct NameOrganisationType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
 ))]
 pub struct OrganisationseinheitType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]

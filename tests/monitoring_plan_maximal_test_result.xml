@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ ../schemas/V0_5_2/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.5.2">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/ ../schemas/V0_5_3/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.5.3">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
@@ -601,7 +601,7 @@
               </xwas:incidentCauseAndRemedialAction>
             </xwas:incident>
           </xwas:wasserversorgungsgebiet>
-          <xwas:anlageNachTrinwV_Objekt id="anlage_objekt1">
+          <xwas:anlageNachTrinkwV_Objekt id="anlage_objekt1">
             <xwas:objektID>anlage</xwas:objektID>
             <xwas:wasserversorgungsgebiet>wvg1</xwas:wasserversorgungsgebiet>
             <xwas:anschriftObjekt id="anschrift1">
@@ -1669,7 +1669,7 @@
               <xwas:berichtspflichtig>true</xwas:berichtspflichtig>
               <xwas:kommentar>kommentar</xwas:kommentar>
             </xwas:objekt_probennahmestelle>
-          </xwas:anlageNachTrinwV_Objekt>
+          </xwas:anlageNachTrinkwV_Objekt>
         </xwas:anlageNachTrinkwV>
         <xwas:auftraggeber>
           <xwas:auftraggeberID>Auftraggeber1</xwas:auftraggeberID>

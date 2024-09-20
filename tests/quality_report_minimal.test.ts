@@ -21,7 +21,7 @@ describe("minimal quality report xml generation via wasm", async () => {
 
   it("should be able to create minimal quality report xml", async () => {
     const xml = create_vorgang_transportieren_2010(quality_report_minimal as any as VorgangTransportieren2010)
-      .replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ ../schemas/V0_5_2/xwasser.xsd");
+      .replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/ ../schemas/V0_5_3/xwasser.xsd");
     const expected_xml = fs.readFileSync(path.resolve(__dirname, './quality_report_minimal_test_result.xml'), 'utf-8');
     expect(xml).to.equal(expected_xml);
     validator.validateXml(xml, (err: XmlValidatorError) => {

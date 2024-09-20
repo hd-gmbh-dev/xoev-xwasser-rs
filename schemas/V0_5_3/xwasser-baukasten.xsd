@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
            xmlns:bn-uq-g2g="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"
            xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
            xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
-           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
-           version="0.5.2"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
+           version="0.5.3"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
    <xs:annotation>
@@ -18,7 +18,7 @@
             <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
          </standard>
          <versionStandard>
-            <version>0.5.2</version>
+            <version>0.5.3</version>
             <versionXOEVProfil>3.0.2</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -35,6 +35,21 @@
               namespace="http://xoev.de/schemata/code/1_0"/>
    <xs:import schemaLocation="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd"
               namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:complexType name="AenderungshistorieType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Änderungshistorie</title>
+         </xs:appinfo>
+         <xs:documentation>Eine Historie aller vorgenommenen Änderungen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="eintrag" maxOccurs="unbounded" type="xwas:KommentarType">
+            <xs:annotation>
+               <xs:documentation>Ein Eintrag in der Änderungshistorie.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
    <xs:complexType name="AllgemeinerNameType">
       <xs:annotation>
          <xs:appinfo>
@@ -315,7 +330,7 @@
                <xs:documentation>Angaben zum Wasserversorgungsgebiets</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="anlageNachTrinwV_Objekt"
+         <xs:element name="anlageNachTrinkwV_Objekt"
                      maxOccurs="unbounded"
                      type="xwas:ObjektType">
             <xs:annotation>
@@ -1017,6 +1032,67 @@
                           type="xs:normalizedString"
                           use="optional"
                           fixed="2.0"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.ArtEntnahmearmaturType">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Art der Entnahmearmatur</nameLang>
+               <nameKurz>Art der Entnahmearmatur</nameKurz>
+               <nameTechnisch>art-entnahmearmatur</nameTechnisch>
+               <kennung>urn:xoev-de:xwasser:codeliste:art-entnahmearmatur</kennung>
+               <beschreibung>In dieser Codeliste werden Arten von Entnahmearmaturen definiert.</beschreibung>
+               <herausgebernameLang>XWasser</herausgebernameLang>
+               <herausgebernameKurz>XWasser</herausgebernameKurz>
+            </codeliste>
+            <versionCodeliste>
+               <version>1</version>
+               <beschreibung>Initiale Version</beschreibung>
+               <datumGueltigkeitAb>2024-09-20</datumGueltigkeitAb>
+               <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+            </versionCodeliste>
+            <codelistenspalten>
+               <Key>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>true</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
+               </Key>
+               <ArtEntnahmearmatur>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </ArtEntnahmearmatur>
+               <Beschreibung>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>optional</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </Beschreibung>
+            </codelistenspalten>
+            <genutzteCodeSpalte>Key</genutzteCodeSpalte>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" form="unqualified" type="xwas:art-entnahmearmatur"/>
+               <xs:element name="name"
+                           type="xs:normalizedString"
+                           form="unqualified"
+                           minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xwasser:codeliste:art-entnahmearmatur"/>
+            <xs:attribute name="listVersionID"
+                          type="xs:normalizedString"
+                          use="optional"
+                          fixed="1"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -4091,6 +4167,75 @@ Untersuchungsplan</nameKurz>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
+   <xs:complexType name="Code.UnterkategorieProbennahmestelleType">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Unterkategorie Probennahmestelle</nameLang>
+               <nameKurz>Unterkategorie Probennahmestelle</nameKurz>
+               <nameTechnisch>unterkategorie-probennahmestelle</nameTechnisch>
+               <kennung>urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle</kennung>
+               <beschreibung>In dieser Codeliste werden Unterkategorien von Probennahmestellen definiert.</beschreibung>
+               <herausgebernameLang>XWasser</herausgebernameLang>
+               <herausgebernameKurz>XWasser</herausgebernameKurz>
+            </codeliste>
+            <versionCodeliste>
+               <version>1</version>
+               <beschreibung>Initiale Version</beschreibung>
+               <datumGueltigkeitAb>2024-09-20</datumGueltigkeitAb>
+               <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+            </versionCodeliste>
+            <codelistenspalten>
+               <Key>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>true</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
+               </Key>
+               <Kategorie>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </Kategorie>
+               <Unterkategorie>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </Unterkategorie>
+               <Beschreibung>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>optional</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </Beschreibung>
+            </codelistenspalten>
+            <genutzteCodeSpalte>Key</genutzteCodeSpalte>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code"
+                           form="unqualified"
+                           type="xwas:unterkategorie-probennahmestelle"/>
+               <xs:element name="name"
+                           type="xs:normalizedString"
+                           form="unqualified"
+                           minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle"/>
+            <xs:attribute name="listVersionID"
+                          type="xs:normalizedString"
+                          use="optional"
+                          fixed="1"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
    <xs:complexType name="Code.UntersuchungsstelleType">
       <xs:annotation>
          <xs:appinfo>
@@ -5390,6 +5535,31 @@ Untersuchungsplan</nameKurz>
          </xs:annotation>
       </xs:attribute>
    </xs:complexType>
+   <xs:complexType name="KommentarType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Kommentar</title>
+         </xs:appinfo>
+         <xs:documentation>Ein Kommentar mit Angaben zu Autor und Erstellungszeitpunkt.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="autor" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Der Autor des Kommentars.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="erstellungszeitpunkt" type="xs:dateTime">
+            <xs:annotation>
+               <xs:documentation>Der Erstellungszeitpunkt des Kommentars.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="inhalt" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Der Inhalt des Kommentars.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
    <xs:complexType name="KommunikationType">
       <xs:annotation>
          <xs:appinfo>
@@ -5879,6 +6049,40 @@ Untersuchungsplan</nameKurz>
          </xs:element>
       </xs:sequence>
    </xs:complexType>
+   <xs:complexType name="ParameterangabenType">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Parameterangaben</title>
+         </xs:appinfo>
+         <xs:documentation>Angaben zu einem Parameter.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="parameter" type="xwas:Code.SHAPTH-ParameterType">
+            <xs:annotation>
+               <xs:documentation>Der zu untersuchende Parameter.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="messprogramm" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Das Messprogramm, dem der Parameter zugeordnet wurde.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="parameterGruppe" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Die Gruppe des Parameters.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="veraenderlich" type="xs:boolean"/>
+         <xs:element name="probennahmeverfahrenUBA" type="xs:boolean"/>
+         <xs:element name="reduzierbarDurchRAP" type="xs:boolean"/>
+         <xs:element name="reduzierbarOhneRAP" type="xs:boolean"/>
+         <xs:element name="bemerkung" minOccurs="0" type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Eine Bemerkung zu den Parameterangaben.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
    <xs:complexType name="PersonType">
       <xs:annotation>
          <xs:appinfo>
@@ -5948,9 +6152,9 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Eindeutige ID des Untersuchungsplans, zu dem dieser Prüfbericht gehört.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="probennehmer" type="xs:IDREF">
+         <xs:element name="probennehmer" minOccurs="0" type="xs:IDREF">
             <xs:annotation>
-               <xs:documentation>Referenz auf die ID eines erfassten Probennehmers.</xs:documentation>
+               <xs:documentation>Referenz auf die ID eines erfassten Probennehmers. Im Falle einer angelieferten Probe ist die Angabe an dieser Stelle nicht verpflichtend.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="analyseergebnisParameter"
@@ -6074,6 +6278,18 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>ID zur eindeutigen Identifikation einer Probe, die vom Probennehmer vergeben wurde; [nicht bekannt kann alternativ als Information gegeben werden].</xs:documentation>
             </xs:annotation>
          </xs:element>
+         <xs:element name="angelieferteProbe" minOccurs="0" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>Bei einer angelieferten Probe können hier zusätzliche Angaben zum Probennehmer bzw. der Probennahme gemacht werden, z. B. zu welcher Behörde/Organisation der Probennehmer zugehört.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="informationenZurAngeliefertenProbe"
+                     minOccurs="0"
+                     type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Hier können bei angelieferten Proben zusätzliche Informationen zur Probennahme/Probennehmer getätigt werden. Z. B. Angaben zur Behörde/Organisation des Probennehmers.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
          <xs:element name="probeID_ausLabor" type="din91379:datatypeC">
             <xs:annotation>
                <xs:documentation>ID zur eindeutigen Identifikation einer Probe innerhalb der Untersuchungsstelle, bzw. innerhalb des IT-Systems des Labors.</xs:documentation>
@@ -6117,9 +6333,12 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Referenz zur eindeutigen Identifikation des Objekts in SHAPTH, zu welchem die Probennahmestelle gehört.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="probe" maxOccurs="unbounded" type="xwas:ProbeType">
+         <xs:element name="probe"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xwas:ProbeType">
             <xs:annotation>
-               <xs:documentation>Hier sind die Angaben zu den untersuchten Proben zu übermitteln.</xs:documentation>
+               <xs:documentation>Hier sind die Angaben zu den untersuchten Proben zu übermitteln. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld im Prüfbericht, es darf nur bei der Erzeugung eines Untersuchungsplans leer bzw. weggelassen werden!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="terminplanID"
@@ -6135,11 +6354,19 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Name der Probennahmestelle; Der Name sollte so sprechend gewählt werden, dass die genaue Stelle, in Kombination mit der Angabe zur "Art Probennahmestelle" und ggf. dem Stockwerk, wiedergefunden werden kann.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="artProbennahmestelle" type="xwas:Code.ArtProbennahmestelleType">
+         <xs:element name="kategorieProbennahmestelle"
+                     type="xwas:Code.KategorieProbennahmestelleType">
             <xs:annotation>
-               <xs:documentation>Bezeichnung der Art der Probennahmestelle.</xs:documentation>
+               <xs:documentation>Die Kategorie der Probennahmestelle.</xs:documentation>
             </xs:annotation>
          </xs:element>
+         <xs:element name="unterkategorieProbennahmestelle"
+                     type="xwas:Code.UnterkategorieProbennahmestelleType">
+            <xs:annotation>
+               <xs:documentation>Die Unterkategorie der Probennahmestelle.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="artDerEntnahmearmatur" type="xwas:Code.ArtEntnahmearmaturType"/>
          <xs:element name="stockwerkProbennahmestelle" minOccurs="0" type="xs:integer">
             <xs:annotation>
                <xs:documentation>Bezeichnung der Art der Probennahmestelle. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
@@ -6300,7 +6527,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="titel" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Titel des Prüfberichts. Bspw. „Prüfbericht Garching Forschungszentrums der Technischen Universität München“ oder "Korrektur zum Parameter Geruch im Prüfbericht Garching Forschungszentrums der Technischen Universität München".</xs:documentation>
+               <xs:documentation>Titel des Prüfberichts. Bspw. „Prüfbericht Garching Forschungszentrum der Technischen Universität München, Gebäude 5500 Maschinenwesen“.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="gesamtbewertung" type="xwas:Code.GesamtbewertungType">
@@ -6613,7 +6840,7 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Fachliche ID zur eindeutigen Identifikation eines Terminplans. Strukturell definiertcolon Untersuchungsplan ID - Fortlaufende Nr. (4-stellig). ToDo: Die genaue Syntax ist an einem Beispiel zu konkretisieren!</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="probennahmestelleID" minOccurs="0" type="din91379:datatypeC">
+         <xs:element name="probennahmestelle" minOccurs="0" type="xs:IDREF">
             <xs:annotation>
                <xs:documentation>Eindeitige ID einer Probennahmestelle (sofern vorhanden). Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
@@ -6658,11 +6885,11 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Anlass der Untersuchung</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="zuUntersuchendeParameter"
+         <xs:element name="zuUntersuchenderParameter"
                      maxOccurs="unbounded"
-                     type="xwas:Code.SHAPTH-ParameterType">
+                     type="xwas:ParameterangabenType">
             <xs:annotation>
-               <xs:documentation>SHAPTH Parameter Nummer zur eindeutigen Identifikation der zu untersuchenden Parameter in dem Termin des Untersuchungsplans. Vorauswahl über Messprogramme möglich, diese müssen im Anschluss angepasst werden.</xs:documentation>
+               <xs:documentation>Angaben zu einem Parameter in einem Terminplan.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="probennahmeverfahren"
@@ -6680,7 +6907,10 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Ein Terminplan, in der Regel vom Gesundheitsamt, der eine geplante Untersuchung des Betreibers ersetzt.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
+         <xs:element name="kommentar"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xwas:KommentarType">
             <xs:annotation>
                <xs:documentation>Kommentar zum Terminplan.</xs:documentation>
             </xs:annotation>
@@ -6838,6 +7068,13 @@ Untersuchungsplan</nameKurz>
          <xs:element name="zustaendigeBehoerde" type="xwas:ZustaendigeBehoerdeType">
             <xs:annotation>
                <xs:documentation>Hier werden die Angaben zur zuständigen Behörde übermittelt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="aenderungshistorie"
+                     minOccurs="0"
+                     type="xwas:AenderungshistorieType">
+            <xs:annotation>
+               <xs:documentation>Eine Historie aller vorgenommenen Änderungen.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="erweiterung" minOccurs="0" type="xwas:ErweiterungType">
@@ -7478,6 +7715,169 @@ Untersuchungsplan</nameKurz>
                   <Beschreibung>Keine (N)</Beschreibung>
                   <KeyEN>none</KeyEN>
                   <RemidialAction>None (N)</RemidialAction>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="art-entnahmearmatur">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Art der Entnahmearmatur</nameLang>
+               <nameKurz>Art der Entnahmearmatur</nameKurz>
+               <nameTechnisch>art-entnahmearmatur</nameTechnisch>
+               <kennung>urn:xoev-de:xwasser:codeliste:art-entnahmearmatur</kennung>
+               <beschreibung>In dieser Codeliste werden Arten von Entnahmearmaturen definiert.</beschreibung>
+               <herausgebernameLang>XWasser</herausgebernameLang>
+               <herausgebernameKurz>XWasser</herausgebernameKurz>
+            </codeliste>
+            <versionCodeliste>
+               <version>1</version>
+               <beschreibung>Initiale Version</beschreibung>
+               <datumGueltigkeitAb>2024-09-20</datumGueltigkeitAb>
+               <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+            </versionCodeliste>
+            <codelistenspalten>
+               <Key>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>true</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
+               </Key>
+               <ArtEntnahmearmatur>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </ArtEntnahmearmatur>
+               <Beschreibung>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>optional</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </Beschreibung>
+            </codelistenspalten>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="1010">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Armatur mit Verbrühungsschutz</ArtEntnahmearmatur>
+                  <Beschreibung>Armatur mit Verbrühungsschutz gem. twin Nr. 06</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1020">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Außen-Entnahmearmatur</ArtEntnahmearmatur>
+                  <Beschreibung>Außen-Entnahmearmatur (Wasserhahn)</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1050">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Brausekopf</ArtEntnahmearmatur>
+                  <Beschreibung>Brausekopf (mit Schlauch oder fest verrohrt)</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1060">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Duscharmatur</ArtEntnahmearmatur>
+                  <Beschreibung>Duscharmatur (Ohne Duschschlauch und Brausekopf)</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1070">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Eckventil</ArtEntnahmearmatur>
+                  <Beschreibung>Eckventil (mit Probenahmearmatur)</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1080">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Einhebel-Mischarmatur</ArtEntnahmearmatur>
+                  <Beschreibung>Einhebel-Mischarmatur gem. twin Nr. 06</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1100">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Oberfläche (Schöpfprobe) oder Entnahmeventil</ArtEntnahmearmatur>
+                  <Beschreibung>Oberfläche (Schöpfprobe) oder Entnahmeventil</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1110">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Entleerungsventil</ArtEntnahmearmatur>
+                  <Beschreibung>Entleerungsventil gem. twin Nr. 06</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1140">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Kugelhahn</ArtEntnahmearmatur>
+                  <Beschreibung>Kugelhahn gem. twin Nr. 06</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1170">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Probenahmearmaturen</ArtEntnahmearmatur>
+                  <Beschreibung>Probenahmearmaturen (gem. DIN 35860:2020-11 „Probenahmearmaturen in der Trinkwasserinstallation- Anforderungen und Prüfungen“); Entnahmeventil</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1220">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Freier Auslauf</ArtEntnahmearmatur>
+                  <Beschreibung>Freier Auslauf (z. B. Trinkwasserbrunnen)</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1230">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Wasser-Austrittsdüse</ArtEntnahmearmatur>
+                  <Beschreibung>Wasser-Austrittsdüse (z. B. Trinkwasserbrunnen)</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1240">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Wasserhahn</ArtEntnahmearmatur>
+                  <Beschreibung>Wasserhahn</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1290">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Zweigriff-Mischarmatur</ArtEntnahmearmatur>
+                  <Beschreibung>Zweigriff-Mischarmatur</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="9010">
+            <xs:annotation>
+               <xs:appinfo>
+                  <ArtEntnahmearmatur>Sonstiges</ArtEntnahmearmatur>
+                  <Beschreibung>Sonstiges (Eingabe als Textfeld)</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -9176,6 +9576,14 @@ Untersuchungsplan</nameKurz>
                <xs:appinfo>
                   <Gesamtbewertung>Ergebnis ohne Abweichung</Gesamtbewertung>
                   <Beschreibung>Es wurde keine Abweichungen gefunden</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1040">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Gesamtbewertung>Ohne Abweichung in Teilergebnissen: Vollständiger Prüfbericht ausstehend</Gesamtbewertung>
+                  <Beschreibung>Bei der Übermittlung von Teilergebnissen, bevor der gesamte Prüfbericht vorliegt, sind bislang keine Abweichungen aufgetreten. Falls Klärungsbedarfe/Mängel bei einem Teilergebnis vorliegen, sollte dies mit entsprechende Auswahl “Ergebnis mit Klärungsbedarf” oder “Ergebnis mit Mängelfeststellung“ angegeben werden.</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -14041,6 +14449,14 @@ Untersuchungsplan</nameKurz>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
+         <xs:enumeration value="1060">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Status>Durch WV bestätigt</Status>
+                  <Beschreibung>Durch WV bestätigt</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
       </xs:restriction>
    </xs:simpleType>
    <xs:simpleType name="ueberschreitungsursache">
@@ -14263,6 +14679,199 @@ Untersuchungsplan</nameKurz>
                <xs:appinfo>
                   <UeberwachungAufbereitung>Überwachung durch GA gemäß §19 Abs. 7 TrinkwV</UeberwachungAufbereitung>
                   <Beschreibung>GA, §19 Abs. 7 TrinkwV</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="unterkategorie-probennahmestelle">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Unterkategorie Probennahmestelle</nameLang>
+               <nameKurz>Unterkategorie Probennahmestelle</nameKurz>
+               <nameTechnisch>unterkategorie-probennahmestelle</nameTechnisch>
+               <kennung>urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle</kennung>
+               <beschreibung>In dieser Codeliste werden Unterkategorien von Probennahmestellen definiert.</beschreibung>
+               <herausgebernameLang>XWasser</herausgebernameLang>
+               <herausgebernameKurz>XWasser</herausgebernameKurz>
+            </codeliste>
+            <versionCodeliste>
+               <version>1</version>
+               <beschreibung>Initiale Version</beschreibung>
+               <datumGueltigkeitAb>2024-09-20</datumGueltigkeitAb>
+               <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+            </versionCodeliste>
+            <codelistenspalten>
+               <Key>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>true</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
+               </Key>
+               <Kategorie>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </Kategorie>
+               <Unterkategorie>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </Unterkategorie>
+               <Beschreibung>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>optional</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </Beschreibung>
+            </codelistenspalten>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="1030">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>T - Häusliche Trinkwasserinstallation</Kategorie>
+                  <Unterkategorie>Austritt des Trinkwassererwärmers</Unterkategorie>
+                  <Beschreibung>Austritt des Trinkwassererwärmers</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1040">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>W - Wasserwerk(sausgang)</Kategorie>
+                  <Unterkategorie>Behälter innerhalb eines Wasserwerks</Unterkategorie>
+                  <Beschreibung>Behälter innerhalb eines Wasserwerks</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1090">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>T - Häusliche Trinkwasserinstallation</Kategorie>
+                  <Unterkategorie>Eintritt der Zirkulationsleitung in den Trinkwassererwärmer</Unterkategorie>
+                  <Beschreibung>Eintritt der Zirkulationsleitung in den Trinkwassererwärmer gem. twin Nr. 06 (Zirkulationsrücklauf)</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1100">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>N - Öffentliches Verteilungsnetz</Kategorie>
+                  <Unterkategorie>Einzelne Kammer/Behälter in einem Hochbehälter</Unterkategorie>
+                  <Beschreibung>Einzelne Kammer/Behälter in einem Hochbehälter</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1130">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>W - Wasserwerk(sausgang)</Kategorie>
+                  <Unterkategorie>Innerhalb der Aufbereitung [genauen Ort bezeichnen]</Unterkategorie>
+                  <Beschreibung>Innerhalb der Aufbereitung im Wasserwerk; Der genaue Ort innerhalb der Aufbereitung ist in der Beschreibung der Probennahmestelle zu nennen</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1150">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>T - Häusliche Trinkwasserinstallation</Kategorie>
+                  <Unterkategorie>Nach Aufbereitung</Unterkategorie>
+                  <Beschreibung>Nach Aufbereitung (in der Trinkwasserinstallation)</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1180">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>W - Wasserwerk(sausgang)</Kategorie>
+                  <Unterkategorie>Wasserfassung</Unterkategorie>
+                  <Beschreibung>Wasserfassung</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1200">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>T - Häusliche Trinkwasserinstallation</Kategorie>
+                  <Unterkategorie>Steigstrang</Unterkategorie>
+                  <Beschreibung>Steigstrang - (in der Peripherie)</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1220">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>T - Häusliche Trinkwasserinstallation</Kategorie>
+                  <Unterkategorie>Trinkwasserbrunnen Dauerläufer</Unterkategorie>
+                  <Beschreibung>Trinkwasserbrunnen Dauerläufer</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1230">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>T - Häusliche Trinkwasserinstallation</Kategorie>
+                  <Unterkategorie>Trinkwasserbrunnen Nichtdauerläufer (diskontinuierlich laufende Trinkwasserbrunnen)</Unterkategorie>
+                  <Beschreibung>Trinkwasserbrunnen Nichtdauerläufer (diskontinuierlich laufende Trinkwasserbrunnen)</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1240">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>L - Übergabestelle Trinkwasser-Installation</Kategorie>
+                  <Unterkategorie>TW-Übergabepunkt WVA an Nutzer</Unterkategorie>
+                  <Beschreibung>Trinkwasser-Übergabepunkt WVA an Nutzer</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1260">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>N - Öffentliches Verteilungsnetz</Kategorie>
+                  <Unterkategorie>Vorlagebehälter für die Druckerhöhung</Unterkategorie>
+                  <Beschreibung>Vorlagebehälter für die Druckerhöhung (Tiefbehälter)</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1265">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>W - Wasserwerk(sausgang)</Kategorie>
+                  <Unterkategorie>Wasserwerksausgang mit Desinfektion</Unterkategorie>
+                  <Beschreibung>Wasserwerksausgang unmittelbar nach der Aufbereitung im desinfizierten Wasser; gilt auch für c- und f-Anlagen</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1270">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>W - Wasserwerk(sausgang)</Kategorie>
+                  <Unterkategorie>Wasserwerksausgang ohne Desinfektion</Unterkategorie>
+                  <Beschreibung>Wasserwerksausgang ohne Desinfektion</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1280">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>W - Wasserwerk(sausgang)</Kategorie>
+                  <Unterkategorie>Wasserwerkseingang</Unterkategorie>
+                  <Beschreibung>Wasserwerkseingang</Beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1300">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Kategorie>T - Häusliche Trinkwasserinstallation</Kategorie>
+                  <Unterkategorie>Sonstiger Rücklauf</Unterkategorie>
+                  <Beschreibung>Sonstiger Rücklauf (z. B. Kaltwasserzirkulation) Die genaue Bezeichnung ist in der Beschreibung der Probennahmestelle zu nennen.</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>

@@ -26,8 +26,8 @@ describe("maximal monitoring plan xml generation via wasm", async () => {
     const xml = create_vorgang_transportieren_2010(
       monitoring_plan_maximal as any as VorgangTransportieren2010,
     ).replace(
-      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ xwasser.xsd",
-      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ ../schemas/V0_5_2/xwasser.xsd",
+      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/ xwasser.xsd",
+      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/ ../schemas/V0_5_3/xwasser.xsd",
     );
     const expected_xml = fs.readFileSync(
       path.resolve(__dirname, "./monitoring_plan_maximal_test_result.xml"),
