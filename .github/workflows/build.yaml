@@ -38,14 +38,24 @@ jobs:
           wasm-pack build --release --target nodejs --reference-types --weak-refs --features wasm
           cp target/schemas/out/*.xsdb pkg/xwasser-v052.xsdb.bin
           cp package.tmp.json pkg/package.json
-      - name: Test WASM
-        run: |
-          pnpm install
-          pnpm test
       - name: Archive NPM package
         uses: actions/upload-artifact@v4
         with:
           name: xoev-xwasser-pkg
+          path: ./pkg
+      - name: Test WASM
+        run: |
+          pnpm install
+          pnpm test
+      - name: Build WASM Web
+        run: |
+          wasm-pack build --release --target web --reference-types --weak-refs --features wasm
+          cp target/schemas/out/*.xsdb pkg/xwasser-v052.xsdb.bin
+          cp package.tmp.web.json pkg/package.json
+      - name: Archive NPM web package
+        uses: actions/upload-artifact@v4
+        with:
+          name: xoev-xwasser-pkg-web
           path: ./pkg
   publish:
     if: startsWith( github.ref, 'refs/tags/v' )

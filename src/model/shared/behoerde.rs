@@ -47,7 +47,7 @@ pub struct ZustaendigeBehoerdeType {
     pub behoerdenidentifikation: Option<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"behoerdenname", ty = "child")]
     #[serde(default)]
-    pub behoerdenname: Vec<NameOrganisationType>, //Option<NameOrganisationType>,
+    pub behoerdenname: Option<NameOrganisationType>,
     #[xml(ns = b"xwas", name = b"nachgeordneteBehoerde", ty = "child")]
     #[serde(default)]
     pub nachgeordnete_behoerde: Vec<BehoerdeType>,
@@ -125,7 +125,7 @@ pub struct BehoerdeType {
     pub behoerdenidentifikation: Option<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"behoerdenname", ty = "child")]
     #[serde(default)]
-    pub behoerdenname: Vec<NameOrganisationType>,
+    pub behoerdenname: Option<NameOrganisationType>,
     #[xml(ns = b"xwas", name = b"nachgeordneteBehoerde", ty = "child")]
     #[serde(default)]
     pub nachgeordnete_behoerde: Vec<BehoerdeType>,

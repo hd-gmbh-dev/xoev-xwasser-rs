@@ -41,6 +41,15 @@ jobs:
       working-directory: ./pkg
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Download NPM Web artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: xoev-xwasser-pkg-web
+        path: pkg
+    - run: npm publish --provenance --access public
+      working-directory: ./pkg
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   release:
       name: Release
       runs-on: ubuntu-latest
