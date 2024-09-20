@@ -4,7 +4,7 @@ members = ["crates/*"]
 
 [workspace.package]
 edition = "2021"
-version = "0.502.5+0.5.2"
+version = "0.502.6+0.5.2"
 description = """
 "XOEV XWasser XML Standard"
 """
