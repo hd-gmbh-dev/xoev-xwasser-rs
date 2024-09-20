@@ -370,17 +370,15 @@
                       "zusatz": "Ein"
                     }
                   },
-                  "behoerdenname": [
-                    {
-                      "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
-                      "kurzbezeichnung": "GdGH",
-                      "gueltigkeit": {
-                        "beginn": "2024-07-26+05:00",
-                        "ende": "2024-07-26+05:00",
-                        "zusatz": "Seit Bestehen und zukünftig"
-                      }
+                  "behoerdenname": {
+                    "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                    "kurzbezeichnung": "GdGH",
+                    "gueltigkeit": {
+                      "beginn": "2024-07-26+05:00",
+                      "ende": "2024-07-26+05:00",
+                      "zusatz": "Seit Bestehen und zukünftig"
                     }
-                  ],
+                  },
                   "nachgeordnete_behoerde": [],
                   "verwaltungspolitische_zustaendigkeit": [
                     {
@@ -1103,17 +1101,15 @@
                                               "zusatz": "Erstregistrierung"
                                             }
                                           },
-                                          "behoerdenname": [
-                                            {
-                                              "name": "Handelsregisteramt der Stadt F",
-                                              "kurzbezeichnung": "Handelsamt",
-                                              "gueltigkeit": {
-                                                "beginn": "2024-11-01+05:00",
-                                                "ende": "2024-11-01+05:00",
-                                                "zusatz": "Aktuell"
-                                              }
+                                          "behoerdenname": {
+                                            "name": "Handelsregisteramt der Stadt F",
+                                            "kurzbezeichnung": "Handelsamt",
+                                            "gueltigkeit": {
+                                              "beginn": "2024-11-01+05:00",
+                                              "ende": "2024-11-01+05:00",
+                                              "zusatz": "Aktuell"
                                             }
-                                          ],
+                                          },
                                           "nachgeordnete_behoerde": [],
                                           "verwaltungspolitische_zustaendigkeit": [
                                             {
@@ -1348,17 +1344,15 @@
                                           "zusatz": "Einmalig"
                                         }
                                       },
-                                      "behoerdenname": [
-                                        {
-                                          "name": "Gewerbeamt der Stadt Techstadt",
-                                          "kurzbezeichnung": "GdT",
-                                          "gueltigkeit": {
-                                            "beginn": "2024-09-01+05:00",
-                                            "ende": "2024-09-01+05:00",
-                                            "zusatz": "Aktuell"
-                                          }
+                                      "behoerdenname": {
+                                        "name": "Gewerbeamt der Stadt Techstadt",
+                                        "kurzbezeichnung": "GdT",
+                                        "gueltigkeit": {
+                                          "beginn": "2024-09-01+05:00",
+                                          "ende": "2024-09-01+05:00",
+                                          "zusatz": "Aktuell"
                                         }
-                                      ],
+                                      },
                                       "nachgeordnete_behoerde": [],
                                       "verwaltungspolitische_zustaendigkeit": [
                                         {
@@ -1593,17 +1587,15 @@
                                       "zusatz": "Einmalig"
                                     }
                                   },
-                                  "behoerdenname": [
-                                    {
-                                      "name": "Ordnungsamt der Stadt Altdorf",
-                                      "kurzbezeichnung": "OdSA",
-                                      "gueltigkeit": {
-                                        "beginn": "2024-08-01+05:00",
-                                        "ende": "2024-08-01+05:00",
-                                        "zusatz": "Aktuell"
-                                      }
+                                  "behoerdenname": {
+                                    "name": "Ordnungsamt der Stadt Altdorf",
+                                    "kurzbezeichnung": "OdSA",
+                                    "gueltigkeit": {
+                                      "beginn": "2024-08-01+05:00",
+                                      "ende": "2024-08-01+05:00",
+                                      "zusatz": "Aktuell"
                                     }
-                                  ],
+                                  },
                                   "nachgeordnete_behoerde": [],
                                   "verwaltungspolitische_zustaendigkeit": [
                                     {
@@ -1844,17 +1836,15 @@
                                   "zusatz": "Ein"
                                 }
                               },
-                              "behoerdenname": [
-                                {
-                                  "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
-                                  "kurzbezeichnung": "GdGH",
-                                  "gueltigkeit": {
-                                    "beginn": "2024-07-26+05:00",
-                                    "ende": "2024-07-26+05:00",
-                                    "zusatz": "Seit Bestehen und zukünftig"
-                                  }
+                              "behoerdenname": {
+                                "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                                "kurzbezeichnung": "GdGH",
+                                "gueltigkeit": {
+                                  "beginn": "2024-07-26+05:00",
+                                  "ende": "2024-07-26+05:00",
+                                  "zusatz": "Seit Bestehen und zukünftig"
                                 }
-                              ],
+                              },
                               "nachgeordnete_behoerde": [],
                               "verwaltungspolitische_zustaendigkeit": [
                                 {
@@ -2229,7 +2219,7 @@
               "behoerdenkennung": null,
               "kommunikation": [],
               "behoerdenidentifikation": null,
-              "behoerdenname": [],
+              "behoerdenname": null,
               "nachgeordnete_behoerde": [],
               "verwaltungspolitische_zustaendigkeit": [],
               "anschrift": [],
@@ -2252,7 +2242,7 @@
           "behoerdenkennung": null,
           "kommunikation": [],
           "behoerdenidentifikation": null,
-          "behoerdenname": [],
+          "behoerdenname": null,
           "nachgeordnete_behoerde": [],
           "verwaltungspolitische_zustaendigkeit": [],
           "anschrift": [],
