@@ -2164,7 +2164,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser"
-version = "0.502.6+0.5.2"
+version = "0.502.7+0.5.2"
 dependencies = [
  "anyhow",
  "raxb",
@@ -2182,7 +2182,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser-derive"
-version = "0.502.6+0.5.2"
+version = "0.502.7+0.5.2"
 dependencies = [
  "darling",
  "heck",
