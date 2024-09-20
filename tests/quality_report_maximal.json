@@ -532,17 +532,15 @@
                           "zusatz": "Ein"
                         }
                       },
-                      "behoerdenname": [
-                        {
-                          "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
-                          "kurzbezeichnung": "GdGH",
-                          "gueltigkeit": {
-                            "beginn": "2024-07-26+05:00",
-                            "ende": "2024-07-26+05:00",
-                            "zusatz": "Seit Bestehen und zukünftig"
-                          }
+                      "behoerdenname": {
+                        "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                        "kurzbezeichnung": "GdGH",
+                        "gueltigkeit": {
+                          "beginn": "2024-07-26+05:00",
+                          "ende": "2024-07-26+05:00",
+                          "zusatz": "Seit Bestehen und zukünftig"
                         }
-                      ],
+                      },
                       "nachgeordnete_behoerde": [],
                       "verwaltungspolitische_zustaendigkeit": [
                         {
@@ -774,17 +772,15 @@
                           "zusatz": "Gültig für das laufende Jahr"
                         }
                       },
-                      "behoerdenname": [
-                        {
-                          "name": "Landgericht Neustadt",
-                          "kurzbezeichnung": "LGN",
-                          "gueltigkeit": {
-                            "beginn": "2024-09-01+01:00",
-                            "ende": "2024-09-01+01:00",
-                            "zusatz": "Aktuell"
-                          }
+                      "behoerdenname": {
+                        "name": "Landgericht Neustadt",
+                        "kurzbezeichnung": "LGN",
+                        "gueltigkeit": {
+                          "beginn": "2024-09-01+01:00",
+                          "ende": "2024-09-01+01:00",
+                          "zusatz": "Aktuell"
                         }
-                      ],
+                      },
                       "nachgeordnete_behoerde": [],
                       "verwaltungspolitische_zustaendigkeit": [
                         {
@@ -1262,17 +1258,15 @@
                           "zusatz": "Ein"
                         }
                       },
-                      "behoerdenname": [
-                        {
-                          "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
-                          "kurzbezeichnung": "GdGH",
-                          "gueltigkeit": {
-                            "beginn": "2024-07-26+05:00",
-                            "ende": "2024-07-26+05:00",
-                            "zusatz": "Seit Bestehen und zukünftig"
-                          }
+                      "behoerdenname": {
+                        "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                        "kurzbezeichnung": "GdGH",
+                        "gueltigkeit": {
+                          "beginn": "2024-07-26+05:00",
+                          "ende": "2024-07-26+05:00",
+                          "zusatz": "Seit Bestehen und zukünftig"
                         }
-                      ],
+                      },
                       "nachgeordnete_behoerde": [],
                       "verwaltungspolitische_zustaendigkeit": [
                         {
@@ -1842,17 +1836,15 @@
                           "zusatz": "Gültig ab dem 1. August 2024"
                         }
                       },
-                      "behoerdenname": [
-                        {
-                          "name": "Bürgeramt der Stadt Mitteldorf",
-                          "kurzbezeichnung": "BdSM",
-                          "gueltigkeit": {
-                            "beginn": "2024-08-01+05:00",
-                            "ende": "2024-08-01+05:00",
-                            "zusatz": "Seit Beginn und weiterhin gültig"
-                          }
+                      "behoerdenname": {
+                        "name": "Bürgeramt der Stadt Mitteldorf",
+                        "kurzbezeichnung": "BdSM",
+                        "gueltigkeit": {
+                          "beginn": "2024-08-01+05:00",
+                          "ende": "2024-08-01+05:00",
+                          "zusatz": "Seit Beginn und weiterhin gültig"
                         }
-                      ],
+                      },
                       "nachgeordnete_behoerde": [],
                       "verwaltungspolitische_zustaendigkeit": [
                         {
@@ -2084,17 +2076,15 @@
                           "zusatz": "Einmalig"
                         }
                       },
-                      "behoerdenname": [
-                        {
-                          "name": "Wichtige Behörde für spezielle Aufgaben",
-                          "kurzbezeichnung": "WBS",
-                          "gueltigkeit": {
-                            "beginn": "2024-08-01+05:00",
-                            "ende": "2024-08-01+05:00",
-                            "zusatz": "Seit Einrichtung"
-                          }
+                      "behoerdenname": {
+                        "name": "Wichtige Behörde für spezielle Aufgaben",
+                        "kurzbezeichnung": "WBS",
+                        "gueltigkeit": {
+                          "beginn": "2024-08-01+05:00",
+                          "ende": "2024-08-01+05:00",
+                          "zusatz": "Seit Einrichtung"
                         }
-                      ],
+                      },
                       "nachgeordnete_behoerde": [
                         {
                           "id": "ID7e18g274-7f38-550e-9455-3487h8dcf095",
@@ -2141,17 +2131,15 @@
                               "zusatz": "Einmalig"
                             }
                           },
-                          "behoerdenname": [
-                            {
-                              "name": "Verwaltungsbehörde der Stadt Oberstadt",
-                              "kurzbezeichnung": "VBO",
-                              "gueltigkeit": {
-                                "beginn": "2024-08-15+05:00",
-                                "ende": "2024-08-15+05:00",
-                                "zusatz": "Seit Gründung"
-                              }
+                          "behoerdenname": {
+                            "name": "Verwaltungsbehörde der Stadt Oberstadt",
+                            "kurzbezeichnung": "VBO",
+                            "gueltigkeit": {
+                              "beginn": "2024-08-15+05:00",
+                              "ende": "2024-08-15+05:00",
+                              "zusatz": "Seit Gründung"
                             }
-                          ],
+                          },
                           "nachgeordnete_behoerde": [],
                           "verwaltungspolitische_zustaendigkeit": [
                             {
@@ -2678,17 +2666,15 @@
                       "zusatz": "Ein Zusatz"
                     }
                   },
-                  "behoerdenname": [
-                    {
-                      "name": "Behoerde fuer komplizierte Vorgänge",
-                      "kurzbezeichnung": "Eine Kurzbezeichnung",
-                      "gueltigkeit": {
-                        "beginn": "2024-07-26+05:00",
-                        "ende": "2024-07-26+05:00",
-                        "zusatz": "Ein Zusatz"
-                      }
+                  "behoerdenname": {
+                    "name": "Behoerde fuer komplizierte Vorgänge",
+                    "kurzbezeichnung": "Eine Kurzbezeichnung",
+                    "gueltigkeit": {
+                      "beginn": "2024-07-26+05:00",
+                      "ende": "2024-07-26+05:00",
+                      "zusatz": "Ein Zusatz"
                     }
-                  ],
+                  },
                   "nachgeordnete_behoerde": [
                     {
                       "id": "ID6e09f183-5e17-548e-9555-2386g7dcg072",
@@ -2735,17 +2721,15 @@
                           "zusatz": "Einmalig"
                         }
                       },
-                      "behoerdenname": [
-                        {
-                          "name": "Ordnungsamt der Gemeinde Neustadt",
-                          "kurzbezeichnung": "OGN",
-                          "gueltigkeit": {
-                            "beginn": "2024-08-01+05:00",
-                            "ende": "2024-08-01+05:00",
-                            "zusatz": "Seit Gründung"
-                          }
+                      "behoerdenname": {
+                        "name": "Ordnungsamt der Gemeinde Neustadt",
+                        "kurzbezeichnung": "OGN",
+                        "gueltigkeit": {
+                          "beginn": "2024-08-01+05:00",
+                          "ende": "2024-08-01+05:00",
+                          "zusatz": "Seit Gründung"
                         }
-                      ],
+                      },
                       "nachgeordnete_behoerde": [],
                       "verwaltungspolitische_zustaendigkeit": [
                         {
@@ -2884,17 +2868,15 @@
                           "zusatz": "Regelmäßig"
                         }
                       },
-                      "behoerdenname": [
-                        {
-                          "name": "Umweltamt der Gemeinde Dorfheim",
-                          "kurzbezeichnung": "UDGH",
-                          "gueltigkeit": {
-                            "beginn": "2024-08-10+05:00",
-                            "ende": "2024-08-10+05:00",
-                            "zusatz": "Aktuell"
-                          }
+                      "behoerdenname": {
+                        "name": "Umweltamt der Gemeinde Dorfheim",
+                        "kurzbezeichnung": "UDGH",
+                        "gueltigkeit": {
+                          "beginn": "2024-08-10+05:00",
+                          "ende": "2024-08-10+05:00",
+                          "zusatz": "Aktuell"
                         }
-                      ],
+                      },
                       "nachgeordnete_behoerde": [],
                       "verwaltungspolitische_zustaendigkeit": [
                         {
@@ -3219,17 +3201,15 @@
                       "zusatz": "Ein Zusatz"
                     }
                   },
-                  "behoerdenname": [
-                    {
-                      "name": "Behoerde fuer komplizierte Vorgänge",
-                      "kurzbezeichnung": "Eine Kurzbezeichnung",
-                      "gueltigkeit": {
-                        "beginn": "2024-07-26+05:00",
-                        "ende": "2024-07-26+05:00",
-                        "zusatz": "Ein Zusatz"
-                      }
+                  "behoerdenname": {
+                    "name": "Behoerde fuer komplizierte Vorgänge",
+                    "kurzbezeichnung": "Eine Kurzbezeichnung",
+                    "gueltigkeit": {
+                      "beginn": "2024-07-26+05:00",
+                      "ende": "2024-07-26+05:00",
+                      "zusatz": "Ein Zusatz"
                     }
-                  ],
+                  },
                   "nachgeordnete_behoerde": [
                     {
                       "id": "ID6e09f183-5e17-548e-9555-2386g7dcg078",
@@ -3276,17 +3256,15 @@
                           "zusatz": "Einmalig"
                         }
                       },
-                      "behoerdenname": [
-                        {
-                          "name": "Ordnungsamt der Gemeinde Neustadt",
-                          "kurzbezeichnung": "OGN",
-                          "gueltigkeit": {
-                            "beginn": "2024-08-01+05:00",
-                            "ende": "2024-08-01+05:00",
-                            "zusatz": "Seit Gründung"
-                          }
+                      "behoerdenname": {
+                        "name": "Ordnungsamt der Gemeinde Neustadt",
+                        "kurzbezeichnung": "OGN",
+                        "gueltigkeit": {
+                          "beginn": "2024-08-01+05:00",
+                          "ende": "2024-08-01+05:00",
+                          "zusatz": "Seit Gründung"
                         }
-                      ],
+                      },
                       "nachgeordnete_behoerde": [],
                       "verwaltungspolitische_zustaendigkeit": [
                         {
@@ -3425,17 +3403,15 @@
                           "zusatz": "Ein anderer Zusatz"
                         }
                       },
-                      "behoerdenname": [
-                        {
-                          "name": "Behörde für andere Vorgänge",
-                          "kurzbezeichnung": "Eine andere Kurzbezeichnung",
-                          "gueltigkeit": {
-                            "beginn": "2024-08-06+05:00",
-                            "ende": "2024-08-06+05:00",
-                            "zusatz": "Ein anderer Zusatz"
-                          }
+                      "behoerdenname": {
+                        "name": "Behörde für andere Vorgänge",
+                        "kurzbezeichnung": "Eine andere Kurzbezeichnung",
+                        "gueltigkeit": {
+                          "beginn": "2024-08-06+05:00",
+                          "ende": "2024-08-06+05:00",
+                          "zusatz": "Ein anderer Zusatz"
                         }
-                      ],
+                      },
                       "nachgeordnete_behoerde": [
                         {
                           "id": "ID7f19h284-5f27-549e-9455-2386h7dcf083",
@@ -3482,17 +3458,15 @@
                               "zusatz": "Regelmäßig"
                             }
                           },
-                          "behoerdenname": [
-                            {
-                              "name": "Verwaltungsamt der Gemeinde Oberstadt",
-                              "kurzbezeichnung": "VGO",
-                              "gueltigkeit": {
-                                "beginn": "2024-09-01+05:00",
-                                "ende": "2024-09-01+05:00",
-                                "zusatz": "Seit Einführung"
-                              }
+                          "behoerdenname": {
+                            "name": "Verwaltungsamt der Gemeinde Oberstadt",
+                            "kurzbezeichnung": "VGO",
+                            "gueltigkeit": {
+                              "beginn": "2024-09-01+05:00",
+                              "ende": "2024-09-01+05:00",
+                              "zusatz": "Seit Einführung"
                             }
-                          ],
+                          },
                           "nachgeordnete_behoerde": [],
                           "verwaltungspolitische_zustaendigkeit": [
                             {
@@ -3969,17 +3943,15 @@
                                       "zusatz": "Erstregistrierung"
                                     }
                                   },
-                                  "behoerdenname": [
-                                    {
-                                      "name": "Handelsregisteramt der Stadt F",
-                                      "kurzbezeichnung": "Handelsamt",
-                                      "gueltigkeit": {
-                                        "beginn": "2024-11-01+05:00",
-                                        "ende": "2024-11-01+05:00",
-                                        "zusatz": "Aktuell"
-                                      }
+                                  "behoerdenname": {
+                                    "name": "Handelsregisteramt der Stadt F",
+                                    "kurzbezeichnung": "Handelsamt",
+                                    "gueltigkeit": {
+                                      "beginn": "2024-11-01+05:00",
+                                      "ende": "2024-11-01+05:00",
+                                      "zusatz": "Aktuell"
                                     }
-                                  ],
+                                  },
                                   "nachgeordnete_behoerde": [],
                                   "verwaltungspolitische_zustaendigkeit": [
                                     {
@@ -4214,17 +4186,15 @@
                                   "zusatz": "Einmalig"
                                 }
                               },
-                              "behoerdenname": [
-                                {
-                                  "name": "Gewerbeamt der Stadt Techstadt",
-                                  "kurzbezeichnung": "GdT",
-                                  "gueltigkeit": {
-                                    "beginn": "2024-09-01+05:00",
-                                    "ende": "2024-09-01+05:00",
-                                    "zusatz": "Aktuell"
-                                  }
+                              "behoerdenname": {
+                                "name": "Gewerbeamt der Stadt Techstadt",
+                                "kurzbezeichnung": "GdT",
+                                "gueltigkeit": {
+                                  "beginn": "2024-09-01+05:00",
+                                  "ende": "2024-09-01+05:00",
+                                  "zusatz": "Aktuell"
                                 }
-                              ],
+                              },
                               "nachgeordnete_behoerde": [],
                               "verwaltungspolitische_zustaendigkeit": [
                                 {
@@ -4459,17 +4429,15 @@
                               "zusatz": "Einmalig"
                             }
                           },
-                          "behoerdenname": [
-                            {
-                              "name": "Ordnungsamt der Stadt Altdorf",
-                              "kurzbezeichnung": "OdSA",
-                              "gueltigkeit": {
-                                "beginn": "2024-08-01+05:00",
-                                "ende": "2024-08-01+05:00",
-                                "zusatz": "Aktuell"
-                              }
+                          "behoerdenname": {
+                            "name": "Ordnungsamt der Stadt Altdorf",
+                            "kurzbezeichnung": "OdSA",
+                            "gueltigkeit": {
+                              "beginn": "2024-08-01+05:00",
+                              "ende": "2024-08-01+05:00",
+                              "zusatz": "Aktuell"
                             }
-                          ],
+                          },
                           "nachgeordnete_behoerde": [],
                           "verwaltungspolitische_zustaendigkeit": [
                             {
@@ -4710,17 +4678,15 @@
                           "zusatz": "Ein"
                         }
                       },
-                      "behoerdenname": [
-                        {
-                          "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
-                          "kurzbezeichnung": "GdGH",
-                          "gueltigkeit": {
-                            "beginn": "2024-07-26+05:00",
-                            "ende": "2024-07-26+05:00",
-                            "zusatz": "Seit Bestehen und zukünftig"
-                          }
+                      "behoerdenname": {
+                        "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                        "kurzbezeichnung": "GdGH",
+                        "gueltigkeit": {
+                          "beginn": "2024-07-26+05:00",
+                          "ende": "2024-07-26+05:00",
+                          "zusatz": "Seit Bestehen und zukünftig"
                         }
-                      ],
+                      },
                       "nachgeordnete_behoerde": [],
                       "verwaltungspolitische_zustaendigkeit": [
                         {
@@ -4943,17 +4909,15 @@
                 "zusatz": "Ein"
               }
             },
-            "behoerdenname": [
-              {
-                "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
-                "kurzbezeichnung": "GdGH",
-                "gueltigkeit": {
-                  "beginn": "2024-07-26+05:00",
-                  "ende": "2024-07-26+05:00",
-                  "zusatz": "Seit Bestehen und zukünftig"
-                }
+            "behoerdenname": {
+              "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+              "kurzbezeichnung": "GdGH",
+              "gueltigkeit": {
+                "beginn": "2024-07-26+05:00",
+                "ende": "2024-07-26+05:00",
+                "zusatz": "Seit Bestehen und zukünftig"
               }
-            ],
+            },
             "nachgeordnete_behoerde": [],
             "verwaltungspolitische_zustaendigkeit": [
               {
@@ -5200,17 +5164,15 @@
                               "zusatz": "Aktuelle Registrierungsdetails"
                             }
                           },
-                          "behoerdenname": [
-                            {
-                              "name": "Stadtverwaltung Neumarkt",
-                              "kurzbezeichnung": "SVN",
-                              "gueltigkeit": {
-                                "beginn": "2024-09-01+02:00",
-                                "ende": "2024-09-01+02:00",
-                                "zusatz": "Aktuell"
-                              }
+                          "behoerdenname": {
+                            "name": "Stadtverwaltung Neumarkt",
+                            "kurzbezeichnung": "SVN",
+                            "gueltigkeit": {
+                              "beginn": "2024-09-01+02:00",
+                              "ende": "2024-09-01+02:00",
+                              "zusatz": "Aktuell"
                             }
-                          ],
+                          },
                           "nachgeordnete_behoerde": [],
                           "verwaltungspolitische_zustaendigkeit": [
                             {
@@ -5451,17 +5413,15 @@
                           "zusatz": "Einmalig"
                         }
                       },
-                      "behoerdenname": [
-                        {
-                          "name": "Wirtschaftsamt der Stadt Neumünster",
-                          "kurzbezeichnung": "WiNe",
-                          "gueltigkeit": {
-                            "beginn": "2024-09-01+05:00",
-                            "ende": "2024-09-01+05:00",
-                            "zusatz": "Aktuell"
-                          }
+                      "behoerdenname": {
+                        "name": "Wirtschaftsamt der Stadt Neumünster",
+                        "kurzbezeichnung": "WiNe",
+                        "gueltigkeit": {
+                          "beginn": "2024-09-01+05:00",
+                          "ende": "2024-09-01+05:00",
+                          "zusatz": "Aktuell"
                         }
-                      ],
+                      },
                       "nachgeordnete_behoerde": [],
                       "verwaltungspolitische_zustaendigkeit": [
                         {
@@ -5696,17 +5656,15 @@
                       "zusatz": "Ein"
                     }
                   },
-                  "behoerdenname": [
-                    {
-                      "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
-                      "kurzbezeichnung": "GdGH",
-                      "gueltigkeit": {
-                        "beginn": "2024-07-26+05:00",
-                        "ende": "2024-07-26+05:00",
-                        "zusatz": "Seit Bestehen und zukünftig"
-                      }
+                  "behoerdenname": {
+                    "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                    "kurzbezeichnung": "GdGH",
+                    "gueltigkeit": {
+                      "beginn": "2024-07-26+05:00",
+                      "ende": "2024-07-26+05:00",
+                      "zusatz": "Seit Bestehen und zukünftig"
                     }
-                  ],
+                  },
                   "nachgeordnete_behoerde": [],
                   "verwaltungspolitische_zustaendigkeit": [
                     {
