@@ -139,6 +139,8 @@
                 },
                 "berichtspflichtig": true,
                 "von_probennehmer_vergebene_probe_id": "123456789",
+                "angelieferte_probe": null,
+                "informationen_zur_angelieferten_probe": null,
                 "probe_id_aus_labor": "1233",
                 "anhang": [
                   "anhang1"
@@ -238,6 +240,8 @@
                 },
                 "berichtspflichtig": true,
                 "von_probennehmer_vergebene_probe_id": "987654321",
+                "angelieferte_probe": null,
+                "informationen_zur_angelieferten_probe": null,
                 "probe_id_aus_labor": "5678",
                 "anhang": [
                   "anhang1"
@@ -250,9 +254,17 @@
               "terminplanid1"
             ],
             "name_probennahmestelle": "",
-            "art_probennahmestelle": {
+            "kategorie_probennahmestelle": {
+              "code": "L",
+              "name": null
+            },
+            "unterkategorie_probennahmestelle": {
+              "code": "1030",
+              "name": null
+            },
+            "art_der_entnahmearmatur": {
               "code": "1010",
-              "name": "Duschschlauch ohne Brausekopf"
+              "name": null
             },
             "stockwerk_probennahmestelle": 1,
             "medium_an_der_probennahmestelle": [

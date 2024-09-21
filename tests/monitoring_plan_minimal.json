@@ -88,11 +88,11 @@
           "code": "1010",
           "name": null
         },
-        "kommentar": null,
+        "kommentar": [],
         "terminplan": [
           {
             "terminplan_id": "0001",
-            "probennahmestelle_id": null,
+            "probennahmestelle": null,
             "datum_zeitraum": [
               "2024-06-15T09:00:00"
             ],
@@ -114,10 +114,19 @@
                 "name": null
               }
             ],
-            "zu_untersuchende_parameter": [
+            "zu_untersuchender_parameter": [
               {
-                "code": "",
-                "name": null
+                "parameter": {
+                  "code": "1010",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
               }
             ],
             "probennahmeverfahren": [
@@ -547,6 +556,8 @@
                       },
                       "berichtspflichtig": null,
                       "von_probennehmer_vergebene_probe_id": "123456789",
+                      "angelieferte_probe": null,
+                      "informationen_zur_angelieferten_probe": null,
                       "probe_id_aus_labor": "1233",
                       "anhang": [],
                       "kommentar": null,
@@ -555,7 +566,15 @@
                   ],
                   "terminplan_id": [],
                   "name_probennahmestelle": "",
-                  "art_probennahmestelle": {
+                  "kategorie_probennahmestelle": {
+                    "code": "L",
+                    "name": null
+                  },
+                  "unterkategorie_probennahmestelle": {
+                    "code": "1030",
+                    "name": null
+                  },
+                  "art_der_entnahmearmatur": {
                     "code": "1010",
                     "name": null
                   },
@@ -635,6 +654,7 @@
           },
           "kommentar": null
         },
+        "aenderungshistorie": null,
         "erweiterung": null,
         "id": "untersuchungsplan1"
       }

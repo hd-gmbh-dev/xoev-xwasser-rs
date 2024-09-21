@@ -108,7 +108,6 @@ pub struct PruefberichtType {
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"auftraggeber", ty = "child")]
     pub auftraggeber: AuftraggeberType,
-    // TODO: fix typo once fixed in XWasser
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
     #[serde(default)]
     pub zustaendige_behoerde: Vec<ZustaendigeBehoerdeType>,

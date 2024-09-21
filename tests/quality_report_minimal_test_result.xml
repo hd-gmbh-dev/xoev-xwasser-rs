@@ -110,10 +110,15 @@
           </xwas:probe>
           <xwas:terminplanID>terminplan id</xwas:terminplanID>
           <xwas:nameProbennahmestelle>wasserloch um die ecke</xwas:nameProbennahmestelle>
-          <xwas:artProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle" listVersionID="1">
+          <xwas:kategorieProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="1">
+            <code>L</code>
+          </xwas:kategorieProbennahmestelle>
+          <xwas:unterkategorieProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle" listVersionID="1">
+            <code>1030</code>
+          </xwas:unterkategorieProbennahmestelle>
+          <xwas:artDerEntnahmearmatur listURI="urn:xoev-de:xwasser:codeliste:art-entnahmearmatur" listVersionID="1">
             <code>1010</code>
-            <name>wasserloch</name>
-          </xwas:artProbennahmestelle>
+          </xwas:artDerEntnahmearmatur>
           <xwas:stockwerkProbennahmestelle>1</xwas:stockwerkProbennahmestelle>
           <xwas:mediumAnDerProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:medium" listVersionID="1">
             <code>1010</code>

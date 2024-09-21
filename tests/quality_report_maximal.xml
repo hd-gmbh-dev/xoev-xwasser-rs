@@ -183,10 +183,9 @@
           </xwas:probe>
           <xwas:terminplanID>terminplanid1</xwas:terminplanID>
           <xwas:nameProbennahmestelle></xwas:nameProbennahmestelle>
-          <xwas:artProbennahmestelle>
-            <code>1010</code>
-            <name>Duschschlauch ohne Brausekopf</name>
-          </xwas:artProbennahmestelle>
+          <xwas:kategorieProbennahmestelle><code>L</code></xwas:kategorieProbennahmestelle>
+          <xwas:unterkategorieProbennahmestelle><code>1030</code></xwas:unterkategorieProbennahmestelle>
+          <xwas:artDerEntnahmearmatur><code>1010</code></xwas:artDerEntnahmearmatur>
           <xwas:stockwerkProbennahmestelle>1</xwas:stockwerkProbennahmestelle>
           <xwas:mediumAnDerProbennahmestelle>
             <code>1010</code>

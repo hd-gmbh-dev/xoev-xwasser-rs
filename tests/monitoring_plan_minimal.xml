@@ -77,9 +77,16 @@
                 <xwas:anlassDerUntersuchung>
                   <code>1010</code>
                 </xwas:anlassDerUntersuchung>
-                <xwas:zuUntersuchendeParameter listVersionID="parameter1">
-                    <code></code>
-                </xwas:zuUntersuchendeParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1010</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
                 <xwas:probennahmeverfahren>
                   <code>1010</code>
                 </xwas:probennahmeverfahren>
@@ -278,9 +285,9 @@
                             <xwas:probeID_ausLabor>1233</xwas:probeID_ausLabor>
                         </xwas:probe>
                         <xwas:nameProbennahmestelle></xwas:nameProbennahmestelle>
-                        <xwas:artProbennahmestelle>
-                            <code>1010</code>
-                        </xwas:artProbennahmestelle>
+                        <xwas:kategorieProbennahmestelle><code>L</code></xwas:kategorieProbennahmestelle>
+                        <xwas:unterkategorieProbennahmestelle><code>1030</code></xwas:unterkategorieProbennahmestelle>
+                        <xwas:artDerEntnahmearmatur><code>1010</code></xwas:artDerEntnahmearmatur>
                         <xwas:mediumAnDerProbennahmestelle>
                             <code>1010</code>
                         </xwas:mediumAnDerProbennahmestelle>

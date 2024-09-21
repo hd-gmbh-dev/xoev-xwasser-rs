@@ -88,7 +88,7 @@ pub struct UntersuchungsplanType {
     #[xml(ns = b"xwas", name = b"statusUntersuchungsplan", ty = "child")]
     pub status_untersuchungsplan: CodeStatusUntersuchungsplanType,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    pub kommentar: Vec<KommentarType>,
+    pub kommentar: Vec<String>,
     #[xml(ns = b"xwas", name = b"terminplan", ty = "child")]
     pub terminplan: Vec<TerminplanType>,
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwV", ty = "child")]
@@ -135,13 +135,13 @@ pub struct TerminplanType {
     #[xml(ns = b"xwas", name = b"anlassDerUntersuchung", ty = "child")]
     pub anlass_der_untersuchung: Vec<CodeAnlassUntersuchungType>,
     #[xml(ns = b"xwas", name = b"zuUntersuchenderParameter", ty = "child")]
-    pub zu_untersuchender_parameter: Vec<CodeShapthParameterType>,
+    pub zu_untersuchender_parameter: Vec<ParameterangabenType>,
     #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
     pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
     #[xml(ns = b"xwas", name = b"ersatzFuerTerminplanMitDerID", ty = "child")]
     pub ersatz_fuer_terminplan_mit_der_id: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    pub kommentar: Option<String>,
+    pub kommentar: Option<KommentarType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
