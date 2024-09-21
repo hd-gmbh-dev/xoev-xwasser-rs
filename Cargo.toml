@@ -16,7 +16,7 @@ categories = []
 keywords = []
 
 [workspace.dependencies]
-anyhow = "1.0.87"
+anyhow = "1.0.89"
 xoev-xwasser-derive = { version = "0.503.0", path = "crates/derive" }
 raxb = "0.4.2"
 raxb-validate = "0.4.2"
