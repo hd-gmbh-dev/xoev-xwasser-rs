@@ -88,11 +88,13 @@
           "code": "1010",
           "name": null
         },
-        "kommentar": "Reguläre Untersuchung im ersten Quartal",
+        "kommentar": [
+          "Reguläre Untersuchung im ersten Quartal"
+        ],
         "terminplan": [
           {
             "terminplan_id": "0001",
-            "probennahmestelle_id": "123",
+            "probennahmestelle": "probennahmestelle1",
             "datum_zeitraum": [
               "2024-06-15T09:00:00"
             ],
@@ -130,26 +132,71 @@
                 "name": null
               }
             ],
-            "zu_untersuchende_parameter": [
+            "zu_untersuchender_parameter": [
               {
-                "code": "1",
-                "name": null
+                "parameter": {
+                  "code": "1010",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
               },
               {
-                "code": "2",
-                "name": null
+                "parameter": {
+                  "code": "1011",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
               },
               {
-                "code": "3",
-                "name": null
+                "parameter": {
+                  "code": "1012",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
               },
               {
-                "code": "4",
-                "name": null
+                "parameter": {
+                  "code": "1013",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
               },
               {
-                "code": "5",
-                "name": null
+                "parameter": {
+                  "code": "1014",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
               }
             ],
             "probennahmeverfahren": [
@@ -167,12 +214,16 @@
               }
             ],
             "ersatz_fuer_terminplan_mit_der_id": "123",
-            "kommentar": "Hier sind die zu untersuchenden Parameter und Probennahmeverfahren angegeben.",
+            "kommentar": {
+              "autor": "Testuser",
+              "erstellungszeitpunkt": "2024-08-01T10:00:00",
+              "inhalt": "Hier sind die zu untersuchenden Parameter und Probennahmeverfahren angegeben."
+            },
             "id": "terminplan1"
           },
           {
             "terminplan_id": "0002",
-            "probennahmestelle_id": "124",
+            "probennahmestelle": "probennahmestelle1",
             "datum_zeitraum": [
               "2024-08-01T10:00:00",
               "2024-08-31T14:00:00"
@@ -207,22 +258,71 @@
                 "name": null
               }
             ],
-            "zu_untersuchende_parameter": [
+            "zu_untersuchender_parameter": [
               {
-                "code": "6",
-                "name": null
+                "parameter": {
+                  "code": "1010",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
               },
               {
-                "code": "",
-                "name": null
+                "parameter": {
+                  "code": "1011",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
               },
               {
-                "code": "8",
-                "name": null
+                "parameter": {
+                  "code": "1012",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
               },
               {
-                "code": "9",
-                "name": null
+                "parameter": {
+                  "code": "1013",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
+              },
+              {
+                "parameter": {
+                  "code": "1014",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
               }
             ],
             "probennahmeverfahren": [
@@ -236,12 +336,16 @@
               }
             ],
             "ersatz_fuer_terminplan_mit_der_id": "124",
-            "kommentar": "Untersuchung an verschiedenen Zeitpunkten durchgeführt.",
+            "kommentar": {
+              "autor": "Testuser",
+              "erstellungszeitpunkt": "2024-08-01T10:00:00",
+              "inhalt": "Untersuchung an verschiedenen Zeitpunkten durchgeführt."
+            },
             "id": "terminplan2"
           },
           {
             "terminplan_id": "0003",
-            "probennahmestelle_id": "125",
+            "probennahmestelle": "probennahmestelle1",
             "datum_zeitraum": [
               "2024-09-01T08:00:00",
               "2024-09-15T16:00:00"
@@ -272,18 +376,71 @@
                 "name": null
               }
             ],
-            "zu_untersuchende_parameter": [
+            "zu_untersuchender_parameter": [
               {
-                "code": "10",
-                "name": null
+                "parameter": {
+                  "code": "1010",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
               },
               {
-                "code": "11",
-                "name": null
+                "parameter": {
+                  "code": "1011",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
               },
               {
-                "code": "12",
-                "name": null
+                "parameter": {
+                  "code": "1012",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
+              },
+              {
+                "parameter": {
+                  "code": "1013",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
+              },
+              {
+                "parameter": {
+                  "code": "1014",
+                  "name": null
+                },
+                "messprogramm": "1",
+                "parameter_gruppe": "g1",
+                "veraenderlich": true,
+                "probennahmeverfahren_uba": true,
+                "reduzierbar_durch_rap": true,
+                "reduzierbar_ohne_rap": true,
+                "bemerkung": ""
               }
             ],
             "probennahmeverfahren": [
@@ -297,7 +454,11 @@
               }
             ],
             "ersatz_fuer_terminplan_mit_der_id": "125",
-            "kommentar": "Aufgrund besonderer Bedingungen wurde eine zweite Untersuchung angeordnet.",
+            "kommentar": {
+              "autor": "Testuser",
+              "erstellungszeitpunkt": "2024-08-01T10:00:00",
+              "inhalt": "Aufgrund besonderer Bedingungen wurde eine zweite Untersuchung angeordnet."
+            },
             "id": "terminplan3"
           }
         ],
@@ -823,7 +984,7 @@
               "id": "wvgfremdbezogen"
             }
           ],
-          "anlage_nach_trinw_v_objekt": [
+          "anlage_nach_trinkw_v_objekt": [
             {
               "objekt_id": "anlage",
               "wasserversorgungsgebiet": "wvg1",
@@ -2152,6 +2313,8 @@
                       },
                       "berichtspflichtig": true,
                       "von_probennehmer_vergebene_probe_id": "123456789",
+                      "angelieferte_probe": null,
+                      "informationen_zur_angelieferten_probe": null,
                       "probe_id_aus_labor": "1233",
                       "anhang": [
                         "anhang"
@@ -2164,7 +2327,15 @@
                     ""
                   ],
                   "name_probennahmestelle": "pns",
-                  "art_probennahmestelle": {
+                  "kategorie_probennahmestelle": {
+                    "code": "L",
+                    "name": null
+                  },
+                  "unterkategorie_probennahmestelle": {
+                    "code": "1030",
+                    "name": null
+                  },
+                  "art_der_entnahmearmatur": {
                     "code": "1010",
                     "name": null
                   },
@@ -2256,6 +2427,7 @@
           },
           "kommentar": null
         },
+        "aenderungshistorie": null,
         "erweiterung": {
           "feld": [
             {

@@ -12,7 +12,7 @@ use tsify::Tsify;
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
 ))]
 pub struct ZeitraumType {
     #[xml(ns = b"xwas", name = b"beginn", ty = "child")]

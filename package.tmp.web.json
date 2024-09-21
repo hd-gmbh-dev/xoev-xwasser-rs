@@ -16,7 +16,7 @@
     "xoev_xwasser_bg.wasm.d.ts",
     "xoev_xwasser.js",
     "xoev_xwasser.d.ts",
-    "xwasser-v052.xsdb.bin"
+    "xwasser-v053.xsdb.bin"
   ],
   "main": "xoev_xwasser.js",
   "types": "xoev_xwasser.d.ts"

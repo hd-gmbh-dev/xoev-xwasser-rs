@@ -27,7 +27,7 @@ use super::{
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
 ))]
 pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
@@ -108,7 +108,6 @@ pub struct PruefberichtType {
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"auftraggeber", ty = "child")]
     pub auftraggeber: AuftraggeberType,
-    // TODO: fix typo once fixed in XWasser
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
     #[serde(default)]
     pub zustaendige_behoerde: Vec<ZustaendigeBehoerdeType>,

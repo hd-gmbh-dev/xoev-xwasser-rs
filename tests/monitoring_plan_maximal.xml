@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/ ../schemas/V0_5_2/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_2/" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.5.2">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/ ../schemas/V0_5_3/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.5.3">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
@@ -70,7 +70,7 @@
             <xwas:kommentar>Reguläre Untersuchung im ersten Quartal</xwas:kommentar>
             <xwas:terminplan id="terminplan1">
                 <xwas:terminplanID>0001</xwas:terminplanID>
-                <xwas:probennahmestelleID>123</xwas:probennahmestelleID>
+                <xwas:probennahmestelle>probennahmestelle1</xwas:probennahmestelle>
                 <xwas:datumZeitraum>2024-06-15T09:00:00</xwas:datumZeitraum>
                 <xwas:probennahmestelleKategorie>
                     <code>L</code>
@@ -95,21 +95,56 @@
                   <xwas:anlassDerUntersuchung>
                     <code>1060</code>
                   </xwas:anlassDerUntersuchung>
-                <xwas:zuUntersuchendeParameter listVersionID="parameter1">
-                    <code>1</code>
-                </xwas:zuUntersuchendeParameter>
-                <xwas:zuUntersuchendeParameter listVersionID="parameter2">
-                    <code>2</code>
-                </xwas:zuUntersuchendeParameter>
-                <xwas:zuUntersuchendeParameter listVersionID="parameter3">
-                    <code>3</code>
-                </xwas:zuUntersuchendeParameter>
-                <xwas:zuUntersuchendeParameter listVersionID="parameter4">
-                    <code>4</code>
-                </xwas:zuUntersuchendeParameter>
-                <xwas:zuUntersuchendeParameter listVersionID="parameter5">
-                    <code>5</code>
-                </xwas:zuUntersuchendeParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1010</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1011</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1012</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1013</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1014</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
                 <xwas:probennahmeverfahren>
                   <code>1010</code>
                 </xwas:probennahmeverfahren>
@@ -120,11 +155,15 @@
                     <code>1030</code>
                   </xwas:probennahmeverfahren>
                   <xwas:ersatzFuerTerminplanMitDerID>123</xwas:ersatzFuerTerminplanMitDerID>
-                  <xwas:kommentar>Hier sind die zu untersuchenden Parameter und Probennahmeverfahren angegeben.</xwas:kommentar>
+                  <xwas:kommentar>
+                    <xwas:autor>Testuser</xwas:autor>
+                    <xwas:erstellungszeitpunkt>2024-08-01T10:00:00</xwas:erstellungszeitpunkt>
+                    <xwas:inhalt>Hier sind die zu untersuchenden Parameter und Probennahmeverfahren angegeben.</xwas:inhalt>
+                  </xwas:kommentar>
             </xwas:terminplan>
             <xwas:terminplan id="terminplan2">
                 <xwas:terminplanID>0002</xwas:terminplanID>
-                <xwas:probennahmestelleID>124</xwas:probennahmestelleID>
+                <xwas:probennahmestelle>probennahmestelle1</xwas:probennahmestelle>
                 <xwas:datumZeitraum>2024-08-01T10:00:00</xwas:datumZeitraum>
                 <xwas:datumZeitraum>2024-08-31T14:00:00</xwas:datumZeitraum>
                 <xwas:probennahmestelleKategorie>
@@ -147,18 +186,56 @@
                 <xwas:anlassDerUntersuchung>
                     <code>1080</code>
                 </xwas:anlassDerUntersuchung>
-                <xwas:zuUntersuchendeParameter listVersionID="parameter6">
-                    <code>6</code>
-                </xwas:zuUntersuchendeParameter>
-                <xwas:zuUntersuchendeParameter listVersionID="parameter7">
-                    <code></code>
-                </xwas:zuUntersuchendeParameter>
-                <xwas:zuUntersuchendeParameter listVersionID="parameter8">
-                    <code>8</code>
-                </xwas:zuUntersuchendeParameter>
-                <xwas:zuUntersuchendeParameter listVersionID="parameter9">
-                    <code>9</code>
-                </xwas:zuUntersuchendeParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1010</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1011</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1012</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1013</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1014</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
                 <xwas:probennahmeverfahren>
                     <code>1040</code>
                 </xwas:probennahmeverfahren>
@@ -166,11 +243,15 @@
                     <code>1050</code>
                 </xwas:probennahmeverfahren>
                 <xwas:ersatzFuerTerminplanMitDerID>124</xwas:ersatzFuerTerminplanMitDerID>
-                <xwas:kommentar>Untersuchung an verschiedenen Zeitpunkten durchgeführt.</xwas:kommentar>
+                <xwas:kommentar>
+                  <xwas:autor>Testuser</xwas:autor>
+                  <xwas:erstellungszeitpunkt>2024-08-01T10:00:00</xwas:erstellungszeitpunkt>
+                  <xwas:inhalt>Untersuchung an verschiedenen Zeitpunkten durchgeführt.</xwas:inhalt>
+                </xwas:kommentar>
             </xwas:terminplan>
             <xwas:terminplan id="terminplan3">
                 <xwas:terminplanID>0003</xwas:terminplanID>
-                <xwas:probennahmestelleID>125</xwas:probennahmestelleID>
+                <xwas:probennahmestelle>probennahmestelle1</xwas:probennahmestelle>
                 <xwas:datumZeitraum>2024-09-01T08:00:00</xwas:datumZeitraum>
                 <xwas:datumZeitraum>2024-09-15T16:00:00</xwas:datumZeitraum>
                 <xwas:probennahmestelleKategorie>
@@ -190,15 +271,56 @@
                 <xwas:anlassDerUntersuchung>
                     <code>1090</code>
                 </xwas:anlassDerUntersuchung>
-                <xwas:zuUntersuchendeParameter listVersionID="parameter10">
-                    <code>10</code>
-                </xwas:zuUntersuchendeParameter>
-                <xwas:zuUntersuchendeParameter listVersionID="parameter11">
-                    <code>11</code>
-                </xwas:zuUntersuchendeParameter>
-                <xwas:zuUntersuchendeParameter listVersionID="parameter12">
-                    <code>12</code>
-                </xwas:zuUntersuchendeParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1010</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1011</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1012</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1013</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
+                <xwas:zuUntersuchenderParameter>
+                    <xwas:parameter listVersionID="parameter"><code>1014</code></xwas:parameter>
+                    <xwas:messprogramm>1</xwas:messprogramm>
+                    <xwas:parameterGruppe>g1</xwas:parameterGruppe>
+                    <xwas:veraenderlich>true</xwas:veraenderlich>
+                    <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
+                    <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
+                    <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+                    <xwas:bemerkung></xwas:bemerkung>
+                </xwas:zuUntersuchenderParameter>
                 <xwas:probennahmeverfahren>
                     <code>1080</code>
                 </xwas:probennahmeverfahren>
@@ -206,7 +328,11 @@
                     <code>1090</code>
                 </xwas:probennahmeverfahren>
                 <xwas:ersatzFuerTerminplanMitDerID>125</xwas:ersatzFuerTerminplanMitDerID>
-                <xwas:kommentar>Aufgrund besonderer Bedingungen wurde eine zweite Untersuchung angeordnet.</xwas:kommentar>
+                <xwas:kommentar>
+                  <xwas:autor>Testuser</xwas:autor>
+                  <xwas:erstellungszeitpunkt>2024-08-01T10:00:00</xwas:erstellungszeitpunkt>
+                  <xwas:inhalt>Aufgrund besonderer Bedingungen wurde eine zweite Untersuchung angeordnet.</xwas:inhalt>
+                </xwas:kommentar>
             </xwas:terminplan>
             <xwas:anlageNachTrinkwV id="abcd">
                 <xwas:anlageNachTrinkwVID></xwas:anlageNachTrinkwVID>
@@ -531,7 +657,7 @@
                     </xwas:incidentCauseAndRemedialAction>
                   </xwas:incident>
                 </xwas:wasserversorgungsgebiet>
-                <xwas:anlageNachTrinwV_Objekt id="anlage_objekt1">
+                <xwas:anlageNachTrinkwV_Objekt id="anlage_objekt1">
                     <xwas:objektID>anlage</xwas:objektID>
                     <xwas:wasserversorgungsgebiet>wvg1</xwas:wasserversorgungsgebiet>
                     <xwas:anschriftObjekt id="anschrift1">
@@ -1563,9 +1689,9 @@
                         </xwas:probe>
                         <xwas:terminplanID></xwas:terminplanID>
                         <xwas:nameProbennahmestelle>pns</xwas:nameProbennahmestelle>
-                        <xwas:artProbennahmestelle>
-                            <code>1010</code>
-                        </xwas:artProbennahmestelle>
+                        <xwas:kategorieProbennahmestelle><code>L</code></xwas:kategorieProbennahmestelle>
+                        <xwas:unterkategorieProbennahmestelle><code>1030</code></xwas:unterkategorieProbennahmestelle>
+                        <xwas:artDerEntnahmearmatur><code>1010</code></xwas:artDerEntnahmearmatur>
                         <xwas:stockwerkProbennahmestelle>123</xwas:stockwerkProbennahmestelle>
                         <xwas:mediumAnDerProbennahmestelle>
                             <code>1010</code>
@@ -1586,7 +1712,7 @@
                         <xwas:berichtspflichtig>true</xwas:berichtspflichtig>
                         <xwas:kommentar>kommentar</xwas:kommentar>
                     </xwas:objekt_probennahmestelle>
-                </xwas:anlageNachTrinwV_Objekt>
+                </xwas:anlageNachTrinkwV_Objekt>
             </xwas:anlageNachTrinkwV>
             <xwas:auftraggeber>
                 <xwas:auftraggeberID>Auftraggeber1</xwas:auftraggeberID>
