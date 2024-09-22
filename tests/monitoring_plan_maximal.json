@@ -1093,6 +1093,7 @@
                   "art_der_person": {
                     "t": "Organisation",
                     "c": {
+                      "id": "organisation1",
                       "rechtsform": {
                         "code": "PHG",
                         "name": "Personenhandelsgesellschaft (PHG)"
@@ -1116,6 +1117,7 @@
                       "name": null,
                       "unterorganisation": [
                         {
+                          "id": null,
                           "rechtsform": {
                             "code": "GmbH",
                             "name": "Gesellschaft mit beschränkter Haftung (GmbH)"
@@ -1143,6 +1145,7 @@
                           },
                           "unterorganisation": [
                             {
+                              "id": null,
                               "rechtsform": {
                                 "code": "AG",
                                 "name": "Aktiengesellschaft (AG)"
@@ -1166,6 +1169,7 @@
                               "name": null,
                               "unterorganisation": [
                                 {
+                                  "id": null,
                                   "rechtsform": {
                                     "code": "GmbH",
                                     "name": "Gesellschaft mit beschränkter Haftung (GmbH)"
@@ -1189,6 +1193,7 @@
                                   "name": null,
                                   "unterorganisation": [
                                     {
+                                      "id": null,
                                       "rechtsform": null,
                                       "branche": [],
                                       "zweck": [],

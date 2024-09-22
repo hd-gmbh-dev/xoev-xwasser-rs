@@ -844,7 +844,7 @@
             <xwas:betreiber>
               <xwas:betreiberID>WVA</xwas:betreiberID>
               <xwas:artDerPerson>
-                <xwas:organisation>
+                <xwas:organisation id="organisation1">
                   <xwas:rechtsform listURI="urn:xoev-de:xunternehmen:codeliste:rechtsformen" listVersionID="">
                     <code>PHG</code>
                     <name>Personenhandelsgesellschaft (PHG)</name>

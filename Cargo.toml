@@ -43,7 +43,7 @@ keywords.workspace = true
 crate-type = ["cdylib", "rlib"]
 
 [features]
-default = []
+default = ["trace", "schema"]
 trace = []
 wasm = ["dep:wasm-bindgen", "dep:tsify"]
 schema = [

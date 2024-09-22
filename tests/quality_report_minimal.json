@@ -406,6 +406,7 @@
           }
         ],
         "beauftragte_untersuchungsstelle": {
+          "id": null,
           "rechtsform": null,
           "branche": [],
           "zweck": [],
@@ -464,6 +465,7 @@
         },
         "zugelassene_untersuchungsstelle": [
           {
+            "id": "lab-1",
             "rechtsform": null,
             "branche": [],
             "zweck": [],
