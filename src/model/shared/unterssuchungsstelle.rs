@@ -25,7 +25,8 @@ use super::{
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
 ))]
 pub struct ZugelasseneUntersuchungsstelleType {
-    // TODO: should be flattend by raxb
+    #[xml(name = b"id", ty = "attr")]
+    pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]
@@ -104,7 +105,8 @@ pub struct ZugelasseneUntersuchungsstelleType {
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
 ))]
 pub struct BeauftragteUntersuchungsstelleType {
-    // TODO: should be flattend by raxb
+    #[xml(name = b"id", ty = "attr")]
+    pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]

@@ -26,6 +26,8 @@ use super::zeitraum::ZeitraumType;
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
 ))]
 pub struct OrganisationType {
+    #[xml(name = b"id", ty = "attr")]
+    pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]
