@@ -75,6 +75,14 @@ pub struct RegistrierungType {
     pub gueltigkeit: Option<ZeitraumType>,
 }
 
+
+#[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+pub struct Name {
+    #[xml(ty = "text")]
+    pub text: Option<String>,
+}
+
 /// "NameOrganisation" fasst die Angaben zum Namen einer Organisation zusammen.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
@@ -84,7 +92,7 @@ pub struct RegistrierungType {
 ))]
 pub struct NameOrganisationType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: Option<String>,
+    pub name: Option<Name>,
     #[xml(ns = b"xwas", name = b"kurzbezeichnung", ty = "child")]
     pub kurzbezeichnung: Option<String>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]

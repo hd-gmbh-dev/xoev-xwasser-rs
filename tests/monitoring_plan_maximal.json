@@ -532,7 +532,9 @@
                     }
                   },
                   "behoerdenname": {
-                    "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                    "name": {
+                      "text": "Gesundheitsamt der Gemeinde Hotzingmussen"
+                    },
                     "kurzbezeichnung": "GdGH",
                     "gueltigkeit": {
                       "beginn": "2024-07-26+05:00",
@@ -1139,9 +1141,15 @@
                             }
                           ],
                           "name": {
-                            "name": "Wasserversorgername",
-                            "kurzbezeichnung": null,
-                            "gueltigkeit": null
+                            "name": {
+                              "text": "Wasserversorgername"
+                            },
+                            "kurzbezeichnung": "WVG",
+                            "gueltigkeit": {
+                              "beginn": "2024-09-09",
+                              "ende": "2024-09-10",
+                              "zusatz": "zusatinfo"
+                            }
                           },
                           "unterorganisation": [
                             {
@@ -1268,7 +1276,9 @@
                                             }
                                           },
                                           "behoerdenname": {
-                                            "name": "Handelsregisteramt der Stadt F",
+                                            "name": {
+                                              "text": "Handelsregisteramt der Stadt F"
+                                            },
                                             "kurzbezeichnung": "Handelsamt",
                                             "gueltigkeit": {
                                               "beginn": "2024-11-01+05:00",
@@ -1511,7 +1521,9 @@
                                         }
                                       },
                                       "behoerdenname": {
-                                        "name": "Gewerbeamt der Stadt Techstadt",
+                                        "name": {
+                                          "text": "Gewerbeamt der Stadt Techstadt"
+                                        },
                                         "kurzbezeichnung": "GdT",
                                         "gueltigkeit": {
                                           "beginn": "2024-09-01+05:00",
@@ -1754,7 +1766,9 @@
                                     }
                                   },
                                   "behoerdenname": {
-                                    "name": "Ordnungsamt der Stadt Altdorf",
+                                    "name": {
+                                      "text": "Ordnungsamt der Stadt Altdorf"
+                                    },
                                     "kurzbezeichnung": "OdSA",
                                     "gueltigkeit": {
                                       "beginn": "2024-08-01+05:00",
@@ -2003,7 +2017,9 @@
                                 }
                               },
                               "behoerdenname": {
-                                "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                                "name": {
+                                  "text": "Gesundheitsamt der Gemeinde Hotzingmussen"
+                                },
                                 "kurzbezeichnung": "GdGH",
                                 "gueltigkeit": {
                                   "beginn": "2024-07-26+05:00",

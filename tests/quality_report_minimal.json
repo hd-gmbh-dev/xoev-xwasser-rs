@@ -469,7 +469,17 @@
             "rechtsform": null,
             "branche": [],
             "zweck": [],
-            "name": null,
+            "name": {
+              "name": {
+                "text": "The first Lab"
+              },
+              "kurzbezeichnung": "T1234",
+              "gueltigkeit": {
+                "beginn": null,
+                "ende": null,
+                "zusatz": null
+              }
+            },
             "unterorganisation": [],
             "kommunikation": [],
             "registrierung": [],

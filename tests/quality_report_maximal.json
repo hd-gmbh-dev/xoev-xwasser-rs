@@ -545,7 +545,9 @@
                         }
                       },
                       "behoerdenname": {
-                        "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                        "name": {
+                          "text": "Gesundheitsamt der Gemeinde Hotzingmussen"
+                        },
                         "kurzbezeichnung": "GdGH",
                         "gueltigkeit": {
                           "beginn": "2024-07-26+05:00",
@@ -785,7 +787,9 @@
                         }
                       },
                       "behoerdenname": {
-                        "name": "Landgericht Neustadt",
+                        "name": {
+                          "text": "Landgericht Neustadt"
+                        },
                         "kurzbezeichnung": "LGN",
                         "gueltigkeit": {
                           "beginn": "2024-09-01+01:00",
@@ -1271,7 +1275,9 @@
                         }
                       },
                       "behoerdenname": {
-                        "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                        "name": {
+                          "text": "Gesundheitsamt der Gemeinde Hotzingmussen"
+                        },
                         "kurzbezeichnung": "GdGH",
                         "gueltigkeit": {
                           "beginn": "2024-07-26+05:00",
@@ -1849,7 +1855,9 @@
                         }
                       },
                       "behoerdenname": {
-                        "name": "Bürgeramt der Stadt Mitteldorf",
+                        "name": {
+                          "text": "Bürgeramt der Stadt Mitteldorf"
+                        },
                         "kurzbezeichnung": "BdSM",
                         "gueltigkeit": {
                           "beginn": "2024-08-01+05:00",
@@ -2089,7 +2097,9 @@
                         }
                       },
                       "behoerdenname": {
-                        "name": "Wichtige Behörde für spezielle Aufgaben",
+                        "name": {
+                          "text": "Wichtige Behörde für spezielle Aufgaben"
+                        },
                         "kurzbezeichnung": "WBS",
                         "gueltigkeit": {
                           "beginn": "2024-08-01+05:00",
@@ -2144,7 +2154,9 @@
                             }
                           },
                           "behoerdenname": {
-                            "name": "Verwaltungsbehörde der Stadt Oberstadt",
+                            "name": {
+                              "text": "Verwaltungsbehörde der Stadt Oberstadt"
+                            },
                             "kurzbezeichnung": "VBO",
                             "gueltigkeit": {
                               "beginn": "2024-08-15+05:00",
@@ -2679,7 +2691,9 @@
                     }
                   },
                   "behoerdenname": {
-                    "name": "Behoerde fuer komplizierte Vorgänge",
+                    "name": {
+                      "text": "Behoerde fuer komplizierte Vorgänge"
+                    },
                     "kurzbezeichnung": "Eine Kurzbezeichnung",
                     "gueltigkeit": {
                       "beginn": "2024-07-26+05:00",
@@ -2734,7 +2748,9 @@
                         }
                       },
                       "behoerdenname": {
-                        "name": "Ordnungsamt der Gemeinde Neustadt",
+                        "name": {
+                          "text": "Ordnungsamt der Gemeinde Neustadt"
+                        },
                         "kurzbezeichnung": "OGN",
                         "gueltigkeit": {
                           "beginn": "2024-08-01+05:00",
@@ -2881,7 +2897,9 @@
                         }
                       },
                       "behoerdenname": {
-                        "name": "Umweltamt der Gemeinde Dorfheim",
+                        "name": {
+                          "text": "Umweltamt der Gemeinde Dorfheim"
+                        },
                         "kurzbezeichnung": "UDGH",
                         "gueltigkeit": {
                           "beginn": "2024-08-10+05:00",
@@ -3214,7 +3232,9 @@
                     }
                   },
                   "behoerdenname": {
-                    "name": "Behoerde fuer komplizierte Vorgänge",
+                    "name": {
+                      "text": "Behoerde fuer komplizierte Vorgänge"
+                    },
                     "kurzbezeichnung": "Eine Kurzbezeichnung",
                     "gueltigkeit": {
                       "beginn": "2024-07-26+05:00",
@@ -3269,7 +3289,9 @@
                         }
                       },
                       "behoerdenname": {
-                        "name": "Ordnungsamt der Gemeinde Neustadt",
+                        "name": {
+                          "text": "Ordnungsamt der Gemeinde Neustadt"
+                        },
                         "kurzbezeichnung": "OGN",
                         "gueltigkeit": {
                           "beginn": "2024-08-01+05:00",
@@ -3416,7 +3438,9 @@
                         }
                       },
                       "behoerdenname": {
-                        "name": "Behörde für andere Vorgänge",
+                        "name": {
+                          "text": "Behörde für andere Vorgänge"
+                        },
                         "kurzbezeichnung": "Eine andere Kurzbezeichnung",
                         "gueltigkeit": {
                           "beginn": "2024-08-06+05:00",
@@ -3471,7 +3495,9 @@
                             }
                           },
                           "behoerdenname": {
-                            "name": "Verwaltungsamt der Gemeinde Oberstadt",
+                            "name": {
+                              "text": "Verwaltungsamt der Gemeinde Oberstadt"
+                            },
                             "kurzbezeichnung": "VGO",
                             "gueltigkeit": {
                               "beginn": "2024-09-01+05:00",
@@ -3961,7 +3987,9 @@
                                     }
                                   },
                                   "behoerdenname": {
-                                    "name": "Handelsregisteramt der Stadt F",
+                                    "name": {
+                                      "text": "Handelsregisteramt der Stadt F"
+                                    },
                                     "kurzbezeichnung": "Handelsamt",
                                     "gueltigkeit": {
                                       "beginn": "2024-11-01+05:00",
@@ -4204,7 +4232,9 @@
                                 }
                               },
                               "behoerdenname": {
-                                "name": "Gewerbeamt der Stadt Techstadt",
+                                "name": {
+                                  "text": "Gewerbeamt der Stadt Techstadt"
+                                },
                                 "kurzbezeichnung": "GdT",
                                 "gueltigkeit": {
                                   "beginn": "2024-09-01+05:00",
@@ -4447,7 +4477,9 @@
                             }
                           },
                           "behoerdenname": {
-                            "name": "Ordnungsamt der Stadt Altdorf",
+                            "name": {
+                              "text": "Ordnungsamt der Stadt Altdorf"
+                            },
                             "kurzbezeichnung": "OdSA",
                             "gueltigkeit": {
                               "beginn": "2024-08-01+05:00",
@@ -4696,7 +4728,9 @@
                         }
                       },
                       "behoerdenname": {
-                        "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                        "name": {
+                          "text": "Gesundheitsamt der Gemeinde Hotzingmussen"
+                        },
                         "kurzbezeichnung": "GdGH",
                         "gueltigkeit": {
                           "beginn": "2024-07-26+05:00",
@@ -4927,7 +4961,9 @@
               }
             },
             "behoerdenname": {
-              "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+              "name": {
+                "text": "Gesundheitsamt der Gemeinde Hotzingmussen"
+              },
               "kurzbezeichnung": "GdGH",
               "gueltigkeit": {
                 "beginn": "2024-07-26+05:00",
@@ -5186,7 +5222,9 @@
                             }
                           },
                           "behoerdenname": {
-                            "name": "Stadtverwaltung Neumarkt",
+                            "name": {
+                              "text": "Stadtverwaltung Neumarkt"
+                            },
                             "kurzbezeichnung": "SVN",
                             "gueltigkeit": {
                               "beginn": "2024-09-01+02:00",
@@ -5435,7 +5473,9 @@
                         }
                       },
                       "behoerdenname": {
-                        "name": "Wirtschaftsamt der Stadt Neumünster",
+                        "name": {
+                          "text": "Wirtschaftsamt der Stadt Neumünster"
+                        },
                         "kurzbezeichnung": "WiNe",
                         "gueltigkeit": {
                           "beginn": "2024-09-01+05:00",
@@ -5678,7 +5718,9 @@
                     }
                   },
                   "behoerdenname": {
-                    "name": "Gesundheitsamt der Gemeinde Hotzingmussen",
+                    "name": {
+                      "text": "Gesundheitsamt der Gemeinde Hotzingmussen"
+                    },
                     "kurzbezeichnung": "GdGH",
                     "gueltigkeit": {
                       "beginn": "2024-07-26+05:00",

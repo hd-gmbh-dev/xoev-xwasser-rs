@@ -872,6 +872,12 @@
                     </xwas:zweck>
                     <xwas:name>
                       <xwas:name>Wasserversorgername</xwas:name>
+                      <xwas:kurzbezeichnung>WVG</xwas:kurzbezeichnung>
+                      <xwas:gueltigkeit>
+                        <xwas:beginn>2024-09-09</xwas:beginn>
+                        <xwas:ende>2024-09-10</xwas:ende>
+                        <xwas:zusatz>zusatinfo</xwas:zusatz>
+                      </xwas:gueltigkeit>
                     </xwas:name>
                     <xwas:unterorganisation>
                       <xwas:rechtsform listURI="urn:xoev-de:xunternehmen:codeliste:rechtsformen" listVersionID="">
