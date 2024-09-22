@@ -5,6 +5,11 @@ use crate::model::{
 };
 
 #[wasm_bindgen]
+pub fn detect_version(xml: String) -> Result<String, JsValue> {
+    Ok(crate::detect_version(&xml).to_string())
+}
+
+#[wasm_bindgen]
 pub fn create_vorgang_transportieren_2010(
     data: VorgangTransportieren2010,
 ) -> Result<String, JsValue> {
