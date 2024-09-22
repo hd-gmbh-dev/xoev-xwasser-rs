@@ -4,6 +4,7 @@ The XÖV data exchange standard XWasser is used for the digital exchange of data
 The standard therefore also covers the direct transmission of test reports from approved testing institutes (laboratories) to the health authorities as well as the annual transmission of drinking water quality data by the health authorities to the competent supreme state authority (OLB), which is subject to reporting requirements.
 The XWasser standard is part of the project "Nationwide standardized digital data exchange for drinking water hygiene (SHAPTH)" of all 16 federal states within the framework of the Pact for the Public Health Service (ÖGD).
 
+
 ## Legal
 
 Licensed under `MIT` license.

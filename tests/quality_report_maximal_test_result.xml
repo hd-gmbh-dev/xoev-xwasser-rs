@@ -2967,7 +2967,7 @@
             <code>1010</code>
           </xwas:auftraggeberart>
           <xwas:auftraggeber>
-            <xwas:organisation>
+            <xwas:organisation id="organisation1">
               <xwas:rechtsform listURI="urn:xoev-de:xunternehmen:codeliste:rechtsformen" listVersionID="">
                 <code>PHG</code>
                 <name>Personenhandelsgesellschaft (PHG)</name>
@@ -4606,7 +4606,7 @@
           <xwas:kommentarZugelasseneUntersuchungsstelle>kommentar zugelassene Untersuchungsstelle</xwas:kommentarZugelasseneUntersuchungsstelle>
           <xwas:kommentarBeauftragteUntersuchungsstelle>Kommentar der beauftragten Untersuchungsstelle</xwas:kommentarBeauftragteUntersuchungsstelle>
         </xwas:beauftragteUntersuchungsstelle>
-        <xwas:zugelasseneUntersuchungsstelle>
+        <xwas:zugelasseneUntersuchungsstelle id="lab-1">
           <xwas:zugelasseneUntersuchungsstelleID>ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:zugelasseneUntersuchungsstelleID>
           <xwas:nameZugelasseneUntersuchungsstelle listURI="urn:xoev-de:xwasser:codeliste:untersuchungsstelle" listVersionID="1">
             <code>09010</code>

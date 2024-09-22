@@ -441,6 +441,7 @@
                   "art_der_person": {
                     "t": "Organisation",
                     "c": {
+                      "id": null,
                       "rechtsform": null,
                       "branche": [],
                       "zweck": [],
