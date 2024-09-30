@@ -48,6 +48,6 @@ fn test_maximal_quality_report_against_serialize() -> anyhow::Result<()> {
     if let Err(e) = result {
         eprintln!("{e}");
     }
-    std::fs::write("tests/quality_report_maximal_test_result.xml", xml.replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/ ../schemas/V0_5_3/xwasser.xsd"))?;
+    std::fs::write("tests/quality_report_maximal_test_result.xml", xml.replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/ ../schemas/V0_6_0/xwasser.xsd"))?;
     Ok(())
 }

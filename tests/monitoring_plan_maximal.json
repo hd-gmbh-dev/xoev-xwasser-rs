@@ -41,7 +41,7 @@
       "c": {
         "untersuchungsplan_id": "1234",
         "wasserversorgungsgebiet": [
-          "WVA"
+          "betreiber-1"
         ],
         "jahr": [
           2024
@@ -142,8 +142,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               },
               {
@@ -155,8 +155,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               },
               {
@@ -168,8 +168,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               },
               {
@@ -181,8 +181,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               },
               {
@@ -194,8 +194,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               }
             ],
@@ -268,8 +268,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               },
               {
@@ -281,8 +281,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               },
               {
@@ -294,8 +294,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               },
               {
@@ -307,8 +307,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               },
               {
@@ -320,8 +320,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               }
             ],
@@ -386,8 +386,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               },
               {
@@ -399,8 +399,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               },
               {
@@ -412,8 +412,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               },
               {
@@ -425,8 +425,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               },
               {
@@ -438,8 +438,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               }
             ],
@@ -700,7 +700,7 @@
                   "remarks": "remarks",
                   "derogation_remedial_action": [
                     {
-                      "derogation_remedial_action_identifier": "derogationremedialactiontype1",
+                      "derogation_remedial_action_identifier": "C74272E8-8C67-4823-8229-2E569AAEBC38",
                       "derogation_remedial_action": {
                         "code": "1010",
                         "name": null
@@ -712,7 +712,7 @@
                       "id": "derogation_identifier_1"
                     },
                     {
-                      "derogation_remedial_action_identifier": "derogationremedialactiontype2",
+                      "derogation_remedial_action_identifier": "3D0F5219-4241-4969-95A3-AB5C2B46D32B",
                       "derogation_remedial_action": {
                         "code": "1020",
                         "name": null
@@ -724,7 +724,7 @@
                       "id": "derogation_identifier"
                     },
                     {
-                      "derogation_remedial_action_identifier": "derogationremedialactiontype3",
+                      "derogation_remedial_action_identifier": "6EA872B6-3E71-4D50-AB7B-E8C21A066663",
                       "derogation_remedial_action": {
                         "code": "1030",
                         "name": null
@@ -736,7 +736,7 @@
                       "id": "derogation_identifier_3"
                     },
                     {
-                      "derogation_remedial_action_identifier": "derogationremedialactiontype4",
+                      "derogation_remedial_action_identifier": "B5CBCAC6-1254-47D3-9D44-AD05625CE340",
                       "derogation_remedial_action": {
                         "code": "1040",
                         "name": null
@@ -1091,7 +1091,7 @@
               "kommentar": "kommentar",
               "betreiber": [
                 {
-                  "betreiber_id": "WVA",
+                  "betreiber_id": "F000E857-A74B-4B60-BA69-7717D421628D",
                   "art_der_person": {
                     "t": "Organisation",
                     "c": {
@@ -2205,7 +2205,8 @@
                   "objekt_id": [
                     "probennehmer1"
                   ],
-                  "kommentar": null
+                  "kommentar": null,
+                  "id": "betreiber-1"
                 }
               ],
               "objekt_probennahmestelle": [
