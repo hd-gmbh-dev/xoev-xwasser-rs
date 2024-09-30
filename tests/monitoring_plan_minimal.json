@@ -41,7 +41,7 @@
       "c": {
         "untersuchungsplan_id": "1234",
         "wasserversorgungsgebiet": [
-          "WVA"
+          "betreiber-1"
         ],
         "jahr": [
           2024
@@ -124,8 +124,8 @@
                 "parameter_gruppe": "g1",
                 "veraenderlich": true,
                 "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap": true,
-                "reduzierbar_ohne_rap": true,
+                "reduzierbar_durch_rap_rau": true,
+                "reduzierbar_ohne_rau": true,
                 "bemerkung": ""
               }
             ],
@@ -224,7 +224,7 @@
                   "remarks": null,
                   "derogation_remedial_action": [
                     {
-                      "derogation_remedial_action_identifier": "derogationremedialactiontype1",
+                      "derogation_remedial_action_identifier": "B320C10A-82CE-462F-8879-DEAEA19CA0DC",
                       "derogation_remedial_action": {
                         "code": "1010",
                         "name": null
@@ -437,7 +437,7 @@
               "kommentar": null,
               "betreiber": [
                 {
-                  "betreiber_id": "WVA",
+                  "betreiber_id": "41B7511E-8C10-42C6-AFA9-D1C59C0E1B75",
                   "art_der_person": {
                     "t": "Organisation",
                     "c": {
@@ -474,7 +474,8 @@
                   "objekt_id": [
                     "probennehmer1"
                   ],
-                  "kommentar": null
+                  "kommentar": null,
+                  "id": "betreiber-1"
                 }
               ],
               "objekt_probennahmestelle": [

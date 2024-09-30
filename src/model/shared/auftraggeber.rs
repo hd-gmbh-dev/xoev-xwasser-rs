@@ -19,7 +19,7 @@ use super::{
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
 ))]
 pub struct AuftraggeberType {
     #[xml(ns = b"xwas", name = b"auftraggeberID", ty = "child")]
@@ -37,7 +37,7 @@ pub struct AuftraggeberType {
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
 ))]
 pub enum Auftraggeber {
     #[xml(ns = b"xwas", name = b"organisation")]

@@ -18,7 +18,7 @@ use super::{
 #[xml(root = b"administration.quittung.0020")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
 ))]
 pub struct AdministrationQuittung0020 {
     #[xml(
@@ -33,7 +33,7 @@ pub struct AdministrationQuittung0020 {
         ns = b"xsi",
         name = b"schemaLocation",
         ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/ xwasser.xsd"
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/ xwasser.xsd"
     )]
     #[serde(skip)]
     schema_location: ConstStr,
@@ -41,7 +41,7 @@ pub struct AdministrationQuittung0020 {
         ns = b"xmlns",
         name = b"xwas",
         ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
     )]
     #[serde(skip)]
     _xmlns: ConstStr,
@@ -58,7 +58,7 @@ pub struct AdministrationQuittung0020 {
     _standard: ConstStr,
     #[xml(name = b"test", ty = "attr")]
     pub test: Option<bool>,
-    #[xml(name = b"version", ty = "attr", value = "0.5.3")]
+    #[xml(name = b"version", ty = "attr", value = "0.6.0")]
     #[serde(skip)]
     _version: ConstStr,
 
@@ -78,7 +78,7 @@ pub struct AdministrationQuittung0020 {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
 ))]
 pub struct QuittungType {
     /// Mit dem Code-Datentyp Code.StatusTechnisch wird der aktuelle technische Prozess-Status übermittelt.

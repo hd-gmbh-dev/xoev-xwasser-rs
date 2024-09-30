@@ -27,7 +27,7 @@ use super::{
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
 ))]
 pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
@@ -103,7 +103,7 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"rechtlicherDisclaimer", ty = "child")]
     pub rechtlicher_disclaimer: String,
     #[xml(ns = b"xwas", name = b"zeitpunktUebermittlungAnSHAPTH", ty = "child")]
-    pub zeitpunkt_uebermittlung_an_shapth: String, // TODO: Invent xs:dateTime
+    pub zeitpunkt_uebermittlung_an_shapth: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"auftraggeber", ty = "child")]

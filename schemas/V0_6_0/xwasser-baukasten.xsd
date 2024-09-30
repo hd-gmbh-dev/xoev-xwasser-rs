@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
            xmlns:bn-uq-g2g="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"
            xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
            xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
-           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
-           version="0.5.3"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+           version="0.6.0"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
    <xs:annotation>
@@ -18,7 +18,7 @@
             <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
          </standard>
          <versionStandard>
-            <version>0.5.3</version>
+            <version>0.6.0</version>
             <versionXOEVProfil>3.0.2</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -60,12 +60,12 @@
       <xs:sequence>
          <xs:element name="name" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Die Komponente "name" ist der eigentliche Familien- oder Vorname als Zeichenkette. Nachnamen, z.B. mit Adelstiteln bzw. ausländische Nachnamen werden als ein Name übermittelt und nicht in verschiedene Bestandteile aufgeteilt.</xs:documentation>
+               <xs:documentation>Die Komponente "name" ist der eigentliche Familien- oder Vorname als Zeichenkette. Nachnamen, z. B. mit Adelstiteln bzw. ausländische Nachnamen werden als ein Name übermittelt und nicht in verschiedene Bestandteile aufgeteilt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="nichtVorhanden" minOccurs="0" type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Diese Komponente beinhaltet eine Feststellung (wahr oder falsch), ob zu Recht kein Name angegeben wurde. Ueber das Setzen auf TRUE, wird angezeigt, dass zurecht kein Name angegeben wurde. Diese Komponente sollte nur bei der Verwendung der Komponente "AllgemeinerName" als Vorname oder Familienname verwendet werden.</xs:documentation>
+               <xs:documentation>Diese Komponente beinhaltet eine Feststellung (wahr oder falsch), ob zu Recht kein Name angegeben wurde. Über das Setzen auf TRUE, wird angezeigt, dass zurecht kein Name angegeben wurde. Diese Komponente sollte nur bei der Verwendung der Komponente "AllgemeinerName" als Vorname oder Familienname verwendet werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="namensart" minOccurs="0" type="xwas:Code.NamensartType">
@@ -78,7 +78,7 @@
                      maxOccurs="unbounded"
                      type="xwas:AlternativeRepraesentationType">
             <xs:annotation>
-               <xs:documentation>Die Komponente "alternativeRepraesentation" beinhaltet Bestandteile aus dem Objekt AllgemeinerName in einer Form, die einer festgelegten Konvention folgt. Die im Element AlternativeRepraesentation übermittelten Informationen müssen redundant zu den anderen Elementen der Komponente "AllgemeinerName" sein, sie dürfen diese nicht ersetzen. Anmerkung: Die alternative Repräsentation soll u.a. für die redundante Übermittlung eines Nachnamens genutzt werden, um die Bestandteile "Präfix" und "namensgebenden Bestandteil" eines Nachnamens zusätzlich getrennt zu übermitteln. Der hierfür zu nutzende Algorithmus könnte z.B. lauten: "namensgebender Bestandteil, Präfix". Der Name "Graf Lambsdorf" wird also alternativ als "Lambsdorf, Graf" übertragen.</xs:documentation>
+               <xs:documentation>Die Komponente "alternativeRepraesentation" beinhaltet Bestandteile aus dem Objekt AllgemeinerName in einer Form, die einer festgelegten Konvention folgt. Die im Element AlternativeRepraesentation übermittelten Informationen müssen redundant zu den anderen Elementen der Komponente "AllgemeinerName" sein, sie dürfen diese nicht ersetzen. Anmerkung: Die alternative Repräsentation soll u. a. für die redundante Übermittlung eines Nachnamens genutzt werden, um die Bestandteile "Präfix" und "namensgebenden Bestandteil" eines Nachnamens zusätzlich getrennt zu übermitteln. Der hierfür zu nutzende Algorithmus könnte z. B. lauten: "namensgebender Bestandteil, Präfix". Der Name "Graf Lambsdorf" wird also alternativ als "Lambsdorf, Graf" übertragen.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -88,7 +88,7 @@
          <xs:appinfo>
             <title>Alternative Repräsentation</title>
          </xs:appinfo>
-         <xs:documentation>Die "AlternativeRepraesentation" beinhaltet das mit ihm verbundene Objekt in einer alternativen Form, die einer festgelegten Konvention folgt. Das Element kann Inhalte anderer Elemente des verbundenen Objekts beinhalten. Die in der Komponente "AlternativeRepraesentation" übermittelten Informationen müssen redundant zu den anderen Elementen des mit ihm verbundenen Objekts sein. Eine "AlternativeRepraesentation" kann auch eine multimediale Abbildung des Objektes darstellen. Hierzu zählen beispielsweise Logos oder Bilder. Beispiel: Ein Beispiel für die Verwendung einer alternativen Repraesentation ist die Übermittlung von Namen. Der Name "Andrè Müller" würde nach ICAO-Standard, in dem keine Umlaute erlaubt sind, daher alternativ als "ANDRE MUELLER" übertragen.</xs:documentation>
+         <xs:documentation>Die "AlternativeRepraesentation" beinhaltet das mit ihm verbundene Objekt in einer alternativen Form, die einer festgelegten Konvention folgt. Das Element kann Inhalte anderer Elemente des verbundenen Objekts beinhalten. Die in der Komponente "AlternativeRepraesentation" übermittelten Informationen müssen redundant zu den anderen Elementen des mit ihm verbundenen Objekts sein. Eine "AlternativeRepraesentation" kann auch eine multimediale Abbildung des Objektes darstellen. Hierzu zählen beispielsweise Logos oder Bilder. Beispiel: Ein Beispiel für die Verwendung einer alternativen Repräsentation ist die Übermittlung von Namen. Der Name Andrè Müller würde nach ICAO-Standard, in dem keine Umlaute erlaubt sind, daher alternativ als ANDRE MUELLER übertragen.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="repraesentation" type="xs:base64Binary">
@@ -113,12 +113,12 @@
          <xs:appinfo>
             <title>Analyseergebnis Parameter</title>
          </xs:appinfo>
-         <xs:documentation>Klasse für Informationen, welche über einen untersuchten Parameter vorliegen sollen, die im Rahmen einer untersuchten Probe aus einem Prüfbericht via SHAPTH übermittelt werden.</xs:documentation>
+         <xs:documentation>Mit dieser Klasse wird das Analyseergebnis eines untersuchten Parameters übermittelt.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="analyseergebnisParameterID" type="bn-uq-g2g:UUID">
             <xs:annotation>
-               <xs:documentation>UUID zur eindeutigen Identifikation des Analyseergebnisses eines Parameters in SHAPTH.</xs:documentation>
+               <xs:documentation>UUID zur nachrichtenübergreifenden eindeutigen Identifikation des Analyseergebnisses eines Parameters.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="anschriftID" type="xs:IDREF">
@@ -147,7 +147,7 @@
                      minOccurs="0"
                      type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Ergänzende Informationen zum Untersuchungsverfahren; Bei Auswahl "Hausverfahren/Laborverfahren", "Testkit" oder "Sonstiges" ist eine detaillierte Angabe zum verwendeten Untersuchungsverfahren verpflichtend. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
+               <xs:documentation>Ergänzende Informationen zum Untersuchungsverfahren; Bei Auswahl "Hausverfahren/Laborverfahren", "Testkit" oder "Sonstiges" ist eine detaillierte Angabe zum verwendeten Untersuchungsverfahren verpflichtend. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="untersuchterParameter" type="xwas:Code.SHAPTH-ParameterType">
@@ -215,7 +215,7 @@
                      maxOccurs="unbounded"
                      type="xs:integer">
             <xs:annotation>
-               <xs:documentation>Verweis auf andere untersuchte Parameter, die fast zeitgleich untersucht wurden, und direkte Relevanz für den untersuchten Parameter haben. Beispielsweise die Wassertemperatur während der Untersuchung eines Parameters; Insbesondere sollte dies dies für pH-Wert, Säure- und Basenkapazität, die elektrische Leitfähigkeit und Sauerstoffgehalt (+sättigung) ergänzend angegeben werden.</xs:documentation>
+               <xs:documentation>Verweis auf andere untersuchte Parameter, die fast zeitgleich untersucht wurden, und direkte Relevanz für den untersuchten Parameter haben. Beispielsweise die Wassertemperatur während der Untersuchung eines Parameters; Insbesondere sollte dies für pH-Wert, Säure- und Basenkapazität, die elektrische Leitfähigkeit und Sauerstoffgehalt (+sättigung) ergänzend angegeben werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="bewertungUntersuchungswert"
@@ -235,7 +235,7 @@
                      minOccurs="0"
                      type="xs:double">
             <xs:annotation>
-               <xs:documentation>Messunsicherheit des Untersuchungswerts bei der Untersuchung des Parameters in absoluten Werten. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Messunsicherheit des Untersuchungswerts bei der Untersuchung des Parameters in absoluten Werten. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="messunsicherheitUntersuchungswertRelativ"
@@ -247,12 +247,12 @@
          </xs:element>
          <xs:element name="bestimmungsgrenzeLoQ" minOccurs="0" type="xs:double">
             <xs:annotation>
-               <xs:documentation>Die Bestimmungsgrenze/LoQ (Limit of Quantitation) des Parameters ist für quantitative Parameter (ausgenommen Summenparameter) empfohlen und gem. dem neuen EU Berichtsformat eine Pflichtangabe, falls der Untersuchungswert gt/lt LoQ ist, oder der Parameter eine "hazardous substance" gem. EU-Berichtsformat ist. Im Falle einer erhöhten Bestimmungsgrenze hat eine Begründung im Kommentarfeld des Analyseergebnisses des Parameters zu erfolgen. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
+               <xs:documentation>Die Bestimmungsgrenze/LoQ (Limit of Quantitation) des Parameters ist für quantitative Parameter (ausgenommen Summenparameter) empfohlen und gem. dem neuen EU-Berichtsformat eine Pflichtangabe, falls der Untersuchungswert gt/lt LoQ ist, oder der Parameter eine "hazardous substance" gem. EU-Berichtsformat ist. Im Falle einer erhöhten Bestimmungsgrenze hat eine Begründung im Kommentarfeld des Analyseergebnisses des Parameters zu erfolgen. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Feld zur Eingabe zusätzlicher und vertiefender Informationen zur Analyse der Parameters.</xs:documentation>
+               <xs:documentation>Feld zur Eingabe zusätzlicher und vertiefender Informationen zur Analyse des Parameters.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -302,14 +302,14 @@
                      minOccurs="0"
                      type="xs:double">
             <xs:annotation>
-               <xs:documentation>Die abgegebene Wassermenge pro Tag von einer Anlage. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Die abgegebene Wassermenge pro Tag von einer Anlage. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="anzahlDurchAnlageVersorgtePersonen"
                      minOccurs="0"
                      type="xs:integer">
             <xs:annotation>
-               <xs:documentation>Die Anzahl der durch eine Anlage versorgten Personen. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Die Anzahl der durch eine Anlage versorgten Personen. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="altID" minOccurs="0" type="din91379:datatypeC">
@@ -319,7 +319,7 @@
          </xs:element>
          <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Kommentar zur Beschreibung der Anlage. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Kommentar zur Beschreibung der Anlage. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="wasserversorgungsgebiet"
@@ -349,7 +349,7 @@
          <xs:appinfo>
             <title>Anschrift</title>
          </xs:appinfo>
-         <xs:documentation>Eine Anschrift beschreibt einen Ort mit den klassischen Ordnungsbegriffen wie Orts- und Straßennamen sowie ergänzenden Informationen wie Ortsteil und Postfach. Eine Anschrift kann genutzt werden, um Orte zu benennen, an denen sich Personen aufhalten, an denen Objekte zu finden sind, oder an denen Ereignisse stattfinden. Darüber hinaus kann sie genutzt werden, um Post oder Waren zuzustellen. Daher enthält sie auch die notwendigen Attribute um Postfächer zu adressieren. Die Anschrift kann außerdem über eine Subkomponente verfügen, die eine Beschreibung des Ortes mittels Geokoordinaten erlaubt. Die Anschrift kann auch über eine Subkomponente verfügen, die eine verwaltungspolitische Zuordnung des Ortes erlaubt (Zuordnung zu einer Gemeinde über den AGS, eines Bundesland, etc.).</xs:documentation>
+         <xs:documentation>Eine Anschrift beschreibt einen Ort mit den klassischen Ordnungsbegriffen wie Orts- und Straßennamen sowie ergänzenden Informationen wie Ortsteil und Postfach. Eine Anschrift kann genutzt werden, um Orte zu benennen, an denen sich Personen aufhalten, an denen Objekte zu finden sind, oder an denen Ereignisse stattfinden. Darüber hinaus kann sie genutzt werden, um Post oder Waren zuzustellen. Daher enthält sie auch die notwendigen Attribute, um Postfächer zu adressieren. Die Anschrift kann außerdem über eine Subkomponente verfügen, die eine Beschreibung des Ortes mittels Geokoordinaten erlaubt. Die Anschrift kann auch über eine Subkomponente verfügen, die eine verwaltungspolitische Zuordnung des Ortes erlaubt (Zuordnung zu einer Gemeinde über den AGS, eines Bundeslandes, etc.).</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="strassenschluessel" minOccurs="0" type="xoev-code:Code">
@@ -396,7 +396,7 @@
          </xs:element>
          <xs:element name="wohnungsgeber" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Die Komponente "wohnungsgeber" enthält Angaben (Name/Bezeichnung) zum Hauptmieter oder Eigentümer einer Immobilie. Anmerkung: Die Angaben zum Wohnungsgeber können einer Anschrift hinzugefügt werden, um die Adressierung zu erleichtern. Die Angabe eines Wohnungsgebers im Kontext der Anschrift dient ausschließlich der genaueren oder leichteren Adressierung, sie darf nicht genutzt werden um Mietverhältnisse oder ähnliche rechtliche Beziehungen zwischen Personen auszudrücken. Beispiel: bei Meyer</xs:documentation>
+               <xs:documentation>Die Komponente "wohnungsgeber" enthält Angaben (Name/Bezeichnung) zum Hauptmieter oder Eigentümer einer Immobilie. Anmerkung: Die Angaben zum Wohnungsgeber können einer Anschrift hinzugefügt werden, um die Adressierung zu erleichtern. Die Angabe eines Wohnungsgebers im Kontext der Anschrift dient ausschließlich der genaueren oder leichteren Adressierung, sie darf nicht genutzt werden, um Mietverhältnisse oder ähnliche rechtliche Beziehungen zwischen Personen auszudrücken. Beispiel: bei Meyer</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="zusatz" minOccurs="0" type="din91379:datatypeC">
@@ -427,7 +427,7 @@
       </xs:sequence>
       <xs:attribute name="id" type="xs:ID" use="required">
          <xs:annotation>
-            <xs:documentation>Die "id" kann genutzt werden, um eine Instanz einer Anschrift innerhalb einer Datenstruktur eindeutig zu identifizieren. Hierbei handelt es sich um eine technische ID. Anmerkung: z.B. über IDREF in XML</xs:documentation>
+            <xs:documentation>Die "id" kann genutzt werden, um eine Instanz einer Anschrift innerhalb einer Datenstruktur eindeutig zu identifizieren. Hierbei handelt es sich um eine technische ID. Anmerkung: z. B. über IDREF in XML</xs:documentation>
          </xs:annotation>
       </xs:attribute>
    </xs:complexType>
@@ -457,7 +457,7 @@
                <xs:choice>
                   <xs:element name="organisation" type="xwas:OrganisationType">
                      <xs:annotation>
-                        <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z.B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Das Schema "Organisation" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Behörde oder natürliche Person handelt.</xs:documentation>
+                        <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z. B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Das Schema "Organisation" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Behörde oder natürliche Person handelt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="natuerlichePerson" type="xwas:NatuerlichePersonType">
@@ -631,7 +631,7 @@
                      minOccurs="0"
                      type="xwas:IdentifikationType">
             <xs:annotation>
-               <xs:documentation>Die "behoerdenidentifikation" fasst alle Elemente zusammen, die eine Behörde eindeutig unter anderen Behörden identifiziert. Anmerkung: Neben der konkreten BehördenID wird der fachliche Typ der ID wie z.B. Staatsanwaltschaft, Amtsgericht, Finanzamt oder Meldebehörde festgelegt.</xs:documentation>
+               <xs:documentation>Die "behoerdenidentifikation" fasst alle Elemente zusammen, die eine Behörde eindeutig unter anderen Behörden identifiziert. Anmerkung: Neben der konkreten BehördenID wird der fachliche Typ der ID wie z. B. Staatsanwaltschaft, Amtsgericht, Finanzamt oder Meldebehörde festgelegt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="behoerdenname" minOccurs="0" type="xwas:NameOrganisationType">
@@ -678,17 +678,17 @@
          <xs:appinfo>
             <title>Behördenkennung</title>
          </xs:appinfo>
-         <xs:documentation>Die Behoerdenkennung fasst die Elemente zusammen, über die eine Behörde identifiziert werden kann. Die "Behoerdenkennung" ist prioritär zur Übermittlung der im DVDV verzeichneten Behördenschlüssel vorgesehen, kann aber auch für andere Behördenkennungen, bspw. die BKZ der Justizverwaltung eingesetzt werden. Eine Behördenkennung im DVDV besteht aus einem Präfix und der eigentlichen Kennung. Die Codelisten für die Präfixe sowie die Kennungen pro Präfix werden durch die koordinierende Stelle für das DVDV verwaltet. Anmerkung: Beispiel für die Übermittlung einer Behördenkennung des DVDV: Bei einer Identifikation von Behörden auf kommunaler Ebene anhand des amtlichen Gemeindeschlüssels (AGS) der Gemeinde, für die die Behörde zuständig ist, lautet der Präfix "ags:", die Kennung ist dann der AGS der jeweiligen Gemeinde.</xs:documentation>
+         <xs:documentation>Die Behoerdenkennung fasst die Elemente zusammen, über die eine Behörde identifiziert werden kann. Die "Behoerdenkennung" ist prioritär zur Übermittlung der im DVDV verzeichneten Behördenschlüssel vorgesehen, kann aber auch für andere Behördenkennungen, bspw. die BKZ der Justizverwaltung eingesetzt werden. Eine Behördenkennung im DVDV besteht aus einem Präfix und der eigentlichen Kennung. Die Codelisten für die Präfixe sowie die Kennungen pro Präfix werden durch die koordinierende Stelle für das DVDV verwaltet. Anmerkung: Beispiel für die Übermittlung einer Behördenkennung des DVDV: Bei einer Identifikation von Behörden auf kommunaler Ebene anhand des amtlichen Gemeindeschlüssels (AGS) der Gemeinde, für die die Behörde zuständig ist, lautet das Präfix "ags:", die Kennung ist dann der AGS der jeweiligen Gemeinde.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="kennung" minOccurs="0" type="xwas:Code.BehoerdenkennungType">
             <xs:annotation>
-               <xs:documentation>Schlüssel zur eindeutigen Identifikation einer Behörde. Die Kennung kennzeichnet eine Behörde (ggf. innerhalb der durch den Präfix bezeichneten Klasse (DVDV)) eindeutig. Anmerkung: Im Zusammenhang mit dem DVDV wird die Kennung durch die koordinierende Stelle für das DVDV verwaltet. Die tatsächlich zu nutzende Codeliste kann an dieser Stelle nicht angegeben werden, da es voraussichtlich pro Präfix jeweils eine Codeliste der Kennungen der Behörden mit diesem Präfix geben wird. (Zum Beispiel die Codeliste der Amtlichen Gemeindeschlüssel für die Behörden auf kommunaler Ebene, die anhand dieses Ordnungsmerkmals im DVDV verzeichnet sind und mit dem Präfix ags: adressiert werden. Eine andere zulässige Liste wäre die Codeliste der Kennungen aller Bundesbehörden, die jeweils mit dem Präfix dbs: zu versehen sind. Nach jetzigem Kenntnisstand kann nicht ausgeschlossen werden, dass Inhalte der Codelisten mit Kennungen für Behörden unterschiedlichen Typs immer disjunkt sind.)</xs:documentation>
+               <xs:documentation>Schlüssel zur eindeutigen Identifikation einer Behörde. Die Kennung kennzeichnet eine Behörde (ggf. innerhalb der durch das Präfix bezeichneten Klasse (DVDV)) eindeutig. Anmerkung: Im Zusammenhang mit dem DVDV wird die Kennung durch die koordinierende Stelle für das DVDV verwaltet. Die tatsächlich zu nutzende Codeliste kann an dieser Stelle nicht angegeben werden, da es voraussichtlich pro Präfix jeweils eine Codeliste der Kennungen der Behörden mit diesem Präfix geben wird. (Zum Beispiel die Codeliste der Amtlichen Gemeindeschlüssel für die Behörden auf kommunaler Ebene, die anhand dieses Ordnungsmerkmals im DVDV verzeichnet sind und mit dem Präfix ags: adressiert werden. Eine andere zulässige Liste wäre die Codeliste der Kennungen aller Bundesbehörden, die jeweils mit dem Präfix dbs: zu versehen sind. Nach jetzigem Kenntnisstand kann nicht ausgeschlossen werden, dass Inhalte der Codelisten mit Kennungen für Behörden unterschiedlichen Typs immer disjunkt sind.)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="praefix" minOccurs="0" type="xwas:Code.PraefixType">
             <xs:annotation>
-               <xs:documentation>Der "praefix" bezeichnet eine Klasse von Behördenkennungen. Anmerkung: Die Liste der Präfixe für Behördenkennungen werden im Zusammenhang mit dem DVDV durch das Bundesverwaltungsamt als koordinierende Stelle für das DVDV verwaltet. Beispiel: Alle Behördenkennungen der Behörden, die anhand des amtlichen Gemeindeschlüssels (AGS) identifiziert werden können, erhalten den Präfix ags.</xs:documentation>
+               <xs:documentation>Der "praefix" bezeichnet eine Klasse von Behördenkennungen. Anmerkung: Die Liste der Präfixe für Behördenkennungen werden im Zusammenhang mit dem DVDV durch das Bundesverwaltungsamt als koordinierende Stelle für das DVDV verwaltet. Beispiel: Alle Behördenkennungen der Behörden, die anhand des amtlichen Gemeindeschlüssels (AGS) identifiziert werden können, erhalten das Präfix ags.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -718,9 +718,9 @@
          <xs:documentation>Klasse zum Transport von Informationen zu einem Betreiber einer WVA [Soweit möglich in Register zu pflegen].</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="betreiberID" type="xs:ID">
+         <xs:element name="betreiberID" type="bn-uq-g2g:UUID">
             <xs:annotation>
-               <xs:documentation>ID zur eindeutigen Identifikation des Betreibers eines Objekts aus SHAPTH. Hinweis an Implementierende / Nachrichtenerzeuger: Als ID ist eine UUID zu nutzen!</xs:documentation>
+               <xs:documentation>UUID zur nachrichtenübergreifenden eindeutigen Identifikation eines Betreibers.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="artDerPerson">
@@ -731,7 +731,7 @@
                <xs:choice>
                   <xs:element name="organisation" type="xwas:OrganisationType">
                      <xs:annotation>
-                        <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z.B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Das Schema "Organisation" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Behörde oder natürliche Person handelt.</xs:documentation>
+                        <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z. B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Das Schema "Organisation" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Behörde oder natürliche Person handelt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="natuerlichePerson" type="xwas:NatuerlichePersonType">
@@ -758,6 +758,11 @@
             </xs:annotation>
          </xs:element>
       </xs:sequence>
+      <xs:attribute name="id" type="xs:ID" use="required">
+         <xs:annotation>
+            <xs:documentation>Die id wird verwendet, um eine Instanz eines Betreibers innerhalb einer Nachricht eindeutig zu identifizieren. Hierbei handelt es sich um eine technische ID und keine fachliche ID. Hinweis Die fachliche ID wird im Kindelement betreiberID angegeben.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
    </xs:complexType>
    <xs:complexType name="Code.AGSType">
       <xs:annotation>
@@ -918,13 +923,15 @@
                <nameKurz>Anlass der Untersuchung</nameKurz>
                <nameTechnisch>untersuchung-anlass</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:untersuchung-anlass</kennung>
-               <beschreibung>Mit dieser Codeliste wird im Kontext von XWasser der Anlasses einer Wasseruntersuchung definiert.</beschreibung>
+               <beschreibung>Mit dieser Codeliste wird im Kontext von XWasser der Anlass einer Wasseruntersuchung definiert.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>1</version>
+               <version>2</version>
+               <datumGueltigkeitAb>2024-09-27</datumGueltigkeitAb>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+               <aenderungZurVorversion>Beschreibung des Elements 1190 geändert, Untersuchungsanlass des Elements 1190 geändert</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <Key>
@@ -966,7 +973,7 @@
             <xs:attribute name="listVersionID"
                           type="xs:normalizedString"
                           use="optional"
-                          fixed="1"/>
+                          fixed="2"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -1191,11 +1198,11 @@
       <xs:annotation>
          <xs:appinfo>
             <codeliste>
-               <nameLang>Art der Probennahmestelle gemäß EU Berichtsformat</nameLang>
+               <nameLang>Art der Probennahmestelle gemäß EU-Berichtsformat</nameLang>
                <nameKurz>Art der Probennahmestelle EU</nameKurz>
                <nameTechnisch>art-probennahmestelle-eu</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu</kennung>
-               <beschreibung>Mit dieser Codeliste wird im Rahman von XWasser die Art der Probennahmestelle gem. den neuen EU Vorgaben spezifiziert.</beschreibung>
+               <beschreibung>Mit dieser Codeliste wird im Rahman von XWasser die Art der Probennahmestelle gem. den neuen EU-Vorgaben spezifiziert.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -1332,7 +1339,7 @@
                <nameKurz>Art der Trinkwasseranlage</nameKurz>
                <nameTechnisch>art-trinkwasseranlage</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:art-trinkwasseranlage</kennung>
-               <beschreibung>Mit dieser Codeliste wird im Rahmen von XWassser die Art einee Trinkwasseranlage gem. TrinkwV beschrieben.</beschreibung>
+               <beschreibung>Mit dieser Codeliste wird im Rahmen von XWasser die Art einer Trinkwasseranlage gem. TrinkwV beschrieben.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -2146,8 +2153,10 @@
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>1</version>
+               <version>2</version>
+               <datumGueltigkeitAb>2024-09-27</datumGueltigkeitAb>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+               <aenderungZurVorversion>Element 1040 hinzugefügt</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <Key>
@@ -2188,7 +2197,7 @@
             <xs:attribute name="listVersionID"
                           type="xs:normalizedString"
                           use="optional"
-                          fixed="1"/>
+                          fixed="2"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -2263,7 +2272,7 @@
                <nameKurz>Grund der Ausnahmeregelung</nameKurz>
                <nameTechnisch>grund-ausnahmeregelung</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:grund-ausnahmeregelung</kennung>
-               <beschreibung>Mit dieser Codeliste werden im Kontext von XWasser die Gründen für eine Ausnahmeregelungen gem. den neuen Vorgaben für das EU Berichtsformat festgelegt.</beschreibung>
+               <beschreibung>Mit dieser Codeliste werden im Kontext von XWasser die Gründe für eine Ausnahmeregelung gem. den neuen Vorgaben für das EU-Berichtsformat festgelegt.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -2402,7 +2411,7 @@
                <nameKurz>Incident Category</nameKurz>
                <nameTechnisch>incident-category</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:incident-category</kennung>
-               <beschreibung>Diese Codeliste definiert die Kategorien eines Vorfalls gem. den Vorgaben für das EU Berichtsformat.</beschreibung>
+               <beschreibung>Diese Codeliste definiert die Kategorien eines Vorfalls gem. den Vorgaben für das EU-Berichtsformat.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -2470,7 +2479,7 @@
                <nameKurz>Incident Exceedance Cause</nameKurz>
                <nameTechnisch>incident-exceedance-cause</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:incident-exceedance-cause</kennung>
-               <beschreibung>Mit dieser Codeliste wird im Rahmen von XWasser die Ursache eines Überschreitungsvorfalls gem. den Vorgaben für das EU Berichtsformat definiert.</beschreibung>
+               <beschreibung>Mit dieser Codeliste wird im Rahmen von XWasser die Ursache eines Überschreitungsvorfalls gem. den Vorgaben für das EU-Berichtsformat definiert.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -3431,7 +3440,7 @@
                <nameKurz>Probennahmeverfahren</nameKurz>
                <nameTechnisch>probennahmeverfahren</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:probennahmeverfahren</kennung>
-               <beschreibung>Diese Codeliste dient im Kontext von XWasser zur Angabe des Verfahrens mit dem eine Probe entnommen wird</beschreibung>
+               <beschreibung>Diese Codeliste dient im Kontext von XWasser zur Angabe des Verfahrens, mit dem eine Probe entnommen wird</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -3676,7 +3685,7 @@
                <nameKurz>SHAPTH Parameter Einheit</nameKurz>
                <nameTechnisch>shapth-parameter-einheit</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit</kennung>
-               <beschreibung>Mit dieser Codeliste wird im Kontext von XWassser die Einheit eines SHAPTH Parameters angegeben,</beschreibung>
+               <beschreibung>Mit dieser Codeliste wird im Kontext von XWasser die Einheit eines SHAPTH Parameters angegeben,</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -3791,7 +3800,7 @@
                <nameKurz>DESTATIS Staatenliste</nameKurz>
                <nameTechnisch>staat</nameTechnisch>
                <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat</kennung>
-               <beschreibung>Die Codeliste Staat (eigenständige, von Deutschland diplomatisch anerkannte derzeitige Staaten). Tabelle von Staaten und Staatsangehörigkeiten. Enthalten sind alle Staaten im vollen politischen Sinne. Entspricht inhaltlich dem "Verzeichnis der Staatennamen für den amtlichen Gebrauch" des Auswärtigen Amtes. Enthalten sind z.B. Einträge für: Frankreich, Italien, Vereinigtes Königreich; nicht aber für: Französisch-Guayana, die britischen Jungferninseln oder Jersey. Neben den amtlichen Bezeichnungen (Kurzform und Vollform) und der Staatsangehörigkeit als Adjektiv/Adverb ist auch der jeweilige Suchbegriff aus dem Länderverzeichnis des Auswärtigen Amtes aufgeführt (der Suchbegriff ist eine griffige Bezeichnung des Staates). Die Angaben umfassen zudem den numerischen Destatis-Code, den 2- und 3-stelligen alphabetischen ISO 3166-1 Code sowie ggf. das Datum der Selbständigkeit bzw. Gründung nach den Angaben des Auswärtigen Amtes.</beschreibung>
+               <beschreibung>Die Codeliste Staat (eigenständige, von Deutschland diplomatisch anerkannte derzeitige Staaten). Tabelle von Staaten und Staatsangehörigkeiten. Enthalten sind alle Staaten im vollen politischen Sinne. Entspricht inhaltlich dem "Verzeichnis der Staatennamen für den amtlichen Gebrauch" des Auswärtigen Amtes. Enthalten sind z. B. Einträge für: Frankreich, Italien, Vereinigtes Königreich; nicht aber für: Französisch-Guayana, die britischen Jungferninseln oder Jersey. Neben den amtlichen Bezeichnungen (Kurzform und Vollform) und der Staatsangehörigkeit als Adjektiv/Adverb ist auch der jeweilige Suchbegriff aus dem Länderverzeichnis des Auswärtigen Amtes aufgeführt (der Suchbegriff ist eine griffige Bezeichnung des Staates). Die Angaben umfassen zudem den numerischen Destatis-Code, den 2- und 3-stelligen alphabetischen ISO 3166-1 Code sowie ggf. das Datum der Selbständigkeit bzw. Gründung nach den Angaben des Auswärtigen Amtes.</beschreibung>
                <herausgebernameLang>Statistisches Bundesamt, Wiesbaden</herausgebernameLang>
                <herausgebernameKurz>DESTATIS</herausgebernameKurz>
             </codeliste>
@@ -3822,7 +3831,7 @@
                <nameKurz>DESTATIS Staatsangehörigkeit</nameKurz>
                <nameTechnisch>staatsangehoerigkeit</nameTechnisch>
                <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit</kennung>
-               <beschreibung>Codeliste Staatsangehörigkeit. Tabelle von Staaten und Staatsangehörigkeiten. Enthält alle Einträge der Codeliste Staat (eigenständige, von Deutschland diplomatisch anerkannte derzeitige Staaten) und zusätzlich Einträge für ehemalige Staaten sowie Ersatzwerte. Die Liste enthält auch einen Eintrag für die Palästinensischen Gebiete. Enthalten sind alle Staaten im vollen politischen Sinne, z.B. Frankreich, Italien, Vereinigtes Königreich, nicht aber: britische Jungferninseln, Jersey sowie alle früheren Staaten seit 1970, z.B. Sowjetunion. Neben den amtlichen Bezeichnungen (Kurzform und Vollform) und der Staatsangehörigkeit als Adjektiv/Adverb ist auch der jeweilige ist auch der jeweilige Suchbegriff aus dem Länderverzeichnis des Auswärtigen Amtes aufgeführt (der Suchbegriff ist eine griffige Bezeichnung des Staates). Die Angaben umfassen zudem den numerische Destatis-Code für Staatsangehörigkeit und Staat den 2- und 3-stelligen alphabetischen ISO 3166-1 Code sowie ggf. das Datum der Selbständigkeit bzw. Gründungsdatum nach den Angaben des Auswärtigen Amtes und das Auflösungs- bzw. Enddatum als berechnete Angabe aus dem Gründungsdatum des/der Nachfolgestaaten.</beschreibung>
+               <beschreibung>Codeliste Staatsangehörigkeit. Tabelle von Staaten und Staatsangehörigkeiten. Enthält alle Einträge der Codeliste Staat (eigenständige, von Deutschland diplomatisch anerkannte derzeitige Staaten) und zusätzlich Einträge für ehemalige Staaten sowie Ersatzwerte. Die Liste enthält auch einen Eintrag für die Palästinensischen Gebiete. Enthalten sind alle Staaten im vollen politischen Sinne, z. B. Frankreich, Italien, Vereinigtes Königreich, nicht aber: britische Jungferninseln, Jersey sowie alle früheren Staaten seit 1970, z. B. Sowjetunion. Neben den amtlichen Bezeichnungen (Kurzform und Vollform) und der Staatsangehörigkeit als Adjektiv/Adverb ist auch der jeweilige ist auch der jeweilige Suchbegriff aus dem Länderverzeichnis des Auswärtigen Amtes aufgeführt (der Suchbegriff ist eine griffige Bezeichnung des Staates). Die Angaben umfassen zudem den numerische Destatis-Code für Staatsangehörigkeit und Staat den 2- und 3-stelligen alphabetischen ISO 3166-1 Code sowie ggf. das Datum der Selbständigkeit bzw. Gründungsdatum nach den Angaben des Auswärtigen Amtes und das Auflösungs- bzw. Enddatum als berechnete Angabe aus dem Gründungsdatum des/der Nachfolgestaaten.</beschreibung>
                <herausgebernameLang>Statistisches Bundesamt</herausgebernameLang>
                <herausgebernameKurz>DESTATIS</herausgebernameKurz>
             </codeliste>
@@ -4422,7 +4431,7 @@ Untersuchungsplan</nameKurz>
                <nameKurz>Kategorie des Vorfalls</nameKurz>
                <nameTechnisch>vorfallkategorie</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:vorfallkategorie</kennung>
-               <beschreibung>Mit dieser Codeliste wird im Kontext von XWassser dier Kategorie eines Vorfalls definiert.</beschreibung>
+               <beschreibung>Mit dieser Codeliste wird im Kontext von XWasser die Kategorie eines Vorfalls definiert.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -4617,12 +4626,12 @@ Untersuchungsplan</nameKurz>
          <xs:appinfo>
             <title>Maßnahmen zur Ausnahmeregelung (Derogation remedial action)</title>
          </xs:appinfo>
-         <xs:documentation>Transport von Informationen, die für die Maßnahmen zur Ausnahmeregelungen gem. de neuen Vorgaben für das EU-Berichtsformat benötigt werden.</xs:documentation>
+         <xs:documentation>Transport von Informationen, die für die Maßnahmen zur Ausnahmeregelung gem. den neuen Vorgaben für das EU-Berichtsformat benötigt werden.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="derogationRemedialActionIdentifier" type="xs:ID">
+         <xs:element name="derogationRemedialActionIdentifier" type="bn-uq-g2g:UUID">
             <xs:annotation>
-               <xs:documentation>ID zur eindeutigen Identifikation einer Maßnahme zur Ausnahmeregelung. Hinweis an Implementierende / Nachrichtenerzeuger: Als ID ist eine UUID zu nutzen!</xs:documentation>
+               <xs:documentation>UUID zur nachrichtenübergreifenden eindeutigen Identifikation einer Maßnahme zur Ausnahmeregelung.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="derogationRemedialAction" type="xwas:Code.AbhilfemassnahmeType">
@@ -4816,12 +4825,12 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="inhaltTyp" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Untereinheit, falls aus dem Mimetype keine eindeutige Dokumenttypisierung möglich ist, ansonsten leer. Mögliche Inhalte sind z.B. PKCS7SIGNATURE, CIRALI, etc</xs:documentation>
+               <xs:documentation>Untereinheit, falls aus dem Mimetype keine eindeutige Dokumenttypisierung möglich ist, ansonsten leer. Mögliche Inhalte sind z. B. PKCS7SIGNATURE, CIRALI, etc</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="signaturen" minOccurs="0" type="xwas:SignaturenType">
             <xs:annotation>
-               <xs:documentation>Sofern das Dokument signiert wurde findet sich hier eine Referenzliste auf die Signaturen</xs:documentation>
+               <xs:documentation>Sofern das Dokument signiert wurde, findet sich hier eine Referenzliste auf die Signaturen</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -4892,7 +4901,7 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="exceedanceCauseAndRemedialActionIdentifier" type="bn-uq-g2g:UUID">
             <xs:annotation>
-               <xs:documentation>UUID zur nachrichtenübergreifenden eindeutigen Identifikation einer Überschreitung Ursache und Maßnahme.</xs:documentation>
+               <xs:documentation>UUID zur nachrichtenübergreifenden eindeutigen Identifikation einer Instanz der Klasse ExceedanceCauseAndRemedialAction.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="exceedanceCause" type="xwas:Code.IncidentExceedanceCauseType">
@@ -4988,7 +4997,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="incidentIdentifier" minOccurs="0" type="xs:IDREF">
             <xs:annotation>
-               <xs:documentation>Referenz auf einen dazugehörigen Vorfall (Incicent).</xs:documentation>
+               <xs:documentation>Referenz auf einen dazugehörigen Vorfall (Incident).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="derogationIdentifier" minOccurs="0" type="xs:IDREF">
@@ -5035,7 +5044,7 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="xwas:Code.StatusFachlichType">
             <xs:annotation>
-               <xs:documentation>Alter (vorhergehender) fachlicher Prozess-Status. Bei dem Substatus handelt es sich um sehr implemetierungsspezifizierte Werte, deren Verallgemeinerung kaum möglich und somit die Definition den lokalen Integratoren überlassen ist.</xs:documentation>
+               <xs:documentation>Alter (vorhergehender) fachlicher Prozess-Status. Bei dem Substatus handelt es sich um implementierungsspezifische Werte, deren Verallgemeinerung kaum möglich und somit die Definition den lokalen Integratoren überlassen ist.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="grund" minOccurs="0" type="din91379:datatypeC">
@@ -5201,7 +5210,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="nameShapefile" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Hier können Erläuterungen zur Datei (inhaltlich), zur Formatverison, zum Dateinamen o. ä. vorgenommen werden.</xs:documentation>
+               <xs:documentation>Hier können Erläuterungen zur Datei (inhaltlich), zur Formatversion, zum Dateinamen o. ä. vorgenommen werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="geokoordinatenBreitengrad" minOccurs="0" type="xs:decimal">
@@ -5276,12 +5285,12 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="id" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Die ID sichert die eindeutige Identifikation von Objekten in einem fachlichen Kontext. Anmerkung: Hier geht es ausschließlich um fachliche Identifikationen wie Steuernummer, Krankenverischerungsnummer, Personalausweisnummer ...</xs:documentation>
+               <xs:documentation>Die ID sichert die eindeutige Identifikation von Objekten in einem fachlichen Kontext. Anmerkung: Hier geht es ausschließlich um fachliche Identifikationen wie Steuernummer, Krankenversicherungsnummer, Personalausweisnummer ...</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="beschreibung" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Die "beschreibung" dient der näheren Charakterisierung des fachlichen Kontext der Identifikation.</xs:documentation>
+               <xs:documentation>Die "beschreibung" dient der näheren Charakterisierung des fachlichen Kontextes der Identifikation.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="gueltigkeit" minOccurs="0" type="xwas:ZeitraumType">
@@ -5301,7 +5310,7 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="incidentCauseAndRemidialActionIdentifier" type="bn-uq-g2g:UUID">
             <xs:annotation>
-               <xs:documentation>UUID zur nachrichtenübergreifenden eindeutigen Identifikation einer Vorfall-Ursache-Maßnahme (-Gruppe).</xs:documentation>
+               <xs:documentation>UUID zur nachrichtenübergreifenden eindeutigen Identifikation einer Instanz der Klasse IncidentCauseAndRemedialAction.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="incidentCause" type="xwas:Code.IncidentExceedanceCauseType">
@@ -5371,7 +5380,7 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xwas:Code.IncidentCategoryType">
             <xs:annotation>
-               <xs:documentation>Kategorie des Vorfall.</xs:documentation>
+               <xs:documentation>Kategorie des Vorfalls.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="incidentAffectedPopulation" type="xs:integer">
@@ -5477,7 +5486,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="eingetragenerName" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Die im Handels- oder Genossenschaftsregister eingetragene Firma eines wirtschaftlich Tätigen bzw. einer wirtschaftlichen Tätigkeit (z. B. eingetragenes Einzelunternehmen, eingetragene Zweigniederlassung) bzw. der im Vereinsregister, Partnerschaftsregister oder Stiftungsverzeichnis eingetragene Name. Der eingetragene Name kann auch in einem Register festgehalten sein, welches in einem anderen Staat geführt wird. Der eingetragene Name ist abzugrenzen von der Geschäftsbezeichnung. In diesem Element werden auch die Namen juristischer Personen, rechtsfähiger Personengesellschaften oder sonstiger Personenvereinigungen eingetragen, die nicht in einem Register, aber kraft Gesetz geführt werden.</xs:documentation>
+               <xs:documentation>Die im Handels- oder Genossenschaftsregister eingetragene Firma eines wirtschaftlich Tätigen bzw. einer wirtschaftlichen Tätigkeit (z. B. eingetragenes Einzelunternehmen, eingetragene Zweigniederlassung) bzw. der im Vereinsregister, Partnerschaftsregister oder Stiftungsverzeichnis eingetragene Name. Der eingetragene Name kann auch in einem Register festgehalten sein, welches in einem anderen Staat geführt wird. Der eingetragene Name ist abzugrenzen von der Geschäftsbezeichnung. In diesem Element werden auch die Namen juristischer Personen, rechtsfähiger Personengesellschaften oder sonstiger Personenvereinigungen eingetragen, die nicht in einem Register, aber kraft Gesetzes geführt werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="eintragung" minOccurs="0" type="din91379:datatypeC">
@@ -5565,7 +5574,7 @@ Untersuchungsplan</nameKurz>
          <xs:appinfo>
             <title>Kommunikation</title>
          </xs:appinfo>
-         <xs:documentation>"Kommunikation" fasst Angaben zur Erreichbarkeit über elektronische Kommunikationskanäle (z.B. Telefon, Fax, E-Mail) zusammen.</xs:documentation>
+         <xs:documentation>"Kommunikation" fasst Angaben zur Erreichbarkeit über elektronische Kommunikationskanäle (z. B. Telefon, Fax, E-Mail) zusammen.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="kanal" minOccurs="0" type="xwas:Code.KommunikationType">
@@ -5600,7 +5609,7 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="titel" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Ein Titel wird häufig im Zusammenhang mit Namen verwendet, ist aber kein orginärer Bestandteil des Namens. Im Unterschied dazu gehören Adelstitel zum Familiennamen und sind daher in diesem Verständnis kein Titel. Zu den Titeln zählen beispielsweise akademische Grade, Dienst- und Amtsbezeichnungen oder militärische Ränge. Es können auch Titel übermittelt werden, die keine Titel im Sinne des Meldewesens sind. Beispiel: Dr.</xs:documentation>
+               <xs:documentation>Ein Titel wird häufig im Zusammenhang mit Namen verwendet, ist aber kein originärer Bestandteil des Namens. Im Unterschied dazu gehören Adelstitel zum Familiennamen und sind daher in diesem Verständnis kein Titel. Zu den Titeln zählen beispielsweise akademische Grade, Dienst- und Amtsbezeichnungen oder militärische Ränge. Es können auch Titel übermittelt werden, die keine Titel im Sinne des Meldewesens sind. Beispiel: Dr.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="anrede"
@@ -5672,7 +5681,7 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xwas:AlternativeRepraesentationType">
             <xs:annotation>
-               <xs:documentation>Die Komponente "alternativeRepraesentation" beinhaltet den Namen einer natürlichen Person in einer Form, die einer festgelegten Konvention folgt. Die in der Komponente "AlternativeRepraesentation" übermittelten Informationen müssen redundant zu den anderen Elementen der Komponente "NameNatuerlichePerson" sein, sie dürfen diese nicht ersetzen. Anmerkung: Im Zusammenhang mit ausländischen Namen kann diese Komponente z.B. genutzt werden, um die gesamte Namenskette einzutragen oder den Namen in Originalschreibweise zu übermitteln. Beispiel: Ein Beispiel für alternative Repräsentation ist die Übermittlung des Namens "Andrè Müller" nach ICAO-Standard, in dem keine Umlaute erlaubt sind, und daher der Name als "ANDRE MUELLER" übertragen wird.</xs:documentation>
+               <xs:documentation>Die Komponente "alternativeRepraesentation" beinhaltet den Namen einer natürlichen Person in einer Form, die einer festgelegten Konvention folgt. Die in der Komponente "AlternativeRepraesentation" übermittelten Informationen müssen redundant zu den anderen Elementen der Komponente "NameNatuerlichePerson" sein, sie dürfen diese nicht ersetzen. Anmerkung: Im Zusammenhang mit ausländischen Namen kann diese Komponente z. B. genutzt werden, um die gesamte Namenskette einzutragen oder den Namen in Originalschreibweise zu übermitteln. Beispiel: Ein Beispiel für alternative Repräsentation ist die Übermittlung des Namens "Andrè Müller" nach ICAO-Standard, in dem keine Umlaute erlaubt sind, und daher der Name als "ANDRE MUELLER" übertragen wird.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ordensname" minOccurs="0" type="xwas:AllgemeinerNameType">
@@ -5713,7 +5722,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="kurzbezeichnung" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Kurzbezeichnung des Namen einer Organisation.</xs:documentation>
+               <xs:documentation>Kurzbezeichnung des Namens einer Organisation.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="gueltigkeit" minOccurs="0" type="xwas:ZeitraumType">
@@ -5853,7 +5862,7 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="objektID" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>ID zur eindeutigen Identifikation eines Objekts in SHAPTH. Strukturell definiertcolon Folgt der OKZ-Nummer: Art Objekt (4-stellig) - Topografische Karten Nr. (4-stellig) - Fortlaufende Nr. (8-stellig) ToDo: Die genaue Syntax ist an einem Beispiel zu konkretisieren!</xs:documentation>
+               <xs:documentation>ID zur eindeutigen Identifikation eines Objekts. Strukturell definiertcolon Folgt der OKZ-Nummer: Art Objekt (4-stellig) - Topografische Karten Nr. (4-stellig) - Fortlaufende Nr. (8-stellig) ToDo: Die genaue Syntax ist an einem Beispiel zu konkretisieren!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="wasserversorgungsgebiet" minOccurs="0" type="xs:IDREF">
@@ -5883,17 +5892,17 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="xwas:Code.BetriebszustandType">
             <xs:annotation>
-               <xs:documentation>Der Betriebszustand des Objekts. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Der Betriebszustand des Objekts. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="datumInBetriebnahme" minOccurs="0" type="xs:date">
             <xs:annotation>
-               <xs:documentation>Das Datum an dem ein Objekt in Betrieb genommen wurde. Bei mehrfacher in und außer Betriebnahme ist das Datum der jüngsten in Betriebnahme anzugeben. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Das Datum an dem ein Objekt in Betrieb genommen wurde. Bei mehrfacher In- und Außerbetriebnahme ist das Datum der jüngsten Inbetriebnahme anzugeben. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="datumAusserBetriebnahme" minOccurs="0" type="xs:date">
             <xs:annotation>
-               <xs:documentation>Das Datum an dem ein Objekt außer Betrieb genommen wurde. Bei mehrfacher in und außer Betriebnahme ist das Datum der jüngsten außer Betriebnahme anzugeben. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Das Datum an dem ein Objekt außer Betrieb genommen wurde. Bei mehrfacher In- und Außerbetriebnahme ist das Datum der jüngsten Außerbetriebnahme anzugeben. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="rahmenDerTrinkwasserbereitstellung"
@@ -5901,12 +5910,12 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xwas:Code.RahmenTrinkwasserbereitstellungType">
             <xs:annotation>
-               <xs:documentation>Der Rahmen der Trinkwasserbereitstellung in dem das Objekt Trinkwasser an Privatpersonen, Unternehmen oder der Öffentlichkeit abgibt. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Der Rahmen der Trinkwasserbereitstellung in dem das Objekt Trinkwasser an Privatpersonen, Unternehmen oder der Öffentlichkeit abgibt. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="geokoordinatenObjekt" type="xwas:GeokoordinatenSHAPTHType">
             <xs:annotation>
-               <xs:documentation>Klasse zur Abbildung von SHAPTH-spezifischen Geokoordinaten. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Angabe von Geokoordinaten. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="altID" minOccurs="0" type="din91379:datatypeC">
@@ -5943,7 +5952,7 @@ Untersuchungsplan</nameKurz>
          <xs:appinfo>
             <title>Organisation</title>
          </xs:appinfo>
-         <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z.B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Behörden werden über eine eigene Kernkomponente "Behoerde" abgebildet.</xs:documentation>
+         <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z. B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Behörden werden über eine eigene Kernkomponente "Behoerde" abgebildet.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="rechtsform" minOccurs="0" type="xwas:Code.RechtsformenType">
@@ -6001,7 +6010,7 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xwas:IdentifikationType">
             <xs:annotation>
-               <xs:documentation>Die "identifikation" einer "Organisation" fasst alle Elemente zusammen, die eine Organisation in einem fachlichen Kontext eindeutig unter anderen Organisationen identifiziert. Anmerkung: Neben der konkreten ID wird der fachliche Typ der ID wie z.B. Steuernummer, UmsatzsteuerID festgelegt.</xs:documentation>
+               <xs:documentation>Die "identifikation" einer "Organisation" fasst alle Elemente zusammen, die eine Organisation in einem fachlichen Kontext eindeutig unter anderen Organisationen identifiziert. Anmerkung: Neben der konkreten ID wird der fachliche Typ der ID wie z. B. Steuernummer, UmsatzsteuerID festgelegt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="existenzzeitraum" minOccurs="0" type="xwas:ZeitraumType">
@@ -6029,7 +6038,7 @@ Untersuchungsplan</nameKurz>
          <xs:appinfo>
             <title>Organisationseinheit</title>
          </xs:appinfo>
-         <xs:documentation>Die Organisationseinheit fasst Angaben zur Darstellung der internen hierarchischen Organisationsstruktur einer Institution zusammen, z.B. zur Darstellung von Abteilungen oder Referaten.</xs:documentation>
+         <xs:documentation>Die Organisationseinheit fasst Angaben zur Darstellung der internen hierarchischen Organisationsstruktur einer Institution zusammen, z. B. zur Darstellung von Abteilungen oder Referaten.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="name" type="din91379:datatypeC">
@@ -6072,10 +6081,26 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Die Gruppe des Parameters.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="veraenderlich" type="xs:boolean"/>
-         <xs:element name="probennahmeverfahrenUBA" type="xs:boolean"/>
-         <xs:element name="reduzierbarDurchRAP" type="xs:boolean"/>
-         <xs:element name="reduzierbarOhneRAP" type="xs:boolean"/>
+         <xs:element name="veraenderlich" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>„Veränderlich“ bedeutet, dass Messwerte dieser Parameter sich nach dem Wasserwerk im Verteilungsnetz noch erhöhen können (durch bakterielles Wachstum, fehlerhafte Absicherungen oder sonstige Defekte, Korrosion und andere Einflüsse der Materialien). Diese Parameter müssen mindestens an der Übergabestelle in die Trinkwasserinstallation oder in der Trinkwasserinstallation bestimmt werden. Als veränderlich sind neben den chemischen Parametern in Anlage 2 Teil II TrinkwV auch die meisten mikrobiologischen Parameter und etliche Indikatorparameter eingestuft. Unveränderliche Parameter können insbesondere durch Aufbereitung oder Mischung verschiedener Wässer verändert werden und sind ansonsten im Verteilungsnetz weitgehend stabil oder können ggf. leicht sinken. Unveränderliche Parameter können vom Wasserwerk bis zur Endverbraucherzapfstelle beprobt und gezählt werden; u. U. auch im Rohwasser. Veränderliche Parameter müssen in jedem WVG untersucht werden, wohingegen unveränderliche Parameter z. B. bei einem Wasserversorgungsgebiet mit 100% Fremdbezug des Wassers nicht zwingend untersucht werden müssen. Die automatische Berechnung/Befüllung der Untersuchungspflichten erfolgt nach allgemeinne Regeln der TrinkwV und muss bei komplexeren Zusammenhängen im Einzelfall entschieden werden. Dies gilt z. B. für Parametern, die Referenzwerte für den Ausgang Wasserwerk oder Abhängigkeiten von anderen Parametern haben, z. B. bei Trübung, Kupfer oder THM, Chlorit und Chlorat.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="probennahmeverfahrenUBA" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>"UBA-Probennahmeverfahren" bezeichnet Parameter, wo spezielle Probennahmeverfahren vorgeschrieben sind. Diese Untersuchungen werden nicht gezählt, wenn sie nicht in der Trinkwasserinstallation (Stelle der Probennahme = T) oder nicht mit einem der vorgeschriebenen Probennahmeverfahren entnommen werden. Dies ist die Umsetzung von § 42 Abs. 3 und der Bemerkungen zu den Parametern Kupfer, Nickel und Blei in Anlage 2 Teil II.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="reduzierbarDurchRapRau" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>Mit der bis Juni 2023 gültigen Trinkwasserverordnung war es möglich, eine risikobewertungsbasierte Anpassung der Probennahmeplanung (RAP) vorzunehmen. Dabei waren bestimmte Parameter aber von einer Reduktion des Untersuchungsumfangs ausgeschlossen. Deshalb galt: wurde eine RAP gemacht, können alle Parameter von den Untersuchungshäufigkeiten nach TrinkwV abweichen, die mit der RAP reduzierbar sind. Mit der aktuellen TrinkwV wurde die Möglichkeit der RAP abgeschafft, bereits durchgeführte RAP gelten aber noch maximal bis Juni 2034 fort. Anstelle der RAP gibt es in der neuen TrinkwV die risikomanagementbasierte Anpassung des Untersuchungsplans nach § 37 und 38 TrinkwV (RAU). Auch da sind bestimmte Parameter ausgenommen, so dass auch diese bei Vorliegen einer RAU immer vollständig untersucht werden müssen (aufgelistet in § 37 Abs. 3 TrinkwV) und nur die restlichen im Untersuchungsumfang reduzierbar sind.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="reduzierbarOhneRAU" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>Für einige Parameter macht die TrinkwV an verschiedenen Stellen Vorgaben, wann sie zu untersuchen sind oder wann nicht. Diese Parameter müssen nicht zwingend in der Häufigkeit für die jeweilige Parametergruppe nach TrinkwV untersucht werden sondern sind unabhängig eines RAP/RAU reduzierbar.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
          <xs:element name="bemerkung" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
                <xs:documentation>Eine Bemerkung zu den Parameterangaben.</xs:documentation>
@@ -6103,7 +6128,7 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xs:IDREF">
             <xs:annotation>
-               <xs:documentation>ID-Verweis innerhalb des jeweiligen Kontextes auf ein oder mehrere Objekte vom Typ Dokument. Das Element dokumentReferenzID dient dazu, eine Zuordnung zwischen einer Person und einem Dokument herzustellen.</xs:documentation>
+               <xs:documentation>ID-Verweis innerhalb des jeweiligen Kontextes auf ein oder mehrere Objekte des Typs Dokument. Das Element dokumentReferenzID dient dazu, eine Zuordnung zwischen einer Person und einem Dokument herzustellen.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="person">
@@ -6139,12 +6164,12 @@ Untersuchungsplan</nameKurz>
          <xs:appinfo>
             <title>Probe</title>
          </xs:appinfo>
-         <xs:documentation>Klasse zum Transport von Informationen, welche über eine Probe vorliegen sollen, die im Rahmen eines Prüfberichts via SHAPTH übermittelt wird.</xs:documentation>
+         <xs:documentation>Mit dieser Klasse werden Informationen zu einer Probe transportiert.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="probeID" type="bn-uq-g2g:UUID">
             <xs:annotation>
-               <xs:documentation>UUID zur eindeutigen Identifikation einer Probe in SHAPTH.</xs:documentation>
+               <xs:documentation>UUID zur nachrichtenübergreifenden eindeutigen Identifikation einer Probe.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="untersuchungsplanID" minOccurs="0" type="din91379:datatypeC">
@@ -6173,7 +6198,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="medium" minOccurs="0" type="xwas:Code.MediumType">
             <xs:annotation>
-               <xs:documentation>Art des Mediums der Probe; Wird automatisch aus dem Register der Probennahmestelle gezogen, es sei denn es ist nicht korrekt angelegt, dann muss es hier speziell eingetragen werden. Falls eine Probennahme nicht erfolgt ist, kann dies hier ebenso angegeben werden; In diesem Fall ist die Information, warum diese nicht erfolgt ist, unter „Ergänzung zum Medium“ anzugeben. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Art des Mediums der Probe; Wird automatisch aus dem Register der Probennahmestelle gezogen, es sei denn es ist nicht korrekt angelegt, dann muss es hier speziell eingetragen werden. Falls eine Probennahme nicht erfolgt ist, kann dies hier ebenso angegeben werden; In diesem Fall ist die Information, warum diese nicht erfolgt ist, unter „Ergänzung zum Medium“ anzugeben. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="akkreditierteDurchfuehrungDerProbennahme" type="xs:boolean">
@@ -6183,7 +6208,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="ergaenzungZumMedium" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Zusätzliche Informationen zu dem Medium; Pflichtfeld falls "Sonstiges" bei Medium ausgewählt wurde. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
+               <xs:documentation>Zusätzliche Informationen zum Medium; Fachliches Pflichtfeld, falls Sonstiges bei Medium ausgewählt wurde. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="zeitpunktProbennahme" type="xs:dateTime">
@@ -6195,7 +6220,7 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xwas:Code.ProbennahmeverfahrenType">
             <xs:annotation>
-               <xs:documentation>Art des Probennahmeverfahrens; Mehrfachangabe möglich, z.B. bei Probennahme für mikrobiologische und chemische Parameter könnten z.B. "Beprobung der Trinkwasserinstallation bis kurz vor der Entnahmearmatur (Zweck B)" und "Zufallsstichprobe ohne Ablauf (Z-Probe)" angegeben werden.</xs:documentation>
+               <xs:documentation>Art des Probennahmeverfahrens; Mehrfachangabe möglich, z. B. bei Probennahme für mikrobiologische und chemische Parameter könnten z. B. "Beprobung der Trinkwasserinstallation bis kurz vor der Entnahmearmatur (Zweck B)" und "Zufallsstichprobe ohne Ablauf (Z-Probe)" angegeben werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="probenentnahmegeraet"
@@ -6232,19 +6257,21 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xwas:Code.AufbereitungsstoffDesinfektionsverfahrenType">
             <xs:annotation>
-               <xs:documentation>Angabe zur Konservierung/Aufbereitung oder Desinfektion einer Probe für die Analyse. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
+               <xs:documentation>Angabe zur Konservierung/Aufbereitung oder Desinfektion einer Probe für die Analyse. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="kommentarZurProbennahme" type="din91379:datatypeC">
+         <xs:element name="kommentarZurProbennahme"
+                     minOccurs="0"
+                     type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Kommentar für ergänzende Informationen zur Probennahme. Pflichtangabe des genauen Probennahmeerfahrens falls "Sonstiges" oder "Probennahme mit Abweichung von den allgemein anerkannten Regeln der Technik" als Probennahmeverfahren gewählt wurde. Angabe von vorübergehender Aufbereitung/Desinfektion an der PNS, z.B. Chlorung des Wassers bei Untersuchung einer e-Anlage; Bei Zweck b Untersuchung: Angabe zur chemischen Desinfektion falls diese anstatt der thermischen Desinfektion durchgeführt wurde. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
+               <xs:documentation>Kommentar für ergänzende Informationen zur Probennahme. Pflichtangabe des genauen Probennahmeverfahrens, falls Sonstiges oder Probennahme mit Abweichung von den allgemein anerkannten Regeln der Technik als Probennahmeverfahren gewählt wurde. Angabe von vorübergehender Aufbereitung/Desinfektion an der PNS, z. B. Chlorung des Wassers bei Untersuchung einer e-Anlage; Bei Zweck b Untersuchung: Angabe zur chemischen Desinfektion, falls diese anstatt der thermischen Desinfektion durchgeführt wurde. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="informationenZumProbentransport"
                      minOccurs="0"
                      type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Informationen zum Transport und der Lagerung der Probe: Ist die Probe die gesamte Stracke von Probennahmestelle bis zur Untersuchungsstelle gekühlt transportiert worden? Handelt es sich um einen direkten Transport oder hat eine Zwischenlagerung stattgefunden? Wo war diese Zwischenlagerung, etc. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Informationen zum Transport und der Lagerung der Probe: Ist die Probe die gesamte Stracke von Probennahmestelle bis zur Untersuchungsstelle gekühlt transportiert worden? Handelt es sich um einen direkten Transport oder hat eine Zwischenlagerung stattgefunden? Wo war diese Zwischenlagerung, etc. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="eingangProbeBeiUntersuchungsstelle" type="xs:dateTime">
@@ -6270,7 +6297,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="berichtspflichtig" minOccurs="0" type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Angabe ob die Probe berichtspflichtig ist oder nicht. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Angabe, ob die Probe berichtspflichtig ist oder nicht. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="vonProbennehmerVergebeneProbeID" type="din91379:datatypeC">
@@ -6300,7 +6327,7 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xs:IDREF">
             <xs:annotation>
-               <xs:documentation>Ergänzende Dateien, z.B. Bilder oder PDFs um ergänzende Informationen über eine Probe oder Probennahmestelle zu übermitteln.</xs:documentation>
+               <xs:documentation>Ergänzende Dateien, z. B. Bilder oder pdf-Dateien, um ergänzende Informationen über eine Probe oder Probennahmestelle zu übermitteln.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
@@ -6325,12 +6352,12 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="probennahmestelleID" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>ID zur eindeutigen Identifikation einer Probennahmestelle in SHAPTH. Strukturell definiertcolon Objekt ID - Fortlaufende Nr. (4-stellig) ToDo: Die Syntax ist an einem Beispiel zu konkretisieren!</xs:documentation>
+               <xs:documentation>ID zur nachrichtenübergreifenden eindeutigen Identifikation einer Probennahmestelle. Strukturell definiertcolon Objekt ID - Fortlaufende Nr. (4-stellig) ToDo: Die Syntax ist an einem Beispiel zu konkretisieren!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="objektID" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Referenz zur eindeutigen Identifikation des Objekts in SHAPTH, zu welchem die Probennahmestelle gehört.</xs:documentation>
+               <xs:documentation>Referenz zur eindeutigen Identifikation des Objekts, zu welchem die Probennahmestelle gehört.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="probe"
@@ -6338,7 +6365,7 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xwas:ProbeType">
             <xs:annotation>
-               <xs:documentation>Hier sind die Angaben zu den untersuchten Proben zu übermitteln. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld im Prüfbericht, es darf nur bei der Erzeugung eines Untersuchungsplans leer bzw. weggelassen werden!</xs:documentation>
+               <xs:documentation>Hier sind die Angaben zu den untersuchten Proben zu übermitteln. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld im Prüfbericht, es darf nur bei der Erzeugung eines Untersuchungsplans leer bzw. weggelassen werden!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="terminplanID"
@@ -6366,10 +6393,14 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Die Unterkategorie der Probennahmestelle.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="artDerEntnahmearmatur" type="xwas:Code.ArtEntnahmearmaturType"/>
+         <xs:element name="artDerEntnahmearmatur" type="xwas:Code.ArtEntnahmearmaturType">
+            <xs:annotation>
+               <xs:documentation>Mit diesem Element wird der Code für die Art der Entnahmearmatur übermittelt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
          <xs:element name="stockwerkProbennahmestelle" minOccurs="0" type="xs:integer">
             <xs:annotation>
-               <xs:documentation>Bezeichnung der Art der Probennahmestelle. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Bezeichnung der Art der Probennahmestelle. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="mediumAnDerProbennahmestelle"
@@ -6384,17 +6415,17 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xwas:Code.AufbereitungsstoffDesinfektionsverfahrenType">
             <xs:annotation>
-               <xs:documentation>Die Aufbereitungsart oder Desinfektion welche das Medium an der Probennahmestelle durchgangen ist. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Die Aufbereitungsart oder Desinfektion, welche das Medium an der Probennahmestelle durchgangen ist. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="altID" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Eine Alt-ID der Probennahmestelle, welche noch nicht dem neuen SHAPTH ID-Format entspricht, und aus Gründen der Kompatibilität und Nutzerfreundlichkeit mitgeführt wird.</xs:documentation>
+               <xs:documentation>Eine Alt-ID der Probennahmestelle, welche noch nicht dem neuen ID-Format entspricht, und aus Gründen der Kompatibilität und Nutzerfreundlichkeit mitgeführt wird.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="berichtspflichtig" minOccurs="0" type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Angabe ob Proben, welche an dieser Probennahmestelle entnommen wurden, für den Untersuchungsplan und den Sekoralen Bericht genutzt werden sollen.</xs:documentation>
+               <xs:documentation>Angabe, ob Proben, welche an dieser Probennahmestelle entnommen wurden, für den Untersuchungsplan und den sektoralen Bericht genutzt werden sollen.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
@@ -6419,7 +6450,7 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="probennehmerID" type="bn-uq-g2g:UUID">
             <xs:annotation>
-               <xs:documentation>UUID zur eindeutigen Identifikation eines Probennehmers in SHAPTH.</xs:documentation>
+               <xs:documentation>UUID zur nachrichtenübergreifenden eindeutigen Identifikation eines Probennehmers.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="probennehmer">
@@ -6430,7 +6461,7 @@ Untersuchungsplan</nameKurz>
                <xs:choice>
                   <xs:element name="organisation" type="xwas:OrganisationType">
                      <xs:annotation>
-                        <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z.B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Das Schema "Organisation" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Behörde oder natürliche Person handelt.</xs:documentation>
+                        <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z. B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Das Schema "Organisation" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Behörde oder natürliche Person handelt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="natuerlichePerson" type="xwas:NatuerlichePersonType">
@@ -6475,7 +6506,7 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="pruefberichtUUID" type="bn-uq-g2g:UUID">
             <xs:annotation>
-               <xs:documentation>UUID zur eindeutigen Identifikation eines Prüfberichts in SHAPTH.</xs:documentation>
+               <xs:documentation>UUID zur nachrichtenübergreifenden eindeutigen Identifikation eines Prüfberichts.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="vorgaengerPruefberichtID" minOccurs="0" type="bn-uq-g2g:UUID">
@@ -6505,14 +6536,14 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xwas:ProbennehmerType">
             <xs:annotation>
-               <xs:documentation>Informationen zu einem Probennehmer [Durch das Labor mit dem Prüfbericht mit zu übermittelnde Informationen].</xs:documentation>
+               <xs:documentation>Informationen zu einem Probennehmer [Informationen, die durch das Labor zusammen mit dem Prüfbericht zu übermitteln sind.].</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="pruefberichtEnthaeltTeilergebnisse"
                      minOccurs="0"
                      type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Ja ist auszuwählen, falls der Prüfbericht Teilergebnisse enthält. Z.B. bei der Meldung einer Grenzwertüberschreitung an ein Gesundheitsamt, bevor alle Parameter analysiert sind. Im Titel ist verpflichtend der Grund der Teilübermittlung mit anzugeben! Z.B. Korrektur oder Vorabübermittlung bei Grenzwertüberschreitung; Pflichtangabe falls nur Teilergebnisse, ohne Angabe wird angenommen, dass es ein vollständiger Prüfbericht ist. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Ja ist auszuwählen, falls der Prüfbericht Teilergebnisse enthält. z. B. bei der Meldung einer Grenzwertüberschreitung an ein Gesundheitsamt, bevor alle Parameter analysiert sind. Im Titel ist verpflichtend der Grund der Teilübermittlung mit anzugeben! z. B. Korrektur oder Vorabübermittlung bei Grenzwertüberschreitung; Pflichtangabe falls nur Teilergebnisse, ohne Angabe wird angenommen, dass es ein vollständiger Prüfbericht ist. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="korrekturvermerk" minOccurs="0" type="din91379:datatypeC">
@@ -6522,7 +6553,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="pruefberichtGemVorgabenAkkredition" type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Ja ist auszuwählen, falls der Prüfbericht alle Informationen enthält, welche die Akkreditierung fordert. z.B. Alle Angaben gem. DIN ISO 17025. Nein ist auszuwählen, falls nicht alle Angaben gemacht werden, z.B. für eine Eigenüberwachung die nicht alle Angaben erfordert.</xs:documentation>
+               <xs:documentation>Ja ist auszuwählen, falls der Prüfbericht alle Informationen enthält, welche die Akkreditierung fordert. z. B. Alle Angaben gem. DIN ISO 17025. Nein ist auszuwählen, falls nicht alle Angaben gemacht werden, z. B. für eine Eigenüberwachung, die nicht alle Angaben erfordert.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="titel" type="din91379:datatypeC">
@@ -6559,7 +6590,7 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Bei Beauftragung einer Untersuchung durch einen Betreiber (und nicht direkt durch eine Behörde) ist eine Freigabe des Ergebnisses vor Übermittlung an das Gesundheitsamt einzuholen. Falls diese der Untersuchungsstelle nicht vorliegt muss der Betreiber diese im Nachhinein in SHAPTH geben, damit das Prüfbericht an die zuständige Behörde übermittelt werden kann. Eine Freigabe durch eine vom Betreiber bevollmächtigte Person/Organisation ist zulässig. Ausnahme bei positivem Legionellenbefund bei systemischen Untersuchungen §31 TrinkwV (nicht bei Nachuntersuchungen); Hier muss die Untersuchungsstelle gem. §53 TrinkwV direkt dem Gesundheitsamt melden und somit keine Freigabe des Betreibers einholen; In diesem Fall wird bestätigt, dass der Betreiber der betroffenen Wasserversorgungsanlage und, sofern vorhanden, die in seinem Auftrag handelnde Person über das Erreichen des technischen Maßnahmenwerts informiert wurde.</xs:documentation>
+               <xs:documentation>Bei Beauftragung einer Untersuchung durch einen Betreiber (und nicht direkt durch eine Behörde) ist eine Freigabe des Ergebnisses vor Übermittlung an das Gesundheitsamt einzuholen. Falls diese der Untersuchungsstelle nicht vorliegt, muss der Betreiber diese im Nachhinein geben, damit das Prüfbericht an die zuständige Behörde übermittelt werden kann. Eine Freigabe durch eine vom Betreiber bevollmächtigte Person/Organisation ist zulässig. Ausnahme bei positivem Legionellenbefund bei systemischen Untersuchungen §31 TrinkwV (nicht bei Nachuntersuchungen); Hier muss die Untersuchungsstelle gem. §53 TrinkwV direkt dem Gesundheitsamt melden und somit keine Freigabe des Betreibers einholen; In diesem Fall wird bestätigt, dass der Betreiber der betroffenen Wasserversorgungsanlage und, sofern vorhanden, die in seinem Auftrag handelnde Person über das Erreichen des technischen Maßnahmenwerts informiert wurde.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="pruefberichtIDLabor" type="din91379:datatypeC">
@@ -6582,9 +6613,11 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Rechtliche Bestätigung, dass sich die Ergebnisse nur auf die geprüften, kalibrierten oder beprobten Gegenstände beziehen.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="zeitpunktUebermittlungAnSHAPTH" type="xs:dateTime">
+         <xs:element name="zeitpunktUebermittlungAnSHAPTH"
+                     minOccurs="0"
+                     type="xs:dateTime">
             <xs:annotation>
-               <xs:documentation>Zeitpunkt der Übermittlung an SHAPTH [Wird von SHAPTH automatisch eingetragen].</xs:documentation>
+               <xs:documentation>Zeitpunkt der Übermittlung des Prüfberichts.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
@@ -6630,7 +6663,7 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xs:IDREF">
             <xs:annotation>
-               <xs:documentation>Verweis auf ergänzende Dateien, z. B. Bilder oder PDFs um ergänzende Informationen zu einem Prüfbericht zu übermitteln.</xs:documentation>
+               <xs:documentation>Verweis auf ergänzende Dateien, z. B. Bilder oder pdf-Dateien, um ergänzende Informationen zu einem Prüfbericht zu übermitteln.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="erweiterung" minOccurs="0" type="xwas:ErweiterungType">
@@ -6655,7 +6688,7 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="qualityAndMonitoringRequirementIdentifier" type="bn-uq-g2g:UUID">
             <xs:annotation>
-               <xs:documentation>"Qualität und Überwachung ID": ID zur eindeutigen Identifikation einer Instanz der Klasse Qualität und Überwachung gem. dem Berichtsformat der EU ab 2023. Hinweis an Implementierende / Nachrichtenerzeuger: Als ID ist eine UUID zu nutzen!</xs:documentation>
+               <xs:documentation>UUID zur nachrichtenübergreifenden eindeutigen Identifikation einer Instanz der Klasse Qualität und Überwachung gem. dem Berichtsformat der EU ab 2023.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="parameterCode" type="xwas:Code.SHAPTH-ParameterType">
@@ -6767,7 +6800,7 @@ Untersuchungsplan</nameKurz>
          <xs:appinfo>
             <title>Signaturen</title>
          </xs:appinfo>
-         <xs:documentation>Sofern das Dokument signiert wurde findet sich hier eine Referenzliste auf die Signaturen. Diese sind ihrerseits wieder Dokumente, die auch als Dokumentelemente in der Nachricht zu finden sind.</xs:documentation>
+         <xs:documentation>Sofern das Dokument signiert wurde, findet sich hier eine Referenzliste auf die Signaturen. Diese sind ihrerseits wieder Dokumente, die auch als Dokumentelemente in der Nachricht zu finden sind.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="signaturDokumentID" maxOccurs="unbounded" type="xs:IDREF">
@@ -6842,7 +6875,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="probennahmestelle" minOccurs="0" type="xs:IDREF">
             <xs:annotation>
-               <xs:documentation>Eindeitige ID einer Probennahmestelle (sofern vorhanden). Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Eindeitige ID einer Probennahmestelle (sofern vorhanden). Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="datumZeitraum" maxOccurs="unbounded" type="xs:dateTime">
@@ -6853,14 +6886,14 @@ Untersuchungsplan</nameKurz>
          <xs:element name="probennahmestelleKategorie"
                      type="xwas:Code.KategorieProbennahmestelleType">
             <xs:annotation>
-               <xs:documentation>"Kategorie der Probennahmestelle an dem die Probe gezogen wird. In codierter Form ist für den jährlichen Trinkwasserbericht zu erfassen. W: Wasserwerk(sausgang), auch Rohwasser, dessen unveränderliche Parameter repräsentativ für das abgegebene Trinkwasser sind. N: Öffentliches Verteilungsnetz L: Übergabestelle Trinkwasser-Installation, z.B. Wasserzähler T: Häusliche Trinkwasserinstallation".</xs:documentation>
+               <xs:documentation>"Kategorie der Probennahmestelle an dem die Probe gezogen wird. In codierter Form ist für den jährlichen Trinkwasserbericht zu erfassen. W: Wasserwerk(sausgang), auch Rohwasser, dessen unveränderliche Parameter repräsentativ für das abgegebene Trinkwasser sind. N: Öffentliches Verteilungsnetz L: Übergabestelle Trinkwasser-Installation, z. B. Wasserzähler T: Häusliche Trinkwasserinstallation".</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="weitereBeschreibungDerProbennahmestelle"
                      minOccurs="0"
                      type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Weitere Beschreibung der Probennahmestelle. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Begingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Weitere Beschreibung der Probennahmestelle. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="untersuchungDurch"
@@ -6874,7 +6907,7 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Angabe wer die Untersuchung durchführt, z. B. Gesundheitsamt, Unternehmer oder sonstigen Inhaber einer Wasserversorgungsanlage (Usl) etc..</xs:documentation>
+               <xs:documentation>Angabe, wer die Untersuchung durchführt, z. B. Gesundheitsamt, Unternehmer oder sonstigen Inhaber einer Wasserversorgungsanlage (Usl) etc..</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="anlassDerUntersuchung"
@@ -6944,7 +6977,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="jahr" maxOccurs="unbounded" type="xwas:JahrType">
             <xs:annotation>
-               <xs:documentation>Das Jahr, oder die Jahre, für die der Untersuchungsplan erstellt wird. Den Plan für mehrere Jahre anzulegenen bietet bietet sich insbesondere für kleine WVA mit wenigen Proben an. Es sollten Gültigkeitszeiträume gewählt werden, die ganzzahlige Probennanzahlen für die Parameter der Gruppe B ergeben.</xs:documentation>
+               <xs:documentation>Das Jahr, oder die Jahre, für die der Untersuchungsplan erstellt wird. Den Plan für mehrere Jahre anzulegen bietet sich, insbesondere für kleine WVA mit wenigen Proben, an. Es sollten Gültigkeitszeiträume gewählt werden, die ganzzahlige Proben-Anzahlen für die Parameter der Gruppe B ergeben.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="wasserabgabeVorjahr" type="xs:double">
@@ -6954,7 +6987,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="artVonWVAundWVG" type="xwas:Code.WVAType">
             <xs:annotation>
-               <xs:documentation>"Dieser Eintrag hat Einfluss darauf, welche Parameter in den Messprogrammen automatisch zur Untersuchung markiert werden. Bei Anlagen mit 100 % Fremdbezug werden z.B. keine unveränderlichen Parameter markiert. 1: Eigenständige WVA (Versorgungsgebiet der WVA =WVG; Anlage mit eigener Wassergewinnung und Verteilung oder vollständig untersuchte WVA mit 100% Fremdbezug) 2: Fern-WVA ohne versorgte Gebiete (Teil des WVG) 3: Fern-WVA mit versorgten Gebieten (gesamtes WVG) 4: WVA mit 100 % Fremdbezug (Teil des WVG einer anderen WVA oder Fern-WVA)".</xs:documentation>
+               <xs:documentation>"Dieser Eintrag hat Einfluss darauf, welche Parameter in den Messprogrammen automatisch zur Untersuchung markiert werden. Bei Anlagen mit 100 % Fremdbezug werden z. B. keine unveränderlichen Parameter markiert. 1: Eigenständige WVA (Versorgungsgebiet der WVA =WVG; Anlage mit eigener Wassergewinnung und Verteilung oder vollständig untersuchte WVA mit 100% Fremdbezug) 2: Fern-WVA ohne versorgte Gebiete (Teil des WVG) 3: Fern-WVA mit versorgten Gebieten (gesamtes WVG) 4: WVA mit 100 % Fremdbezug (Teil des WVG einer anderen WVA oder Fern-WVA)".</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="erlaeuterungZurWasserabgabemenge"
@@ -7002,7 +7035,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="phWertWasserwerksausgang" type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Wenn der pH-Wert am Wassewerksausgang i.d.R. gt 7,7 ist, braucht der Parameter Calcitlösekapazität nicht untersucht werden.</xs:documentation>
+               <xs:documentation>Wenn der pH-Wert am Wasserwerksausgang i.d.R. gt 7,7 ist, braucht der Parameter Calcit-Lösekapazität nicht untersucht werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="wasserabgabeVorjahrProTag" type="xs:double">
@@ -7019,7 +7052,7 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="xs:integer">
             <xs:annotation>
-               <xs:documentation>Wenn das Gesundheitsamt eigene Untersuchungen nach §19 (1) und (7) durchführt, können diese auf den Umfang der Überwachung angerechnet werden. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handet es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
+               <xs:documentation>Wenn das Gesundheitsamt eigene Untersuchungen nach §19 (1) und (7) durchführt, können diese auf den Umfang der Überwachung angerechnet werden. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="anzahlUntersuchungenproJahrGruppeB" type="xs:integer">
@@ -7042,7 +7075,7 @@ Untersuchungsplan</nameKurz>
          <xs:element name="statusUntersuchungsplan"
                      type="xwas:Code.StatusUntersuchungsplanType">
             <xs:annotation>
-               <xs:documentation>Technischer Status des Untersuchungsplans auf SHAPTH und bildet nicht den fachlichen Status der Untersuchungen ab.</xs:documentation>
+               <xs:documentation>Technischer Status des Untersuchungsplans. Hinweis Der technische Status sagt nichts über den fachlichen Status der Untersuchungen aus.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
@@ -7062,7 +7095,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="auftraggeber" type="xwas:AuftraggeberType">
             <xs:annotation>
-               <xs:documentation>Hier werden die Angaben zum Auftraggeber übermitelt.</xs:documentation>
+               <xs:documentation>Hier werden die Angaben zum Auftraggeber übermittelt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="zustaendigeBehoerde" type="xwas:ZustaendigeBehoerdeType">
@@ -7092,14 +7125,14 @@ Untersuchungsplan</nameKurz>
    <xs:complexType name="VertreterBevollmaechtigterType">
       <xs:annotation>
          <xs:appinfo>
-            <title>Gesetzlicher Vertreter / Bevollmächtgter</title>
+            <title>Gesetzlicher Vertreter / Bevollmächtigter</title>
          </xs:appinfo>
          <xs:documentation>Mit diesem Datentyp wird ein gesetzlicher Vertreter oder ein Bevollmächtigter einer nichtnatürlichen Person abgebildet.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="vertreterBevollmaechtigterID" type="xs:IDREF">
             <xs:annotation>
-               <xs:documentation>ID-Verweis innerhalb des jeweiligen Kontextes auf ein Element NatuerlichePerson oder JuristischePerson(oder auf ein entsprechendes abgeleitetes Element) in der Rolle Vertreter/Bevollmächtgter.</xs:documentation>
+               <xs:documentation>ID-Verweis innerhalb des jeweiligen Kontextes auf ein Element NatuerlichePerson oder JuristischePerson (oder auf ein entsprechendes abgeleitetes Element) in der Rolle Vertreter/Bevollmächtigter.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="artVertreter" type="xwas:Code.VertretungsartType">
@@ -7119,7 +7152,7 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="kreis" minOccurs="0" type="xwas:Code.KreisType">
             <xs:annotation>
-               <xs:documentation>In Deutschland bezeichnet der Kreis eine bestimmt Region, einen Stadt- oder Landkreis. Die Bezeichnung eines Kreises erfolgt durch die Angabe eines Schlüssels zur Identifikation des Kreises innerhalb des Landes.</xs:documentation>
+               <xs:documentation>In Deutschland bezeichnet der Kreis eine bestimmte Region, einen Stadt- oder Landkreis. Die Bezeichnung eines Kreises erfolgt durch die Angabe eines Schlüssels zur Identifikation des Kreises innerhalb des Landes.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="bezirk" minOccurs="0" type="xwas:Code.BezirkType">
@@ -7134,7 +7167,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="gemeindeschluessel" minOccurs="0" type="xwas:Code.AGSType">
             <xs:annotation>
-               <xs:documentation>Ein Gemeindeschlüssel ist ein Schlüssel zur Identifikation einer Gemeinde oder sonstiger Gebietskörperschaften (Kreis, Bezirk, Bundesland). Anmerkung: In Deutschland ist der Amtliche Gemeindeschlüssel (AGS) als Gemeindeschlüssel 8-stellig und bundesweit gültig. Der AGS wird vom Statistischen Bundesamt herausgegeben. Empfohlene Codeliste(n): AGS (Amtllicher Gemeindeschlüssel - 8-stellig) Beispiel: 15352002 (Stadt Aschersleben)</xs:documentation>
+               <xs:documentation>Ein Gemeindeschlüssel ist ein Schlüssel zur Identifikation einer Gemeinde oder sonstiger Gebietskörperschaften (Kreis, Bezirk, Bundesland). Anmerkung: In Deutschland ist der Amtliche Gemeindeschlüssel (AGS) als Gemeindeschlüssel 8-stellig und bundesweit gültig. Der AGS wird vom Statistischen Bundesamt herausgegeben. Empfohlene Codeliste(n): AGS (Amtlicher Gemeindeschlüssel - 8-stellig) Beispiel: 15352002 (Stadt Aschersleben)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="regionalschluessel"
@@ -7240,7 +7273,7 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="xwas:GeokoordinatenSHAPTHType">
             <xs:annotation>
-               <xs:documentation>Klasse zur Abbildung von SHAPTH-spezifischen Geokoordinaten.</xs:documentation>
+               <xs:documentation>Angabe von Geokoordinaten.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="datumDerEinrichtung" type="xs:date">
@@ -7319,7 +7352,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="altID" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Eine Alt-ID des Wasserversorgungsgebiets, welche noch nicht dem neuen SHAPTH ID-Format entspricht, und aus Gründen der Kompatibilität und Nutzerfreundlichkeit mitgeführt wird.</xs:documentation>
+               <xs:documentation>Eine Alt-ID des Wasserversorgungsgebiets, welche noch nicht dem neuen ID-Format entspricht, und aus Gründen der Kompatibilität und Nutzerfreundlichkeit mitgeführt wird.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
@@ -7412,12 +7445,12 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="beginn" minOccurs="0" type="xs:date">
             <xs:annotation>
-               <xs:documentation>Der Beginn eines Zeitraums beschreibt den Zeitpunkt, ab dem ein Sachverhalt eintritt bzw. rechtskräftig wirksam ist. Der Beginn ist immer Teil der Dauer des Zeitraumes. Anmerkung: Bei der Ableitung von Fachkomponenten sollten zusätzliche Festlegungen getroffen werden wie der Beginn des Zeitraums zu interpretieren ist. z.B.: "Wird ein Monat als Beginn angegeben, dann gilt der erste Tag des Monats als Beginn des Zeitraums" Beispiel: identisch mit *Fristbeginn (BKA) *Wirksamkeitsdatum der Änderung des Familiennamens (Personenstand) *Eheschließungsdatum (Personenstand)</xs:documentation>
+               <xs:documentation>Der Beginn eines Zeitraums beschreibt den Zeitpunkt, ab dem ein Sachverhalt eintritt bzw. rechtskräftig wirksam ist. Der Beginn ist immer Teil der Dauer des Zeitraumes. Anmerkung: Bei der Ableitung von Fachkomponenten sollten zusätzliche Festlegungen getroffen werden wie der Beginn des Zeitraums zu interpretieren ist. z. B.: "Wird ein Monat als Beginn angegeben, dann gilt der erste Tag des Monats als Beginn des Zeitraums" Beispiel: identisch mit *Fristbeginn (BKA) *Wirksamkeitsdatum der Änderung des Familiennamens (Personenstand) *Eheschließungsdatum (Personenstand)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ende" minOccurs="0" type="xs:date">
             <xs:annotation>
-               <xs:documentation>Das Ende eines Zeitraumes beschreibt den Zeitpunkt, ab dem ein Sachverhalt endet bzw. nicht mehr rechtskräftig ist. Das Ende ist Teil der Dauer des Zeitraumes. Anmerkung: Bei der Ableitung von Fachkomponenten sollten zusätzliche Festlegungen getroffen werden wie das Ende des Zeitraums zu interpretieren ist. z.B.: "Wird ein Monat als Ende angegeben, dann gilt der letzte Tag des Monats als Ende des Zeitraums" Beispiel: identisch mit *Fristdatum (Bau) *Ablaufdatum (Finanz) *Faelligkeitsdatum (Finanz) *Wirksamkeitsdatum der Aufhebung/Scheidung der Ehe (Personenstand)</xs:documentation>
+               <xs:documentation>Das Ende eines Zeitraumes beschreibt den Zeitpunkt, ab dem ein Sachverhalt endet bzw. nicht mehr rechtskräftig ist. Das Ende ist Teil der Dauer des Zeitraumes. Anmerkung: Bei der Ableitung von Fachkomponenten sollten zusätzliche Festlegungen getroffen werden wie das Ende des Zeitraums zu interpretieren ist. z. B.: "Wird ein Monat als Ende angegeben, dann gilt der letzte Tag des Monats als Ende des Zeitraums" Beispiel: identisch mit *Fristdatum (Bau) *Ablaufdatum (Finanz) *Faelligkeitsdatum (Finanz) *Wirksamkeitsdatum der Aufhebung/Scheidung der Ehe (Personenstand)</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="zusatz" minOccurs="0" type="din91379:datatypeC">
@@ -7452,21 +7485,21 @@ Untersuchungsplan</nameKurz>
                            minOccurs="0"
                            type="xs:boolean">
                   <xs:annotation>
-                     <xs:documentation>Angabe ob die zugelassene Untersuchungsstelle für physikalisch, physikalisch- chemische, chemische Untersuchungen zugelassen ist.</xs:documentation>
+                     <xs:documentation>Angabe, ob die zugelassene Untersuchungsstelle für physikalisch, physikalisch- chemische, chemische Untersuchungen zugelassen ist.</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="pruefgebieteUntersuchungenMikrobio"
                            minOccurs="0"
                            type="xs:boolean">
                   <xs:annotation>
-                     <xs:documentation>Angabe ob die zugelassene Untersuchungsstelle für Mikrobiologische Untersuchungen zugelassen ist.</xs:documentation>
+                     <xs:documentation>Angabe, ob die zugelassene Untersuchungsstelle für Mikrobiologische Untersuchungen zugelassen ist.</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="pruefgebieteUntersuchungenRadionuklide"
                            minOccurs="0"
                            type="xs:boolean">
                   <xs:annotation>
-                     <xs:documentation>Angabe ob die zugelassene Untersuchungsstelle für Untersuchungen auf Radionuklide zugelassen ist.</xs:documentation>
+                     <xs:documentation>Angabe, ob die zugelassene Untersuchungsstelle für Untersuchungen auf Radionuklide zugelassen ist.</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="akkreditierungsnummer"
@@ -7502,7 +7535,7 @@ Untersuchungsplan</nameKurz>
                            maxOccurs="unbounded"
                            type="din91379:datatypeC">
                   <xs:annotation>
-                     <xs:documentation>Referenz zur eindeutigen Identifikation einer Anlagen nach TrinkwV.</xs:documentation>
+                     <xs:documentation>Referenz zur eindeutigen Identifikation einer Anlage nach TrinkwV.</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="laenderkuerzel" type="xwas:Code.LaenderkennzeichenType">
@@ -7797,7 +7830,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <ArtEntnahmearmatur>Eckventil</ArtEntnahmearmatur>
-                  <Beschreibung>Eckventil (mit Probenahmearmatur)</Beschreibung>
+                  <Beschreibung>Eckventil (mit Probennahmearmatur)</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -7836,8 +7869,8 @@ Untersuchungsplan</nameKurz>
          <xs:enumeration value="1170">
             <xs:annotation>
                <xs:appinfo>
-                  <ArtEntnahmearmatur>Probenahmearmaturen</ArtEntnahmearmatur>
-                  <Beschreibung>Probenahmearmaturen (gem. DIN 35860:2020-11 „Probenahmearmaturen in der Trinkwasserinstallation- Anforderungen und Prüfungen“); Entnahmeventil</Beschreibung>
+                  <ArtEntnahmearmatur>Probennahmearmaturen</ArtEntnahmearmatur>
+                  <Beschreibung>Probennahmearmaturen (gem. DIN 35860:2020-11 „Probennahmearmaturen in der Trinkwasserinstallation - Anforderungen und Prüfungen“); Entnahmeventil</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -7966,8 +7999,8 @@ Untersuchungsplan</nameKurz>
          <xs:enumeration value="1060">
             <xs:annotation>
                <xs:appinfo>
-                  <Art-Objekt>Campingplatz / Heim / Ferienlager oä.</Art-Objekt>
-                  <Beschreibung>Campingplatz / Heim / Ferienlager oä.</Beschreibung>
+                  <Art-Objekt>Campingplatz / Heim / Ferienlager o. ä.</Art-Objekt>
+                  <Beschreibung>Campingplatz / Heim / Ferienlager o. ä.</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -8054,16 +8087,16 @@ Untersuchungsplan</nameKurz>
          <xs:enumeration value="1170">
             <xs:annotation>
                <xs:appinfo>
-                  <Art-Objekt>Hochbehälter, Druckerhöhungsanlage o.ä.</Art-Objekt>
-                  <Beschreibung>Hochbehälter, Druckerhöhungsanlage o.ä.</Beschreibung>
+                  <Art-Objekt>Hochbehälter, Druckerhöhungsanlage o. ä.</Art-Objekt>
+                  <Beschreibung>Hochbehälter, Druckerhöhungsanlage o. ä.</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
          <xs:enumeration value="1180">
             <xs:annotation>
                <xs:appinfo>
-                  <Art-Objekt>Hotel / Gaststätte / Jugendherberge o.ä.</Art-Objekt>
-                  <Beschreibung>Hotel / Gaststätte / Jugendherberge o.ä.</Beschreibung>
+                  <Art-Objekt>Hotel / Gaststätte / Jugendherberge o. ä.</Art-Objekt>
+                  <Beschreibung>Hotel / Gaststätte / Jugendherberge o. ä.</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -8078,8 +8111,8 @@ Untersuchungsplan</nameKurz>
          <xs:enumeration value="1200">
             <xs:annotation>
                <xs:appinfo>
-                  <Art-Objekt>Kindertagesstätte, Kinderhort, oä.</Art-Objekt>
-                  <Beschreibung>Kindertagesstätte, Kinderhort, oä.</Beschreibung>
+                  <Art-Objekt>Kindertagesstätte, Kinderhort, o. ä.</Art-Objekt>
+                  <Beschreibung>Kindertagesstätte, Kinderhort, o. ä.</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -8214,8 +8247,8 @@ Untersuchungsplan</nameKurz>
          <xs:enumeration value="1370">
             <xs:annotation>
                <xs:appinfo>
-                  <Art-Objekt>Objekt in öffentlicher Hand (z.B. Behörden)</Art-Objekt>
-                  <Beschreibung>Objekt in öffentlicher Hand (z.B. Behörden)</Beschreibung>
+                  <Art-Objekt>Objekt in öffentlicher Hand (z. B. Behörden)</Art-Objekt>
+                  <Beschreibung>Objekt in öffentlicher Hand (z. B. Behörden)</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -8528,16 +8561,16 @@ Untersuchungsplan</nameKurz>
          <xs:enumeration value="1160">
             <xs:annotation>
                <xs:appinfo>
-                  <Art-Probennahmestelle>Probenahme unmittelbar nach Aufbereitung</Art-Probennahmestelle>
-                  <Beschreibung>Probenahmestelle unmittelbar nach der Aufbereitung</Beschreibung>
+                  <Art-Probennahmestelle>Probennahme unmittelbar nach Aufbereitung</Art-Probennahmestelle>
+                  <Beschreibung>Probennahmestelle unmittelbar nach der Aufbereitung</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
          <xs:enumeration value="1170">
             <xs:annotation>
                <xs:appinfo>
-                  <Art-Probennahmestelle>Probenahmearmaturen</Art-Probennahmestelle>
-                  <Beschreibung>Probenahmearmaturen (gem. DIN 35860:2020-11 „Probenahmearmaturen in der Trinkwasserinstallation - Anforderungen und Prüfungen“)</Beschreibung>
+                  <Art-Probennahmestelle>Probennahmearmaturen</Art-Probennahmestelle>
+                  <Beschreibung>Probennahmearmaturen (gem. DIN 35860:2020-11 „Probennahmearmaturen in der Trinkwasserinstallation - Anforderungen und Prüfungen“)</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -8659,11 +8692,11 @@ Untersuchungsplan</nameKurz>
       <xs:annotation>
          <xs:appinfo>
             <codeliste>
-               <nameLang>Art der Probennahmestelle gemäß EU Berichtsformat</nameLang>
+               <nameLang>Art der Probennahmestelle gemäß EU-Berichtsformat</nameLang>
                <nameKurz>Art der Probennahmestelle EU</nameKurz>
                <nameTechnisch>art-probennahmestelle-eu</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu</kennung>
-               <beschreibung>Mit dieser Codeliste wird im Rahman von XWasser die Art der Probennahmestelle gem. den neuen EU Vorgaben spezifiziert.</beschreibung>
+               <beschreibung>Mit dieser Codeliste wird im Rahman von XWasser die Art der Probennahmestelle gem. den neuen EU-Vorgaben spezifiziert.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -8726,7 +8759,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <Probennahmestelle>Häusliche Entnahmearmatur</Probennahmestelle>
-                  <Beschreibung>Entnahmearmatur (z.B. Wasserhahn) im Haushalt</Beschreibung>
+                  <Beschreibung>Entnahmearmatur (z. B. Wasserhahn) im Haushalt</Beschreibung>
                   <PointOfConplianceType>domesticTap</PointOfConplianceType>
                   <Description>Domestic tap </Description>
                </xs:appinfo>
@@ -8772,7 +8805,7 @@ Untersuchungsplan</nameKurz>
                <nameKurz>Art der Trinkwasseranlage</nameKurz>
                <nameTechnisch>art-trinkwasseranlage</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:art-trinkwasseranlage</kennung>
-               <beschreibung>Mit dieser Codeliste wird im Rahmen von XWassser die Art einee Trinkwasseranlage gem. TrinkwV beschrieben.</beschreibung>
+               <beschreibung>Mit dieser Codeliste wird im Rahmen von XWasser die Art einer Trinkwasseranlage gem. TrinkwV beschrieben.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -9198,7 +9231,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <Bewertung-Untersuchungswert>Abweichung der Norm (ohne definiertem Grenzwert)</Bewertung-Untersuchungswert>
-                  <Beschreibung>Abweichung von annehmbaren Werten bei Parametern ohne Grenzwert oder sonstige einzuhaltende Referenzwert, Maßnahmenwerte, o.ä.</Beschreibung>
+                  <Beschreibung>Abweichung von annehmbaren Werten bei Parametern ohne Grenzwert oder sonstige einzuhaltende Referenzwert, Maßnahmenwerte, o. ä.</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -9529,8 +9562,10 @@ Untersuchungsplan</nameKurz>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>1</version>
+               <version>2</version>
+               <datumGueltigkeitAb>2024-09-27</datumGueltigkeitAb>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+               <aenderungZurVorversion>Element 1040 hinzugefügt</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <Key>
@@ -9672,7 +9707,7 @@ Untersuchungsplan</nameKurz>
                <nameKurz>Grund der Ausnahmeregelung</nameKurz>
                <nameTechnisch>grund-ausnahmeregelung</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:grund-ausnahmeregelung</kennung>
-               <beschreibung>Mit dieser Codeliste werden im Kontext von XWasser die Gründen für eine Ausnahmeregelungen gem. den neuen Vorgaben für das EU Berichtsformat festgelegt.</beschreibung>
+               <beschreibung>Mit dieser Codeliste werden im Kontext von XWasser die Gründe für eine Ausnahmeregelung gem. den neuen Vorgaben für das EU-Berichtsformat festgelegt.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -9837,7 +9872,7 @@ Untersuchungsplan</nameKurz>
                <nameKurz>Incident Category</nameKurz>
                <nameTechnisch>incident-category</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:incident-category</kennung>
-               <beschreibung>Diese Codeliste definiert die Kategorien eines Vorfalls gem. den Vorgaben für das EU Berichtsformat.</beschreibung>
+               <beschreibung>Diese Codeliste definiert die Kategorien eines Vorfalls gem. den Vorgaben für das EU-Berichtsformat.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -9941,7 +9976,7 @@ Untersuchungsplan</nameKurz>
                <nameKurz>Incident Exceedance Cause</nameKurz>
                <nameTechnisch>incident-exceedance-cause</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:incident-exceedance-cause</kennung>
-               <beschreibung>Mit dieser Codeliste wird im Rahmen von XWasser die Ursache eines Überschreitungsvorfalls gem. den Vorgaben für das EU Berichtsformat definiert.</beschreibung>
+               <beschreibung>Mit dieser Codeliste wird im Rahmen von XWasser die Ursache eines Überschreitungsvorfalls gem. den Vorgaben für das EU-Berichtsformat definiert.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -10438,9 +10473,9 @@ Untersuchungsplan</nameKurz>
          <xs:enumeration value="1040">
             <xs:annotation>
                <xs:appinfo>
-                  <Massnahme>(zeitlich begrente) vermehrte/zusätzliche Überwachung/Nachbeprobung</Massnahme>
+                  <Massnahme>(zeitlich begrenzte) vermehrte/zusätzliche Überwachung/Nachbeprobung</Massnahme>
                   <UBA-Code>MÜ</UBA-Code>
-                  <Beschreibung>(zeitlich begrente) vermehrte/zusätzliche Überwachung/Nachbeprobung</Beschreibung>
+                  <Beschreibung>(zeitlich begrenzte) vermehrte/zusätzliche Überwachung/Nachbeprobung</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -10573,7 +10608,7 @@ Untersuchungsplan</nameKurz>
          <xs:enumeration value="1160">
             <xs:annotation>
                <xs:appinfo>
-                  <Massnahme>Notfallmaßnahmen zum Schutz der Gesundheit und Sicherheit des Verbrauchers: Bereitstellung einer alternativen zeitlich befristeten Trinkwasserversorgung (z.B. Flaschenwasser, Wasser in Containern, Tankwagen)</Massnahme>
+                  <Massnahme>Notfallmaßnahmen zum Schutz der Gesundheit und Sicherheit des Verbrauchers: Bereitstellung einer alternativen zeitlich befristeten Trinkwasserversorgung (z. B. Flaschenwasser, Wasser in Containern, Tankwagen)</Massnahme>
                   <UBA-Code>E2</UBA-Code>
                   <EU-Code>E2</EU-Code>
                   <Action>emergencyActionProvisionOfAlternativeSupply</Action>
@@ -13754,7 +13789,7 @@ Untersuchungsplan</nameKurz>
                <nameKurz>Probennahmeverfahren</nameKurz>
                <nameTechnisch>probennahmeverfahren</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:probennahmeverfahren</kennung>
-               <beschreibung>Diese Codeliste dient im Kontext von XWasser zur Angabe des Verfahrens mit dem eine Probe entnommen wird</beschreibung>
+               <beschreibung>Diese Codeliste dient im Kontext von XWasser zur Angabe des Verfahrens, mit dem eine Probe entnommen wird</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -13812,16 +13847,16 @@ Untersuchungsplan</nameKurz>
          <xs:enumeration value="1040">
             <xs:annotation>
                <xs:appinfo>
-                  <Probennahmeverfahren>DIN ISO 5667-5:2011-02 Anleitung zur Probenahme von Trinkwasser aus Aufbereitungsanlagen und Rohrnetzsystemen (ISO 5667-5:2006)</Probennahmeverfahren>
-                  <Beschreibung>DIN ISO 5667-5:2011-02 Wasserbeschaffenheit - Probenahme - Teil 5: Anleitung zur Probenahme von Trinkwasser aus Aufbereitungsanlagen und Rohrnetzsystemen (ISO 5667-5:2006)</Beschreibung>
+                  <Probennahmeverfahren>DIN ISO 5667-5:2011-02 Anleitung zur Probennahme von Trinkwasser aus Aufbereitungsanlagen und Rohrnetzsystemen (ISO 5667-5:2006)</Probennahmeverfahren>
+                  <Beschreibung>DIN ISO 5667-5:2011-02 Wasserbeschaffenheit - Probennahme - Teil 5: Anleitung zur Probennahme von Trinkwasser aus Aufbereitungsanlagen und Rohrnetzsystemen (ISO 5667-5:2006)</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
          <xs:enumeration value="1050">
             <xs:annotation>
                <xs:appinfo>
-                  <Probennahmeverfahren>Legionellenbeprobung gem. UBA Empfehlung 12-2018 in Ergänzung mit 09-12-2022</Probennahmeverfahren>
-                  <Beschreibung>gem. UBA Empfehlung 12-2018 "Systemische Untersuchungen von TrinkwasserInstallationen auf Legionellen nach Trinkwasserverordnung - Probennahme, Untersuchungsgang und Angabe des Ergebnisses " inkl. der Ergänzung vom 09.12.2022</Beschreibung>
+                  <Probennahmeverfahren>Legionellenbeprobung gem. UBA-Empfehlung 12-2018 in Ergänzung mit 09-12-2022</Probennahmeverfahren>
+                  <Beschreibung>gem. UBA-Empfehlung 12-2018 "Systemische Untersuchungen von TrinkwasserInstallationen auf Legionellen nach Trinkwasserverordnung - Probennahme, Untersuchungsgang und Angabe des Ergebnisses " inkl. der Ergänzung vom 09.12.2022</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -13837,7 +13872,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <Probennahmeverfahren>S0 (Fließwasserprobe bei Temperaturkonstanz)</Probennahmeverfahren>
-                  <Beschreibung>UBA Empfehlung: Probenahme nach Temperaturkonstanz, Ablaufwasser, Probenvolumen 1 L (gem. UBA-Empfehlung 12/2018, Beurteilung der Trinkwasserqualität hinsichtlich der Parameter Blei, Kupfer und Nickel („Probennahmeempfehlung“))</Beschreibung>
+                  <Beschreibung>UBA-Empfehlung: Probennahme nach Temperaturkonstanz, Ablaufwasser, Probenvolumen 1 L (gem. UBA-Empfehlung 12/2018, Beurteilung der Trinkwasserqualität hinsichtlich der Parameter Blei, Kupfer und Nickel („Probennahmeempfehlung“))</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -13845,7 +13880,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <Probennahmeverfahren>S1 (Stagnationsprobe nach 4h 1.Probe)</Probennahmeverfahren>
-                  <Beschreibung>UBA Empfehlung: Nach 4h Stagnationszeit ohne Wasserentnahme 1 L Probenvolumen (gem. UBA-Empfehlung 12/2018, Beurteilung der Trinkwasserqualität hinsichtlich der Parameter Blei, Kupfer und Nickel („Probennahmeempfehlung“))</Beschreibung>
+                  <Beschreibung>UBA-Empfehlung: Nach 4h Stagnationszeit ohne Wasserentnahme 1 L Probenvolumen (gem. UBA-Empfehlung 12/2018, Beurteilung der Trinkwasserqualität hinsichtlich der Parameter Blei, Kupfer und Nickel („Probennahmeempfehlung“))</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -13853,7 +13888,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <Probennahmeverfahren>S2 (Stagnationsprobe nach 4h 2.Probe)</Probennahmeverfahren>
-                  <Beschreibung>UBA Empfehlung: Nach 4h Stagnationszeit ohne Wasserentnahme 1 L Probenvolumen (gem. UBA-Empfehlung 12/2018, Beurteilung der Trinkwasserqualität hinsichtlich der Parameter Blei, Kupfer und Nickel („Probennahmeempfehlung“))</Beschreibung>
+                  <Beschreibung>UBA-Empfehlung: Nach 4h Stagnationszeit ohne Wasserentnahme 1 L Probenvolumen (gem. UBA-Empfehlung 12/2018, Beurteilung der Trinkwasserqualität hinsichtlich der Parameter Blei, Kupfer und Nickel („Probennahmeempfehlung“))</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -13869,7 +13904,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <Probennahmeverfahren>Zufallsstichprobe ohne Ablauf (Z-Probe)</Probennahmeverfahren>
-                  <Beschreibung>UBA Empfehlung: zu zufälliger Tageszeit ohne Vorlauf 1 L Probenvolumen (gem. UBA-Empfehlung 12/2018, Beurteilung der Trinkwasserqualität hinsichtlich der Parameter Blei, Kupfer und Nickel („Probennahmeempfehlung“))</Beschreibung>
+                  <Beschreibung>UBA-Empfehlung: zu zufälliger Tageszeit ohne Vorlauf 1 L Probenvolumen (gem. UBA-Empfehlung 12/2018, Beurteilung der Trinkwasserqualität hinsichtlich der Parameter Blei, Kupfer und Nickel („Probennahmeempfehlung“))</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -14041,7 +14076,7 @@ Untersuchungsplan</nameKurz>
                <nameKurz>SHAPTH Parameter Einheit</nameKurz>
                <nameTechnisch>shapth-parameter-einheit</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit</kennung>
-               <beschreibung>Mit dieser Codeliste wird im Kontext von XWassser die Einheit eines SHAPTH Parameters angegeben,</beschreibung>
+               <beschreibung>Mit dieser Codeliste wird im Kontext von XWasser die Einheit eines SHAPTH Parameters angegeben,</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
@@ -14885,13 +14920,15 @@ Untersuchungsplan</nameKurz>
                <nameKurz>Anlass der Untersuchung</nameKurz>
                <nameTechnisch>untersuchung-anlass</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:untersuchung-anlass</kennung>
-               <beschreibung>Mit dieser Codeliste wird im Kontext von XWasser der Anlasses einer Wasseruntersuchung definiert.</beschreibung>
+               <beschreibung>Mit dieser Codeliste wird im Kontext von XWasser der Anlass einer Wasseruntersuchung definiert.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>1</version>
+               <version>2</version>
+               <datumGueltigkeitAb>2024-09-27</datumGueltigkeitAb>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+               <aenderungZurVorversion>Beschreibung des Elements 1190 geändert, Untersuchungsanlass des Elements 1190 geändert</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <Key>
@@ -16971,7 +17008,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <Untersuchungsverfahren>DIN EN ISO 19458:2006-12</Untersuchungsverfahren>
-                  <Beschreibung>Probenahme für mikrobiologische Untersuchungen</Beschreibung>
+                  <Beschreibung>Probennahme für mikrobiologische Untersuchungen</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -17314,7 +17351,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <Untersuchungsverfahren>DIN ISO 5667-5:2011-02</Untersuchungsverfahren>
-                  <Beschreibung>Probenahme, Hinweise für Lebensmittelbetriebe</Beschreibung>
+                  <Beschreibung>Probennahme, Hinweise für Lebensmittelbetriebe</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -17330,7 +17367,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <Untersuchungsverfahren>Empfehlung UBA: Systemische Untersuchungen auf Legionellen 2018-12 und 2022-12</Untersuchungsverfahren>
-                  <Beschreibung>Systemische Untersuchung von Trinkwasser-Installationen auf Legionellen nach Trinkwasserverordnung - Probenahme, Untersuchungsgang und Angabe des Ergebnisses</Beschreibung>
+                  <Beschreibung>Systemische Untersuchung von Trinkwasser-Installationen auf Legionellen nach Trinkwasserverordnung - Probennahme, Untersuchungsgang und Angabe des Ergebnisses</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -17572,7 +17609,7 @@ Untersuchungsplan</nameKurz>
                <nameKurz>Kategorie des Vorfalls</nameKurz>
                <nameTechnisch>vorfallkategorie</nameTechnisch>
                <kennung>urn:xoev-de:xwasser:codeliste:vorfallkategorie</kennung>
-               <beschreibung>Mit dieser Codeliste wird im Kontext von XWassser dier Kategorie eines Vorfalls definiert.</beschreibung>
+               <beschreibung>Mit dieser Codeliste wird im Kontext von XWasser die Kategorie eines Vorfalls definiert.</beschreibung>
                <herausgebernameLang>XWasser</herausgebernameLang>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>

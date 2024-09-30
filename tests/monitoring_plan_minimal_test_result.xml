@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/ ../schemas/V0_5_3/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.5.3">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/ ../schemas/V0_6_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="H &amp; D GmbH" standard="XWasser" test="true" version="0.6.0">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
@@ -31,7 +31,7 @@
     <xwas:vorgangType>
       <xwas:untersuchungsplan id="untersuchungsplan1">
         <xwas:untersuchungsplanID>1234</xwas:untersuchungsplanID>
-        <xwas:wasserversorgungsgebiet>WVA</xwas:wasserversorgungsgebiet>
+        <xwas:wasserversorgungsgebiet>betreiber-1</xwas:wasserversorgungsgebiet>
         <xwas:jahr>2024</xwas:jahr>
         <xwas:wasserabgabeVorjahr>5000</xwas:wasserabgabeVorjahr>
         <xwas:artVonWVAundWVG listURI="urn:xoev-de:xwasser:codeliste:wva" listVersionID="1">
@@ -74,7 +74,7 @@
           <xwas:untersuchungDurch listURI="urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung" listVersionID="1">
             <code>1010</code>
           </xwas:untersuchungDurch>
-          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="1">
+          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
             <code>1010</code>
           </xwas:anlassDerUntersuchung>
           <xwas:zuUntersuchenderParameter>
@@ -85,8 +85,8 @@
             <xwas:parameterGruppe>g1</xwas:parameterGruppe>
             <xwas:veraenderlich>true</xwas:veraenderlich>
             <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRAP>true</xwas:reduzierbarDurchRAP>
-            <xwas:reduzierbarOhneRAP>true</xwas:reduzierbarOhneRAP>
+            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
+            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
             <xwas:bemerkung></xwas:bemerkung>
           </xwas:zuUntersuchenderParameter>
           <xwas:probennahmeverfahren listURI="urn:xoev-de:xwasser:codeliste:probennahmeverfahren" listVersionID="1">
@@ -125,7 +125,7 @@
               <xwas:trivialDerogation>true</xwas:trivialDerogation>
               <xwas:derogationUnderRecastDWD>true</xwas:derogationUnderRecastDWD>
               <xwas:derogationRemedialAction id="dra1">
-                <xwas:derogationRemedialActionIdentifier>derogationremedialactiontype1</xwas:derogationRemedialActionIdentifier>
+                <xwas:derogationRemedialActionIdentifier>B320C10A-82CE-462F-8879-DEAEA19CA0DC</xwas:derogationRemedialActionIdentifier>
                 <xwas:derogationRemedialAction listURI="urn:xoev-de:xwasser:codeliste:abhilfemassnahmen" listVersionID="1">
                   <code>1010</code>
                 </xwas:derogationRemedialAction>
@@ -259,8 +259,8 @@
             </xwas:rahmenDerTrinkwasserbereitstellung>
             <xwas:geokoordinatenObjekt>
             </xwas:geokoordinatenObjekt>
-            <xwas:betreiber>
-              <xwas:betreiberID>WVA</xwas:betreiberID>
+            <xwas:betreiber id="betreiber-1">
+              <xwas:betreiberID>41B7511E-8C10-42C6-AFA9-D1C59C0E1B75</xwas:betreiberID>
               <xwas:artDerPerson>
                 <xwas:organisation>
                   <xwas:anschrift id="anschrift2">
@@ -294,7 +294,7 @@
                     <code>1010</code>
                   </xwas:bewertungUntersuchungswert>
                 </xwas:analyseergebnisParameter>
-                <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="1">
+                <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
                   <code>1010</code>
                   <name>name</name>
                 </xwas:anlassDerUntersuchung>

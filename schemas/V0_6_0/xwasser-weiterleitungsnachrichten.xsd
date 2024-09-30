@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
            xmlns:bn-uq-g2g="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"
            xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
-           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
-           version="0.5.3"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+           version="0.6.0"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
    <xs:annotation>
@@ -17,7 +17,7 @@
             <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
          </standard>
          <versionStandard>
-            <version>0.5.3</version>
+            <version>0.6.0</version>
             <versionXOEVProfil>3.0.2</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -128,7 +128,7 @@
             <rechtsgrundlage>TrinkwV</rechtsgrundlage>
             <title>Nachricht bei ungeklärter Zuständigkeit</title>
          </xs:appinfo>
-         <xs:documentation>Mit dieser Nachticht teilt die absendende Stelle der den Prozess auslösenden Stelle mit, dass sie für den Sachverhalt nicht zuständig ist und ihr die aktuell zuständige Stelle nicht bekannt ist. Diese Nachricht ist nur in den Prozessen zu verwenden, in denen die Weiterleitung von Nachrichten zugelassen ist.</xs:documentation>
+         <xs:documentation>Mit dieser Nachricht teilt die absendende Stelle der den Prozess auslösenden Stelle mit, dass sie für den Sachverhalt nicht zuständig ist und ihr die aktuell zuständige Stelle nicht bekannt ist. Diese Nachricht ist nur in den Prozessen zu verwenden, in denen die Weiterleitung von Nachrichten zugelassen ist.</xs:documentation>
       </xs:annotation>
       <xs:complexType>
          <xs:complexContent>

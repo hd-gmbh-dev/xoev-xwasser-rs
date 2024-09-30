@@ -25,7 +25,7 @@ impl FromStr for ConstStr {
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
 // ))]
 // pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
 //     #[xml(name = b"code", ty = "child")]
@@ -46,7 +46,7 @@ impl FromStr for ConstStr {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
 ))]
 pub struct CodeBehoerdenkennungType {
     #[xml(name = b"code", ty = "child")]
@@ -63,7 +63,7 @@ pub struct CodeBehoerdenkennungType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_5_3/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
 ))]
 pub struct CodePersonenrolleType {
     #[xml(name = b"code", ty = "child")]
@@ -113,7 +113,7 @@ pub struct CodeAmtsspracheEuType;
 
 /// Type name: Code.AnlassUntersuchungType
 /// Mit dieser Codeliste wird im Kontext von XWasser der Anlasses einer Wasseruntersuchung definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:untersuchung-anlass", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:untersuchung-anlass", "2")]
 pub struct CodeAnlassUntersuchungType;
 
 /// Type name: Code.AnschrifttypType
@@ -231,7 +231,7 @@ pub struct CodeFlockungType;
 
 /// Type name: Code.GesamtbewertungType
 /// Diese Codeliste dient im Kontext von XWasser der Einschätzung, ob in einem Prüfbericht alle Werte in Ordnung waren oder es Auffälligkeiten/Mängel/Grenzwertüberschreitungen/… von mindestens einem Parameter gab.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:gesamtbewertung", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:gesamtbewertung", "2")]
 pub struct CodeGesamtbewertungType;
 
 /// Type name: Code.GeschlechtType
