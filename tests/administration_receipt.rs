@@ -9,6 +9,7 @@ fn administration_receipt() -> String {
     .unwrap()
 }
 
+#[cfg(feature = "schema")]
 fn administration_receipt_json() -> String {
     std::fs::read_to_string(
         std::env::current_dir()

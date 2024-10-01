@@ -6,6 +6,9 @@ use serde::{Deserialize, Serialize};
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 
+#[cfg(feature = "builder")]
+use typed_builder::TypedBuilder;
+
 use crate::model::codes::{
     CodeArtObjektType, CodeBetriebszustandType, CodeRahmenTrinkwasserbereitstellungType,
 };
@@ -42,6 +45,7 @@ pub enum ArtDerPerson {
 /// in Register zu pflegen].
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -62,6 +66,7 @@ pub struct BetreiberType {
 /// Klasse für den Transport von Informationen zu einem Objekt.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"

@@ -6,6 +6,9 @@ use serde::{Deserialize, Serialize};
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 
+#[cfg(feature = "builder")]
+use typed_builder::TypedBuilder;
+
 use crate::model::codes::{CodeRechtsformenType, CodeUntersuchungsstelleType};
 
 use super::{
@@ -20,6 +23,7 @@ use super::{
 /// Klasse für den Transport von Informationen zu einer zugelassenen Untersuchungsstelle.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -100,6 +104,7 @@ pub struct ZugelasseneUntersuchungsstelleType {
 /// für Zugelassene Untersuchungsstellen im Falle der Beauftragung einer Untersuchung.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"

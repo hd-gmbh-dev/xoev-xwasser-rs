@@ -8,6 +8,9 @@ use tsify::Tsify;
 #[cfg(feature = "wasm")]
 use wasm_bindgen::prelude::*;
 
+#[cfg(feature = "builder")]
+use typed_builder::TypedBuilder;
+
 use super::{
     codes::CodeStatusTechnischType, transport::NachrichtenkopfG2g, vorgang::IdentifikationVorgang,
 };
@@ -15,6 +18,7 @@ use super::{
 /// Mit dieser Nachricht wird eine Quittung transportiert. Diese wird durch jede Nachricht ausgelöst. Die ID der Quittungsnachricht wird im Feld nachrichtenkopf/identifikation.nachricht/nachrichtenUUID und die ID der Nachricht, die quittiert wird, wird im Feld nachrichtenkopf/referenzUUID abgelegt. Auf eine Nachricht vom Typ administration.quittung.0020 wird keine Antwort mehr übermittelt, auch keine weitere Quittungsnachricht.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(root = b"administration.quittung.0020")]
 #[xml(tns(
     b"xwas",
@@ -28,6 +32,7 @@ pub struct AdministrationQuittung0020 {
         value = "http://www.w3.org/2001/XMLSchema-instance"
     )]
     #[serde(skip)]
+    #[cfg_attr(feature = "builder", builder(default))]
     _xmlns_xsi: ConstStr,
     #[xml(
         ns = b"xsi",
@@ -36,6 +41,7 @@ pub struct AdministrationQuittung0020 {
         value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/ xwasser.xsd"
     )]
     #[serde(skip)]
+    #[cfg_attr(feature = "builder", builder(default))]
     schema_location: ConstStr,
     #[xml(
         ns = b"xmlns",
@@ -47,19 +53,20 @@ pub struct AdministrationQuittung0020 {
     _xmlns: ConstStr,
     #[xml(name = b"produkt", ty = "attr")]
     pub produkt: String,
-    #[xml(name = b"produkthersteller", ty = "attr", value = "H & D GmbH")]
-    #[serde(skip)]
-    _produkthersteller: ConstStr,
-    #[xml(name = b"produktversion", ty = "attr", value = "H & D GmbH")]
-    #[serde(skip)]
-    _produktversion: ConstStr,
+    #[xml(name = b"produkthersteller", ty = "attr")]
+    pub produkthersteller: String,
+    #[xml(name = b"produktversion", ty = "attr")]
+    pub produktversion: String,
     #[xml(name = b"standard", ty = "attr", value = "XWasser")]
     #[serde(skip)]
+    #[cfg_attr(feature = "builder", builder(default))]
     _standard: ConstStr,
     #[xml(name = b"test", ty = "attr")]
+    #[cfg_attr(feature = "builder", builder(default))]
     pub test: Option<bool>,
     #[xml(name = b"version", ty = "attr", value = "0.6.0")]
     #[serde(skip)]
+    #[cfg_attr(feature = "builder", builder(default))]
     _version: ConstStr,
 
     #[xml(name = b"nachrichtenkopf.g2g", ty = "child")]
@@ -76,6 +83,7 @@ pub struct AdministrationQuittung0020 {
 /// Dieses Objekt enthält Informationen zum technischen Prozessstatus, die zur Quittierung eingegangene Nachrichten dienen.
 #[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"

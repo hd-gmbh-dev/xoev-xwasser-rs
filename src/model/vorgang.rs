@@ -8,6 +8,9 @@ use tsify::Tsify;
 #[cfg(feature = "wasm")]
 use wasm_bindgen::prelude::*;
 
+#[cfg(feature = "builder")]
+use typed_builder::TypedBuilder;
+
 use super::{
     codes::CodeDokumenttypType, pruefbericht::PruefberichtType,
     shared::dokument::DokumentRepraesentationType,
@@ -16,6 +19,7 @@ use super::{
 
 #[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -30,6 +34,7 @@ pub struct IdentifikationVorgang {
 /// Dieser Datentyp enthält die Angaben zu einem Vorgang.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -49,6 +54,7 @@ pub struct Vorgang {
 /// Eine zum Antrag gehörige Unterlage in verschiedenen Dokumentendarstellungen, z. B. PDF oder eine Datendarstellung. Es muss immer das komplette Dokument mit allen Darstellungen übertragen werden.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"

@@ -42,11 +42,22 @@ pub fn xoev_xwasser_code(attr: TokenStream, item: TokenStream) -> TokenStream {
                 )]
                 _list_version_id: ConstStr,
             }
+
+
+            impl <S> From<S> for #name where S: Into<String> {
+                fn from(val: S) -> Self {
+                    Self {
+                        code: val.into(),
+                        ..Default::default()
+                    }
+                }
+            }
         }
     } else {
         quote! {
             #[derive(Clone, Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
             #[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+            #[cfg_attr(feature = "builder", derive(TypedBuilder))]
             #[xml(tns(
                 b"xwas",
                 b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -63,6 +74,7 @@ pub fn xoev_xwasser_code(attr: TokenStream, item: TokenStream) -> TokenStream {
                     ty = "attr",
                     value = #uri
                 )]
+                #[cfg_attr(feature = "builder", builder(default))]
                 _list_uri: ConstStr,
                 #[serde(skip)]
                 #[xml(
@@ -71,7 +83,17 @@ pub fn xoev_xwasser_code(attr: TokenStream, item: TokenStream) -> TokenStream {
                     ty = "attr",
                     value = ""
                 )]
+                #[cfg_attr(feature = "builder", builder(default))]
                 _list_version_id: ConstStr,
+            }
+
+            impl <S> From<S> for #name where S: Into<String> {
+                fn from(val: S) -> Self {
+                    Self {
+                        code: val.into(),
+                        ..Default::default()
+                    }
+                }
             }
         }
     }.into()
@@ -91,6 +113,7 @@ pub fn xoev_xwasser_code_with_version(attr: TokenStream, item: TokenStream) -> T
     quote! {
         #[derive(Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
         #[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+        #[cfg_attr(feature = "builder", derive(TypedBuilder))]
         #[xml(tns(
             b"xwas",
             b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -106,6 +129,7 @@ pub fn xoev_xwasser_code_with_version(attr: TokenStream, item: TokenStream) -> T
                 ty = "attr",
                 value = #uri
             )]
+            #[cfg_attr(feature = "builder", builder(default))]
             _list_uri: ConstStr,
             #[xml(
                 default,
@@ -113,6 +137,7 @@ pub fn xoev_xwasser_code_with_version(attr: TokenStream, item: TokenStream) -> T
                 ty = "attr",
                 value = #version
             )]
+            #[cfg_attr(feature = "builder", builder(default))]
             _list_version_id: ConstStr,
         }
     }.into()

@@ -6,6 +6,8 @@ pub mod model;
 pub mod schemas;
 #[cfg(feature = "wasm")]
 pub mod wasm;
+#[cfg(feature = "builder")]
+pub mod builder;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum Version {

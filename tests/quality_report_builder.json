@@ -1,0 +1,341 @@
+{
+  "produkt": "XWasser Test",
+  "produkthersteller": "H&D GmbH",
+  "produktversion": "0.600.0",
+  "test": true,
+  "nachrichtenkopf_g2g": {
+    "identifikation_nachricht": {
+      "nachrichten_uuid": "89d078f6-cf78-49ef-99b1-f1a0cdb1a25e",
+      "nachrichten_typ": {
+        "code": {
+          "code": "2010"
+        }
+      },
+      "erstellungszeitpunkt": "2024-10-01T15:56:37"
+    },
+    "leser": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "bwv:1",
+      "name": "wsp 1"
+    },
+    "autor": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "wus:1",
+      "name": "lab 1"
+    },
+    "referenz_uuid": null,
+    "dvdv_dienstkennung": "1"
+  },
+  "vorgang": {
+    "identifikation_vorgang": {
+      "vorgangs_id": "efab822f-2260-49ba-9bf3-94fd3364e899"
+    },
+    "vorgang_type": {
+      "t": "Pruefbericht",
+      "c": {
+        "pruefbericht_uuid": "cd0844c6-fda8-48a6-a4ae-4b9a8dac6ea3",
+        "vorgaenger_pruefbericht_id": null,
+        "auftragsnummer": "bf596e0f-bc11-44f6-8a42-c0ea0b98ad0c",
+        "probennahmestelle": [
+          {
+            "probennahmestelle_id": "d5f15c57-109e-4c89-a175-beabb5ec64ed",
+            "objekt_id": "none",
+            "probe": [
+              {
+                "probe_id": "7a05e448-2fc8-4288-ae9d-8696a13e7d3f",
+                "untersuchungsplan_id": null,
+                "probennehmer": null,
+                "analyseergebnis_parameter": [
+                  {
+                    "analyseergebnis_parameter_id": "9b2e1277-be35-445d-b943-93f8fb7e34b9",
+                    "anschrift_id": "anschrift-1",
+                    "zugelassene_untersuchungsstelle": "wsu-1",
+                    "akkreditierte_durchfuehrung_analyse": false,
+                    "untersuchungsverfahren": [
+                      {
+                        "code": "1010",
+                        "name": null
+                      }
+                    ],
+                    "ergaenzung_zum_untersuchungsverfahren": null,
+                    "untersuchter_parameter": {
+                      "code": "1021",
+                      "name": null
+                    },
+                    "parameterauspraegung": {
+                      "code": "1210",
+                      "name": null
+                    },
+                    "parameter_durch_betreiber_untersucht": false,
+                    "wurde_der_parameter_korrigiert": null,
+                    "parameter_unterauswahl": null,
+                    "untersuchungswert_parameter": 0.0,
+                    "einheit_des_untersuchungswerts": {
+                      "code": "1400",
+                      "name": null
+                    },
+                    "ergaenzung_zum_untersuchungswert_parameter": null,
+                    "parameterwert_ergaenzung": null,
+                    "ausgewertetes_ansatzvolumen": 0.0,
+                    "shapth_parameter_nummer": [],
+                    "bewertung_untersuchungswert": {
+                      "code": "1010",
+                      "name": null
+                    },
+                    "parameterauffaelligkeit": null,
+                    "messunsicherheit_untersuchungswert_absolut": null,
+                    "messunsicherheit_untersuchungswert_relativ": null,
+                    "bestimmungsgrenze_lo_q": "0.0",
+                    "kommentar": null,
+                    "id": "param-1"
+                  }
+                ],
+                "anlass_der_untersuchung": [
+                  {
+                    "code": "1010",
+                    "name": null
+                  }
+                ],
+                "medium": {
+                  "code": "1010",
+                  "name": null
+                },
+                "akkreditierte_durchfuehrung_der_probennahme": false,
+                "ergaenzung_zum_medium": null,
+                "zeitpunkt_probennahme": "2024-10-01T15:56:37",
+                "probennahmeverfahren": [
+                  {
+                    "code": "1010",
+                    "name": null
+                  }
+                ],
+                "probenentnahmegeraet": {
+                  "code": "9020",
+                  "name": null
+                },
+                "probengefaess": null,
+                "ergaenzende_informationen_zu_probenentnahmegeraet": null,
+                "desinfektion_probenentnahmegeraet_durchgefuehrt": null,
+                "konservierung_aufbereitung_desinfektion_probe": [],
+                "kommentar_zur_probennahme": null,
+                "informationen_zum_probentransport": null,
+                "eingang_probe_bei_untersuchungsstelle": "2024-10-01T15:56:37",
+                "beginn_labortaetigkeit_analytik": "2024-10-01T15:56:37",
+                "abschluss_labortaetigkeit_analytik": "2024-10-01T15:56:37",
+                "konformitaetsbewertung_der_probe": {
+                  "code": "1010",
+                  "name": null
+                },
+                "berichtspflichtig": null,
+                "von_probennehmer_vergebene_probe_id": "",
+                "angelieferte_probe": null,
+                "informationen_zur_angelieferten_probe": null,
+                "probe_id_aus_labor": "",
+                "anhang": [],
+                "kommentar": null,
+                "id": "probe-1"
+              }
+            ],
+            "terminplan_id": [],
+            "name_probennahmestelle": "",
+            "kategorie_probennahmestelle": {
+              "code": "L",
+              "name": null
+            },
+            "unterkategorie_probennahmestelle": {
+              "code": "1030",
+              "name": null
+            },
+            "art_der_entnahmearmatur": {
+              "code": "1010",
+              "name": null
+            },
+            "stockwerk_probennahmestelle": 0,
+            "medium_an_der_probennahmestelle": [
+              {
+                "code": "1010",
+                "name": null
+              }
+            ],
+            "desinfektion_und_aufbereitung_des_wassers": [],
+            "alt_id": null,
+            "berichtspflichtig": null,
+            "kommentar": null,
+            "id": "probennahmestelle-1"
+          }
+        ],
+        "name_beauftragte_untersuchungsstelle": {
+          "code": "09010",
+          "name": null
+        },
+        "probennehmer": [
+          {
+            "probennehmer_id": "b1dd651e-9a7c-4955-b8d0-0a9f0e2babb8",
+            "probennehmer": {
+              "t": "NatuerlichePerson",
+              "c": {
+                "auskunftssperre": [],
+                "name_natuerliche_person": null,
+                "familienstand": [],
+                "geburt": null,
+                "doktorgrad": null,
+                "staatsangehoerigkeit": [],
+                "ausweisdokument": [],
+                "anschrift": [],
+                "geschlecht": [],
+                "identifikationsnummer": [],
+                "kommunikation": [],
+                "muttersprache": [],
+                "fremdsprache": [],
+                "vertreter_bevollmaechtigter": [],
+                "id": null
+              }
+            },
+            "fremdsystem_id_probennehmer": null,
+            "kommentar": null,
+            "id": "probennehmer-1"
+          }
+        ],
+        "pruefbericht_enthaelt_teilergebnisse": false,
+        "korrekturvermerk": null,
+        "pruefbericht_gem_vorgaben_akkredition": false,
+        "titel": "Prüfbericht 1",
+        "gesamtbewertung": {
+          "code": "1010",
+          "name": null
+        },
+        "auffaelligkeiten": [],
+        "zeitpunkt_validierung_pruefbericht": "2024-10-01T15:56:37",
+        "fuer_validierung_verantwortliche_person": [
+          {
+            "auskunftssperre": [],
+            "name_natuerliche_person": null,
+            "familienstand": [],
+            "geburt": null,
+            "doktorgrad": null,
+            "staatsangehoerigkeit": [],
+            "ausweisdokument": [],
+            "anschrift": [],
+            "geschlecht": [],
+            "identifikationsnummer": [],
+            "kommunikation": [],
+            "muttersprache": [],
+            "fremdsprache": [],
+            "vertreter_bevollmaechtigter": [],
+            "id": "bevollmaechtigter-1"
+          }
+        ],
+        "freigabe_uebermittlung_betreiber": false,
+        "pruefbericht_id_labor": "",
+        "sw_version": "",
+        "sprache_pruefbericht": {
+          "code": "",
+          "name": null
+        },
+        "rechtlicher_disclaimer": "",
+        "zeitpunkt_uebermittlung_an_shapth": null,
+        "kommentar": null,
+        "auftraggeber": {
+          "auftraggeber_id": "",
+          "auftraggeberart": {
+            "code": "1010",
+            "name": null
+          },
+          "auftraggeber": {
+            "t": "Organisation",
+            "c": {
+              "id": null,
+              "rechtsform": null,
+              "branche": [],
+              "zweck": [],
+              "name": null,
+              "unterorganisation": [],
+              "kommunikation": [],
+              "registrierung": [],
+              "identifikation": [],
+              "existenzzeitraum": null,
+              "anschrift": []
+            }
+          }
+        },
+        "zustaendige_behoerde": [
+          {
+            "id": null,
+            "typ": null,
+            "zusatz": null,
+            "behoerdenkennung": null,
+            "kommunikation": [],
+            "behoerdenidentifikation": null,
+            "behoerdenname": null,
+            "nachgeordnete_behoerde": [],
+            "verwaltungspolitische_zustaendigkeit": [],
+            "anschrift": [],
+            "organisationsstruktur": [],
+            "anlage_nach_trinkw_vid": [],
+            "laenderkuerzel": {
+              "code": "DEBY",
+              "name": null
+            },
+            "kommentar": null
+          }
+        ],
+        "beauftragte_untersuchungsstelle": {
+          "id": "wsu-1",
+          "rechtsform": null,
+          "branche": [],
+          "zweck": [],
+          "name": null,
+          "unterorganisation": [],
+          "kommunikation": [],
+          "registrierung": [],
+          "identifikation": [],
+          "existenzzeitraum": null,
+          "anschrift": [],
+          "zugelassene_untersuchungsstelle_id": "",
+          "name_zugelassene_untersuchungsstelle": {
+            "code": "09010",
+            "name": null
+          },
+          "pruefgebiete_untersuchungen_phys_chem": null,
+          "pruefgebiete_untersuchungen_mikrobio": null,
+          "pruefgebiete_untersuchungen_radionuklide": null,
+          "akkreditierungsnummer": null,
+          "kommentar_zugelassene_untersuchungsstelle": null,
+          "kommentar_beauftragte_untersuchungsstelle": null
+        },
+        "zugelassene_untersuchungsstelle": [],
+        "ort_der_labortaetigkeiten": [
+          {
+            "strassenschluessel": null,
+            "strasse": null,
+            "hausnummer": null,
+            "postfach": null,
+            "postleitzahl": null,
+            "ort": null,
+            "ortsteil": null,
+            "ort_frueherer_gemeindename": null,
+            "wohnungsgeber": null,
+            "zusatz": null,
+            "typ": [],
+            "staat": null,
+            "verwaltungspolitische_kodierung": null,
+            "id": "anschrift-1"
+          }
+        ],
+        "anhang": [],
+        "erweiterung": null,
+        "id": "pruefbericht-1"
+      }
+    },
+    "bemerkung": null,
+    "anlage": []
+  }
+}

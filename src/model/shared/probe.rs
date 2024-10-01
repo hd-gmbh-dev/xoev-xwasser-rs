@@ -16,6 +16,9 @@ use crate::model::codes::{
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 
+#[cfg(feature = "builder")]
+use typed_builder::TypedBuilder;
+
 use super::{
     behoerde::ZustaendigeBehoerdeType, organisation::OrganisationType,
     person::NatuerlichePersonType,
@@ -45,6 +48,7 @@ pub enum Probennehmer {
 /// dem Prüfbericht mit zu übermittelnde Informationen].
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -65,6 +69,7 @@ pub struct ProbennehmerType {
 /// Klasse für den Transport von Informationen zu einer Probennahmestelle.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -114,6 +119,7 @@ pub struct ProbennahmestelleType {
 /// im Rahmen eines Prüfberichts via SHAPTH übermittelt wird.
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -210,6 +216,7 @@ pub struct ProbeType {
 
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"

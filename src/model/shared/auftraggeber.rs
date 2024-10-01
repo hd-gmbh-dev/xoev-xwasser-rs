@@ -6,6 +6,9 @@ use serde::{Deserialize, Serialize};
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 
+#[cfg(feature = "builder")]
+use typed_builder::TypedBuilder;
+
 use crate::model::codes::CodeAuftraggeberartType;
 
 use super::{
@@ -17,6 +20,7 @@ use super::{
 /// Informationen aus den Registern von Betreibern/Behörden].
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
