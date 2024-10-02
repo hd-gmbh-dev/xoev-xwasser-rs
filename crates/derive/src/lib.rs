@@ -15,7 +15,8 @@ pub fn xoev_xwasser_code(attr: TokenStream, item: TokenStream) -> TokenStream {
     if let Some(version) = iter.next() {
         quote! {
             #[derive(Clone, Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
-            #[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+            #[cfg_attr(feature = "wasm", derive(tsify_next::Tsify))]
+            #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
             #[xml(tns(
                 b"xwas",
                 b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -56,7 +57,8 @@ pub fn xoev_xwasser_code(attr: TokenStream, item: TokenStream) -> TokenStream {
     } else {
         quote! {
             #[derive(Clone, Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
-            #[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+            #[cfg_attr(feature = "wasm", derive(tsify_next::Tsify))]
+            #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
             #[cfg_attr(feature = "builder", derive(TypedBuilder))]
             #[xml(tns(
                 b"xwas",
@@ -112,7 +114,8 @@ pub fn xoev_xwasser_code_with_version(attr: TokenStream, item: TokenStream) -> T
     let name = ast.ident;
     quote! {
         #[derive(Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
-        #[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+        #[cfg_attr(feature = "wasm", derive(tsify_next::Tsify))]
+        #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
         #[cfg_attr(feature = "builder", derive(TypedBuilder))]
         #[xml(tns(
             b"xwas",
@@ -129,6 +132,7 @@ pub fn xoev_xwasser_code_with_version(attr: TokenStream, item: TokenStream) -> T
                 ty = "attr",
                 value = #uri
             )]
+            #[serde(skip)]
             #[cfg_attr(feature = "builder", builder(default))]
             _list_uri: ConstStr,
             #[xml(
@@ -137,6 +141,7 @@ pub fn xoev_xwasser_code_with_version(attr: TokenStream, item: TokenStream) -> T
                 ty = "attr",
                 value = #version
             )]
+            #[serde(skip)]
             #[cfg_attr(feature = "builder", builder(default))]
             _list_version_id: ConstStr,
         }

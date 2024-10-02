@@ -4,7 +4,7 @@ use raxb::{value::ConstStr, XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
 #[cfg(feature = "wasm")]
-use tsify::Tsify;
+use tsify_next::Tsify;
 #[cfg(feature = "wasm")]
 use wasm_bindgen::prelude::*;
 
@@ -15,6 +15,7 @@ use super::vorgang::Vorgang;
 
 #[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 pub struct Code {
     #[xml(ty = "text", default)]
@@ -32,6 +33,7 @@ impl From<&str> for Code {
 
 #[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 pub struct NachrichtenkopfG2g {
     #[xml(name = b"identifikation.nachricht", ty = "child")]
@@ -48,6 +50,7 @@ pub struct NachrichtenkopfG2g {
 
 #[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 pub struct IdentifikationNachricht {
     #[xml(name = b"nachrichtenUUID", ty = "child")]
@@ -60,6 +63,7 @@ pub struct IdentifikationNachricht {
 
 #[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 pub struct NachrichtenTyp {
     #[xml(
@@ -82,6 +86,7 @@ pub struct NachrichtenTyp {
 
 #[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 pub struct BehoerdeG2GType {
     #[xml(name = b"verzeichnisdienst", ty = "child")]
@@ -94,6 +99,7 @@ pub struct BehoerdeG2GType {
 
 #[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 pub struct Verzeichnisdienst {
     #[xml(name = b"listVersionID", ty = "attr", value = "")]

@@ -43,10 +43,10 @@ keywords.workspace = true
 crate-type = ["cdylib", "rlib"]
 
 [features]
-default = []
+default = ["wasm", "builder"]
 trace = []
-builder = ["dep:typed-builder", "dep:uuid", "dep:chrono"]
-wasm = ["dep:wasm-bindgen", "dep:serde-wasm-bindgen", "dep:tsify", "dep:uuid", "uuid/js"]
+builder = ["dep:typed-builder", "dep:uuid", "dep:chrono", "dep:strum", "dep:strum_macros", "dep:tiny_id", "dep:once_cell"]
+wasm = ["dep:wasm-bindgen", "dep:serde-wasm-bindgen", "dep:tsify-next", "dep:uuid", "uuid/js"]
 schema = [
     "dep:rust-embed",
     "dep:raxb-validate",
@@ -62,12 +62,16 @@ raxb = { workspace = true, features = ["trace"] }
 raxb-validate = { workspace = true, optional = true }
 raxb-xmlschema = { workspace = true, optional = true }
 wasm-bindgen = { version = "0.2.93", optional = true }
-serde-wasm-bindgen = { version = "0.5.0", optional = true }
-tsify = { version = "0.4.5", features = ["js"], optional = true }
+serde-wasm-bindgen = { version = "0.6", optional = true }
+tsify-next = { version= "0.5.4", default-features = false, features = ["js"], optional = true }
 serde = { version = "1.0.210", features = ["derive"] }
 typed-builder = { version = "0.20.0", optional = true }
+once_cell = { version = "1.20.1", optional = true }
 uuid = { version = "1.10.0", features = ["v4"], optional = true }
 chrono = { version = "0.4.38", optional = true }
+strum = { version = "0.26", optional = true }
+strum_macros = { version = "0.26", optional = true }
+tiny_id = { version = "0.1.6", features = ["js"], optional = true }
 
 [build-dependencies]
 anyhow.workspace = true

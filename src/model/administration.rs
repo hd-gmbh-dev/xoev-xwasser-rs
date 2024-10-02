@@ -4,7 +4,7 @@ use raxb::{value::ConstStr, XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
 #[cfg(feature = "wasm")]
-use tsify::Tsify;
+use tsify_next::Tsify;
 #[cfg(feature = "wasm")]
 use wasm_bindgen::prelude::*;
 
@@ -17,7 +17,8 @@ use super::{
 
 /// Mit dieser Nachricht wird eine Quittung transportiert. Diese wird durch jede Nachricht ausgelöst. Die ID der Quittungsnachricht wird im Feld nachrichtenkopf/identifikation.nachricht/nachrichtenUUID und die ID der Nachricht, die quittiert wird, wird im Feld nachrichtenkopf/referenzUUID abgelegt. Auf eine Nachricht vom Typ administration.quittung.0020 wird keine Antwort mehr übermittelt, auch keine weitere Quittungsnachricht.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
-#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(root = b"administration.quittung.0020")]
 #[xml(tns(
@@ -83,6 +84,7 @@ pub struct AdministrationQuittung0020 {
 /// Dieses Objekt enthält Informationen zum technischen Prozessstatus, die zur Quittierung eingegangene Nachrichten dienen.
 #[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",

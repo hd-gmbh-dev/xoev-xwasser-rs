@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 use crate::model::codes::CodeSpracheType;
 
 #[cfg(feature = "wasm")]
-use tsify::Tsify;
+use tsify_next::Tsify;
 
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
@@ -14,6 +14,7 @@ use typed_builder::TypedBuilder;
 /// Unter "Sprache" werden Informationen über Sprachen zusammengefasst.
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",

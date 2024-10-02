@@ -4,7 +4,7 @@ use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
 #[cfg(feature = "wasm")]
-use tsify::Tsify;
+use tsify_next::Tsify;
 
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
@@ -23,6 +23,7 @@ use super::{
 /// Klasse für den Transport von Informationen zu einer zugelassenen Untersuchungsstelle.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
@@ -88,12 +89,6 @@ pub struct ZugelasseneUntersuchungsstelleType {
     pub akkreditierungsnummer: Option<String>,
     #[xml(
         ns = b"xwas",
-        name = b"kommentarBeauftragteUntersuchungsstelle",
-        ty = "child"
-    )]
-    pub kommentar_beauftragte_untersuchungsstelle: Option<String>,
-    #[xml(
-        ns = b"xwas",
         name = b"kommentarZugelasseneUntersuchungsstelle",
         ty = "child"
     )]
@@ -104,6 +99,7 @@ pub struct ZugelasseneUntersuchungsstelleType {
 /// für Zugelassene Untersuchungsstellen im Falle der Beauftragung einer Untersuchung.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",

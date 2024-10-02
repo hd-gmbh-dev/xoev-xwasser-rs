@@ -1,16 +1,15 @@
 #[cfg(feature = "builder")]
 #[test]
 fn test_quality_report_builder() -> anyhow::Result<()> {
-    use xoev_xwasser::{builder::utils::{new_uuid, now}, model::{pruefbericht::PruefberichtType, shared::{anschrift::AnschriftType, auftraggeber::{Auftraggeber, AuftraggeberType}, behoerde::ZustaendigeBehoerdeType, organisation::OrganisationType, person::NatuerlichePersonType, probe::{AnalyseergebnisParameterType, ProbeType, ProbennahmestelleType, Probennehmer, ProbennehmerType}, unterssuchungsstelle::BeauftragteUntersuchungsstelleType}, transport::{NachrichtenkopfG2g, VorgangTransportieren2010}, vorgang::{IdentifikationVorgang, Vorgang}}};
-
-    let identifikation_nachricht = xoev_xwasser::builder::transport::identifikation_nachricht("2010");
+    use xoev_xwasser::{builder::{shared::anschrift::anschrift_type, transport::NachrichtenTypEnum, utils::{new_uuid, now}}, model::{pruefbericht::PruefberichtType, shared::{auftraggeber::{Auftraggeber, AuftraggeberType}, behoerde::ZustaendigeBehoerdeType, organisation::OrganisationType, person::NatuerlichePersonType, probe::{AnalyseergebnisParameterType, ProbeType, ProbennahmestelleType, Probennehmer, ProbennehmerType}, unterssuchungsstelle::BeauftragteUntersuchungsstelleType}, transport::{NachrichtenkopfG2g, VorgangTransportieren2010}, vorgang::{IdentifikationVorgang, Vorgang}}};
+    let identifikation_nachricht = xoev_xwasser::builder::transport::identifikation_nachricht(NachrichtenTypEnum::VorgangTransportieren2010);
 
     // whp -> Wasserhygieneportal
     // ghb -> Gesundheitsbehörde
     // bwv -> Betreiber Wasserversorgungsanlage
     // wus -> Wasseruntersuchungsstelle
-    let autor = xoev_xwasser::builder::transport::autor("lab 1", "wus:1");
-    let leser = xoev_xwasser::builder::transport::leser("wsp 1", "bwv:1");
+    let autor = xoev_xwasser::builder::transport::behoerde_g2g_type("lab 1", "wus:1");
+    let leser = xoev_xwasser::builder::transport::behoerde_g2g_type("wsp 1", "bwv:1");
 
     let fuer_validierung_verantwortliche_person = NatuerlichePersonType::builder()
         .auskunftssperre(Default::default())
@@ -218,22 +217,12 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .kommentar_beauftragte_untersuchungsstelle(Default::default())
         .build();
 
-    let ort_der_labortaetigkeiten = AnschriftType::builder()
-        .strassenschluessel(Default::default())
-        .strasse(Default::default())
-        .hausnummer(Default::default())
-        .postfach(Default::default())
-        .postleitzahl(Default::default())
-        .ort(Default::default())
-        .ortsteil(Default::default())
-        .ort_frueherer_gemeindename(Default::default())
-        .wohnungsgeber(Default::default())
-        .zusatz(Default::default())
-        .typ(Default::default())
-        .staat(Default::default())
-        .verwaltungspolitische_kodierung(Default::default())
-        .id("anschrift-1".into())
-        .build();
+    let ort_der_labortaetigkeiten = anschrift_type(
+    "strasse".into(),
+    "hausnummer".into(),
+    "postleitzahl".into(),
+    "ort".into()
+    );
 
     let pruefbericht =  PruefberichtType::builder()
         .pruefbericht_uuid(new_uuid())
