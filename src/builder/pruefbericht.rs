@@ -6,7 +6,7 @@ use crate::{builder::{shared::untersuchungsstelle::UntersuchungsstelleDetails, u
 #[cfg(feature = "wasm")]
 use wasm_bindgen::prelude::*;
 
-use super::shared::{behoerde::zustaendige_behoerde_type, organisation::organisation_type, person::natuerliche_person_type, untersuchungsstelle::beauftragte_untersuchungsstelle_type};
+use super::shared::{organisation::organisation_type, person::natuerliche_person_type, probe::probennehmer_type, untersuchungsstelle::beauftragte_untersuchungsstelle_type};
 
 // #[cfg(feature = "wasm")]
 // use tsify_next::Tsify;
@@ -16,15 +16,15 @@ pub fn pruefbericht_type(sw_version: String, id: Option<String>, context: String
     PruefberichtType::builder()
         .pruefbericht_uuid(id.unwrap_or_else(new_uuid))
         .vorgaenger_pruefbericht_id(Default::default())
-        .auftragsnummer(Default::default())
+        .auftragsnummer(new_uuid())
         .probennahmestelle(Default::default())
         .name_beauftragte_untersuchungsstelle("09010".into())
-        .probennehmer(Default::default())
+        .probennehmer(vec![probennehmer_type()])
         .pruefbericht_enthaelt_teilergebnisse(Default::default())
         .korrekturvermerk(Default::default())
         .pruefbericht_gem_vorgaben_akkredition(Default::default())
         .titel("Prüfbericht Titel".into())
-        .gesamtbewertung(Default::default())
+        .gesamtbewertung("1010".into())
         .auffaelligkeiten(Default::default())
         .zeitpunkt_validierung_pruefbericht(now())
         .fuer_validierung_verantwortliche_person(vec![

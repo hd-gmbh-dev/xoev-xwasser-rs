@@ -106,7 +106,7 @@ pub fn analyseergebnis_parameter_type(
         .parameterwert_ergaenzung(Default::default())
         .ausgewertetes_ansatzvolumen(Some(0.0))
         .shapth_parameter_nummer(Default::default())
-        .bewertung_untersuchungswert(Default::default())
+        .bewertung_untersuchungswert("1010".into())
         .parameterauffaelligkeit(Default::default())
         .messunsicherheit_untersuchungswert_absolut(Default::default())
         .messunsicherheit_untersuchungswert_relativ(Default::default())
