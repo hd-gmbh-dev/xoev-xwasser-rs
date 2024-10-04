@@ -1,7 +1,10 @@
-use crate::model::transport::{BehoerdeG2GType, Code, IdentifikationNachricht, NachrichtenTyp, Verzeichnisdienst};
-use serde::{Deserialize, Serialize};
-use strum_macros::{EnumString, Display};
 use super::utils::{new_uuid, now};
+use crate::model::transport::{
+    BehoerdeG2GType, Code, IdentifikationNachricht, NachrichtenTyp, NachrichtenkopfG2g,
+    Verzeichnisdienst,
+};
+use serde::{Deserialize, Serialize};
+use strum_macros::{Display, EnumString};
 
 #[cfg(feature = "wasm")]
 use wasm_bindgen::prelude::*;
@@ -9,7 +12,10 @@ use wasm_bindgen::prelude::*;
 #[cfg(feature = "wasm")]
 use tsify_next::Tsify;
 
-pub fn behoerde_g2g_type<S1: Into<String>, S2: Into<String>>(name: S1, kennung: S2) -> BehoerdeG2GType {
+pub fn behoerde_g2g_type<S1: Into<String>, S2: Into<String>>(
+    name: S1,
+    kennung: S2,
+) -> BehoerdeG2GType {
     BehoerdeG2GType::builder()
         .name(name.into())
         .kennung(kennung.into())
@@ -18,10 +24,23 @@ pub fn behoerde_g2g_type<S1: Into<String>, S2: Into<String>>(name: S1, kennung: 
 }
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
+pub fn nachrichtenkopf_g2g(typ: NachrichtenTypEnum) -> NachrichtenkopfG2g {
+    NachrichtenkopfG2g::builder()
+        .identifikation_nachricht(identifikation_nachricht(typ))
+        .leser(behoerde_g2g_type("", ""))
+        .autor(behoerde_g2g_type("", ""))
+        .referenz_uuid(Default::default())
+        .dvdv_dienstkennung(Default::default())
+        .build()
+}
+
+#[cfg_attr(feature = "wasm", wasm_bindgen)]
 pub fn identifikation_nachricht(typ: NachrichtenTypEnum) -> IdentifikationNachricht {
-    let nachrichten_typ = NachrichtenTyp::builder().code(Code {
-        code: typ.to_string(),
-    }).build();
+    let nachrichten_typ = NachrichtenTyp::builder()
+        .code(Code {
+            code: typ.to_string(),
+        })
+        .build();
     IdentifikationNachricht::builder()
         .nachrichten_typ(Some(nachrichten_typ))
         .erstellungszeitpunkt(Some(now()))

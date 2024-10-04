@@ -1,4 +1,7 @@
-use crate::{builder::utils::new_id, model::shared::organisation::{Name, NameOrganisationType, OrganisationType}};
+use crate::{
+    builder::utils::new_id,
+    model::shared::organisation::{Name, NameOrganisationType, OrganisationType},
+};
 
 // use serde::{Deserialize, Serialize};
 
@@ -12,7 +15,10 @@ use super::zeitraum::zeitraum_type;
 // use tsify_next::Tsify;
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
-pub fn name_organisation_type(name: Option<String>, kurzbezeichnung: Option<String>) -> NameOrganisationType {
+pub fn name_organisation_type(
+    name: Option<String>,
+    kurzbezeichnung: Option<String>,
+) -> NameOrganisationType {
     NameOrganisationType::builder()
         .name(Some(Name::builder().text(name).build()))
         .kurzbezeichnung(Some(kurzbezeichnung.unwrap_or_default()))

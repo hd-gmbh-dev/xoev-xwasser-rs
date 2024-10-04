@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "88b1ebf6-927a-4e1c-a877-f0e8b2eeeb08",
+      "nachrichten_uuid": "51c91167-a736-4f1a-876d-e7e3bff5172d",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2024-10-02T09:11:49"
+      "erstellungszeitpunkt": "2024-10-02T16:53:21"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -36,26 +36,26 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "23980f27-f892-4105-b420-5769cc966d09"
+      "vorgangs_id": "124dc566-a1dd-429b-a31a-2b2e10250818"
     },
     "vorgang_type": {
       "t": "Pruefbericht",
       "c": {
-        "pruefbericht_uuid": "a42fb2ab-85d9-4cb7-9702-1178dcb5ca80",
+        "pruefbericht_uuid": "6edecf80-44ec-4160-b204-dd6befeb974c",
         "vorgaenger_pruefbericht_id": null,
-        "auftragsnummer": "fbcf560a-d366-43a7-8c32-cc4e57120df9",
+        "auftragsnummer": "06ccef38-f831-4585-9afe-6299d725a6bb",
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "129e5398-f45e-4be7-8dab-4e6412e8160e",
+            "probennahmestelle_id": "33f120ed-b617-4933-b934-6ac5760f5195",
             "objekt_id": "none",
             "probe": [
               {
-                "probe_id": "465a761f-5846-4e1a-aa71-b084d11dacbf",
+                "probe_id": "f9f55613-9e9f-414f-a28c-f48de53ea6c8",
                 "untersuchungsplan_id": null,
                 "probennehmer": null,
                 "analyseergebnis_parameter": [
                   {
-                    "analyseergebnis_parameter_id": "a96f100c-e785-4d83-b452-18860f155426",
+                    "analyseergebnis_parameter_id": "3d4cb18c-fdc4-4a97-bd14-d29df20f346f",
                     "anschrift_id": "anschrift-1",
                     "zugelassene_untersuchungsstelle": "wsu-1",
                     "akkreditierte_durchfuehrung_analyse": false,
@@ -110,7 +110,7 @@
                 },
                 "akkreditierte_durchfuehrung_der_probennahme": false,
                 "ergaenzung_zum_medium": null,
-                "zeitpunkt_probennahme": "2024-10-02T09:11:49",
+                "zeitpunkt_probennahme": "2024-10-02T16:53:21",
                 "probennahmeverfahren": [
                   {
                     "code": "1010",
@@ -127,9 +127,9 @@
                 "konservierung_aufbereitung_desinfektion_probe": [],
                 "kommentar_zur_probennahme": null,
                 "informationen_zum_probentransport": null,
-                "eingang_probe_bei_untersuchungsstelle": "2024-10-02T09:11:49",
-                "beginn_labortaetigkeit_analytik": "2024-10-02T09:11:49",
-                "abschluss_labortaetigkeit_analytik": "2024-10-02T09:11:49",
+                "eingang_probe_bei_untersuchungsstelle": "2024-10-02T16:53:21",
+                "beginn_labortaetigkeit_analytik": "2024-10-02T16:53:21",
+                "abschluss_labortaetigkeit_analytik": "2024-10-02T16:53:21",
                 "konformitaetsbewertung_der_probe": {
                   "code": "1010",
                   "name": null
@@ -178,7 +178,7 @@
         },
         "probennehmer": [
           {
-            "probennehmer_id": "bd462ef3-d10c-486e-bd35-dcbc5fd89b80",
+            "probennehmer_id": "ff5ac8eb-e6dd-4431-8304-e728dcb09a0a",
             "probennehmer": {
               "t": "NatuerlichePerson",
               "c": {
@@ -213,7 +213,7 @@
           "name": null
         },
         "auffaelligkeiten": [],
-        "zeitpunkt_validierung_pruefbericht": "2024-10-02T09:11:49",
+        "zeitpunkt_validierung_pruefbericht": "2024-10-02T16:53:21",
         "fuer_validierung_verantwortliche_person": [
           {
             "auskunftssperre": [],
@@ -315,11 +315,11 @@
         "ort_der_labortaetigkeiten": [
           {
             "strassenschluessel": null,
-            "strasse": null,
-            "hausnummer": null,
+            "strasse": "strasse",
+            "hausnummer": "hausnummer",
             "postfach": null,
-            "postleitzahl": null,
-            "ort": null,
+            "postleitzahl": "postleitzahl",
+            "ort": "ort",
             "ortsteil": null,
             "ort_frueherer_gemeindename": null,
             "wohnungsgeber": null,
@@ -327,7 +327,7 @@
             "typ": [],
             "staat": null,
             "verwaltungspolitische_kodierung": null,
-            "id": "anschrift-1"
+            "id": "anschrift-91Ox6TXk"
           }
         ],
         "anhang": [],

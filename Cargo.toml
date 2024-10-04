@@ -46,7 +46,7 @@ crate-type = ["cdylib", "rlib"]
 default = ["wasm", "builder"]
 trace = []
 builder = ["dep:typed-builder", "dep:uuid", "dep:chrono", "dep:strum", "dep:strum_macros", "dep:tiny_id", "dep:once_cell"]
-wasm = ["dep:wasm-bindgen", "dep:serde-wasm-bindgen", "dep:tsify-next", "dep:uuid", "uuid/js"]
+wasm = ["dep:wasm-bindgen", "dep:serde-wasm-bindgen", "dep:tsify-next", "dep:uuid", "uuid/js", "tiny_id/js"]
 schema = [
     "dep:rust-embed",
     "dep:raxb-validate",
@@ -71,7 +71,7 @@ uuid = { version = "1.10.0", features = ["v4"], optional = true }
 chrono = { version = "0.4.38", optional = true }
 strum = { version = "0.26", optional = true }
 strum_macros = { version = "0.26", optional = true }
-tiny_id = { version = "0.1.6", features = ["js"], optional = true }
+tiny_id = { version = "0.1.6", features = [], optional = true }
 
 [build-dependencies]
 anyhow.workspace = true

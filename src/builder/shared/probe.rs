@@ -1,4 +1,10 @@
-use crate::{builder::utils::{new_id, new_uuid, now}, model::shared::probe::{AnalyseergebnisParameterType, ProbeType, ProbennahmestelleType, Probennehmer, ProbennehmerType}};
+use crate::{
+    builder::utils::{new_id, new_uuid, now},
+    model::shared::probe::{
+        AnalyseergebnisParameterType, ProbeType, ProbennahmestelleType, Probennehmer,
+        ProbennehmerType,
+    },
+};
 
 // use serde::{Deserialize, Serialize};
 
@@ -16,7 +22,10 @@ pub fn probennehmer_type() -> ProbennehmerType {
     ProbennehmerType::builder()
         .id(format!("probennehmer-{}", new_id()))
         .probennehmer_id(new_uuid())
-        .probennehmer(Probennehmer::NatuerlichePerson(natuerliche_person_type("".into(), "".into())))
+        .probennehmer(Probennehmer::NatuerlichePerson(natuerliche_person_type(
+            "".into(),
+            "".into(),
+        )))
         .fremdsystem_id_probennehmer(Default::default())
         .kommentar(Default::default())
         .build()
@@ -35,9 +44,7 @@ pub fn probennahmestelle_type(name: String) -> ProbennahmestelleType {
         .unterkategorie_probennahmestelle("1030".into())
         .art_der_entnahmearmatur("1010".into())
         .stockwerk_probennahmestelle(Some(0))
-        .medium_an_der_probennahmestelle(vec![
-            "1010".into()
-        ])
+        .medium_an_der_probennahmestelle(vec!["1010".into()])
         .desinfektion_und_aufbereitung_des_wassers(Default::default())
         .alt_id(Default::default())
         .berichtspflichtig(Default::default())
@@ -91,9 +98,7 @@ pub fn analyseergebnis_parameter_type(
         .anschrift_id(anschrift_id)
         .zugelassene_untersuchungsstelle(zugelassene_untersuchungsstelle)
         .akkreditierte_durchfuehrung_analyse(Default::default())
-        .untersuchungsverfahren(vec![
-            "1010".into()
-        ])
+        .untersuchungsverfahren(vec!["1010".into()])
         .ergaenzung_zum_untersuchungsverfahren(Default::default())
         .untersuchter_parameter("1021".into())
         .parameterauspraegung(Default::default())

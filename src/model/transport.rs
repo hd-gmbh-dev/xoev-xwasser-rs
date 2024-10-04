@@ -26,7 +26,7 @@ pub struct Code {
 impl From<&str> for Code {
     fn from(value: &str) -> Self {
         Self {
-            code: value.to_string()
+            code: value.to_string(),
         }
     }
 }

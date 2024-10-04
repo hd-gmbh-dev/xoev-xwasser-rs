@@ -1,4 +1,10 @@
-use crate::{builder::utils::new_id, model::shared::{behoerde::{BehoerdenkennungType, ZustaendigeBehoerdeType}, xoev::XWasserXoevCode}};
+use crate::{
+    builder::utils::new_id,
+    model::shared::{
+        behoerde::{BehoerdenkennungType, ZustaendigeBehoerdeType},
+        xoev::XWasserXoevCode,
+    },
+};
 
 // use serde::{Deserialize, Serialize};
 
@@ -12,19 +18,18 @@ use super::{misc::identifikation_type, organisation::name_organisation_type};
 // use tsify_next::Tsify;
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
-pub fn zustaendige_behoerde_type(
-    laenderkuerzel: String,
-) -> ZustaendigeBehoerdeType {
+pub fn zustaendige_behoerde_type(laenderkuerzel: String) -> ZustaendigeBehoerdeType {
     ZustaendigeBehoerdeType::builder()
         .id(format!("behoerde-{}", new_id()).into())
-        .typ(Some(XWasserXoevCode::builder()
-            .code("".into())
-            .build()))
+        .typ(Some(XWasserXoevCode::builder().code("".into()).build()))
         .zusatz(Default::default())
-        .behoerdenkennung(BehoerdenkennungType::builder()
-            .kennung(Default::default())
-            .praefix(Default::default())
-            .build().into())
+        .behoerdenkennung(
+            BehoerdenkennungType::builder()
+                .kennung(Default::default())
+                .praefix(Default::default())
+                .build()
+                .into(),
+        )
         .kommunikation(Default::default())
         .behoerdenidentifikation(Some(identifikation_type()))
         .behoerdenname(Some(name_organisation_type(None, None)))

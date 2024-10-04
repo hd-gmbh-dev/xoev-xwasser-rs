@@ -1,13 +1,13 @@
 use raxb::quick_xml::events::Event;
 
+#[cfg(feature = "builder")]
+pub mod builder;
 pub mod model;
 #[cfg(not(feature = "wasm"))]
 #[cfg(feature = "schema")]
 pub mod schemas;
 #[cfg(feature = "wasm")]
 pub mod wasm;
-#[cfg(feature = "builder")]
-pub mod builder;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum Version {

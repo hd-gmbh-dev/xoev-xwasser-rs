@@ -1,4 +1,6 @@
-use crate::model::shared::person::{AllgemeinerNameType, NameNatuerlichePersonType, NatuerlichePersonType};
+use crate::model::shared::person::{
+    AllgemeinerNameType, NameNatuerlichePersonType, NatuerlichePersonType,
+};
 
 // use serde::{Deserialize, Serialize};
 
@@ -20,10 +22,7 @@ pub fn allgemeiner_name_type(name: String) -> AllgemeinerNameType {
 }
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
-pub fn natuerliche_person_type(
-    vorname: String,
-    familienname: String,
-) -> NatuerlichePersonType {
+pub fn natuerliche_person_type(vorname: String, familienname: String) -> NatuerlichePersonType {
     let vorname = allgemeiner_name_type(vorname);
     let familienname = allgemeiner_name_type(familienname);
     let name_natuerliche_person = NameNatuerlichePersonType::builder()

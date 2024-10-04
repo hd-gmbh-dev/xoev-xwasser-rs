@@ -1,8 +1,32 @@
 #[cfg(feature = "builder")]
 #[test]
 fn test_quality_report_builder() -> anyhow::Result<()> {
-    use xoev_xwasser::{builder::{shared::anschrift::anschrift_type, transport::NachrichtenTypEnum, utils::{new_uuid, now}}, model::{pruefbericht::PruefberichtType, shared::{auftraggeber::{Auftraggeber, AuftraggeberType}, behoerde::ZustaendigeBehoerdeType, organisation::OrganisationType, person::NatuerlichePersonType, probe::{AnalyseergebnisParameterType, ProbeType, ProbennahmestelleType, Probennehmer, ProbennehmerType}, unterssuchungsstelle::BeauftragteUntersuchungsstelleType}, transport::{NachrichtenkopfG2g, VorgangTransportieren2010}, vorgang::{IdentifikationVorgang, Vorgang}}};
-    let identifikation_nachricht = xoev_xwasser::builder::transport::identifikation_nachricht(NachrichtenTypEnum::VorgangTransportieren2010);
+    use xoev_xwasser::{
+        builder::{
+            shared::anschrift::anschrift_type,
+            transport::NachrichtenTypEnum,
+            utils::{new_uuid, now},
+        },
+        model::{
+            pruefbericht::PruefberichtType,
+            shared::{
+                auftraggeber::{Auftraggeber, AuftraggeberType},
+                behoerde::ZustaendigeBehoerdeType,
+                organisation::OrganisationType,
+                person::NatuerlichePersonType,
+                probe::{
+                    AnalyseergebnisParameterType, ProbeType, ProbennahmestelleType, Probennehmer,
+                    ProbennehmerType,
+                },
+                unterssuchungsstelle::BeauftragteUntersuchungsstelleType,
+            },
+            transport::{NachrichtenkopfG2g, VorgangTransportieren2010},
+            vorgang::{IdentifikationVorgang, Vorgang},
+        },
+    };
+    let identifikation_nachricht = xoev_xwasser::builder::transport::identifikation_nachricht(
+        NachrichtenTypEnum::VorgangTransportieren2010,
+    );
 
     // whp -> Wasserhygieneportal
     // ghb -> Gesundheitsbehörde
@@ -46,7 +70,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
             .fremdsprache(Default::default())
             .vertreter_bevollmaechtigter(Default::default())
             .id(Default::default())
-        .build()
+            .build(),
     );
 
     let probennehmer = ProbennehmerType::builder()
@@ -74,9 +98,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .anschrift_id("anschrift-1".into())
         .zugelassene_untersuchungsstelle("wsu-1".into())
         .akkreditierte_durchfuehrung_analyse(Default::default())
-        .untersuchungsverfahren(vec![
-            "1010".into()
-        ])
+        .untersuchungsverfahren(vec!["1010".into()])
         .ergaenzung_zum_untersuchungsverfahren(Default::default())
         .untersuchter_parameter("1021".into())
         .parameterauspraegung(Some("1210".into()))
@@ -102,19 +124,13 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .probe_id(new_uuid())
         .untersuchungsplan_id(Default::default())
         .probennehmer(Default::default())
-        .analyseergebnis_parameter(vec![
-            param
-        ])
-        .anlass_der_untersuchung(vec![
-            "1010".into()
-        ])
+        .analyseergebnis_parameter(vec![param])
+        .anlass_der_untersuchung(vec!["1010".into()])
         .medium(Some("1010".into()))
         .akkreditierte_durchfuehrung_der_probennahme(Default::default())
         .ergaenzung_zum_medium(Default::default())
         .zeitpunkt_probennahme(now())
-        .probennahmeverfahren(vec![
-            "1010".into()
-        ])
+        .probennahmeverfahren(vec!["1010".into()])
         .probenentnahmegeraet(Some("9020".into()))
         .probengefaess(Default::default())
         .ergaenzende_informationen_zu_probenentnahmegeraet(Default::default())
@@ -139,18 +155,14 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     let probennahmestelle = ProbennahmestelleType::builder()
         .probennahmestelle_id(new_uuid())
         .objekt_id("none".into())
-        .probe(vec![
-            probe
-        ])
+        .probe(vec![probe])
         .terminplan_id(Default::default())
         .name_probennahmestelle(Default::default())
         .kategorie_probennahmestelle("L".into())
         .unterkategorie_probennahmestelle("1030".into())
         .art_der_entnahmearmatur("1010".into())
         .stockwerk_probennahmestelle(0.into())
-        .medium_an_der_probennahmestelle(vec![
-            "1010".into()
-        ])
+        .medium_an_der_probennahmestelle(vec!["1010".into()])
         .desinfektion_und_aufbereitung_des_wassers(Default::default())
         .alt_id(None)
         .berichtspflichtig(Default::default())
@@ -158,19 +170,21 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .id("probennahmestelle-1".into())
         .build();
 
-    let auftraggeber = Auftraggeber::Organisation(OrganisationType::builder()
-        .id(Default::default())
-        .rechtsform(Default::default())
-        .branche(Default::default())
-        .zweck(Default::default())
-        .name(Default::default())
-        .unterorganisation(Default::default())
-        .kommunikation(Default::default())
-        .registrierung(Default::default())
-        .identifikation(Default::default())
-        .existenzzeitraum(Default::default())
-        .anschrift(Default::default())
-        .build());
+    let auftraggeber = Auftraggeber::Organisation(
+        OrganisationType::builder()
+            .id(Default::default())
+            .rechtsform(Default::default())
+            .branche(Default::default())
+            .zweck(Default::default())
+            .name(Default::default())
+            .unterorganisation(Default::default())
+            .kommunikation(Default::default())
+            .registrierung(Default::default())
+            .identifikation(Default::default())
+            .existenzzeitraum(Default::default())
+            .anschrift(Default::default())
+            .build(),
+    );
 
     let auftraggeber = AuftraggeberType::builder()
         .auftraggeber_id(Default::default())
@@ -218,23 +232,19 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .build();
 
     let ort_der_labortaetigkeiten = anschrift_type(
-    "strasse".into(),
-    "hausnummer".into(),
-    "postleitzahl".into(),
-    "ort".into()
+        "strasse".into(),
+        "hausnummer".into(),
+        "postleitzahl".into(),
+        "ort".into(),
     );
 
-    let pruefbericht =  PruefberichtType::builder()
+    let pruefbericht = PruefberichtType::builder()
         .pruefbericht_uuid(new_uuid())
         .vorgaenger_pruefbericht_id(None)
         .auftragsnummer(new_uuid())
-        .probennahmestelle(vec![
-            probennahmestelle,
-        ])
+        .probennahmestelle(vec![probennahmestelle])
         .name_beauftragte_untersuchungsstelle("09010".into())
-        .probennehmer(vec![
-            probennehmer,
-        ])
+        .probennehmer(vec![probennehmer])
         .pruefbericht_enthaelt_teilergebnisse(Default::default())
         .korrekturvermerk(Default::default())
         .pruefbericht_gem_vorgaben_akkredition(Default::default())
@@ -242,9 +252,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .gesamtbewertung("1010".into())
         .auffaelligkeiten(Default::default())
         .zeitpunkt_validierung_pruefbericht(now())
-        .fuer_validierung_verantwortliche_person(vec![
-            fuer_validierung_verantwortliche_person
-        ])
+        .fuer_validierung_verantwortliche_person(vec![fuer_validierung_verantwortliche_person])
         .freigabe_uebermittlung_betreiber(Default::default())
         .pruefbericht_id_labor(Default::default())
         .sw_version(Default::default())
@@ -253,14 +261,10 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .zeitpunkt_uebermittlung_an_shapth(Default::default())
         .kommentar(Default::default())
         .auftraggeber(auftraggeber)
-        .zustaendige_behoerde(vec![
-            zustaendige_behoerde
-        ])
+        .zustaendige_behoerde(vec![zustaendige_behoerde])
         .beauftragte_untersuchungsstelle(beauftragte_untersuchungsstelle)
         .zugelassene_untersuchungsstelle(Default::default())
-        .ort_der_labortaetigkeiten(vec![
-            ort_der_labortaetigkeiten,
-        ])
+        .ort_der_labortaetigkeiten(vec![ort_der_labortaetigkeiten])
         .anhang(Default::default())
         .erweiterung(Default::default())
         .id("pruefbericht-1".into())
@@ -272,12 +276,15 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .produktversion("0.600.0".into())
         .test(Some(true))
         .nachrichtenkopf_g2g(nachrichtenkopf_g2g)
-        .vorgang(Vorgang::builder()
-            .anlage(Default::default())
-            .bemerkung(None)
-            .identifikation_vorgang(identifikation_vorgang)
-            .vorgang_type(xoev_xwasser::model::vorgang::VorgangType::Pruefbericht(pruefbericht))
-            .build()
+        .vorgang(
+            Vorgang::builder()
+                .anlage(Default::default())
+                .bemerkung(None)
+                .identifikation_vorgang(identifikation_vorgang)
+                .vorgang_type(xoev_xwasser::model::vorgang::VorgangType::Pruefbericht(
+                    pruefbericht,
+                ))
+                .build(),
         )
         .build();
 
@@ -288,7 +295,6 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/ ../schemas/V0_6_0/xwasser.xsd""#))?;
     Ok(())
 }
-
 
 #[cfg(feature = "schema")]
 fn quality_report_builder_test_result() -> String {
