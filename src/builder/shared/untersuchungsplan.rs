@@ -2,26 +2,33 @@
 use wasm_bindgen::prelude::*;
 
 use crate::{
-    builder::utils::{new_id, new_uuid},
-    model::shared::untersuchungsplan::*,
+    builder::utils::{new_id, new_uuid, now, today},
+    model::shared::{auftraggeber::AuftraggeberType, untersuchungsplan::*},
+};
+
+use super::{
+    behoerde::{behoerde_type, zustaendige_behoerde_type},
+    betreiber::objekt_type,
+    organisation::organisation_type,
 };
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
 pub fn untersuchungsplan_type() -> UntersuchungsplanType {
-    UntersuchungsplanType::builder()
+    let zustaendige_behoerde = zustaendige_behoerde_type("DEBY".to_string());
+    let mut result = UntersuchungsplanType::builder()
         .untersuchungsplan_id(new_uuid())
         .wasserversorgungsgebiet(Default::default())
-        .jahr(Default::default())
+        .jahr(vec![2024, 2025])
         .wasserabgabe_vorjahr(Default::default())
-        .art_von_wva_und_wvg(Default::default())
-        .erlaeuterung_zur_wasserabgabemenge(Default::default())
-        .flockung(Default::default())
+        .art_von_wva_und_wvg("1010".into())
+        .erlaeuterung_zur_wasserabgabemenge("1010".into())
+        .flockung("1010".into())
         .oberflaechenwassereinfluss(Default::default())
-        .desinfektion_durchgefuehrt_mit(Default::default())
+        .desinfektion_durchgefuehrt_mit("1010".into())
         .abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen(Default::default())
-        .acrylamid(Default::default())
-        .epichlorhydrin(Default::default())
-        .vinylchlorid(Default::default())
+        .acrylamid("1010".into())
+        .epichlorhydrin("1010".into())
+        .vinylchlorid("1010".into())
         .ph_wert_wasserwerksausgang(Default::default())
         .wasserabgabe_vorjahr_pro_tag(Default::default())
         .anzahl_untersuchungen_pro_jahr_gruppe_a(Default::default())
@@ -29,16 +36,37 @@ pub fn untersuchungsplan_type() -> UntersuchungsplanType {
         .anzahl_untersuchungenpro_jahr_gruppe_b(Default::default())
         .abzudecken_durch_betreiber_gruppe_b(Default::default())
         .rap_durchgefuehrt(Default::default())
-        .status_untersuchungsplan(Default::default())
+        .status_untersuchungsplan("1010".into())
         .kommentar(Default::default())
-        .terminplan(Default::default())
-        .anlage_nach_trinkw_v(Default::default())
-        .auftraggeber(Default::default())
-        .zustaendige_behoerde(Default::default())
+        .terminplan(vec![terminplan_type()])
+        .anlage_nach_trinkw_v(anlage_nach_trinkw_v_type(
+            zustaendige_behoerde.id.as_ref().unwrap().to_owned(),
+        ))
+        .auftraggeber(
+            AuftraggeberType::builder()
+                .auftraggeber_id(Default::default())
+                .auftraggeberart("1010".into())
+                .auftraggeber(
+                    crate::model::shared::auftraggeber::Auftraggeber::Organisation(
+                        organisation_type(),
+                    ),
+                )
+                .build(),
+        )
+        .zustaendige_behoerde(zustaendige_behoerde)
         .aenderungshistorie(Default::default())
         .erweiterung(Default::default())
         .id(format!("untersuchungsplan-{}", new_id()))
-        .build()
+        .build();
+    let wvg = result
+        .anlage_nach_trinkw_v
+        .wasserversorgungsgebiet
+        .first()
+        .unwrap()
+        .id
+        .clone();
+    result.wasserversorgungsgebiet = vec![wvg];
+    result
 }
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
@@ -46,13 +74,13 @@ pub fn terminplan_type() -> TerminplanType {
     TerminplanType::builder()
         .terminplan_id(new_uuid())
         .probennahmestelle(Default::default())
-        .datum_zeitraum(Default::default())
-        .probennahmestelle_kategorie(Default::default())
+        .datum_zeitraum(vec![now()])
+        .probennahmestelle_kategorie("L".into())
         .weitere_beschreibung_der_probennahmestelle(Default::default())
-        .untersuchung_durch(Default::default())
+        .untersuchung_durch(vec!["1010".into()])
         .untersuchung_durch_erlaeuterung(Default::default())
         .anlass_der_untersuchung(Default::default())
-        .zu_untersuchender_parameter(Default::default())
+        .zu_untersuchender_parameter(vec![parameterangaben_type()])
         .probennahmeverfahren(Default::default())
         .ersatz_fuer_terminplan_mit_der_id(Default::default())
         .kommentar(Default::default())
@@ -206,13 +234,14 @@ pub fn incident_cause_and_remedial_action_type() -> IncidentCauseAndRemedialActi
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
 pub fn wasserversorgungsgebiet_type() -> WasserversorgungsgebietType {
+    let zustaendige_behoerde = behoerde_type();
     WasserversorgungsgebietType::builder()
         .wasserversorgungsgebiet_id(new_uuid())
         .name_wasserversorgungsgebiet(Default::default())
         .lau2_code(Default::default())
-        .zustaendige_behoerde(Default::default())
+        .zustaendige_behoerde(vec![zustaendige_behoerde])
         .geokoordinaten_shapth(Default::default())
-        .datum_der_einrichtung(Default::default())
+        .datum_der_einrichtung(today())
         .datum_der_schliessung(Default::default())
         .grund_der_schliessung(Default::default())
         .nachfolger_wvg_bei_schliessung(Default::default())
@@ -220,8 +249,8 @@ pub fn wasserversorgungsgebiet_type() -> WasserversorgungsgebietType {
         .abgegebene_wassermenge(Default::default())
         .anzahl_versorgte_personen_wvg(Default::default())
         .referenzjahr_angaben_wvg(Default::default())
-        .art_der_wasserressource(Default::default())
-        .anteil_der_wasserressource(Default::default())
+        .art_der_wasserressource(vec!["1010".into()])
+        .anteil_der_wasserressource(vec![0])
         .vorgeschriebene_untersuchungshaeufigkeit_parameter_a(Default::default())
         .vorgeschriebene_untersuchungshaeufigkeit_parameter_b(Default::default())
         .alt_id(Default::default())
@@ -234,19 +263,19 @@ pub fn wasserversorgungsgebiet_type() -> WasserversorgungsgebietType {
 }
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
-pub fn anlage_nach_trinkw_v_type() -> AnlageNachTrinkwVType {
+pub fn anlage_nach_trinkw_v_type(zustaendige_behoerde_id: String) -> AnlageNachTrinkwVType {
     AnlageNachTrinkwVType::builder()
         .anlage_nach_trinkw_v_id(Default::default())
-        .zustaendige_behoerde_id(Default::default())
+        .zustaendige_behoerde_id(zustaendige_behoerde_id.clone())
         .untersuchungsplan_id(Default::default())
-        .art_anlage(Default::default())
+        .art_anlage("1010".into())
         .name_der_anlage(Default::default())
         .abgegebene_wassermenge_der_anlage_pro_tag(Default::default())
         .anzahl_durch_anlage_versorgte_personen(Default::default())
         .alt_id(Default::default())
         .kommentar(Default::default())
-        .wasserversorgungsgebiet(Default::default())
-        .anlage_nach_trinkw_v_objekt(Default::default())
+        .wasserversorgungsgebiet(vec![wasserversorgungsgebiet_type()])
+        .anlage_nach_trinkw_v_objekt(vec![objekt_type()])
         .id(format!("antv-{}", new_id()))
         .build()
 }

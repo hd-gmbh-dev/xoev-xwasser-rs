@@ -29,6 +29,8 @@ jobs:
         run: |
           rustup component add clippy
           cargo clippy --no-deps
+      - name: npm dependencies
+        run: pnpm install
       - name: Build
         run: cargo build --features schema,trace --release
       - name: Test Rust
@@ -38,20 +40,22 @@ jobs:
           wasm-pack build --release --target nodejs --reference-types --weak-refs --features wasm
           cp target/schemas/out/*.xsdb pkg/xwasser-v060.xsdb.bin
           cp package.tmp.json pkg/package.json
+      - name: Build utils
+        run: pnpm tsup
       - name: Archive NPM package
         uses: actions/upload-artifact@v4
         with:
           name: xoev-xwasser-pkg
           path: ./pkg
       - name: Test WASM
-        run: |
-          pnpm install
-          pnpm test
+        run: pnpm test          
       - name: Build WASM Web
         run: |
           wasm-pack build --release --target web --reference-types --weak-refs --features wasm
           cp target/schemas/out/*.xsdb pkg/xwasser-v060.xsdb.bin
           cp package.tmp.web.json pkg/package.json
+      - name: Build utils
+        run: pnpm tsup
       - name: Archive NPM web package
         uses: actions/upload-artifact@v4
         with:
