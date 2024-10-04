@@ -43,7 +43,7 @@ keywords.workspace = true
 crate-type = ["cdylib", "rlib"]
 
 [features]
-default = ["schema", "trace", "builder"]
+default = []
 trace = []
 builder = ["dep:typed-builder", "dep:uuid", "dep:chrono", "dep:strum", "dep:strum_macros", "dep:tiny_id", "dep:once_cell"]
 wasm = ["dep:wasm-bindgen", "dep:serde-wasm-bindgen", "dep:tsify-next", "dep:uuid", "uuid/js", "tiny_id/js"]
