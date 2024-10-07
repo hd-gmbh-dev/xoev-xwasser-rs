@@ -7,4 +7,4 @@ wasm-pack build --release --target nodejs --reference-types --features wasm,buil
 cp target/schemas/out/*.xsdb pkg/xwasser-v060.xsdb.bin
 #cp package.tmp.web.json pkg/package.json
 cp package.tmp.json pkg/package.json
-pnpm tsup
+pnpm tsup --format esm,cjs
