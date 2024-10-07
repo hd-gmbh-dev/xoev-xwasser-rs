@@ -1,17 +1,17 @@
 {
   "produkt": "XWasser Test",
   "produkthersteller": "H&D GmbH",
-  "produktversion": "0.600.0",
+  "produktversion": "0.600.1",
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "d8d0a10b-4414-469a-b825-aa93acd0b8f3",
+      "nachrichten_uuid": "1c55c190-36b5-4264-9406-03281a5da7a6",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2024-10-07T14:31:43"
+      "erstellungszeitpunkt": "2024-10-07T15:26:58"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -36,27 +36,27 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "2aba467a-6f7e-4666-a986-a39ec0bcc44a"
+      "vorgangs_id": "f625c3a6-2437-433e-aecb-185028c0dc20"
     },
     "vorgang_type": {
       "t": "Pruefbericht",
       "c": {
-        "pruefbericht_uuid": "f48bf18a-9dcc-499f-a4c1-2ab4124333cc",
+        "pruefbericht_uuid": "bcfbfaf1-79ae-4847-b6ce-ef667c1f6fb8",
         "vorgaenger_pruefbericht_id": null,
-        "auftragsnummer": "c17be488-dcb5-4431-8732-d6693a5affdb",
+        "auftragsnummer": "5845649c-19c2-4780-96f1-94df9ec47a63",
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "34c23cbc-a9b8-4ca8-bcb3-3a2b37718e85",
+            "probennahmestelle_id": "40f1a37d-9c9a-409c-9509-3b66b48494ab",
             "objekt_id": "none",
             "probe": [
               {
-                "probe_id": "6f35e150-374d-4d6c-8482-6f7134cc4748",
+                "probe_id": "716b6487-3bd6-4b8f-843c-c6b6cffc4164",
                 "untersuchungsplan_id": null,
                 "probennehmer": null,
                 "analyseergebnis_parameter": [
                   {
-                    "analyseergebnis_parameter_id": "b5d5e2bc-358b-492d-97ae-fd89426e106b",
-                    "anschrift_id": "anschrift-1",
+                    "analyseergebnis_parameter_id": "a81f95df-8887-45be-ab57-39a84e6291c5",
+                    "anschrift_id": "anschrift-ocw8xH4P",
                     "zugelassene_untersuchungsstelle": "wsu-1",
                     "akkreditierte_durchfuehrung_analyse": false,
                     "untersuchungsverfahren": [
@@ -110,7 +110,7 @@
                 },
                 "akkreditierte_durchfuehrung_der_probennahme": false,
                 "ergaenzung_zum_medium": null,
-                "zeitpunkt_probennahme": "2024-10-07T14:31:43",
+                "zeitpunkt_probennahme": "2024-10-07T15:26:58",
                 "probennahmeverfahren": [
                   {
                     "code": "1010",
@@ -127,9 +127,9 @@
                 "konservierung_aufbereitung_desinfektion_probe": [],
                 "kommentar_zur_probennahme": null,
                 "informationen_zum_probentransport": null,
-                "eingang_probe_bei_untersuchungsstelle": "2024-10-07T14:31:43",
-                "beginn_labortaetigkeit_analytik": "2024-10-07T14:31:43",
-                "abschluss_labortaetigkeit_analytik": "2024-10-07T14:31:43",
+                "eingang_probe_bei_untersuchungsstelle": "2024-10-07T15:26:58",
+                "beginn_labortaetigkeit_analytik": "2024-10-07T15:26:58",
+                "abschluss_labortaetigkeit_analytik": "2024-10-07T15:26:58",
                 "konformitaetsbewertung_der_probe": {
                   "code": "1010",
                   "name": null
@@ -178,7 +178,7 @@
         },
         "probennehmer": [
           {
-            "probennehmer_id": "31ecbf77-5f14-4864-99b0-151d9adf2ca1",
+            "probennehmer_id": "03252722-fdf6-4a45-a76d-026a41a3adcd",
             "probennehmer": {
               "t": "NatuerlichePerson",
               "c": {
@@ -213,7 +213,7 @@
           "name": null
         },
         "auffaelligkeiten": [],
-        "zeitpunkt_validierung_pruefbericht": "2024-10-07T14:31:43",
+        "zeitpunkt_validierung_pruefbericht": "2024-10-07T15:26:58",
         "fuer_validierung_verantwortliche_person": [
           {
             "auskunftssperre": [],
@@ -327,7 +327,7 @@
             "typ": [],
             "staat": null,
             "verwaltungspolitische_kodierung": null,
-            "id": "anschrift-FdfUnGyf"
+            "id": "anschrift-ocw8xH4P"
           }
         ],
         "anhang": [],

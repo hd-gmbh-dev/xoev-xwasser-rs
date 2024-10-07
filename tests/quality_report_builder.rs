@@ -93,9 +93,16 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .vorgangs_id(new_uuid())
         .build();
 
+    let ort_der_labortaetigkeiten = anschrift_type(
+        "strasse".into(),
+        "hausnummer".into(),
+        "postleitzahl".into(),
+        "ort".into(),
+    );
+
     let param = AnalyseergebnisParameterType::builder()
         .analyseergebnis_parameter_id(new_uuid())
-        .anschrift_id("anschrift-1".into())
+        .anschrift_id(ort_der_labortaetigkeiten.id.clone())
         .zugelassene_untersuchungsstelle("wsu-1".into())
         .akkreditierte_durchfuehrung_analyse(Default::default())
         .untersuchungsverfahren(vec!["1010".into()])
@@ -231,13 +238,6 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .kommentar_beauftragte_untersuchungsstelle(Default::default())
         .build();
 
-    let ort_der_labortaetigkeiten = anschrift_type(
-        "strasse".into(),
-        "hausnummer".into(),
-        "postleitzahl".into(),
-        "ort".into(),
-    );
-
     let pruefbericht = PruefberichtType::builder()
         .pruefbericht_uuid(new_uuid())
         .vorgaenger_pruefbericht_id(None)
@@ -273,7 +273,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     let e = VorgangTransportieren2010::builder()
         .produkt("XWasser Test".into())
         .produkthersteller("H&D GmbH".into())
-        .produktversion("0.600.0".into())
+        .produktversion("0.600.1".into())
         .test(Some(true))
         .nachrichtenkopf_g2g(nachrichtenkopf_g2g)
         .vorgang(

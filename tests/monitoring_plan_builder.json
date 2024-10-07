@@ -1,7 +1,7 @@
 {
   "produkt": "XWasser Test",
   "produkthersteller": "H&D GmbH",
-  "produktversion": "0.600.0",
+  "produktversion": "0.600.1",
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {

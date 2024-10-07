@@ -4,7 +4,7 @@ members = ["crates/*"]
 
 [workspace.package]
 edition = "2021"
-version = "0.600.0+0.6.0"
+version = "0.600.1+0.6.0"
 description = """
 "XOEV XWasser XML Standard"
 """
@@ -17,7 +17,7 @@ keywords = []
 
 [workspace.dependencies]
 anyhow = "1.0.89"
-xoev-xwasser-derive = { version = "0.600.0", path = "crates/derive" }
+xoev-xwasser-derive = { version = "0.600.1", path = "crates/derive" }
 raxb = "0.4.4"
 raxb-validate = "0.4.4"
 raxb-xmlschema = "0.4.4"
@@ -43,7 +43,7 @@ keywords.workspace = true
 crate-type = ["cdylib", "rlib"]
 
 [features]
-default = []
+default = ["builder"]
 trace = []
 builder = ["dep:typed-builder", "dep:uuid", "dep:chrono", "dep:strum", "dep:strum_macros", "dep:tiny_id", "dep:once_cell"]
 wasm = ["dep:wasm-bindgen", "dep:serde-wasm-bindgen", "dep:tsify-next", "dep:uuid", "uuid/js", "tiny_id/js"]
