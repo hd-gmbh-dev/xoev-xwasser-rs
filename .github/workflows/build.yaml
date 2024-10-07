@@ -32,12 +32,12 @@ jobs:
       - name: npm dependencies
         run: pnpm install
       - name: Build
-        run: cargo build --features schema,trace --release
+        run: cargo build --features schema,trace,builder --release
       - name: Test Rust
-        run: cargo test --features schema,trace
+        run: cargo test --features schema,trace,builder
       - name: Build WASM
         run: |
-          wasm-pack build --release --target nodejs --reference-types --weak-refs --features wasm,builder
+          wasm-pack build --release --target nodejs --reference-types --features wasm,builder --no-default-features
           cp target/schemas/out/*.xsdb pkg/xwasser-v060.xsdb.bin
           cp package.tmp.json pkg/package.json
       - name: Build utils
@@ -51,7 +51,7 @@ jobs:
         run: pnpm test
       - name: Build WASM Web
         run: |
-          wasm-pack build --release --target web --reference-types --weak-refs --features wasm,builder
+          wasm-pack build --release --target web --reference-types --features wasm,builder --no-default-features
           cp target/schemas/out/*.xsdb pkg/xwasser-v060.xsdb.bin
           cp package.tmp.web.json pkg/package.json
       - name: Build utils web package
