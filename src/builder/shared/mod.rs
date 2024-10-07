@@ -1,0 +1,10 @@
+pub mod anschrift;
+pub mod behoerde;
+pub mod betreiber;
+pub mod misc;
+pub mod organisation;
+pub mod person;
+pub mod probe;
+pub mod untersuchungsplan;
+pub mod untersuchungsstelle;
+pub mod zeitraum;

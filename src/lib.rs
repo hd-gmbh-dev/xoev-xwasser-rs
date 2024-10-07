@@ -1,5 +1,7 @@
 use raxb::quick_xml::events::Event;
 
+#[cfg(feature = "builder")]
+pub mod builder;
 pub mod model;
 #[cfg(not(feature = "wasm"))]
 #[cfg(feature = "schema")]

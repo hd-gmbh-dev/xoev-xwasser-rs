@@ -14,7 +14,10 @@ use crate::model::codes::{
 };
 
 #[cfg(feature = "wasm")]
-use tsify::Tsify;
+use tsify_next::Tsify;
+
+#[cfg(feature = "builder")]
+use typed_builder::TypedBuilder;
 
 use super::{
     behoerde::ZustaendigeBehoerdeType, organisation::OrganisationType,
@@ -26,6 +29,7 @@ use super::{
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[xml(tns(b"xwas", b"xwasser"))]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
@@ -45,6 +49,8 @@ pub enum Probennehmer {
 /// dem Prüfbericht mit zu übermittelnde Informationen].
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -65,6 +71,8 @@ pub struct ProbennehmerType {
 /// Klasse für den Transport von Informationen zu einer Probennahmestelle.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -114,6 +122,8 @@ pub struct ProbennahmestelleType {
 /// im Rahmen eines Prüfberichts via SHAPTH übermittelt wird.
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -210,6 +220,8 @@ pub struct ProbeType {
 
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"

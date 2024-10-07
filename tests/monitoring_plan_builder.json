@@ -1,0 +1,390 @@
+{
+  "produkt": "XWasser Test",
+  "produkthersteller": "H&D GmbH",
+  "produktversion": "0.600.0",
+  "test": true,
+  "nachrichtenkopf_g2g": {
+    "identifikation_nachricht": {
+      "nachrichten_uuid": "50a81053-7117-4d35-af73-4657d19b6cac",
+      "nachrichten_typ": {
+        "code": {
+          "code": "2010"
+        }
+      },
+      "erstellungszeitpunkt": "2024-10-07T14:31:41"
+    },
+    "leser": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "",
+      "name": ""
+    },
+    "autor": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "",
+      "name": ""
+    },
+    "referenz_uuid": null,
+    "dvdv_dienstkennung": ""
+  },
+  "vorgang": {
+    "identifikation_vorgang": {
+      "vorgangs_id": "ebb916e3-2032-4990-9ce1-d312de6f81ae"
+    },
+    "vorgang_type": {
+      "t": "Untersuchungsplan",
+      "c": {
+        "untersuchungsplan_id": "753cc850-7f52-463c-aa7d-e909e134f1b9",
+        "wasserversorgungsgebiet": [
+          "wvg-zWLe5pf0"
+        ],
+        "jahr": [
+          2024,
+          2025
+        ],
+        "wasserabgabe_vorjahr": 0.0,
+        "art_von_wva_und_wvg": {
+          "code": "1010",
+          "name": null
+        },
+        "erlaeuterung_zur_wasserabgabemenge": {
+          "code": "1010",
+          "name": null
+        },
+        "flockung": {
+          "code": "1010",
+          "name": null
+        },
+        "oberflaechenwassereinfluss": false,
+        "desinfektion_durchgefuehrt_mit": {
+          "code": "1010",
+          "name": null
+        },
+        "abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen": false,
+        "acrylamid": {
+          "code": "1010",
+          "name": null
+        },
+        "epichlorhydrin": {
+          "code": "1010",
+          "name": null
+        },
+        "vinylchlorid": {
+          "code": "1010",
+          "name": null
+        },
+        "ph_wert_wasserwerksausgang": false,
+        "wasserabgabe_vorjahr_pro_tag": 0.0,
+        "anzahl_untersuchungen_pro_jahr_gruppe_a": 0,
+        "abzudecken_durch_betreiber_gruppe_a": null,
+        "anzahl_untersuchungenpro_jahr_gruppe_b": 0,
+        "abzudecken_durch_betreiber_gruppe_b": null,
+        "rap_durchgefuehrt": false,
+        "status_untersuchungsplan": {
+          "code": "1010",
+          "name": null
+        },
+        "kommentar": [],
+        "terminplan": [
+          {
+            "terminplan_id": "e10389ac-7462-43ae-9caf-f617bc813398",
+            "probennahmestelle": null,
+            "datum_zeitraum": [
+              "2024-10-07T14:31:41"
+            ],
+            "probennahmestelle_kategorie": {
+              "code": "L",
+              "name": null
+            },
+            "weitere_beschreibung_der_probennahmestelle": null,
+            "untersuchung_durch": [
+              {
+                "code": "1010",
+                "name": null
+              }
+            ],
+            "untersuchung_durch_erlaeuterung": null,
+            "anlass_der_untersuchung": [],
+            "zu_untersuchender_parameter": [
+              {
+                "parameter": {
+                  "code": "",
+                  "name": null
+                },
+                "messprogramm": "",
+                "parameter_gruppe": "",
+                "veraenderlich": false,
+                "probennahmeverfahren_uba": false,
+                "reduzierbar_durch_rap_rau": false,
+                "reduzierbar_ohne_rau": false,
+                "bemerkung": null
+              }
+            ],
+            "probennahmeverfahren": [],
+            "ersatz_fuer_terminplan_mit_der_id": null,
+            "kommentar": null,
+            "id": "terminplan-xY59CVwb"
+          }
+        ],
+        "anlage_nach_trinkw_v": {
+          "anlage_nach_trinkw_v_id": "",
+          "zustaendige_behoerde_id": "behoerde-w26tU9Te",
+          "untersuchungsplan_id": [],
+          "art_anlage": {
+            "code": "1010",
+            "name": null
+          },
+          "name_der_anlage": "",
+          "abgegebene_wassermenge_der_anlage_pro_tag": null,
+          "anzahl_durch_anlage_versorgte_personen": null,
+          "alt_id": null,
+          "kommentar": null,
+          "wasserversorgungsgebiet": [
+            {
+              "wasserversorgungsgebiet_id": "ada70f75-bdb4-47f8-9392-b3ca8f25c47d",
+              "name_wasserversorgungsgebiet": {
+                "code": "",
+                "name": null
+              },
+              "lau2_code": null,
+              "zustaendige_behoerde": [
+                {
+                  "id": "behoerde-yWXOF6Ip",
+                  "typ": {
+                    "code": "",
+                    "name": null,
+                    "list_uri": null,
+                    "list_version_id": null
+                  },
+                  "zusatz": null,
+                  "behoerdenkennung": {
+                    "kennung": [],
+                    "praefix": []
+                  },
+                  "kommunikation": [],
+                  "behoerdenidentifikation": {
+                    "id": null,
+                    "beschreibung": null,
+                    "gueltigkeit": {
+                      "beginn": "2024-01-01",
+                      "ende": "2099-01-01",
+                      "zusatz": null
+                    }
+                  },
+                  "behoerdenname": {
+                    "name": {
+                      "text": null
+                    },
+                    "kurzbezeichnung": "",
+                    "gueltigkeit": {
+                      "beginn": "2024-01-01",
+                      "ende": "2099-01-01",
+                      "zusatz": null
+                    }
+                  },
+                  "nachgeordnete_behoerde": [],
+                  "verwaltungspolitische_zustaendigkeit": [],
+                  "anschrift": [],
+                  "organisationsstruktur": []
+                }
+              ],
+              "geokoordinaten_shapth": null,
+              "datum_der_einrichtung": "2024-10-07",
+              "datum_der_schliessung": null,
+              "grund_der_schliessung": null,
+              "nachfolger_wvg_bei_schliessung": [],
+              "wvg_fremdbezogen": [],
+              "abgegebene_wassermenge": 0.0,
+              "anzahl_versorgte_personen_wvg": 0,
+              "referenzjahr_angaben_wvg": 0,
+              "art_der_wasserressource": [
+                {
+                  "code": "1010",
+                  "name": null
+                }
+              ],
+              "anteil_der_wasserressource": [
+                0
+              ],
+              "vorgeschriebene_untersuchungshaeufigkeit_parameter_a": 0,
+              "vorgeschriebene_untersuchungshaeufigkeit_parameter_b": 0,
+              "alt_id": null,
+              "kommentar": null,
+              "derogation": [],
+              "exceedance": [],
+              "incident": [],
+              "id": "wvg-zWLe5pf0"
+            }
+          ],
+          "anlage_nach_trinkw_v_objekt": [
+            {
+              "objekt_id": "c1fec593-fb89-4aa3-aaa9-168b5798b5c4",
+              "wasserversorgungsgebiet": null,
+              "anschrift_objekt": [],
+              "art_objekt": {
+                "code": "1010",
+                "name": null
+              },
+              "name_objekt": "",
+              "betriebszustand_des_objekts": null,
+              "datum_in_betriebnahme": null,
+              "datum_ausser_betriebnahme": null,
+              "rahmen_der_trinkwasserbereitstellung": [],
+              "geokoordinaten_objekt": {
+                "geografische_position_und_ausdehnung": null,
+                "name_shapefile": null,
+                "geokoordinaten_breitengrad": null,
+                "geokoordinaten_laengengrad": null,
+                "geokoordinaten_rechtswert": null,
+                "geokoordinaten_hochwert": null
+              },
+              "alt_id": null,
+              "kommentar": null,
+              "betreiber": [
+                {
+                  "betreiber_id": "c32e278a-e2a9-4f28-8cb9-4dcb30b527e1",
+                  "art_der_person": {
+                    "t": "Organisation",
+                    "c": {
+                      "id": "organisation-B2sUC7KA",
+                      "rechtsform": null,
+                      "branche": [],
+                      "zweck": [],
+                      "name": null,
+                      "unterorganisation": [],
+                      "kommunikation": [],
+                      "registrierung": [],
+                      "identifikation": [],
+                      "existenzzeitraum": null,
+                      "anschrift": []
+                    }
+                  },
+                  "objekt_id": [
+                    "obj-AYzgkwnF"
+                  ],
+                  "kommentar": null,
+                  "id": "betreiber-C8sidkjf"
+                }
+              ],
+              "objekt_probennahmestelle": [
+                {
+                  "probennahmestelle_id": "accc946c-9adb-45e9-aa48-b6da03d6f480",
+                  "objekt_id": "",
+                  "probe": [],
+                  "terminplan_id": [],
+                  "name_probennahmestelle": "Probennahmestelle 1",
+                  "kategorie_probennahmestelle": {
+                    "code": "L",
+                    "name": null
+                  },
+                  "unterkategorie_probennahmestelle": {
+                    "code": "1030",
+                    "name": null
+                  },
+                  "art_der_entnahmearmatur": {
+                    "code": "1010",
+                    "name": null
+                  },
+                  "stockwerk_probennahmestelle": 0,
+                  "medium_an_der_probennahmestelle": [
+                    {
+                      "code": "1010",
+                      "name": null
+                    }
+                  ],
+                  "desinfektion_und_aufbereitung_des_wassers": [],
+                  "alt_id": null,
+                  "berichtspflichtig": null,
+                  "kommentar": null,
+                  "id": "probennahmestelle-DgEGzHh2"
+                }
+              ],
+              "id": "obj-AYzgkwnF"
+            }
+          ],
+          "id": "antv-Eq6tIN0M"
+        },
+        "auftraggeber": {
+          "auftraggeber_id": "",
+          "auftraggeberart": {
+            "code": "1010",
+            "name": null
+          },
+          "auftraggeber": {
+            "t": "Organisation",
+            "c": {
+              "id": "organisation-FCS9qbWX",
+              "rechtsform": null,
+              "branche": [],
+              "zweck": [],
+              "name": null,
+              "unterorganisation": [],
+              "kommunikation": [],
+              "registrierung": [],
+              "identifikation": [],
+              "existenzzeitraum": null,
+              "anschrift": []
+            }
+          }
+        },
+        "zustaendige_behoerde": {
+          "id": "behoerde-w26tU9Te",
+          "typ": {
+            "code": "",
+            "name": null,
+            "list_uri": null,
+            "list_version_id": null
+          },
+          "zusatz": null,
+          "behoerdenkennung": {
+            "kennung": [],
+            "praefix": []
+          },
+          "kommunikation": [],
+          "behoerdenidentifikation": {
+            "id": null,
+            "beschreibung": null,
+            "gueltigkeit": {
+              "beginn": "2024-01-01",
+              "ende": "2099-01-01",
+              "zusatz": null
+            }
+          },
+          "behoerdenname": {
+            "name": {
+              "text": null
+            },
+            "kurzbezeichnung": "",
+            "gueltigkeit": {
+              "beginn": "2024-01-01",
+              "ende": "2099-01-01",
+              "zusatz": null
+            }
+          },
+          "nachgeordnete_behoerde": [],
+          "verwaltungspolitische_zustaendigkeit": [],
+          "anschrift": [],
+          "organisationsstruktur": [],
+          "anlage_nach_trinkw_vid": [],
+          "laenderkuerzel": {
+            "code": "DEBY",
+            "name": null
+          },
+          "kommentar": null
+        },
+        "aenderungshistorie": null,
+        "erweiterung": null,
+        "id": "untersuchungsplan-GQ2pvYC0"
+      }
+    },
+    "bemerkung": null,
+    "anlage": []
+  }
+}

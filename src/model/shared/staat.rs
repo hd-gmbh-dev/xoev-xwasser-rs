@@ -4,13 +4,18 @@ use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
 #[cfg(feature = "wasm")]
-use tsify::Tsify;
+use tsify_next::Tsify;
+
+#[cfg(feature = "builder")]
+use typed_builder::TypedBuilder;
 
 use crate::model::codes::{CodeStaatType, CodeStaatsangehoerigkeitType};
 
 /// Hier werden Angaben zur Staatsangehörigkeit zusammengefasst.
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -25,6 +30,8 @@ pub struct StaatsangehoerigkeitType {
 /// Machtausübung über dieses umfasst.
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"

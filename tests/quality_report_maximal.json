@@ -1,5 +1,7 @@
 {
   "produkt": "SHAPTH CLI",
+  "produkthersteller": "H & D GmbH",
+  "produktversion": "H & D GmbH",
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
@@ -5935,7 +5937,6 @@
             "pruefgebiete_untersuchungen_mikrobio": true,
             "pruefgebiete_untersuchungen_radionuklide": true,
             "akkreditierungsnummer": "",
-            "kommentar_beauftragte_untersuchungsstelle": null,
             "kommentar_zugelassene_untersuchungsstelle": "Standardmässige Untersuchungsstelle"
           },
           {
@@ -5959,7 +5960,6 @@
             "pruefgebiete_untersuchungen_mikrobio": true,
             "pruefgebiete_untersuchungen_radionuklide": false,
             "akkreditierungsnummer": "12345",
-            "kommentar_beauftragte_untersuchungsstelle": null,
             "kommentar_zugelassene_untersuchungsstelle": "Top Qualität"
           }
         ],

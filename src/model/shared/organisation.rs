@@ -4,7 +4,10 @@ use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
 #[cfg(feature = "wasm")]
-use tsify::Tsify;
+use tsify_next::Tsify;
+
+#[cfg(feature = "builder")]
+use typed_builder::TypedBuilder;
 
 use crate::model::codes::CodeRechtsformenType;
 
@@ -21,6 +24,8 @@ use super::zeitraum::ZeitraumType;
 /// Bereich. Behörden werden über eine eigene Kernkomponente "Behoerde" abgebildet.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -60,6 +65,8 @@ pub struct OrganisationType {
 /// Angaben zum Registereintrag.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -77,6 +84,8 @@ pub struct RegistrierungType {
 
 #[derive(Clone, Debug, Default, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 pub struct Name {
     #[xml(ty = "text")]
     pub text: Option<String>,
@@ -85,6 +94,8 @@ pub struct Name {
 /// "NameOrganisation" fasst die Angaben zum Namen einer Organisation zusammen.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -103,6 +114,8 @@ pub struct NameOrganisationType {
 /// Abteilungen oder Referaten.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"

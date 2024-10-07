@@ -1,6 +1,6 @@
 {
   "extends": "@tsconfig/recommended/tsconfig.json",
-  "include": ["env.d.ts", "tests/**/*"],
+  "include": ["env.d.ts", "utils/**/*", "tests/**/*"],
   "exclude": ["src/**/*", "pkg/*"],
   "compilerOptions": {
     "composite": true,

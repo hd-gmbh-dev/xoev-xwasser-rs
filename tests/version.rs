@@ -4,7 +4,7 @@ fn testfile(name: &str) -> String {
     std::fs::read_to_string(
         std::env::current_dir()
             .unwrap()
-            .join(&format!("tests/{name}")),
+            .join(format!("tests/{name}")),
     )
     .unwrap()
 }

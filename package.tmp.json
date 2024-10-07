@@ -15,8 +15,31 @@
     "xoev_xwasser_bg.wasm.d.ts",
     "xoev_xwasser.d.ts",
     "xoev_xwasser.js",
-    "xwasser-v060.xsdb.bin"
+    "xwasser-v060.xsdb.bin",
+    "xoev-xwasser-utils.cjs",
+    "xoev-xwasser-utils.cjs.map",
+    "xoev-xwasser-utils.d.cts",
+    "xoev-xwasser-utils.d.ts",
+    "xoev-xwasser-utils.js",
+    "xoev-xwasser-utils.js.map"
   ],
+  "exports": {
+    ".": {
+      "require": "./xoev_xwasser.js",
+      "import": "./xoev_xwasser.js",
+      "types": "./xoev_xwasser.d.ts"
+    },
+    "./utils": {
+      "require": "./xoev-xwasser-utils.cjs",
+      "import": "./xoev-xwasser-utils.js",
+      "types": "./xoev-xwasser-utils.d.ts"
+    },
+    "./xoev_xwasser_bg.wasm": {
+      "require": "./xoev_xwasser_bg.wasm",
+      "import": "./xoev_xwasser_bg.wasm",
+      "types": "./xoev_xwasser_bg.wasm.d.ts"
+    }
+  },
   "main": "xoev_xwasser.js",
   "types": "xoev_xwasser.d.ts"
 }

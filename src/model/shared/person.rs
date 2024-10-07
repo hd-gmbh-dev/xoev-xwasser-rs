@@ -4,7 +4,10 @@ use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
 #[cfg(feature = "wasm")]
-use tsify::Tsify;
+use tsify_next::Tsify;
+
+#[cfg(feature = "builder")]
+use typed_builder::TypedBuilder;
 
 use crate::model::codes::{
     CodeAuskunftssperreType, CodeAusweisdokumenteType, CodeFamilienstandBeendigungsgrundType,
@@ -26,6 +29,8 @@ use super::{
 /// gemeinsame Eigenschaften zusammen.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -54,6 +59,8 @@ pub struct AllgemeinerNameType {
 /// daher alternativ als "ANDRE MUELLER" übertragen.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -71,6 +78,8 @@ pub struct AlternativeRepraesentationType {
 /// von anderen Personen zu unterscheiden.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -116,6 +125,8 @@ pub struct NameNatuerlichePersonType {
 /// Die Auskunftssperre beschränkt die Weitergabe von Informationen an Dritte.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -130,6 +141,8 @@ pub struct AuskunftssperreType {
 /// Unter "Geburt" werden geburtsbezogene Informationen zusammengefasst.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -149,6 +162,8 @@ pub struct GeburtType {
 /// derzeit: „DR.“, „Dr.“, „DR.HC.“, „Dr.hc.“, „Dr.EH.“ und „Dr.eh.“.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -163,6 +178,8 @@ pub struct DoktorgradType {
 /// nichtnatürlichen Person abgebildet.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -177,6 +194,8 @@ pub struct VertreterBevollmaechtigterType {
 /// Hier werden Angaben zum Familienstand einer natürlichen Person zusammengefasst.
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -198,6 +217,8 @@ pub struct FamilienstandType {
 /// schriftlich und offiziell darstellt. Er enthält meist persönliche Daten.
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -226,6 +247,8 @@ pub struct AusweisdokumentType {
 /// angegeben werden.
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -265,6 +288,8 @@ pub struct JuristischePersonType {
 /// Die Komponente "Geschlecht" dient der Repräsentation des biologischen Geschlechts.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -283,6 +308,8 @@ pub struct GeschlechtType {
 /// sind, nennt man juristische Personen.
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
@@ -324,6 +351,7 @@ pub struct NatuerlichePersonType {
 #[allow(clippy::large_enum_variant)]
 #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
@@ -344,6 +372,8 @@ pub enum Person {
 /// dieser Datentype wird bisher nirgends verwendet
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
