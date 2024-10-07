@@ -47,14 +47,16 @@ jobs:
         with:
           name: xoev-xwasser-pkg
           path: ./pkg
+      - name: Build utils for test
+        run: pnpm tsup
       - name: Test WASM
-        run: pnpm test          
+        run: pnpm test
       - name: Build WASM Web
         run: |
           wasm-pack build --release --target web --reference-types --weak-refs --features wasm
           cp target/schemas/out/*.xsdb pkg/xwasser-v060.xsdb.bin
           cp package.tmp.web.json pkg/package.json
-      - name: Build utils
+      - name: Build utils web package
         run: pnpm tsup
       - name: Archive NPM web package
         uses: actions/upload-artifact@v4
