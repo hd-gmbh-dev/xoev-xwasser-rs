@@ -17,7 +17,7 @@ use super::{
         behoerde::ZustaendigeBehoerdeType,
         misc::ErweiterungType,
         person::NatuerlichePersonType,
-        probe::{ProbennahmestelleType, ProbennehmerType},
+        probe::{ProbeType, ProbennahmestelleType, ProbennehmerType},
         unterssuchungsstelle::{
             BeauftragteUntersuchungsstelleType, ZugelasseneUntersuchungsstelleType,
         },
@@ -44,6 +44,9 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
     #[serde(default)]
     pub probennahmestelle: Vec<ProbennahmestelleType>,
+    #[xml(ns = b"xwas", name = b"probe", ty = "child")]
+    #[serde(default)]
+    pub probe: Vec<ProbeType>,
     #[xml(
         default,
         ns = b"xwas",

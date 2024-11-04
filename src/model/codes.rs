@@ -316,7 +316,7 @@ pub struct CodeNamensartType;
 
 /// Type name: Code.ParameterauspraegungType
 /// Diese Codeliste definiert im Rahmen von XWasser die speziellen Ausprägungen von qualitativen Parametern.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:parameterauspraegung", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:parameterauspraegung", "2")]
 pub struct CodeParameterauspraegungType;
 
 /// Type name: Code.ParameterunterauswahlType
@@ -371,7 +371,7 @@ pub struct CodeRegionalschluesselType;
 
 /// Type name: Code.SHAPTH-Parameter-EinheitType
 /// Mit dieser Codeliste wird im Kontext von XWassser die Einheit eines SHAPTH Parameters angegeben,
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit", "2")]
 pub struct CodeShapthParameterEinheitType;
 
 /// Type name: Code.SHAPTH-ParameterType
@@ -431,7 +431,7 @@ pub struct CodeUntersuchungsstelleType;
 
 /// Type name: Code.UntersuchungsverfahrenType
 /// Mit dieser Codeliste wird im Kontext von XWasser das Untersuchungsverfahren von Parametern im Labor festgelegt.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:untersuchungsverfahren", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:untersuchungsverfahren", "2")]
 pub struct CodeUntersuchungsverfahrenType;
 
 /// Type name: Code.VertretungsartType

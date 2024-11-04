@@ -18,6 +18,7 @@ pub fn untersuchungsplan_type() -> UntersuchungsplanType {
     let mut result = UntersuchungsplanType::builder()
         .untersuchungsplan_id(new_uuid())
         .wasserversorgungsgebiet(Default::default())
+        .titel_untersuchungsplan(Default::default())
         .jahr(vec![2024, 2025])
         .wasserabgabe_vorjahr(Default::default())
         .art_von_wva_und_wvg("1010".into())

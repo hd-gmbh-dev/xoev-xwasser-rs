@@ -111,7 +111,6 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .parameterauspraegung(Some("1210".into()))
         .parameter_durch_betreiber_untersucht(Default::default())
         .wurde_der_parameter_korrigiert(Default::default())
-        .parameter_unterauswahl(Default::default())
         .untersuchungswert_parameter(Some(0.0))
         .einheit_des_untersuchungswerts(Some("1400".into()))
         .ergaenzung_zum_untersuchungswert_parameter(Default::default())
@@ -127,10 +126,14 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .id("param-1".into())
         .build();
 
+    let probenahmestelle_id = new_uuid();
+
     let probe = ProbeType::builder()
         .probe_id(new_uuid())
+        .probennahmestelle(probenahmestelle_id.clone())
         .untersuchungsplan_id(Default::default())
         .probennehmer(Default::default())
+        .titel_probe(Default::default())
         .analyseergebnis_parameter(vec![param])
         .anlass_der_untersuchung(vec!["1010".into()])
         .medium(Some("1010".into()))
@@ -160,9 +163,9 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .build();
 
     let probennahmestelle = ProbennahmestelleType::builder()
-        .probennahmestelle_id(new_uuid())
+        .probennahmestelle_id(probenahmestelle_id)
         .objekt_id("none".into())
-        .probe(vec![probe])
+        .probe(vec![probe.probe_id.clone()])
         .terminplan_id(Default::default())
         .name_probennahmestelle(Default::default())
         .kategorie_probennahmestelle("L".into())
@@ -243,6 +246,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .vorgaenger_pruefbericht_id(None)
         .auftragsnummer(new_uuid())
         .probennahmestelle(vec![probennahmestelle])
+        .probe(vec![probe])
         .name_beauftragte_untersuchungsstelle("09010".into())
         .probennehmer(vec![probennehmer])
         .pruefbericht_enthaelt_teilergebnisse(Default::default())

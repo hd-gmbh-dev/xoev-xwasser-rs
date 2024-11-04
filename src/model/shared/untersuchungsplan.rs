@@ -42,6 +42,8 @@ pub struct UntersuchungsplanType {
     pub untersuchungsplan_id: String,
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebiet", ty = "child")]
     pub wasserversorgungsgebiet: Vec<String>,
+    #[xml(ns = b"xwas", name = b"titelUntersuchungsplan", ty = "child")]
+    pub titel_untersuchungsplan: Option<String>,
     #[xml(ns = b"xwas", name = b"jahr", ty = "child")]
     pub jahr: Vec<u32>, // eigentlich: Vec<JahrType> -> xs:gYear ([0-9]{4})
     #[xml(ns = b"xwas", name = b"wasserabgabeVorjahr", ty = "child")]
