@@ -19,7 +19,7 @@ use crate::model::codes::CodeKommunikationType;
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct KommunikationType {
     #[xml(ns = b"xwas", name = b"kanal", ty = "child")]

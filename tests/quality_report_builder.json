@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "1c55c190-36b5-4264-9406-03281a5da7a6",
+      "nachrichten_uuid": "b0600644-17c2-4b19-a8af-d54e029e556b",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2024-10-07T15:26:58"
+      "erstellungszeitpunkt": "2024-11-04T16:21:00"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -36,27 +36,27 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "f625c3a6-2437-433e-aecb-185028c0dc20"
+      "vorgangs_id": "e979c1b9-cdcf-43fc-a9bf-569876afdc9a"
     },
     "vorgang_type": {
       "t": "Pruefbericht",
       "c": {
-        "pruefbericht_uuid": "bcfbfaf1-79ae-4847-b6ce-ef667c1f6fb8",
+        "pruefbericht_uuid": "3ead0b81-6c24-44aa-aaa7-a3d499e0a778",
         "vorgaenger_pruefbericht_id": null,
-        "auftragsnummer": "5845649c-19c2-4780-96f1-94df9ec47a63",
+        "auftragsnummer": "0744ae54-018e-4fa4-bad7-c70b96702a1c",
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "40f1a37d-9c9a-409c-9509-3b66b48494ab",
+            "probennahmestelle_id": "d0e77f9c-5135-4aaf-9d3d-52cb252c7ed0",
             "objekt_id": "none",
             "probe": [
               {
-                "probe_id": "716b6487-3bd6-4b8f-843c-c6b6cffc4164",
+                "probe_id": "15c02d14-c061-4e3d-913d-835ee7f5992d",
                 "untersuchungsplan_id": null,
                 "probennehmer": null,
                 "analyseergebnis_parameter": [
                   {
-                    "analyseergebnis_parameter_id": "a81f95df-8887-45be-ab57-39a84e6291c5",
-                    "anschrift_id": "anschrift-ocw8xH4P",
+                    "analyseergebnis_parameter_id": "05b3ebdc-a738-4adc-b2fe-8c8244ffe8af",
+                    "anschrift_id": "anschrift-7C109DrN",
                     "zugelassene_untersuchungsstelle": "wsu-1",
                     "akkreditierte_durchfuehrung_analyse": false,
                     "untersuchungsverfahren": [
@@ -110,7 +110,7 @@
                 },
                 "akkreditierte_durchfuehrung_der_probennahme": false,
                 "ergaenzung_zum_medium": null,
-                "zeitpunkt_probennahme": "2024-10-07T15:26:58",
+                "zeitpunkt_probennahme": "2024-11-04T16:21:00",
                 "probennahmeverfahren": [
                   {
                     "code": "1010",
@@ -127,9 +127,9 @@
                 "konservierung_aufbereitung_desinfektion_probe": [],
                 "kommentar_zur_probennahme": null,
                 "informationen_zum_probentransport": null,
-                "eingang_probe_bei_untersuchungsstelle": "2024-10-07T15:26:58",
-                "beginn_labortaetigkeit_analytik": "2024-10-07T15:26:58",
-                "abschluss_labortaetigkeit_analytik": "2024-10-07T15:26:58",
+                "eingang_probe_bei_untersuchungsstelle": "2024-11-04T16:21:00",
+                "beginn_labortaetigkeit_analytik": "2024-11-04T16:21:00",
+                "abschluss_labortaetigkeit_analytik": "2024-11-04T16:21:00",
                 "konformitaetsbewertung_der_probe": {
                   "code": "1010",
                   "name": null
@@ -178,7 +178,7 @@
         },
         "probennehmer": [
           {
-            "probennehmer_id": "03252722-fdf6-4a45-a76d-026a41a3adcd",
+            "probennehmer_id": "96f46bd5-33db-4966-961b-efaf4c9a510c",
             "probennehmer": {
               "t": "NatuerlichePerson",
               "c": {
@@ -213,7 +213,7 @@
           "name": null
         },
         "auffaelligkeiten": [],
-        "zeitpunkt_validierung_pruefbericht": "2024-10-07T15:26:58",
+        "zeitpunkt_validierung_pruefbericht": "2024-11-04T16:21:00",
         "fuer_validierung_verantwortliche_person": [
           {
             "auskunftssperre": [],
@@ -327,7 +327,7 @@
             "typ": [],
             "staat": null,
             "verwaltungspolitische_kodierung": null,
-            "id": "anschrift-ocw8xH4P"
+            "id": "anschrift-7C109DrN"
           }
         ],
         "anhang": [],

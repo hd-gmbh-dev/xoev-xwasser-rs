@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "50a81053-7117-4d35-af73-4657d19b6cac",
+      "nachrichten_uuid": "d61ab89e-fc66-4e17-9a2b-cbc2563a6429",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2024-10-07T14:31:41"
+      "erstellungszeitpunkt": "2024-11-04T16:20:59"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -36,14 +36,14 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "ebb916e3-2032-4990-9ce1-d312de6f81ae"
+      "vorgangs_id": "398db251-2111-4501-8fee-171f0034d3a7"
     },
     "vorgang_type": {
       "t": "Untersuchungsplan",
       "c": {
-        "untersuchungsplan_id": "753cc850-7f52-463c-aa7d-e909e134f1b9",
+        "untersuchungsplan_id": "7a00b751-d11c-4e79-81d5-e9453ffce320",
         "wasserversorgungsgebiet": [
-          "wvg-zWLe5pf0"
+          "wvg-Svkydu6l"
         ],
         "jahr": [
           2024,
@@ -94,10 +94,10 @@
         "kommentar": [],
         "terminplan": [
           {
-            "terminplan_id": "e10389ac-7462-43ae-9caf-f617bc813398",
+            "terminplan_id": "fcda1427-7920-4275-b3f0-46e23798582a",
             "probennahmestelle": null,
             "datum_zeitraum": [
-              "2024-10-07T14:31:41"
+              "2024-11-04T16:20:59"
             ],
             "probennahmestelle_kategorie": {
               "code": "L",
@@ -130,12 +130,12 @@
             "probennahmeverfahren": [],
             "ersatz_fuer_terminplan_mit_der_id": null,
             "kommentar": null,
-            "id": "terminplan-xY59CVwb"
+            "id": "terminplan-QhyQAfEr"
           }
         ],
         "anlage_nach_trinkw_v": {
           "anlage_nach_trinkw_v_id": "",
-          "zustaendige_behoerde_id": "behoerde-w26tU9Te",
+          "zustaendige_behoerde_id": "behoerde-PdTBjrUP",
           "untersuchungsplan_id": [],
           "art_anlage": {
             "code": "1010",
@@ -148,7 +148,7 @@
           "kommentar": null,
           "wasserversorgungsgebiet": [
             {
-              "wasserversorgungsgebiet_id": "ada70f75-bdb4-47f8-9392-b3ca8f25c47d",
+              "wasserversorgungsgebiet_id": "1548403d-e918-4ea2-82bd-b29c76bc845a",
               "name_wasserversorgungsgebiet": {
                 "code": "",
                 "name": null
@@ -156,7 +156,7 @@
               "lau2_code": null,
               "zustaendige_behoerde": [
                 {
-                  "id": "behoerde-yWXOF6Ip",
+                  "id": "behoerde-RnlplC0x",
                   "typ": {
                     "code": "",
                     "name": null,
@@ -196,7 +196,7 @@
                 }
               ],
               "geokoordinaten_shapth": null,
-              "datum_der_einrichtung": "2024-10-07",
+              "datum_der_einrichtung": "2024-11-04",
               "datum_der_schliessung": null,
               "grund_der_schliessung": null,
               "nachfolger_wvg_bei_schliessung": [],
@@ -220,12 +220,12 @@
               "derogation": [],
               "exceedance": [],
               "incident": [],
-              "id": "wvg-zWLe5pf0"
+              "id": "wvg-Svkydu6l"
             }
           ],
           "anlage_nach_trinkw_v_objekt": [
             {
-              "objekt_id": "c1fec593-fb89-4aa3-aaa9-168b5798b5c4",
+              "objekt_id": "74e2d8af-b965-4f7b-acfa-69ffd6bcc5f9",
               "wasserversorgungsgebiet": null,
               "anschrift_objekt": [],
               "art_objekt": {
@@ -249,11 +249,11 @@
               "kommentar": null,
               "betreiber": [
                 {
-                  "betreiber_id": "c32e278a-e2a9-4f28-8cb9-4dcb30b527e1",
+                  "betreiber_id": "3e82f8f8-ba8c-4d43-a3d8-24d3a94a7e8e",
                   "art_der_person": {
                     "t": "Organisation",
                     "c": {
-                      "id": "organisation-B2sUC7KA",
+                      "id": "organisation-UR8hM200",
                       "rechtsform": null,
                       "branche": [],
                       "zweck": [],
@@ -267,15 +267,15 @@
                     }
                   },
                   "objekt_id": [
-                    "obj-AYzgkwnF"
+                    "obj-TFzFn6Wk"
                   ],
                   "kommentar": null,
-                  "id": "betreiber-C8sidkjf"
+                  "id": "betreiber-V561oMWM"
                 }
               ],
               "objekt_probennahmestelle": [
                 {
-                  "probennahmestelle_id": "accc946c-9adb-45e9-aa48-b6da03d6f480",
+                  "probennahmestelle_id": "f73e2d55-da69-4355-85b8-74becbeb7e2e",
                   "objekt_id": "",
                   "probe": [],
                   "terminplan_id": [],
@@ -303,13 +303,13 @@
                   "alt_id": null,
                   "berichtspflichtig": null,
                   "kommentar": null,
-                  "id": "probennahmestelle-DgEGzHh2"
+                  "id": "probennahmestelle-WlvFtJmt"
                 }
               ],
-              "id": "obj-AYzgkwnF"
+              "id": "obj-TFzFn6Wk"
             }
           ],
-          "id": "antv-Eq6tIN0M"
+          "id": "antv-XDq8SRGZ"
         },
         "auftraggeber": {
           "auftraggeber_id": "",
@@ -320,7 +320,7 @@
           "auftraggeber": {
             "t": "Organisation",
             "c": {
-              "id": "organisation-FCS9qbWX",
+              "id": "organisation-YXVrcNha",
               "rechtsform": null,
               "branche": [],
               "zweck": [],
@@ -335,7 +335,7 @@
           }
         },
         "zustaendige_behoerde": {
-          "id": "behoerde-w26tU9Te",
+          "id": "behoerde-PdTBjrUP",
           "typ": {
             "code": "",
             "name": null,
@@ -381,7 +381,7 @@
         },
         "aenderungshistorie": null,
         "erweiterung": null,
-        "id": "untersuchungsplan-GQ2pvYC0"
+        "id": "untersuchungsplan-Zj5M9nJw"
       }
     },
     "bemerkung": null,

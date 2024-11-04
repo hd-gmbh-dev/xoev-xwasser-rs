@@ -28,7 +28,7 @@ impl FromStr for ConstStr {
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 // ))]
 // pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
 //     #[xml(name = b"code", ty = "child")]
@@ -51,7 +51,7 @@ impl FromStr for ConstStr {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct CodeBehoerdenkennungType {
     #[xml(name = b"code", ty = "child")]
@@ -70,7 +70,7 @@ pub struct CodeBehoerdenkennungType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct CodePersonenrolleType {
     #[xml(name = b"code", ty = "child")]
