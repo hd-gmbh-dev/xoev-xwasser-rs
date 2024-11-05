@@ -16,7 +16,7 @@ fn test_monitoring_plan_builder() -> anyhow::Result<()> {
     let e = VorgangTransportieren2010::builder()
         .produkt("XWasser Test".into())
         .produkthersteller("H&D GmbH".into())
-        .produktversion("0.600.1".into())
+        .produktversion("0.700.0".into())
         .test(Some(true))
         .nachrichtenkopf_g2g(nachrichtenkopf_g2g(
             NachrichtenTypEnum::VorgangTransportieren2010,
