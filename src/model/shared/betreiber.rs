@@ -28,7 +28,7 @@ use super::{
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub enum ArtDerPerson {
     #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
@@ -50,7 +50,7 @@ pub enum ArtDerPerson {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct BetreiberType {
     #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
@@ -72,7 +72,7 @@ pub struct BetreiberType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]

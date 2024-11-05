@@ -7,10 +7,10 @@ use crate::model::codes::{
     CodeAnlassUntersuchungType, CodeArtEntnahmearmaturType,
     CodeAufbereitungsstoffDesinfektionsverfahrenType, CodeBewertungUntersuchungswertType,
     CodeKategorieProbennahmestelleType, CodeMediumType, CodeMesswertergaenzungType,
-    CodeParameterauspraegungType, CodeParameterunterauswahlType, CodeProbenbewertungType,
-    CodeProbenentnahmegeraetType, CodeProbengefaessType, CodeProbennahmeverfahrenType,
-    CodeShapthParameterEinheitType, CodeShapthParameterType,
-    CodeUnterkategorieProbennahmestelleType, CodeUntersuchungsverfahrenType,
+    CodeParameterauspraegungType, CodeProbenbewertungType, CodeProbenentnahmegeraetType,
+    CodeProbengefaessType, CodeProbennahmeverfahrenType, CodeShapthParameterEinheitType,
+    CodeShapthParameterType, CodeUnterkategorieProbennahmestelleType,
+    CodeUntersuchungsverfahrenType,
 };
 
 #[cfg(feature = "wasm")]
@@ -33,7 +33,7 @@ use super::{
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub enum Probennehmer {
     #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
@@ -53,7 +53,7 @@ pub enum Probennehmer {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct ProbennehmerType {
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
@@ -75,7 +75,7 @@ pub struct ProbennehmerType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
@@ -84,7 +84,7 @@ pub struct ProbennahmestelleType {
     pub objekt_id: String,
     #[xml(ns = b"xwas", name = b"probe", ty = "child")]
     #[serde(default)]
-    pub probe: Vec<ProbeType>,
+    pub probe: Vec<String>,
     #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
     #[serde(default)]
     pub terminplan_id: Vec<String>,
@@ -126,15 +126,19 @@ pub struct ProbennahmestelleType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
     pub probe_id: String,
+    #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
+    pub probennahmestelle: String,
     #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
     pub untersuchungsplan_id: Option<String>,
     #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
     pub probennehmer: Option<String>,
+    #[xml(ns = b"xwas", name = b"titelProbe", ty = "child")]
+    pub titel_probe: Option<String>,
     #[xml(ns = b"xwas", name = b"analyseergebnisParameter", ty = "child")]
     pub analyseergebnis_parameter: Vec<AnalyseergebnisParameterType>,
     #[xml(ns = b"xwas", name = b"anlassDerUntersuchung", ty = "child")]
@@ -224,7 +228,7 @@ pub struct ProbeType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct AnalyseergebnisParameterType {
     #[xml(ns = b"xwas", name = b"analyseergebnisParameterID", ty = "child")]
@@ -260,8 +264,6 @@ pub struct AnalyseergebnisParameterType {
     pub parameter_durch_betreiber_untersucht: bool,
     #[xml(ns = b"xwas", name = b"wurdeDerParameterKorrigiert", ty = "child")]
     pub wurde_der_parameter_korrigiert: Option<bool>,
-    #[xml(ns = b"xwas", name = b"parameterUnterauswahl", ty = "child")]
-    pub parameter_unterauswahl: Option<CodeParameterunterauswahlType>,
     #[xml(ns = b"xwas", name = b"untersuchungswertParameter", ty = "child")]
     pub untersuchungswert_parameter: Option<f64>,
     #[xml(ns = b"xwas", name = b"einheitDesUntersuchungswerts", ty = "child")]

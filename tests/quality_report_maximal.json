@@ -48,213 +48,8 @@
           {
             "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
             "objekt_id": "abcd",
-            "probe": [
-              {
-                "probe_id": "5e08e073-4e06-438d-9444-1275f6cbf061",
-                "untersuchungsplan_id": "1345",
-                "probennehmer": "Flaschenwasser-Gmbh",
-                "analyseergebnis_parameter": [
-                  {
-                    "analyseergebnis_parameter_id": "753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
-                    "anschrift_id": "anschrift1",
-                    "zugelassene_untersuchungsstelle": "ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
-                    "akkreditierte_durchfuehrung_analyse": true,
-                    "untersuchungsverfahren": [
-                      {
-                        "code": "1010",
-                        "name": "Nontarget-Screening"
-                      }
-                    ],
-                    "ergaenzung_zum_untersuchungsverfahren": "Nontarget-Screening",
-                    "untersuchter_parameter": {
-                      "code": "1000",
-                      "name": "Kalk"
-                    },
-                    "parameterauspraegung": {
-                      "code": "1210",
-                      "name": "Sehr Hoch"
-                    },
-                    "parameter_durch_betreiber_untersucht": true,
-                    "wurde_der_parameter_korrigiert": null,
-                    "parameter_unterauswahl": null,
-                    "untersuchungswert_parameter": null,
-                    "einheit_des_untersuchungswerts": null,
-                    "ergaenzung_zum_untersuchungswert_parameter": null,
-                    "parameterwert_ergaenzung": null,
-                    "ausgewertetes_ansatzvolumen": 11.1,
-                    "shapth_parameter_nummer": [],
-                    "bewertung_untersuchungswert": {
-                      "code": "1010",
-                      "name": null
-                    },
-                    "parameterauffaelligkeit": null,
-                    "messunsicherheit_untersuchungswert_absolut": null,
-                    "messunsicherheit_untersuchungswert_relativ": null,
-                    "bestimmungsgrenze_lo_q": "123",
-                    "kommentar": "Probe immer noch in Ordnung.",
-                    "id": "analyseergebnisParameter1"
-                  }
-                ],
-                "anlass_der_untersuchung": [
-                  {
-                    "code": "1010",
-                    "name": "Teil einer Routineuntersuchung"
-                  }
-                ],
-                "medium": {
-                  "code": "1010",
-                  "name": "Flaschenwasser"
-                },
-                "akkreditierte_durchfuehrung_der_probennahme": true,
-                "ergaenzung_zum_medium": "Grünglas",
-                "zeitpunkt_probennahme": "2024-05-27T09:00:00",
-                "probennahmeverfahren": [
-                  {
-                    "code": "1010",
-                    "name": "Beprobung \"Wie vom Verbraucher verwendet\" incl. Entnahmearmatur (Zweck C)"
-                  }
-                ],
-                "probenentnahmegeraet": {
-                  "code": "1010",
-                  "name": "Glasschöpfer"
-                },
-                "probengefaess": {
-                  "code": "1010",
-                  "name": "Glasgefäß"
-                },
-                "ergaenzende_informationen_zu_probenentnahmegeraet": "",
-                "desinfektion_probenentnahmegeraet_durchgefuehrt": true,
-                "konservierung_aufbereitung_desinfektion_probe": [
-                  {
-                    "code": "1010",
-                    "name": "Aktivkohle, granuliert"
-                  }
-                ],
-                "kommentar_zur_probennahme": "",
-                "informationen_zum_probentransport": "Getränkekiste",
-                "eingang_probe_bei_untersuchungsstelle": "2024-05-27T10:00:00",
-                "beginn_labortaetigkeit_analytik": "2024-05-27T10:01:00",
-                "abschluss_labortaetigkeit_analytik": "2024-05-27T10:02:00",
-                "konformitaetsbewertung_der_probe": {
-                  "code": "1010",
-                  "name": null
-                },
-                "berichtspflichtig": true,
-                "von_probennehmer_vergebene_probe_id": "123456789",
-                "angelieferte_probe": null,
-                "informationen_zur_angelieferten_probe": null,
-                "probe_id_aus_labor": "1233",
-                "anhang": [
-                  "anhang1"
-                ],
-                "kommentar": "Unangekündigte Stichprobenentnahme",
-                "id": "probe1"
-              },
-              {
-                "probe_id": "2f23a123-1b23-4e56-b567-1a23b45c678d",
-                "untersuchungsplan_id": "6789",
-                "probennehmer": "Trinkwasser-AG",
-                "analyseergebnis_parameter": [
-                  {
-                    "analyseergebnis_parameter_id": "1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
-                    "anschrift_id": "anschrift2",
-                    "zugelassene_untersuchungsstelle": "ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
-                    "akkreditierte_durchfuehrung_analyse": false,
-                    "untersuchungsverfahren": [
-                      {
-                        "code": "2020",
-                        "name": "Spektrometrie"
-                      }
-                    ],
-                    "ergaenzung_zum_untersuchungsverfahren": "Spektrometrie mit Erweiterungen",
-                    "untersuchter_parameter": {
-                      "code": "2000",
-                      "name": "Chlor"
-                    },
-                    "parameterauspraegung": {
-                      "code": "1010",
-                      "name": "Mäßig"
-                    },
-                    "parameter_durch_betreiber_untersucht": false,
-                    "wurde_der_parameter_korrigiert": null,
-                    "parameter_unterauswahl": null,
-                    "untersuchungswert_parameter": null,
-                    "einheit_des_untersuchungswerts": null,
-                    "ergaenzung_zum_untersuchungswert_parameter": null,
-                    "parameterwert_ergaenzung": null,
-                    "ausgewertetes_ansatzvolumen": 10.5,
-                    "shapth_parameter_nummer": [],
-                    "bewertung_untersuchungswert": {
-                      "code": "1010",
-                      "name": null
-                    },
-                    "parameterauffaelligkeit": null,
-                    "messunsicherheit_untersuchungswert_absolut": null,
-                    "messunsicherheit_untersuchungswert_relativ": null,
-                    "bestimmungsgrenze_lo_q": "150",
-                    "kommentar": "Probe zeigt leicht erhöhte Werte.",
-                    "id": "analyseergebnisParameter2"
-                  }
-                ],
-                "anlass_der_untersuchung": [
-                  {
-                    "code": "1010",
-                    "name": "Regelmäßige Kontrolle"
-                  }
-                ],
-                "medium": {
-                  "code": "1010",
-                  "name": "Leitungswasser"
-                },
-                "akkreditierte_durchfuehrung_der_probennahme": false,
-                "ergaenzung_zum_medium": "Kunststoffflasche",
-                "zeitpunkt_probennahme": "2024-06-15T08:30:00",
-                "probennahmeverfahren": [
-                  {
-                    "code": "1010",
-                    "name": "Direkte Entnahme am Wasserhahn"
-                  }
-                ],
-                "probenentnahmegeraet": {
-                  "code": "1010",
-                  "name": "Plastikbecher"
-                },
-                "probengefaess": {
-                  "code": "1010",
-                  "name": "Kunststoffbehälter"
-                },
-                "ergaenzende_informationen_zu_probenentnahmegeraet": "Vor Gebrauch gereinigt",
-                "desinfektion_probenentnahmegeraet_durchgefuehrt": false,
-                "konservierung_aufbereitung_desinfektion_probe": [
-                  {
-                    "code": "1010",
-                    "name": "Filterung"
-                  }
-                ],
-                "kommentar_zur_probennahme": "Regelmäßige Überprüfung",
-                "informationen_zum_probentransport": "Kühlbox",
-                "eingang_probe_bei_untersuchungsstelle": "2024-06-15T09:00:00",
-                "beginn_labortaetigkeit_analytik": "2024-06-15T09:05:00",
-                "abschluss_labortaetigkeit_analytik": "2024-06-15T09:30:00",
-                "konformitaetsbewertung_der_probe": {
-                  "code": "1020",
-                  "name": null
-                },
-                "berichtspflichtig": true,
-                "von_probennehmer_vergebene_probe_id": "987654321",
-                "angelieferte_probe": null,
-                "informationen_zur_angelieferten_probe": null,
-                "probe_id_aus_labor": "5678",
-                "anhang": [
-                  "anhang1"
-                ],
-                "kommentar": "Routinekontrolle",
-                "id": "probe2"
-              }
-            ],
-            "terminplan_id": [
-              "terminplanid1"
-            ],
+            "probe": [],
+            "terminplan_id": [],
             "name_probennahmestelle": "",
             "kategorie_probennahmestelle": {
               "code": "L",
@@ -285,6 +80,212 @@
             "berichtspflichtig": true,
             "kommentar": "",
             "id": "probennahmestelleid1"
+          }
+        ],
+        "probe": [
+          {
+            "probe_id": "5e08e073-4e06-438d-9444-1275f6cbf061",
+            "probennahmestelle": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
+            "untersuchungsplan_id": "1345",
+            "probennehmer": "Flaschenwasser-Gmbh",
+            "titel_probe": null,
+            "analyseergebnis_parameter": [
+              {
+                "analyseergebnis_parameter_id": "753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
+                "anschrift_id": "anschrift1",
+                "zugelassene_untersuchungsstelle": "ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
+                "akkreditierte_durchfuehrung_analyse": true,
+                "untersuchungsverfahren": [
+                  {
+                    "code": "1010",
+                    "name": "Nontarget-Screening"
+                  }
+                ],
+                "ergaenzung_zum_untersuchungsverfahren": "Nontarget-Screening",
+                "untersuchter_parameter": {
+                  "code": "1000",
+                  "name": "Kalk"
+                },
+                "parameterauspraegung": {
+                  "code": "10001-1",
+                  "name": "Sehr Hoch"
+                },
+                "parameter_durch_betreiber_untersucht": true,
+                "wurde_der_parameter_korrigiert": null,
+                "untersuchungswert_parameter": null,
+                "einheit_des_untersuchungswerts": null,
+                "ergaenzung_zum_untersuchungswert_parameter": null,
+                "parameterwert_ergaenzung": null,
+                "ausgewertetes_ansatzvolumen": 11.1,
+                "shapth_parameter_nummer": [],
+                "bewertung_untersuchungswert": {
+                  "code": "1010",
+                  "name": null
+                },
+                "parameterauffaelligkeit": null,
+                "messunsicherheit_untersuchungswert_absolut": null,
+                "messunsicherheit_untersuchungswert_relativ": null,
+                "bestimmungsgrenze_lo_q": "123",
+                "kommentar": "Probe immer noch in Ordnung.",
+                "id": "analyseergebnisParameter1"
+              }
+            ],
+            "anlass_der_untersuchung": [
+              {
+                "code": "1010",
+                "name": "Teil einer Routineuntersuchung"
+              }
+            ],
+            "medium": {
+              "code": "1010",
+              "name": "Flaschenwasser"
+            },
+            "akkreditierte_durchfuehrung_der_probennahme": true,
+            "ergaenzung_zum_medium": "Grünglas",
+            "zeitpunkt_probennahme": "2024-05-27T09:00:00",
+            "probennahmeverfahren": [
+              {
+                "code": "1010",
+                "name": "Beprobung \"Wie vom Verbraucher verwendet\" incl. Entnahmearmatur (Zweck C)"
+              }
+            ],
+            "probenentnahmegeraet": {
+              "code": "1010",
+              "name": "Glasschöpfer"
+            },
+            "probengefaess": {
+              "code": "1010",
+              "name": "Glasgefäß"
+            },
+            "ergaenzende_informationen_zu_probenentnahmegeraet": "",
+            "desinfektion_probenentnahmegeraet_durchgefuehrt": true,
+            "konservierung_aufbereitung_desinfektion_probe": [
+              {
+                "code": "1010",
+                "name": "Aktivkohle, granuliert"
+              }
+            ],
+            "kommentar_zur_probennahme": "",
+            "informationen_zum_probentransport": "Getränkekiste",
+            "eingang_probe_bei_untersuchungsstelle": "2024-05-27T10:00:00",
+            "beginn_labortaetigkeit_analytik": "2024-05-27T10:01:00",
+            "abschluss_labortaetigkeit_analytik": "2024-05-27T10:02:00",
+            "konformitaetsbewertung_der_probe": {
+              "code": "1010",
+              "name": null
+            },
+            "berichtspflichtig": true,
+            "von_probennehmer_vergebene_probe_id": "123456789",
+            "angelieferte_probe": null,
+            "informationen_zur_angelieferten_probe": null,
+            "probe_id_aus_labor": "1233",
+            "anhang": [
+              "anhang1"
+            ],
+            "kommentar": "Unangekündigte Stichprobenentnahme",
+            "id": "probe1"
+          },
+          {
+            "probe_id": "2f23a123-1b23-4e56-b567-1a23b45c678d",
+            "probennahmestelle": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
+            "untersuchungsplan_id": "6789",
+            "probennehmer": "Trinkwasser-AG",
+            "titel_probe": null,
+            "analyseergebnis_parameter": [
+              {
+                "analyseergebnis_parameter_id": "1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
+                "anschrift_id": "anschrift2",
+                "zugelassene_untersuchungsstelle": "ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
+                "akkreditierte_durchfuehrung_analyse": false,
+                "untersuchungsverfahren": [
+                  {
+                    "code": "2020",
+                    "name": "Spektrometrie"
+                  }
+                ],
+                "ergaenzung_zum_untersuchungsverfahren": "Spektrometrie mit Erweiterungen",
+                "untersuchter_parameter": {
+                  "code": "2000",
+                  "name": "Chlor"
+                },
+                "parameterauspraegung": {
+                  "code": "10002-2",
+                  "name": "Mäßig"
+                },
+                "parameter_durch_betreiber_untersucht": false,
+                "wurde_der_parameter_korrigiert": null,
+                "untersuchungswert_parameter": null,
+                "einheit_des_untersuchungswerts": null,
+                "ergaenzung_zum_untersuchungswert_parameter": null,
+                "parameterwert_ergaenzung": null,
+                "ausgewertetes_ansatzvolumen": 10.5,
+                "shapth_parameter_nummer": [],
+                "bewertung_untersuchungswert": {
+                  "code": "1010",
+                  "name": null
+                },
+                "parameterauffaelligkeit": null,
+                "messunsicherheit_untersuchungswert_absolut": null,
+                "messunsicherheit_untersuchungswert_relativ": null,
+                "bestimmungsgrenze_lo_q": "150",
+                "kommentar": "Probe zeigt leicht erhöhte Werte.",
+                "id": "analyseergebnisParameter2"
+              }
+            ],
+            "anlass_der_untersuchung": [
+              {
+                "code": "1010",
+                "name": "Regelmäßige Kontrolle"
+              }
+            ],
+            "medium": {
+              "code": "1010",
+              "name": "Leitungswasser"
+            },
+            "akkreditierte_durchfuehrung_der_probennahme": false,
+            "ergaenzung_zum_medium": "Kunststoffflasche",
+            "zeitpunkt_probennahme": "2024-06-15T08:30:00",
+            "probennahmeverfahren": [
+              {
+                "code": "1010",
+                "name": "Direkte Entnahme am Wasserhahn"
+              }
+            ],
+            "probenentnahmegeraet": {
+              "code": "1010",
+              "name": "Plastikbecher"
+            },
+            "probengefaess": {
+              "code": "1010",
+              "name": "Kunststoffbehälter"
+            },
+            "ergaenzende_informationen_zu_probenentnahmegeraet": "Vor Gebrauch gereinigt",
+            "desinfektion_probenentnahmegeraet_durchgefuehrt": false,
+            "konservierung_aufbereitung_desinfektion_probe": [
+              {
+                "code": "1010",
+                "name": "Filterung"
+              }
+            ],
+            "kommentar_zur_probennahme": "Regelmäßige Überprüfung",
+            "informationen_zum_probentransport": "Kühlbox",
+            "eingang_probe_bei_untersuchungsstelle": "2024-06-15T09:00:00",
+            "beginn_labortaetigkeit_analytik": "2024-06-15T09:05:00",
+            "abschluss_labortaetigkeit_analytik": "2024-06-15T09:30:00",
+            "konformitaetsbewertung_der_probe": {
+              "code": "1020",
+              "name": null
+            },
+            "berichtspflichtig": true,
+            "von_probennehmer_vergebene_probe_id": "987654321",
+            "angelieferte_probe": null,
+            "informationen_zur_angelieferten_probe": null,
+            "probe_id_aus_labor": "5678",
+            "anhang": [
+              "anhang1"
+            ],
+            "kommentar": "Routinekontrolle",
+            "id": "probe2"
           }
         ],
         "name_beauftragte_untersuchungsstelle": {

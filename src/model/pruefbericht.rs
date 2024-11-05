@@ -17,7 +17,7 @@ use super::{
         behoerde::ZustaendigeBehoerdeType,
         misc::ErweiterungType,
         person::NatuerlichePersonType,
-        probe::{ProbennahmestelleType, ProbennehmerType},
+        probe::{ProbeType, ProbennahmestelleType, ProbennehmerType},
         unterssuchungsstelle::{
             BeauftragteUntersuchungsstelleType, ZugelasseneUntersuchungsstelleType,
         },
@@ -32,7 +32,7 @@ use super::{
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
@@ -44,6 +44,9 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
     #[serde(default)]
     pub probennahmestelle: Vec<ProbennahmestelleType>,
+    #[xml(ns = b"xwas", name = b"probe", ty = "child")]
+    #[serde(default)]
+    pub probe: Vec<ProbeType>,
     #[xml(
         default,
         ns = b"xwas",

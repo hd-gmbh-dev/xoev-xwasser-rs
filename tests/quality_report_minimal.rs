@@ -48,6 +48,6 @@ fn test_minimal_quality_report_against_serialize() -> anyhow::Result<()> {
     if let Err(e) = result {
         eprintln!("{e}");
     }
-    std::fs::write("tests/quality_report_minimal_test_result.xml", xml.replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/ ../schemas/V0_6_0/xwasser.xsd"))?;
+    std::fs::write("tests/quality_report_minimal_test_result.xml", xml.replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/ ../schemas/V0_7_0/xwasser.xsd"))?;
     Ok(())
 }

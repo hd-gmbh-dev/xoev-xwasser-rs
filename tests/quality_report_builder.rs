@@ -108,10 +108,9 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .untersuchungsverfahren(vec!["1010".into()])
         .ergaenzung_zum_untersuchungsverfahren(Default::default())
         .untersuchter_parameter("1021".into())
-        .parameterauspraegung(Some("1210".into()))
+        .parameterauspraegung(Some("10001-1".into()))
         .parameter_durch_betreiber_untersucht(Default::default())
         .wurde_der_parameter_korrigiert(Default::default())
-        .parameter_unterauswahl(Default::default())
         .untersuchungswert_parameter(Some(0.0))
         .einheit_des_untersuchungswerts(Some("1400".into()))
         .ergaenzung_zum_untersuchungswert_parameter(Default::default())
@@ -127,10 +126,14 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .id("param-1".into())
         .build();
 
+    let probenahmestelle_id = format!("id-{}", new_uuid());
+
     let probe = ProbeType::builder()
         .probe_id(new_uuid())
+        .probennahmestelle(probenahmestelle_id.clone())
         .untersuchungsplan_id(Default::default())
         .probennehmer(Default::default())
+        .titel_probe(Default::default())
         .analyseergebnis_parameter(vec![param])
         .anlass_der_untersuchung(vec!["1010".into()])
         .medium(Some("1010".into()))
@@ -142,7 +145,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .probengefaess(Default::default())
         .ergaenzende_informationen_zu_probenentnahmegeraet(Default::default())
         .desinfektion_probenentnahmegeraet_durchgefuehrt(Default::default())
-        .konservierung_aufbereitung_desinfektion_probe(Default::default())
+        .konservierung_aufbereitung_desinfektion_probe(vec!["1020".into()])
         .kommentar_zur_probennahme(Default::default())
         .informationen_zum_probentransport(Default::default())
         .eingang_probe_bei_untersuchungsstelle(now())
@@ -160,9 +163,9 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .build();
 
     let probennahmestelle = ProbennahmestelleType::builder()
-        .probennahmestelle_id(new_uuid())
+        .probennahmestelle_id(probenahmestelle_id)
         .objekt_id("none".into())
-        .probe(vec![probe])
+        .probe(Default::default())
         .terminplan_id(Default::default())
         .name_probennahmestelle(Default::default())
         .kategorie_probennahmestelle("L".into())
@@ -243,6 +246,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .vorgaenger_pruefbericht_id(None)
         .auftragsnummer(new_uuid())
         .probennahmestelle(vec![probennahmestelle])
+        .probe(vec![probe])
         .name_beauftragte_untersuchungsstelle("09010".into())
         .probennehmer(vec![probennehmer])
         .pruefbericht_enthaelt_teilergebnisse(Default::default())
@@ -291,8 +295,8 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     let json = serde_json::to_string_pretty(&e).unwrap();
     std::fs::write("tests/quality_report_builder.json", json)?;
     let xml = raxb::ser::to_string_pretty_with_decl(&e)?;
-    std::fs::write("tests/quality_report_builder_test_result.xml", xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/ xwasser.xsd""#,
-    r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/ ../schemas/V0_6_0/xwasser.xsd""#))?;
+    std::fs::write("tests/quality_report_builder_test_result.xml", xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/ xwasser.xsd""#,
+    r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/ ../schemas/V0_7_0/xwasser.xsd""#))?;
     Ok(())
 }
 

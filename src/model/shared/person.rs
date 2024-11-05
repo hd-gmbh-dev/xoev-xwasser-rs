@@ -33,7 +33,7 @@ use super::{
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct AllgemeinerNameType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -63,7 +63,7 @@ pub struct AllgemeinerNameType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct AlternativeRepraesentationType {
     #[xml(ns = b"xwas", name = b"repraesentation", ty = "child")]
@@ -82,7 +82,7 @@ pub struct AlternativeRepraesentationType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct NameNatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"titel", ty = "child")]
@@ -129,7 +129,7 @@ pub struct NameNatuerlichePersonType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct AuskunftssperreType {
     #[xml(ns = b"xwas", name = b"grund", ty = "child")]
@@ -145,7 +145,7 @@ pub struct AuskunftssperreType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct GeburtType {
     #[xml(ns = b"xwas", name = b"datum", ty = "child")]
@@ -166,7 +166,7 @@ pub struct GeburtType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct DoktorgradType {
     // hier gibt es eine striction mit max length 120, wie umsetzen ?
@@ -182,7 +182,7 @@ pub struct DoktorgradType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct VertreterBevollmaechtigterType {
     #[xml(ns = b"xwas", name = b"vertreterBevollmaechtigterID", ty = "child")]
@@ -198,7 +198,7 @@ pub struct VertreterBevollmaechtigterType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct FamilienstandType {
     #[xml(ns = b"xwas", name = b"familienstand", ty = "child")]
@@ -221,7 +221,7 @@ pub struct FamilienstandType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct AusweisdokumentType {
     #[xml(ns = b"xwas", name = b"ausweisart", ty = "child")]
@@ -251,7 +251,7 @@ pub struct AusweisdokumentType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct JuristischePersonType {
     #[xml(
@@ -292,7 +292,7 @@ pub struct JuristischePersonType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct GeschlechtType {
     #[xml(ns = b"xwas", name = b"geschlecht", ty = "child")]
@@ -312,7 +312,7 @@ pub struct GeschlechtType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct NatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"auskunftssperre", ty = "child")]
@@ -355,7 +355,7 @@ pub struct NatuerlichePersonType {
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub enum Person {
     #[xml(ns = b"xwas", name = b"natuerlichePerson")]
@@ -376,7 +376,7 @@ pub enum Person {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct PersonType {
     #[xml(ns = b"xwas", name = b"personRolle", ty = "child")]

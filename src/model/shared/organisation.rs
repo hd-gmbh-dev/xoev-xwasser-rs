@@ -28,7 +28,7 @@ use super::zeitraum::ZeitraumType;
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct OrganisationType {
     #[xml(name = b"id", ty = "attr")]
@@ -69,7 +69,7 @@ pub struct OrganisationType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct RegistrierungType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
@@ -98,7 +98,7 @@ pub struct Name {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct NameOrganisationType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -118,7 +118,7 @@ pub struct NameOrganisationType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
 ))]
 pub struct OrganisationseinheitType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]

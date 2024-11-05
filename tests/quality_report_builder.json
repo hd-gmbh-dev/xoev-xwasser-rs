@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "1c55c190-36b5-4264-9406-03281a5da7a6",
+      "nachrichten_uuid": "d89aaa0c-b907-46d8-ac20-c1a8d822baa0",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2024-10-07T15:26:58"
+      "erstellungszeitpunkt": "2024-11-05T12:12:42"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -36,114 +36,19 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "f625c3a6-2437-433e-aecb-185028c0dc20"
+      "vorgangs_id": "f55fdc67-6861-4804-bd34-d11679c9c073"
     },
     "vorgang_type": {
       "t": "Pruefbericht",
       "c": {
-        "pruefbericht_uuid": "bcfbfaf1-79ae-4847-b6ce-ef667c1f6fb8",
+        "pruefbericht_uuid": "05edb757-f843-428b-a334-43e0d31f7f93",
         "vorgaenger_pruefbericht_id": null,
-        "auftragsnummer": "5845649c-19c2-4780-96f1-94df9ec47a63",
+        "auftragsnummer": "d7a63b26-226e-4913-807f-6beec81dc483",
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "40f1a37d-9c9a-409c-9509-3b66b48494ab",
+            "probennahmestelle_id": "id-50aa600d-51c6-4989-add4-f0af2210abdb",
             "objekt_id": "none",
-            "probe": [
-              {
-                "probe_id": "716b6487-3bd6-4b8f-843c-c6b6cffc4164",
-                "untersuchungsplan_id": null,
-                "probennehmer": null,
-                "analyseergebnis_parameter": [
-                  {
-                    "analyseergebnis_parameter_id": "a81f95df-8887-45be-ab57-39a84e6291c5",
-                    "anschrift_id": "anschrift-ocw8xH4P",
-                    "zugelassene_untersuchungsstelle": "wsu-1",
-                    "akkreditierte_durchfuehrung_analyse": false,
-                    "untersuchungsverfahren": [
-                      {
-                        "code": "1010",
-                        "name": null
-                      }
-                    ],
-                    "ergaenzung_zum_untersuchungsverfahren": null,
-                    "untersuchter_parameter": {
-                      "code": "1021",
-                      "name": null
-                    },
-                    "parameterauspraegung": {
-                      "code": "1210",
-                      "name": null
-                    },
-                    "parameter_durch_betreiber_untersucht": false,
-                    "wurde_der_parameter_korrigiert": null,
-                    "parameter_unterauswahl": null,
-                    "untersuchungswert_parameter": 0.0,
-                    "einheit_des_untersuchungswerts": {
-                      "code": "1400",
-                      "name": null
-                    },
-                    "ergaenzung_zum_untersuchungswert_parameter": null,
-                    "parameterwert_ergaenzung": null,
-                    "ausgewertetes_ansatzvolumen": 0.0,
-                    "shapth_parameter_nummer": [],
-                    "bewertung_untersuchungswert": {
-                      "code": "1010",
-                      "name": null
-                    },
-                    "parameterauffaelligkeit": null,
-                    "messunsicherheit_untersuchungswert_absolut": null,
-                    "messunsicherheit_untersuchungswert_relativ": null,
-                    "bestimmungsgrenze_lo_q": "0.0",
-                    "kommentar": null,
-                    "id": "param-1"
-                  }
-                ],
-                "anlass_der_untersuchung": [
-                  {
-                    "code": "1010",
-                    "name": null
-                  }
-                ],
-                "medium": {
-                  "code": "1010",
-                  "name": null
-                },
-                "akkreditierte_durchfuehrung_der_probennahme": false,
-                "ergaenzung_zum_medium": null,
-                "zeitpunkt_probennahme": "2024-10-07T15:26:58",
-                "probennahmeverfahren": [
-                  {
-                    "code": "1010",
-                    "name": null
-                  }
-                ],
-                "probenentnahmegeraet": {
-                  "code": "9020",
-                  "name": null
-                },
-                "probengefaess": null,
-                "ergaenzende_informationen_zu_probenentnahmegeraet": null,
-                "desinfektion_probenentnahmegeraet_durchgefuehrt": null,
-                "konservierung_aufbereitung_desinfektion_probe": [],
-                "kommentar_zur_probennahme": null,
-                "informationen_zum_probentransport": null,
-                "eingang_probe_bei_untersuchungsstelle": "2024-10-07T15:26:58",
-                "beginn_labortaetigkeit_analytik": "2024-10-07T15:26:58",
-                "abschluss_labortaetigkeit_analytik": "2024-10-07T15:26:58",
-                "konformitaetsbewertung_der_probe": {
-                  "code": "1010",
-                  "name": null
-                },
-                "berichtspflichtig": null,
-                "von_probennehmer_vergebene_probe_id": "",
-                "angelieferte_probe": null,
-                "informationen_zur_angelieferten_probe": null,
-                "probe_id_aus_labor": "",
-                "anhang": [],
-                "kommentar": null,
-                "id": "probe-1"
-              }
-            ],
+            "probe": [],
             "terminplan_id": [],
             "name_probennahmestelle": "",
             "kategorie_probennahmestelle": {
@@ -172,13 +77,115 @@
             "id": "probennahmestelle-1"
           }
         ],
+        "probe": [
+          {
+            "probe_id": "921afe30-6185-4e14-afaf-57a04246fb27",
+            "probennahmestelle": "id-50aa600d-51c6-4989-add4-f0af2210abdb",
+            "untersuchungsplan_id": null,
+            "probennehmer": null,
+            "titel_probe": null,
+            "analyseergebnis_parameter": [
+              {
+                "analyseergebnis_parameter_id": "b7107530-37ea-482a-b650-6eaf9b3a2785",
+                "anschrift_id": "anschrift-mFjsQXII",
+                "zugelassene_untersuchungsstelle": "wsu-1",
+                "akkreditierte_durchfuehrung_analyse": false,
+                "untersuchungsverfahren": [
+                  {
+                    "code": "1010",
+                    "name": null
+                  }
+                ],
+                "ergaenzung_zum_untersuchungsverfahren": null,
+                "untersuchter_parameter": {
+                  "code": "1021",
+                  "name": null
+                },
+                "parameterauspraegung": {
+                  "code": "10001-1",
+                  "name": null
+                },
+                "parameter_durch_betreiber_untersucht": false,
+                "wurde_der_parameter_korrigiert": null,
+                "untersuchungswert_parameter": 0.0,
+                "einheit_des_untersuchungswerts": {
+                  "code": "1400",
+                  "name": null
+                },
+                "ergaenzung_zum_untersuchungswert_parameter": null,
+                "parameterwert_ergaenzung": null,
+                "ausgewertetes_ansatzvolumen": 0.0,
+                "shapth_parameter_nummer": [],
+                "bewertung_untersuchungswert": {
+                  "code": "1010",
+                  "name": null
+                },
+                "parameterauffaelligkeit": null,
+                "messunsicherheit_untersuchungswert_absolut": null,
+                "messunsicherheit_untersuchungswert_relativ": null,
+                "bestimmungsgrenze_lo_q": "0.0",
+                "kommentar": null,
+                "id": "param-1"
+              }
+            ],
+            "anlass_der_untersuchung": [
+              {
+                "code": "1010",
+                "name": null
+              }
+            ],
+            "medium": {
+              "code": "1010",
+              "name": null
+            },
+            "akkreditierte_durchfuehrung_der_probennahme": false,
+            "ergaenzung_zum_medium": null,
+            "zeitpunkt_probennahme": "2024-11-05T12:12:42",
+            "probennahmeverfahren": [
+              {
+                "code": "1010",
+                "name": null
+              }
+            ],
+            "probenentnahmegeraet": {
+              "code": "9020",
+              "name": null
+            },
+            "probengefaess": null,
+            "ergaenzende_informationen_zu_probenentnahmegeraet": null,
+            "desinfektion_probenentnahmegeraet_durchgefuehrt": null,
+            "konservierung_aufbereitung_desinfektion_probe": [
+              {
+                "code": "1020",
+                "name": null
+              }
+            ],
+            "kommentar_zur_probennahme": null,
+            "informationen_zum_probentransport": null,
+            "eingang_probe_bei_untersuchungsstelle": "2024-11-05T12:12:42",
+            "beginn_labortaetigkeit_analytik": "2024-11-05T12:12:42",
+            "abschluss_labortaetigkeit_analytik": "2024-11-05T12:12:42",
+            "konformitaetsbewertung_der_probe": {
+              "code": "1010",
+              "name": null
+            },
+            "berichtspflichtig": null,
+            "von_probennehmer_vergebene_probe_id": "",
+            "angelieferte_probe": null,
+            "informationen_zur_angelieferten_probe": null,
+            "probe_id_aus_labor": "",
+            "anhang": [],
+            "kommentar": null,
+            "id": "probe-1"
+          }
+        ],
         "name_beauftragte_untersuchungsstelle": {
           "code": "09010",
           "name": null
         },
         "probennehmer": [
           {
-            "probennehmer_id": "03252722-fdf6-4a45-a76d-026a41a3adcd",
+            "probennehmer_id": "adb07a6d-8bbb-43df-ab5f-74fa71685c0a",
             "probennehmer": {
               "t": "NatuerlichePerson",
               "c": {
@@ -213,7 +220,7 @@
           "name": null
         },
         "auffaelligkeiten": [],
-        "zeitpunkt_validierung_pruefbericht": "2024-10-07T15:26:58",
+        "zeitpunkt_validierung_pruefbericht": "2024-11-05T12:12:42",
         "fuer_validierung_verantwortliche_person": [
           {
             "auskunftssperre": [],
@@ -327,7 +334,7 @@
             "typ": [],
             "staat": null,
             "verwaltungspolitische_kodierung": null,
-            "id": "anschrift-ocw8xH4P"
+            "id": "anschrift-mFjsQXII"
           }
         ],
         "anhang": [],

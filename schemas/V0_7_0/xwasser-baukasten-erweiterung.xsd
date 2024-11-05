@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
            xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
            xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
-           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_6_0/"
-           version="0.6.0"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
+           version="0.7.0"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
    <xs:annotation>
@@ -17,7 +17,7 @@
             <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
          </standard>
          <versionStandard>
-            <version>0.6.0</version>
+            <version>0.7.0</version>
             <versionXOEVProfil>3.0.2</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
