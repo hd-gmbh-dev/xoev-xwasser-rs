@@ -108,7 +108,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .untersuchungsverfahren(vec!["1010".into()])
         .ergaenzung_zum_untersuchungsverfahren(Default::default())
         .untersuchter_parameter("1021".into())
-        .parameterauspraegung(Some("1210".into()))
+        .parameterauspraegung(Some("10001-1".into()))
         .parameter_durch_betreiber_untersucht(Default::default())
         .wurde_der_parameter_korrigiert(Default::default())
         .untersuchungswert_parameter(Some(0.0))
@@ -126,7 +126,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .id("param-1".into())
         .build();
 
-    let probenahmestelle_id = new_uuid();
+    let probenahmestelle_id = format!("id-{}", new_uuid());
 
     let probe = ProbeType::builder()
         .probe_id(new_uuid())
@@ -145,7 +145,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .probengefaess(Default::default())
         .ergaenzende_informationen_zu_probenentnahmegeraet(Default::default())
         .desinfektion_probenentnahmegeraet_durchgefuehrt(Default::default())
-        .konservierung_aufbereitung_desinfektion_probe(Default::default())
+        .konservierung_aufbereitung_desinfektion_probe(vec!["1020".into()])
         .kommentar_zur_probennahme(Default::default())
         .informationen_zum_probentransport(Default::default())
         .eingang_probe_bei_untersuchungsstelle(now())
@@ -165,7 +165,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     let probennahmestelle = ProbennahmestelleType::builder()
         .probennahmestelle_id(probenahmestelle_id)
         .objekt_id("none".into())
-        .probe(vec![probe.probe_id.clone()])
+        .probe(Default::default())
         .terminplan_id(Default::default())
         .name_probennahmestelle(Default::default())
         .kategorie_probennahmestelle("L".into())

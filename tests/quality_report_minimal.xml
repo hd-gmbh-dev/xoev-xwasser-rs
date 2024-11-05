@@ -35,8 +35,25 @@
         <xwas:probennahmestelle id="probennahmestelleid1">
           <xwas:probennahmestelleID>ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86</xwas:probennahmestelleID>
           <xwas:objektID>abcd</xwas:objektID>
+          <xwas:nameProbennahmestelle>wasserloch um die ecke</xwas:nameProbennahmestelle>
+          <xwas:kategorieProbennahmestelle><code>L</code></xwas:kategorieProbennahmestelle>
+          <xwas:unterkategorieProbennahmestelle><code>1030</code></xwas:unterkategorieProbennahmestelle>
+          <xwas:artDerEntnahmearmatur><code>1010</code></xwas:artDerEntnahmearmatur>
+          <xwas:stockwerkProbennahmestelle>1</xwas:stockwerkProbennahmestelle>
+          <xwas:mediumAnDerProbennahmestelle>
+            <code>1010</code>
+            <name>medium probennahmestelle</name>
+          </xwas:mediumAnDerProbennahmestelle>
+          <xwas:desinfektionUndAufbereitungDesWassers listURI="urn:xoev-de:xwasser:codeliste:aufbereitungsstoffe-desinfektionsverfahren" listVersionID="1">
+            <code>1234</code>
+            <name>desinfektionAufbereitungDesWassers</name>
+          </xwas:desinfektionUndAufbereitungDesWassers>
+          <xwas:altID>altid2</xwas:altID>
+          <xwas:kommentar>kommentar zur proebennahmestelle</xwas:kommentar>
+        </xwas:probennahmestelle>
           <xwas:probe id="probe1">
             <xwas:probeID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:probeID>
+          <xwas:probennahmestelle>ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86</xwas:probennahmestelle>
             <xwas:untersuchungsplanID>1345</xwas:untersuchungsplanID>
             <xwas:probennehmer>probennehmer1</xwas:probennehmer>
             <xwas:analyseergebnisParameter id="analyseergebnisParameter1">
@@ -54,7 +71,7 @@
                 <name>untersuchter_parameter</name>
               </xwas:untersuchterParameter>
               <xwas:parameterauspraegung>
-                <code>1210</code>
+                <code>10002-3</code>
                 <name>parameterauspraegung</name>
               </xwas:parameterauspraegung>
               <xwas:parameterDurchBetreiberUntersucht>true</xwas:parameterDurchBetreiberUntersucht>
@@ -104,23 +121,6 @@
             <xwas:anhang>anhang1</xwas:anhang>
             <xwas:kommentar>Kommentar</xwas:kommentar>
           </xwas:probe>
-          <xwas:terminplanID>terminplan id</xwas:terminplanID>
-          <xwas:nameProbennahmestelle>wasserloch um die ecke</xwas:nameProbennahmestelle>
-          <xwas:kategorieProbennahmestelle><code>L</code></xwas:kategorieProbennahmestelle>
-          <xwas:unterkategorieProbennahmestelle><code>1030</code></xwas:unterkategorieProbennahmestelle>
-          <xwas:artDerEntnahmearmatur><code>1010</code></xwas:artDerEntnahmearmatur>
-          <xwas:stockwerkProbennahmestelle>1</xwas:stockwerkProbennahmestelle>
-          <xwas:mediumAnDerProbennahmestelle>
-            <code>1010</code>
-            <name>medium probennahmestelle</name>
-          </xwas:mediumAnDerProbennahmestelle>
-          <xwas:desinfektionUndAufbereitungDesWassers listURI="urn:xoev-de:xwasser:codeliste:aufbereitungsstoffe-desinfektionsverfahren" listVersionID="1">
-            <code>1234</code>
-            <name>desinfektionAufbereitungDesWassers</name>
-          </xwas:desinfektionUndAufbereitungDesWassers>
-          <xwas:altID>altid2</xwas:altID>
-          <xwas:kommentar>kommentar zur proebennahmestelle</xwas:kommentar>
-        </xwas:probennahmestelle>
         <xwas:nameBeauftragteUntersuchungsstelle listURI="urn:xoev-de:xwasser:codeliste:untersuchungsstelle" listVersionID="1">
           <code>09010</code>
           <name>name</name>

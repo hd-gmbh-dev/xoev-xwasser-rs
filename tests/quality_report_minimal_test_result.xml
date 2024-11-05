@@ -35,80 +35,6 @@
         <xwas:probennahmestelle id="probennahmestelleid1">
           <xwas:probennahmestelleID>ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86</xwas:probennahmestelleID>
           <xwas:objektID>abcd</xwas:objektID>
-          <xwas:probe id="probe1">
-            <xwas:probeID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:probeID>
-            <xwas:untersuchungsplanID>1345</xwas:untersuchungsplanID>
-            <xwas:probennehmer>probennehmer1</xwas:probennehmer>
-            <xwas:analyseergebnisParameter id="analyseergebnisParameter1">
-              <xwas:analyseergebnisParameterID>753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:analyseergebnisParameterID>
-              <xwas:anschriftID>anschrift1</xwas:anschriftID>
-              <xwas:zugelasseneUntersuchungsstelle>ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:zugelasseneUntersuchungsstelle>
-              <xwas:akkreditierteDurchfuehrungAnalyse>true</xwas:akkreditierteDurchfuehrungAnalyse>
-              <xwas:untersuchungsverfahren listURI="urn:xoev-de:xwasser:codeliste:untersuchungsverfahren" listVersionID="1">
-                <code>1010</code>
-                <name>untersuchungsverfahren</name>
-              </xwas:untersuchungsverfahren>
-              <xwas:ergaenzungZumUntersuchungsverfahren>ergaenzung_zum_untersuchungsverfahren</xwas:ergaenzungZumUntersuchungsverfahren>
-              <xwas:untersuchterParameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-                <code>1000</code>
-                <name>untersuchter_parameter</name>
-              </xwas:untersuchterParameter>
-              <xwas:parameterauspraegung listURI="urn:xoev-de:xwasser:codeliste:parameterauspraegung" listVersionID="1">
-                <code>1210</code>
-                <name>parameterauspraegung</name>
-              </xwas:parameterauspraegung>
-              <xwas:parameterDurchBetreiberUntersucht>true</xwas:parameterDurchBetreiberUntersucht>
-              <xwas:ausgewertetesAnsatzvolumen>11.1</xwas:ausgewertetesAnsatzvolumen>
-              <xwas:bewertungUntersuchungswert listURI="urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert" listVersionID="1">
-                <code>1010</code>
-              </xwas:bewertungUntersuchungswert>
-              <xwas:bestimmungsgrenzeLoQ>123</xwas:bestimmungsgrenzeLoQ>
-              <xwas:kommentar>abcdef</xwas:kommentar>
-            </xwas:analyseergebnisParameter>
-            <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
-              <code>1010</code>
-              <name>name</name>
-            </xwas:anlassDerUntersuchung>
-            <xwas:medium listURI="urn:xoev-de:xwasser:codeliste:medium" listVersionID="1">
-              <code>1010</code>
-              <name>medium</name>
-            </xwas:medium>
-            <xwas:akkreditierteDurchfuehrungDerProbennahme>true</xwas:akkreditierteDurchfuehrungDerProbennahme>
-            <xwas:ergaenzungZumMedium>Wasser</xwas:ergaenzungZumMedium>
-            <xwas:zeitpunktProbennahme>2024-05-27T09:00:00</xwas:zeitpunktProbennahme>
-            <xwas:probennahmeverfahren listURI="urn:xoev-de:xwasser:codeliste:probennahmeverfahren" listVersionID="1">
-              <code>1010</code>
-              <name>probennahmeverfahren</name>
-            </xwas:probennahmeverfahren>
-            <xwas:probenentnahmegeraet listURI="urn:xoev-de:xwasser:codeliste:probenentnahmegeraet" listVersionID="1">
-              <code>1010</code>
-              <name>probenentnahmegeraet</name>
-            </xwas:probenentnahmegeraet>
-            <xwas:probengefaess listURI="urn:xoev-de:xwasser:codeliste:probengefaess" listVersionID="1">
-              <code>1010</code>
-              <name>probengefaess</name>
-            </xwas:probengefaess>
-            <xwas:ergaenzendeInformationenZuProbenentnahmegeraet></xwas:ergaenzendeInformationenZuProbenentnahmegeraet>
-            <xwas:desinfektionProbenentnahmegeraetDurchgefuehrt>true</xwas:desinfektionProbenentnahmegeraetDurchgefuehrt>
-            <xwas:konservierungAufbereitungDesinfektionProbe listURI="urn:xoev-de:xwasser:codeliste:aufbereitungsstoffe-desinfektionsverfahren" listVersionID="">
-              <code>1234</code>
-              <name>konservierung_aufbereitung_desinfektion_probe</name>
-            </xwas:konservierungAufbereitungDesinfektionProbe>
-            <xwas:kommentarZurProbennahme>DUMMY</xwas:kommentarZurProbennahme>
-            <xwas:informationenZumProbentransport>Lieferwagen</xwas:informationenZumProbentransport>
-            <xwas:eingangProbeBeiUntersuchungsstelle>2024-05-27T10:00:00</xwas:eingangProbeBeiUntersuchungsstelle>
-            <xwas:beginnLabortaetigkeitAnalytik>2024-05-27T10:01:00</xwas:beginnLabortaetigkeitAnalytik>
-            <xwas:abschlussLabortaetigkeitAnalytik>2024-05-27T10:02:00</xwas:abschlussLabortaetigkeitAnalytik>
-            <xwas:konformitaetsbewertungDerProbe listURI="urn:xoev-de:xwasser:codeliste:probenbewertung" listVersionID="1">
-              <code>1010</code>
-            </xwas:konformitaetsbewertungDerProbe>
-            <xwas:berichtspflichtig>true</xwas:berichtspflichtig>
-            <xwas:vonProbennehmerVergebeneProbeID>123456789</xwas:vonProbennehmerVergebeneProbeID>
-            <xwas:probeID_ausLabor>1233</xwas:probeID_ausLabor>
-            <xwas:anhang>anhang1</xwas:anhang>
-            <xwas:kommentar>Kommentar</xwas:kommentar>
-          </xwas:probe>
-          <xwas:terminplanID>terminplan id</xwas:terminplanID>
           <xwas:nameProbennahmestelle>wasserloch um die ecke</xwas:nameProbennahmestelle>
           <xwas:kategorieProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="1">
             <code>L</code>
@@ -131,6 +57,80 @@
           <xwas:altID>altid2</xwas:altID>
           <xwas:kommentar>kommentar zur proebennahmestelle</xwas:kommentar>
         </xwas:probennahmestelle>
+        <xwas:probe id="probe1">
+          <xwas:probeID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:probeID>
+          <xwas:probennahmestelle>ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86</xwas:probennahmestelle>
+          <xwas:untersuchungsplanID>1345</xwas:untersuchungsplanID>
+          <xwas:probennehmer>probennehmer1</xwas:probennehmer>
+          <xwas:analyseergebnisParameter id="analyseergebnisParameter1">
+            <xwas:analyseergebnisParameterID>753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:analyseergebnisParameterID>
+            <xwas:anschriftID>anschrift1</xwas:anschriftID>
+            <xwas:zugelasseneUntersuchungsstelle>ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a</xwas:zugelasseneUntersuchungsstelle>
+            <xwas:akkreditierteDurchfuehrungAnalyse>true</xwas:akkreditierteDurchfuehrungAnalyse>
+            <xwas:untersuchungsverfahren listURI="urn:xoev-de:xwasser:codeliste:untersuchungsverfahren" listVersionID="2">
+              <code>1010</code>
+              <name>untersuchungsverfahren</name>
+            </xwas:untersuchungsverfahren>
+            <xwas:ergaenzungZumUntersuchungsverfahren>ergaenzung_zum_untersuchungsverfahren</xwas:ergaenzungZumUntersuchungsverfahren>
+            <xwas:untersuchterParameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
+              <code>1000</code>
+              <name>untersuchter_parameter</name>
+            </xwas:untersuchterParameter>
+            <xwas:parameterauspraegung listURI="urn:xoev-de:xwasser:codeliste:parameterauspraegung" listVersionID="2">
+              <code>10002-3</code>
+              <name>parameterauspraegung</name>
+            </xwas:parameterauspraegung>
+            <xwas:parameterDurchBetreiberUntersucht>true</xwas:parameterDurchBetreiberUntersucht>
+            <xwas:ausgewertetesAnsatzvolumen>11.1</xwas:ausgewertetesAnsatzvolumen>
+            <xwas:bewertungUntersuchungswert listURI="urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert" listVersionID="1">
+              <code>1010</code>
+            </xwas:bewertungUntersuchungswert>
+            <xwas:bestimmungsgrenzeLoQ>123</xwas:bestimmungsgrenzeLoQ>
+            <xwas:kommentar>abcdef</xwas:kommentar>
+          </xwas:analyseergebnisParameter>
+          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
+            <code>1010</code>
+            <name>name</name>
+          </xwas:anlassDerUntersuchung>
+          <xwas:medium listURI="urn:xoev-de:xwasser:codeliste:medium" listVersionID="1">
+            <code>1010</code>
+            <name>medium</name>
+          </xwas:medium>
+          <xwas:akkreditierteDurchfuehrungDerProbennahme>true</xwas:akkreditierteDurchfuehrungDerProbennahme>
+          <xwas:ergaenzungZumMedium>Wasser</xwas:ergaenzungZumMedium>
+          <xwas:zeitpunktProbennahme>2024-05-27T09:00:00</xwas:zeitpunktProbennahme>
+          <xwas:probennahmeverfahren listURI="urn:xoev-de:xwasser:codeliste:probennahmeverfahren" listVersionID="1">
+            <code>1010</code>
+            <name>probennahmeverfahren</name>
+          </xwas:probennahmeverfahren>
+          <xwas:probenentnahmegeraet listURI="urn:xoev-de:xwasser:codeliste:probenentnahmegeraet" listVersionID="1">
+            <code>1010</code>
+            <name>probenentnahmegeraet</name>
+          </xwas:probenentnahmegeraet>
+          <xwas:probengefaess listURI="urn:xoev-de:xwasser:codeliste:probengefaess" listVersionID="1">
+            <code>1010</code>
+            <name>probengefaess</name>
+          </xwas:probengefaess>
+          <xwas:ergaenzendeInformationenZuProbenentnahmegeraet></xwas:ergaenzendeInformationenZuProbenentnahmegeraet>
+          <xwas:desinfektionProbenentnahmegeraetDurchgefuehrt>true</xwas:desinfektionProbenentnahmegeraetDurchgefuehrt>
+          <xwas:konservierungAufbereitungDesinfektionProbe listURI="urn:xoev-de:xwasser:codeliste:aufbereitungsstoffe-desinfektionsverfahren" listVersionID="">
+            <code>1234</code>
+            <name>konservierung_aufbereitung_desinfektion_probe</name>
+          </xwas:konservierungAufbereitungDesinfektionProbe>
+          <xwas:kommentarZurProbennahme>DUMMY</xwas:kommentarZurProbennahme>
+          <xwas:informationenZumProbentransport>Lieferwagen</xwas:informationenZumProbentransport>
+          <xwas:eingangProbeBeiUntersuchungsstelle>2024-05-27T10:00:00</xwas:eingangProbeBeiUntersuchungsstelle>
+          <xwas:beginnLabortaetigkeitAnalytik>2024-05-27T10:01:00</xwas:beginnLabortaetigkeitAnalytik>
+          <xwas:abschlussLabortaetigkeitAnalytik>2024-05-27T10:02:00</xwas:abschlussLabortaetigkeitAnalytik>
+          <xwas:konformitaetsbewertungDerProbe listURI="urn:xoev-de:xwasser:codeliste:probenbewertung" listVersionID="1">
+            <code>1010</code>
+          </xwas:konformitaetsbewertungDerProbe>
+          <xwas:berichtspflichtig>true</xwas:berichtspflichtig>
+          <xwas:vonProbennehmerVergebeneProbeID>123456789</xwas:vonProbennehmerVergebeneProbeID>
+          <xwas:probeID_ausLabor>1233</xwas:probeID_ausLabor>
+          <xwas:anhang>anhang1</xwas:anhang>
+          <xwas:kommentar>Kommentar</xwas:kommentar>
+        </xwas:probe>
         <xwas:nameBeauftragteUntersuchungsstelle listURI="urn:xoev-de:xwasser:codeliste:untersuchungsstelle" listVersionID="1">
           <code>09010</code>
           <name>name</name>

@@ -45,6 +45,7 @@
         "wasserversorgungsgebiet": [
           "betreiber-1"
         ],
+        "titel_untersuchungsplan": null,
         "jahr": [
           2024
         ],
@@ -484,90 +485,7 @@
                 {
                   "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
                   "objekt_id": "probennahmestelle1",
-                  "probe": [
-                    {
-                      "probe_id": "5e08e073-4e06-438d-9444-1275f6cbf061",
-                      "untersuchungsplan_id": "1234",
-                      "probennehmer": "probennehmer1",
-                      "analyseergebnis_parameter": [
-                        {
-                          "analyseergebnis_parameter_id": "753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
-                          "anschrift_id": "anschrift1",
-                          "zugelassene_untersuchungsstelle": "abcd",
-                          "akkreditierte_durchfuehrung_analyse": true,
-                          "untersuchungsverfahren": [
-                            {
-                              "code": "1010",
-                              "name": "untersuchungsverfahren"
-                            }
-                          ],
-                          "ergaenzung_zum_untersuchungsverfahren": null,
-                          "untersuchter_parameter": {
-                            "code": "1000",
-                            "name": "untersuchter_parameter"
-                          },
-                          "parameterauspraegung": null,
-                          "parameter_durch_betreiber_untersucht": true,
-                          "wurde_der_parameter_korrigiert": null,
-                          "parameter_unterauswahl": null,
-                          "untersuchungswert_parameter": null,
-                          "einheit_des_untersuchungswerts": null,
-                          "ergaenzung_zum_untersuchungswert_parameter": null,
-                          "parameterwert_ergaenzung": null,
-                          "ausgewertetes_ansatzvolumen": null,
-                          "shapth_parameter_nummer": [],
-                          "bewertung_untersuchungswert": {
-                            "code": "1010",
-                            "name": null
-                          },
-                          "parameterauffaelligkeit": null,
-                          "messunsicherheit_untersuchungswert_absolut": null,
-                          "messunsicherheit_untersuchungswert_relativ": null,
-                          "bestimmungsgrenze_lo_q": null,
-                          "kommentar": null,
-                          "id": "analyseergebnisParameter1"
-                        }
-                      ],
-                      "anlass_der_untersuchung": [
-                        {
-                          "code": "1010",
-                          "name": "name"
-                        }
-                      ],
-                      "medium": null,
-                      "akkreditierte_durchfuehrung_der_probennahme": true,
-                      "ergaenzung_zum_medium": null,
-                      "zeitpunkt_probennahme": "2024-05-27T09:00:00",
-                      "probennahmeverfahren": [
-                        {
-                          "code": "1010",
-                          "name": "probennahmeverfahren"
-                        }
-                      ],
-                      "probenentnahmegeraet": null,
-                      "probengefaess": null,
-                      "ergaenzende_informationen_zu_probenentnahmegeraet": null,
-                      "desinfektion_probenentnahmegeraet_durchgefuehrt": null,
-                      "konservierung_aufbereitung_desinfektion_probe": [],
-                      "kommentar_zur_probennahme": "Kommentar",
-                      "informationen_zum_probentransport": null,
-                      "eingang_probe_bei_untersuchungsstelle": "2024-05-27T10:00:00",
-                      "beginn_labortaetigkeit_analytik": "2024-05-27T10:01:00",
-                      "abschluss_labortaetigkeit_analytik": "2024-05-27T10:02:00",
-                      "konformitaetsbewertung_der_probe": {
-                        "code": "1010",
-                        "name": null
-                      },
-                      "berichtspflichtig": null,
-                      "von_probennehmer_vergebene_probe_id": "123456789",
-                      "angelieferte_probe": null,
-                      "informationen_zur_angelieferten_probe": null,
-                      "probe_id_aus_labor": "1233",
-                      "anhang": [],
-                      "kommentar": null,
-                      "id": "probe1"
-                    }
-                  ],
+                  "probe": [],
                   "terminplan_id": [],
                   "name_probennahmestelle": "",
                   "kategorie_probennahmestelle": {
