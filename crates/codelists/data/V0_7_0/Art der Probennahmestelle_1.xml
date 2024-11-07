@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Art der Probennahmestelle</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Mit dieser Codeliste wird im Kontext von XWasser die Art einer Probennahmestelle definiert.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>art-probennahmestelle</ShortName>
+      <LongName>Art der Probennahmestelle</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:art-probennahmestelle</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:art-probennahmestelle_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Art-Probennahmestelle" Use="required">
+         <ShortName>Art-Probennahmestelle</ShortName>
+         <LongName>Art der Probennahmestelle</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Armatur mit Verbrühungsschutz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Armatur mit Verbrühungsschutz gem. twin Nr. 06</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Außen-Entnahmearmatur</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Außen-Entnahmearmatur (Wasserhahn)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Austritt des Trinkwassererwärmers</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Austritt des Trinkwassererwärmers</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Behälter innerhalb eines Wasserwerks</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Behälter innerhalb eines Wasserwerks</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Duschschlauch mit Brausekopf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Duschschlauch mit Brausekopf</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Duschschlauch ohne Brausekopf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Duschschlauch ohne Brausekopf</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1070</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Eckventil</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eckventil</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1080</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Einhebel-Mischarmatur</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Einhebel-Mischarmatur gem. twin Nr. 06</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1090</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Eintritt der Zirkulationsleitung in den Trinkwassererwärmer</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eintritt der Zirkulationsleitung in den Trinkwassererwärmer gem. twin Nr. 06</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1100</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Einzelne Kammer/Behälter in einem Hochbehälter</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Einzelne Kammer/Behälter in einem Hochbehälter</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1110</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Entleerungsventil</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Entleerungsventil gem. twin Nr. 06</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1120</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Innen-Entnahmearmatur</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Entnahmearmatur in einem Raum (Wasserhahn)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1130</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Innerhalb der Aufbereitung [genauen Ort bezeichnen]</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Innerhalb der Aufbereitung; Der genaue Ort innerhalb der Aufbereitung ist in der Beschreibung der Probennahmestelle zu nennen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1140</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Kugelhahn</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Kugelhahn gem. twin Nr. 06</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1150</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Nach Aufbereitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Nach Aufbereitung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1160</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Probennahme unmittelbar nach Aufbereitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Probennahmestelle unmittelbar nach der Aufbereitung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1170</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Probennahmearmaturen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Probennahmearmaturen (gem. DIN 35860:2020-11 „Probennahmearmaturen in der Trinkwasserinstallation - Anforderungen und Prüfungen“)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1180</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Rohwasserbrunnen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Rohwasserbrunnen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1190</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Rücklauf der Zirkulationsleitung in den Trinkwassererwärmer</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Rücklauf der Zirkulationsleitung in den Trinkwassererwärmer</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1200</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Steigstrang - oberes Ende der Steigstrangleitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Steigstrang - oberes Ende der Steigstrangleitung (in der Peripherie)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1210</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Steigstrang - unteres Ende der Steigstrangleitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Steigstrang - unteres Ende der Steigstrangleitung (beim hydraulischen Abgleich)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1220</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Trinkwasserbrunnen Dauerläufer</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Trinkwasserbrunnen Dauerläufer</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1230</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Trinkwasserbrunnen Nichtdauerläufer (diskontinuierlich laufende Trinkwasserbrunnen)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Trinkwasserbrunnen Nichtdauerläufer (diskontinuierlich laufende Trinkwasserbrunnen)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1240</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>TW-Übergabepunkt WVA an Nutzer</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>TW-Übergabepunkt WVA an Nutzer</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1250</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Vor Aufbereitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Vor Aufbereitung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1260</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Vorlagebehälter für die Druckerhöhung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Vorlagebehälter für die Druckerhöhung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1270</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Wasserwerksausgang</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wasserwerksausgang</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1280</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Wasserwerkseingang</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wasserwerkseingang</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1290</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Zweigriff-Mischarmatur</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Zweigriff-Mischarmatur gem. twin Nr. 06</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1300</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Sonstiger Rücklauf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiger Rücklauf</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Probennahmestelle">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiges (Eingabe als Textfeld)</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

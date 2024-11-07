@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Vertretungsart</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Mit dieser Schlüsselliste wird Rolle einer Person definiert, in der sie eine nichtnatürliche Person vertritt.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionDescription>Initiale Version</xoev-cl-4:versionDescription>
+         <xoev-cl-4:validFrom>2022-10-24</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+         <xoev-cl-4:changes>Keine</xoev-cl-4:changes>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>vertretungsart</ShortName>
+      <LongName>Art der Vertretung</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:vertretungsart</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:vertretungsart_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Vertretungsart" Use="required">
+         <ShortName>Vertretungsart</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Vertretungsart">
+            <SimpleValue>Sonstiger oder nicht näher spezifizierter Vertreter</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Vertretungsart">
+            <SimpleValue>Gesetzlicher Vertreter</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Vertretungsart">
+            <SimpleValue>Bevollmächtigter</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Maßnahmen</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Mit dieser Codeliste werden im Kontext von XWasser die Maßnahmen definiert.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>massnahmen</ShortName>
+      <LongName>Maßnahmen</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:massnahmen</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:massnahmen_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Massnahme" Use="required">
+         <ShortName>Massnahme</ShortName>
+         <LongName>Maßnahme</LongName>
+         <Data Type="string" Lang="de-DE"/>
+      </Column>
+      <Column Id="UBA-Code" Use="optional">
+         <ShortName>UBA-Code</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="EU-Code" Use="optional">
+         <ShortName>EU-Code</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string" Lang="de-DE"/>
+      </Column>
+      <Column Id="Action" Use="optional">
+         <ShortName>Action</ShortName>
+         <Data Type="string" Lang="en-GB"/>
+      </Column>
+      <Column Id="Description" Use="optional">
+         <ShortName>Description</ShortName>
+         <Data Type="string" Lang="en-GB"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Ressourcenschutz im Einzugsgebiet</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>MR</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Ressourcenschutz im Einzugsgebiet</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action"/>
+         <Value ColumnRef="Description"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Optimierung der Aufbereitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>MA</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Optimierung der Aufbereitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action"/>
+         <Value ColumnRef="Description"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Rohrnetzpflege</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>MN</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Rohrnetzpflege</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action"/>
+         <Value ColumnRef="Description"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>(zeitlich begrenzte) vermehrte/zusätzliche Überwachung/Nachbeprobung</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>MÜ</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>(zeitlich begrenzte) vermehrte/zusätzliche Überwachung/Nachbeprobung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action"/>
+         <Value ColumnRef="Description"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Zusätzliche Desinfektion</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>MD</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Zusätzliche Desinfektion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action"/>
+         <Value ColumnRef="Description"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Andere Maßnahmen (Beschreibung)</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>MS</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Andere Maßnahmen (Beschreibung)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action"/>
+         <Value ColumnRef="Description"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1070</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Maßnahme im Wassereinzugsgebiet: Maßnahmen zur Verminderung oder Beseitigung der Verunreinigung</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>C1</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>C1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Maßnahme(n) zur Behebung bzw. Minderung der Ursache (einschließlich Verschneiden der Wässer aus verschiedenen Brunnen)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>catchmentRelatedActionsToTerminateOrMitigateCause </SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Catchment related: Actions to terminate or mitigate the cause (C1)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1080</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Maßnahme im Wassereinzugsgebiet: Umstellung der Versorgung auf andere Wasserherkunft</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>C2</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>C2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Maßnahme(n) zum Ersatz der Wasserressource</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>catchmentRelatedActionsReplaceSource</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Catchment related: Actions to replace source (C2)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1090</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Maßnahme in der Aufbereitung: Einführung, Aufwertung und/oder Verbesserung der Aufbereitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>T1</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>T1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Einführung, Aufrüstung oder Ertüchtigung der Aufbereitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>treatmentRelated</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Treatment related: Establishing, upgrading or improving treatment (T1)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1100</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Maßnahme im öffentlichen Leitungsnetz: Ersetzen, Reparieren und/oder Abtrennen defekter Armaturen bzw. Leitungsabschnitte</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>P1</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>P1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Austausch, Abtrennung oder Reparatur defekter Teile für öffentliches Verteilungsnetz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>publicNetworkCorrectDefectiveComponent</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Public distribution network related: Replacement, disconnection or repair of defective components (P1)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1110</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Maßnahme im öffentlichen Leitungsnetz: Reinigen, Spülen und/oder Desinfizieren kontaminierter Abschnitte</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>P2</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>P2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mechanische/chemische Reinigung und/oder Desinfektion verunreinigter Teile für öffentliches Verteilungsnetz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>publicNetworkCorrectContaminatedComponent</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Public distribution network related: Cleaning, scouring and/or disinfecting contaminated components (P2)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1120</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Maßnahme in der Hausinstallation: Ersetzen, Reparieren und/oder Abtrennen defekter Armaturen bzw. Leitungsabschnitte</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>D1</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>D1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Austausch, Abtrennung oder Reparatur defekter Teile für Trinkwasser-Installation einschließlich häuslicher Trinkwasser-Installationen, aus denen Wasser an die Ö8entlichkeit abgegeben wird</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>domesticNetworkCorrectDefectiveComponent</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Domestic distribution system: Replacement, disconnection or repair of defective components (D1)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1130</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Maßnahme in der Hausinstallation: Reinigen, Spülen und/oder Desinfizieren kontaminierter Abschnitte</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>D2</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>D2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mechanische/chemische Reinigung und/oder Desinfektion verunreinigter Teile für Trinkwasser-Installation einschließlich häuslicher Trinkwasser-Installationen, aus denen Wasser an die Ö8entlichkeit abgegeben wird</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>domesticNetworkCorrectContaminatedComponent</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Domestic distribution system: Cleaning, scouring and/or disinfecting contaminated components (D2)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1140</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Sicherungsmaßnahmen zur Vermeidung unerlaubter Zugriffe wurden ergriffen</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>S1</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>S1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sicherungsmaßnahmen, um Zutritt durch Unbefugte zu verhindern</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>securityMeasurePreventionOfUnauthorisedAccess</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Security measures to prevent unauthorised access (S1)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1150</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Notfallmaßnahmen zum Schutz der Gesundheit und Sicherheit des Verbrauchers: Information der Verbraucher und Anordnung von Verhaltensregeln wie Verwendungseinschränkung, Abkochgebot, zeitlich befristete Nutzungseinschränkung oder Unterbrechung der Trinkwasserbereitstellung</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>E1</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>E1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Notfallmaßnahmen im Sinne der Verbrauchergesundheit und -sicherheit: Benachrichtigung der Verbraucher und Anweisungen (z. B. Entnahmeverbot, Abkochgebot, vorübergehende Gebrauchseinschränkung)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>emergencyActionInformationToAffectedConsumers</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Emergency actions for the consumers’ health and safety: Notification of and instructions to consumers, for example, prohibition of use, boil water order, temporary limitations on consumption (E1)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1160</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Notfallmaßnahmen zum Schutz der Gesundheit und Sicherheit des Verbrauchers: Bereitstellung einer alternativen zeitlich befristeten Trinkwasserversorgung (z. B. Flaschenwasser, Wasser in Containern, Tankwagen)</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>E2</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>E2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Notfallmaßnahmen im Sinne der Verbrauchergesundheit und -sicherheit: Vorübergehende Bereitstellung einer alternativen Trinkwasserversorgung (z. B. Wasser in Flaschen, Behältern, Tankwagen)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>emergencyActionProvisionOfAlternativeSupply</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Emergency actions for the consumers’ health and safety: Provision of a temporary alternative drinking water supply, for example, bottled water, water in containers, tankers (E2)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1170</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Notfallmaßnahmen für die Gesundheit und Sicherheit der Verbraucher: Beschränkungen für empfindliche Nutzer (E3)</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code"/>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>E3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Notfallmaßnahmen für die Gesundheit und Sicherheit der Verbraucher: Beschränkungen für empfindliche Nutzer (E3)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>emergencyActionRestrictionForSensitiveUsers</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Emergency actions for the consumers’ health and safety: Restrictions for sensitive users (E3)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1180</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Notfallmaßnahmen für die Gesundheit und Sicherheit der Verbraucher: Verbot der Verwendung (E4)</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code"/>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>E4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Notfallmaßnahmen für die Gesundheit und Sicherheit der Verbraucher: Verbot der Verwendung (E4)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>emergencyActionProhibitionOfUse</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Emergency actions for the consumers’ health and safety: Prohibition of use (E4)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>P1</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>O</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>other</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Other (O)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Keine (N)</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code"/>
+         <Value ColumnRef="EU-Code">
+            <SimpleValue>N</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Keine (N)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action">
+            <SimpleValue>none</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>None (N)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Massnahme">
+            <SimpleValue>Kein Handeln im Sinne von §9 Absatz 5a TrinkwV 2001 unter dem Gesichtspunkt des Strahlenschutzes notwendig</SimpleValue>
+         </Value>
+         <Value ColumnRef="UBA-Code">
+            <SimpleValue>R1</SimpleValue>
+         </Value>
+         <Value ColumnRef="EU-Code"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Kein Handeln im Sinne von §9 Absatz 5a TrinkwV 2001 unter dem Gesichtspunkt des Strahlenschutzes erforderlich</SimpleValue>
+         </Value>
+         <Value ColumnRef="Action"/>
+         <Value ColumnRef="Description"/>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

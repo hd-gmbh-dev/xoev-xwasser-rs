@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Nachweisart</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Mit dieser Codeliste wird im Kontext von XWasser für bestimmte Parameter (z. B. Acrylamid, Epichlorhydrin oder Vinylchlorid) definiert, wie der Nachweis erbracht wird.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>nachweisart</ShortName>
+      <LongName>Art des Nachweises</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:nachweisart</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:nachweisart_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Nachweisart" Use="required">
+         <ShortName>Nachweisart</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Nachweisart">
+            <SimpleValue>Untersuchung im Berichtszeitraum</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Untersuchung im Berichtszeitraum</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Nachweisart">
+            <SimpleValue>rechnerischer Nachweis</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>rechnerischer Nachweis</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

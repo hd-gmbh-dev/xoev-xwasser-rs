@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Überschreitungsursache</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Beschreibung der Codeliste.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>ueberschreitungsursache</ShortName>
+      <LongName>Ursache für die Überschreitung</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:ueberschreitungsursache</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:ueberschreitungsursache_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Ueberschreitungsursache" Use="required">
+         <ShortName>Ueberschreitungsursache</ShortName>
+         <LongName>Ursache des Überschreitungsvorfalls</LongName>
+         <Data Type="string" Lang="de-DE"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string" Lang="de-DE"/>
+      </Column>
+      <Column Id="IncidentExceedanceCause" Use="required">
+         <ShortName>IncidentExceedanceCause</ShortName>
+         <LongName>Incident Exceedance Cause</LongName>
+         <Data Type="string" Lang="en-GB"/>
+      </Column>
+      <Column Id="Description" Use="optional">
+         <ShortName>Description</ShortName>
+         <Data Type="string" Lang="en-GB"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+      <Key Id="IncidentExceedanceCauseKey">
+         <ShortName>IncidentExceedanceCauseKey</ShortName>
+         <ColumnRef Ref="IncidentExceedanceCause"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Ueberschreitungsursache">
+            <SimpleValue>Unbeabsichtigte Verschmutzung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Unbeabsichtigte Verschmutzung</SimpleValue>
+         </Value>
+         <Value ColumnRef="IncidentExceedanceCause">
+            <SimpleValue>accidentalPollution </SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Accidental pollution </SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Ueberschreitungsursache">
+            <SimpleValue>Überschwemmung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Überschwemmung</SimpleValue>
+         </Value>
+         <Value ColumnRef="IncidentExceedanceCause">
+            <SimpleValue>flooding </SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Flooding </SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Ueberschreitungsursache">
+            <SimpleValue>Ausbruch</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Ausbruch</SimpleValue>
+         </Value>
+         <Value ColumnRef="IncidentExceedanceCause">
+            <SimpleValue>outbreak </SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Outbreak </SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Ueberschreitungsursache">
+            <SimpleValue>Physikalische Katastrophe</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Physikalische Katastrophe</SimpleValue>
+         </Value>
+         <Value ColumnRef="IncidentExceedanceCause">
+            <SimpleValue>physicalDisaster </SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Physical disaster </SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Ueberschreitungsursache">
+            <SimpleValue>Langanhaltende Dürre</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Langanhaltende Dürre</SimpleValue>
+         </Value>
+         <Value ColumnRef="IncidentExceedanceCause">
+            <SimpleValue>prolongedDrought </SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Prolonged drought </SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Ueberschreitungsursache">
+            <SimpleValue>Versagen der Aufbereitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Versagen der Aufbereitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="IncidentExceedanceCause">
+            <SimpleValue>treatmentFailure </SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Treatment failure </SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1070</SimpleValue>
+         </Value>
+         <Value ColumnRef="Ueberschreitungsursache">
+            <SimpleValue>Ungeplante Wasserunterbrechung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Ungeplante Wasserunterbrechung</SimpleValue>
+         </Value>
+         <Value ColumnRef="IncidentExceedanceCause">
+            <SimpleValue>waterInterruptionUnplanned </SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Water interruption unplanned </SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1080</SimpleValue>
+         </Value>
+         <Value ColumnRef="Ueberschreitungsursache">
+            <SimpleValue>Wasserknappheit</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wasserknappheit</SimpleValue>
+         </Value>
+         <Value ColumnRef="IncidentExceedanceCause">
+            <SimpleValue>waterScarcity </SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Water scarcity </SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Ueberschreitungsursache">
+            <SimpleValue>Andere</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Andere</SimpleValue>
+         </Value>
+         <Value ColumnRef="IncidentExceedanceCause">
+            <SimpleValue>other </SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Other </SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Ueberschreitungsursache">
+            <SimpleValue>Unbekannt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Unbekannt</SimpleValue>
+         </Value>
+         <Value ColumnRef="IncidentExceedanceCause">
+            <SimpleValue>unknown  </SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Unknown</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

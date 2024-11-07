@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<gc:CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:xoev-cl="http://xoev.de/schemata/genericode/1_0" xsi:schemaLocation="http://docs.oasis-open.org/codelist/ns/genericode/1.0/ http://docs.oasis-open.org/codelist/cs-genericode-1.0/xsd/genericode.xsd http://xoev.de/schemata/genericode/1_0 https://xoev.de/schemata/genericode/1_0/xoev-cl-attributes.xsd">
+	<Annotation>
+		<Description>
+			<xoev-cl:beschreibung>Mit dieser Schlüsseltabelle werden die Gründe für Auskunfts- oder Übermittlungssperren beschrieben. Siehe Blatt 1801 und Anlage 1 Schlüsseltabelle Auskunfts- und Übermittlungssperren des DSMeld.</xoev-cl:beschreibung>
+			<xoev-cl:datumgueltigkeitab>2018-05-01</xoev-cl:datumgueltigkeitab>
+		</Description>
+	</Annotation>
+	<Identification>
+		<ShortName>DSMeld_Auskunftssperre_(DSMeld-Blatt_1801)</ShortName>
+		<LongName>Auskunftssperre</LongName>
+		<Version>5</Version>
+		<CanonicalUri>urn:de:dsmeld:schluesseltabelle:auskunftssperre</CanonicalUri>
+		<CanonicalVersionUri>urn:de:dsmeld:schluesseltabelle:auskunftssperre_5</CanonicalVersionUri>
+		<Agency>
+			<ShortName>KoSIT</ShortName>
+			<LongName>Koordinierungsstelle für IT-Standards</LongName>
+		</Agency>
+	</Identification>
+	<ColumnSet>
+		<Column Id="key" Use="required">
+			<ShortName>key</ShortName>
+			<Data Type="string"/>
+		</Column>
+		<Column Id="name" Use="required">
+			<ShortName>name</ShortName>
+			<Data Type="string"/>
+		</Column>
+		<Key Id="codeKey">
+			<Annotation>
+				<AppInfo>
+					<xoev-cl:xoev-code/>
+				</AppInfo>
+			</Annotation>
+			<ShortName>CodeKey</ShortName>
+			<ColumnRef Ref="key"/>
+		</Key>
+	</ColumnSet>
+	<SimpleCodeList>
+		<Row>
+			<Value ColumnRef="key">
+				<SimpleValue>1</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Auskunftssperre nach § 51 Abs. 5 Nr. 2 BMG (Adoptionspflegeverhältnis gem. § 1758 Abs. 2 BGB)
+
+</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="key">
+				<SimpleValue>2</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Übermittlungssperre nach § 42 Abs. 3 Satz 2 BMG (Übermittlung an öffentlich-rechtliche Religionsgesellschaften)
+
+</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="key">
+				<SimpleValue>3</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Auskunftssperre nach § 51 Abs. 1 BMG auf Antrag des Betroffenen oder von Amts wegen durch die Meldebehörde (bei Gefahr für Leben, Gesundheit, persönliche Freiheit oder ähnliche schutzwürdige Interessen)
+
+</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="key">
+				<SimpleValue>5</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Übermittlungssperre nach § 50 Abs. 5 i.V.m. § 50 Abs. 2 BMG (bei Alters- oder Ehejubiläen)
+</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="key">
+				<SimpleValue>6</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Auskunftssperre nach § 51 Abs. 5 Nr. 1 BMG (Speicherung erfolgt nur in dem Melderegister der Meldebehörde, in deren Zuständigkeitsbereich die Annahme als Kind verarbeitet wurde - § 63 Personenstandsgesetz)
+
+</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="key">
+				<SimpleValue>7</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Übermittlungssperre nach § 50 Abs. 5 i.V.m. § 50 Abs. 1 BMG (Widerspruchsrecht zur Auskunft an Parteien u.a.)
+
+</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="key">
+				<SimpleValue>10</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Übermittlung nach § 36 Abs. 2 BMG
+(Widerspruchsrecht gegen Übermittlung an das Bundesamt für Personalmanagement der Bundeswehr)
+
+</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="key">
+				<SimpleValue>11</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Auskunftssperre, die nach § 51 Abs. 1 BMG i.V.m. § 51 Abs. 3 BMG auf Veranlas-sung einer Sicherheitsbehörde eingetragen ist
+(bei Gefahr für Leben, Gesundheit, persönliche Freiheit oder ähnliche schutzwür-dige Interessen)
+
+
+</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="key">
+				<SimpleValue>12</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Auskunftssperren nach § 51 Abs. 5 Nr. 1 BMG (Eintragungen nach dem Transsexuellengesetz - § 63 Abs. 2 Personenstandsgesetz).
+
+</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="key">
+				<SimpleValue>13</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>Übermittlungssperre nach § 50 Abs. 5 i.V.m. § 50 Abs. 3 BMG (Widerspruchsrecht zur Auskunft an Adressbuchverlage)
+
+</SimpleValue>
+			</Value>
+		</Row>
+	</SimpleCodeList>
+</gc:CodeList>

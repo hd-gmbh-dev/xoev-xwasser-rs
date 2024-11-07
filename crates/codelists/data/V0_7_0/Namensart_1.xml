@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl="http://xoev.de/schemata/genericode/1_0"
+             xmlns:xoev-cl-2="http://xoev.de/schemata/genericode/2">
+   <Annotation>
+      <Description><!-- Metadaten entsprechend XÖV-Handbuch 2.0 -->
+         <xoev-cl:beschreibung>Liste ausländischer Namensformen</xoev-cl:beschreibung>
+         <xoev-cl:datumgueltigkeitab>2012-11-01</xoev-cl:datumgueltigkeitab>
+         <!-- Metadaten entsprechend XÖV-Handbuch 2.1 -->
+         <xoev-cl-2:nameKurz>Namensart</xoev-cl-2:nameKurz>
+         <xoev-cl-2:beschreibung-codeliste>Liste ausländischer Namensformen</xoev-cl-2:beschreibung-codeliste>
+         <xoev-cl-2:herausgebernameKurz>Bundesministerium des Innern</xoev-cl-2:herausgebernameKurz>
+         <xoev-cl-2:datumGueltigkeitAb>2012-11-01</xoev-cl-2:datumGueltigkeitAb>
+         <xoev-cl-2:versionXOEVHandbuch>2.1</xoev-cl-2:versionXOEVHandbuch>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>namensart</ShortName>
+      <LongName>Namensart</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xpersonenstand:schluesseltabelle:namensart</CanonicalUri>
+      <CanonicalVersionUri>urn:xpersonenstand:schluesseltabelle:namensart_1</CanonicalVersionUri>
+      <Agency>
+         <ShortName>BMI</ShortName>
+         <LongName>Bundesministerium des Innern</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="key" Use="required">
+         <ShortName>key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="name" Use="required">
+         <ShortName>name</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="codeKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl:xoev-code/>
+               <xoev-cl-2:xoev-code/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>CodeKey</ShortName>
+         <ColumnRef Ref="key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>e</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Eigenname</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>en</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Eigennamen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>ez</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Eigenname und Namenszusatz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>nk</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Namenskette</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>nkz</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Namenskette und Namenszusatz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>nkzp</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Namenskette und Namenszusätze</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>zf</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Namenszusatz und Familienname</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>fz</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Familiennamen und Namenszusatz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>fzw</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Familienname und Zwischenname</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>zwf</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Zwischenname und Familienname</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>isn</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Isländischer Nachname</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>vm</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Vorname und Mittelname</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>vpm</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Vornamen und Mittelname</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>vz</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Vorname und Namenszusatz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>vpz</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Vornamen und Namenszusatz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>vv</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Vorname und Vatersname</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>vpv</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Vornamen und Vatersname</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>zwv</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Zwischenname und Vorname</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>zwvp</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Zwischenname und Vornamen</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

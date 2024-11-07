@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Status 
+Untersuchungsplan</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Mit dieser Codeliste wird im Kontext von XWasser der Status des Untersuchungsplans definiert.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>status-untersuchungsplan</ShortName>
+      <LongName>Status Untersuchungsplan</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:status-untersuchungsplan</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:status-untersuchungsplan_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Status" Use="required">
+         <ShortName>Status</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Status">
+            <SimpleValue>In Erstellung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>In Erstellung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Status">
+            <SimpleValue>Bei GA angefragt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Bei GA angefragt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Status">
+            <SimpleValue>Durch GA bestätigt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Durch GA bestätigt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Status">
+            <SimpleValue>Durch GA nachgebessert</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Durch GA nachgebessert</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Status">
+            <SimpleValue>Abgelehnt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Abgelehnt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Status">
+            <SimpleValue>Durch WV bestätigt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Durch WV bestätigt</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

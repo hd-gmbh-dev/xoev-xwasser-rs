@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Grund der Ausnahmeregelung</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Mit dieser Codeliste werden im Kontext von XWasser die Gründe für eine Ausnahmeregelung gem. den neuen Vorgaben für das EU-Berichtsformat festgelegt.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>grund-ausnahmeregelung</ShortName>
+      <LongName>Grund der Ausnahmeregelung</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:grund-ausnahmeregelung</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:grund-ausnahmeregelung_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Grund-Ausnahmeregelung" Use="required">
+         <ShortName>Grund-Ausnahmeregelung</ShortName>
+         <LongName>Grund der Ausnahmeregelung</LongName>
+         <Data Type="string" Lang="de-DE"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string" Lang="de-DE"/>
+      </Column>
+      <Column Id="Exception-clause" Use="required">
+         <ShortName>Exception-clause</ShortName>
+         <LongName>Exception clause</LongName>
+         <Data Type="string" Lang="en-GB"/>
+      </Column>
+      <Column Id="Description" Use="required">
+         <ShortName>Description</ShortName>
+         <Data Type="string" Lang="en-GB"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+      <Key Id="Exception-clauseKey">
+         <ShortName>Exception-clauseKey</ShortName>
+         <ColumnRef Ref="Exception-clause"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Grund-Ausnahmeregelung">
+            <SimpleValue>Neues Einzugsgebiet</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Ein neues Einzugsgebiet für die Entnahme von Wasser für den menschlichen Gebrauch (Artikel 15.1a)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Exception-clause">
+            <SimpleValue>newCatchmentArea</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>A new catchment area for the abstraction of water intended for human consumption (Article 15.1a)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Grund-Ausnahmeregelung">
+            <SimpleValue>Neue Verschmutzungsquelle</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eine neue Verschmutzungsquelle, die im Einzugsgebiet der Wasserentnahme für den menschlichen Gebrauch entdeckt wurde, oder Parameter, nach denen neu gesucht oder die neu entdeckt wurden (Artikel 15.1b)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Exception-clause">
+            <SimpleValue>newSourceOfPollutionOrMonitoredParameter</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>A new source of pollution detected at the catchment area for the abstraction of water intended for human consumption or parameters newly searched for or detected (Article 15.1b)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Grund-Ausnahmeregelung">
+            <SimpleValue>Außergewöhnliche Situation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eine unvorhergesehene und außergewöhnliche Situation in einem bestehenden Einzugsgebiet für die Entnahme von Wasser für den menschlichen Gebrauch, die zu einer zeitlich begrenzten Überschreitung der Parameterwerte führen könnte (Artikel 15.1c)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Exception-clause">
+            <SimpleValue>exceptionalSituation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>An unforeseen and exceptional situation in an existing catchment area for the abstraction of water intended for human consumption that could lead to temporary limited exceedances of the parametric values (Article 15.1c)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Grund-Ausnahmeregelung">
+            <SimpleValue>Sonstige</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Andere Rechtsgrundlage für die Abweichung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Exception-clause">
+            <SimpleValue>other</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Other legal ground for the derogation</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

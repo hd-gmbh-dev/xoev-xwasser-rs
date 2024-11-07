@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Art der Entnahmearmatur</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>In dieser Codeliste werden Arten von Entnahmearmaturen definiert.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionDescription>Initiale Version</xoev-cl-4:versionDescription>
+         <xoev-cl-4:validFrom>2024-09-20</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>art-entnahmearmatur</ShortName>
+      <LongName>Art der Entnahmearmatur</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:art-entnahmearmatur</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:art-entnahmearmatur_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="ArtEntnahmearmatur" Use="required">
+         <ShortName>ArtEntnahmearmatur</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Armatur mit Verbrühungsschutz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Armatur mit Verbrühungsschutz gem. twin Nr. 06</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Außen-Entnahmearmatur</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Außen-Entnahmearmatur (Wasserhahn)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Brausekopf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Brausekopf (mit Schlauch oder fest verrohrt)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Duscharmatur</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Duscharmatur (Ohne Duschschlauch und Brausekopf)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1070</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Eckventil</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eckventil (mit Probennahmearmatur)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1080</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Einhebel-Mischarmatur</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Einhebel-Mischarmatur gem. twin Nr. 06</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1100</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Oberfläche (Schöpfprobe) oder Entnahmeventil</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Oberfläche (Schöpfprobe) oder Entnahmeventil</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1110</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Entleerungsventil</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Entleerungsventil gem. twin Nr. 06</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1140</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Kugelhahn</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Kugelhahn gem. twin Nr. 06</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1170</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Probennahmearmaturen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Probennahmearmaturen (gem. DIN 35860:2020-11 „Probennahmearmaturen in der Trinkwasserinstallation - Anforderungen und Prüfungen“); Entnahmeventil</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1220</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Freier Auslauf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Freier Auslauf (z. B. Trinkwasserbrunnen)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1230</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Wasser-Austrittsdüse</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wasser-Austrittsdüse (z. B. Trinkwasserbrunnen)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1240</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Wasserhahn</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wasserhahn</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1290</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Zweigriff-Mischarmatur</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Zweigriff-Mischarmatur</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9010</SimpleValue>
+         </Value>
+         <Value ColumnRef="ArtEntnahmearmatur">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiges (Eingabe als Textfeld)</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

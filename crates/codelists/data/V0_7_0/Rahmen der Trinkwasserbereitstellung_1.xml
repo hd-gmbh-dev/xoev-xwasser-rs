@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Rahmen der Trinkwasserbereitstellung</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Diese Codeliste definiert im Kontext von XWasser den Rahmen der Trinkwasserbereitstellung von einem Objekt.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>rahmen-trinkwasserbereitstellung</ShortName>
+      <LongName>Rahmen der Trinkwasserbereitstellung</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:rahmen-trinkwasserbereitstellung</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:rahmen-trinkwasserbereitstellung_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Rahmen-Trinkwasserbereitstellung" Use="required">
+         <ShortName>Rahmen-Trinkwasserbereitstellung</ShortName>
+         <LongName>Rahmen der Trinkwasserbereitstellung</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Rahmen-Trinkwasserbereitstellung">
+            <SimpleValue>Gewerbliche Tätigkeit gem. §2 Abs. 8 TrinkwV</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Gewerbliche Tätigkeit gem. §2 Abs. 8 TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Rahmen-Trinkwasserbereitstellung">
+            <SimpleValue>Öffentliche Tätigkeit</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Öffentliche Tätigkeit gem. §2 Abs. 9 TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Rahmen-Trinkwasserbereitstellung">
+            <SimpleValue>Gewerbliche und öffentliche Tätigkeit</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Gewerbliche und öffentliche Tätigkeit</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Rahmen-Trinkwasserbereitstellung">
+            <SimpleValue>Private</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Privat</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

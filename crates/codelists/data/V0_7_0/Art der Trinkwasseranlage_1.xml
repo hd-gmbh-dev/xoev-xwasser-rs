@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Art der Trinkwasseranlage</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Mit dieser Codeliste wird im Rahmen von XWasser die Art einer Trinkwasseranlage gem. TrinkwV beschrieben.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>art-trinkwasseranlage</ShortName>
+      <LongName>Art der Trinkwasseranlage</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:art-trinkwasseranlage</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:art-trinkwasseranlage_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Art-Trinkwasseranlage" Use="required">
+         <ShortName>Art-Trinkwasseranlage</ShortName>
+         <LongName>Art der Trinkwasseranlage</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Trinkwasseranlage">
+            <SimpleValue>a-Anlage: Zentrale Wasserversorgungsanlagen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Zentrale Wasserversorgungsanlagen: Anlagen einschließlich dazugehörender Wassergewinnungsanlagen und eines dazugehörenden Leitungsnetzes, aus denen pro Tag mindestens 10 Kubikmeter Trinkwasser entnommen oder auf festen Leitungswegen an Zwischenabnehmer geliefert werden oder aus denen auf festen Leitungswegen Trinkwasser an mindestens 50 Personen abgegeben wird; §2 Abs. 1 a) TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Trinkwasseranlage">
+            <SimpleValue>b-Anlage: Dezentrale Wasserversorgungsanlagen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Dezentrale Wasserversorgungsanlagen: Anlagen einschließlich dazugehörender Wassergewinnungsanlagen und eines dazugehörenden Leitungsnetzes, aus denen pro Tag weniger als 10 Kubikmeter Trinkwasser entnommen oder im Rahmen einer gewerblichen oder öffentlichen Tätigkeit genutzt werden, ohne dass eine zentrale Wasserversorgungsanlage oder eine Eigenwasserversorgungsanlage vorliegt; §2 Abs. 1 b) TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Trinkwasseranlage">
+            <SimpleValue>c-Anlage: Eigenwasserversorgungsanlagen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eigenwasserversorgungsanlagen: Anlagen einschließlich dazugehörender Wassergewinnungsanlagen und einer dazugehörenden Trinkwasserinstallation, aus denen pro Tag weniger als 10 Kubikmeter Trinkwasser zur eigenen Nutzung entnommen werden; §2 Abs. 1 c) TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Trinkwasseranlage">
+            <SimpleValue>d-Anlage: Mobile Wasserversorgungsanlagen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mobile Wasserversorgungsanlagen: bewegliche Anlagen, aus denen Trinkwasser entnommen wird einschließlich Anlagen an Bord von Land-, Wasser- und Luftfahrzeugen sowie Anlagen, aus denen auf Meeresbauwerken Trinkwasser entnommen wird, jeweils einschließlich der Trinkwasserinstallation und etwaiger Wassergewinnungsanlagen; §2 Abs. 1 d) TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Trinkwasseranlage">
+            <SimpleValue>e-Anlage: Gebäudewasserversorgungsanlagen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Gebäudewasserversorgungsanlagen: Anlagen, aus denen aus einer zentralen Wasserversorgungsanlage oder einer dezentralen Wasserversorgungsanlage übernommenes Trinkwasser über eine Trinkwasserinstallation an Verbraucher abgegeben wird; §2 Abs. 1 e) TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Trinkwasseranlage">
+            <SimpleValue>f-Anlage: Zeitweilige Wasserversorgungsanlagen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Zeitweilige Wasserversorgungsanlagen: Anlagen, aus denen Trinkwasser entnommen oder an Verbraucher abgegeben wird und die aa)  zeitweise betrieben werden, einschließlich einer dazugehörenden Wassergewinnungsanlage und einer dazugehörenden Trinkwasserinstallation, oder bb)  zeitweise an eine zentrale Wasserversorgungsanlage, eine dezentrale Wasserversorgungsanlage, mobile Wasserversorgungsanlage oder eine Gebäudewasserversorgungsanlage angeschlossen sind; §2 Abs. 1 f) TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>8010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Trinkwasseranlage">
+            <SimpleValue>Nichttrinkwasseranlage</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Nichttrinkwasseranlage gem. §2 Abs. 10 TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Trinkwasseranlage">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstige Trinkwasseranlagen, die keiner der Kategorien a-f zuteilbar sind und auch nicht unter Nichttrinkwasseranlage gem. §2 Abs. 10 TrinkwV fällt</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

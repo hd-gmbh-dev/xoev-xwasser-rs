@@ -17,6 +17,7 @@ keywords = []
 
 [workspace.dependencies]
 anyhow = "1.0.89"
+xoev-xwasser-codelists = { version = "0.700.0", path = "crates/codelists" }
 xoev-xwasser-derive = { version = "0.700.0", path = "crates/derive" }
 raxb = "0.4.4"
 raxb-validate = "0.4.4"
@@ -26,6 +27,7 @@ raxb-xmlschema-build = "0.4.4"
 # raxb-validate = { path = "../raxb/crates/raxb-validate"}
 # raxb-xmlschema = { path = "../raxb/crates/raxb-xmlschema"}
 # raxb-xmlschema-build = { path = "../raxb/crates/raxb-xmlschema-build"}
+serde = { version = "1.0.210", features = ["derive", "rc"] }
 
 [package]
 name = "xoev-xwasser"
@@ -64,7 +66,7 @@ raxb-xmlschema = { workspace = true, optional = true }
 wasm-bindgen = { version = "0.2.93", optional = true }
 serde-wasm-bindgen = { version = "0.6", optional = true }
 tsify-next = { version= "0.5.4", default-features = false, features = ["js"], optional = true }
-serde = { version = "1.0.210", features = ["derive"] }
+serde.workspace = true
 typed-builder = { version = "0.20.0", optional = true }
 once_cell = { version = "1.20.1", optional = true }
 uuid = { version = "1.10.0", features = ["v4"], optional = true }

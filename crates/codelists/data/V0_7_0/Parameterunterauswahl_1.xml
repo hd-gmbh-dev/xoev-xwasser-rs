@@ -1,0 +1,4206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Parameterunterauswahl</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Diese Codeliste dient im Rahmen von XWasser zur Definition der genauen Werte der jeweiligen Ausprägungen von qualitativen Parametern.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>parameterunterauswahl</ShortName>
+      <LongName>Parameterunterauswahl</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:parameterunterauswahl</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:parameterunterauswahl_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="SHAPTH-Parameter-Nummer" Use="required">
+         <ShortName>SHAPTH-Parameter-Nummer</ShortName>
+         <LongName>SHAPTH Parameter Nummer</LongName>
+         <Data Type="integer"/>
+      </Column>
+      <Column Id="Position" Use="required">
+         <ShortName>Position</ShortName>
+         <Data Type="integer"/>
+      </Column>
+      <Column Id="Unterauswahl" Use="required">
+         <ShortName>Unterauswahl</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="US-Code" Use="optional">
+         <ShortName>US-Code</ShortName>
+         <LongName>US Code</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Clusterung" Use="required">
+         <ShortName>Clusterung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>farblos</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>farblos</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>weiß</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>weiß</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1070</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>gelb</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>gelb</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1080</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>gelbbraun</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>gelbbraun</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1090</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>braun</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>braun</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1100</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>grün</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>grün</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1110</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>blau</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>blau</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1120</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>rot</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>rot</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1130</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>grau</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>grau</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1140</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>schwarz</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>schwarz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1150</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>10</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1160</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>farblos</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>farblos</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1170</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1180</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1190</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1200</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1210</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>weiß</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>weiß</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1220</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>gelb</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>gelb</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1230</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>gelbbraun</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>gelbbraun</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1240</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>braun</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>braun</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1250</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>grün</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>grün</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1260</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>blau</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>blau</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1270</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>rot</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>rot</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1280</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>grau</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>grau</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1290</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>schwarz</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>schwarz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1300</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>10</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1310</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine Eintragung</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine Eintragung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1320</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>klar</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>klar</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1330</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>fast klar</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>fast klar</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1340</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>schwach opalisierend</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>schwach opalisierend</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1350</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>opalisierend</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>opalisierend</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1360</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>schwach getrübt</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>schwach getrübt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1370</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>stark getrübt</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>stark getrübt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1380</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>undurchsichtig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>undurchsichtig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1390</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1400</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1410</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Absetzbare Stoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Absetzbare Stoffe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1420</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Schwimmstoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schwimmstoffe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1430</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Schlieren (Öl od. ähnl.)</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schlieren (Öl od. ähnl.)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1440</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Schaumbildung</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schaumbildung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1450</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Gasblasen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Gasblasen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1460</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1470</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1480</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Absetzbare Stoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Absetzbare Stoffe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1490</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Schwimmstoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schwimmstoffe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1500</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Schlieren (Öl od. ähnl.)</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schlieren (Öl od. ähnl.)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1510</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Schaumbildung</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schaumbildung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1520</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Gasblasen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Gasblasen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1530</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1540</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine Eintragung</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine Eintragung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1550</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>klar</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>klar</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1560</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>fast klar</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>fast klar</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1570</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>schwach opalisierend</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>schwach opalisierend</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1580</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>opalisierend</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>opalisierend</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1590</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>schwach getrübt</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>schwach getrübt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1600</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>stark getrübt</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>stark getrübt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1610</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>undurchsichtig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>undurchsichtig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1620</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1630</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1640</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Absetzbare Stoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Absetzbare Stoffe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1650</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Schwimmstoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schwimmstoffe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1660</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Schlieren (Öl od. ähnl.)</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schlieren (Öl od. ähnl.)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1670</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Schaumbildung</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schaumbildung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1680</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Gasblasen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Gasblasen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1690</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1700</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1710</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Absetzbare Stoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Absetzbare Stoffe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1720</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Schwimmstoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schwimmstoffe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1730</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Schlieren (Öl od. ähnl.)</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schlieren (Öl od. ähnl.)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1740</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Schaumbildung</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schaumbildung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1750</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Gasblasen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Gasblasen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1760</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1770</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1780</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1790</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1800</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1810</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1820</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>erdig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>erdig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1830</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>modrig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>modrig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1840</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>faulig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>faulig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1850</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>jauchig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>jauchig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1860</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>fischig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>fischig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1870</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>aromatisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>aromatisch</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1880</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1890</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1900</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1910</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Teer</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Teer</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1920</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Mercaptan</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mercaptan</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1930</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Mineralöl</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mineralöl</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1940</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Hydrogensulfid</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Hydrogensulfid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1950</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Ozon</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Ozon</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1960</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Abwasser</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Abwasser</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1970</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1980</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1990</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2000</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2010</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2020</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2030</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>erdig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>erdig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2040</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>modrig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>modrig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2050</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>faulig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>faulig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2060</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>jauchig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>jauchig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2070</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>fischig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>fischig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2080</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>aromatisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>aromatisch</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2090</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2100</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2110</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2120</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Teer</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Teer</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2130</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Mercaptan</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mercaptan</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2140</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Mineralöl</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mineralöl</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2150</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Hydrogensulfid</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Hydrogensulfid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2160</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Ozon</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Ozon</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2170</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Abwasser</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Abwasser</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2180</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2190</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2200</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2210</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2220</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2230</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2240</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>fade</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>fade</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2250</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>salzig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>salzig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2260</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>säuerlich</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>säuerlich</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2270</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>laugig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>laugig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2280</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>bitter</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>bitter</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2290</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>süßlich</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>süßlich</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2300</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>metallisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>metallisch</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2310</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>faulig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>faulig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2320</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>erdig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>erdig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2330</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>10</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2340</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2350</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2360</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Seife</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Seife</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2370</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Fisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Fisch</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2380</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Hydrogensulfid</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Hydrogensulfid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2390</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2400</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2410</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2420</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2430</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2440</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2450</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>fade</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>fade</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2460</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>salzig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>salzig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2470</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>säuerlich</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>säuerlich</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2480</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>laugig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>laugig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2490</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>bitter</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>bitter</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2500</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>süßlich</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>süßlich</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2510</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>metallisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>metallisch</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2520</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>faulig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>faulig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2530</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>erdig</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>erdig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2540</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>10</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2550</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2560</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2570</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Seife</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Seife</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2580</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Fisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Fisch</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2590</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Hydrogensulfid</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Hydrogensulfid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2600</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Sensorische Probenbewertung (menschl. Sinne)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2610</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1787</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2620</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1787</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2630</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1787</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2640</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1787</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2650</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1793</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2660</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1793</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2670</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1793</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2680</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1793</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2690</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1795</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2700</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1795</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2710</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1795</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2720</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1795</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2730</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1795</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2740</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1795</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2750</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1795</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2760</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1795</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2770</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1795</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2780</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1795</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2790</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1795</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2800</SimpleValue>
+         </Value>
+         <Value ColumnRef="SHAPTH-Parameter-Nummer">
+            <SimpleValue>1795</SimpleValue>
+         </Value>
+         <Value ColumnRef="Position">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterauswahl">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="US-Code">
+            <SimpleValue>Mikrobiologie (qualitativ)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Clusterung">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

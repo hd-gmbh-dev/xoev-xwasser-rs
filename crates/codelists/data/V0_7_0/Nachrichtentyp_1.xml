@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Nachrichtentyp</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Die Liste von eindeutigen Bezeichnern für Nachrichtentypen von XWasser.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>nachrichtentyp</ShortName>
+      <LongName>Nachrichtentyp</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:nachrichtentyp</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:nachrichtentyp_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Nachricht" Use="required">
+         <ShortName>Nachricht</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>0010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Nachricht">
+            <SimpleValue>administration.rueckweisung.0010</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>0020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Nachricht">
+            <SimpleValue>administration.quittung.0020</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Nachricht">
+            <SimpleValue>weiterleitung.weiterleitung.1010</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Nachricht">
+            <SimpleValue>weiterleitung.abgabe.1020</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Nachricht">
+            <SimpleValue>weiterleitung.nichtzustaendigkeit.1030</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Nachricht">
+            <SimpleValue>vorgang.transportieren.2010</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Nachricht">
+            <SimpleValue>vorgang.nachricht.2020</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Nachricht">
+            <SimpleValue>vorgang.statusanfrage.2030</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Nachricht">
+            <SimpleValue>vorgang.statusantwort.2040</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

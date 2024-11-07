@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>SHAPTH Parameter Einheit</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Mit dieser Codeliste wird im Kontext von XWasser die Einheit eines SHAPTH Parameters angegeben,</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:validFrom>2024-12-01</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+         <xoev-cl-4:changes>Folgende Codes wurden entfernt: 1070, 1240, 1270, 1280, 1320, 1380 und 1390. Folgende Codes wurden ergänzt: 1159, 1181, 1182, 1198, 1199, 1430 bis 1480.
+</xoev-cl-4:changes>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>shapth-parameter-einheit</ShortName>
+      <LongName>SHAPTH Parameter Einheit</LongName>
+      <Version>2</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit_2</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Einheit" Use="required">
+         <ShortName>Einheit</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>%</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>‰</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>1/m</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>Bq/l</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>EEQ</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>GA</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1080</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>GD</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1090</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>GEU</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1100</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>GEi</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1110</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>GF</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1120</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>GL</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1130</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>GPS</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1140</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>GW</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1150</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>J/cm²*min</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1159</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>KBE/10 ml</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1160</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>KBE/100 ml</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1170</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>KBE/250 ml</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1180</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>KBE/ml</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1181</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>KBE/l</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1182</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>KBE</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1190</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>LID</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1198</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>MPN/ml</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1199</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>MPN/10 ml</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1200</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>MPN/100 ml</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1210</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>Massen-%</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1220</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>NTU</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1230</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>PFU/100 ml</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1250</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>TU</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1260</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>cm</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1290</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>mSv/a</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1300</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>meq/l</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1310</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>mg/l</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1330</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>mg/l O2</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1340</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>ml/l</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1350</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>mmol/l</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1360</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>mmol/l CaCO3</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1370</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>nm</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1400</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>°C</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1410</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>°dH</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1420</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>µS/cm</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1430</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>in 1 l</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1440</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>in 5 l</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1450</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>in 100 l</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1460</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>in 100 ml</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1470</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>l</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1480</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>min</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Einheit">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

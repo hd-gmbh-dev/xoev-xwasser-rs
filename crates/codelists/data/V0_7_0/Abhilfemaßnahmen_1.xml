@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Abhilfemaßnahmen</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Mit dieser Codeliste werden im Kontext von XWasser die Abhilfemaßnahmen definiert.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>abhilfemassnahmen</ShortName>
+      <LongName>Abhilfemaßnahmen</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:abhilfemassnahmen</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:abhilfemassnahmen_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <LongName>Deutsch</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Abhilfemassname" Use="required">
+         <ShortName>Abhilfemassname</ShortName>
+         <LongName>Abhilfemaßnahme</LongName>
+         <Data Type="string" Lang="de-DE"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string" Lang="de-DE"/>
+      </Column>
+      <Column Id="KeyEN" Use="required">
+         <ShortName>KeyEN</ShortName>
+         <LongName>English</LongName>
+         <Data Type="string" Lang="en-GB"/>
+      </Column>
+      <Column Id="RemidialAction" Use="required">
+         <ShortName>RemidialAction</ShortName>
+         <LongName>Remidial Action</LongName>
+         <Data Type="string" Lang="en-GB"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+      <Key Id="KeyENKey">
+         <ShortName>KeyENKey</ShortName>
+         <ColumnRef Ref="KeyEN"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Einzugsgebietbezogene Maßnahmen zur Beendigung oder Milderung der Ursache</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Einzugsgebiet bezogen: Maßnahmen zur Beendigung oder Minderung der Ursache (C1)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>catchmentRelatedActionsToTerminateOrMitigateCause </SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>Catchment related: Actions to terminate or mitigate the cause (C1)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Einzugsgebietbezogene Maßnahmen zum Ersetzen der Quelle</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Einzugsgebiet bezogen: Ersatz der Quelle (C2)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>catchmentRelatedActionsReplaceSource</SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>Catchment related: Actions to replace source (C2)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Häusliches Netzwerk Korrektur defekter Komponente</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Häusliches Verteilungssystem: Ersatz, Trennung oder Reparatur defekter Komponenten (D1)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>domesticNetworkCorrectDefectiveComponent</SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>Domestic distribution system: Replacement, disconnection or repair of defective components (D1)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Häusliches Netzwerk Korrektur kontaminierter Komponente</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Häusliches Verteilungssystem: Reinigung, Spülung und/oder Desinfektion kontaminierter Komponenten (D2)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>domesticNetworkCorrectContaminatedComponent</SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>Domestic distribution system: Cleaning, scouring and/or disinfecting contaminated components (D2)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Notfallaktion Information an betroffene Verbraucher</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Notfallmaßnahmen für die Gesundheit und Sicherheit der Verbraucher: Benachrichtigung und Anweisungen an die Verbraucher, zum Beispiel Verwendungsverbot, Anordnung zum Wasserabkochen, vorübergehende Einschränkungen beim Verbrauch (E1)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>emergencyActionInformationToAffectedConsumers</SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>Emergency actions for the consumers’ health and safety: Notification of and instructions to consumers, for example, prohibition of use, boil water order, temporary limitations on consumption (E1)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Notfallaktion Bereitstellung einer alternativen Versorgung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Notfallmaßnahmen für die Gesundheit und Sicherheit der Verbraucher: Bereitstellung einer vorübergehenden alternativen Trinkwasserversorgung, zum Beispiel Flaschenwasser, Wasser in Behältern, Tankwagen (E2)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>emergencyActionProvisionOfAlternativeSupply</SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>Emergency actions for the consumers’ health and safety: Provision of a temporary alternative drinking water supply, for example, bottled water, water in containers, tankers (E2)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1070</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Notfallaktion Einschränkungen für empfindliche Benutzer</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Notfallmaßnahmen für die Gesundheit und Sicherheit der Verbraucher: Einschränkungen für empfindliche Benutzer (E3)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>emergencyActionRestrictionForSensitiveUsers</SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>Emergency actions for the consumers’ health and safety: Restrictions for sensitive users (E3)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1080</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Notfallaktion Verbot der Nutzung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Notfallmaßnahmen für die Gesundheit und Sicherheit der Verbraucher: Verwendungsverbot (E4)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>emergencyActionProhibitionOfUse</SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>Emergency actions for the consumers’ health and safety: Prohibition of use (E4)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1090</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Öffentliches Netzwerk Korrektur defekter Komponente</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Öffentliches Verteilungsnetz bezogen: Ersatz, Trennung oder Reparatur defekter Komponenten (P1)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>publicNetworkCorrectDefectiveComponent</SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>Public distribution network related: Replacement, disconnection or repair of defective components (P1)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1100</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Öffentliches Netzwerk Korrektur kontaminierter Komponente</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Öffentliches Verteilungsnetz bezogen: Reinigung, Spülung und/oder Desinfektion kontaminierter Komponenten (P2)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>publicNetworkCorrectContaminatedComponent</SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>Public distribution network related: Cleaning, scouring and/or disinfecting contaminated components (P2)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1110</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Sicherheitsmaßnahme Verhinderung unbefugten Zugangs</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sicherheitsmaßnahmen zur Verhinderung unbefugten Zugangs (S1)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>securityMeasurePreventionOfUnauthorisedAccess</SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>Security measures to prevent unauthorised access (S1)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1120</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Behandlungsbezogen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Behandlungsbezogen: Einrichtung, Verbesserung oder Ausbau der Behandlung (T1)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>treatmentRelated</SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>Treatment related: Establishing, upgrading or improving treatment (T1)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Andere</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Andere (O)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>other</SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>Other (O)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Abhilfemassname">
+            <SimpleValue>Keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Keine (N)</SimpleValue>
+         </Value>
+         <Value ColumnRef="KeyEN">
+            <SimpleValue>none</SimpleValue>
+         </Value>
+         <Value ColumnRef="RemidialAction">
+            <SimpleValue>None (N)</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>
