@@ -1,4 +1,8 @@
+use std::{collections::HashMap, sync::Arc};
+
 use raxb::quick_xml::events::Event;
+
+pub use xoev_xwasser_codelists::CodeList;
 
 #[cfg(feature = "builder")]
 pub mod builder;
@@ -70,4 +74,19 @@ pub fn detect_version(xml: &str) -> Version {
         }
     }
     Version::Unknown
+}
+
+pub trait XWasserValidate {
+    fn xwasser_validate(
+        &self,
+        codelists: &HashMap<Arc<str>, CodeList>,
+    ) -> Result<(), XWasserValidateError>;
+}
+
+pub enum XWasserValidateError {
+    NotFound {
+        codelist: String,
+        version: Option<String>,
+        value: String,
+    },
 }
