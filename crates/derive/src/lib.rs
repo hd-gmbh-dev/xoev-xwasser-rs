@@ -1,3 +1,5 @@
+use std::borrow::Cow;
+
 use proc_macro::TokenStream;
 use quote::quote;
 
@@ -19,7 +21,23 @@ fn xoev_xwasser_code2(
     }: XoevXWasserCodeArgs = xoev_xwasser_code_args(attr)?;
     let ast: syn::DeriveInput = syn::parse2(item)?;
     let name = ast.ident;
-    let version = version.unwrap_or_else(|| syn::LitStr::new("", proc_macro2::Span::call_site()));
+    let (uri_full, version) = if let Some(version) = version {
+        (Cow::Owned(format!("{uri}_{version}")), version)
+    } else {
+        (Cow::Borrowed(&uri), Default::default())
+    };
+    let validation = if validate {
+        Some(quote! {
+            impl crate::XWasserCodeListValue for #name {
+                const CODELIST: &str = #uri_full;
+                fn as_value(&self) -> &str {
+                    &self.code
+                }
+            }
+        })
+    } else {
+        None
+    };
     Ok(quote! {
         #[derive(Clone, Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
         #[cfg_attr(feature = "wasm", derive(tsify_next::Tsify))]
@@ -61,14 +79,7 @@ fn xoev_xwasser_code2(
             }
         }
 
-        impl crate::XWasserValidate for #name {
-            fn xwasser_validate(
-                &self,
-                codelists: &std::collections::HashMap<std::sync::Arc<str>, crate::CodeList>,
-            ) -> Result<(), crate::XWasserValidateError> {
-                todo!()
-            }
-        }
+        #validation
     })
 }
 
@@ -78,14 +89,14 @@ fn xoev_xwasser_code_args(attr: proc_macro2::TokenStream) -> syn::Result<XoevXWa
 
 #[cfg_attr(test, derive(Debug, PartialEq, Eq))]
 struct XoevXWasserCodeArgs {
-    uri: syn::LitStr,
-    version: Option<syn::LitStr>,
+    uri: String,
+    version: Option<String>,
     validate: bool,
 }
 
 impl syn::parse::Parse for XoevXWasserCodeArgs {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
-        let uri = input.parse()?;
+        let uri = input.parse().map(|litstr: syn::LitStr| litstr.value())?;
         if !input.is_empty() {
             let _: syn::token::Comma = input.parse()?;
         }
@@ -95,7 +106,7 @@ impl syn::parse::Parse for XoevXWasserCodeArgs {
             let head = input.fork();
             let lit: syn::Lit = input.parse()?;
             match lit {
-                syn::Lit::Str(lit_str) => version = Some(lit_str),
+                syn::Lit::Str(lit_str) => version = Some(lit_str.value()),
                 syn::Lit::Bool(lit_bool) => validate = lit_bool.value(),
                 _ => return Err(head.error("expected either string or bool")),
             }
@@ -121,14 +132,7 @@ impl syn::parse::Parse for XoevXWasserCodeArgs {
 
 #[cfg(test)]
 mod tests {
-    use proc_macro2::Span;
-    use syn::LitStr;
-
     use super::*;
-
-    fn lit_str(s: &str) -> LitStr {
-        LitStr::new(s, Span::call_site())
-    }
 
     fn xoev_xwasser_validate_case(attr: proc_macro2::TokenStream) -> XoevXWasserCodeArgs {
         xoev_xwasser_code_args(attr).expect("XoevXWasserValidateArgs")
@@ -140,7 +144,7 @@ mod tests {
             (
                 quote! { "abc" },
                 XoevXWasserCodeArgs {
-                    uri: lit_str("abc"),
+                    uri: "abc".into(),
                     version: None,
                     validate: false,
                 },
@@ -148,7 +152,7 @@ mod tests {
             (
                 quote! { "abc", },
                 XoevXWasserCodeArgs {
-                    uri: lit_str("abc"),
+                    uri: "abc".into(),
                     version: None,
                     validate: false,
                 },
@@ -156,23 +160,23 @@ mod tests {
             (
                 quote! { "abc", "def" },
                 XoevXWasserCodeArgs {
-                    uri: lit_str("abc"),
-                    version: Some(lit_str("def")),
+                    uri: "abc".into(),
+                    version: Some("def".into()),
                     validate: false,
                 },
             ),
             (
                 quote! { "abc", "def", },
                 XoevXWasserCodeArgs {
-                    uri: lit_str("abc"),
-                    version: Some(lit_str("def")),
+                    uri: "abc".into(),
+                    version: Some("def".into()),
                     validate: false,
                 },
             ),
             (
                 quote! { "abc", true },
                 XoevXWasserCodeArgs {
-                    uri: lit_str("abc"),
+                    uri: "abc".into(),
                     version: None,
                     validate: true,
                 },
@@ -180,7 +184,7 @@ mod tests {
             (
                 quote! { "abc", false, },
                 XoevXWasserCodeArgs {
-                    uri: lit_str("abc"),
+                    uri: "abc".into(),
                     version: None,
                     validate: false,
                 },
@@ -188,16 +192,16 @@ mod tests {
             (
                 quote! { "abc", "def", true },
                 XoevXWasserCodeArgs {
-                    uri: lit_str("abc"),
-                    version: Some(lit_str("def")),
+                    uri: "abc".into(),
+                    version: Some("def".into()),
                     validate: true,
                 },
             ),
             (
                 quote! { "abc", "def", false, },
                 XoevXWasserCodeArgs {
-                    uri: lit_str("abc"),
-                    version: Some(lit_str("def")),
+                    uri: "abc".into(),
+                    version: Some("def".into()),
                     validate: false,
                 },
             ),

@@ -60,6 +60,24 @@ pub struct CodeList {
     pub values: Arc<[Arc<[Arc<str>]>]>,
 }
 
+impl CodeList {
+    #[allow(dead_code)]
+    pub fn validate(&self, value: &str) -> bool {
+        self.header
+            .fields
+            .iter()
+            .enumerate()
+            .find(|(_, field)| field.id.as_ref() == "Key")
+            .map(|(index, _)| {
+                self.values
+                    .iter()
+                    .map(move |row| &row[index])
+                    .any(|col| col.as_ref() == value)
+            })
+            .unwrap_or_default()
+    }
+}
+
 impl DataSource for CodeList {
     fn name() -> &'static str {
         "cl"

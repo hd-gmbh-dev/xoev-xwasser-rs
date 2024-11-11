@@ -95,7 +95,7 @@ pub struct CodeVerzeichnisdienstType;
 
 /// Type name: Code.NachrichtentypType
 /// Die Liste von eindeutigen Bezeichner für Nachrichtentypen von XWasser.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:nachrichtentyp", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:nachrichtentyp", "1", true)]
 pub struct CodeNachrichtentypType;
 
 /// Type name: Code.DatentypType

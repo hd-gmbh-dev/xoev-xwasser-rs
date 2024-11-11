@@ -33,6 +33,19 @@ where
 
 pub type CodeListMap = Arc<HashMap<Arc<str>, CodeList>>;
 
+pub trait XWasserCodeListValue {
+    const CODELIST: &str;
+
+    fn validate(&self, codelists: &HashMap<Arc<str>, CodeList>) -> bool {
+        codelists
+            .get(Self::CODELIST)
+            .map(|codelist| codelist.validate(self.as_value()))
+            .unwrap_or_default()
+    }
+
+    fn as_value(&self) -> &str;
+}
+
 #[cfg(test)]
 mod tests {
     #[test]

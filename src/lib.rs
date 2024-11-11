@@ -2,7 +2,7 @@ use std::{collections::HashMap, sync::Arc};
 
 use raxb::quick_xml::events::Event;
 
-pub use xoev_xwasser_codelists::CodeList;
+pub use xoev_xwasser_codelists::{CodeList, XWasserCodeListValue};
 
 #[cfg(feature = "builder")]
 pub mod builder;
