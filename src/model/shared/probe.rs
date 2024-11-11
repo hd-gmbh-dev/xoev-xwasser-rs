@@ -303,7 +303,7 @@ pub struct AnalyseergebnisParameterType {
     )]
     pub messunsicherheit_untersuchungswert_relativ: Option<f64>,
     #[xml(ns = b"xwas", name = b"bestimmungsgrenzeLoQ", ty = "child")]
-    pub bestimmungsgrenze_lo_q: Option<String>,
+    pub bestimmungsgrenze_lo_q: Option<f64>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]
