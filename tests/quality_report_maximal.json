@@ -125,7 +125,7 @@
                 "parameterauffaelligkeit": null,
                 "messunsicherheit_untersuchungswert_absolut": null,
                 "messunsicherheit_untersuchungswert_relativ": null,
-                "bestimmungsgrenze_lo_q": "123",
+                "bestimmungsgrenze_lo_q": 123.0,
                 "kommentar": "Probe immer noch in Ordnung.",
                 "id": "analyseergebnisParameter1"
               }
@@ -227,7 +227,7 @@
                 "parameterauffaelligkeit": null,
                 "messunsicherheit_untersuchungswert_absolut": null,
                 "messunsicherheit_untersuchungswert_relativ": null,
-                "bestimmungsgrenze_lo_q": "150",
+                "bestimmungsgrenze_lo_q": 150.0,
                 "kommentar": "Probe zeigt leicht erhöhte Werte.",
                 "id": "analyseergebnisParameter2"
               }
