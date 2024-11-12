@@ -1,26 +1,26 @@
 use proc_macro2::TokenStream;
 use quote::quote;
-use syn::{spanned::Spanned, Data, DeriveInput, Error, Result};
+use syn::{parse2, spanned::Spanned, Data, DeriveInput, Error, Fields, Result};
 
 pub(super) fn derive(input: TokenStream) -> Result<TokenStream> {
-    let ast: DeriveInput = syn::parse2(input)?;
+    let ast: DeriveInput = parse2(input)?;
 
     let content = match &ast.data {
         Data::Struct(data_struct) => match &data_struct.fields {
-            syn::Fields::Named(fields_named) => {
+            Fields::Named(fields_named) => {
                 let fields = fields_named
                     .named
                     .iter()
                     .filter_map(|field| field.ident.as_ref());
                 quote! { Ok(())#(.and(self.#fields.xwasser_validate(codelists)))* }
             }
-            syn::Fields::Unnamed(fields_unnamed) => {
+            Fields::Unnamed(fields_unnamed) => {
                 return Err(Error::new(
                     fields_unnamed.span(),
                     "unnamed fields not supported",
                 ));
             }
-            syn::Fields::Unit => {
+            Fields::Unit => {
                 return Err(Error::new(data_struct.fields.span(), "unit not supported"));
             }
         },
@@ -29,7 +29,7 @@ pub(super) fn derive(input: TokenStream) -> Result<TokenStream> {
                 .variants
                 .iter()
                 .map(|v| match &v.fields {
-                    syn::Fields::Unnamed(fields_unnamed) => {
+                    Fields::Unnamed(fields_unnamed) => {
                         if fields_unnamed.unnamed.len() == 1 {
                             let ident = &v.ident;
                             Ok(quote! { Self::#ident(e) => e.xwasser_validate(codelists) })
@@ -40,11 +40,11 @@ pub(super) fn derive(input: TokenStream) -> Result<TokenStream> {
                             ))
                         }
                     }
-                    syn::Fields::Unit => {
+                    Fields::Unit => {
                         let ident = &v.ident;
                         Ok(quote! { Self::#ident => Ok(()) })
                     }
-                    syn::Fields::Named(fields_named) => Err(Error::new(
+                    Fields::Named(fields_named) => Err(Error::new(
                         fields_named.span(),
                         "named enum fields not supported",
                     )),
