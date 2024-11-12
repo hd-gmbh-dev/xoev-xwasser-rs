@@ -31,7 +31,8 @@ where
     ))
 }
 
-pub type CodeListMap = Arc<HashMap<Arc<str>, CodeList>>;
+pub type CodeLists = HashMap<Arc<str>, CodeList>;
+pub type CodeListMap = Arc<CodeLists>;
 
 pub trait XWasserCodeListValue {
     const CODELIST: &str;
