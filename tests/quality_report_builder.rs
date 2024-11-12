@@ -121,7 +121,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .parameterauffaelligkeit(Default::default())
         .messunsicherheit_untersuchungswert_absolut(Default::default())
         .messunsicherheit_untersuchungswert_relativ(Default::default())
-        .bestimmungsgrenze_lo_q(Some("0.0".into()))
+        .bestimmungsgrenze_lo_q(Some(0.0))
         .kommentar(Default::default())
         .id("param-1".into())
         .build();
@@ -163,7 +163,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .build();
 
     let probennahmestelle = ProbennahmestelleType::builder()
-        .probennahmestelle_id(probenahmestelle_id)
+        .probennahmestelle_id(probenahmestelle_id.clone())
         .objekt_id("none".into())
         .probe(Default::default())
         .terminplan_id(Default::default())
@@ -177,7 +177,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .alt_id(None)
         .berichtspflichtig(Default::default())
         .kommentar(Default::default())
-        .id("probennahmestelle-1".into())
+        .id(probenahmestelle_id)
         .build();
 
     let auftraggeber = Auftraggeber::Organisation(
@@ -277,7 +277,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     let e = VorgangTransportieren2010::builder()
         .produkt("XWasser Test".into())
         .produkthersteller("H&D GmbH".into())
-        .produktversion("0.700.0".into())
+        .produktversion("0.700.1".into())
         .test(Some(true))
         .nachrichtenkopf_g2g(nachrichtenkopf_g2g)
         .vorgang(

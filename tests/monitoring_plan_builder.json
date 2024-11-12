@@ -1,17 +1,17 @@
 {
   "produkt": "XWasser Test",
   "produkthersteller": "H&D GmbH",
-  "produktversion": "0.700.0",
+  "produktversion": "0.700.1",
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "f0f314cf-bc97-4f40-a910-fdb993e5ac00",
+      "nachrichten_uuid": "6d3a4092-41c8-43dc-89ac-52c03745f2c0",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2024-11-05T12:12:40"
+      "erstellungszeitpunkt": "2024-11-11T12:54:26"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -36,14 +36,14 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "12ef24db-c963-45f2-b35e-b00ead90f819"
+      "vorgangs_id": "11f50808-6822-43a9-8e37-14fd47bb027c"
     },
     "vorgang_type": {
       "t": "Untersuchungsplan",
       "c": {
-        "untersuchungsplan_id": "fbd2743a-9a29-4a2a-b3a6-3cdbf4b89ed3",
+        "untersuchungsplan_id": "8c09eeae-e06e-40ab-bd3c-11fb6f0c2421",
         "wasserversorgungsgebiet": [
-          "wvg-xFmWyFQS"
+          "wvg-BbIAjk9G"
         ],
         "titel_untersuchungsplan": null,
         "jahr": [
@@ -95,10 +95,10 @@
         "kommentar": [],
         "terminplan": [
           {
-            "terminplan_id": "55dd8dbe-bb49-4cff-abdf-e3a938d7cef1",
+            "terminplan_id": "ea3943ab-4aaf-4214-b9ac-aa900172bc4f",
             "probennahmestelle": null,
             "datum_zeitraum": [
-              "2024-11-05T12:12:40"
+              "2024-11-11T12:54:26"
             ],
             "probennahmestelle_kategorie": {
               "code": "L",
@@ -131,12 +131,12 @@
             "probennahmeverfahren": [],
             "ersatz_fuer_terminplan_mit_der_id": null,
             "kommentar": null,
-            "id": "terminplan-vtRRaZU2"
+            "id": "terminplan-zjlgQtAH"
           }
         ],
         "anlage_nach_trinkw_v": {
           "anlage_nach_trinkw_v_id": "",
-          "zustaendige_behoerde_id": "behoerde-uVhEMKqy",
+          "zustaendige_behoerde_id": "behoerde-yVlllozr",
           "untersuchungsplan_id": [],
           "art_anlage": {
             "code": "1010",
@@ -149,7 +149,7 @@
           "kommentar": null,
           "wasserversorgungsgebiet": [
             {
-              "wasserversorgungsgebiet_id": "80e05998-8c7f-4f9d-a2fc-4ae1ab65723e",
+              "wasserversorgungsgebiet_id": "1506d398-6588-46e6-b594-10928adb8589",
               "name_wasserversorgungsgebiet": {
                 "code": "",
                 "name": null
@@ -157,7 +157,7 @@
               "lau2_code": null,
               "zustaendige_behoerde": [
                 {
-                  "id": "behoerde-w3xe00Sv",
+                  "id": "behoerde-AJ6abzMZ",
                   "typ": {
                     "code": "",
                     "name": null,
@@ -197,7 +197,7 @@
                 }
               ],
               "geokoordinaten_shapth": null,
-              "datum_der_einrichtung": "2024-11-05",
+              "datum_der_einrichtung": "2024-11-11",
               "datum_der_schliessung": null,
               "grund_der_schliessung": null,
               "nachfolger_wvg_bei_schliessung": [],
@@ -221,12 +221,12 @@
               "derogation": [],
               "exceedance": [],
               "incident": [],
-              "id": "wvg-xFmWyFQS"
+              "id": "wvg-BbIAjk9G"
             }
           ],
           "anlage_nach_trinkw_v_objekt": [
             {
-              "objekt_id": "e3079eda-46a9-44a9-8787-b4f64243d629",
+              "objekt_id": "b1d78e44-4571-4b3b-a87f-357af19f8bbc",
               "wasserversorgungsgebiet": null,
               "anschrift_objekt": [],
               "art_objekt": {
@@ -250,11 +250,11 @@
               "kommentar": null,
               "betreiber": [
                 {
-                  "betreiber_id": "71d694ca-63c2-471a-98fc-b4a79d5c4be3",
+                  "betreiber_id": "09154441-fcd8-46fb-937c-6f5df9f643da",
                   "art_der_person": {
                     "t": "Organisation",
                     "c": {
-                      "id": "organisation-zZLNfc4b",
+                      "id": "organisation-DbHSznZh",
                       "rechtsform": null,
                       "branche": [],
                       "zweck": [],
@@ -268,15 +268,15 @@
                     }
                   },
                   "objekt_id": [
-                    "obj-yjqjxsad"
+                    "obj-CFdejm26"
                   ],
                   "kommentar": null,
-                  "id": "betreiber-AHtZWmrW"
+                  "id": "betreiber-EJcu9WYn"
                 }
               ],
               "objekt_probennahmestelle": [
                 {
-                  "probennahmestelle_id": "6afdb540-4d56-4849-ac5e-734c4e78c76e",
+                  "probennahmestelle_id": "a615bb7e-edd9-4905-a576-760728e99f8b",
                   "objekt_id": "",
                   "probe": [],
                   "terminplan_id": [],
@@ -304,13 +304,13 @@
                   "alt_id": null,
                   "berichtspflichtig": null,
                   "kommentar": null,
-                  "id": "probennahmestelle-BrBA1W9s"
+                  "id": "probennahmestelle-FjO6WD5t"
                 }
               ],
-              "id": "obj-yjqjxsad"
+              "id": "obj-CFdejm26"
             }
           ],
-          "id": "antv-CddriE0p"
+          "id": "antv-GVzWXUBL"
         },
         "auftraggeber": {
           "auftraggeber_id": "",
@@ -321,7 +321,7 @@
           "auftraggeber": {
             "t": "Organisation",
             "c": {
-              "id": "organisation-D1nvgUh3",
+              "id": "organisation-HzzjFfG6",
               "rechtsform": null,
               "branche": [],
               "zweck": [],
@@ -336,7 +336,7 @@
           }
         },
         "zustaendige_behoerde": {
-          "id": "behoerde-uVhEMKqy",
+          "id": "behoerde-yVlllozr",
           "typ": {
             "code": "",
             "name": null,
@@ -382,7 +382,7 @@
         },
         "aenderungshistorie": null,
         "erweiterung": null,
-        "id": "untersuchungsplan-ER8Tm65g"
+        "id": "untersuchungsplan-IfRF6ZpA"
       }
     },
     "bemerkung": null,
