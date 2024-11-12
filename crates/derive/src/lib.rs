@@ -48,6 +48,7 @@ fn xoev_xwasser_code2(
         #[derive(Clone, Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
         #[cfg_attr(feature = "wasm", derive(tsify_next::Tsify))]
         #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+        #[cfg_attr(feature = "builder", derive(TypedBuilder))]
         #[xml(tns(
             b"xwas",
             b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
@@ -64,6 +65,7 @@ fn xoev_xwasser_code2(
                 ty = "attr",
                 value = #uri
             )]
+            #[cfg_attr(feature = "builder", builder(default))]
             _list_uri: ConstStr,
             #[serde(skip)]
             #[xml(
@@ -72,6 +74,7 @@ fn xoev_xwasser_code2(
                 ty = "attr",
                 value = #version
             )]
+            #[cfg_attr(feature = "builder", builder(default))]
             _list_version_id: ConstStr,
         }
 
