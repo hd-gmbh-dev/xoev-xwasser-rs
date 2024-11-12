@@ -3,6 +3,15 @@ use std::borrow::Cow;
 use proc_macro::TokenStream;
 use quote::quote;
 
+mod xwasser_validate;
+
+#[proc_macro_derive(XWasserValidate)]
+pub fn xwasser_validate_derive(input: TokenStream) -> TokenStream {
+    xwasser_validate::derive(input.into())
+        .unwrap_or_else(syn::Error::into_compile_error)
+        .into()
+}
+
 #[proc_macro_attribute]
 pub fn xoev_xwasser_code(attr: TokenStream, item: TokenStream) -> TokenStream {
     xoev_xwasser_code2(attr.into(), item.into())

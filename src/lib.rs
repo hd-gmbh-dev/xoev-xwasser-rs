@@ -10,7 +10,7 @@ mod validate;
 #[cfg(feature = "wasm")]
 pub mod wasm;
 
-pub use xoev_xwasser_codelists::XWasserCodeListValue;
+pub use xoev_xwasser_codelists::{CodeLists, XWasserCodeListValue};
 
 pub use validate::{XWasserValidate, XWasserValidateError, XWasserValidateMarker};
 
