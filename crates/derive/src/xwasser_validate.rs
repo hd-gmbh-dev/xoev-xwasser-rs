@@ -24,7 +24,38 @@ pub(super) fn derive(input: TokenStream) -> Result<TokenStream> {
                 return Err(Error::new(data_struct.fields.span(), "unit not supported"));
             }
         },
-        Data::Enum(data_enum) => quote! { Ok(()) },
+        Data::Enum(data_enum) => {
+            let variants = data_enum
+                .variants
+                .iter()
+                .map(|v| match &v.fields {
+                    syn::Fields::Unnamed(fields_unnamed) => {
+                        if fields_unnamed.unnamed.len() == 1 {
+                            let ident = &v.ident;
+                            Ok(quote! { Self::#ident(e) => e.xwasser_validate(codelists) })
+                        } else {
+                            Err(Error::new(
+                                fields_unnamed.span(),
+                                "unnamed enum fields with multiple members not supported",
+                            ))
+                        }
+                    }
+                    syn::Fields::Unit => {
+                        let ident = &v.ident;
+                        Ok(quote! { Self::#ident => Ok(()) })
+                    }
+                    syn::Fields::Named(fields_named) => Err(Error::new(
+                        fields_named.span(),
+                        "named enum fields not supported",
+                    )),
+                })
+                .collect::<Result<Vec<_>>>()?;
+            quote! {
+                match self {
+                    #(#variants,)*
+                }
+            }
+        }
         Data::Union(data_union) => {
             return Err(Error::new(data_union.fields.span(), "union not supported"));
         }
