@@ -3,6 +3,8 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use xoev_xwasser_derive::XWasserValidate;
+
 #[cfg(feature = "wasm")]
 use tsify_next::Tsify;
 
@@ -27,7 +29,9 @@ use super::{
 
 /// Der AllgemeineName dient der Darstellung von Vor- und Nachnamen und fasst deren
 /// gemeinsame Eigenschaften zusammen.
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -57,7 +61,9 @@ pub struct AllgemeinerNameType {
 /// für die Verwendung einer alternativen Repraesentation ist die Übermittlung von Namen.
 /// Der Name "Andrè Müller" würde nach ICAO-Standard, in dem keine Umlaute erlaubt sind,
 /// daher alternativ als "ANDRE MUELLER" übertragen.
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -76,7 +82,9 @@ pub struct AlternativeRepraesentationType {
 
 /// Der Name einer Person ist eine Benennung dieser Person, die dazu dient, diese Person
 /// von anderen Personen zu unterscheiden.
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -123,7 +131,9 @@ pub struct NameNatuerlichePersonType {
 }
 
 /// Die Auskunftssperre beschränkt die Weitergabe von Informationen an Dritte.
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -139,7 +149,9 @@ pub struct AuskunftssperreType {
 }
 
 /// Unter "Geburt" werden geburtsbezogene Informationen zusammengefasst.
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -160,7 +172,9 @@ pub struct GeburtType {
 /// Doktorgrade anzugeben, die in Pässe eingetragen werden dürfen. Sind mehrere
 /// Doktorgrade anzugeben, so sind sie durch ein Leerzeichen zu trennen. Zulässig sind
 /// derzeit: „DR.“, „Dr.“, „DR.HC.“, „Dr.hc.“, „Dr.EH.“ und „Dr.eh.“.
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -176,7 +190,9 @@ pub struct DoktorgradType {
 
 /// Mit diesem Datentyp wird ein gesetzlicher Vertreter oder ein Bevollmächtigter einer
 /// nichtnatürlichen Person abgebildet.
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -192,7 +208,7 @@ pub struct VertreterBevollmaechtigterType {
 }
 
 /// Hier werden Angaben zum Familienstand einer natürlichen Person zusammengefasst.
-#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -215,7 +231,7 @@ pub struct FamilienstandType {
 
 /// Ein Ausweis ist eine öffentliche oder private Urkunde, die die Identität des Inhabers
 /// schriftlich und offiziell darstellt. Er enthält meist persönliche Daten.
-#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -245,7 +261,7 @@ pub struct AusweisdokumentType {
 /// Selbstverwaltungskörperschaften, sonstige Körperschaften des öffentlichen Rechts)
 /// erfasst. Die konkrete Rechtsform der juristischen Person kann mittels einer Codeliste
 /// angegeben werden.
-#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -286,7 +302,9 @@ pub struct JuristischePersonType {
 }
 
 /// Die Komponente "Geschlecht" dient der Repräsentation des biologischen Geschlechts.
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -306,7 +324,9 @@ pub struct GeschlechtType {
 /// rechtsfähig und damit zu einer natürlichen Person (§ 1 BGB). Der Mensch verliert
 /// seine Rechtsfähigkeit mit dem Tod. Rechtssubjekte, die keine natürlichen Personen
 /// sind, nennt man juristische Personen.
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -349,7 +369,9 @@ pub struct NatuerlichePersonType {
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
 #[allow(clippy::large_enum_variant)]
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[serde(tag = "t", content = "c")]
@@ -370,7 +392,7 @@ pub enum Person {
 /// Mit diesem Datentyp wird eine allgemeine Person, natürlich oder nichtnatürlich,
 /// spezifiziert
 /// dieser Datentype wird bisher nirgends verwendet
-#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]

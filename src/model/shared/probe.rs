@@ -3,6 +3,8 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use xoev_xwasser_derive::XWasserValidate;
+
 use crate::model::codes::{
     CodeAnlassUntersuchungType, CodeArtEntnahmearmaturType,
     CodeAufbereitungsstoffDesinfektionsverfahrenType, CodeBewertungUntersuchungswertType,
@@ -26,7 +28,7 @@ use super::{
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
 #[allow(clippy::large_enum_variant)]
-#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
 #[xml(tns(b"xwas", b"xwasser"))]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
@@ -47,7 +49,7 @@ pub enum Probennehmer {
 
 /// Klasse für den Transport von Informationen zu einem Probennehmer [Durch das Labor mit
 /// dem Prüfbericht mit zu übermittelnde Informationen].
-#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -69,7 +71,9 @@ pub struct ProbennehmerType {
 }
 
 /// Klasse für den Transport von Informationen zu einer Probennahmestelle.
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -120,7 +124,7 @@ pub struct ProbennahmestelleType {
 
 /// Klasse zum Transport von Informationen, welche über eine Probe vorliegen sollen, die
 /// im Rahmen eines Prüfberichts via SHAPTH übermittelt wird.
-#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -222,7 +226,9 @@ pub struct ProbeType {
     pub id: String,
 }
 
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]

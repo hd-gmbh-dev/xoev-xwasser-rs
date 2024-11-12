@@ -1,9 +1,6 @@
 use proc_macro2::TokenStream;
 use quote::quote;
-use syn::{
-    punctuated::Punctuated, spanned::Spanned, Data, DataEnum, DeriveInput, Error, Expr, ExprArray,
-    ExprLit, Lit, Meta, MetaNameValue, Result, Token,
-};
+use syn::{spanned::Spanned, Data, DeriveInput, Error, Result};
 
 pub(super) fn derive(input: TokenStream) -> Result<TokenStream> {
     let ast: DeriveInput = syn::parse2(input)?;
@@ -27,7 +24,7 @@ pub(super) fn derive(input: TokenStream) -> Result<TokenStream> {
                 return Err(Error::new(data_struct.fields.span(), "unit not supported"));
             }
         },
-        Data::Enum(data_enum) => quote! {},
+        Data::Enum(data_enum) => quote! { Ok(()) },
         Data::Union(data_union) => {
             return Err(Error::new(data_union.fields.span(), "union not supported"));
         }

@@ -36,7 +36,7 @@ fn xoev_xwasser_code2(
         (Cow::Borrowed(&uri), Default::default())
     };
     let validation = if validate {
-        Some(quote! {
+        quote! {
             impl crate::XWasserCodeListValue for #name {
                 const CODELIST: &str = #uri_full;
                 fn as_value(&self) -> &str {
@@ -45,9 +45,21 @@ fn xoev_xwasser_code2(
             }
 
             impl crate::XWasserValidateMarker for #name {}
-        })
+        }
     } else {
-        None
+        quote! {
+            impl crate::XWasserCodeListValue for #name {
+                const CODELIST: &str = #uri_full;
+                fn validate(&self, _: &crate::CodeLists) -> bool {
+                    true
+                }
+                fn as_value(&self) -> &str {
+                    &self.code
+                }
+            }
+
+            impl crate::XWasserValidateMarker for #name {}
+        }
     };
     Ok(quote! {
         #[derive(Clone, Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]

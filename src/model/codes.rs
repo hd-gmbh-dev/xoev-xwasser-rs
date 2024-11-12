@@ -3,6 +3,8 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use xoev_xwasser_derive::XWasserValidate;
+
 #[cfg(feature = "wasm")]
 use tsify_next::Tsify;
 
@@ -45,7 +47,7 @@ impl FromStr for ConstStr {
 //     list_version_id: String,
 // }
 
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -64,7 +66,7 @@ pub struct CodeBehoerdenkennungType {
     pub list_version_id: String,
 }
 
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]

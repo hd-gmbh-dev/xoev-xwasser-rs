@@ -73,6 +73,54 @@ impl XWasserValidate for isize {
     }
 }
 
+impl XWasserValidate for u64 {
+    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+        Ok(())
+    }
+}
+
+impl XWasserValidate for u32 {
+    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+        Ok(())
+    }
+}
+
+impl XWasserValidate for u16 {
+    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+        Ok(())
+    }
+}
+
+impl XWasserValidate for u8 {
+    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+        Ok(())
+    }
+}
+
+impl XWasserValidate for i64 {
+    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+        Ok(())
+    }
+}
+
+impl XWasserValidate for i32 {
+    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+        Ok(())
+    }
+}
+
+impl XWasserValidate for i16 {
+    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+        Ok(())
+    }
+}
+
+impl XWasserValidate for i8 {
+    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+        Ok(())
+    }
+}
+
 impl XWasserValidate for usize {
     fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
         Ok(())

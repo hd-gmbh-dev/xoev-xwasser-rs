@@ -3,6 +3,8 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use xoev_xwasser_derive::XWasserValidate;
+
 #[cfg(feature = "wasm")]
 use tsify_next::Tsify;
 
@@ -22,7 +24,9 @@ use super::{
 /// Informationen aus den Registern von Betreibern/Behörden].
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
 #[allow(clippy::large_enum_variant)]
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[serde(tag = "t", content = "c")]
@@ -44,7 +48,9 @@ pub enum ArtDerPerson {
 
 /// Klasse zum Transport von Informationen zu einem Betreiber einer WVA [Soweit möglich
 /// in Register zu pflegen].
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -66,7 +72,9 @@ pub struct BetreiberType {
 }
 
 /// Klasse für den Transport von Informationen zu einem Objekt.
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]

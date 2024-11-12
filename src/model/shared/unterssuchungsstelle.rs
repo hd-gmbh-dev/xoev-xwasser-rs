@@ -3,6 +3,8 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use xoev_xwasser_derive::XWasserValidate;
+
 #[cfg(feature = "wasm")]
 use tsify_next::Tsify;
 
@@ -21,7 +23,9 @@ use super::{
 };
 
 /// Klasse für den Transport von Informationen zu einer zugelassenen Untersuchungsstelle.
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -97,7 +101,9 @@ pub struct ZugelasseneUntersuchungsstelleType {
 
 /// Klasse für den Transport von ergänzenden Informationen zu den Daten aus dem Register
 /// für Zugelassene Untersuchungsstellen im Falle der Beauftragung einer Untersuchung.
-#[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
