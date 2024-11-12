@@ -84,9 +84,55 @@ pub trait XWasserValidate {
 }
 
 pub enum XWasserValidateError {
-    NotFound {
-        codelist: String,
-        version: Option<String>,
-        value: String,
-    },
+    CodeListValueNotFound { codelist: String, value: String },
+}
+
+pub trait XWasserValidateMarker {}
+
+impl<T> XWasserValidate for T
+where
+    T: XWasserCodeListValue + XWasserValidateMarker,
+{
+    fn xwasser_validate(
+        &self,
+        codelists: &HashMap<Arc<str>, CodeList>,
+    ) -> Result<(), XWasserValidateError> {
+        if self.validate(codelists) {
+            Ok(())
+        } else {
+            Err(XWasserValidateError::CodeListValueNotFound {
+                codelist: Self::CODELIST.to_string(),
+                value: self.as_value().to_string(),
+            })
+        }
+    }
+}
+
+impl<T> XWasserValidate for Option<T>
+where
+    T: XWasserValidate,
+{
+    fn xwasser_validate(
+        &self,
+        codelists: &HashMap<Arc<str>, CodeList>,
+    ) -> Result<(), XWasserValidateError> {
+        self.as_ref()
+            .map(|t| t.xwasser_validate(codelists))
+            .unwrap_or(Ok(()))
+    }
+}
+
+impl<T> XWasserValidate for Vec<T>
+where
+    T: XWasserValidate,
+{
+    fn xwasser_validate(
+        &self,
+        codelists: &HashMap<Arc<str>, CodeList>,
+    ) -> Result<(), XWasserValidateError> {
+        self.iter()
+            .find_map(|t| t.xwasser_validate(codelists).err())
+            .map(Err)
+            .unwrap_or(Ok(()))
+    }
 }

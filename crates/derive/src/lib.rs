@@ -34,6 +34,8 @@ fn xoev_xwasser_code2(
                     &self.code
                 }
             }
+
+            impl crate::XWasserValidateMarker for #name {}
         })
     } else {
         None
