@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Unterkategorie Probennahmestelle</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>In dieser Codeliste werden Unterkategorien von Probennahmestellen definiert.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionDescription>Initiale Version</xoev-cl-4:versionDescription>
+         <xoev-cl-4:validFrom>2024-09-20</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>unterkategorie-probennahmestelle</ShortName>
+      <LongName>Unterkategorie Probennahmestelle</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Kategorie" Use="required">
+         <ShortName>Kategorie</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Unterkategorie" Use="required">
+         <ShortName>Unterkategorie</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>T - Häusliche Trinkwasserinstallation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Austritt des Trinkwassererwärmers</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Austritt des Trinkwassererwärmers</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>W - Wasserwerk(sausgang)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Behälter innerhalb eines Wasserwerks</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Behälter innerhalb eines Wasserwerks</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1090</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>T - Häusliche Trinkwasserinstallation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Eintritt der Zirkulationsleitung in den Trinkwassererwärmer</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eintritt der Zirkulationsleitung in den Trinkwassererwärmer gem. twin Nr. 06 (Zirkulationsrücklauf)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1100</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>N - Öffentliches Verteilungsnetz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Einzelne Kammer/Behälter in einem Hochbehälter</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Einzelne Kammer/Behälter in einem Hochbehälter</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1130</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>W - Wasserwerk(sausgang)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Innerhalb der Aufbereitung [genauen Ort bezeichnen]</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Innerhalb der Aufbereitung im Wasserwerk; Der genaue Ort innerhalb der Aufbereitung ist in der Beschreibung der Probennahmestelle zu nennen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1150</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>T - Häusliche Trinkwasserinstallation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Nach Aufbereitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Nach Aufbereitung (in der Trinkwasserinstallation)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1180</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>W - Wasserwerk(sausgang)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Wasserfassung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wasserfassung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1200</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>T - Häusliche Trinkwasserinstallation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Steigstrang</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Steigstrang - (in der Peripherie)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1220</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>T - Häusliche Trinkwasserinstallation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Trinkwasserbrunnen Dauerläufer</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Trinkwasserbrunnen Dauerläufer</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1230</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>T - Häusliche Trinkwasserinstallation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Trinkwasserbrunnen Nichtdauerläufer (diskontinuierlich laufende Trinkwasserbrunnen)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Trinkwasserbrunnen Nichtdauerläufer (diskontinuierlich laufende Trinkwasserbrunnen)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1240</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>L - Übergabestelle Trinkwasser-Installation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>TW-Übergabepunkt WVA an Nutzer</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Trinkwasser-Übergabepunkt WVA an Nutzer</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1260</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>N - Öffentliches Verteilungsnetz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Vorlagebehälter für die Druckerhöhung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Vorlagebehälter für die Druckerhöhung (Tiefbehälter)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1265</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>W - Wasserwerk(sausgang)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Wasserwerksausgang mit Desinfektion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wasserwerksausgang unmittelbar nach der Aufbereitung im desinfizierten Wasser; gilt auch für c- und f-Anlagen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1270</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>W - Wasserwerk(sausgang)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Wasserwerksausgang ohne Desinfektion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wasserwerksausgang ohne Desinfektion</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1280</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>W - Wasserwerk(sausgang)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Wasserwerkseingang</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wasserwerkseingang</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1300</SimpleValue>
+         </Value>
+         <Value ColumnRef="Kategorie">
+            <SimpleValue>T - Häusliche Trinkwasserinstallation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Unterkategorie">
+            <SimpleValue>Sonstiger Rücklauf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiger Rücklauf (z. B. Kaltwasserzirkulation) Die genaue Bezeichnung ist in der Beschreibung der Probennahmestelle zu nennen.</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Art des Objekts</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Diese Codeliste definiert, welcher Art ein Objekt ist.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>art-objekt</ShortName>
+      <LongName>Art des Objekts</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:art-objekt</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:art-objekt_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Art-Objekt" Use="required">
+         <ShortName>Art-Objekt</ShortName>
+         <LongName>Art des Objekts</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Apotheke</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Apotheke</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Arztpraxis</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Arztpraxis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Autowaschanlage</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Autowaschanlage</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Befüllungsanlagen von Eisenbahnverkehrsunternehmen (EVU)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Befüllungsanlagen von Eisenbahnverkehrsunternehmen (EVU)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Bürogebäude</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Bürogebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Campingplatz / Heim / Ferienlager o. ä.</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Campingplatz / Heim / Ferienlager o. ä.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1070</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Einrichtung für ambulantes Operieren, Dialyseeinrichtung, Entbindungseinrichtung, Tagesklinik, Rehabilitation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Einrichtung für ambulantes Operieren, Dialyseeinrichtung, Entbindungseinrichtung, Tagesklinik, Rehabilitation</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1080</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Einrichtungen des Leichen- und Bestattungswesens</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Einrichtungen des Leichen- und Bestattungswesens</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1090</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Einrichtungen zur Entsorgung von Abwasser und Abfällen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Einrichtungen zur Entsorgung von Abwasser und Abfällen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1100</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Fabrik</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Fabrik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1110</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Feuerwehr</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Feuerwehr</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1120</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Flughafen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Flughafen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1130</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Gastronomischer Betrieb</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Gastronomischer Betrieb</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1140</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Gemeinschaftsunterkunft gem. §36 IfSG; (Obdachlosenunterkünfte; Einrichtungen zur gemeinschaftlichen Unterbringung von Asylbewerbern, vollziehbar Ausreisepflichtigen, Flüchtlingen und Spätaussiedlern; sonstige Massenunterkünfte; Justizvollzugsanstalten)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Gemeinschaftsunterkunft die unter die Verordnungsermächtigung zum Infektionsschutz bei bestimmten Einrichtungen, Unternehmen und Personen gem. §36 IfSG fallen und nicht anderweitig aufgelistet sind. (Obdachlosenunterkünfte; Einrichtungen zur gemeinschaftlichen Unterbringung von Asylbewerbern, vollziehbar Ausreisepflichtigen, Flüchtlingen und Spätaussiedlern; sonstige Massenunterkünfte; Justizvollzugsanstalten)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1150</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Gotteshaus (Kirche, Moschee, Synagoge, …)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Gotteshaus (Kirche, Moschee, Synagoge, …)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1160</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Hafen / Bootsanlegestelle</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Hafen / Bootsanlegestelle</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1170</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Hochbehälter, Druckerhöhungsanlage o. ä.</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Hochbehälter, Druckerhöhungsanlage o. ä.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1180</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Hotel / Gaststätte / Jugendherberge o. ä.</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Hotel / Gaststätte / Jugendherberge o. ä.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1190</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Hydrant</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Hydrant</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1200</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Kindertagesstätte, Kinderhort, o. ä.</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Kindertagesstätte, Kinderhort, o. ä.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1210</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Kloster/Ordenshaus</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Kloster/Ordenshaus</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1220</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Krankenhaus</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Krankenhaus</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1230</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Landwirtschaftlicher Betrieb / Bauernhof</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Landwirtschaftlicher Betrieb / Bauernhof</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1240</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Lebensmittelunternehmen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Lebensmittelunternehmen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1250</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Meeresbauwerk</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Meeresbauwerk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1260</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Mietobjekt (&lt; 5 Wohneinheiten)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mietobjekt (&lt; 5 Wohneinheiten)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1270</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Mietobjekt (&gt;= 5 Wohneinheiten)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mietobjekt (&gt;= 5 Wohneinheiten)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1280</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Militärbasis/-stützpunkt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Militärbasis/-stützpunkt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1290</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Mobile medizinische Einrichtung (bspw. Rettungswagen/Rettungshelikopter)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mobile medizinische Einrichtung (bspw. Rettungswagen/Rettungshelikopter)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1300</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Mobiles Objekt (Landfahrzeug außer Zug und mobile medizinische Einrichtungen)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mobiles Objekt (Landfahrzeug außer Zug und mobile medizinische Einrichtungen)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1310</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Mobiles Objekt (Luftfahrzeug)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mobiles Objekt (Luftfahrzeug)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1320</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Mobiles Objekt (Sonstiges)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiges Mobiles Objekt (Ist in der Beschreibung genau zu bezeichnen)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1330</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Mobiles Objekt (Wasserfahrzeug)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mobiles Objekt (Wasserfahrzeug)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1340</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Mobiles Objekt (Zug)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mobiles Objekt (Zug)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1350</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Museum / Ausstellung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Museum / Ausstellung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1360</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Oberirdische Brunnenstube/Brunnenhaus</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>oberirdische Brunnenstube/Brunnenhaus</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1370</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Objekt in öffentlicher Hand (z. B. Behörden)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Objekt in öffentlicher Hand (z. B. Behörden)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1380</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>(Öffentlicher) Trinkwasserbrunnen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>(Öffentlicher) Trinkwasserbrunnen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1390</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>(Öffentliches) Verteilungsnetz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>(Öffentliches) Verteilungsnetz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1400</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Pensionen und Ferienwohnungen mit wechselndem Personenkreis</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Pensionen und Ferienwohnungen mit wechselndem Personenkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1410</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Pflege-/Altenheim oder -einrichtung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Pflege-/Altenheim oder -einrichtung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1420</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Privater Haushalt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Privater Haushalt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1430</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Pumpenhaus</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Pumpenhaus</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1440</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Quelle</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Quelle</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1450</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Schule oder sonstige Bildungseinrichtung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schule oder sonstige Bildungseinrichtung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1460</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Sport-/Freizeiteinrichtung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sport-/Freizeiteinrichtung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1470</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Stadion / Konzerthalle / Messegelände</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Stadion / Konzerthalle / Messegelände</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1480</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Studentenwohnheim</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Studentenwohnheim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1490</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Talsperre</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Talsperre</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1500</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Tankstelle / (Autobahn-)Raststätte</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Tankstelle / (Autobahn-)Raststätte</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1510</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Universität</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Universität</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1520</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Unterirdische Brunnenstube</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>unterirdische Brunnenstube</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1530</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Wassertransport-Fahrzeug</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wassertransport-Fahrzeug</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1540</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Wasserwerk</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wasserwerk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art-Objekt">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstiges (Ist in der Beschreibung genau zu bezeichnen)</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

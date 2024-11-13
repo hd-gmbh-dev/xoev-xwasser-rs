@@ -1,0 +1,2337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Parameterausprägung</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Diese Codeliste definiert im Rahmen von XWasser die speziellen Ausprägungen von qualitativen Parametern.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:validFrom>2024-12-01</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>parameterauspraegung</ShortName>
+      <LongName>Parameterausprägung</LongName>
+      <Version>2</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:parameterauspraegung</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:parameterauspraegung_2</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="SHATPH-Parameterauspraegung-ID" Use="required">
+         <ShortName>SHATPH-Parameterauspraegung-ID</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Parameterklassifizierung" Use="required">
+         <ShortName>Parameterklassifizierung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Stoffgruppe" Use="required">
+         <ShortName>Stoffgruppe</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="SHATPH-Parameterauspraegung-IDKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>SHATPH-Parameterauspraegung-IDKey</ShortName>
+         <ColumnRef Ref="SHATPH-Parameterauspraegung-ID"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10001-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>farblos</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10001-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10001-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10001-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10002-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10002-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>weiß</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10002-10</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10002-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>gelb</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10002-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>gelbbraun</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10002-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>braun</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10002-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>grün</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10002-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>blau</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10002-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>rot</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10002-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>grau</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10002-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>schwarz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10003-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>farblos</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10003-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10003-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10003-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10004-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10004-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>weiß</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10004-10</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10004-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>gelb</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10004-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>gelbbraun</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10004-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>braun</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10004-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>grün</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10004-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>blau</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10004-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>rot</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10004-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>grau</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10004-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>schwarz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10005-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine Eintragung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10005-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>klar</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10005-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>fast klar</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10005-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>schwach opalisierend</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10005-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>opalisierend</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10005-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>schwach getrübt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10005-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>stark getrübt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10005-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>undurchsichtig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10005-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10006-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10006-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Absetzbare Stoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10006-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Schwimmstoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10006-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Schlieren (Öl od. ähnl.)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10006-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Schaumbildung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10006-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Gasblasen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10006-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10007-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10007-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Absetzbare Stoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10007-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Schwimmstoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10007-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Schlieren (Öl od. ähnl.)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10007-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Schaumbildung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10007-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Gasblasen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10007-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10008-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine Eintragung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10008-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>klar</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10008-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>fast klar</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10008-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>schwach opalisierend</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10008-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>opalisierend</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10008-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>schwach getrübt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10008-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>stark getrübt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10008-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>undurchsichtig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10008-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10009-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10009-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Absetzbare Stoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10009-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Schwimmstoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10009-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Schlieren (Öl od. ähnl.)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10009-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Schaumbildung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10009-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Gasblasen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10009-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10010-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10010-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Absetzbare Stoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10010-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Schwimmstoffe</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10010-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Schlieren (Öl od. ähnl.)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10010-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Schaumbildung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10010-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Gasblasen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10010-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10011-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10011-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10011-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10011-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10012-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10012-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>erdig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10012-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>modrig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10012-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>faulig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10012-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>jauchig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10012-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>fischig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10012-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>aromatisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10012-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10013-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10013-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10013-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Teer</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10013-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Mercaptan</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10013-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Mineralöl</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10013-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Hydrogensulfid</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10013-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Ozon</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10013-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Abwasser</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10013-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10014-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10014-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10014-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10014-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10015-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10015-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>erdig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10015-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>modrig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10015-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>faulig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10015-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>jauchig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10015-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>fischig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10015-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>aromatisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10015-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10016-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10016-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10016-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Teer</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10016-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Mercaptan</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10016-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Mineralöl</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10016-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Hydrogensulfid</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10016-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Ozon</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10016-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Abwasser</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10016-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10019-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10019-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10019-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10019-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10020-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10020-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>fade</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10020-10</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10020-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>salzig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10020-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>säuerlich</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10020-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>laugig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10020-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>bitter</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10020-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>süßlich</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10020-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>metallisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10020-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>faulig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10020-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>erdig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10021-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10021-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10021-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Seife</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10021-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Fisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10021-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Hydrogensulfid</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10021-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10022-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>ohne</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10022-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>schwach</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10022-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>stark</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10022-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10023-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10023-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>fade</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10023-10</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10023-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>salzig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10023-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>säuerlich</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10023-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>laugig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10023-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>bitter</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10023-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>süßlich</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10023-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>metallisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10023-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>faulig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10023-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>erdig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10024-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10024-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10024-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Seife</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10024-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Fisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10024-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Hydrogensulfid</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>10024-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>11031-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>calcitlösend</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Physikalisch-Chemische Kenngrößen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>11031-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>calcitabscheidend</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Physikalisch-Chemische Kenngrößen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>11031-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>im Zustand der Calcitsättigung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Physikalisch-Chemische Kenngrößen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>14004-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>weich (weniger als 1,5 Millimol Calciumcarbonat je Liter)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Härte</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>14004-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>mittel (1,5 bis 2,5 Millimol Calciumcarbonat je Liter)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Härte</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>14004-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>hart (mehr als 2,5 Millimol Calciumcarbonat je Liter)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Härte</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80014-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Sensorik</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80014-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80015-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80015-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80016-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80016-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80017-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80017-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80018-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80018-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80019-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80019-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80020-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80020-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80022-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80022-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80023-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80023-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80026-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80026-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80027-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80027-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80033-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80033-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80034-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80034-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80040-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80040-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80041-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80041-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80042-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80042-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80051-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80051-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80053-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80053-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80054-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80054-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80057-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80057-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80058-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+            <SimpleValue>80058-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Parameterklassifizierung">
+            <SimpleValue>Wurde nicht nachgewiesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Stoffgruppe">
+            <SimpleValue>Mikrobiologie</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

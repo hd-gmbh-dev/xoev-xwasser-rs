@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Länderkennzeichen</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Diese Codeliste wird im Rahmen von XWasser zur Kennzeichnung des Bundeslands, des Bundesministeriums der Verteidigung bzw. des Eisenbahnbundesamts verwendet.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>laenderkennzeichen</ShortName>
+      <LongName>Länderkennzeichen</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:laenderkennzeichen</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:laenderkennzeichen_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Kennzeichen" Use="required">
+         <ShortName>Kennzeichen</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Bundesland" Use="required">
+         <ShortName>Bundesland</ShortName>
+         <LongName>Land / Ministerium / Amt</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Destatis-Schluessel" Use="optional">
+         <ShortName>Destatis-Schluessel</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KennzeichenKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KennzeichenKey</ShortName>
+         <ColumnRef Ref="Kennzeichen"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DEAA</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Bundeswehr/BMVg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DEBB</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Brandenburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>12</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DEBE</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Berlin</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>11</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DEBW</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Baden-Württemberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>08</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DEBY</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>09</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DEDB</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Eisenbahnbundesamt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DEHB</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Bremen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>04</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DEHE</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>06</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DEHH</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Hamburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>02</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DEMV</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>13</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DENI</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Niedersachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>03</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DENW</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>05</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DERP</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Rheinland-Pfalz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>07</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DESH</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Schleswig-Holstein</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>01</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DESL</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Saarland</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>10</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DESN</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Sachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>14</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DEST</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Sachsen-Anhalt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>15</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Kennzeichen">
+            <SimpleValue>DETH</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bundesland">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Destatis-Schluessel">
+            <SimpleValue>16</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Anlass der Untersuchung</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Mit dieser Codeliste wird im Kontext von XWasser der Anlass einer Wasseruntersuchung definiert.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:validFrom>2024-09-27</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+         <xoev-cl-4:changes>Beschreibung des Elements 1190 geändert, Untersuchungsanlass des Elements 1190 geändert</xoev-cl-4:changes>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>untersuchung-anlass</ShortName>
+      <LongName>Anlass der Untersuchung</LongName>
+      <Version>2</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:untersuchung-anlass</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:untersuchung-anlass_2</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Untersuchungsanlass" Use="required">
+         <ShortName>Untersuchungsanlass</ShortName>
+         <LongName>Anlass der Untersuchung</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Anlassbezogene Untersuchung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Anlassbezogene Untersuchung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Anordnung durch Gesundheitsamt/ Landkreis/ kreisfreie Stadt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Durch das Gesundheitsamt angeordnete Untersuchung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Anordnungen des Gesundheitsamts oder der zuständigen Behörde zur Gefahrenvorsorge §61 TrinkwV</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Anordnungen des Gesundheitsamts oder der zuständigen Behörde zur Gefahrenvorsorge §61 TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Betriebliche Untersuchung (§30 TrinkwV)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Betriebliche Untersuchung (§30 TrinkwV)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Eigenüberwachung mit Trinkwasserbezug gem. EigenüberwachungsvO Bayern (EÜV Bayern)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eigenüberwachung gem. EigenüberwachungsvO Bayern (EÜV Bayern) für Untersuchungen im Kontext von Trinkwasser Untersuchungen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Ermittlungsfall im Erkrankungsfall</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Ermittlungsfall im Erkrankungsfall</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1070</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Erstuntersuchung in Bezug auf radioaktive Stoffe nach §32 TrinkwV</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Erstuntersuchung in Bezug auf radioaktive Stoffe nach §32 TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1080</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Nachprobe nach Überschreitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Nachprobe nach Überschreitung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1090</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Regeluntersuchung in Bezug auf radioaktive Stoffe nach §32 TrinkwV</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Regeluntersuchung in Bezug auf radioaktive Stoffe nach §32 TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1100</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Rohwasseruntersuchung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Rohwasseruntersuchung / Rohwasseruntersuchung im Versorgungsgebiet</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1110</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Sonstige Nachprobe (ohne vorherige Überschreitung)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstige Nachprobe (ohne vorherige Überschreitung)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1120</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Systemische Untersuchung auf Legionella spec. nach §31 TrinkwV</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Systemische Untersuchung auf Legionella spec. nach §31 TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1130</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Überwachung durch das Gesundheitsamt §55 TrinkwV</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Überwachung durch das Gesundheitsamt §55 TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1140</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Untersuchung der Ressource</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Untersuchung der Ressource</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1150</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Untersuchung gem. Untersuchungsplan §37 TrinkwV</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Untersuchung gem. Untersuchungsplan §37 TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1160</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Untersuchung mit Untersuchungsumfang Parameter der Gruppe A gemäß Anlage 6 Teil I TrinkwV</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Untersuchung mit Untersuchungsumfang Parameter der Gruppe A gemäß Anlage 6 Teil I TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1170</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Untersuchung mit Untersuchungsumfang Parameter der Gruppe B gemäß Anlage 6 Teil I TrinkwV</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Untersuchung mit Untersuchungsumfang Parameter der Gruppe B gemäß Anlage 6 Teil I TrinkwV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1180</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Untersuchung nach TrinkwEGV</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Untersuchung nach TrinkwEGV</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1190</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Weitergehende Untersuchung nach Erreichen des technischen Maßnahmenwertes nach §51 TrinkwV</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Weitergehende Untersuchung nach Erreichen des technischen Maßnahmenwertes nach §51 TrinkwV (entspricht auch UBA-Empfehlung/DVGW-Arbeitsblatt W 551)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Sonstige (SO)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstige (SO)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Untersuchungsanlass">
+            <SimpleValue>Anlass nicht bekannt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Anlass nicht bekannt</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

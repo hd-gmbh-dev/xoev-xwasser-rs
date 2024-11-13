@@ -6,8 +6,16 @@ pub mod model;
 #[cfg(not(feature = "wasm"))]
 #[cfg(feature = "schema")]
 pub mod schemas;
+#[cfg(feature = "validate")]
+mod validate;
 #[cfg(feature = "wasm")]
 pub mod wasm;
+
+#[cfg(feature = "validate")]
+pub use xoev_xwasser_codelists::{self as codelists, CodeLists, XWasserCodeListValue};
+
+#[cfg(feature = "validate")]
+pub use validate::{XWasserValidate, XWasserValidateError, XWasserValidateMarker};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum Version {

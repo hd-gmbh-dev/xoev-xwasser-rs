@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Status fachlich</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Mit dieser Codeliste wird der fachliche Status definiert.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XeWaffe</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:validFrom>2023-11-01</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>statusfachlich</ShortName>
+      <LongName>Status fachlich</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xewaffe:codeliste:statusfachlich</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xewaffe:codeliste:statusfachlich_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XeWaffe</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="StatusFachlich" Use="required">
+         <ShortName>StatusFachlich</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="StatusFachlich">
+            <SimpleValue>Eingegangen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1110</SimpleValue>
+         </Value>
+         <Value ColumnRef="StatusFachlich">
+            <SimpleValue>In Bearbeitung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1210</SimpleValue>
+         </Value>
+         <Value ColumnRef="StatusFachlich">
+            <SimpleValue>Aktivität durch Antragstellende erforderlich</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1310</SimpleValue>
+         </Value>
+         <Value ColumnRef="StatusFachlich">
+            <SimpleValue>Abgeschlossen</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

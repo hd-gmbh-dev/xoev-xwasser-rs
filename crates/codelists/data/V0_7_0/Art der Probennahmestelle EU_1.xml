@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Art der Probennahmestelle EU</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Mit dieser Codeliste wird im Rahman von XWasser die Art der Probennahmestelle gem. den neuen EU-Vorgaben spezifiziert.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>art-probennahmestelle-eu</ShortName>
+      <LongName>Art der Probennahmestelle gemäß EU-Berichtsformat</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string" Lang="de-DE"/>
+      </Column>
+      <Column Id="Probennahmestelle" Use="required">
+         <ShortName>Probennahmestelle</ShortName>
+         <Data Type="string" Lang="de-DE"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string" Lang="de-DE"/>
+      </Column>
+      <Column Id="PointOfConplianceType" Use="required">
+         <ShortName>PointOfConplianceType</ShortName>
+         <LongName>Point Of Conpliance Type</LongName>
+         <Data Type="string" Lang="en-GB"/>
+      </Column>
+      <Column Id="Description" Use="optional">
+         <ShortName>Description</ShortName>
+         <Data Type="string" Lang="en-GB"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+      <Key Id="PointOfConplianceTypeKey">
+         <ShortName>PointOfConplianceTypeKey</ShortName>
+         <ColumnRef Ref="PointOfConplianceType"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Probennahmestelle">
+            <SimpleValue>Häusliches Leitungsnetz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Repräsentativer Punkt im häuslichen Verteilernetz (falls die Überschreitung auf das häusliche Verteilernetz in nichtprioritären Gebäuden zurückzuführen ist)</SimpleValue>
+         </Value>
+         <Value ColumnRef="PointOfConplianceType">
+            <SimpleValue>domesticDistributionNetwork</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Representative point in the domestic distribution network (in case the exceedance is due to the domestic distribution system in non-priority premises) </SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Probennahmestelle">
+            <SimpleValue>Häusliche Entnahmearmatur</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Entnahmearmatur (z. B. Wasserhahn) im Haushalt</SimpleValue>
+         </Value>
+         <Value ColumnRef="PointOfConplianceType">
+            <SimpleValue>domesticTap</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Domestic tap </SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Probennahmestelle">
+            <SimpleValue>Abfüllstelle</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Abfüllstelle für Flaschen oder Behälter</SimpleValue>
+         </Value>
+         <Value ColumnRef="PointOfConplianceType">
+            <SimpleValue>fillingPoint</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Filling point for bottles or containers  </SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Probennahmestelle">
+            <SimpleValue>Lebensmittelgeschäft</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Entnahmestelle in einem Lebensmittelunternehmen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PointOfConplianceType">
+            <SimpleValue>foodBusiness</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Point of use in a food business </SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Probennahmestelle">
+            <SimpleValue>Tankwagen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Austrittsstelle eines Tankfahrzeugs</SimpleValue>
+         </Value>
+         <Value ColumnRef="PointOfConplianceType">
+            <SimpleValue>tanker</SimpleValue>
+         </Value>
+         <Value ColumnRef="Description">
+            <SimpleValue>Emerging point of a tanker </SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Amtssprache EU</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Diese Liste beinhaltet die Amtssprachen der Europäischen Union.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XFahrtenschreiber</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:validFrom>2023-05-17</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+         <xoev-cl-4:changes>Keine</xoev-cl-4:changes>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>sprache-eu</ShortName>
+      <LongName>Amtssprache Europäische Union</LongName>
+      <Version>2</Version>
+      <CanonicalUri>urn:xoev-de:xfahrtenschreiber:codeliste:sprache-eu</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xfahrtenschreiber:codeliste:sprache-eu_2</CanonicalVersionUri>
+      <Agency>
+         <LongName>XFahrtenschreiber</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="ISO-Code" Use="required">
+         <ShortName>ISO-Code</ShortName>
+         <LongName>639-1</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="ISO-Wert" Use="required">
+         <ShortName>ISO-Wert</ShortName>
+         <LongName>EU Amtssprache</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="ISO-Sprachbezeichnung" Use="required">
+         <ShortName>ISO-Sprachbezeichnung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="ISO-CodeKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>ISO-CodeKey</ShortName>
+         <ColumnRef Ref="ISO-Code"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>bg</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Bulgarisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Bulgarian</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>bs</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Bosnisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Bosnian</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>cs</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Tschechisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Czech</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>da</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Dänisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Danish</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>de</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Deutsch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>German</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>el</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Griechisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Greek</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>en</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Englisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>English</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>es</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Spanisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Spanish</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>et</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Estnisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Estonian</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>fi</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Finnisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Finnish</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>fr</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Französisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>French</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>ga</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Irisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Irish</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>hr</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Kroatisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Croatian</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>hu</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Ungarisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Hungarian</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>is</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Isländisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Icelandic</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>it</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Italienisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Italian</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>lt</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Litauisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Lithuanian</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>lv</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Lettisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Latvian</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>mt</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Maltesisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Maltese</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>nl</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Niederländisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Dutch</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>no</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Norwegisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Norwegian</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>pl</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Polnisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Polish</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>pt</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Portugiesisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Portuguese</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>ro</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Rumänisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Romanian</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>ru</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Russisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Russian</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>sk</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Slowakisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Slovak</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>sl</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Slowenisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Slovenian</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>sr</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Serbisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Serbian</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>sv</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Schwedisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Swedish</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="ISO-Code">
+            <SimpleValue>uk</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Wert">
+            <SimpleValue>Ukrainisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="ISO-Sprachbezeichnung">
+            <SimpleValue>Ukrainian</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

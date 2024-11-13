@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Gesamtbewertung</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Diese Codeliste dient im Kontext von XWasser der Einschätzung, ob in einem Prüfbericht alle Werte in Ordnung waren oder es Auffälligkeiten/Mängel/Grenzwertüberschreitungen/… von mindestens einem Parameter gab.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:validFrom>2024-09-27</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+         <xoev-cl-4:changes>Element 1040 hinzugefügt</xoev-cl-4:changes>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>gesamtbewertung</ShortName>
+      <LongName>Gesamtbewertung</LongName>
+      <Version>2</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:gesamtbewertung</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:gesamtbewertung_2</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Gesamtbewertung" Use="required">
+         <ShortName>Gesamtbewertung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Gesamtbewertung">
+            <SimpleValue>Ergebnis mit Klärungsbedarf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mindestens zu einem Aspekt des Prüfberichts ist noch etwas zu klären. Genauere Informationen sind im Kommentarfeld des Prüfberichts verpflichtend anzugeben.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Gesamtbewertung">
+            <SimpleValue>Ergebnis mit Mängelfeststellung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Es wurde mindestens eine Grenzwertüberschreitung oder ein sonstiger Mangel oder eine sonstige Auffälligkeit gefunden</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Gesamtbewertung">
+            <SimpleValue>Ergebnis ohne Abweichung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Es wurde keine Abweichungen gefunden</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Gesamtbewertung">
+            <SimpleValue>Ohne Abweichung in Teilergebnissen: Vollständiger Prüfbericht ausstehend</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Bei der Übermittlung von Teilergebnissen, bevor der gesamte Prüfbericht vorliegt, sind bislang keine Abweichungen aufgetreten. Falls Klärungsbedarfe/Mängel bei einem Teilergebnis vorliegen, sollte dies mit entsprechende Auswahl “Ergebnis mit Klärungsbedarf” oder “Ergebnis mit Mängelfeststellung“ angegeben werden.</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

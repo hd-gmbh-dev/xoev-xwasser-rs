@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Bewertung des Untersuchungswerts</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Diese Codeliste dient im Kontext von XWasser zur Bewertung des Untersuchungswerts eines Parameters.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>bewertung-untersuchungswert</ShortName>
+      <LongName>Bewertung des Untersuchungswerts</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Bewertung-Untersuchungswert" Use="required">
+         <ShortName>Bewertung-Untersuchungswert</ShortName>
+         <LongName>Bewertung des Untersuchungswerts</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bewertung-Untersuchungswert">
+            <SimpleValue>Untersuchungswert in Ordnung und annehmbar</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Untersuchungswert in Ordnung und keine Überschreitung von Grenzwert, Referenzwert, Maßnahmenwert vorhanden; Hinweis: Parameter ohne Grenzwert sind hier anzugeben, sofern der Untersuchungswert keine Abweichung von für die Probe annehmbaren Werte aufweist.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bewertung-Untersuchungswert">
+            <SimpleValue>Grenzwertüber- bzw. Grenzwertunterschreitung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Hinweis: Nur für Parameter mit eindeutig definierten Grenzwerten</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bewertung-Untersuchungswert">
+            <SimpleValue>Maßnahmenwert Legionella spec. erreicht</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Technischer Maßnahmenwert für Legionella spec. erreicht</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bewertung-Untersuchungswert">
+            <SimpleValue>Überschreitung Maßnahmen-/Referenzwert</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Hinweis: Nur für Parameter mit eindeutig definierten Maßnahmenwert/Referenzwert</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bewertung-Untersuchungswert">
+            <SimpleValue>Abweichung der Norm (ohne definiertem Grenzwert)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Abweichung von annehmbaren Werten bei Parametern ohne Grenzwert oder sonstige einzuhaltende Referenzwert, Maßnahmenwerte, o. ä.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bewertung-Untersuchungswert">
+            <SimpleValue>Parameter nicht bestimmt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Für Softwareprogramme die nur in der Lage sind immer alle Parameter zu übermitteln, oder wenn die Untersuchungswert für bestimmte Parameter bspw. bei einem vorläufigen Ergebnis noch nicht vorliegen.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1070</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bewertung-Untersuchungswert">
+            <SimpleValue>Wert kleiner Nachweisgrenze DIN 32 645</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wert kleiner Nachweisgrenze DIN 32 645</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1080</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bewertung-Untersuchungswert">
+            <SimpleValue>Wert kleiner Bestimmungsgrenze DIN 32 645</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wert kleiner Bestimmungsgrenze DIN 32 645</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

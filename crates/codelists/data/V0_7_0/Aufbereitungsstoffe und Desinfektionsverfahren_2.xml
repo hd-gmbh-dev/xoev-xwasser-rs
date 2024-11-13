@@ -1,0 +1,1796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Aufbereitungsstoffe und Desinfektionsverfahren</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Diese Codeliste dient im Kontext von XWasser zur Definition der Aufbereitungsstoffe und der Desinfektionsverfahren.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionDescription>Neuen Wert 8010 = "Keine" ergänzt.</xoev-cl-4:versionDescription>
+         <xoev-cl-4:validFrom>2024-12-01</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>aufbereitungsstoffe-desinfektionsverfahren</ShortName>
+      <LongName>Aufbereitungsstoffe und Desinfektionsverfahren</LongName>
+      <Version>2</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:aufbereitungsstoffe-desinfektionsverfahren</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:aufbereitungsstoffe-desinfektionsverfahren_2</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="AufbereitungsstoffeDesinfektionsverfahren" Use="required">
+         <ShortName>AufbereitungsstoffeDesinfektionsverfahren</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="CAS-Nummer" Use="optional">
+         <ShortName>CAS-Nummer</ShortName>
+         <LongName>CAS Nummer</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Verwendungszweck" Use="optional">
+         <ShortName>Verwendungszweck</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Beschreibung" Use="optional">
+         <ShortName>Beschreibung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Aktivkohle, granuliert</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7440-44-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Adsorption, Entfernung von Chlor und Ozon, biol. Filtration, Entfernung von Partikeln</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Aktivkohle, granuliert</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Aktivkohle, pulverförmig</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7440-44-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Adsorption</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Aktivkohle, pulverförmig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Aluminiumchlorid, basisch</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1327-41-9; 14215-15-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung, Fällung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Aluminiumchlorid, basisch</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Aluminiumchlorid, wasserfrei</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7446-70-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung, Fällung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Aluminiumchlorid, wasserfrei</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Aluminiumchloridhydroxidsulfat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>39290-78-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung, Fällung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Aluminiumhydroxidchloridsulfat (monomer)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Aluminiumhydroxidchlorid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer"/>
+         <Value ColumnRef="Verwendungszweck"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Aluminiumhydroxidchlorid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1070</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Aluminiumoxid, aktiviertes, granuliertes</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1344-28-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Adsorptive Entfernung von Fluorid</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Aluminiumoxid, aktiviertes, granuliertes</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1080</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Aluminiumsilikate, expandierte (Blähton)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>-</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Partikeln, biol. Filtration</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Aluminiumsilikate, expandierte (Blähton)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1090</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Aluminiumsilikate, natürliche nicht expandierte</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>-</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Partikeln</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Aluminiumsilikate, natürliche nicht expandierte</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1100</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Aluminiumsulfat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>10043-01-3; 16828-11-8; 7784-31-8; 16828-12-9; 17927-65-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung, Fällung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Aluminiumsulfat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1110</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Anionische und nicht-ionische Polyacrylamide</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>25085-02-3; 9003-05-8; 9003-04-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Anionische und nicht-ionische Polyacrylamide</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1120</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Anthrazit</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>-</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Partikeln, Entfernung von Chlor und Ozon</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Anthrazit</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1130</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Bentonit</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1302-78-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Partikeln</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Bentonit</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1140</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Bims</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>-</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Partikeln</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Bims</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1150</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Calciumcarbonat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1317-65-3; 471-34-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Partikeln, Einstellung der Wasserstoffionen- Konzentration (pH-Wert), des Salzgehaltes, des Calciumgehaltes und der Säurekapazität, Entfernung von Eisen und Mangan</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Calciumcarbonat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1160</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Calciumchlorid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>10043-52-4; 10035-04-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Einstellung des Calciumgehaltes, Regeneration von Sorbentien für Nickelabtrennung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Calciumchlorid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1170</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Calciumhydroxid (Weißkalkhydrat)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1305-62-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Einstellung der Wasserstoffionen-Konzentration (pH-Wert), des Salzgehaltes, des Calciumgehaltes und der Säurekapazität, Regeneration von Sorbentien für Nickelabtrennung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Calciumhydroxid (Weißkalkhydrat)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1180</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Calciumhypochlorit</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7778-54-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Desinfektion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Calciumhypochlorit</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1190</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Calciummagnesiumcarbonat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>16389-88-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Partikeln, Entfernung von Eisen und Mangan</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Calciummagnesiumcarbonat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1200</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Calciumoxid (Weißkalk)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1305-78-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Einstellung der Wasserstoffionen- Konzentration (pH- Wert), des Salzgehaltes, des Calciumgehaltes und der Säurekapazität</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Calciumoxid (Weißkalk)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1210</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7782-50-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Desinfektion, Herstellung von Chlordioxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Chlor</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1220</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Chlordioxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>10049-04-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Desinfektion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Chlordioxid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1230</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Dikaliummonohydrogenphosphat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7758-11-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion, biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Dikaliummonohydrogenphosphat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1240</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Dinatriumdihydrogenphosphat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7758-16-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion, biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Dinatriumdihydrogenphosphat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1250</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Dinatriummonohydrogenphosphat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7558-79-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion, biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Dinatriummonohydrogenphosphat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1260</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Dolomit, halbgebrannter</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>83897-84-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Partikeln, Einstellung der Wasserstoffionen- Konzentration (pH-Wert), des Calciumgehaltes und der Säurekapazität, Entfernung von Eisen und Mangan</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Dolomit, halbgebrannter</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1270</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Dosierung einer vor Ort hergestellten Chlordioxidlösung (DVGW Arbeitsblätter W 224, W 624)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer"/>
+         <Value ColumnRef="Verwendungszweck"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Dosierung einer vor Ort hergestellten Chlordioxidlösung (DVGW Arbeitsblätter W 224, W 624)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1280</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Dosierung von Chlorgaslösungen (DVGW Arbeitsblätter W 296, W 623)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer"/>
+         <Value ColumnRef="Verwendungszweck"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Dosierung von Chlorgaslösungen (DVGW Arbeitsblätter W 296, W 623)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1290</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Dosierung von Natrium- und Calciumhypochlorit-Lösung (DVGW Arbeitsblätter W 296, W 623)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer"/>
+         <Value ColumnRef="Verwendungszweck"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Dosierung von Natrium- und Calciumhypochlorit-Lösung (DVGW Arbeitsblätter W 296, W 623)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1300</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Eisen(II)-sulfat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7720-78-7; 7782-63-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung, Fällung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eisen(II)-sulfat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1310</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Eisen(III)-chlorid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7705-08-0; 10025-77-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung, Fällung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eisen(III)-chlorid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1320</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Eisen(III)-chloridsulfat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>12410-14-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung, Fällung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eisen(III)-chloridsulfat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1330</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Eisen(III)hydroxiddioxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>51274-00-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Adsorptive Entfernung von Arsen, adsorptive Entfernung von Vanadium</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eisen(III)hydroxiddioxid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1340</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Eisen(III)-sulfat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>10028-22-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung, Fällung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eisen(III)-sulfat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1350</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Eisenumlagertes aktiviertes Aluminiumoxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>Aktiviertes Aluminiumoxid: 1344-28-1 Eisen(III)-sulfat: 100028-22-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Adsorptive Entfernung von Arsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Eisenumlagertes aktiviertes Aluminiumoxid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1360</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Elektrolytische Herstellung und Dosierung von Chlor vor Ort (DVGW Arbeitsblätter W 296, W 623)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer"/>
+         <Value ColumnRef="Verwendungszweck"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Elektrolytische Herstellung und Dosierung von Chlor vor Ort (DVGW Arbeitsblätter W 296, W 623)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1370</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Erzeugung und Dosierung von Ozon und Ozonlösung vor Ort (DVGW Arbeitsblätter W 225, W 296, W 625)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer"/>
+         <Value ColumnRef="Verwendungszweck"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Erzeugung und Dosierung von Ozon und Ozonlösung vor Ort (DVGW Arbeitsblätter W 225, W 296, W 625)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1380</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Essigsäure</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>64-19-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Essigsäure</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1390</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Ethanol</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>64-17-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Ethanol</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1400</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Granatsand</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer"/>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Partikeln, Schnellentcarbonisierung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Granatsand</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1410</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Helium</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7440-59-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Leckagesuche im Rohrleitungssystem</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Helium</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1420</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Ionenaustausch</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer"/>
+         <Value ColumnRef="Verwendungszweck"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Ionenaustausch</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1430</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Kaliumpermangant</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7722-64-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Oxidation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Kaliumpermangant</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1440</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Kaliumperoxomonosulfat [Kaliummonopersulfat (2 KHSO5, KHSO4, K2SO4)]</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>70693-62-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Oxidation, Herstellung von Chlordioxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Kaliumperoxomonosulfat [Kaliummonopersulfat (2 KHSO5, KHSO4, K2SO4)]</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1450</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Kaliumtripolyphosphat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>13845-36-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion, Hemmung der Steinablagerung bei dezentraler Anwendung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Kaliumtripolyphosphat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1460</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Kieselgur</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>61790-53-2; 91053-39-3; 68855-54-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Anschwemmfiltration</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Kieselgur</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1470</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Kohlenstoffdioxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>124-38-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Einstellung der Wasserstoffionen-Konzentration (pH-Wert), des Salzgehaltes, des Calciumgehaltes und der Säurekapazität, Regeneration von Sorbentien</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Kohlenstoffdioxid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1480</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Luft</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>-</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Oxidation, Sauerstoffanreicherung, mechanische Entsäuerung durch Gasaustausch, Ozonerzeugung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Luft</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1490</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Magnesium, fest</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7439-95-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Kathodischer Korrosionsschutz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Magnesium, fest</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1500</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Magnesiumoxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1309-48-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Einstellung der Wasserstoffionen-Konzentration (pH-Wert), der Säurekapazität und des Magnesiumgehaltes</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Magnesiumoxid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1510</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Mangan(II)-chlorid x 1 H₂O</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>64333-01-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Nickel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mangan(II)-chlorid x 1 H₂O</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1520</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Mangandioxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1313-13-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Mangan</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mangandioxid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1530</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Mangandioxid beschichteter Kalkstein</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>Calciumcarbonat: 471-34-1 Mangandioxid: 1313-13-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Partikeln, Entfernung von Eisen und Mangan, Entfernung von Schwefelwasserstoff</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mangandioxid beschichteter Kalkstein</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1540</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Mangangrünsand (Manganzeolith, Eisensand, Grünsand)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>Glauconit: 90387-66-9 Mangandioxid: 1313-13-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Eisen und Mangan, Entfernung von Schwefelwasserstoff</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mangangrünsand (Manganzeolith, Eisensand, Grünsand)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1550</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Membranfiltration</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer"/>
+         <Value ColumnRef="Verwendungszweck"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Membranfiltration</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1560</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Modifiziertes tert.-Amin-Acryl-Copolymer</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>-</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Uran</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Modifiziertes tert.-Amin-Acryl-Copolymer</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1570</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Monocalciumphosphat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7758-23-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion, biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Monocalciumphosphat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1580</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Monokaliumdihydrogenphosphat (Kaliumorthophosphat)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7778-77-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion, biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Monokaliumdihydrogenphosphat (Kaliumorthophosphat)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1590</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Mononatriumdihydrogenphosphat (Natriumorthophosphat)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7558-80-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion, biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Mononatriumdihydrogenphosphat (Natriumorthophosphat)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1600</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumaluminat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>11138-49-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumaluminat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1610</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumcarbonat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>497-19-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Einstellung der Wasserstoffionen-Konzentration (pH-Wert), des Salzgehaltes und der Säurekapazität, Regeneration von Sorbentien</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumcarbonat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1620</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumchlorid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7647-14-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Herstellung von Chlor durch Elektrolyse; Regeneration von Sorbentien für dezentral betriebene Ionenaustauscher</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumchlorid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1630</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumchlorit</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7758-19-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Herstellung von Chlordioxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumchlorit</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1640</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumdichlorisocyanurat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>2893-78-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Desinfektion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumdichlorisocyanurat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1650</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumdichlorisocyanuratdihydrat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>51580-86-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Desinfektion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumdichlorisocyanuratdihydrat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1660</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumdisulfit</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7681-57-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Reduktion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumdisulfit</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1670</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumhydrogencarbonat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>144-55-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Einstellung der Wasserstoffionen-Konzentration (pH-Wert), des Salzgehaltes und der Säurekapazität, Regeneration von Sorbentien</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumhydrogencarbonat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1680</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumhydrogensulfit</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7631-90-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Reduktion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumhydrogensulfit</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1690</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumhydroxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1310-73-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Einstellung der Wasserstoffionen-Konzentration (pH-Wert), des Salzgehaltes, der Säurekapazität und des Calciumgehaltes, Regeneration von Sorbentien</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumhydroxid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1700</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumhypochlorit</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7681-52-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Desinfektion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumhypochlorit</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1710</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumpermanganat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>10101-50-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Oxidation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumpermanganat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1720</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumperoxodisulfat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7775-27-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Oxidation, Herstellung von Chlordioxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumperoxodisulfat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1730</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumpolyphosphat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>68915-31-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion, Hemmung der Steinablagerung bei dezentraler Anwendung, Antiscalants für Membranen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumpolyphosphat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1740</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumsilikat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1344-09-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumsilikat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1750</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumsulfit</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7757-83-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Reduktion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumsulfit</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1760</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumthiosulfat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7772-98-7; 10102-17-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Reduktion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumthiosulfat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1770</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natriumtripolyphosphat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7758-29-4</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion, Hemmung der Steinablagerung bei dezentraler Anwendung, Antiscalants für Membranen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natriumtripolyphosphat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1780</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natürlicher basaltischer Zeolith</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1318-02-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Mangan, Eisen, Radium</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natürlicher basaltischer Zeolith</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1790</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Natürlicher Zeolith - Klinoptilolith</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1318-02-1; 12173-10-3; 12271-42-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Mangan, Eisen, Radium</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Natürlicher Zeolith - Klinoptilolith</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1800</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Ozon</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>10028-15-6</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Oxidation, Desinfektion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Ozon</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1810</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Perlit, pulverförmig</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>-</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Anschwemmfiltration</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Perlit, pulverförmig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1820</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Phosphonsäure</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>6419-19-8; 22042-96-2; 32545-75-8; 2809-21-4; 15827-60-8; 1429-50-1; 5995-42-6; 37971-36-1; 23605-74-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Antiscalants für Membranen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Phosphonsäure</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1830</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Phosphorsäure</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7664-38-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Phosphorsäure</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1840</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Polyaluminiumchloridhydroxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1327-41-9; 12042-91-0; 10284-64-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung, Fällung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Polyaluminiumchloridhydroxid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1850</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Polyaluminiumhydroxidchloridsilikat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>94894-80-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung, Fällung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Polyaluminiumhydroxidchloridsilikat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1860</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Polyaluminiumhydroxidchloridsulfat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>39290-78-3</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung, Fällung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Polyaluminiumhydroxidchloridsulfat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1870</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Polyaluminiumhydroxidsilikatsulfat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>131148-05- 5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Flockung, Fällung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Polyaluminiumhydroxidsilikatsulfat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1880</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Polycarbonsäuren</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>9003-01-4; 9003-06-9; 29132-58-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Antiscalants für Membranen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Polycarbonsäuren</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1890</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Quarzsand und Quarzkies (Siliziumoxid)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>-</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Partikeln, Sedimentation, Entfernung von Eisen und Mangan, biol. Filtration, Schnellentcarbonisierung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Quarzsand und Quarzkies (Siliziumoxid)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1900</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Salzsäure</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7647-01-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Einstellung der Wasserstoffionen-Konzentration (pH-Wert), des Salzgehaltes und der Säurekapazität, Regeneration von Sorbentien, Herstellung von Chlordioxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Salzsäure</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1910</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Sauerstoff</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7782-44-7</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Oxidation, Sauerstoffanreicherung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sauerstoff</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1920</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Schwefeldioxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7446-09-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Reduktion</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schwefeldioxid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1930</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Schwefelsäure</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7664-93-9</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Einstellung der Wasserstoffionen-Konzentration (pH-Wert), des Salzgehaltes und der Säurekapazität, Regeneration von Sorbentien</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Schwefelsäure</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1940</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Styren-Divinylbenzen (Copolymer mit Trialkylammonium-Gruppen)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>-</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Uran</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Styren-Divinylbenzen (Copolymer mit Trialkylammonium-Gruppen)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1950</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Styren-Divinylbenzen (Copolymer mit Iminodiessigsäuregruppen)</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>135620-93-8</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Nickel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Styren-Divinylbenzen (Copolymer mit Iminodiessigsäuregruppen)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1960</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Tetrakaliumdiphosphat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7320-34-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion, biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Tetrakaliumdiphosphat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1970</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Tetranatriumdiphosphat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7722-88-5</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion, biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Tetranatriumdiphosphat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1980</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Thermisch behandelte Kohleprodukte</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>-</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Entfernung von Partikeln</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Thermisch behandelte Kohleprodukte</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1990</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Trikaliumphosphat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7778-53-2</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion, biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Trikaliumphosphat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2000</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Trinatriumphosphat</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7601-54-9; 10101-89-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Hemmung der Korrosion, biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Trinatriumphosphat</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2010</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>UV-Desinfektion nach DVGW Arbeitsbaltt 294</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer"/>
+         <Value ColumnRef="Verwendungszweck"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>UV-Desinfektion nach DVGW Arbeitsbaltt 294</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2020</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Wasserstoff</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>1333-74-0</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>biol. Nitratentfernung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wasserstoff</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>2030</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Wasserstoffperoxid</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer">
+            <SimpleValue>7722-84-1</SimpleValue>
+         </Value>
+         <Value ColumnRef="Verwendungszweck">
+            <SimpleValue>Oxidation</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Wasserstoffperoxid</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9010</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Sonstige</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer"/>
+         <Value ColumnRef="Verwendungszweck"/>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Sonstige</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9020</SimpleValue>
+         </Value>
+         <Value ColumnRef="AufbereitungsstoffeDesinfektionsverfahren">
+            <SimpleValue>Keine</SimpleValue>
+         </Value>
+         <Value ColumnRef="CAS-Nummer"/>
+         <Value ColumnRef="Verwendungszweck"/>
+         <Value ColumnRef="Beschreibung"/>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>
