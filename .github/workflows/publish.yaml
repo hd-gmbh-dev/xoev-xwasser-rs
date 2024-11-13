@@ -25,7 +25,7 @@ jobs:
     - name: Publish to crates.io.
       run: |
         cargo publish --token ${CRATES_TOKEN} -p xoev-xwasser-derive
-        cargo publish --token ${CRATES_TOKEN} -p xoev-xwasser-codelists
+        cargo publish --token ${CRATES_TOKEN} --no-verify -p xoev-xwasser-codelists
         cargo publish --token ${CRATES_TOKEN} -p xoev-xwasser
       env:
         CRATES_TOKEN: ${{ secrets.CRATES_TOKEN }}
