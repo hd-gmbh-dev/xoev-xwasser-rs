@@ -45,7 +45,7 @@ keywords.workspace = true
 crate-type = ["cdylib", "rlib"]
 
 [features]
-default = ["builder"]
+default = ["builder", "validate"]
 trace = []
 builder = ["dep:typed-builder", "dep:uuid", "dep:chrono", "dep:strum", "dep:strum_macros", "dep:tiny_id", "dep:once_cell"]
 wasm = ["dep:wasm-bindgen", "dep:serde-wasm-bindgen", "dep:tsify-next", "dep:uuid", "uuid/js", "tiny_id/js"]
@@ -55,10 +55,11 @@ schema = [
     "dep:raxb-xmlschema",
     "dep:anyhow",
 ]
+validate = ["dep:xoev-xwasser-codelists"]
 
 [dependencies]
 xoev-xwasser-derive.workspace = true
-xoev-xwasser-codelists.workspace = true
+xoev-xwasser-codelists = { workspace = true, optional = true }
 anyhow = { version = "1", optional = true }
 rust-embed = { version = "8.5.0", optional = true }
 raxb = { workspace = true, features = ["trace"] }

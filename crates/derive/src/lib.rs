@@ -88,6 +88,7 @@ fn xoev_xwasser_code2(
             }
         }
 
+        #[cfg(feature = "validate")]
         impl crate::XWasserCodeListValue for #name {
             const CODELIST: &str = #uri_full;
             #validation
@@ -96,6 +97,7 @@ fn xoev_xwasser_code2(
             }
         }
 
+        #[cfg(feature = "validate")]
         impl crate::XWasserValidateMarker for #name {}
 
     })

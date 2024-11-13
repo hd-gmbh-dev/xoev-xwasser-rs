@@ -72,6 +72,7 @@ fn trait_xwasser_validate(ast: &DeriveInput, content: TokenStream) -> TokenStrea
 
     quote! {
         #[automatically_derived]
+        #[cfg(feature = "validate")]
         impl <#(, #type_params)*> crate::XWasserValidate for #name #ty_generics #where_clause {
             fn xwasser_validate(&self, codelists: &crate::CodeLists) -> Result<(), crate::XWasserValidateError> {
                 use crate::XWasserValidate as _;
