@@ -550,17 +550,19 @@
         "name": "Anlage 1",
         "aktuelle_version": null,
         "letzte_version": null,
-        "dokument_repraesentation": {
-          "referenz": null,
-          "mime_type": "application/pdf",
-          "inhalt": null,
-          "externer_referenz_typ": null,
-          "externer_referenz_index": null,
-          "dateiname": "Test.pdf",
-          "inhalt_typ": "pdf",
-          "signaturen": null,
-          "dokument_repraesentation_id": "doc1"
-        },
+        "dokument_repraesentation": [
+          {
+            "referenz": null,
+            "mime_type": "application/pdf",
+            "inhalt": null,
+            "externer_referenz_typ": null,
+            "externer_referenz_index": null,
+            "dateiname": "Test.pdf",
+            "inhalt_typ": "pdf",
+            "signaturen": null,
+            "dokument_repraesentation_id": "doc1"
+          }
+        ],
         "person_referenz_id": [],
         "dokument_id": "anhang1"
       }
