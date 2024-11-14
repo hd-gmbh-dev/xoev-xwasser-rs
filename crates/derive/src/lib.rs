@@ -30,16 +30,12 @@ fn xoev_xwasser_code2(
     }: XoevXWasserCodeArgs = xoev_xwasser_code_args(attr)?;
     let ast: syn::DeriveInput = syn::parse2(item)?;
     let name = ast.ident;
-    let (uri_full, version) = if let Some(version) = version {
-        (Cow::Owned(format!("{uri}_{version}")), version)
-    } else {
-        (Cow::Borrowed(&uri), Default::default())
-    };
+    let version = version.unwrap_or_default();
     let validation = if validate {
         None
     } else {
         Some(quote! {
-            fn validate(&self, _: &crate::CodeLists) -> bool {
+            fn validate(&self, _: &impl crate::CodeListsProvider) -> bool {
                 true
             }
         })
@@ -89,8 +85,8 @@ fn xoev_xwasser_code2(
         }
 
         #[cfg(feature = "validate")]
-        impl crate::XWasserCodeListValue for #name {
-            const CODELIST: &str = #uri_full;
+        impl crate::CodeListValue for #name {
+            const CODELIST: &str = #uri;
             #validation
             fn as_value(&self) -> &str {
                 &self.code

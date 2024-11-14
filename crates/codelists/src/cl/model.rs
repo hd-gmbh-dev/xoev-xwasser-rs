@@ -52,6 +52,7 @@ pub struct Header {
     pub identification: Identification,
     pub description: Description,
     pub fields: Vec<Field>,
+    pub key_index: usize,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Ord, PartialOrd)]
@@ -63,18 +64,11 @@ pub struct CodeList {
 impl CodeList {
     #[allow(dead_code)]
     pub fn validate(&self, value: &str) -> bool {
-        self.header
-            .fields
-            .iter()
-            .enumerate()
-            .find(|(_, field)| field.id.as_ref() == "Key")
-            .map(|(index, _)| {
-                self.values
-                    .iter()
-                    .map(move |row| &row[index])
-                    .any(|col| col.as_ref() == value)
-            })
-            .unwrap_or_default()
+        let key_index = self.header.key_index;
+
+        self.values
+            .binary_search_by(|probe| probe[key_index].as_ref().cmp(value))
+            .is_ok()
     }
 }
 

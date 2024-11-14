@@ -34,14 +34,23 @@ where
 pub type CodeLists = HashMap<Arc<str>, CodeList>;
 pub type CodeListMap = Arc<CodeLists>;
 
-pub trait XWasserCodeListValue {
+pub trait CodeListsProvider {
+    fn contains(&self, codelist: &str, value: &str) -> bool;
+}
+
+impl CodeListsProvider for CodeLists {
+    fn contains(&self, codelist: &str, value: &str) -> bool {
+        self.get(codelist)
+            .map(|codelist| codelist.validate(value))
+            .unwrap_or_default()
+    }
+}
+
+pub trait CodeListValue {
     const CODELIST: &str;
 
-    fn validate(&self, codelists: &HashMap<Arc<str>, CodeList>) -> bool {
-        codelists
-            .get(Self::CODELIST)
-            .map(|codelist| codelist.validate(self.as_value()))
-            .unwrap_or_default()
+    fn validate(&self, codelists: &impl CodeListsProvider) -> bool {
+        codelists.contains(Self::CODELIST, self.as_value())
     }
 
     fn as_value(&self) -> &str;
@@ -49,10 +58,28 @@ pub trait XWasserCodeListValue {
 
 #[cfg(test)]
 mod tests {
+    use super::*;
+
     #[test]
     fn test_data_set_v0_7_0() -> anyhow::Result<()> {
-        let source = super::map::<crate::v0_7_0::Source>()?;
-        assert_eq!(source.len(), 71);
+        let source = map::<crate::v0_7_0::Source>()?;
+
+        assert_eq!(source.len(), 73);
+
+        impl<T> CodeListValue for T
+        where
+            T: AsRef<str>,
+        {
+            const CODELIST: &str = "urn:xoev-de:xwasser:codeliste:parameterauspraegung";
+
+            fn as_value(&self) -> &str {
+                self.as_ref()
+            }
+        }
+
+        assert!("10005-2".validate(source.as_ref()));
+        assert!(!"qqq".validate(source.as_ref()));
+
         Ok(())
     }
 }

@@ -1,4 +1,4 @@
-use xoev_xwasser_codelists::{CodeLists, XWasserCodeListValue};
+use xoev_xwasser_codelists::{CodeListValue, CodeLists};
 
 pub trait XWasserValidate {
     fn xwasser_validate(&self, codelists: &CodeLists) -> Result<(), XWasserValidateError>;
@@ -12,7 +12,7 @@ pub trait XWasserValidateMarker {}
 
 impl<T> XWasserValidate for T
 where
-    T: XWasserCodeListValue + XWasserValidateMarker,
+    T: CodeListValue + XWasserValidateMarker,
 {
     fn xwasser_validate(&self, codelists: &CodeLists) -> Result<(), XWasserValidateError> {
         if self.validate(codelists) {
