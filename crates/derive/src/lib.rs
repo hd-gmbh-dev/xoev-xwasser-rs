@@ -35,7 +35,7 @@ fn xoev_xwasser_code2(
         None
     } else {
         Some(quote! {
-            fn validate(&self, _: &crate::CodeLists) -> bool {
+            fn validate(&self, _: &impl crate::CodeListsProvider) -> bool {
                 true
             }
         })
@@ -85,7 +85,7 @@ fn xoev_xwasser_code2(
         }
 
         #[cfg(feature = "validate")]
-        impl crate::XWasserCodeListValue for #name {
+        impl crate::CodeListValue for #name {
             const CODELIST: &str = #uri;
             #validation
             fn as_value(&self) -> &str {
