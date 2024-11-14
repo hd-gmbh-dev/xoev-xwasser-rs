@@ -274,7 +274,7 @@
       </xwas:pruefbericht>
     </xwas:vorgangType>
     <xwas:bemerkung>Bemerkung</xwas:bemerkung>
-    <xwas:anlage dokumentID="anhang1">
+    <xwas:anlage xwas:dokumentID="anhang1">
       <xwas:dokumentTyp listURI="urn:xoev-de:xwasser:codeliste:dokumenttyp" listVersionID="1">
         <code>1010</code>
       </xwas:dokumentTyp>
