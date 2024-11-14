@@ -14,9 +14,8 @@ use wasm_bindgen::prelude::*;
 use typed_builder::TypedBuilder;
 
 use super::{
-    codes::CodeDokumenttypType, pruefbericht::PruefberichtType,
-    shared::dokument::DokumentRepraesentationType,
-    shared::untersuchungsplan::UntersuchungsplanType,
+    pruefbericht::PruefberichtType,
+    shared::{dokument::DokumentType, untersuchungsplan::UntersuchungsplanType},
 };
 
 #[derive(
@@ -57,35 +56,6 @@ pub struct Vorgang {
     #[xml(ns = b"xwas", name = b"anlage", ty = "child")]
     #[serde(default)]
     pub anlage: Vec<DokumentType>,
-}
-
-/// Eine zum Antrag gehörige Unterlage in verschiedenen Dokumentendarstellungen, z. B. PDF oder eine Datendarstellung. Es muss immer das komplette Dokument mit allen Darstellungen übertragen werden.
-#[derive(
-    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
-)]
-#[cfg_attr(feature = "wasm", derive(Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
-#[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
-))]
-pub struct DokumentType {
-    #[xml(ns = b"xwas", name = b"dokumentTyp", ty = "child")]
-    pub dokument_typ: CodeDokumenttypType,
-    #[xml(ns = b"xwas", name = b"name", ty = "child")]
-    pub name: String,
-    #[xml(ns = b"xwas", name = b"aktuelleVersion", ty = "child")]
-    pub aktuelle_version: Option<String>,
-    #[xml(ns = b"xwas", name = b"letzteVersion", ty = "child")]
-    pub letzte_version: Option<String>,
-    #[xml(ns = b"xwas", name = b"dokumentRepraesentation", ty = "child")]
-    pub dokument_repraesentation: DokumentRepraesentationType,
-    #[xml(ns = b"xwas", name = b"personReferenzID", ty = "child")]
-    #[serde(default)]
-    pub person_referenz_id: Vec<String>,
-    #[xml(name = b"dokumentID", ty = "attr")]
-    pub dokument_id: String,
 }
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
