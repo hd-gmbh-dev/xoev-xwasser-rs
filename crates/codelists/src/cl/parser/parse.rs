@@ -77,9 +77,9 @@ impl From<super::input::CodeList> for CodeList {
                     .and_then(|v| {
                         v.app_info
                             .as_ref()
-                            .map(|v| v.recommended_key_column.is_some())
+                            .map(|v| v.recommended_key_column.unwrap_or_default())
                     })
-                    .unwrap_or(false);
+                    .unwrap_or_default();
                 if is_recommended {
                     field.field_type = FieldType::RecommendedKey;
                 } else {
@@ -95,6 +95,19 @@ impl From<super::input::CodeList> for CodeList {
             }
             a.id.cmp(&b.id)
         });
+        let key_index = fields
+            .iter()
+            .enumerate()
+            .find(|(_, field)| field.field_type == FieldType::RecommendedKey)
+            .or_else(|| {
+                fields
+                    .iter()
+                    .enumerate()
+                    .find(|(_, field)| field.field_type == FieldType::Key)
+            })
+            .map(|(index, _)| index)
+            .expect("one recommended key or regular key field");
+
         let mut values = Vec::with_capacity(val.simple_code_list.rows.len());
         for mut row in val.simple_code_list.rows.into_iter() {
             let mut cols = Vec::with_capacity(row.values.len());
@@ -118,11 +131,15 @@ impl From<super::input::CodeList> for CodeList {
             }
             values.push(Arc::from(cols));
         }
+
+        values.sort_by_key(|row: &Arc<[Arc<str>]>| row.get(key_index).cloned());
+
         CodeList {
             header: Header {
                 identification: val.identification.into(),
                 description: val.annotation.description.unwrap().into(),
                 fields,
+                key_index,
             },
             values: Arc::from(values),
         }

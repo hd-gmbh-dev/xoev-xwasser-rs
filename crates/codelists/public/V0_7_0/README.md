@@ -12,7 +12,7 @@ Beschreibung der Codeliste. Diese Codeliste definiert alle im Kontext von XWasse
 
 | Field | `Key` (0) | `Laenderkennzeichen` (1) | `Untersuchungsstelle` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
+| type | RecommendedKey | Value | Value |
 | Usage | Required | Required | Required |
 | Lang | None | None | None |
 
@@ -26,10 +26,10 @@ Mit dieser Codeliste wird im Kontext von XWasser definiert, auf welche Art eine 
 | canonical uri | `urn:xoev-de:xwasser:codeliste:desinfektionsart` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:desinfektionsart_1 |
 
-| Field | `Beschreibung` (0) | `Desinfektionsart` (1) | `Key` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Desinfektionsart` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Medium
@@ -44,7 +44,7 @@ Diese Codeliste dient im Kontext von XWasser der Angabe des Mediums einer Proben
 
 | Field | `Key` (0) | `Medium` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | RecommendedKey | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -60,7 +60,7 @@ Diese Codeliste dient im Kontext von XWasser der Angabe des Mediums einer Proben
 
 | Field | `key` (0) | `name` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | Key | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -76,7 +76,7 @@ Mit dieser Schlüsselliste wird Rolle einer Person definiert, in der sie eine ni
 
 | Field | `Key` (0) | `Vertretungsart` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | RecommendedKey | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -90,10 +90,10 @@ Mit Hilfe dieser Codeliste wird die Art der Wasserressource angegeben, die in ei
 | canonical uri | `urn:xoev-de:xwasser:codeliste:art-wasserressource` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:art-wasserressource_1 |
 
-| Field | `Art-Wasserressource` (0) | `Beschreibung` (1) | `Key` (2) |
+| Field | `Key` (0) | `Art-Wasserressource` (1) | `Beschreibung` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Required | Optional | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
 ## Rahmen der Trinkwasserbereitstellung
@@ -106,10 +106,10 @@ Diese Codeliste definiert im Kontext von XWasser den Rahmen der Trinkwasserberei
 | canonical uri | `urn:xoev-de:xwasser:codeliste:rahmen-trinkwasserbereitstellung` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:rahmen-trinkwasserbereitstellung_1 |
 
-| Field | `Beschreibung` (0) | `Key` (1) | `Rahmen-Trinkwasserbereitstellung` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Rahmen-Trinkwasserbereitstellung` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Sprachenkatalog Ausländerwesen
@@ -122,10 +122,10 @@ Beschreibt den Katalog der Sprachen, der für die Kommunikation im Ausländerwes
 | canonical uri | `urn:xoev-de:xauslaender:codeliste:sprachenkatalog` |
 | canonical version uri | urn:xoev-de:xauslaender:codeliste:sprachenkatalog_11 |
 
-| Field | `AZR-KDS-Code` (0) | `BA-Wert` (1) | `ISO-Code` (2) | `ISO-Wert` (3) | `MARiS-Code` (4) | `MARiS-Dialekt-Synonym` (5) |
+| Field | `ISO-Code` (0) | `AZR-KDS-Code` (1) | `BA-Wert` (2) | `ISO-Wert` (3) | `MARiS-Code` (4) | `MARiS-Dialekt-Synonym` (5) |
 | -- | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value | Value |
-| Usage | Optional | Optional | Required | Optional | Optional | Optional |
+| type | RecommendedKey | Value | Value | Value | Value | Value |
+| Usage | Required | Optional | Optional | Optional | Optional | Optional |
 | Lang | None | None | None | None | None | None |
 
 ## Geschlechtsangaben in XInneres
@@ -140,7 +140,7 @@ Beschreibt den Katalog der Sprachen, der für die Kommunikation im Ausländerwes
 
 | Field | `anwendung` (0) | `beschreibung` (1) | `code` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
+| type | Value | Value | Key |
 | Usage | Optional | Required | Required |
 | Lang | None | None | None |
 
@@ -156,7 +156,7 @@ Beschreibt den Katalog der Sprachen, der für die Kommunikation im Ausländerwes
 
 | Field | `key` (0) | `name` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | Key | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -170,10 +170,10 @@ Mit dieser Codeliste wird im Kontext von XWasser definiert, wie die Überwachung
 | canonical uri | `urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung_1 |
 
-| Field | `Beschreibung` (0) | `Key` (1) | `UeberwachungAufbereitung` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `UeberwachungAufbereitung` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## SHAPTH Parameter Einheit
@@ -186,9 +186,9 @@ Mit dieser Codeliste wird im Kontext von XWasser die Einheit eines SHAPTH Parame
 | canonical uri | `urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit_2 |
 
-| Field | `Einheit` (0) | `Key` (1) |
+| Field | `Key` (0) | `Einheit` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | RecommendedKey | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -202,10 +202,10 @@ Diese Codeliste dient im Rahmen von XWasser zur Definition der genauen Werte der
 | canonical uri | `urn:xoev-de:xwasser:codeliste:parameterunterauswahl` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:parameterunterauswahl_1 |
 
-| Field | `Beschreibung` (0) | `Clusterung` (1) | `Key` (2) | `Position` (3) | `SHAPTH-Parameter-Nummer` (4) | `US-Code` (5) | `Unterauswahl` (6) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Clusterung` (2) | `Position` (3) | `SHAPTH-Parameter-Nummer` (4) | `US-Code` (5) | `Unterauswahl` (6) |
 | -- | -- | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value | Value | Value |
-| Usage | Optional | Required | Required | Required | Required | Optional | Required |
+| type | RecommendedKey | Value | Value | Value | Value | Value | Value |
+| Usage | Required | Optional | Required | Required | Required | Optional | Required |
 | Lang | None | None | None | None | None | None | None |
 
 ## DSMeld Familienstand Beendigungsgrund (DSMeld-Blatt 1405)
@@ -220,7 +220,7 @@ Diese Codeliste dient im Rahmen von XWasser zur Definition der genauen Werte der
 
 | Field | `key` (0) | `name` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | Key | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -234,10 +234,10 @@ Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindes
 | canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags` |
 | canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2024-09-30 |
 
-| Field | `Bezeichnung` (0) | `Hinweis` (1) | `SCHLUESSEL` (2) |
+| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Required | Optional | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
 ## Status Untersuchungsplan
@@ -250,10 +250,10 @@ Mit dieser Codeliste wird im Kontext von XWasser der Status des Untersuchungspla
 | canonical uri | `urn:xoev-de:xwasser:codeliste:status-untersuchungsplan` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:status-untersuchungsplan_1 |
 
-| Field | `Beschreibung` (0) | `Key` (1) | `Status` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Status` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Grund der Ausnahmeregelung
@@ -266,11 +266,11 @@ Mit dieser Codeliste werden im Kontext von XWasser die Gründe für eine Ausnahm
 | canonical uri | `urn:xoev-de:xwasser:codeliste:grund-ausnahmeregelung` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:grund-ausnahmeregelung_1 |
 
-| Field | `Beschreibung` (0) | `Description` (1) | `Exception-clause` (2) | `Grund-Ausnahmeregelung` (3) | `Key` (4) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Description` (2) | `Exception-clause` (3) | `Grund-Ausnahmeregelung` (4) |
 | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value |
-| Usage | Optional | Required | Required | Required | Required |
-| Lang | None | None | None | None | None |
+| type | RecommendedKey | Value | Value | Key | Value |
+| Usage | Required | Optional | Required | Required | Required |
+| Lang | None | Some("de-DE") | Some("en-GB") | Some("en-GB") | Some("de-DE") |
 
 ## Rückweisungsgründe
 
@@ -284,7 +284,7 @@ Mit dieser Codeliste werden im Kontext von XWasser die Gründe für eine Ausnahm
 
 | Field | `key` (0) | `name` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | Key | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -300,7 +300,7 @@ Mit dieser Codeliste werden im Kontext von XWasser die Gründe für eine Ausnahm
 
 | Field | `Bezeichnung` (0) | `Hinweis` (1) | `SCHLUESSEL` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
+| type | Value | Value | Key |
 | Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
@@ -316,7 +316,7 @@ Mit dieser Codeliste werden im Kontext von XWasser die Gründe für eine Ausnahm
 
 | Field | `key` (0) | `name` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | Key | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -330,10 +330,10 @@ Diese Codeliste definiert, welcher Art ein Objekt ist.
 | canonical uri | `urn:xoev-de:xwasser:codeliste:art-objekt` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:art-objekt_1 |
 
-| Field | `Art-Objekt` (0) | `Beschreibung` (1) | `Key` (2) |
+| Field | `Key` (0) | `Art-Objekt` (1) | `Beschreibung` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Required | Optional | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
 ## Nachrichtentyp
@@ -348,7 +348,7 @@ Die Liste von eindeutigen Bezeichnern für Nachrichtentypen von XWasser.
 
 | Field | `Key` (0) | `Nachricht` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | RecommendedKey | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -364,7 +364,7 @@ Die Liste von eindeutigen Bezeichnern für Nachrichtentypen von XWasser.
 
 | Field | `AlphabeticCode` (0) | `Currency` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | Key | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -378,10 +378,10 @@ Diese Codeliste wird im Kontext von XWasser zur Erläuterung der Wasserabgabemen
 | canonical uri | `urn:xoev-de:xwasser:codeliste:erlaeuterung-wasserabgabemenge` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:erlaeuterung-wasserabgabemenge_1 |
 
-| Field | `Beschreibung` (0) | `Key` (1) | `Wasserabgabemenge` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Wasserabgabemenge` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Art des Auftraggebers
@@ -394,10 +394,10 @@ Mit dieser Codeliste wird im Kontext von XWasser die Art des Auftraggebers defin
 | canonical uri | `urn:xoev-de:xwasser:codeliste:auftraggeberart` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:auftraggeberart_1 |
 
-| Field | `Auftraggeberart` (0) | `Beschreibung` (1) | `Key` (2) |
+| Field | `Key` (0) | `Auftraggeberart` (1) | `Beschreibung` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Required | Optional | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
 ## Ergänzung von Messwerten
@@ -410,10 +410,10 @@ Diese Codeliste wird im Rahmen von XWasser für die Ergänzung von Messwertangab
 | canonical uri | `urn:xoev-de:xwasser:codeliste:messwertergaenzung` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:messwertergaenzung_1 |
 
-| Field | `Beschreibung` (0) | `Key` (1) | `Messwertergaenzung` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Messwertergaenzung` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Incident Category
@@ -426,11 +426,11 @@ Diese Codeliste definiert die Kategorien eines Vorfalls gem. den Vorgaben für d
 | canonical uri | `urn:xoev-de:xwasser:codeliste:incident-category` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:incident-category_1 |
 
-| Field | `Beschreibung` (0) | `Category` (1) | `Kategorie` (2) | `Key` (3) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Category` (2) | `Kategorie` (3) |
 | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value |
-| Usage | Optional | Required | Required | Required |
-| Lang | None | None | None | None |
+| type | RecommendedKey | Value | Key | Value |
+| Usage | Required | Optional | Required | Required |
+| Lang | None | Some("de-DE") | Some("en-GB") | Some("de-DE") |
 
 ## Gemeinden, dargestellt durch den Amtlichen Regionalschlüssel (ARS) des Statistischen Bundesamtes
 
@@ -442,10 +442,10 @@ Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Regionals
 | canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs` |
 | canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2024-09-30 |
 
-| Field | `Bezeichnung` (0) | `Hinweis` (1) | `SCHLUESSEL` (2) |
+| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Required | Optional | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
 ## Bewertung des Untersuchungswerts
@@ -458,10 +458,10 @@ Diese Codeliste dient im Kontext von XWasser zur Bewertung des Untersuchungswert
 | canonical uri | `urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert_1 |
 
-| Field | `Beschreibung` (0) | `Bewertung-Untersuchungswert` (1) | `Key` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Bewertung-Untersuchungswert` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Probengefäß
@@ -474,10 +474,10 @@ Mit dieser Codeliste wird im Kontext von XWasser das Gerät angegeben, mit dem e
 | canonical uri | `urn:xoev-de:xwasser:codeliste:probengefaess` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:probengefaess_1 |
 
-| Field | `Beschreibung` (0) | `Key` (1) | `Probengefaess` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Probengefaess` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes
@@ -492,7 +492,7 @@ Mit dieser Codeliste wird im Kontext von XWasser das Gerät angegeben, mit dem e
 
 | Field | `Bezeichnung` (0) | `Hinweis` (1) | `SCHLUESSEL` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
+| type | Value | Value | Key |
 | Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
@@ -508,7 +508,7 @@ Mit dieser Codeliste wird im Kontext von XWasser das Gerät angegeben, mit dem e
 
 | Field | `Bezeichnung` (0) | `SCHLUESSEL` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | Key | Key |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -522,11 +522,11 @@ Mit dieser Codeliste wird im Kontext von XWasser die Kategorie eines Vorfalls de
 | canonical uri | `urn:xoev-de:xwasser:codeliste:vorfallkategorie` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:vorfallkategorie_1 |
 
-| Field | `Beschreibung` (0) | `IncidentCategory` (1) | `Key` (2) | `Vorfallkategorie` (3) |
+| Field | `Key` (0) | `Beschreibung` (1) | `IncidentCategory` (2) | `Vorfallkategorie` (3) |
 | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value |
-| Usage | Optional | Required | Required | Required |
-| Lang | None | None | None | None |
+| type | RecommendedKey | Value | Key | Value |
+| Usage | Required | Optional | Required | Required |
+| Lang | None | Some("de-DE") | Some("en-GB") | Some("de-DE") |
 
 ## SHAPTH Parameter
 
@@ -538,10 +538,10 @@ Mit dieser Codeliste werden im Kontext von XWasser die SHAPTH-Parameter definier
 | canonical uri | `urn:xoev-de:xwasser:codeliste:shapth-parameter` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:shapth-parameter_2 |
 
-| Field | `CAS-Nummer` (0) | `Datentyp` (1) | `Einheit` (2) | `Langname` (3) | `Leger-Nr` (4) | `Octoware-Name` (5) | `Octoware-Schluessel` (6) | `Parameter` (7) | `SEBAM-Langname` (8) | `SHATPH-Parameter-ID` (9) | `Stoffgruppe` (10) | `Synonyme` (11) | `TEIS-Bezeichnung` (12) | `TEIS-Code` (13) | `TEIS-Kurzbezeichnung` (14) |
+| Field | `SHATPH-Parameter-ID` (0) | `CAS-Nummer` (1) | `Datentyp` (2) | `Einheit` (3) | `Langname` (4) | `Leger-Nr` (5) | `Octoware-Name` (6) | `Octoware-Schluessel` (7) | `Parameter` (8) | `SEBAM-Langname` (9) | `Stoffgruppe` (10) | `Synonyme` (11) | `TEIS-Bezeichnung` (12) | `TEIS-Code` (13) | `TEIS-Kurzbezeichnung` (14) |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value |
-| Usage | Optional | Required | Required | Optional | Required | Optional | Optional | Required | Optional | Required | Required | Optional | Optional | Required | Optional |
+| type | RecommendedKey | Value | Value | Value | Value | Key | Value | Value | Value | Value | Value | Value | Value | Key | Value |
+| Usage | Required | Optional | Required | Required | Optional | Required | Optional | Optional | Required | Optional | Required | Optional | Optional | Required | Optional |
 | Lang | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None |
 
 ## Codeliste Staatsangehörigkeit aus der Staats- und Gebietssystematik des Statistischen Bundesamtes
@@ -556,7 +556,7 @@ Codeliste Staatsangehörigkeit. Tabelle von Staaten und Staatsangehörigkeiten. 
 
 | Field | `DESTATIS-Schluessel-Staatsangehoerigkeit` (0) | `Existenz-ab` (1) | `Existenz-bis` (2) | `Hinweis` (3) | `ISO-2` (4) | `ISO-3` (5) | `Kontinent-kurz` (6) | `Staatsangehoerigkeit` (7) | `Staatsname-kurz` (8) | `Staatsname-voll` (9) | `Suchbegriff` (10) |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value |
+| type | Key | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value |
 | Usage | Required | Optional | Optional | Optional | Optional | Optional | Optional | Optional | Optional | Optional | Required |
 | Lang | None | None | None | None | None | None | None | None | None | None | None |
 
@@ -570,10 +570,10 @@ Mit dieser Codeliste wird im Kontext von XWasser die Art einer Probennahmestelle
 | canonical uri | `urn:xoev-de:xwasser:codeliste:art-probennahmestelle` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:art-probennahmestelle_1 |
 
-| Field | `Art-Probennahmestelle` (0) | `Beschreibung` (1) | `Key` (2) |
+| Field | `Key` (0) | `Art-Probennahmestelle` (1) | `Beschreibung` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Required | Optional | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
 ## Unterkategorie Probennahmestelle
@@ -586,10 +586,10 @@ In dieser Codeliste werden Unterkategorien von Probennahmestellen definiert.
 | canonical uri | `urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle_1 |
 
-| Field | `Beschreibung` (0) | `Kategorie` (1) | `Key` (2) | `Unterkategorie` (3) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Kategorie` (2) | `Unterkategorie` (3) |
 | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value |
-| Usage | Optional | Required | Required | Required |
+| type | RecommendedKey | Value | Value | Value |
+| Usage | Required | Optional | Required | Required |
 | Lang | None | None | None | None |
 
 ## Anlass der Untersuchung
@@ -602,10 +602,10 @@ Mit dieser Codeliste wird im Kontext von XWasser der Anlass einer Wasseruntersuc
 | canonical uri | `urn:xoev-de:xwasser:codeliste:untersuchung-anlass` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:untersuchung-anlass_2 |
 
-| Field | `Beschreibung` (0) | `Key` (1) | `Untersuchungsanlass` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Untersuchungsanlass` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Rechtsformen
@@ -618,9 +618,9 @@ Die Codeliste urn:xoev-de:xunternehmen:codeliste:rechtsformen bildet ab Version 
 | canonical uri | `urn:xoev-de:xunternehmen:codeliste:rechtsformen` |
 | canonical version uri | urn:xoev-de:xunternehmen:codeliste:rechtsformen_2.2 |
 
-| Field | `Bezeichnung-kurz` (0) | `Bezeichnung-lang` (1) | `Code` (2) | `Eintragungsart` (3) | `Hinweise-fachlich` (4) | `Mapping-in-Standardprofil` (5) | `Standardprofil` (6) |
+| Field | `Code` (0) | `Bezeichnung-kurz` (1) | `Bezeichnung-lang` (2) | `Eintragungsart` (3) | `Hinweise-fachlich` (4) | `Mapping-in-Standardprofil` (5) | `Standardprofil` (6) |
 | -- | -- | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value | Value | Value |
+| type | RecommendedKey | Value | Value | Value | Value | Value | Value |
 | Usage | Required | Required | Required | Optional | Optional | Optional | Optional |
 | Lang | None | None | None | None | None | None | None |
 
@@ -636,9 +636,9 @@ Mit dieser Codeliste wird der Probennahmezeitraum definiert.
 
 | Field | `Key` (0) | `Probennahmezeitraum` (1) | `SamplingPeriod` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
+| type | RecommendedKey | Value | Key |
 | Usage | Required | Required | Required |
-| Lang | None | None | None |
+| Lang | None | Some("de-DE") | Some("en-GB") |
 
 ## Codeliste Staat aus der Staats- und Gebietssystematik des Statistischen Bundesamtes
 
@@ -652,7 +652,7 @@ Die Codeliste Staat (eigenständige, von Deutschland diplomatisch anerkannte der
 
 | Field | `existenz-ab` (0) | `hinweis` (1) | `iso-2` (2) | `iso-3` (3) | `schluessel-staat` (4) | `staatenname-kurz` (5) | `staatsangehoerigkeit` (6) | `staatsname-voll` (7) | `suchbegriff` (8) |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value | Value | Value | Value | Value |
+| type | Value | Value | Value | Value | Key | Value | Value | Value | Value |
 | Usage | Optional | Optional | Optional | Optional | Required | Optional | Optional | Optional | Optional |
 | Lang | None | None | None | None | None | None | None | None | None |
 
@@ -666,10 +666,10 @@ Diese Codeliste dient im Kontext von XWasser zur Angabe des Verfahrens, mit dem 
 | canonical uri | `urn:xoev-de:xwasser:codeliste:probennahmeverfahren` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:probennahmeverfahren_1 |
 
-| Field | `Beschreibung` (0) | `Key` (1) | `Probennahmeverfahren` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Probennahmeverfahren` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Grund für Schließung des Wasserversorgungsgebiets
@@ -682,10 +682,10 @@ Diese Codeliste beinhaltet die Gründe für die Schließung eines Wasserversorgu
 | canonical uri | `urn:xoev-de:xwasser:codeliste:grund-schliessung-wasserversorgungsgebiet` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:grund-schliessung-wasserversorgungsgebiet_1 |
 
-| Field | `Beschreibung` (0) | `Grund` (1) | `Key` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Grund` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Status technisch
@@ -700,7 +700,7 @@ Mit dieser Codeliste wird der technische Status definiert.
 
 | Field | `Key` (0) | `StatusTechnisch` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | RecommendedKey | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -714,10 +714,10 @@ Diese Codeliste dient innerhalb von XWasser zur Festlegung des fachlichen Typs e
 | canonical uri | `urn:xoev-de:xwasser:codeliste:dokumenttyp` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:dokumenttyp_1 |
 
-| Field | `Beschreibung` (0) | `Dokumenttyp` (1) | `Key` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Dokumenttyp` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Länderkennzeichen
@@ -730,10 +730,10 @@ Diese Codeliste wird im Rahmen von XWasser zur Kennzeichnung des Bundeslands, de
 | canonical uri | `urn:xoev-de:xwasser:codeliste:laenderkennzeichen` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:laenderkennzeichen_1 |
 
-| Field | `Bundesland` (0) | `Destatis-Schluessel` (1) | `Kennzeichen` (2) |
+| Field | `Kennzeichen` (0) | `Bundesland` (1) | `Destatis-Schluessel` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Required | Optional | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
 ## Gesamtbewertung
@@ -746,10 +746,10 @@ Diese Codeliste dient im Kontext von XWasser der Einschätzung, ob in einem Prü
 | canonical uri | `urn:xoev-de:xwasser:codeliste:gesamtbewertung` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:gesamtbewertung_2 |
 
-| Field | `Beschreibung` (0) | `Gesamtbewertung` (1) | `Key` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Gesamtbewertung` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Ursache für die Überschreitung
@@ -762,11 +762,11 @@ Beschreibung der Codeliste.
 | canonical uri | `urn:xoev-de:xwasser:codeliste:ueberschreitungsursache` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:ueberschreitungsursache_1 |
 
-| Field | `Beschreibung` (0) | `Description` (1) | `IncidentExceedanceCause` (2) | `Key` (3) | `Ueberschreitungsursache` (4) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Description` (2) | `IncidentExceedanceCause` (3) | `Ueberschreitungsursache` (4) |
 | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value |
-| Usage | Optional | Optional | Required | Required | Required |
-| Lang | None | None | None | None | None |
+| type | RecommendedKey | Value | Value | Key | Value |
+| Usage | Required | Optional | Optional | Required | Required |
+| Lang | None | Some("de-DE") | Some("en-GB") | Some("en-GB") | Some("de-DE") |
 
 ## Kategorie der Probennahmestelle
 
@@ -778,9 +778,9 @@ Mit dieser Codeliste wird im Kontext von XWasser die Kategorie der Probennahmest
 | canonical uri | `urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle_1 |
 
-| Field | `KategorieProbennahmestelle` (0) | `Key` (1) |
+| Field | `Key` (0) | `KategorieProbennahmestelle` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | RecommendedKey | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -794,11 +794,11 @@ Mit dieser Codeliste werden im Kontext von XWasser die Abhilfemaßnahmen definie
 | canonical uri | `urn:xoev-de:xwasser:codeliste:abhilfemassnahmen` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:abhilfemassnahmen_1 |
 
-| Field | `Abhilfemassname` (0) | `Beschreibung` (1) | `Key` (2) | `KeyEN` (3) | `RemidialAction` (4) |
+| Field | `Key` (0) | `Abhilfemassname` (1) | `Beschreibung` (2) | `KeyEN` (3) | `RemidialAction` (4) |
 | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value |
-| Usage | Required | Optional | Required | Required | Required |
-| Lang | None | None | None | None | None |
+| type | RecommendedKey | Value | Value | Key | Value |
+| Usage | Required | Required | Optional | Required | Required |
+| Lang | None | Some("de-DE") | Some("de-DE") | Some("en-GB") | Some("en-GB") |
 
 ## Amtssprache Europäische Union
 
@@ -812,7 +812,7 @@ Diese Liste beinhaltet die Amtssprachen der Europäischen Union.
 
 | Field | `ISO-Code` (0) | `ISO-Sprachbezeichnung` (1) | `ISO-Wert` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
+| type | RecommendedKey | Value | Value |
 | Usage | Required | Required | Required |
 | Lang | None | None | None |
 
@@ -826,11 +826,11 @@ Mit dieser Codeliste wird im Rahman von XWasser die Art der Probennahmestelle ge
 | canonical uri | `urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu_1 |
 
-| Field | `Beschreibung` (0) | `Description` (1) | `Key` (2) | `PointOfConplianceType` (3) | `Probennahmestelle` (4) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Description` (2) | `PointOfConplianceType` (3) | `Probennahmestelle` (4) |
 | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value |
-| Usage | Optional | Optional | Required | Required | Required |
-| Lang | None | None | None | None | None |
+| type | RecommendedKey | Value | Value | Key | Value |
+| Usage | Required | Optional | Optional | Required | Required |
+| Lang | Some("de-DE") | Some("de-DE") | Some("en-GB") | Some("en-GB") | Some("de-DE") |
 
 ## Auskunftssperre
 
@@ -844,7 +844,7 @@ Mit dieser Codeliste wird im Rahman von XWasser die Art der Probennahmestelle ge
 
 | Field | `key` (0) | `name` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | Key | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -858,11 +858,11 @@ Mit dieser Codeliste werden im Kontext von XWasser die Maßnahmen definiert.
 | canonical uri | `urn:xoev-de:xwasser:codeliste:massnahmen` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:massnahmen_1 |
 
-| Field | `Action` (0) | `Beschreibung` (1) | `Description` (2) | `EU-Code` (3) | `Key` (4) | `Massnahme` (5) | `UBA-Code` (6) |
+| Field | `Key` (0) | `Action` (1) | `Beschreibung` (2) | `Description` (3) | `EU-Code` (4) | `Massnahme` (5) | `UBA-Code` (6) |
 | -- | -- | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value | Value | Value |
-| Usage | Optional | Optional | Optional | Optional | Required | Required | Optional |
-| Lang | None | None | None | None | None | None | None |
+| type | RecommendedKey | Value | Value | Value | Value | Value | Value |
+| Usage | Required | Optional | Optional | Optional | Optional | Required | Optional |
+| Lang | None | Some("en-GB") | Some("de-DE") | Some("en-GB") | None | Some("de-DE") | None |
 
 ## Wasserversorgungsgebiet
 
@@ -874,9 +874,9 @@ Diese Codeliste enthält die Namen der Wasserversorgungsgebiete (Die Codeliste s
 | canonical uri | `urn:xoev-de:xwasser:codeliste:wasserversorgungsgebiet` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:wasserversorgungsgebiet_1 |
 
-| Field | `Codierung` (0) | `Key` (1) | `NUTS` (2) | `Wasserversorgungsgebiet` (3) |
+| Field | `Key` (0) | `Codierung` (1) | `NUTS` (2) | `Wasserversorgungsgebiet` (3) |
 | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value |
+| type | RecommendedKey | Value | Value | Value |
 | Usage | Required | Required | Optional | Required |
 | Lang | None | None | None | None |
 
@@ -890,10 +890,10 @@ Mit dieser Codeliste wird im Kontext von XWasser für bestimmte Parameter (z. B.
 | canonical uri | `urn:xoev-de:xwasser:codeliste:nachweisart` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:nachweisart_1 |
 
-| Field | `Beschreibung` (0) | `Key` (1) | `Nachweisart` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Nachweisart` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Datentyp
@@ -908,7 +908,7 @@ Mit dieser Codeliste wird im Kontext von XWasser für bestimmte Parameter (z. B.
 
 | Field | `beschreibung` (0) | `code` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | Value | Key |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -922,10 +922,10 @@ Diese Codeliste dient zur Beschreibung des Betriebszustands eines Objekts.
 | canonical uri | `urn:xoev-de:xwasser:codeliste:betriebszustand` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:betriebszustand_1 |
 
-| Field | `Beschreibung` (0) | `Betriebszustand` (1) | `Key` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Betriebszustand` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Codes für Anschrifttyp
@@ -940,9 +940,9 @@ Diese Codeliste dient zur Beschreibung des Betriebszustands eines Objekts.
 
 | Field | `code` (0) | `description-de-DE` (1) | `description-en-GB` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
+| type | Key | Value | Value |
 | Usage | Required | Required | Required |
-| Lang | None | None | None |
+| Lang | None | Some("de-DE") | Some("en-GB") |
 
 ## Art der Entnahmearmatur
 
@@ -954,10 +954,10 @@ In dieser Codeliste werden Arten von Entnahmearmaturen definiert.
 | canonical uri | `urn:xoev-de:xwasser:codeliste:art-entnahmearmatur` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:art-entnahmearmatur_1 |
 
-| Field | `ArtEntnahmearmatur` (0) | `Beschreibung` (1) | `Key` (2) |
+| Field | `Key` (0) | `ArtEntnahmearmatur` (1) | `Beschreibung` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Required | Optional | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
 ## Probenbewertung
@@ -970,10 +970,10 @@ Mit dieser Codeliste wird im Kontext von XWasser definiert, ob in einer Wasserpr
 | canonical uri | `urn:xoev-de:xwasser:codeliste:probenbewertung` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:probenbewertung_1 |
 
-| Field | `Beschreibung` (0) | `Key` (1) | `Probenbewertung` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Probenbewertung` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Flockung
@@ -986,10 +986,10 @@ Mit dieser Codeliste wird im Kontext von XWasser die Art der Flockung definiert.
 | canonical uri | `urn:xoev-de:xwasser:codeliste:flockung` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:flockung_1 |
 
-| Field | `Beschreibung` (0) | `Flockung` (1) | `Key` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Flockung` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Aufbereitungsstoffe und Desinfektionsverfahren
@@ -1002,10 +1002,10 @@ Diese Codeliste dient im Kontext von XWasser zur Definition der Aufbereitungssto
 | canonical uri | `urn:xoev-de:xwasser:codeliste:aufbereitungsstoffe-desinfektionsverfahren` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:aufbereitungsstoffe-desinfektionsverfahren_2 |
 
-| Field | `AufbereitungsstoffeDesinfektionsverfahren` (0) | `Beschreibung` (1) | `CAS-Nummer` (2) | `Key` (3) | `Verwendungszweck` (4) |
+| Field | `Key` (0) | `AufbereitungsstoffeDesinfektionsverfahren` (1) | `Beschreibung` (2) | `CAS-Nummer` (3) | `Verwendungszweck` (4) |
 | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value |
-| Usage | Required | Optional | Optional | Required | Optional |
+| type | RecommendedKey | Value | Value | Value | Value |
+| Usage | Required | Required | Optional | Optional | Optional |
 | Lang | None | None | None | None | None |
 
 ## Präfixe im DVDV
@@ -1018,9 +1018,9 @@ Diese Codeliste enthält alle Präfixe, welche im DVDV zum Einsatz kommen.
 | canonical uri | `urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix` |
 | canonical version uri | urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix_49 |
 
-| Field | `behoerdenkategorie` (0) | `praefix` (1) | `vergebendestelle` (2) |
+| Field | `praefix` (0) | `behoerdenkategorie` (1) | `vergebendestelle` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
+| type | RecommendedKey | Value | Value |
 | Usage | Required | Required | Required |
 | Lang | None | None | None |
 
@@ -1034,10 +1034,10 @@ Eine Liste der Kommunikationsmedien und -kanäle, über die man eine Person oder
 | canonical uri | `urn:de:xoev:codeliste:erreichbarkeit` |
 | canonical version uri | urn:de:xoev:codeliste:erreichbarkeit_3 |
 
-| Field | `Beschreibung` (0) | `IANA.URI-Scheme` (1) | `code` (2) |
+| Field | `code` (0) | `Beschreibung` (1) | `IANA.URI-Scheme` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Required | Optional | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
 ## Art der Trinkwasseranlage
@@ -1050,10 +1050,10 @@ Mit dieser Codeliste wird im Rahmen von XWasser die Art einer Trinkwasseranlage 
 | canonical uri | `urn:xoev-de:xwasser:codeliste:art-trinkwasseranlage` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:art-trinkwasseranlage_1 |
 
-| Field | `Art-Trinkwasseranlage` (0) | `Beschreibung` (1) | `Key` (2) |
+| Field | `Key` (0) | `Art-Trinkwasseranlage` (1) | `Beschreibung` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Required | Optional | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
 ## Status fachlich
@@ -1068,7 +1068,7 @@ Mit dieser Codeliste wird der fachliche Status definiert.
 
 | Field | `Key` (0) | `StatusFachlich` (1) |
 | -- | -- | -- |
-| type | Value | Value |
+| type | RecommendedKey | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -1082,10 +1082,10 @@ Angabe der Art eines gesetzlichen Vertreters.
 | canonical uri | `urn:xoev-de:xunternehmen:codeliste:artgesetzlichervertreter` |
 | canonical version uri | urn:xoev-de:xunternehmen:codeliste:artgesetzlichervertreter_1 |
 
-| Field | `Beschreibung` (0) | `Code` (1) |
+| Field | `Code` (0) | `Beschreibung` (1) |
 | -- | -- | -- |
-| type | Value | Value |
-| Usage | Optional | Required |
+| type | RecommendedKey | Value |
+| Usage | Required | Optional |
 | Lang | None | None |
 
 ## Vorfall Überschreitungsursache
@@ -1098,11 +1098,11 @@ Mit dieser Codeliste wird im Rahmen von XWasser die Ursache eines Überschreitun
 | canonical uri | `urn:xoev-de:xwasser:codeliste:incident-exceedance-cause` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:incident-exceedance-cause_1 |
 
-| Field | `Beschreibung` (0) | `Description` (1) | `ExceedanceCause` (2) | `Key` (3) | `Ueberschreitungsgrund` (4) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Description` (2) | `ExceedanceCause` (3) | `Ueberschreitungsgrund` (4) |
 | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value |
-| Usage | Optional | Optional | Required | Required | Required |
-| Lang | None | None | None | None | None |
+| type | RecommendedKey | Value | Value | Key | Value |
+| Usage | Required | Optional | Optional | Required | Required |
+| Lang | None | Some("de-DE") | Some("en-GB") | Some("en-GB") | Some("de-DE") |
 
 ## WVA und WVG
 
@@ -1114,10 +1114,10 @@ Mit dieser Codeliste wird im Kontext von XWasser die Art der Wassserversorgungsa
 | canonical uri | `urn:xoev-de:xwasser:codeliste:wva` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:wva_1 |
 
-| Field | `Beschreibung` (0) | `Key` (1) | `WVA` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `WVA` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Untersuchungsverfahren
@@ -1130,10 +1130,10 @@ Mit dieser Codeliste wird im Kontext von XWasser das Untersuchungsverfahren von 
 | canonical uri | `urn:xoev-de:xwasser:codeliste:untersuchungsverfahren` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:untersuchungsverfahren_2 |
 
-| Field | `Beschreibung` (0) | `DEV-Kurzbezeichnung` (1) | `Ersetzte-Staende` (2) | `Hinweis` (3) | `Key` (4) | `Untersuchungsverfahren` (5) |
+| Field | `Key` (0) | `Beschreibung` (1) | `DEV-Kurzbezeichnung` (2) | `Ersetzte-Staende` (3) | `Hinweis` (4) | `Untersuchungsverfahren` (5) |
 | -- | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Value | Value |
-| Usage | Optional | Optional | Optional | Optional | Required | Required |
+| type | RecommendedKey | Value | Value | Value | Value | Value |
+| Usage | Required | Optional | Optional | Optional | Optional | Required |
 | Lang | None | None | None | None | None | None |
 
 ## Parameterausprägung
@@ -1146,9 +1146,9 @@ Diese Codeliste definiert im Rahmen von XWasser die speziellen Ausprägungen von
 | canonical uri | `urn:xoev-de:xwasser:codeliste:parameterauspraegung` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:parameterauspraegung_2 |
 
-| Field | `Parameterklassifizierung` (0) | `SHATPH-Parameterauspraegung-ID` (1) | `Stoffgruppe` (2) |
+| Field | `SHATPH-Parameterauspraegung-ID` (0) | `Parameterklassifizierung` (1) | `Stoffgruppe` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
+| type | RecommendedKey | Value | Value |
 | Usage | Required | Required | Required |
 | Lang | None | None | None |
 
@@ -1162,9 +1162,9 @@ Mit dieser Codeliste wird im Kontext von XWasser das Gerät definiert, mit dem e
 | canonical uri | `urn:xoev-de:xwasser:codeliste:probenentnahmegeraet` |
 | canonical version uri | urn:xoev-de:xwasser:codeliste:probenentnahmegeraet_1 |
 
-| Field | `Beschreibung` (0) | `Key` (1) | `Probenentnahmegeraet` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Probenentnahmegeraet` (2) |
 | -- | -- | -- | -- |
-| type | Value | Value | Value |
-| Usage | Optional | Required | Required |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 

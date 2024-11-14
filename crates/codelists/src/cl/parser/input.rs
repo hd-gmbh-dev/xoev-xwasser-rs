@@ -58,8 +58,8 @@ pub struct Description {
 
 #[derive(Debug, XmlDeserialize)]
 pub struct AppInfo {
-    #[xml(ns = b"xoev-cl-4", name = b"recommendedKeyColumn", ty = "child")]
-    pub recommended_key_column: Option<StringValue>,
+    #[xml(ns = b"xoev-cl-4", name = b"recommendedKeyColumn", ty = "sfc")]
+    pub recommended_key_column: Option<bool>,
 }
 
 #[derive(Debug, XmlDeserialize)]
@@ -108,7 +108,7 @@ pub struct Column {
     pub usage: Option<String>,
     #[xml(name = b"ShortName", ty = "child")]
     pub short_name: Option<StringValue>,
-    #[xml(name = b"Data", ty = "child")]
+    #[xml(name = b"Data", ty = "sfc")]
     pub data: Option<Data>,
 }
 
@@ -126,7 +126,7 @@ pub struct Key {
     pub annotation: Option<Annotation>,
     #[xml(name = b"ShortName", ty = "child")]
     pub _short_name: Option<StringValue>,
-    #[xml(name = b"ColumnRef", ty = "child")]
+    #[xml(name = b"ColumnRef", ty = "sfc")]
     pub column_ref: Option<ColumnRef>,
 }
 

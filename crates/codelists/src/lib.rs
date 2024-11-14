@@ -49,10 +49,28 @@ pub trait XWasserCodeListValue {
 
 #[cfg(test)]
 mod tests {
+    use super::*;
+
     #[test]
     fn test_data_set_v0_7_0() -> anyhow::Result<()> {
-        let source = super::map::<crate::v0_7_0::Source>()?;
-        assert_eq!(source.len(), 71);
+        let source = map::<crate::v0_7_0::Source>()?;
+
+        assert_eq!(source.len(), 73);
+
+        impl<T> XWasserCodeListValue for T
+        where
+            T: AsRef<str>,
+        {
+            const CODELIST: &str = "urn:xoev-de:xwasser:codeliste:parameterauspraegung";
+
+            fn as_value(&self) -> &str {
+                self.as_ref()
+            }
+        }
+
+        assert!("10005-2".validate(&source));
+        assert!(!"qqq".validate(&source));
+
         Ok(())
     }
 }
