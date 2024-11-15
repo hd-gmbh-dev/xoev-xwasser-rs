@@ -46,6 +46,15 @@ impl CodeListsProvider for CodeLists {
     }
 }
 
+impl<T> CodeListsProvider for Arc<T>
+where
+    T: CodeListsProvider,
+{
+    fn contains(&self, codelist: &str, value: &str) -> bool {
+        T::contains(self, codelist, value)
+    }
+}
+
 pub trait CodeListValue {
     const CODELIST: &str;
 
