@@ -2681,7 +2681,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser"
-version = "0.700.4+0.7.0"
+version = "0.700.5+0.7.0"
 dependencies = [
  "anyhow",
  "chrono",
@@ -2708,7 +2708,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser-codelists"
-version = "0.700.4+0.7.0"
+version = "0.700.5+0.7.0"
 dependencies = [
  "anyhow",
  "bson",
@@ -2722,7 +2722,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser-derive"
-version = "0.700.4+0.7.0"
+version = "0.700.5+0.7.0"
 dependencies = [
  "darling",
  "heck",
