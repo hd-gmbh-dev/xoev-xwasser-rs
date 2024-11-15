@@ -1,7 +1,10 @@
-use xoev_xwasser_codelists::{CodeListValue, CodeLists};
+use xoev_xwasser_codelists::{CodeListValue, CodeListsProvider};
 
 pub trait XWasserValidate {
-    fn xwasser_validate(&self, codelists: &CodeLists) -> Result<(), XWasserValidateError>;
+    fn xwasser_validate(
+        &self,
+        codelists: &impl CodeListsProvider,
+    ) -> Result<(), XWasserValidateError>;
 }
 
 pub enum XWasserValidateError {
@@ -14,7 +17,10 @@ impl<T> XWasserValidate for T
 where
     T: CodeListValue + XWasserValidateMarker,
 {
-    fn xwasser_validate(&self, codelists: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(
+        &self,
+        codelists: &impl CodeListsProvider,
+    ) -> Result<(), XWasserValidateError> {
         if self.validate(codelists) {
             Ok(())
         } else {
@@ -30,7 +36,10 @@ impl<T> XWasserValidate for Option<T>
 where
     T: XWasserValidate,
 {
-    fn xwasser_validate(&self, codelists: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(
+        &self,
+        codelists: &impl CodeListsProvider,
+    ) -> Result<(), XWasserValidateError> {
         self.as_ref()
             .map(|t| t.xwasser_validate(codelists))
             .unwrap_or(Ok(()))
@@ -41,7 +50,10 @@ impl<T> XWasserValidate for Vec<T>
 where
     T: XWasserValidate,
 {
-    fn xwasser_validate(&self, codelists: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(
+        &self,
+        codelists: &impl CodeListsProvider,
+    ) -> Result<(), XWasserValidateError> {
         self.iter()
             .find_map(|t| t.xwasser_validate(codelists).err())
             .map(Err)
@@ -50,91 +62,91 @@ where
 }
 
 impl XWasserValidate for raxb::value::ConstStr {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for String {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for bool {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for isize {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for u64 {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for u32 {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for u16 {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for u8 {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for i64 {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for i32 {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for i16 {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for i8 {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for usize {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for f64 {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
 
 impl XWasserValidate for () {
-    fn xwasser_validate(&self, _: &CodeLists) -> Result<(), XWasserValidateError> {
+    fn xwasser_validate(&self, _: &impl CodeListsProvider) -> Result<(), XWasserValidateError> {
         Ok(())
     }
 }
