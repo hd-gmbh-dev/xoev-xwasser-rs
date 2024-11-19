@@ -92,6 +92,6 @@ pub struct DokumentType {
     #[xml(ns = b"xwas", name = b"personReferenzID", ty = "child")]
     #[serde(default)]
     pub person_referenz_id: Vec<String>,
-    #[xml(ns = b"xwas", name = b"dokumentID", ty = "attr")]
+    #[xml(name = b"dokumentID", ty = "attr")]
     pub dokument_id: String,
 }

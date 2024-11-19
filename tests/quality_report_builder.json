@@ -1,17 +1,17 @@
 {
   "produkt": "XWasser Test",
   "produkthersteller": "H&D GmbH",
-  "produktversion": "0.700.5",
+  "produktversion": "0.700.6",
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "f2f3f0e2-cc21-40c3-838e-ca698e69eac4",
+      "nachrichten_uuid": "787f64ee-5a92-4e01-895e-73b764ea0b54",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2024-11-14T19:49:15"
+      "erstellungszeitpunkt": "2024-11-19T08:48:46"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -36,17 +36,17 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "f6cbcbcf-a11b-4386-92cd-2e39fce77f50"
+      "vorgangs_id": "82accc9e-074e-4e21-8971-827803462ea7"
     },
     "vorgang_type": {
       "t": "Pruefbericht",
       "c": {
-        "pruefbericht_uuid": "cd9ed35e-1386-4f3f-b5d6-fa4f2d47eab2",
+        "pruefbericht_uuid": "e6af8eb3-d4c1-4552-ad7b-572b0e6542f8",
         "vorgaenger_pruefbericht_id": null,
-        "auftragsnummer": "d7afb7a8-9de8-4ee1-ae91-54fc82afae73",
+        "auftragsnummer": "5e5071e1-6e07-4f8a-a91a-0657b2033238",
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "id-651c5574-f8f2-479c-bf77-a0f7ef489692",
+            "probennahmestelle_id": "id-35fd4ee6-155b-48fe-bfff-7cb61ee01fdd",
             "objekt_id": "none",
             "probe": [],
             "terminplan_id": [],
@@ -74,20 +74,20 @@
             "alt_id": null,
             "berichtspflichtig": null,
             "kommentar": null,
-            "id": "id-651c5574-f8f2-479c-bf77-a0f7ef489692"
+            "id": "id-35fd4ee6-155b-48fe-bfff-7cb61ee01fdd"
           }
         ],
         "probe": [
           {
-            "probe_id": "7234bb7f-a601-45ce-963a-6a79ce9f7809",
-            "probennahmestelle": "id-651c5574-f8f2-479c-bf77-a0f7ef489692",
+            "probe_id": "32f8029a-80d9-4e45-987f-a2f077f1aea2",
+            "probennahmestelle": "id-35fd4ee6-155b-48fe-bfff-7cb61ee01fdd",
             "untersuchungsplan_id": null,
             "probennehmer": null,
             "titel_probe": null,
             "analyseergebnis_parameter": [
               {
-                "analyseergebnis_parameter_id": "b2b74d34-b624-4958-9d8b-1dc259d5cd7e",
-                "anschrift_id": "anschrift-sDr6wG1c",
+                "analyseergebnis_parameter_id": "b2049018-96b7-4a20-91c6-c14d754bd151",
+                "anschrift_id": "anschrift-mCvhyy9b",
                 "zugelassene_untersuchungsstelle": "wsu-1",
                 "akkreditierte_durchfuehrung_analyse": false,
                 "untersuchungsverfahren": [
@@ -140,7 +140,7 @@
             },
             "akkreditierte_durchfuehrung_der_probennahme": false,
             "ergaenzung_zum_medium": null,
-            "zeitpunkt_probennahme": "2024-11-14T19:49:15",
+            "zeitpunkt_probennahme": "2024-11-19T08:48:46",
             "probennahmeverfahren": [
               {
                 "code": "1010",
@@ -162,9 +162,9 @@
             ],
             "kommentar_zur_probennahme": null,
             "informationen_zum_probentransport": null,
-            "eingang_probe_bei_untersuchungsstelle": "2024-11-14T19:49:15",
-            "beginn_labortaetigkeit_analytik": "2024-11-14T19:49:15",
-            "abschluss_labortaetigkeit_analytik": "2024-11-14T19:49:15",
+            "eingang_probe_bei_untersuchungsstelle": "2024-11-19T08:48:46",
+            "beginn_labortaetigkeit_analytik": "2024-11-19T08:48:46",
+            "abschluss_labortaetigkeit_analytik": "2024-11-19T08:48:46",
             "konformitaetsbewertung_der_probe": {
               "code": "1010",
               "name": null
@@ -185,7 +185,7 @@
         },
         "probennehmer": [
           {
-            "probennehmer_id": "00f9afc5-39b1-4502-9aff-99a9d600d63d",
+            "probennehmer_id": "56f1163a-b76d-4fb0-956c-d82d23502fb0",
             "probennehmer": {
               "t": "NatuerlichePerson",
               "c": {
@@ -220,7 +220,7 @@
           "name": null
         },
         "auffaelligkeiten": [],
-        "zeitpunkt_validierung_pruefbericht": "2024-11-14T19:49:15",
+        "zeitpunkt_validierung_pruefbericht": "2024-11-19T08:48:46",
         "fuer_validierung_verantwortliche_person": [
           {
             "auskunftssperre": [],
@@ -334,7 +334,7 @@
             "typ": [],
             "staat": null,
             "verwaltungspolitische_kodierung": null,
-            "id": "anschrift-sDr6wG1c"
+            "id": "anschrift-mCvhyy9b"
           }
         ],
         "anhang": [],
