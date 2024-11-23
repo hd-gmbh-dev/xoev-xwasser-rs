@@ -277,7 +277,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     let e = VorgangTransportieren2010::builder()
         .produkt("XWasser Test".into())
         .produkthersteller("H&D GmbH".into())
-        .produktversion("0.700.6".into())
+        .produktversion("0.700.7".into())
         .test(Some(true))
         .nachrichtenkopf_g2g(nachrichtenkopf_g2g)
         .vorgang(
