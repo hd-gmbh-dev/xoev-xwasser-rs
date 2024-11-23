@@ -15,6 +15,7 @@
     "xoev_xwasser_bg.wasm.d.ts",
     "xoev_xwasser.d.ts",
     "xoev_xwasser.js",
+    "codelist.json",
     "xwasser-v070.xsdb.bin",
     "xoev-xwasser-utils.cjs",
     "xoev-xwasser-utils.cjs.map",
