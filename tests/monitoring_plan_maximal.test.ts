@@ -12,7 +12,7 @@ import path from "path";
 const __dirname = import.meta.dirname;
 import xmlvalidate, { XmlValidatorError } from "@raxb/validate-wasm";
 const xsdBundle = fs.readFileSync(
-  path.resolve(__dirname, "../pkg/xwasser-v070.xsdb.bin"),
+  path.resolve(__dirname, "../pkg/xwasser-v072.xsdb.bin"),
 ).buffer;
 
 describe("maximal monitoring plan xml generation via wasm", async () => {
