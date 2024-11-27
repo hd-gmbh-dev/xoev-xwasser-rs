@@ -45,7 +45,7 @@ fn xoev_xwasser_code2(
         #[cfg_attr(feature = "builder", derive(TypedBuilder))]
         #[xml(tns(
             b"xwas",
-            b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
+            b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
         ))]
         pub struct #name {
             #[xml(name = b"code", ty = "child")]

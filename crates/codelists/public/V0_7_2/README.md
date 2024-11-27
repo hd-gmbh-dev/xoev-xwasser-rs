@@ -1,4 +1,4 @@
-# XWasser codelists - version `V0_7_0`
+# XWasser codelists - version `V0_7_2`
 
 ## Untersuchungsstelle
 
@@ -512,6 +512,22 @@ Mit dieser Codeliste wird im Kontext von XWasser das Gerät angegeben, mit dem e
 | Usage | Required | Required |
 | Lang | None | None |
 
+## SHAPTH Parameter
+
+Mit dieser Codeliste werden im Kontext von XWasser die SHAPTH-Parameter definiert.
+
+| | |
+| -- | -- |
+| short name | shapth-parameter |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:shapth-parameter` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:shapth-parameter_3 |
+
+| Field | `SHAPTH-Parameter-ID` (0) | `CAS-Nummer` (1) | `Datentyp` (2) | `Einheit` (3) | `Langname` (4) | `Leger-Nr` (5) | `Octoware-Name` (6) | `Octoware-Schluessel` (7) | `Parameter` (8) | `SEBAM-Langname` (9) | `Stoffgruppe` (10) | `Synonyme` (11) | `TEIS-Bezeichnung` (12) | `TEIS-Code` (13) | `TEIS-Kurzbezeichnung` (14) |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value | Value | Value | Key | Value | Value | Value | Value | Value | Value | Value | Key | Value |
+| Usage | Required | Optional | Required | Required | Optional | Required | Optional | Optional | Required | Optional | Required | Optional | Optional | Required | Optional |
+| Lang | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None |
+
 ## Kategorie des Vorfalls
 
 Mit dieser Codeliste wird im Kontext von XWasser die Kategorie eines Vorfalls definiert.
@@ -527,22 +543,6 @@ Mit dieser Codeliste wird im Kontext von XWasser die Kategorie eines Vorfalls de
 | type | RecommendedKey | Value | Key | Value |
 | Usage | Required | Optional | Required | Required |
 | Lang | None | Some("de-DE") | Some("en-GB") | Some("de-DE") |
-
-## SHAPTH Parameter
-
-Mit dieser Codeliste werden im Kontext von XWasser die SHAPTH-Parameter definiert.
-
-| | |
-| -- | -- |
-| short name | shapth-parameter |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:shapth-parameter` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:shapth-parameter_2 |
-
-| Field | `SHATPH-Parameter-ID` (0) | `CAS-Nummer` (1) | `Datentyp` (2) | `Einheit` (3) | `Langname` (4) | `Leger-Nr` (5) | `Octoware-Name` (6) | `Octoware-Schluessel` (7) | `Parameter` (8) | `SEBAM-Langname` (9) | `Stoffgruppe` (10) | `Synonyme` (11) | `TEIS-Bezeichnung` (12) | `TEIS-Code` (13) | `TEIS-Kurzbezeichnung` (14) |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value | Value | Value | Key | Value | Value | Value | Value | Value | Value | Value | Key | Value |
-| Usage | Required | Optional | Required | Required | Optional | Required | Optional | Optional | Required | Optional | Required | Optional | Optional | Required | Optional |
-| Lang | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None |
 
 ## Codeliste Staatsangehörigkeit aus der Staats- und Gebietssystematik des Statistischen Bundesamtes
 
@@ -898,7 +898,7 @@ Mit dieser Codeliste wird im Kontext von XWasser für bestimmte Parameter (z. B.
 
 ## Datentyp
 
-
+Die Werteliste der W3C-Datentypen (http://www.w3.org/TR/xmlschema-2, W3C Recommendation 28 October 2004) ergänzt um anySimpleType als Metadatentyp.
 
 | | |
 | -- | -- |
@@ -906,9 +906,9 @@ Mit dieser Codeliste wird im Kontext von XWasser für bestimmte Parameter (z. B.
 | canonical uri | `urn:xoev-de:xdomea:codeliste:datentyp` |
 | canonical version uri | urn:xoev-de:xdomea:codeliste:datentyp_1.1 |
 
-| Field | `beschreibung` (0) | `code` (1) |
+| Field | `code` (0) | `beschreibung` (1) |
 | -- | -- | -- |
-| type | Value | Key |
+| type | RecommendedKey | Value |
 | Usage | Required | Required |
 | Lang | None | None |
 
@@ -1104,6 +1104,22 @@ Mit dieser Codeliste wird im Rahmen von XWasser die Ursache eines Überschreitun
 | Usage | Required | Optional | Optional | Required | Required |
 | Lang | None | Some("de-DE") | Some("en-GB") | Some("en-GB") | Some("de-DE") |
 
+## Parameterausprägung
+
+Diese Codeliste definiert im Rahmen von XWasser die speziellen Ausprägungen von qualitativen Parametern.
+
+| | |
+| -- | -- |
+| short name | parameterauspraegung |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:parameterauspraegung` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:parameterauspraegung_3 |
+
+| Field | `SHAPTH-Parameterauspraegung-ID` (0) | `Parameterklassifizierung` (1) | `Stoffgruppe` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Required |
+| Lang | None | None | None |
+
 ## WVA und WVG
 
 Mit dieser Codeliste wird im Kontext von XWasser die Art der Wassserversorgungsanlage definiert.
@@ -1135,22 +1151,6 @@ Mit dieser Codeliste wird im Kontext von XWasser das Untersuchungsverfahren von 
 | type | RecommendedKey | Value | Value | Value | Value | Value |
 | Usage | Required | Optional | Optional | Optional | Optional | Required |
 | Lang | None | None | None | None | None | None |
-
-## Parameterausprägung
-
-Diese Codeliste definiert im Rahmen von XWasser die speziellen Ausprägungen von qualitativen Parametern.
-
-| | |
-| -- | -- |
-| short name | parameterauspraegung |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:parameterauspraegung` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:parameterauspraegung_2 |
-
-| Field | `SHATPH-Parameterauspraegung-ID` (0) | `Parameterklassifizierung` (1) | `Stoffgruppe` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Required | Required |
-| Lang | None | None | None |
 
 ## Probenentnahmegerät
 

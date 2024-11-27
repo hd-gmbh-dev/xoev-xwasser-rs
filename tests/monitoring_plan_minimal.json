@@ -91,7 +91,6 @@
           "code": "1010",
           "name": null
         },
-        "kommentar": [],
         "terminplan": [
           {
             "terminplan_id": "0001",
@@ -576,6 +575,7 @@
           },
           "kommentar": null
         },
+        "kommentar": [],
         "aenderungshistorie": null,
         "erweiterung": null,
         "id": "untersuchungsplan1"
