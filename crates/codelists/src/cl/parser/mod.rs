@@ -8,7 +8,7 @@ mod tests {
     #[test]
     fn assert_parse() {
         let icl: input::CodeList = raxb::de::from_str(include_str!(
-            "../../../data/V0_7_0/Parameterausprägung_2.xml"
+            "../../../data/V0_7_2/Parameterausprägung_3.xml"
         ))
         .expect("parsable code list");
 

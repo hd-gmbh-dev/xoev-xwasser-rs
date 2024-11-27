@@ -31,7 +31,7 @@ use super::{
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
 ))]
 pub struct ZugelasseneUntersuchungsstelleType {
     #[xml(name = b"id", ty = "attr")]
@@ -109,7 +109,7 @@ pub struct ZugelasseneUntersuchungsstelleType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
 ))]
 pub struct BeauftragteUntersuchungsstelleType {
     #[xml(name = b"id", ty = "attr")]

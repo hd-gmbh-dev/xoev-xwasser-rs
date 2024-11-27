@@ -25,7 +25,7 @@ use super::zeitraum::ZeitraumType;
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
 ))]
 pub struct IdentifikationType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
@@ -51,7 +51,7 @@ pub struct IdentifikationType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
 ))]
 pub struct ErweiterungXmlType {
     // weiteres xml schema
@@ -70,7 +70,7 @@ pub struct ErweiterungXmlType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
 ))]
 pub struct ErweiterungFeldType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -92,7 +92,7 @@ pub struct ErweiterungFeldType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
 ))]
 pub struct ErweiterungGruppeType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -122,7 +122,7 @@ pub struct ErweiterungGruppeType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
 ))]
 pub struct ErweiterungType {
     #[xml(ns = b"xwas", name = b"feld", ty = "child")]
@@ -144,7 +144,7 @@ pub struct ErweiterungType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
 ))]
 pub struct GeokoordinatenShapthType {
     #[xml(

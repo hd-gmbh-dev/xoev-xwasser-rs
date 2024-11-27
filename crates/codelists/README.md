@@ -9,4 +9,4 @@ Once the content in `./data` has changed, only run `cargo build` to update the J
 
 ## Versions
 
-- XWasser Codelist [v0.7.0](./public/V0_7_0/README.md)
+- XWasser Codelist [v0.7.2](./public/V0_7_2/README.md)

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
            xmlns:bn-uq-g2g="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"
            xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
            xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
-           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/"
-           version="0.7.0"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+           version="0.7.2"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
    <xs:annotation>
@@ -18,7 +18,7 @@
             <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
          </standard>
          <versionStandard>
-            <version>0.7.0</version>
+            <version>0.7.2</version>
             <versionXOEVProfil>3.0.2</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -3045,17 +3045,17 @@
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>2</version>
+               <version>3</version>
                <datumGueltigkeitAb>2024-12-01</datumGueltigkeitAb>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
             </versionCodeliste>
             <codelistenspalten>
-               <SHATPH-Parameterauspraegung-ID>
+               <SHAPTH-Parameterauspraegung-ID>
                   <datentyp>string</datentyp>
                   <codeSpalte>true</codeSpalte>
                   <verwendung>required</verwendung>
                   <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
-               </SHATPH-Parameterauspraegung-ID>
+               </SHAPTH-Parameterauspraegung-ID>
                <Parameterklassifizierung>
                   <datentyp>string</datentyp>
                   <codeSpalte>false</codeSpalte>
@@ -3069,7 +3069,7 @@
                   <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
                </Stoffgruppe>
             </codelistenspalten>
-            <genutzteCodeSpalte>SHATPH-Parameterauspraegung-ID</genutzteCodeSpalte>
+            <genutzteCodeSpalte>SHAPTH-Parameterauspraegung-ID</genutzteCodeSpalte>
          </xs:appinfo>
       </xs:annotation>
       <xs:complexContent>
@@ -3088,7 +3088,7 @@
             <xs:attribute name="listVersionID"
                           type="xs:normalizedString"
                           use="optional"
-                          fixed="2"/>
+                          fixed="3"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -7079,11 +7079,6 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Technischer Status des Untersuchungsplans. Hinweis Der technische Status sagt nichts über den fachlichen Status der Untersuchungen aus.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
-            <xs:annotation>
-               <xs:documentation>Kommentar zu dem Untersuchungsplan.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
          <xs:element name="terminplan" maxOccurs="unbounded" type="xwas:TerminplanType">
             <xs:annotation>
                <xs:documentation>Mit dieser Relation lässt sich zu einem Untersuchungsplan ein Terminplan erfassen.</xs:documentation>
@@ -7102,6 +7097,14 @@ Untersuchungsplan</nameKurz>
          <xs:element name="zustaendigeBehoerde" type="xwas:ZustaendigeBehoerdeType">
             <xs:annotation>
                <xs:documentation>Hier werden die Angaben zur zuständigen Behörde übermittelt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="kommentar"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xwas:KommentarType">
+            <xs:annotation>
+               <xs:documentation>Kommentar zu dem Untersuchungsplan.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="aenderungshistorie"
@@ -10923,17 +10926,17 @@ Untersuchungsplan</nameKurz>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>2</version>
+               <version>3</version>
                <datumGueltigkeitAb>2024-12-01</datumGueltigkeitAb>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
             </versionCodeliste>
             <codelistenspalten>
-               <SHATPH-Parameterauspraegung-ID>
+               <SHAPTH-Parameterauspraegung-ID>
                   <datentyp>string</datentyp>
                   <codeSpalte>true</codeSpalte>
                   <verwendung>required</verwendung>
                   <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
-               </SHATPH-Parameterauspraegung-ID>
+               </SHAPTH-Parameterauspraegung-ID>
                <Parameterklassifizierung>
                   <datentyp>string</datentyp>
                   <codeSpalte>false</codeSpalte>

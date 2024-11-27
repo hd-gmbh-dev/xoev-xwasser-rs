@@ -26,8 +26,8 @@ describe("minimal monitoring plan xml generation via wasm", async () => {
     const xml = create_vorgang_transportieren_2010(
       monitoring_plan_minimal as any as VorgangTransportieren2010,
     ).replace(
-      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/ xwasser.xsd",
-      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_0/ ../schemas/V0_7_0/xwasser.xsd",
+      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/ xwasser.xsd",
+      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/ ../schemas/V0_7_2/xwasser.xsd",
     );
     const expected_xml = fs.readFileSync(
       path.resolve(__dirname, "./monitoring_plan_minimal_test_result.xml"),

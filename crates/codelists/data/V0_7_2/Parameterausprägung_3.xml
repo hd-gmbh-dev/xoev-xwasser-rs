@@ -14,16 +14,16 @@
    <Identification>
       <ShortName>parameterauspraegung</ShortName>
       <LongName>Parameterausprägung</LongName>
-      <Version>2</Version>
+      <Version>3</Version>
       <CanonicalUri>urn:xoev-de:xwasser:codeliste:parameterauspraegung</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:parameterauspraegung_2</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:parameterauspraegung_3</CanonicalVersionUri>
       <Agency>
          <LongName>XWasser</LongName>
       </Agency>
    </Identification>
    <ColumnSet>
-      <Column Id="SHATPH-Parameterauspraegung-ID" Use="required">
-         <ShortName>SHATPH-Parameterauspraegung-ID</ShortName>
+      <Column Id="SHAPTH-Parameterauspraegung-ID" Use="required">
+         <ShortName>SHAPTH-Parameterauspraegung-ID</ShortName>
          <Data Type="string"/>
       </Column>
       <Column Id="Parameterklassifizierung" Use="required">
@@ -34,19 +34,19 @@
          <ShortName>Stoffgruppe</ShortName>
          <Data Type="string"/>
       </Column>
-      <Key Id="SHATPH-Parameterauspraegung-IDKey">
+      <Key Id="SHAPTH-Parameterauspraegung-IDKey">
          <Annotation>
             <AppInfo>
                <xoev-cl-4:recommendedKeyColumn/>
             </AppInfo>
          </Annotation>
-         <ShortName>SHATPH-Parameterauspraegung-IDKey</ShortName>
-         <ColumnRef Ref="SHATPH-Parameterauspraegung-ID"/>
+         <ShortName>SHAPTH-Parameterauspraegung-IDKey</ShortName>
+         <ColumnRef Ref="SHAPTH-Parameterauspraegung-ID"/>
       </Key>
    </ColumnSet>
    <SimpleCodeList>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10001-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -57,7 +57,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10001-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -68,7 +68,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10001-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -79,7 +79,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10001-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -90,7 +90,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10002-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -101,7 +101,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10002-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -112,7 +112,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10002-10</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -123,7 +123,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10002-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -134,7 +134,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10002-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -145,7 +145,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10002-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -156,7 +156,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10002-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -167,7 +167,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10002-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -178,7 +178,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10002-7</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -189,7 +189,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10002-8</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -200,7 +200,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10002-9</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -211,7 +211,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10003-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -222,7 +222,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10003-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -233,7 +233,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10003-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -244,7 +244,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10003-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -255,7 +255,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10004-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -266,7 +266,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10004-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -277,7 +277,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10004-10</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -288,7 +288,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10004-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -299,7 +299,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10004-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -310,7 +310,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10004-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -321,7 +321,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10004-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -332,7 +332,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10004-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -343,7 +343,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10004-7</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -354,7 +354,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10004-8</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -365,7 +365,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10004-9</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -376,7 +376,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10005-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -387,7 +387,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10005-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -398,7 +398,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10005-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -409,7 +409,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10005-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -420,7 +420,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10005-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -431,7 +431,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10005-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -442,7 +442,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10005-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -453,7 +453,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10005-7</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -464,7 +464,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10005-8</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -475,7 +475,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10006-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -486,7 +486,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10006-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -497,7 +497,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10006-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -508,7 +508,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10006-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -519,7 +519,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10006-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -530,7 +530,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10006-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -541,7 +541,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10006-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -552,7 +552,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10007-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -563,7 +563,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10007-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -574,7 +574,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10007-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -585,7 +585,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10007-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -596,7 +596,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10007-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -607,7 +607,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10007-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -618,7 +618,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10007-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -629,7 +629,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10008-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -640,7 +640,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10008-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -651,7 +651,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10008-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -662,7 +662,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10008-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -673,7 +673,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10008-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -684,7 +684,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10008-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -695,7 +695,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10008-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -706,7 +706,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10008-7</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -717,7 +717,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10008-8</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -728,7 +728,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10009-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -739,7 +739,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10009-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -750,7 +750,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10009-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -761,7 +761,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10009-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -772,7 +772,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10009-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -783,7 +783,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10009-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -794,7 +794,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10009-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -805,7 +805,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10010-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -816,7 +816,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10010-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -827,7 +827,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10010-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -838,7 +838,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10010-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -849,7 +849,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10010-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -860,7 +860,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10010-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -871,7 +871,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10010-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -882,7 +882,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10011-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -893,7 +893,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10011-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -904,7 +904,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10011-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -915,7 +915,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10011-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -926,7 +926,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10012-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -937,7 +937,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10012-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -948,7 +948,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10012-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -959,7 +959,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10012-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -970,7 +970,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10012-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -981,7 +981,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10012-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -992,7 +992,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10012-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1003,7 +1003,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10012-7</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1014,7 +1014,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10013-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1025,7 +1025,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10013-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1036,7 +1036,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10013-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1047,7 +1047,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10013-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1058,7 +1058,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10013-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1069,7 +1069,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10013-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1080,7 +1080,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10013-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1091,7 +1091,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10013-7</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1102,7 +1102,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10013-8</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1113,7 +1113,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10014-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1124,7 +1124,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10014-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1135,7 +1135,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10014-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1146,7 +1146,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10014-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1157,7 +1157,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10015-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1168,7 +1168,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10015-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1179,7 +1179,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10015-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1190,7 +1190,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10015-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1201,7 +1201,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10015-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1212,7 +1212,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10015-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1223,7 +1223,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10015-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1234,7 +1234,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10015-7</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1245,7 +1245,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10016-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1256,7 +1256,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10016-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1267,7 +1267,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10016-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1278,7 +1278,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10016-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1289,7 +1289,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10016-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1300,7 +1300,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10016-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1311,7 +1311,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10016-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1322,7 +1322,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10016-7</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1333,7 +1333,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10016-8</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1344,7 +1344,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10019-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1355,7 +1355,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10019-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1366,7 +1366,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10019-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1377,7 +1377,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10019-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1388,7 +1388,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10020-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1399,7 +1399,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10020-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1410,7 +1410,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10020-10</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1421,7 +1421,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10020-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1432,7 +1432,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10020-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1443,7 +1443,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10020-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1454,7 +1454,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10020-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1465,7 +1465,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10020-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1476,7 +1476,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10020-7</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1487,7 +1487,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10020-8</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1498,7 +1498,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10020-9</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1509,7 +1509,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10021-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1520,7 +1520,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10021-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1531,7 +1531,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10021-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1542,7 +1542,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10021-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1553,7 +1553,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10021-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1564,7 +1564,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10021-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1575,7 +1575,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10022-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1586,7 +1586,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10022-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1597,7 +1597,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10022-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1608,7 +1608,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10022-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1619,7 +1619,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10023-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1630,7 +1630,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10023-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1641,7 +1641,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10023-10</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1652,7 +1652,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10023-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1663,7 +1663,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10023-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1674,7 +1674,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10023-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1685,7 +1685,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10023-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1696,7 +1696,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10023-6</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1707,7 +1707,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10023-7</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1718,7 +1718,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10023-8</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1729,7 +1729,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10023-9</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1740,7 +1740,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10024-0</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1751,7 +1751,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10024-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1762,7 +1762,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10024-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1773,7 +1773,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10024-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1784,7 +1784,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10024-4</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1795,7 +1795,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>10024-5</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1806,7 +1806,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>11031-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1817,7 +1817,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>11031-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1828,7 +1828,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>11031-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1839,7 +1839,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>14004-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1850,7 +1850,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>14004-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1861,7 +1861,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>14004-3</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1872,7 +1872,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80014-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1883,7 +1883,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80014-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1894,7 +1894,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80015-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1905,7 +1905,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80015-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1916,7 +1916,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80016-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1927,7 +1927,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80016-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1938,7 +1938,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80017-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1949,7 +1949,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80017-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1960,7 +1960,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80018-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1971,7 +1971,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80018-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1982,7 +1982,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80019-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -1993,7 +1993,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80019-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2004,7 +2004,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80020-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2015,7 +2015,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80020-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2026,7 +2026,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80022-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2037,7 +2037,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80022-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2048,7 +2048,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80023-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2059,7 +2059,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80023-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2070,7 +2070,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80026-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2081,7 +2081,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80026-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2092,7 +2092,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80027-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2103,7 +2103,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80027-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2114,7 +2114,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80033-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2125,7 +2125,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80033-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2136,7 +2136,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80034-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2147,7 +2147,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80034-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2158,7 +2158,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80040-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2169,7 +2169,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80040-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2180,7 +2180,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80041-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2191,7 +2191,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80041-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2202,7 +2202,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80042-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2213,7 +2213,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80042-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2224,7 +2224,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80051-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2235,7 +2235,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80051-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2246,7 +2246,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80053-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2257,7 +2257,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80053-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2268,7 +2268,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80054-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2279,7 +2279,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80054-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2290,7 +2290,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80057-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2301,7 +2301,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80057-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2312,7 +2312,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80058-1</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">
@@ -2323,7 +2323,7 @@
          </Value>
       </Row>
       <Row>
-         <Value ColumnRef="SHATPH-Parameterauspraegung-ID">
+         <Value ColumnRef="SHAPTH-Parameterauspraegung-ID">
             <SimpleValue>80058-2</SimpleValue>
          </Value>
          <Value ColumnRef="Parameterklassifizierung">

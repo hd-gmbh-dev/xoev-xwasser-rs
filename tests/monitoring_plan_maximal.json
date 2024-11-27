@@ -91,9 +91,6 @@
           "code": "1010",
           "name": null
         },
-        "kommentar": [
-          "Reguläre Untersuchung im ersten Quartal"
-        ],
         "terminplan": [
           {
             "terminplan_id": "0001",
@@ -2319,6 +2316,13 @@
           },
           "kommentar": null
         },
+        "kommentar": [
+          {
+            "autor": "test autor",
+            "erstellungszeitpunkt": "2024-06-15T09:00:00",
+            "inhalt": "Reguläre Untersuchung im ersten Quartal"
+          }
+        ],
         "aenderungshistorie": null,
         "erweiterung": {
           "feld": [
