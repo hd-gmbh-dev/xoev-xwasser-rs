@@ -1,20 +1,4 @@
-# XWasser codelists - version `V0_7_2`
-
-## Untersuchungsstelle
-
-Beschreibung der Codeliste. Diese Codeliste definiert alle im Kontext von XWasser zugelassenen Untersuchungsstellen (Diese Codeliste soll langfristig über das Register für zugelassene Untersuchungsstellen abgelöst werden).
-
-| | |
-| -- | -- |
-| short name | untersuchungsstelle |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:untersuchungsstelle` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:untersuchungsstelle_1 |
-
-| Field | `Key` (0) | `Laenderkennzeichen` (1) | `Untersuchungsstelle` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Required | Required |
-| Lang | None | None | None |
+# XWasser codelists - version `V0_8_0`
 
 ## Desinfektionsart
 
@@ -191,22 +175,6 @@ Mit dieser Codeliste wird im Kontext von XWasser die Einheit eines SHAPTH Parame
 | type | RecommendedKey | Value |
 | Usage | Required | Required |
 | Lang | None | None |
-
-## Parameterunterauswahl
-
-Diese Codeliste dient im Rahmen von XWasser zur Definition der genauen Werte der jeweiligen Ausprägungen von qualitativen Parametern.
-
-| | |
-| -- | -- |
-| short name | parameterunterauswahl |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:parameterunterauswahl` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:parameterunterauswahl_1 |
-
-| Field | `Key` (0) | `Beschreibung` (1) | `Clusterung` (2) | `Position` (3) | `SHAPTH-Parameter-Nummer` (4) | `US-Code` (5) | `Unterauswahl` (6) |
-| -- | -- | -- | -- | -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value | Value | Value | Value | Value |
-| Usage | Required | Optional | Required | Required | Required | Optional | Required |
-| Lang | None | None | None | None | None | None | None |
 
 ## DSMeld Familienstand Beendigungsgrund (DSMeld-Blatt 1405)
 
@@ -863,22 +831,6 @@ Mit dieser Codeliste werden im Kontext von XWasser die Maßnahmen definiert.
 | type | RecommendedKey | Value | Value | Value | Value | Value | Value |
 | Usage | Required | Optional | Optional | Optional | Optional | Required | Optional |
 | Lang | None | Some("en-GB") | Some("de-DE") | Some("en-GB") | None | Some("de-DE") | None |
-
-## Wasserversorgungsgebiet
-
-Diese Codeliste enthält die Namen der Wasserversorgungsgebiete (Die Codeliste soll langfristig über das Register für Wasserversorgungegebiete abgelöst werden).
-
-| | |
-| -- | -- |
-| short name | wasserversorgungsgebiet |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:wasserversorgungsgebiet` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:wasserversorgungsgebiet_1 |
-
-| Field | `Key` (0) | `Codierung` (1) | `NUTS` (2) | `Wasserversorgungsgebiet` (3) |
-| -- | -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value | Value |
-| Usage | Required | Required | Optional | Required |
-| Lang | None | None | None | None |
 
 ## Art des Nachweises
 

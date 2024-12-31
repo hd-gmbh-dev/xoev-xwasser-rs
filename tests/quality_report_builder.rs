@@ -145,7 +145,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .probengefaess(Default::default())
         .ergaenzende_informationen_zu_probenentnahmegeraet(Default::default())
         .desinfektion_probenentnahmegeraet_durchgefuehrt(Default::default())
-        .konservierung_aufbereitung_desinfektion_probe(vec!["1020".into()])
+        .konservierung_der_probe(vec!["1020".into()])
         .kommentar_zur_probennahme(Default::default())
         .informationen_zum_probentransport(Default::default())
         .eingang_probe_bei_untersuchungsstelle(now())
@@ -165,12 +165,13 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     let probennahmestelle = ProbennahmestelleType::builder()
         .probennahmestelle_id(probenahmestelle_id.clone())
         .objekt_id("none".into())
+        .anlage_nach_trinkw_vid("none".into())
         .probe(Default::default())
         .terminplan_id(Default::default())
         .name_probennahmestelle(Default::default())
         .kategorie_probennahmestelle("L".into())
-        .unterkategorie_probennahmestelle("1030".into())
-        .art_der_entnahmearmatur("1010".into())
+        .unterkategorie_probennahmestelle(Some("1030".into()))
+        .art_der_entnahmearmatur(Some("1010".into()))
         .stockwerk_probennahmestelle(0.into())
         .medium_an_der_probennahmestelle(vec!["1010".into()])
         .desinfektion_und_aufbereitung_des_wassers(Default::default())
@@ -247,7 +248,6 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .auftragsnummer(new_uuid())
         .probennahmestelle(vec![probennahmestelle])
         .probe(vec![probe])
-        .name_beauftragte_untersuchungsstelle("09010".into())
         .probennehmer(vec![probennehmer])
         .pruefbericht_enthaelt_teilergebnisse(Default::default())
         .korrekturvermerk(Default::default())
@@ -295,8 +295,8 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     let json = serde_json::to_string_pretty(&e).unwrap();
     std::fs::write("tests/quality_report_builder.json", json)?;
     let xml = raxb::ser::to_string_pretty_with_decl(&e)?;
-    std::fs::write("tests/quality_report_builder_test_result.xml", xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/ xwasser.xsd""#,
-    r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/ ../schemas/V0_7_2/xwasser.xsd""#))?;
+    std::fs::write("tests/quality_report_builder_test_result.xml", xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/ xwasser.xsd""#,
+    r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/ ../schemas/V0_8_0/xwasser.xsd""#))?;
     Ok(())
 }
 

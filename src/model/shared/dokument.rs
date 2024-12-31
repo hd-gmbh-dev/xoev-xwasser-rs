@@ -24,7 +24,7 @@ use crate::model::codes::CodeDokumenttypType;
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct SignaturenType {
     #[xml(ns = b"xwas", name = b"signaturDokumentID", ty = "child")]
@@ -43,7 +43,7 @@ pub struct SignaturenType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct DokumentRepraesentationType {
     #[xml(ns = b"xwas", name = b"referenz", ty = "child")]
@@ -75,7 +75,7 @@ pub struct DokumentRepraesentationType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct DokumentType {
     #[xml(ns = b"xwas", name = b"dokumentTyp", ty = "child")]

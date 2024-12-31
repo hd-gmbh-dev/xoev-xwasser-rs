@@ -55,6 +55,7 @@ pub fn untersuchungsplan_type() -> UntersuchungsplanType {
                 .build(),
         )
         .zustaendige_behoerde(zustaendige_behoerde)
+        .name_beauftragte_untersuchungsstelle(Default::default())
         .aenderungshistorie(Default::default())
         .erweiterung(Default::default())
         .id(format!("untersuchungsplan-{}", new_id()))

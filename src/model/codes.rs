@@ -30,7 +30,7 @@ impl FromStr for ConstStr {
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 // ))]
 // pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
 //     #[xml(name = b"code", ty = "child")]
@@ -55,7 +55,7 @@ impl FromStr for ConstStr {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct CodeBehoerdenkennungType {
     #[xml(name = b"code", ty = "child")]
@@ -76,7 +76,7 @@ pub struct CodeBehoerdenkennungType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct CodePersonenrolleType {
     #[xml(name = b"code", ty = "child")]
@@ -327,11 +327,6 @@ pub struct CodeNamensartType;
 /// Diese Codeliste definiert im Rahmen von XWasser die speziellen Ausprägungen von qualitativen Parametern.
 #[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:parameterauspraegung", "3")]
 pub struct CodeParameterauspraegungType;
-
-/// Type name: Code.ParameterunterauswahlType
-/// Diese Codeliste dient im Rahmen von XWasser zur Definition der genauen Werte der jeweiligen Ausprägungen von qualitativen Parametern.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:parameterunterauswahl", "1")]
-pub struct CodeParameterunterauswahlType;
 
 /// Type name: Code.PraefixType
 /// Diese Codeliste enthält alle Präfixe, welche im DVDV zum Einsatz kommen.

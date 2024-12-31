@@ -36,7 +36,6 @@ pub fn pruefbericht_type(
         .auftragsnummer(new_uuid())
         .probennahmestelle(Default::default())
         .probe(Default::default())
-        .name_beauftragte_untersuchungsstelle("09010".into())
         .probennehmer(vec![probennehmer_type()])
         .pruefbericht_enthaelt_teilergebnisse(Default::default())
         .korrekturvermerk(Default::default())
