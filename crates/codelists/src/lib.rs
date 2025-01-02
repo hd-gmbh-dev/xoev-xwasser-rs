@@ -69,22 +69,22 @@ pub trait CodeListValue {
 mod tests {
     use super::*;
 
+    impl<T> CodeListValue for T
+    where
+        T: AsRef<str>,
+    {
+        const CODELIST: &str = "urn:xoev-de:xwasser:codeliste:parameterauspraegung";
+
+        fn as_value(&self) -> &str {
+            self.as_ref()
+        }
+    }
+
     #[test]
-    fn test_data_set_v0_7_2() -> anyhow::Result<()> {
+    fn test_data_set_v0_8_0() -> anyhow::Result<()> {
         let source = map::<crate::v0_8_0::Source>()?;
 
         assert_eq!(source.len(), 73);
-
-        impl<T> CodeListValue for T
-        where
-            T: AsRef<str>,
-        {
-            const CODELIST: &str = "urn:xoev-de:xwasser:codeliste:parameterauspraegung";
-
-            fn as_value(&self) -> &str {
-                self.as_ref()
-            }
-        }
 
         assert!("10005-2".validate(source.as_ref()));
         assert!(!"qqq".validate(source.as_ref()));

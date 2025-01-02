@@ -11,7 +11,7 @@ use tsify_next::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::model::codes::{CodeRechtsformenType, CodeUntersuchungsstelleType};
+use crate::model::codes::CodeRechtsformenType;
 
 use super::{
     anschrift::AnschriftType,
@@ -141,12 +141,6 @@ pub struct BeauftragteUntersuchungsstelleType {
     pub zugelassene_untersuchungsstelle_id: String, //ConstStr,
     #[xml(
         ns = b"xwas",
-        name = b"nameZugelasseneUntersuchungsstelle",
-        ty = "child"
-    )]
-    pub name_zugelassene_untersuchungsstelle: CodeUntersuchungsstelleType,
-    #[xml(
-        ns = b"xwas",
         name = b"pruefgebieteUntersuchungenPhysChem",
         ty = "child"
     )]
@@ -163,6 +157,8 @@ pub struct BeauftragteUntersuchungsstelleType {
         ty = "child"
     )]
     pub pruefgebiete_untersuchungen_radionuklide: Option<bool>,
+    #[xml(ns = b"xwas", name = b"pruefgebieteNurVorOrtParameter", ty = "child")]
+    pub pruefgebiete_nur_vor_ort_parameter: Option<bool>,
     #[xml(ns = b"xwas", name = b"akkreditierungsnummer", ty = "child")]
     pub akkreditierungsnummer: Option<String>,
     #[xml(
