@@ -37,6 +37,7 @@ pub struct UntersuchungsstelleDetails {
     pub pruefgebiete_untersuchungen_phys_chem: bool,
     pub pruefgebiete_untersuchungen_mikrobio: bool,
     pub pruefgebiete_untersuchungen_radionuklide: bool,
+    pub pruefgebiete_nur_vor_ort_parameter: bool,
     pub akkreditierungsnummer: String,
     pub unterorganisation: Option<UnterorganisationDetails>,
 }
@@ -81,12 +82,12 @@ pub fn zugelassene_untersuchungsstelle_type(
         .existenzzeitraum(Some(zeitraum_type()))
         .anschrift(Default::default())
         .zugelassene_untersuchungsstelle_id(details.zugelassene_untersuchungsstelle_id)
-        .name_zugelassene_untersuchungsstelle("09010".into())
         .pruefgebiete_untersuchungen_phys_chem(Some(details.pruefgebiete_untersuchungen_phys_chem))
         .pruefgebiete_untersuchungen_mikrobio(Some(details.pruefgebiete_untersuchungen_mikrobio))
         .pruefgebiete_untersuchungen_radionuklide(Some(
             details.pruefgebiete_untersuchungen_radionuklide,
         ))
+        .pruefgebiete_nur_vor_ort_parameter(Some(details.pruefgebiete_nur_vor_ort_parameter))
         .akkreditierungsnummer(Some(details.akkreditierungsnummer))
         .kommentar_zugelassene_untersuchungsstelle(Default::default())
         .build()
@@ -132,12 +133,12 @@ pub fn beauftragte_untersuchungsstelle_type(
         .existenzzeitraum(Some(zeitraum_type()))
         .anschrift(Default::default())
         .zugelassene_untersuchungsstelle_id(details.zugelassene_untersuchungsstelle_id)
-        .name_zugelassene_untersuchungsstelle("09010".into())
         .pruefgebiete_untersuchungen_phys_chem(Some(details.pruefgebiete_untersuchungen_phys_chem))
         .pruefgebiete_untersuchungen_mikrobio(Some(details.pruefgebiete_untersuchungen_mikrobio))
         .pruefgebiete_untersuchungen_radionuklide(Some(
             details.pruefgebiete_untersuchungen_radionuklide,
         ))
+        .pruefgebiete_nur_vor_ort_parameter(Default::default())
         .akkreditierungsnummer(Some(details.akkreditierungsnummer))
         .kommentar_beauftragte_untersuchungsstelle(Default::default())
         .kommentar_zugelassene_untersuchungsstelle(Default::default())

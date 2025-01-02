@@ -12,7 +12,7 @@ use tsify_next::Tsify;
 use typed_builder::TypedBuilder;
 
 use super::{
-    codes::{CodeAmtsspracheEuType, CodeGesamtbewertungType, CodeUntersuchungsstelleType},
+    codes::{CodeAmtsspracheEuType, CodeGesamtbewertungType},
     shared::{
         anschrift::AnschriftType,
         auftraggeber::AuftraggeberType,
@@ -36,7 +36,7 @@ use super::{
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
@@ -51,13 +51,6 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"probe", ty = "child")]
     #[serde(default)]
     pub probe: Vec<ProbeType>,
-    #[xml(
-        default,
-        ns = b"xwas",
-        name = b"nameBeauftragteUntersuchungsstelle",
-        ty = "child"
-    )]
-    pub name_beauftragte_untersuchungsstelle: CodeUntersuchungsstelleType,
     #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
     pub probennehmer: Vec<ProbennehmerType>,
     #[xml(

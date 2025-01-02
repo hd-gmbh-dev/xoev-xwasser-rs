@@ -11,7 +11,7 @@ use tsify_next::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::model::codes::{CodeRechtsformenType, CodeUntersuchungsstelleType};
+use crate::model::codes::CodeRechtsformenType;
 
 use super::{
     anschrift::AnschriftType,
@@ -31,7 +31,7 @@ use super::{
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct ZugelasseneUntersuchungsstelleType {
     #[xml(name = b"id", ty = "attr")]
@@ -67,12 +67,6 @@ pub struct ZugelasseneUntersuchungsstelleType {
     pub zugelassene_untersuchungsstelle_id: String, //ConstStr,
     #[xml(
         ns = b"xwas",
-        name = b"nameZugelasseneUntersuchungsstelle",
-        ty = "child"
-    )]
-    pub name_zugelassene_untersuchungsstelle: CodeUntersuchungsstelleType,
-    #[xml(
-        ns = b"xwas",
         name = b"pruefgebieteUntersuchungenPhysChem",
         ty = "child"
     )]
@@ -89,6 +83,8 @@ pub struct ZugelasseneUntersuchungsstelleType {
         ty = "child"
     )]
     pub pruefgebiete_untersuchungen_radionuklide: Option<bool>,
+    #[xml(ns = b"xwas", name = b"pruefgebieteNurVorOrtParameter", ty = "child")]
+    pub pruefgebiete_nur_vor_ort_parameter: Option<bool>,
     #[xml(ns = b"xwas", name = b"akkreditierungsnummer", ty = "child")]
     pub akkreditierungsnummer: Option<String>,
     #[xml(
@@ -109,7 +105,7 @@ pub struct ZugelasseneUntersuchungsstelleType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct BeauftragteUntersuchungsstelleType {
     #[xml(name = b"id", ty = "attr")]
@@ -145,12 +141,6 @@ pub struct BeauftragteUntersuchungsstelleType {
     pub zugelassene_untersuchungsstelle_id: String, //ConstStr,
     #[xml(
         ns = b"xwas",
-        name = b"nameZugelasseneUntersuchungsstelle",
-        ty = "child"
-    )]
-    pub name_zugelassene_untersuchungsstelle: CodeUntersuchungsstelleType,
-    #[xml(
-        ns = b"xwas",
         name = b"pruefgebieteUntersuchungenPhysChem",
         ty = "child"
     )]
@@ -167,6 +157,8 @@ pub struct BeauftragteUntersuchungsstelleType {
         ty = "child"
     )]
     pub pruefgebiete_untersuchungen_radionuklide: Option<bool>,
+    #[xml(ns = b"xwas", name = b"pruefgebieteNurVorOrtParameter", ty = "child")]
+    pub pruefgebiete_nur_vor_ort_parameter: Option<bool>,
     #[xml(ns = b"xwas", name = b"akkreditierungsnummer", ty = "child")]
     pub akkreditierungsnummer: Option<String>,
     #[xml(

@@ -19,7 +19,7 @@ use crate::model::codes::{
     CodeIncidentExceedanceCauseType, CodeKategorieProbennahmestelleType, CodeMassnahmeType,
     CodeNachweisartType, CodeProbennahmeverfahrenType, CodeProbennahmezeitraumType,
     CodeShapthParameterEinheitType, CodeShapthParameterType, CodeStatusUntersuchungsplanType,
-    CodeUeberwachungAufbereitungType, CodeWasserversorgungsgebietType, CodeWvaType,
+    CodeUeberwachungAufbereitungType, CodeWvaType,
 };
 
 use super::{
@@ -39,7 +39,7 @@ use super::{
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct UntersuchungsplanType {
     #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
@@ -106,6 +106,12 @@ pub struct UntersuchungsplanType {
     pub auftraggeber: AuftraggeberType,
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
     pub zustaendige_behoerde: ZustaendigeBehoerdeType,
+    #[xml(
+        ns = b"xwas",
+        name = b"nameBeauftragteUntersuchungsstelle",
+        ty = "child"
+    )]
+    pub name_beauftragte_untersuchungsstelle: Vec<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Vec<KommentarType>,
     #[xml(ns = b"xwas", name = b"aenderungshistorie", ty = "child")]
@@ -126,7 +132,7 @@ pub struct UntersuchungsplanType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct TerminplanType {
     #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
@@ -170,7 +176,7 @@ pub struct TerminplanType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct KommentarType {
     #[xml(ns = b"xwas", name = b"autor", ty = "child")]
@@ -190,7 +196,7 @@ pub struct KommentarType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct AenderungshistorieType {
     #[xml(ns = b"xwas", name = b"eintrag", ty = "child")]
@@ -207,7 +213,7 @@ pub struct AenderungshistorieType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct IncidentType {
     #[xml(ns = b"xwas", name = b"incidentIdentifier", ty = "child")]
@@ -239,7 +245,7 @@ pub struct IncidentType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct ParameterangabenType {
     #[xml(ns = b"xwas", name = b"parameter", ty = "child")]
@@ -270,7 +276,7 @@ pub struct ParameterangabenType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct QualityAndMonitoringType {
     #[xml(
@@ -307,7 +313,7 @@ pub struct QualityAndMonitoringType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct DerogationRemedialActionType {
     #[xml(
@@ -344,7 +350,7 @@ pub struct DerogationRemedialActionType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct DerogationType {
     #[xml(ns = b"xwas", name = b"derogationIdentifier", ty = "child")]
@@ -397,7 +403,7 @@ pub struct DerogationType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct ExceedanceCauseAndRemedialActionType {
     #[xml(
@@ -434,7 +440,7 @@ pub struct ExceedanceCauseAndRemedialActionType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct ExceedanceType {
     #[xml(ns = b"xwas", name = b"exceedanceIdentifier", ty = "child")]
@@ -478,7 +484,7 @@ pub struct ExceedanceType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct IncidentCauseAndRemedialActionType {
     #[xml(
@@ -511,13 +517,13 @@ pub struct IncidentCauseAndRemedialActionType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
     pub wasserversorgungsgebiet_id: String,
     #[xml(ns = b"xwas", name = b"nameWasserversorgungsgebiet", ty = "child")]
-    pub name_wasserversorgungsgebiet: CodeWasserversorgungsgebietType,
+    pub name_wasserversorgungsgebiet: String,
     #[xml(ns = b"xwas", name = b"lau2Code", ty = "child")]
     pub lau2_code: Option<i32>,
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
@@ -579,7 +585,7 @@ pub struct WasserversorgungsgebietType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct AnlageNachTrinkwVType {
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]

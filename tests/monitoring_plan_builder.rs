@@ -36,8 +36,8 @@ fn test_monitoring_plan_builder() -> anyhow::Result<()> {
     let json = serde_json::to_string_pretty(&e).unwrap();
     std::fs::write("tests/monitoring_plan_builder.json", json)?;
     let xml = raxb::ser::to_string_pretty_with_decl(&e)?;
-    std::fs::write("tests/monitoring_plan_builder_test_result.xml", xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/ xwasser.xsd""#,
-    r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/ ../schemas/V0_7_2/xwasser.xsd""#))?;
+    std::fs::write("tests/monitoring_plan_builder_test_result.xml", xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/ xwasser.xsd""#,
+    r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/ ../schemas/V0_8_0/xwasser.xsd""#))?;
     Ok(())
 }
 

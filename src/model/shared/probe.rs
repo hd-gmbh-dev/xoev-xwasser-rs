@@ -35,7 +35,7 @@ use super::{
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub enum Probennehmer {
     #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
@@ -55,7 +55,7 @@ pub enum Probennehmer {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct ProbennehmerType {
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
@@ -79,13 +79,15 @@ pub struct ProbennehmerType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
     pub probennahmestelle_id: String,
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
     pub objekt_id: String,
+    #[xml(ns = b"xwas", name = b"anlageNachTrinwVID", ty = "child")]
+    pub anlage_nach_trinkw_vid: String,
     #[xml(ns = b"xwas", name = b"probe", ty = "child")]
     #[serde(default)]
     pub probe: Vec<String>,
@@ -97,9 +99,9 @@ pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"kategorieProbennahmestelle", ty = "child")]
     pub kategorie_probennahmestelle: CodeKategorieProbennahmestelleType,
     #[xml(ns = b"xwas", name = b"unterkategorieProbennahmestelle", ty = "child")]
-    pub unterkategorie_probennahmestelle: CodeUnterkategorieProbennahmestelleType,
+    pub unterkategorie_probennahmestelle: Option<CodeUnterkategorieProbennahmestelleType>,
     #[xml(ns = b"xwas", name = b"artDerEntnahmearmatur", ty = "child")]
-    pub art_der_entnahmearmatur: CodeArtEntnahmearmaturType,
+    pub art_der_entnahmearmatur: Option<CodeArtEntnahmearmaturType>,
     #[xml(ns = b"xwas", name = b"stockwerkProbennahmestelle", ty = "child")]
     pub stockwerk_probennahmestelle: Option<i16>,
     #[xml(ns = b"xwas", name = b"mediumAnDerProbennahmestelle", ty = "child")]
@@ -130,7 +132,7 @@ pub struct ProbennahmestelleType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
@@ -179,14 +181,9 @@ pub struct ProbeType {
         ty = "child"
     )]
     pub desinfektion_probenentnahmegeraet_durchgefuehrt: Option<bool>,
-    #[xml(
-        ns = b"xwas",
-        name = b"konservierungAufbereitungDesinfektionProbe",
-        ty = "child"
-    )]
+    #[xml(ns = b"xwas", name = b"konservierungDerProbe", ty = "child")]
     #[serde(default)]
-    pub konservierung_aufbereitung_desinfektion_probe:
-        Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
+    pub konservierung_der_probe: Vec<String>,
     #[xml(ns = b"xwas", name = b"kommentarZurProbennahme", ty = "child")]
     pub kommentar_zur_probennahme: Option<String>,
     #[xml(ns = b"xwas", name = b"informationenZumProbentransport", ty = "child")]
@@ -206,7 +203,7 @@ pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"berichtspflichtig", ty = "child")]
     pub berichtspflichtig: Option<bool>,
     #[xml(ns = b"xwas", name = b"vonProbennehmerVergebeneProbeID", ty = "child")]
-    pub von_probennehmer_vergebene_probe_id: String,
+    pub von_probennehmer_vergebene_probe_id: Option<String>,
     #[xml(ns = b"xwas", name = b"angelieferteProbe", ty = "child")]
     pub angelieferte_probe: Option<bool>,
     #[xml(
@@ -234,7 +231,7 @@ pub struct ProbeType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct AnalyseergebnisParameterType {
     #[xml(ns = b"xwas", name = b"analyseergebnisParameterID", ty = "child")]

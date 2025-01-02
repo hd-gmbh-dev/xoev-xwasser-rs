@@ -1,7 +1,7 @@
 {
   "produkt": "SHAPTH CLI",
-  "produkthersteller": "H & D GmbH",
-  "produktversion": "H & D GmbH",
+  "produkthersteller": "H &amp; D GmbH",
+  "produktversion": "H &amp; D GmbH",
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
@@ -480,10 +480,7 @@
           "wasserversorgungsgebiet": [
             {
               "wasserversorgungsgebiet_id": "wvg1",
-              "name_wasserversorgungsgebiet": {
-                "code": "",
-                "name": null
-              },
+              "name_wasserversorgungsgebiet": "",
               "lau2_code": 2,
               "zustaendige_behoerde": [
                 {
@@ -2213,6 +2210,7 @@
                 {
                   "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
                   "objekt_id": "probennahmestelle1",
+                  "anlage_nach_trinkw_vid": "probennahmestelle1",
                   "probe": [],
                   "terminplan_id": [],
                   "name_probennahmestelle": "pns",
@@ -2316,6 +2314,7 @@
           },
           "kommentar": null
         },
+        "name_beauftragte_untersuchungsstelle": [],
         "kommentar": [
           {
             "autor": "test autor",

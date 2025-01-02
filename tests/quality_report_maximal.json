@@ -1,7 +1,7 @@
 {
   "produkt": "SHAPTH CLI",
-  "produkthersteller": "H & D GmbH",
-  "produktversion": "H & D GmbH",
+  "produkthersteller": "H &amp; D GmbH",
+  "produktversion": "H &amp; D GmbH",
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
@@ -48,6 +48,7 @@
           {
             "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
             "objekt_id": "abcd",
+            "anlage_nach_trinkw_vid": "abcd",
             "probe": [],
             "terminplan_id": [],
             "name_probennahmestelle": "",
@@ -159,12 +160,7 @@
             },
             "ergaenzende_informationen_zu_probenentnahmegeraet": "",
             "desinfektion_probenentnahmegeraet_durchgefuehrt": true,
-            "konservierung_aufbereitung_desinfektion_probe": [
-              {
-                "code": "1010",
-                "name": "Aktivkohle, granuliert"
-              }
-            ],
+            "konservierung_der_probe": [],
             "kommentar_zur_probennahme": "",
             "informationen_zum_probentransport": "Getränkekiste",
             "eingang_probe_bei_untersuchungsstelle": "2024-05-27T10:00:00",
@@ -261,12 +257,7 @@
             },
             "ergaenzende_informationen_zu_probenentnahmegeraet": "Vor Gebrauch gereinigt",
             "desinfektion_probenentnahmegeraet_durchgefuehrt": false,
-            "konservierung_aufbereitung_desinfektion_probe": [
-              {
-                "code": "1010",
-                "name": "Filterung"
-              }
-            ],
+            "konservierung_der_probe": [],
             "kommentar_zur_probennahme": "Regelmäßige Überprüfung",
             "informationen_zum_probentransport": "Kühlbox",
             "eingang_probe_bei_untersuchungsstelle": "2024-06-15T09:00:00",
@@ -288,10 +279,6 @@
             "id": "probe2"
           }
         ],
-        "name_beauftragte_untersuchungsstelle": {
-          "code": "09010",
-          "name": "Frischwasserlabor-Gmbh in Deutschland"
-        },
         "probennehmer": [
           {
             "probennehmer_id": "ACABEE82-00E2-49C1-80DC-4E973EC3D445",
@@ -5905,13 +5892,10 @@
             }
           ],
           "zugelassene_untersuchungsstelle_id": "zugelasseneuntersuchungsstelle1",
-          "name_zugelassene_untersuchungsstelle": {
-            "code": "09010",
-            "name": ""
-          },
           "pruefgebiete_untersuchungen_phys_chem": null,
           "pruefgebiete_untersuchungen_mikrobio": null,
           "pruefgebiete_untersuchungen_radionuklide": null,
+          "pruefgebiete_nur_vor_ort_parameter": null,
           "akkreditierungsnummer": "akkreditierungsnummer1",
           "kommentar_zugelassene_untersuchungsstelle": "kommentar zugelassene Untersuchungsstelle",
           "kommentar_beauftragte_untersuchungsstelle": "Kommentar der beauftragten Untersuchungsstelle"
@@ -5930,13 +5914,10 @@
             "existenzzeitraum": null,
             "anschrift": [],
             "zugelassene_untersuchungsstelle_id": "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
-            "name_zugelassene_untersuchungsstelle": {
-              "code": "09010",
-              "name": "Frischwasserlabor-Gmbh"
-            },
             "pruefgebiete_untersuchungen_phys_chem": true,
             "pruefgebiete_untersuchungen_mikrobio": true,
             "pruefgebiete_untersuchungen_radionuklide": true,
+            "pruefgebiete_nur_vor_ort_parameter": null,
             "akkreditierungsnummer": "",
             "kommentar_zugelassene_untersuchungsstelle": "Standardmässige Untersuchungsstelle"
           },
@@ -5953,13 +5934,10 @@
             "existenzzeitraum": null,
             "anschrift": [],
             "zugelassene_untersuchungsstelle_id": "ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
-            "name_zugelassene_untersuchungsstelle": {
-              "code": "09020",
-              "name": "Wassersicherheits-Institut"
-            },
             "pruefgebiete_untersuchungen_phys_chem": true,
             "pruefgebiete_untersuchungen_mikrobio": true,
             "pruefgebiete_untersuchungen_radionuklide": false,
+            "pruefgebiete_nur_vor_ort_parameter": null,
             "akkreditierungsnummer": "12345",
             "kommentar_zugelassene_untersuchungsstelle": "Top Qualität"
           }

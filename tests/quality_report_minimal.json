@@ -1,7 +1,7 @@
 {
   "produkt": "SHAPTH CLI",
-  "produkthersteller": "H & D GmbH",
-  "produktversion": "H & D GmbH",
+  "produkthersteller": "H &amp; D GmbH",
+  "produktversion": "H &amp; D GmbH",
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
@@ -48,6 +48,7 @@
           {
             "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
             "objekt_id": "abcd",
+            "anlage_nach_trinkw_vid": "abcd",
             "probe": [],
             "terminplan_id": [],
             "name_probennahmestelle": "wasserloch um die ecke",
@@ -159,12 +160,7 @@
             },
             "ergaenzende_informationen_zu_probenentnahmegeraet": "",
             "desinfektion_probenentnahmegeraet_durchgefuehrt": true,
-            "konservierung_aufbereitung_desinfektion_probe": [
-              {
-                "code": "1234",
-                "name": "konservierung_aufbereitung_desinfektion_probe"
-              }
-            ],
+            "konservierung_der_probe": [],
             "kommentar_zur_probennahme": "DUMMY",
             "informationen_zum_probentransport": "Lieferwagen",
             "eingang_probe_bei_untersuchungsstelle": "2024-05-27T10:00:00",
@@ -186,10 +182,6 @@
             "id": "probe1"
           }
         ],
-        "name_beauftragte_untersuchungsstelle": {
-          "code": "09010",
-          "name": "name"
-        },
         "probennehmer": [
           {
             "probennehmer_id": "ACABEE82-00E2-49C1-80DC-4E973EC3D445",
@@ -454,13 +446,10 @@
             }
           ],
           "zugelassene_untersuchungsstelle_id": "abcdef",
-          "name_zugelassene_untersuchungsstelle": {
-            "code": "09010",
-            "name": null
-          },
           "pruefgebiete_untersuchungen_phys_chem": null,
           "pruefgebiete_untersuchungen_mikrobio": null,
           "pruefgebiete_untersuchungen_radionuklide": null,
+          "pruefgebiete_nur_vor_ort_parameter": null,
           "akkreditierungsnummer": null,
           "kommentar_zugelassene_untersuchungsstelle": null,
           "kommentar_beauftragte_untersuchungsstelle": null
@@ -489,13 +478,10 @@
             "existenzzeitraum": null,
             "anschrift": [],
             "zugelassene_untersuchungsstelle_id": "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
-            "name_zugelassene_untersuchungsstelle": {
-              "code": "09010",
-              "name": ""
-            },
             "pruefgebiete_untersuchungen_phys_chem": true,
             "pruefgebiete_untersuchungen_mikrobio": true,
             "pruefgebiete_untersuchungen_radionuklide": true,
+            "pruefgebiete_nur_vor_ort_parameter": null,
             "akkreditierungsnummer": "",
             "kommentar_zugelassene_untersuchungsstelle": ""
           }

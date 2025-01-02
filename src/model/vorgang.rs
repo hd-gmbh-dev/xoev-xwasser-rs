@@ -26,7 +26,7 @@ use super::{
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct IdentifikationVorgang {
     #[xml(ns = b"xwas", name = b"vorgangsID", ty = "child")]
@@ -44,7 +44,7 @@ pub struct IdentifikationVorgang {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub struct Vorgang {
     #[xml(ns = b"xwas", name = b"identifikationVorgang", ty = "child")]
@@ -68,7 +68,7 @@ pub struct Vorgang {
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_7_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
 ))]
 pub enum VorgangType {
     #[xml(ns = b"xwas", name = b"pruefbericht")]
