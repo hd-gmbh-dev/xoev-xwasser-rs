@@ -2,9 +2,19 @@ use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 use xoev_xwasser_derive::XWasserValidate;
 
+#[cfg(feature = "wasm")]
+use tsify_next::Tsify;
+#[cfg(feature = "wasm")]
+use wasm_bindgen::prelude::*;
+
+#[cfg(feature = "builder")]
+use typed_builder::TypedBuilder;
+
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct Signature {
     #[xml(ns = b"ds", name = b"SignedInfo", ty = "child")]
@@ -22,6 +32,8 @@ pub struct Signature {
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct SignedInfo {
     #[xml(ns = b"ds", name = b"CanonicalizationMethod", ty = "child")]
@@ -37,6 +49,8 @@ pub struct SignedInfo {
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct SignatureValue {
     #[xml(ty = "text")]
@@ -48,30 +62,36 @@ pub struct SignatureValue {
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct CanonicalizationMethod {
     #[xml(name = b"Algorithm", ty = "attr")]
     pub algorithm: String,
-    // #[xml(child, optional, list)]
+    // #[xml(any, ty = "child")]
     // pub any: Option<Vec<Any>>,
 }
 
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct SignatureMethod {
     #[xml(ns = b"ds", name = b"HMACOutputLength", ty = "child")]
     pub hmac_output_length: Option<i64>,
     #[xml(name = b"Algorithm", ty = "attr")]
     pub algorithm: String,
-    // #[xml(child, optional, list)]
+    // #[xml(any, ty = "child")]
     // pub any: Option<Vec<Any>>,
 }
 
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct Reference {
     #[xml(ns = b"ds", name = b"Transforms", ty = "child")]
@@ -92,6 +112,8 @@ pub struct Reference {
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct Transforms {
     #[xml(ns = b"ds", name = b"Transform", ty = "child")]
@@ -101,6 +123,8 @@ pub struct Transforms {
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct Transform {
     #[xml(ns = b"ds", name = b"XPath", ty = "child")]
@@ -115,6 +139,7 @@ pub struct Transform {
    Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
+#[serde(tag = "t", content = "c")]
 pub enum TransformChoice {
     #[xml(ns = b"ds", name = b"XPath")]
     XPath(String),
@@ -126,9 +151,11 @@ pub enum TransformChoice {
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct DigestMethod {
-    // #[xml(child, optional, list)]
+    // #[xml(any, ty = "child")]
     // pub any: Option<Vec<Any>>,
     #[xml(name = b"Algorithm", ty = "attr")]
     pub algorithm: String,
@@ -146,6 +173,8 @@ pub struct DigestMethod {
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct KeyInfo {
     #[xml(ns = b"ds", name = b"KeyName", ty = "child")]
@@ -155,6 +184,7 @@ pub struct KeyInfo {
 }
 
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 #[serde(tag = "t", content = "c")]
 pub enum KeyInfoChoice {
@@ -176,6 +206,8 @@ pub enum KeyInfoChoice {
 }
 
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct KeyValue {
     #[xml(ns = b"ds", name = b"KeyValueType", ty = "child")]
@@ -183,7 +215,9 @@ pub struct KeyValue {
 }
 
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
+#[serde(tag = "t", content = "c")]
 pub enum KeyValueType {
     #[xml(ns = b"ds", name = b"DSA")]
     DSA(DSAKeyValue),
@@ -193,6 +227,8 @@ pub enum KeyValueType {
 }
 
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct DSAKeyValue {
     #[xml(ns = b"ds", name = b"P", ty = "child")]
@@ -212,6 +248,8 @@ pub struct DSAKeyValue {
 }
 
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct RSAKeyValue {
     #[xml(ns = b"ds", name = b"Modulus", ty = "child")]
@@ -221,9 +259,11 @@ pub struct RSAKeyValue {
 }
 
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct Object {
-    // #[xml(child, optional, list)]
+    // #[xml(any, ty = "child")]
     // pub any: Option<Vec<Any>>,
     #[xml(name = b"Id", ty = "attr")]
     pub id: Option<String>,
@@ -236,6 +276,8 @@ pub struct Object {
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct RetrievalMethod {
     #[xml(ns = b"ds", name = b"Transforms", ty = "child")]
@@ -249,6 +291,8 @@ pub struct RetrievalMethod {
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct X509Data {
     #[xml(ns = b"ds", name = b"X509DataType", ty = "child")]
@@ -256,7 +300,9 @@ pub struct X509Data {
 }
 
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
+#[serde(tag = "t", content = "c")]
 pub enum X509DataType {
     #[xml(ns = b"ds", name = b"X509IssuerSerial")]
     X509IssuerSerial(X509IssuerSerial),
@@ -274,6 +320,8 @@ pub enum X509DataType {
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct X509IssuerSerial {
     #[xml(ns = b"ds", name = b"X509IssuerName", ty = "child")]
@@ -285,61 +333,27 @@ pub struct X509IssuerSerial {
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct PGPData {
     #[xml(ns = b"ds", name = b"PGPKeyID", ty = "child")]
     pgp_key_id: Option<String>,
     #[xml(ns = b"ds", name = b"PGPKeyPacket", ty = "child")]
     pgp_key_packet: Option<String>,
-    // #[xml(child, optional, list)]
+    // #[xml(any, ty = "child")]
     // pub any: Option<Vec<Any>>,
 }
 
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
+#[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"ds", b"http://www.w3.org/2000/09/xmldsig#"))]
 pub struct SPKIData {
     #[xml(ns = b"ds", name = b"SPKISexp", ty = "child")]
     spki_sexp: Vec<String>,
-    // #[xml(child, optional, list)]
+    // #[xml(any, ty = "child")]
     // pub any: Option<Vec<Any>>,
 }
-
-/*
-#[derive(Clone, Debug, XWasserValidate, Serialize, Deserialize)]
-pub struct Any {
-
-}
-
-mod any {
-    use raxb::{de::XmlDeserialize, ser::XmlSerialize};
-
-    use super::*;
-
-    impl XmlDeserialize for Any {
-        fn xml_deserialize<R>(
-            reader: &mut raxb::quick_xml::NsReader<R>,
-            target_ns: raxb::ty::XmlTag,
-            tag: raxb::ty::XmlTargetNs,
-            attributes: raxb::quick_xml::events::attributes::Attributes,
-            is_empty: bool,
-        ) -> raxb::de::XmlDeserializeResult<Self>
-        where
-            Self: Sized,
-            R: std::io::BufRead {
-            todo!()
-        }
-    }
-
-    impl XmlSerialize for Any {
-        fn xml_serialize<W: std::io::Write>(
-            &self,
-            tag: &str,
-            writer: &mut raxb::quick_xml::Writer<W>,
-        ) -> raxb::ser::XmlSerializeResult<()> {
-            todo!()
-        }
-    }
-}
-*/

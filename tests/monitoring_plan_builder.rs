@@ -31,6 +31,7 @@ fn test_monitoring_plan_builder() -> anyhow::Result<()> {
                 )
                 .build(),
         )
+        .signature(None)
         .build();
 
     let json = serde_json::to_string_pretty(&e).unwrap();

@@ -1,7 +1,7 @@
 {
   "produkt": "SHAPTH CLI",
-  "produkthersteller": "H & D GmbH",
-  "produktversion": "H & D GmbH",
+  "produkthersteller": "H &amp; D GmbH",
+  "produktversion": "H &amp; D GmbH",
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
@@ -67,5 +67,6 @@
     },
     "bemerkung": "Bemerkung",
     "anlage": []
-  }
+  },
+  "signature": null
 }
