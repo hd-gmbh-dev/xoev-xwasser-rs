@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "2ed7d96a-ed45-45d6-a306-28e2d3560346",
+      "nachrichten_uuid": "283855b9-2ea5-4563-987c-5fd711f62786",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2025-01-02T14:15:08"
+      "erstellungszeitpunkt": "2025-02-06T17:02:35"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -36,14 +36,14 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "ea3b8dc9-571c-4012-a949-f42e881a8d8e"
+      "vorgangs_id": "942fb545-3505-4f49-a74e-f2c507c9be10"
     },
     "vorgang_type": {
       "t": "Untersuchungsplan",
       "c": {
-        "untersuchungsplan_id": "4f8dffd8-061e-4813-a474-571e3fed98a5",
+        "untersuchungsplan_id": "38a3c767-e2b2-4f77-b066-717db9f301cf",
         "wasserversorgungsgebiet": [
-          "wvg-Ww1sSb5j"
+          "wvg-zSlBVAZc"
         ],
         "titel_untersuchungsplan": null,
         "jahr": [
@@ -94,10 +94,10 @@
         },
         "terminplan": [
           {
-            "terminplan_id": "37883ce0-cfa5-48f2-ac63-b3667b2e8748",
+            "terminplan_id": "70dd10f6-fc37-472f-a3d7-6b6ef9749e19",
             "probennahmestelle": null,
             "datum_zeitraum": [
-              "2025-01-02T14:15:08"
+              "2025-02-06T17:02:35"
             ],
             "probennahmestelle_kategorie": {
               "code": "L",
@@ -130,12 +130,12 @@
             "probennahmeverfahren": [],
             "ersatz_fuer_terminplan_mit_der_id": null,
             "kommentar": null,
-            "id": "terminplan-UmNDzybl"
+            "id": "terminplan-xO8gnU9x"
           }
         ],
         "anlage_nach_trinkw_v": {
           "anlage_nach_trinkw_v_id": "",
-          "zustaendige_behoerde_id": "behoerde-TkOf35Ie",
+          "zustaendige_behoerde_id": "behoerde-wk1qRh81",
           "untersuchungsplan_id": [],
           "art_anlage": {
             "code": "1010",
@@ -148,12 +148,12 @@
           "kommentar": null,
           "wasserversorgungsgebiet": [
             {
-              "wasserversorgungsgebiet_id": "cf1520e9-8cb3-4fd0-ab72-e3c9c7ecd3ae",
+              "wasserversorgungsgebiet_id": "ecc7b644-9c27-46af-8867-750521c955b3",
               "name_wasserversorgungsgebiet": "",
               "lau2_code": null,
               "zustaendige_behoerde": [
                 {
-                  "id": "behoerde-VqQZR4Co",
+                  "id": "behoerde-ykelzyq6",
                   "typ": {
                     "code": "",
                     "name": null,
@@ -193,7 +193,7 @@
                 }
               ],
               "geokoordinaten_shapth": null,
-              "datum_der_einrichtung": "2025-01-02",
+              "datum_der_einrichtung": "2025-02-06",
               "datum_der_schliessung": null,
               "grund_der_schliessung": null,
               "nachfolger_wvg_bei_schliessung": [],
@@ -217,12 +217,12 @@
               "derogation": [],
               "exceedance": [],
               "incident": [],
-              "id": "wvg-Ww1sSb5j"
+              "id": "wvg-zSlBVAZc"
             }
           ],
           "anlage_nach_trinkw_v_objekt": [
             {
-              "objekt_id": "4b055a22-884f-4b0b-9d64-5b703f3596ef",
+              "objekt_id": "f837767b-0aab-4aed-8c8c-fd5b00ab19b0",
               "wasserversorgungsgebiet": null,
               "anschrift_objekt": [],
               "art_objekt": {
@@ -246,11 +246,11 @@
               "kommentar": null,
               "betreiber": [
                 {
-                  "betreiber_id": "5bb3813f-8f8a-4526-ab6d-62166a2f8f5d",
+                  "betreiber_id": "e3d02bdc-9c56-4a6a-9d0c-c0d1de0efa6f",
                   "art_der_person": {
                     "t": "Organisation",
                     "c": {
-                      "id": "organisation-YO1PkhJo",
+                      "id": "organisation-B4X2HRMX",
                       "rechtsform": null,
                       "branche": [],
                       "zweck": [],
@@ -264,15 +264,15 @@
                     }
                   },
                   "objekt_id": [
-                    "obj-XEogNjM9"
+                    "obj-Asz6OlDr"
                   ],
                   "kommentar": null,
-                  "id": "betreiber-Z0ZDZjBx"
+                  "id": "betreiber-CIyKs9YM"
                 }
               ],
               "objekt_probennahmestelle": [
                 {
-                  "probennahmestelle_id": "ea653342-507f-4291-8384-adf124ec64a1",
+                  "probennahmestelle_id": "247cb327-624e-49a2-80e5-698ca1bef2da",
                   "objekt_id": "",
                   "anlage_nach_trinkw_vid": "",
                   "probe": [],
@@ -301,13 +301,13 @@
                   "alt_id": null,
                   "berichtspflichtig": null,
                   "kommentar": null,
-                  "id": "probennahmestelle-0fkniGyq"
+                  "id": "probennahmestelle-DosFDYIY"
                 }
               ],
-              "id": "obj-XEogNjM9"
+              "id": "obj-Asz6OlDr"
             }
           ],
-          "id": "antv-1v7N3Eee"
+          "id": "antv-E6InE98G"
         },
         "auftraggeber": {
           "auftraggeber_id": "",
@@ -318,7 +318,7 @@
           "auftraggeber": {
             "t": "Organisation",
             "c": {
-              "id": "organisation-2NqNE8Qn",
+              "id": "organisation-FQnB5mTb",
               "rechtsform": null,
               "branche": [],
               "zweck": [],
@@ -333,7 +333,7 @@
           }
         },
         "zustaendige_behoerde": {
-          "id": "behoerde-TkOf35Ie",
+          "id": "behoerde-wk1qRh81",
           "typ": {
             "code": "",
             "name": null,
@@ -381,10 +381,11 @@
         "kommentar": [],
         "aenderungshistorie": null,
         "erweiterung": null,
-        "id": "untersuchungsplan-37kqgPqK"
+        "id": "untersuchungsplan-GCxaYq3e"
       }
     },
     "bemerkung": null,
     "anlage": []
-  }
+  },
+  "signature": null
 }

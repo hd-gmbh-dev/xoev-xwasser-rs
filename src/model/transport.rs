@@ -13,7 +13,7 @@ use wasm_bindgen::prelude::*;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use super::vorgang::Vorgang;
+use super::{signature::Signature, vorgang::Vorgang};
 
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
@@ -162,6 +162,15 @@ pub struct VorgangTransportieren2010 {
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
     _xmlns: ConstStr,
+    #[xml(
+        ns = b"xmlns",
+        name = b"ds",
+        ty = "attr",
+        value = "http://www.w3.org/2000/09/xmldsig#"
+    )]
+    #[serde(skip)]
+    #[cfg_attr(feature = "builder", builder(default))]
+    _xmlns_ds: ConstStr,
     #[xml(name = b"produkt", ty = "attr")]
     pub produkt: String,
     #[xml(name = b"produkthersteller", ty = "attr")]
@@ -185,4 +194,6 @@ pub struct VorgangTransportieren2010 {
 
     #[xml(ns = b"xwas", name = b"vorgang", ty = "child")]
     pub vorgang: Vorgang,
+    #[xml(ns = b"ds", name = b"Signature", ty = "child")]
+    pub signature: Option<Signature>,
 }

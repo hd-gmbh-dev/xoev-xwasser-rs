@@ -1,0 +1,101 @@
+{
+  "produkt": "XWasser Test",
+  "produkthersteller": "H&D GmbH",
+  "produktversion": "0.800.0",
+  "test": true,
+  "nachrichtenkopf_g2g": {
+    "identifikation_nachricht": {
+      "nachrichten_uuid": "27283e1f-54d7-490b-b55b-a4a68bbf9b74",
+      "nachrichten_typ": {
+        "code": {
+          "code": "2010"
+        }
+      },
+      "erstellungszeitpunkt": "2025-02-06T17:02:36"
+    },
+    "leser": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "",
+      "name": ""
+    },
+    "autor": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "",
+      "name": ""
+    },
+    "referenz_uuid": null,
+    "dvdv_dienstkennung": ""
+  },
+  "vorgang": {
+    "identifikation_vorgang": {
+      "vorgangs_id": "ed7eb8e2-8fed-481f-a2e7-0ff41eda1442"
+    },
+    "vorgang_type": {
+      "t": "OlbBericht",
+      "c": {
+        "dokument_typ": {
+          "code": "1010",
+          "name": null
+        },
+        "name": "name",
+        "aktuelle_version": null,
+        "letzte_version": null,
+        "dokument_repraesentation": [],
+        "person_referenz_id": [],
+        "dokument_id": "id12345"
+      }
+    },
+    "bemerkung": null,
+    "anlage": []
+  },
+  "signature": {
+    "signed_info": {
+      "canonicalization_method": {
+        "algorithm": "http://www.w3.org/2001/10/xml-exc-c14n#"
+      },
+      "signature_method": {
+        "hmac_output_length": null,
+        "algorithm": "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
+      },
+      "reference": [
+        {
+          "transforms": {
+            "transform": [
+              {
+                "xpath": [],
+                "algorithm": "http://www.w3.org/2000/09/xmldsig#enveloped-signature"
+              },
+              {
+                "xpath": [],
+                "algorithm": "http://www.w3.org/2001/10/xml-exc-c14n#"
+              }
+            ]
+          },
+          "digest_method": {
+            "algorithm": "http://www.w3.org/2000/09/xmldsig#sha1"
+          },
+          "digest_value": "",
+          "id": null,
+          "uri": "#id12345",
+          "type_attr": null
+        }
+      ],
+      "id": null
+    },
+    "signature_value": {
+      "content": "",
+      "id": null
+    },
+    "key_info": null,
+    "object": [],
+    "id": null
+  }
+}
