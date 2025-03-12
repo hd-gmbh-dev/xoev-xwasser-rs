@@ -24,7 +24,7 @@ impl raxb::ser::XmlSerialize for Signature {
         writer: &mut raxb::quick_xml::Writer<W>,
     ) -> raxb::ser::XmlSerializeResult<()> {
         if self.exists {
-            writer.get_mut().write(br#"<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+            writer.get_mut().write_all(br#"<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
     <ds:SignedInfo>
         <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
         <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256">
