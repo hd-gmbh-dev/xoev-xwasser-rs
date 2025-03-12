@@ -7,14 +7,8 @@ fn test_olb_report_signature_builder() -> anyhow::Result<()> {
             vorgang::identifikation_vorgang,
         },
         model::{
-            codes::CodeDokumenttypType,
-            shared::dokument::DokumentType,
-            signature::{
-                CanonicalizationMethod, DigestMethod, Reference, Signature, SignatureMethod,
-                SignatureValue, SignedInfo, Transform, Transforms,
-            },
-            transport::VorgangTransportieren2010,
-            vorgang::Vorgang,
+            codes::CodeDokumenttypType, shared::dokument::DokumentType, signature::Signature,
+            transport::VorgangTransportieren2010, vorgang::Vorgang,
         },
     };
 
@@ -52,53 +46,7 @@ fn test_olb_report_signature_builder() -> anyhow::Result<()> {
                 ))
                 .build(),
         )
-        .signature(Some(
-            Signature::builder()
-                .signed_info(
-                    SignedInfo::builder()
-                        .id(None)
-                        .signature_method(
-                            SignatureMethod::builder()
-                                .algorithm(
-                                    "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256".to_string(),
-                                )
-                                .hmac_output_length(None)
-                                .build(),
-                        )
-                        .canonicalization_method(
-                            CanonicalizationMethod::builder()
-                                .algorithm("http://www.w3.org/2001/10/xml-exc-c14n#".to_string())
-                                .build(),
-                        )
-                        .reference(vec![Reference::builder()
-                            .transforms(Some(Transforms::builder().transform(vec![
-                                Transform::builder()
-                                    .xpath(vec![])
-                                    .algorithm("http://www.w3.org/2000/09/xmldsig#enveloped-signature".to_string())
-                                    .build(),
-                                Transform::builder()
-                                    .xpath(vec![])
-                                    .algorithm("http://www.w3.org/2001/10/xml-exc-c14n#".to_string())
-                                    .build()
-                            ]).build()))
-                            .digest_method(
-                                DigestMethod::builder()
-                                    .algorithm("http://www.w3.org/2000/09/xmldsig#sha1".to_string())
-                                    .build(),
-                            )
-                            .digest_value(Default::default())
-                            .id(None)
-                            .type_attr(None)
-                            .uri(Some("#id12345".to_string()))
-                            .build()])
-                        .build(),
-                )
-                .signature_value(SignatureValue::default())
-                .object(vec![])
-                .key_info(None)
-                .id(None)
-                .build(),
-        ))
+        .signature(Some(Signature { exists: true }))
         .build();
 
     let json = serde_json::to_string_pretty(&e).unwrap();
