@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/ ../schemas/V0_8_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/" produkt="XWasser Test" produkthersteller="H&amp;amp;D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="0.8.0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>5f68276e-3b8d-48b2-a4b6-112874357f1c</nachrichtenUUID>
+      <nachrichtentyp listURI="urn:xoev-de:xwasser:codeliste:nachrichtentyp" listVersionID="1">
+        <code>2010</code>
+      </nachrichtentyp>
+      <erstellungszeitpunkt>2025-03-12T11:55:08</erstellungszeitpunkt>
+    </identifikation.nachricht>
+    <leser>
+      <verzeichnisdienst listVersionID="">
+        <code></code>
+      </verzeichnisdienst>
+      <kennung></kennung>
+      <name></name>
+    </leser>
+    <autor>
+      <verzeichnisdienst listVersionID="">
+        <code></code>
+      </verzeichnisdienst>
+      <kennung></kennung>
+      <name></name>
+    </autor>
+    <dvdvDienstkennung></dvdvDienstkennung>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>e6946cf0-c081-48b8-9c88-627dc243fefd</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+    <xwas:vorgangType>
+      <xwas:olb_bericht dokumentID="id12345">
+        <xwas:dokumentTyp listURI="urn:xoev-de:xwasser:codeliste:dokumenttyp" listVersionID="1">
+          <code>1010</code>
+        </xwas:dokumentTyp>
+        <xwas:name>name</xwas:name>
+      </xwas:olb_bericht>
+    </xwas:vorgangType>
+  </xwas:vorgang><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:SignedInfo>
+        <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+        <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256">
+        </ds:SignatureMethod>
+        <ds:Reference>
+        <ds:Transforms>
+            <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature">
+            </ds:Transform>
+            <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+            </ds:Transform>
+            <ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+            <ds:XPath>/*[local-name()='vorgang.transportieren.2010']/*[local-name()='vorgang']</ds:XPath>
+            </ds:Transform>
+        </ds:Transforms>
+        <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+        <ds:DigestValue></ds:DigestValue>
+        </ds:Reference>
+    </ds:SignedInfo>
+    <ds:SignatureValue></ds:SignatureValue>
+    <ds:KeyInfo>
+        <ds:KeyName/>
+        <ds:X509Data>
+        <ds:X509Certificate></ds:X509Certificate>
+        </ds:X509Data>
+    </ds:KeyInfo>
+</ds:Signature>
+</xwas:vorgang.transportieren.2010>

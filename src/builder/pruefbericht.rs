@@ -6,6 +6,7 @@ use crate::{
     model::{
         pruefbericht::PruefberichtType,
         shared::auftraggeber::{Auftraggeber, AuftraggeberType},
+        signature::*,
     },
 };
 
@@ -70,4 +71,9 @@ pub fn pruefbericht_type(
         .erweiterung(Default::default())
         .id(format!("pruefbericht-{}", new_id()))
         .build()
+}
+
+#[cfg_attr(feature = "wasm", wasm_bindgen)]
+pub fn pruefbericht_signature_template() -> Signature {
+    Signature { exists: true }
 }

@@ -13,7 +13,7 @@ use wasm_bindgen::prelude::*;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use super::vorgang::Vorgang;
+use super::{signature::Signature, vorgang::Vorgang};
 
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
@@ -179,10 +179,10 @@ pub struct VorgangTransportieren2010 {
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
     _version: ConstStr,
-
     #[xml(name = b"nachrichtenkopf.g2g", ty = "child")]
     pub nachrichtenkopf_g2g: NachrichtenkopfG2g,
-
     #[xml(ns = b"xwas", name = b"vorgang", ty = "child")]
     pub vorgang: Vorgang,
+    #[xml(ns = b"ds", name = b"Signature", ty = "child")]
+    pub signature: Option<Signature>,
 }

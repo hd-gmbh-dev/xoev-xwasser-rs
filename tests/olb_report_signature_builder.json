@@ -1,0 +1,62 @@
+{
+  "produkt": "XWasser Test",
+  "produkthersteller": "H&D GmbH",
+  "produktversion": "0.800.0",
+  "test": true,
+  "nachrichtenkopf_g2g": {
+    "identifikation_nachricht": {
+      "nachrichten_uuid": "5f68276e-3b8d-48b2-a4b6-112874357f1c",
+      "nachrichten_typ": {
+        "code": {
+          "code": "2010"
+        }
+      },
+      "erstellungszeitpunkt": "2025-03-12T11:55:08"
+    },
+    "leser": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "",
+      "name": ""
+    },
+    "autor": {
+      "verzeichnisdienst": {
+        "code": {
+          "code": ""
+        }
+      },
+      "kennung": "",
+      "name": ""
+    },
+    "referenz_uuid": null,
+    "dvdv_dienstkennung": ""
+  },
+  "vorgang": {
+    "identifikation_vorgang": {
+      "vorgangs_id": "e6946cf0-c081-48b8-9c88-627dc243fefd"
+    },
+    "vorgang_type": {
+      "t": "OlbBericht",
+      "c": {
+        "dokument_typ": {
+          "code": "1010",
+          "name": null
+        },
+        "name": "name",
+        "aktuelle_version": null,
+        "letzte_version": null,
+        "dokument_repraesentation": [],
+        "person_referenz_id": [],
+        "dokument_id": "id12345"
+      }
+    },
+    "bemerkung": null,
+    "anlage": []
+  },
+  "signature": {
+    "exists": true
+  }
+}

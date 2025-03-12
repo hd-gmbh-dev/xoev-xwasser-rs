@@ -16,7 +16,7 @@ categories = []
 keywords = []
 
 [workspace.dependencies]
-anyhow = "1.0.89"
+anyhow = "1.0.97"
 xoev-xwasser-codelists = { version = "0.800.0", path = "crates/codelists" }
 xoev-xwasser-derive = { version = "0.800.0", path = "crates/derive" }
 raxb = "0.4.4"
@@ -27,7 +27,7 @@ raxb-xmlschema-build = "0.4.4"
 # raxb-validate = { path = "../raxb/crates/raxb-validate"}
 # raxb-xmlschema = { path = "../raxb/crates/raxb-xmlschema"}
 # raxb-xmlschema-build = { path = "../raxb/crates/raxb-xmlschema-build"}
-serde = { version = "1.0.210", features = ["derive", "rc"] }
+serde = { version = "1.0.219", features = ["derive", "rc"] }
 
 [package]
 name = "xoev-xwasser"
@@ -61,20 +61,20 @@ validate = ["dep:xoev-xwasser-codelists"]
 xoev-xwasser-derive.workspace = true
 xoev-xwasser-codelists = { workspace = true, optional = true }
 anyhow = { version = "1", optional = true }
-rust-embed = { version = "8.5.0", optional = true }
+rust-embed = { version = "8.6.0", optional = true }
 raxb = { workspace = true, features = ["trace"] }
 raxb-validate = { workspace = true, optional = true }
 raxb-xmlschema = { workspace = true, optional = true }
-wasm-bindgen = { version = "0.2.93", optional = true }
+wasm-bindgen = { version = "0.2.100", optional = true }
 serde-wasm-bindgen = { version = "0.6", optional = true }
-tsify-next = { version= "0.5.4", default-features = false, features = ["js"], optional = true }
+tsify-next = { version= "0.5.5", default-features = false, features = ["js"], optional = true }
 serde.workspace = true
 typed-builder = { version = "0.20.0", optional = true }
-once_cell = { version = "1.20.1", optional = true }
-uuid = { version = "1.10.0", features = ["v4"], optional = true }
-chrono = { version = "0.4.38", optional = true }
-strum = { version = "0.26", optional = true }
-strum_macros = { version = "0.26", optional = true }
+once_cell = { version = "1.21.0", optional = true }
+uuid = { version = "1.15.1", features = ["v4"], optional = true }
+chrono = { version = "0.4.40", optional = true }
+strum = { version = "0.27.1", optional = true }
+strum_macros = { version = "0.27.1", optional = true }
 tiny_id = { version = "0.1.6", features = [], optional = true }
 
 [build-dependencies]
@@ -84,8 +84,8 @@ raxb-xmlschema-build.workspace = true
 [dev-dependencies]
 anyhow.workspace = true
 raxb-xmlschema-build.workspace = true
-serde_json = "1.0.128"
-test-log = { version = "0.2.16", features = ["trace", "color"] }
+serde_json = "1.0.140"
+test-log = { version = "0.2.17", features = ["trace", "color"] }
 
 [profile.release]
 # Tell `rustc` to optimize for small code size.
