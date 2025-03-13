@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/ ../schemas/V0_8_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" produkt="SHAPTH CLI" produkthersteller="H &amp;amp; D GmbH" produktversion="H &amp;amp; D GmbH" standard="XWasser" test="true" version="0.8.0">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/ ../schemas/V0_9_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" produkt="SHAPTH CLI" produkthersteller="H &amp;amp; D GmbH" produktversion="H &amp;amp; D GmbH" standard="XWasser" test="true" version="0.9.0">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
@@ -32,12 +32,138 @@
     <xwas:vorgangType>
       <xwas:pruefbericht id="pruefbericht1">
         <xwas:pruefberichtUUID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:pruefberichtUUID>
-        <xwas:vorgaengerPruefberichtID>ebbf07dd-b7ca-4d74-93c1-d5b68a2fd91f</xwas:vorgaengerPruefberichtID>
+        <xwas:versionsnummer>1</xwas:versionsnummer>
         <xwas:auftragsnummer>54713a94-983e-4a36-93b8-af5d0ebfd191</xwas:auftragsnummer>
+        <xwas:zustaendigeBehoerde>
+          <xwas:id>behoerde22</xwas:id>
+          <xwas:typ>
+            <code></code>
+            <name></name>
+          </xwas:typ>
+          <xwas:zusatz>Gemeinde Hotzingmussen</xwas:zusatz>
+          <xwas:behoerdenkennung>
+            <xwas:kennung listURI="" listVersionID="">
+              <code>1234</code>
+              <name>Behoerde Hotzingmussen</name>
+            </xwas:kennung>
+            <xwas:praefix listURI="urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix" listVersionID="">
+              <code>1234</code>
+              <name>von</name>
+            </xwas:praefix>
+          </xwas:behoerdenkennung>
+          <xwas:kommunikation>
+            <xwas:kanal listURI="urn:de:xoev:codeliste:erreichbarkeit" listVersionID="3">
+              <code>1234</code>
+              <name>E-Mail</name>
+            </xwas:kanal>
+            <xwas:kennung>1</xwas:kennung>
+            <xwas:istDienstlich>true</xwas:istDienstlich>
+            <xwas:zusatz>Austausch über Email</xwas:zusatz>
+          </xwas:kommunikation>
+          <xwas:behoerdenidentifikation>
+            <xwas:beschreibung>Gesundheitsamt</xwas:beschreibung>
+            <xwas:gueltigkeit>
+              <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+              <xwas:ende>2024-07-26+05:00</xwas:ende>
+              <xwas:zusatz>Ein</xwas:zusatz>
+            </xwas:gueltigkeit>
+          </xwas:behoerdenidentifikation>
+          <xwas:behoerdenname>
+            <xwas:name>Gesundheitsamt der Gemeinde Hotzingmussen</xwas:name>
+            <xwas:kurzbezeichnung>GdGH</xwas:kurzbezeichnung>
+            <xwas:gueltigkeit>
+              <xwas:beginn>2024-07-26+05:00</xwas:beginn>
+              <xwas:ende>2024-07-26+05:00</xwas:ende>
+              <xwas:zusatz>Seit Bestehen und zukünftig</xwas:zusatz>
+            </xwas:gueltigkeit>
+          </xwas:behoerdenname>
+          <xwas:verwaltungspolitischeZustaendigkeit>
+            <xwas:bezirk listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk" listVersionID="">
+              <code>9999</code>
+              <name>Reg.-Bez. Hotzingmussen</name>
+            </xwas:bezirk>
+            <xwas:bundesland listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland" listVersionID="2010-04-01">
+              <code>1</code>
+            </xwas:bundesland>
+            <xwas:gemeindeschluessel listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags" listVersionID="">
+              <code>6667</code>
+              <name>Gemeine Hotzingen</name>
+            </xwas:gemeindeschluessel>
+            <xwas:nation>
+              <xwas:staat listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat" listVersionID="">
+                <code>2</code>
+                <name>LandLand</name>
+              </xwas:staat>
+            </xwas:nation>
+          </xwas:verwaltungspolitischeZustaendigkeit>
+          <xwas:anschrift id="anschrift4">
+            <xwas:strassenschluessel>
+              <code>1234</code>
+            </xwas:strassenschluessel>
+            <xwas:strasse>In der Stadt</xwas:strasse>
+            <xwas:hausnummer>1</xwas:hausnummer>
+            <xwas:postfach>12345</xwas:postfach>
+            <xwas:postleitzahl>90909</xwas:postleitzahl>
+            <xwas:ort>Hotzingmussen</xwas:ort>
+            <xwas:ortsteil>Worzen</xwas:ortsteil>
+            <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
+            <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
+            <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
+            <xwas:typ listURI="urn:xoev-de:fim:codeliste:xzufi.anschrifttyp" listVersionID="2.0">
+              <code>1234</code>
+              <name></name>
+            </xwas:typ>
+            <xwas:staat>
+              <xwas:staat listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat" listVersionID="">
+                <code>1234</code>
+                <name></name>
+              </xwas:staat>
+            </xwas:staat>
+            <xwas:verwaltungspolitischeKodierung>
+              <xwas:kreis listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis" listVersionID="">
+                <code>1111</code>
+                <name></name>
+              </xwas:kreis>
+              <xwas:bezirk listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk" listVersionID="">
+                <code>1231</code>
+                <name></name>
+              </xwas:bezirk>
+              <xwas:bundesland listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland" listVersionID="2010-04-01">
+                <code>1</code>
+                <name></name>
+              </xwas:bundesland>
+              <xwas:gemeindeschluessel listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags" listVersionID="">
+                <code>9090</code>
+                <name></name>
+              </xwas:gemeindeschluessel>
+              <xwas:regionalschluessel listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs" listVersionID="">
+                <code>9897</code>
+                <name></name>
+              </xwas:regionalschluessel>
+              <xwas:nation>
+                <xwas:staat listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat" listVersionID="">
+                  <code>123456</code>
+                  <name></name>
+                </xwas:staat>
+              </xwas:nation>
+            </xwas:verwaltungspolitischeKodierung>
+          </xwas:anschrift>
+          <xwas:organisationsstruktur>
+            <xwas:name>Wasserprobeneinheit</xwas:name>
+            <xwas:hierarchieebene>2</xwas:hierarchieebene>
+            <xwas:hierarchiename>Zweiter Hierarchie</xwas:hierarchiename>
+          </xwas:organisationsstruktur>
+          <xwas:anlageNachTrinkwVID></xwas:anlageNachTrinkwVID>
+          <xwas:anlageNachTrinkwVID></xwas:anlageNachTrinkwVID>
+          <xwas:laenderkuerzel listURI="urn:xoev-de:xwasser:codeliste:laenderkennzeichen" listVersionID="1">
+            <code>DEMV</code>
+            <name></name>
+          </xwas:laenderkuerzel>
+        </xwas:zustaendigeBehoerde>
         <xwas:probennahmestelle id="probennahmestelleid1">
           <xwas:probennahmestelleID>ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86</xwas:probennahmestelleID>
           <xwas:objektID>abcd</xwas:objektID>
-          <xwas:anlageNachTrinwVID>abcd</xwas:anlageNachTrinwVID>
+          <xwas:wasserversorgungsgebietID>abcd</xwas:wasserversorgungsgebietID>
           <xwas:nameProbennahmestelle></xwas:nameProbennahmestelle>
           <xwas:kategorieProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="1">
             <code>L</code>
@@ -57,7 +183,6 @@
             <code>1234</code>
             <name>Adsorption, Entfernung von Chlor und Ozon, biol. Filtration, Entfernung von Partikeln</name>
           </xwas:desinfektionUndAufbereitungDesWassers>
-          <xwas:altID>altid2</xwas:altID>
           <xwas:berichtspflichtig>true</xwas:berichtspflichtig>
           <xwas:kommentar></xwas:kommentar>
         </xwas:probennahmestelle>
@@ -71,6 +196,7 @@
             <xwas:anschriftID>anschrift1</xwas:anschriftID>
             <xwas:zugelasseneUntersuchungsstelle>ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f</xwas:zugelasseneUntersuchungsstelle>
             <xwas:akkreditierteDurchfuehrungAnalyse>true</xwas:akkreditierteDurchfuehrungAnalyse>
+            <xwas:zugelasseneDurchfuehrungAnalyse>true</xwas:zugelasseneDurchfuehrungAnalyse>
             <xwas:untersuchungsverfahren listURI="urn:xoev-de:xwasser:codeliste:untersuchungsverfahren" listVersionID="2">
               <code>1010</code>
               <name>Nontarget-Screening</name>
@@ -141,6 +267,7 @@
             <xwas:anschriftID>anschrift2</xwas:anschriftID>
             <xwas:zugelasseneUntersuchungsstelle>ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f</xwas:zugelasseneUntersuchungsstelle>
             <xwas:akkreditierteDurchfuehrungAnalyse>false</xwas:akkreditierteDurchfuehrungAnalyse>
+            <xwas:zugelasseneDurchfuehrungAnalyse>false</xwas:zugelasseneDurchfuehrungAnalyse>
             <xwas:untersuchungsverfahren listURI="urn:xoev-de:xwasser:codeliste:untersuchungsverfahren" listVersionID="2">
               <code>2020</code>
               <name>Spektrometrie</name>
@@ -3817,132 +3944,6 @@
             </xwas:organisation>
           </xwas:auftraggeber>
         </xwas:auftraggeber>
-        <xwas:zustaendigeBehoerde>
-          <xwas:id>behoerde22</xwas:id>
-          <xwas:typ>
-            <code></code>
-            <name></name>
-          </xwas:typ>
-          <xwas:zusatz>Gemeinde Hotzingmussen</xwas:zusatz>
-          <xwas:behoerdenkennung>
-            <xwas:kennung listURI="" listVersionID="">
-              <code>1234</code>
-              <name>Behoerde Hotzingmussen</name>
-            </xwas:kennung>
-            <xwas:praefix listURI="urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix" listVersionID="">
-              <code>1234</code>
-              <name>von</name>
-            </xwas:praefix>
-          </xwas:behoerdenkennung>
-          <xwas:kommunikation>
-            <xwas:kanal listURI="urn:de:xoev:codeliste:erreichbarkeit" listVersionID="3">
-              <code>1234</code>
-              <name>E-Mail</name>
-            </xwas:kanal>
-            <xwas:kennung>1</xwas:kennung>
-            <xwas:istDienstlich>true</xwas:istDienstlich>
-            <xwas:zusatz>Austausch über Email</xwas:zusatz>
-          </xwas:kommunikation>
-          <xwas:behoerdenidentifikation>
-            <xwas:beschreibung>Gesundheitsamt</xwas:beschreibung>
-            <xwas:gueltigkeit>
-              <xwas:beginn>2024-07-26+05:00</xwas:beginn>
-              <xwas:ende>2024-07-26+05:00</xwas:ende>
-              <xwas:zusatz>Ein</xwas:zusatz>
-            </xwas:gueltigkeit>
-          </xwas:behoerdenidentifikation>
-          <xwas:behoerdenname>
-            <xwas:name>Gesundheitsamt der Gemeinde Hotzingmussen</xwas:name>
-            <xwas:kurzbezeichnung>GdGH</xwas:kurzbezeichnung>
-            <xwas:gueltigkeit>
-              <xwas:beginn>2024-07-26+05:00</xwas:beginn>
-              <xwas:ende>2024-07-26+05:00</xwas:ende>
-              <xwas:zusatz>Seit Bestehen und zukünftig</xwas:zusatz>
-            </xwas:gueltigkeit>
-          </xwas:behoerdenname>
-          <xwas:verwaltungspolitischeZustaendigkeit>
-            <xwas:bezirk listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk" listVersionID="">
-              <code>9999</code>
-              <name>Reg.-Bez. Hotzingmussen</name>
-            </xwas:bezirk>
-            <xwas:bundesland listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland" listVersionID="2010-04-01">
-              <code>1</code>
-            </xwas:bundesland>
-            <xwas:gemeindeschluessel listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags" listVersionID="">
-              <code>6667</code>
-              <name>Gemeine Hotzingen</name>
-            </xwas:gemeindeschluessel>
-            <xwas:nation>
-              <xwas:staat listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat" listVersionID="">
-                <code>2</code>
-                <name>LandLand</name>
-              </xwas:staat>
-            </xwas:nation>
-          </xwas:verwaltungspolitischeZustaendigkeit>
-          <xwas:anschrift id="anschrift4">
-            <xwas:strassenschluessel>
-              <code>1234</code>
-            </xwas:strassenschluessel>
-            <xwas:strasse>In der Stadt</xwas:strasse>
-            <xwas:hausnummer>1</xwas:hausnummer>
-            <xwas:postfach>12345</xwas:postfach>
-            <xwas:postleitzahl>90909</xwas:postleitzahl>
-            <xwas:ort>Hotzingmussen</xwas:ort>
-            <xwas:ortsteil>Worzen</xwas:ortsteil>
-            <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
-            <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
-            <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
-            <xwas:typ listURI="urn:xoev-de:fim:codeliste:xzufi.anschrifttyp" listVersionID="2.0">
-              <code>1234</code>
-              <name></name>
-            </xwas:typ>
-            <xwas:staat>
-              <xwas:staat listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat" listVersionID="">
-                <code>1234</code>
-                <name></name>
-              </xwas:staat>
-            </xwas:staat>
-            <xwas:verwaltungspolitischeKodierung>
-              <xwas:kreis listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis" listVersionID="">
-                <code>1111</code>
-                <name></name>
-              </xwas:kreis>
-              <xwas:bezirk listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk" listVersionID="">
-                <code>1231</code>
-                <name></name>
-              </xwas:bezirk>
-              <xwas:bundesland listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland" listVersionID="2010-04-01">
-                <code>1</code>
-                <name></name>
-              </xwas:bundesland>
-              <xwas:gemeindeschluessel listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags" listVersionID="">
-                <code>9090</code>
-                <name></name>
-              </xwas:gemeindeschluessel>
-              <xwas:regionalschluessel listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs" listVersionID="">
-                <code>9897</code>
-                <name></name>
-              </xwas:regionalschluessel>
-              <xwas:nation>
-                <xwas:staat listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat" listVersionID="">
-                  <code>123456</code>
-                  <name></name>
-                </xwas:staat>
-              </xwas:nation>
-            </xwas:verwaltungspolitischeKodierung>
-          </xwas:anschrift>
-          <xwas:organisationsstruktur>
-            <xwas:name>Wasserprobeneinheit</xwas:name>
-            <xwas:hierarchieebene>2</xwas:hierarchieebene>
-            <xwas:hierarchiename>Zweiter Hierarchie</xwas:hierarchiename>
-          </xwas:organisationsstruktur>
-          <xwas:anlageNachTrinkwVID></xwas:anlageNachTrinkwVID>
-          <xwas:anlageNachTrinkwVID></xwas:anlageNachTrinkwVID>
-          <xwas:laenderkuerzel listURI="urn:xoev-de:xwasser:codeliste:laenderkennzeichen" listVersionID="1">
-            <code>DEMV</code>
-            <name></name>
-          </xwas:laenderkuerzel>
-        </xwas:zustaendigeBehoerde>
         <xwas:beauftragteUntersuchungsstelle>
           <xwas:rechtsform listURI="urn:xoev-de:xunternehmen:codeliste:rechtsformen" listVersionID="">
             <code>PHG</code>
@@ -4660,6 +4661,7 @@
             </xwas:nation>
           </xwas:verwaltungspolitischeKodierung>
         </xwas:ortDerLabortaetigkeiten>
+        <xwas:gefahrInVerzug>true</xwas:gefahrInVerzug>
         <xwas:anhang>anhang1</xwas:anhang>
         <xwas:erweiterung>
           <xwas:feld>

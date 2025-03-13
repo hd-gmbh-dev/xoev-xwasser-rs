@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Format der alternativen ID</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Die Codeliste gibt ID-Formate an, welche parallel zu SHAPTH bestehen können. Beispielsweise aus den Landesschnittstellen wie SEBAM, oder TEIS/ZTEIS, welche durch SHAPTH ersetzt werden.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:validFrom>2025-04-01</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>format-alternative-id</ShortName>
+      <LongName>Format der alternativen ID</LongName>
+      <Version>1</Version>
+      <CanonicalUri>urn:xoev-de:xwasser:codeliste:format-alternative-id</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:format-alternative-id_1</CanonicalVersionUri>
+      <Agency>
+         <LongName>XWasser</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Key" Use="required">
+         <ShortName>Key</ShortName>
+         <LongName>Deutsch</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Format-alternative-ID" Use="required">
+         <ShortName>Format-alternative-ID</ShortName>
+         <LongName>Abhilfemaßnahme</LongName>
+         <Data Type="string" Lang="de-DE"/>
+      </Column>
+      <Key Id="KeyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>KeyKey</ShortName>
+         <ColumnRef Ref="Key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Format-alternative-ID">
+            <SimpleValue>TEIS/ZTEIS</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Format-alternative-ID">
+            <SimpleValue>OctoWare</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Format-alternative-ID">
+            <SimpleValue>LABDÜS</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Format-alternative-ID">
+            <SimpleValue>OKZ-Nummer/SEBAM</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Format-alternative-ID">
+            <SimpleValue>NiWaDAB</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Format-alternative-ID">
+            <SimpleValue>TWIST</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>9010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Format-alternative-ID">
+            <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

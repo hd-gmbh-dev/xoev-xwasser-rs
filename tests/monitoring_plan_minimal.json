@@ -32,7 +32,8 @@
       "name": "Author"
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "s"
+    "dvdv_dienstkennung": "s",
+    "zustaendige_behoerde_id": []
   },
   "vorgang": {
     "identifikation_vorgang": {
@@ -155,7 +156,6 @@
           "name_der_anlage": "Anlage1",
           "abgegebene_wassermenge_der_anlage_pro_tag": null,
           "anzahl_durch_anlage_versorgte_personen": null,
-          "alt_id": null,
           "kommentar": null,
           "wasserversorgungsgebiet": [
             {
@@ -201,7 +201,6 @@
               ],
               "vorgeschriebene_untersuchungshaeufigkeit_parameter_a": 1,
               "vorgeschriebene_untersuchungshaeufigkeit_parameter_b": 1,
-              "alt_id": null,
               "kommentar": null,
               "derogation": [
                 {
@@ -346,183 +345,99 @@
               "id": "wvgfremdbezogen"
             }
           ],
-          "anlage_nach_trinkw_v_objekt": [
-            {
-              "objekt_id": "anlage",
-              "wasserversorgungsgebiet": null,
-              "anschrift_objekt": [
-                {
-                  "strassenschluessel": {
-                    "code": "3456",
-                    "name": null,
-                    "list_uri": null,
-                    "list_version_id": null
-                  },
-                  "strasse": "Hinterhofstraße",
-                  "hausnummer": "19",
-                  "postfach": "23456",
-                  "postleitzahl": "4321",
-                  "ort": "Wehrstetten",
-                  "ortsteil": null,
-                  "ort_frueherer_gemeindename": null,
-                  "wohnungsgeber": "Privatperson",
-                  "zusatz": "Keine Angabe",
-                  "typ": [
-                    {
-                      "code": "1254",
-                      "name": ""
-                    }
-                  ],
-                  "staat": {
-                    "staat": {
-                      "code": "2342",
-                      "name": ""
-                    }
-                  },
-                  "verwaltungspolitische_kodierung": {
-                    "kreis": {
-                      "code": "6666",
-                      "name": ""
-                    },
-                    "bezirk": {
-                      "code": "2342",
-                      "name": ""
-                    },
-                    "bundesland": {
-                      "code": "3",
-                      "name": ""
-                    },
-                    "gemeindeschluessel": {
-                      "code": "4444",
-                      "name": ""
-                    },
-                    "regionalschluessel": {
-                      "code": "2222",
-                      "name": ""
-                    },
-                    "nation": {
-                      "staat": {
-                        "code": "12345",
-                        "name": ""
-                      }
-                    }
-                  },
-                  "id": "anschrift1"
-                }
-              ],
-              "art_objekt": {
-                "code": "1010",
-                "name": null
-              },
-              "name_objekt": "Anhang1",
-              "betriebszustand_des_objekts": null,
-              "datum_in_betriebnahme": null,
-              "datum_ausser_betriebnahme": null,
-              "rahmen_der_trinkwasserbereitstellung": [
-                {
-                  "code": "1010",
-                  "name": null
-                }
-              ],
-              "geokoordinaten_objekt": {
-                "geografische_position_und_ausdehnung": null,
-                "name_shapefile": null,
-                "geokoordinaten_breitengrad": null,
-                "geokoordinaten_laengengrad": null,
-                "geokoordinaten_rechtswert": null,
-                "geokoordinaten_hochwert": null
-              },
-              "alt_id": null,
-              "kommentar": null,
-              "betreiber": [
-                {
-                  "betreiber_id": "41B7511E-8C10-42C6-AFA9-D1C59C0E1B75",
-                  "art_der_person": {
-                    "t": "Organisation",
-                    "c": {
-                      "id": null,
-                      "rechtsform": null,
-                      "branche": [],
-                      "zweck": [],
-                      "name": null,
-                      "unterorganisation": [],
-                      "kommunikation": [],
-                      "registrierung": [],
-                      "identifikation": [],
-                      "existenzzeitraum": null,
-                      "anschrift": [
-                        {
-                          "strassenschluessel": null,
-                          "strasse": null,
-                          "hausnummer": null,
-                          "postfach": null,
-                          "postleitzahl": null,
-                          "ort": null,
-                          "ortsteil": null,
-                          "ort_frueherer_gemeindename": null,
-                          "wohnungsgeber": null,
-                          "zusatz": null,
-                          "typ": [],
-                          "staat": null,
-                          "verwaltungspolitische_kodierung": null,
-                          "id": "anschrift2"
-                        }
-                      ]
-                    }
-                  },
-                  "objekt_id": [
-                    "probennehmer1"
-                  ],
-                  "kommentar": null,
-                  "id": "betreiber-1"
-                }
-              ],
-              "objekt_probennahmestelle": [
-                {
-                  "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
-                  "objekt_id": "probennahmestelle1",
-                  "anlage_nach_trinkw_vid": "probennahmestelle1",
-                  "probe": [],
-                  "terminplan_id": [],
-                  "name_probennahmestelle": "",
-                  "kategorie_probennahmestelle": {
-                    "code": "L",
-                    "name": null
-                  },
-                  "unterkategorie_probennahmestelle": {
-                    "code": "1030",
-                    "name": null
-                  },
-                  "art_der_entnahmearmatur": {
-                    "code": "1010",
-                    "name": null
-                  },
-                  "stockwerk_probennahmestelle": null,
-                  "medium_an_der_probennahmestelle": [
-                    {
-                      "code": "1010",
-                      "name": null
-                    }
-                  ],
-                  "desinfektion_und_aufbereitung_des_wassers": [
-                    {
-                      "code": "",
-                      "name": null
-                    }
-                  ],
-                  "alt_id": null,
-                  "berichtspflichtig": null,
-                  "kommentar": null,
-                  "id": "probennahmestelle1"
-                }
-              ],
-              "id": "anlage_objekt1"
-            }
-          ],
+          "angaben_alternative_id": null,
           "id": "abcd"
         },
+        "objekt": [
+          {
+            "objekt_id": "497869a6-c859-47e9-8353-526b07bfa5ef",
+            "anlage_nach_trinkw_vid": null,
+            "wasserversorgungsgebiet_id": null,
+            "anschrift_objekt": [],
+            "art_objekt": {
+              "code": "1010",
+              "name": null
+            },
+            "name_objekt": "",
+            "betriebszustand_des_objekts": null,
+            "datum_in_betriebnahme": null,
+            "datum_ausser_betriebnahme": null,
+            "rahmen_der_trinkwasserbereitstellung": [],
+            "geokoordinaten_objekt": {
+              "geografische_position_und_ausdehnung": null,
+              "name_shapefile": null,
+              "geokoordinaten_breitengrad": null,
+              "geokoordinaten_laengengrad": null,
+              "geokoordinaten_rechtswert": null,
+              "geokoordinaten_hochwert": null
+            },
+            "angaben_alternative_id": null,
+            "kommentar": null,
+            "betreiber": [
+              {
+                "betreiber_id": "85d6c328-e01e-4362-9d39-44f6319e6eb4",
+                "art_der_person": {
+                  "t": "Organisation",
+                  "c": {
+                    "id": "organisation-ECelFPri",
+                    "rechtsform": null,
+                    "branche": [],
+                    "zweck": [],
+                    "name": null,
+                    "unterorganisation": [],
+                    "kommunikation": [],
+                    "registrierung": [],
+                    "identifikation": [],
+                    "existenzzeitraum": null,
+                    "anschrift": []
+                  }
+                },
+                "objekt_id": [
+                  "obj-DEHK5z3p"
+                ],
+                "kommentar": null,
+                "id": "betreiber-FCHZpfnY"
+              }
+            ],
+            "id": "obj-DEHK5z3p"
+          }
+        ],
+        "probennahmestelle": [
+          {
+            "probennahmestelle_id": "f6c67456-6bde-4b31-9cd7-506e9b7363b5",
+            "objekt_id": null,
+            "wasserversorgungsgebiet_id": null,
+            "probe": [],
+            "terminplan_id": [],
+            "name_probennahmestelle": "Probennahmestelle 1",
+            "kategorie_probennahmestelle": {
+              "code": "L",
+              "name": null
+            },
+            "unterkategorie_probennahmestelle": {
+              "code": "1030",
+              "name": null
+            },
+            "art_der_entnahmearmatur": {
+              "code": "1010",
+              "name": null
+            },
+            "stockwerk_probennahmestelle": 0,
+            "medium_an_der_probennahmestelle": [
+              {
+                "code": "1010",
+                "name": null
+              }
+            ],
+            "desinfektion_und_aufbereitung_des_wassers": [],
+            "angaben_alternative_id": null,
+            "berichtspflichtig": null,
+            "kommentar": null,
+            "id": "probennahmestelle-GEaAta8v"
+          }
+        ],
         "auftraggeber": {
-          "auftraggeber_id": "Auftraggeber1",
+          "auftraggeber_id": "betreiber-1",
           "auftraggeberart": {
             "code": "1010",
             "name": null
@@ -530,7 +445,7 @@
           "auftraggeber": {
             "t": "ZustaendigeBehoerde",
             "c": {
-              "id": "probennehmer1",
+              "id": "betreiber-1",
               "typ": null,
               "zusatz": null,
               "behoerdenkennung": null,
@@ -573,7 +488,7 @@
           },
           "kommentar": null
         },
-        "name_beauftragte_untersuchungsstelle": [],
+        "beauftragte_untersuchungsstelle_id": [],
         "kommentar": [],
         "aenderungshistorie": null,
         "erweiterung": null,

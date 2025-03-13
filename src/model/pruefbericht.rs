@@ -14,15 +14,9 @@ use typed_builder::TypedBuilder;
 use super::{
     codes::{CodeAmtsspracheEuType, CodeGesamtbewertungType},
     shared::{
-        anschrift::AnschriftType,
-        auftraggeber::AuftraggeberType,
-        behoerde::ZustaendigeBehoerdeType,
-        misc::ErweiterungType,
-        person::NatuerlichePersonType,
-        probe::{ProbeType, ProbennahmestelleType, ProbennehmerType},
-        unterssuchungsstelle::{
+        anschrift::AnschriftType, auftraggeber::AuftraggeberType, behoerde::ZustaendigeBehoerdeType, betreiber::ObjektType, misc::ErweiterungType, person::NatuerlichePersonType, probe::{ProbeType, ProbennahmestelleType, ProbennehmerType}, unterssuchungsstelle::{
             BeauftragteUntersuchungsstelleType, ZugelasseneUntersuchungsstelleType,
-        },
+        }, untersuchungsplan::AnlageNachTrinkwVType
     },
 };
 
@@ -36,15 +30,18 @@ use super::{
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
     pub pruefbericht_uuid: String,
-    #[xml(ns = b"xwas", name = b"vorgaengerPruefberichtID", ty = "child")]
-    pub vorgaenger_pruefbericht_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"versionsnummer", ty = "child")]
+    pub versionsnummer: Option<i32>,
     #[xml(ns = b"xwas", name = b"auftragsnummer", ty = "child")]
     pub auftragsnummer: String,
+    #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
+    #[serde(default)]
+    pub zustaendige_behoerde: Vec<ZustaendigeBehoerdeType>,
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
     #[serde(default)]
     pub probennahmestelle: Vec<ProbennahmestelleType>,
@@ -113,9 +110,6 @@ pub struct PruefberichtType {
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"auftraggeber", ty = "child")]
     pub auftraggeber: AuftraggeberType,
-    #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
-    #[serde(default)]
-    pub zustaendige_behoerde: Vec<ZustaendigeBehoerdeType>,
     #[xml(
         default,
         ns = b"xwas",
@@ -129,11 +123,25 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"ortDerLabortaetigkeiten", ty = "child")]
     #[serde(default)]
     pub ort_der_labortaetigkeiten: Vec<AnschriftType>,
+    #[xml(
+        default,
+        ns = b"xwas",
+        name = b"gefahrInVerzug",
+        ty = "child"
+    )]
+    #[serde(default)]
+    pub gefahr_in_verzug: bool,
     #[xml(ns = b"xwas", name = b"anhang", ty = "child")]
     #[serde(default)]
     pub anhang: Vec<String>,
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
     pub erweiterung: Option<ErweiterungType>,
+    #[xml(ns = b"xwas", name = b"objekt", ty = "child")]
+    #[serde(default)]
+    pub objekt: Vec<ObjektType>,
+    #[xml(ns = b"xwas", name = b"anlageNachTrinkwV", ty = "child")]
+    #[serde(default)]
+    pub anlage_nach_trinkw_v: Vec<AnlageNachTrinkwVType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }

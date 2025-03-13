@@ -8,15 +8,16 @@
 Untersuchungsplan</xoev-cl-4:shortName>
          <xoev-cl-4:codelistDescription>Mit dieser Codeliste wird im Kontext von XWasser der Status des Untersuchungsplans definiert.</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:validFrom>2025-04-01</xoev-cl-4:validFrom>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>status-untersuchungsplan</ShortName>
       <LongName>Status Untersuchungsplan</LongName>
-      <Version>1</Version>
+      <Version>2</Version>
       <CanonicalUri>urn:xoev-de:xwasser:codeliste:status-untersuchungsplan</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:status-untersuchungsplan_1</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:status-untersuchungsplan_2</CanonicalVersionUri>
       <Agency>
          <LongName>XWasser</LongName>
       </Agency>
@@ -69,24 +70,24 @@ Untersuchungsplan</xoev-cl-4:shortName>
       </Row>
       <Row>
          <Value ColumnRef="Key">
-            <SimpleValue>1030</SimpleValue>
+            <SimpleValue>1031</SimpleValue>
          </Value>
          <Value ColumnRef="Status">
-            <SimpleValue>Durch GA bestätigt</SimpleValue>
+            <SimpleValue>Bei Betreiber angefragt</SimpleValue>
          </Value>
          <Value ColumnRef="Beschreibung">
-            <SimpleValue>Durch GA bestätigt</SimpleValue>
+            <SimpleValue>Bei Betreiber angefragt</SimpleValue>
          </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
-            <SimpleValue>1040</SimpleValue>
+            <SimpleValue>1041</SimpleValue>
          </Value>
          <Value ColumnRef="Status">
-            <SimpleValue>Durch GA nachgebessert</SimpleValue>
+            <SimpleValue>Durch Betreiber zu vervollständigen</SimpleValue>
          </Value>
          <Value ColumnRef="Beschreibung">
-            <SimpleValue>Durch GA nachgebessert</SimpleValue>
+            <SimpleValue>Durch Betreiber zu vervollständigen</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -102,13 +103,13 @@ Untersuchungsplan</xoev-cl-4:shortName>
       </Row>
       <Row>
          <Value ColumnRef="Key">
-            <SimpleValue>1060</SimpleValue>
+            <SimpleValue>1061</SimpleValue>
          </Value>
          <Value ColumnRef="Status">
-            <SimpleValue>Durch WV bestätigt</SimpleValue>
+            <SimpleValue>Freigegeben</SimpleValue>
          </Value>
          <Value ColumnRef="Beschreibung">
-            <SimpleValue>Durch WV bestätigt</SimpleValue>
+            <SimpleValue>Freigegeben</SimpleValue>
          </Value>
       </Row>
    </SimpleCodeList>

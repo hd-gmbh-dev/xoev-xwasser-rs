@@ -7,15 +7,16 @@
          <xoev-cl-4:shortName>Messwertergänzung</xoev-cl-4:shortName>
          <xoev-cl-4:codelistDescription>Diese Codeliste wird im Rahmen von XWasser für die Ergänzung von Messwertangaben verwendet.</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:validFrom>2025-04-01</xoev-cl-4:validFrom>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>messwertergaenzung</ShortName>
       <LongName>Ergänzung von Messwerten</LongName>
-      <Version>1</Version>
+      <Version>2</Version>
       <CanonicalUri>urn:xoev-de:xwasser:codeliste:messwertergaenzung</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:messwertergaenzung_1</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:messwertergaenzung_2</CanonicalVersionUri>
       <Agency>
          <LongName>XWasser</LongName>
       </Agency>
@@ -87,6 +88,39 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Der Untersuchungswert liegt oberhalb der analytischen Obergrenze (bzw. "obere Arbeitsbereichsgrenze" gem. UBA)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Messwertergaenzung">
+            <SimpleValue>nicht nachweisbar</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>nicht nachweisbar</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Messwertergaenzung">
+            <SimpleValue>nicht bestimmt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>nicht bestimmt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1070</SimpleValue>
+         </Value>
+         <Value ColumnRef="Messwertergaenzung">
+            <SimpleValue>nicht auswertbar</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>nicht auswertbar</SimpleValue>
          </Value>
       </Row>
    </SimpleCodeList>

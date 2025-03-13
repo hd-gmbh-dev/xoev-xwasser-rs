@@ -9,7 +9,7 @@ use crate::{
 #[cfg(feature = "wasm")]
 use wasm_bindgen::prelude::*;
 
-use super::{organisation::organisation_type, probe::probennahmestelle_type};
+use super::organisation::organisation_type;
 
 // #[cfg(feature = "wasm")]
 // use tsify_next::Tsify;
@@ -21,7 +21,7 @@ pub fn objekt_type() -> ObjektType {
     betreiber.objekt_id = vec![id.clone()];
     ObjektType::builder()
         .objekt_id(new_uuid())
-        .wasserversorgungsgebiet(Default::default())
+        .anlage_nach_trinkw_vid(Default::default())
         .anschrift_objekt(Default::default())
         .art_objekt("1010".into())
         .name_objekt(Default::default())
@@ -30,12 +30,10 @@ pub fn objekt_type() -> ObjektType {
         .datum_ausser_betriebnahme(Default::default())
         .rahmen_der_trinkwasserbereitstellung(Default::default())
         .geokoordinaten_objekt(Default::default())
-        .alt_id(Default::default())
+        .angaben_alternative_id(Default::default())
         .kommentar(Default::default())
         .betreiber(vec![betreiber])
-        .objekt_probennahmestelle(vec![probennahmestelle_type(
-            "Probennahmestelle 1".to_string(),
-        )])
+        .wasserversorgungsgebiet_id(Default::default())        
         .id(id)
         .build()
 }

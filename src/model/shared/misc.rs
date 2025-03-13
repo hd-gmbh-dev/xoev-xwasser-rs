@@ -11,9 +11,9 @@ use tsify_next::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::model::codes::CodeDatentypType;
+use crate::model::codes::{CodeDatentypType, CodeFormatAlternativeIDType};
 
-use super::zeitraum::ZeitraumType;
+use super::{xoev::XWasserXoevCode, zeitraum::ZeitraumType};
 
 /// Unter "Identifikation" werden die Informationen zusammengefasst, die die eindeutige
 /// Identifikation von Objekten in einem fachlichen Kontext erlauben.
@@ -25,7 +25,7 @@ use super::zeitraum::ZeitraumType;
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct IdentifikationType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
@@ -51,7 +51,7 @@ pub struct IdentifikationType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct ErweiterungXmlType {
     // weiteres xml schema
@@ -70,7 +70,7 @@ pub struct ErweiterungXmlType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct ErweiterungFeldType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -92,7 +92,7 @@ pub struct ErweiterungFeldType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct ErweiterungGruppeType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -122,7 +122,7 @@ pub struct ErweiterungGruppeType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct ErweiterungType {
     #[xml(ns = b"xwas", name = b"feld", ty = "child")]
@@ -144,9 +144,9 @@ pub struct ErweiterungType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
-pub struct GeokoordinatenShapthType {
+pub struct GeografischeAngabenType {
     #[xml(
         ns = b"xwas",
         name = b"geografischePositionUndAusdehnung",
@@ -160,7 +160,59 @@ pub struct GeokoordinatenShapthType {
     #[xml(ns = b"xwas", name = b"geokoordinatenLaengengrad", ty = "child")]
     pub geokoordinaten_laengengrad: Option<f64>,
     #[xml(ns = b"xwas", name = b"geokoordinatenRechtswert", ty = "child")]
-    pub geokoordinaten_rechtswert: Option<u8>,
+    pub geokoordinaten_rechtswert: Option<f64>,
     #[xml(ns = b"xwas", name = b"geokoordinatenHochwert", ty = "child")]
-    pub geokoordinaten_hochwert: Option<u8>,
+    pub geokoordinaten_hochwert: Option<f64>,
+}
+
+/// Die Komponente "Geokodierung" beinhaltet Informationen zur geografischen Bestimmung von Dingen.
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+))]
+pub struct GeokodierungType {
+    #[xml(
+        ns = b"xwas",
+        name = b"koordinatensystem",
+        ty = "child"
+    )]
+    pub koordinatensystem: Option<XWasserXoevCode>,
+    #[xml(ns = b"xwas", name = b"koordinate1", ty = "child")]
+    pub koordinate1: Option<f64>,
+    #[xml(ns = b"xwas", name = b"koordinate2", ty = "child")]
+    pub koordinate2: Option<f64>,
+    #[xml(ns = b"xwas", name = b"flurnummer", ty = "child")]
+    pub flurnummer: Option<String>,
+    #[xml(ns = b"xwas", name = b"flurstueck", ty = "child")]
+    pub flurstueck: Option<String>,
+    #[xml(ns = b"xwas", name = b"gemarkung", ty = "child")]
+    pub gemarkung: Option<String>,
+}
+
+/// Klasse für den Transport von Informationen zu einer Trinkwasserversorgungsanlage.
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
+#[xml(tns(
+    b"xwas",
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+))]
+pub struct AngabenAlternativeIDType {
+    #[xml(
+        ns = b"xwas",
+        name = b"alternativeID",
+        ty = "child"
+    )]
+    pub alternative_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"formatDerAlternativenID", ty = "child")]
+    pub format_der_alternativen_id: Option<CodeFormatAlternativeIDType>,
 }

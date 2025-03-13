@@ -16,8 +16,8 @@ use crate::model::codes::{
 };
 
 use super::{
-    anschrift::AnschriftType, behoerde::ZustaendigeBehoerdeType, misc::GeokoordinatenShapthType,
-    organisation::OrganisationType, person::NatuerlichePersonType, probe::ProbennahmestelleType,
+    anschrift::AnschriftType, behoerde::ZustaendigeBehoerdeType, misc::{AngabenAlternativeIDType, GeografischeAngabenType},
+    organisation::OrganisationType, person::NatuerlichePersonType,
 };
 
 /// Informationen zu einem Auftraggeber [Ergänzende Angaben zu den jeweiligen
@@ -32,7 +32,7 @@ use super::{
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub enum ArtDerPerson {
     #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
@@ -56,7 +56,7 @@ pub enum ArtDerPerson {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct BetreiberType {
     #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
@@ -80,13 +80,15 @@ pub struct BetreiberType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
     pub objekt_id: String,
-    #[xml(ns = b"xwas", name = b"wasserversorgungsgebiet", ty = "child")]
-    pub wasserversorgungsgebiet: Option<String>,
+    #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
+    pub anlage_nach_trinkw_vid: Option<String>,
+    #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
+    pub wasserversorgungsgebiet_id: Option<String>,
     #[xml(ns = b"xwas", name = b"anschriftObjekt", ty = "child")]
     #[serde(default)]
     pub anschrift_objekt: Vec<AnschriftType>,
@@ -108,17 +110,14 @@ pub struct ObjektType {
     #[serde(default)]
     pub rahmen_der_trinkwasserbereitstellung: Vec<CodeRahmenTrinkwasserbereitstellungType>,
     #[xml(ns = b"xwas", name = b"geokoordinatenObjekt", ty = "child")]
-    pub geokoordinaten_objekt: GeokoordinatenShapthType,
-    #[xml(ns = b"xwas", name = b"altID", ty = "child")]
-    pub alt_id: Option<String>,
+    pub geokoordinaten_objekt: GeografischeAngabenType,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeID", ty = "child")]
+    pub angaben_alternative_id: Option<AngabenAlternativeIDType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"betreiber", ty = "child")]
     #[serde(default)]
     pub betreiber: Vec<BetreiberType>,
-    #[xml(ns = b"xwas", name = b"objekt_probennahmestelle", ty = "child")]
-    #[serde(default)]
-    pub objekt_probennahmestelle: Vec<ProbennahmestelleType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }

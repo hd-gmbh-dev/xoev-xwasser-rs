@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "6b5172ac-30a1-4bce-b5ef-3479552f99d6",
+      "nachrichten_uuid": "de8c4dcb-bf39-42cf-ae08-fd2664194701",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2025-03-12T11:55:08"
+      "erstellungszeitpunkt": "2025-03-13T15:14:52"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -32,23 +32,45 @@
       "name": "lab 1"
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "1"
+    "dvdv_dienstkennung": "1",
+    "zustaendige_behoerde_id": []
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "e6da564c-44d3-4ea2-9cf1-d6d55a910647"
+      "vorgangs_id": "541d24dd-87c8-470a-a404-233f6a009f71"
     },
     "vorgang_type": {
       "t": "Pruefbericht",
       "c": {
-        "pruefbericht_uuid": "c770af70-2285-4ccf-9d7a-362b19d950d2",
-        "vorgaenger_pruefbericht_id": null,
-        "auftragsnummer": "3ae774dc-d773-48c1-b6c0-ba2d9094aba0",
+        "pruefbericht_uuid": "8b7b1bbd-242b-4047-8875-31c86741ebbf",
+        "versionsnummer": 1,
+        "auftragsnummer": "0b949698-726c-482a-88d0-13adb366e357",
+        "zustaendige_behoerde": [
+          {
+            "id": null,
+            "typ": null,
+            "zusatz": null,
+            "behoerdenkennung": null,
+            "kommunikation": [],
+            "behoerdenidentifikation": null,
+            "behoerdenname": null,
+            "nachgeordnete_behoerde": [],
+            "verwaltungspolitische_zustaendigkeit": [],
+            "anschrift": [],
+            "organisationsstruktur": [],
+            "anlage_nach_trinkw_vid": [],
+            "laenderkuerzel": {
+              "code": "DEBY",
+              "name": null
+            },
+            "kommentar": null
+          }
+        ],
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "id-18e8b193-5c39-4f7e-8192-83bc5f9f4bba",
+            "probennahmestelle_id": "id-ca6f986d-17d4-439f-a650-38c9a585f7ee",
             "objekt_id": "none",
-            "anlage_nach_trinkw_vid": "none",
+            "wasserversorgungsgebiet_id": null,
             "probe": [],
             "terminplan_id": [],
             "name_probennahmestelle": "",
@@ -72,25 +94,26 @@
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
-            "alt_id": null,
+            "angaben_alternative_id": null,
             "berichtspflichtig": null,
             "kommentar": null,
-            "id": "id-18e8b193-5c39-4f7e-8192-83bc5f9f4bba"
+            "id": "id-ca6f986d-17d4-439f-a650-38c9a585f7ee"
           }
         ],
         "probe": [
           {
-            "probe_id": "2fb4250b-f4de-4684-8fad-b0aab389a793",
-            "probennahmestelle": "id-18e8b193-5c39-4f7e-8192-83bc5f9f4bba",
+            "probe_id": "026ab541-0ec4-4afb-95f2-f53850cb0e36",
+            "probennahmestelle": "id-ca6f986d-17d4-439f-a650-38c9a585f7ee",
             "untersuchungsplan_id": null,
             "probennehmer": null,
             "titel_probe": null,
             "analyseergebnis_parameter": [
               {
-                "analyseergebnis_parameter_id": "5ae24d02-2c2f-45e1-bda5-e68d9b235f7c",
-                "anschrift_id": "anschrift-FZDOoeh0",
+                "analyseergebnis_parameter_id": "c33c4225-c0bc-4cc5-b1ff-434cb196233d",
+                "anschrift_id": "anschrift-kerlHEV2",
                 "zugelassene_untersuchungsstelle": "wsu-1",
                 "akkreditierte_durchfuehrung_analyse": false,
+                "zugelassene_durchfuehrung_analyse": true,
                 "untersuchungsverfahren": [
                   {
                     "code": "1010",
@@ -141,7 +164,7 @@
             },
             "akkreditierte_durchfuehrung_der_probennahme": false,
             "ergaenzung_zum_medium": null,
-            "zeitpunkt_probennahme": "2025-03-12T11:55:08",
+            "zeitpunkt_probennahme": "2025-03-13T15:14:52",
             "probennahmeverfahren": [
               {
                 "code": "1010",
@@ -160,9 +183,9 @@
             ],
             "kommentar_zur_probennahme": null,
             "informationen_zum_probentransport": null,
-            "eingang_probe_bei_untersuchungsstelle": "2025-03-12T11:55:08",
-            "beginn_labortaetigkeit_analytik": "2025-03-12T11:55:08",
-            "abschluss_labortaetigkeit_analytik": "2025-03-12T11:55:08",
+            "eingang_probe_bei_untersuchungsstelle": "2025-03-13T15:14:52",
+            "beginn_labortaetigkeit_analytik": "2025-03-13T15:14:52",
+            "abschluss_labortaetigkeit_analytik": "2025-03-13T15:14:52",
             "konformitaetsbewertung_der_probe": {
               "code": "1010",
               "name": null
@@ -179,7 +202,7 @@
         ],
         "probennehmer": [
           {
-            "probennehmer_id": "66c14157-35b5-4ff0-8922-467f844223b5",
+            "probennehmer_id": "37bbab93-c49e-4e31-a170-f11d279f709e",
             "probennehmer": {
               "t": "NatuerlichePerson",
               "c": {
@@ -214,7 +237,7 @@
           "name": null
         },
         "auffaelligkeiten": [],
-        "zeitpunkt_validierung_pruefbericht": "2025-03-12T11:55:08",
+        "zeitpunkt_validierung_pruefbericht": "2025-03-13T15:14:52",
         "fuer_validierung_verantwortliche_person": [
           {
             "auskunftssperre": [],
@@ -267,27 +290,6 @@
             }
           }
         },
-        "zustaendige_behoerde": [
-          {
-            "id": null,
-            "typ": null,
-            "zusatz": null,
-            "behoerdenkennung": null,
-            "kommunikation": [],
-            "behoerdenidentifikation": null,
-            "behoerdenname": null,
-            "nachgeordnete_behoerde": [],
-            "verwaltungspolitische_zustaendigkeit": [],
-            "anschrift": [],
-            "organisationsstruktur": [],
-            "anlage_nach_trinkw_vid": [],
-            "laenderkuerzel": {
-              "code": "DEBY",
-              "name": null
-            },
-            "kommentar": null
-          }
-        ],
         "beauftragte_untersuchungsstelle": {
           "id": "wsu-1",
           "rechtsform": null,
@@ -325,11 +327,14 @@
             "typ": [],
             "staat": null,
             "verwaltungspolitische_kodierung": null,
-            "id": "anschrift-FZDOoeh0"
+            "id": "anschrift-kerlHEV2"
           }
         ],
+        "gefahr_in_verzug": false,
         "anhang": [],
         "erweiterung": null,
+        "objekt": [],
+        "anlage_nach_trinkw_v": [],
         "id": "pruefbericht-1"
       }
     },

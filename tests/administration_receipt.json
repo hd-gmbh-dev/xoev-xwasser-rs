@@ -32,7 +32,8 @@
       "name": "Reader"
     },
     "referenz_uuid": "693c64d6-456f-4d14-abe7-fe9681c74aae",
-    "dvdv_dienstkennung": "s"
+    "dvdv_dienstkennung": "s",
+    "zustaendige_behoerde_id": []
   },
   "identifikation_vorgang": {
     "vorgangs_id": "5e08e073-4e06-438d-9444-1275f6cbf061"
