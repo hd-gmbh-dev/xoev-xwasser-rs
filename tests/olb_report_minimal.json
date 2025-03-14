@@ -32,7 +32,8 @@
       "name": "Author"
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "s"
+    "dvdv_dienstkennung": "s",
+    "zustaendige_behoerde_id": []
   },
   "vorgang": {
     "identifikation_vorgang": {

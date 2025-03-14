@@ -22,8 +22,7 @@ use tsify_next::Tsify;
 use typed_builder::TypedBuilder;
 
 use super::{
-    behoerde::ZustaendigeBehoerdeType, organisation::OrganisationType,
-    person::NatuerlichePersonType,
+    behoerde::ZustaendigeBehoerdeType, misc::AngabenAlternativeIDType, organisation::OrganisationType, person::NatuerlichePersonType
 };
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
@@ -35,7 +34,7 @@ use super::{
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub enum Probennehmer {
     #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
@@ -55,11 +54,11 @@ pub enum Probennehmer {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct ProbennehmerType {
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
-    pub probennehmer_id: String, // TODO: Invent UUID
+    pub probennehmer_id: Option<String>, // TODO: Invent UUID
     #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
     pub probennehmer: Probennehmer,
     #[xml(ns = b"xwas", name = b"fremdsystemID_Probennehmer", ty = "child")]
@@ -79,15 +78,15 @@ pub struct ProbennehmerType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
     pub probennahmestelle_id: String,
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
-    pub objekt_id: String,
-    #[xml(ns = b"xwas", name = b"anlageNachTrinwVID", ty = "child")]
-    pub anlage_nach_trinkw_vid: String,
+    pub objekt_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
+    pub wasserversorgungsgebiet_id: Option<String>,
     #[xml(ns = b"xwas", name = b"probe", ty = "child")]
     #[serde(default)]
     pub probe: Vec<String>,
@@ -114,8 +113,8 @@ pub struct ProbennahmestelleType {
     )]
     pub desinfektion_und_aufbereitung_des_wassers:
         Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
-    #[xml(ns = b"xwas", name = b"altID", ty = "child")]
-    pub alt_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeID", ty = "child")]
+    pub angaben_alternative_id: Option<AngabenAlternativeIDType>,
     #[xml(ns = b"xwas", name = b"berichtspflichtig", ty = "child")]
     pub berichtspflichtig: Option<bool>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
@@ -132,7 +131,7 @@ pub struct ProbennahmestelleType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
@@ -231,13 +230,13 @@ pub struct ProbeType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct AnalyseergebnisParameterType {
     #[xml(ns = b"xwas", name = b"analyseergebnisParameterID", ty = "child")]
     pub analyseergebnis_parameter_id: String, // TODO: Invent UUID
     #[xml(ns = b"xwas", name = b"anschriftID", ty = "child")]
-    pub anschrift_id: String,
+    pub anschrift_id: Option<String>,
     #[xml(ns = b"xwas", name = b"zugelasseneUntersuchungsstelle", ty = "child")]
     pub zugelassene_untersuchungsstelle: String,
     #[xml(
@@ -246,6 +245,13 @@ pub struct AnalyseergebnisParameterType {
         ty = "child"
     )]
     pub akkreditierte_durchfuehrung_analyse: bool,
+    #[xml(
+        ns = b"xwas",
+        name = b"zugelasseneDurchfuehrungAnalyse",
+        ty = "child"
+    )]
+    #[serde(default)]
+    pub zugelassene_durchfuehrung_analyse: bool,
     #[xml(ns = b"xwas", name = b"untersuchungsverfahren", ty = "child")]
     #[serde(default)]
     pub untersuchungsverfahren: Vec<CodeUntersuchungsverfahrenType>,

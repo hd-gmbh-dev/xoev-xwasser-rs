@@ -74,7 +74,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     );
 
     let probennehmer = ProbennehmerType::builder()
-        .probennehmer_id(new_uuid())
+        .probennehmer_id(Some(new_uuid()))
         .probennehmer(probennehmer)
         .fremdsystem_id_probennehmer(Default::default())
         .kommentar(Default::default())
@@ -87,6 +87,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .dvdv_dienstkennung("1".into())
         .referenz_uuid(None)
         .identifikation_nachricht(identifikation_nachricht)
+        .zustaendige_behoerde_id(Default::default())
         .build();
 
     let identifikation_vorgang = IdentifikationVorgang::builder()
@@ -102,9 +103,10 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
 
     let param = AnalyseergebnisParameterType::builder()
         .analyseergebnis_parameter_id(new_uuid())
-        .anschrift_id(ort_der_labortaetigkeiten.id.clone())
+        .anschrift_id(Some(ort_der_labortaetigkeiten.id.clone()))
         .zugelassene_untersuchungsstelle("wsu-1".into())
         .akkreditierte_durchfuehrung_analyse(Default::default())
+        .zugelassene_durchfuehrung_analyse(true)
         .untersuchungsverfahren(vec!["1010".into()])
         .ergaenzung_zum_untersuchungsverfahren(Default::default())
         .untersuchter_parameter("1021".into())
@@ -164,8 +166,8 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
 
     let probennahmestelle = ProbennahmestelleType::builder()
         .probennahmestelle_id(probenahmestelle_id.clone())
-        .objekt_id("none".into())
-        .anlage_nach_trinkw_vid("none".into())
+        .wasserversorgungsgebiet_id(None)
+        .objekt_id(Some("none".into()))
         .probe(Default::default())
         .terminplan_id(Default::default())
         .name_probennahmestelle(Default::default())
@@ -175,7 +177,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .stockwerk_probennahmestelle(0.into())
         .medium_an_der_probennahmestelle(vec!["1010".into()])
         .desinfektion_und_aufbereitung_des_wassers(Default::default())
-        .alt_id(None)
+        .angaben_alternative_id(None)
         .berichtspflichtig(Default::default())
         .kommentar(Default::default())
         .id(probenahmestelle_id)
@@ -244,7 +246,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
 
     let pruefbericht = PruefberichtType::builder()
         .pruefbericht_uuid(new_uuid())
-        .vorgaenger_pruefbericht_id(None)
+        .versionsnummer(Some(1))
         .auftragsnummer(new_uuid())
         .probennahmestelle(vec![probennahmestelle])
         .probe(vec![probe])
@@ -271,6 +273,9 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .ort_der_labortaetigkeiten(vec![ort_der_labortaetigkeiten])
         .anhang(Default::default())
         .erweiterung(Default::default())
+        .gefahr_in_verzug(false)
+        .anlage_nach_trinkw_v(Default::default())
+        .objekt(Default::default())
         .id("pruefbericht-1".into())
         .build();
 
@@ -296,8 +301,8 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     let json = serde_json::to_string_pretty(&e).unwrap();
     std::fs::write("tests/quality_report_builder.json", json)?;
     let xml = raxb::ser::to_string_pretty_with_decl(&e)?;
-    std::fs::write("tests/quality_report_builder_test_result.xml", xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/ xwasser.xsd""#,
-    r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/ ../schemas/V0_8_0/xwasser.xsd""#))?;
+    std::fs::write("tests/quality_report_builder_test_result.xml", xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/ xwasser.xsd""#,
+    r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/ ../schemas/V0_9_0/xwasser.xsd""#))?;
     Ok(())
 }
 

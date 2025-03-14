@@ -33,7 +33,7 @@ pub fn pruefbericht_type(
 ) -> PruefberichtType {
     PruefberichtType::builder()
         .pruefbericht_uuid(id.unwrap_or_else(new_uuid))
-        .vorgaenger_pruefbericht_id(Default::default())
+        .versionsnummer(Some(1))
         .auftragsnummer(new_uuid())
         .probennahmestelle(Default::default())
         .probe(Default::default())
@@ -70,6 +70,9 @@ pub fn pruefbericht_type(
         .anhang(Default::default())
         .erweiterung(Default::default())
         .id(format!("pruefbericht-{}", new_id()))
+        .anlage_nach_trinkw_v(Default::default())
+        .gefahr_in_verzug(false)
+        .objekt(Default::default())
         .build()
 }
 

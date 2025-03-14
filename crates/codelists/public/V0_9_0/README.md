@@ -1,4 +1,4 @@
-# XWasser codelists - version `V0_8_0`
+# XWasser codelists - version `V0_9_0`
 
 ## Desinfektionsart
 
@@ -144,17 +144,17 @@ Beschreibt den Katalog der Sprachen, der für die Kommunikation im Ausländerwes
 | Usage | Required | Required |
 | Lang | None | None |
 
-## Überwachung der Trinkwasseraufbereitung
+## Status Untersuchungsplan
 
-Mit dieser Codeliste wird im Kontext von XWasser definiert, wie die Überwachung der Trinkwasseraufbereitung erfolgt.
+Mit dieser Codeliste wird im Kontext von XWasser der Status des Untersuchungsplans definiert.
 
 | | |
 | -- | -- |
-| short name | ueberwachung-aufbereitung |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung_1 |
+| short name | status-untersuchungsplan |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:status-untersuchungsplan` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:status-untersuchungsplan_2 |
 
-| Field | `Key` (0) | `Beschreibung` (1) | `UeberwachungAufbereitung` (2) |
+| Field | `Key` (0) | `Beschreibung` (1) | `Status` (2) |
 | -- | -- | -- | -- |
 | type | RecommendedKey | Value | Value |
 | Usage | Required | Optional | Required |
@@ -192,6 +192,22 @@ Mit dieser Codeliste wird im Kontext von XWasser die Einheit eines SHAPTH Parame
 | Usage | Required | Required |
 | Lang | None | None |
 
+## Überwachung der Trinkwasseraufbereitung
+
+Mit dieser Codeliste wird im Kontext von XWasser definiert, wie die Überwachung der Trinkwasseraufbereitung erfolgt.
+
+| | |
+| -- | -- |
+| short name | ueberwachung-aufbereitung |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung_2 |
+
+| Field | `Key` (0) | `Beschreibung` (1) | `UeberwachungAufbereitung` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
+| Lang | None | None | None |
+
 ## Gemeinden, dargestellt durch den Amtlichen Gemeindeschlüssel (AGS) des Statistischen Bundesamtes
 
 Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
@@ -206,22 +222,6 @@ Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindes
 | -- | -- | -- | -- |
 | type | RecommendedKey | Value | Value |
 | Usage | Required | Required | Optional |
-| Lang | None | None | None |
-
-## Status Untersuchungsplan
-
-Mit dieser Codeliste wird im Kontext von XWasser der Status des Untersuchungsplans definiert.
-
-| | |
-| -- | -- |
-| short name | status-untersuchungsplan |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:status-untersuchungsplan` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:status-untersuchungsplan_1 |
-
-| Field | `Key` (0) | `Beschreibung` (1) | `Status` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
 ## Grund der Ausnahmeregelung
@@ -368,22 +368,6 @@ Mit dieser Codeliste wird im Kontext von XWasser die Art des Auftraggebers defin
 | Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
-## Ergänzung von Messwerten
-
-Diese Codeliste wird im Rahmen von XWasser für die Ergänzung von Messwertangaben verwendet.
-
-| | |
-| -- | -- |
-| short name | messwertergaenzung |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:messwertergaenzung` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:messwertergaenzung_1 |
-
-| Field | `Key` (0) | `Beschreibung` (1) | `Messwertergaenzung` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Optional | Required |
-| Lang | None | None | None |
-
 ## Incident Category
 
 Diese Codeliste definiert die Kategorien eines Vorfalls gem. den Vorgaben für das EU-Berichtsformat.
@@ -443,6 +427,22 @@ Mit dieser Codeliste wird im Kontext von XWasser das Gerät angegeben, mit dem e
 | canonical version uri | urn:xoev-de:xwasser:codeliste:probengefaess_1 |
 
 | Field | `Key` (0) | `Beschreibung` (1) | `Probengefaess` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
+| Lang | None | None | None |
+
+## Ergänzung von Messwerten
+
+Diese Codeliste wird im Rahmen von XWasser für die Ergänzung von Messwertangaben verwendet.
+
+| | |
+| -- | -- |
+| short name | messwertergaenzung |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:messwertergaenzung` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:messwertergaenzung_2 |
+
+| Field | `Key` (0) | `Beschreibung` (1) | `Messwertergaenzung` (2) |
 | -- | -- | -- | -- |
 | type | RecommendedKey | Value | Value |
 | Usage | Required | Optional | Required |
@@ -879,6 +879,22 @@ Diese Codeliste dient zur Beschreibung des Betriebszustands eines Objekts.
 | type | RecommendedKey | Value | Value |
 | Usage | Required | Optional | Required |
 | Lang | None | None | None |
+
+## Format der alternativen ID
+
+Die Codeliste gibt ID-Formate an, welche parallel zu SHAPTH bestehen können. Beispielsweise aus den Landesschnittstellen wie SEBAM, oder TEIS/ZTEIS, welche durch SHAPTH ersetzt werden.
+
+| | |
+| -- | -- |
+| short name | format-alternative-id |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:format-alternative-id` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:format-alternative-id_1 |
+
+| Field | `Key` (0) | `Format-alternative-ID` (1) |
+| -- | -- | -- |
+| type | RecommendedKey | Value |
+| Usage | Required | Required |
+| Lang | None | Some("de-DE") |
 
 ## Codes für Anschrifttyp
 

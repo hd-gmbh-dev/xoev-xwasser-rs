@@ -32,7 +32,8 @@
       "name": "Author"
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "s"
+    "dvdv_dienstkennung": "s",
+    "zustaendige_behoerde_id": []
   },
   "vorgang": {
     "identifikation_vorgang": {
@@ -42,13 +43,36 @@
       "t": "Pruefbericht",
       "c": {
         "pruefbericht_uuid": "5e08e073-4e06-438d-9444-1275f6cbf061",
-        "vorgaenger_pruefbericht_id": null,
+        "versionsnummer": 1,
         "auftragsnummer": "54713a94-983e-4a36-93b8-af5d0ebfd191",
+        "zustaendige_behoerde": [
+          {
+            "id": "T1000212",
+            "typ": null,
+            "zusatz": null,
+            "behoerdenkennung": null,
+            "kommunikation": [],
+            "behoerdenidentifikation": null,
+            "behoerdenname": null,
+            "nachgeordnete_behoerde": [],
+            "verwaltungspolitische_zustaendigkeit": [],
+            "anschrift": [],
+            "organisationsstruktur": [],
+            "anlage_nach_trinkw_vid": [
+              ""
+            ],
+            "laenderkuerzel": {
+              "code": "DEAA",
+              "name": null
+            },
+            "kommentar": null
+          }
+        ],
         "probennahmestelle": [
           {
             "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
             "objekt_id": "abcd",
-            "anlage_nach_trinkw_vid": "abcd",
+            "wasserversorgungsgebiet_id": "awefw",
             "probe": [],
             "terminplan_id": [],
             "name_probennahmestelle": "wasserloch um die ecke",
@@ -77,7 +101,7 @@
                 "name": "desinfektionAufbereitungDesWassers"
               }
             ],
-            "alt_id": "altid2",
+            "angaben_alternative_id": null,
             "berichtspflichtig": null,
             "kommentar": "kommentar zur proebennahmestelle",
             "id": "probennahmestelleid1"
@@ -96,6 +120,7 @@
                 "anschrift_id": "anschrift1",
                 "zugelassene_untersuchungsstelle": "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
                 "akkreditierte_durchfuehrung_analyse": true,
+                "zugelassene_durchfuehrung_analyse": true,
                 "untersuchungsverfahren": [
                   {
                     "code": "1010",
@@ -376,29 +401,6 @@
             }
           }
         },
-        "zustaendige_behoerde": [
-          {
-            "id": "T1000212",
-            "typ": null,
-            "zusatz": null,
-            "behoerdenkennung": null,
-            "kommunikation": [],
-            "behoerdenidentifikation": null,
-            "behoerdenname": null,
-            "nachgeordnete_behoerde": [],
-            "verwaltungspolitische_zustaendigkeit": [],
-            "anschrift": [],
-            "organisationsstruktur": [],
-            "anlage_nach_trinkw_vid": [
-              ""
-            ],
-            "laenderkuerzel": {
-              "code": "DEAA",
-              "name": null
-            },
-            "kommentar": null
-          }
-        ],
         "beauftragte_untersuchungsstelle": {
           "id": null,
           "rechtsform": null,
@@ -521,8 +523,11 @@
             "id": "ID753d97bc-4262-45e8-8c1f-cb7b6ab7864a"
           }
         ],
+        "gefahr_in_verzug": true,
         "anhang": [],
         "erweiterung": null,
+        "objekt": [],
+        "anlage_nach_trinkw_v": [],
         "id": "ID5e08e073-4e06-438d-9444-1275f6cbf061"
       }
     },

@@ -30,7 +30,7 @@ impl FromStr for ConstStr {
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 // ))]
 // pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
 //     #[xml(name = b"code", ty = "child")]
@@ -55,7 +55,7 @@ impl FromStr for ConstStr {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct CodeBehoerdenkennungType {
     #[xml(name = b"code", ty = "child")]
@@ -76,7 +76,7 @@ pub struct CodeBehoerdenkennungType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct CodePersonenrolleType {
     #[xml(name = b"code", ty = "child")]
@@ -310,7 +310,7 @@ pub struct CodeMediumType;
 
 /// Type name: Code.MesswertergaenzungType
 /// Diese Codeliste wird im Rahmen von XWasser für die Ergänzung von Messwertangaben verwendet.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:messwertergaenzung", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:messwertergaenzung", "2")]
 pub struct CodeMesswertergaenzungType;
 
 /// Type name: Code.NachweisartType
@@ -413,7 +413,7 @@ pub struct CodeStatusTechnischType;
 
 /// Type name: Code.StatusUntersuchungsplanType
 /// Mit dieser Codeliste wird im Kontext von XWasser der Status des Untersuchungsplans definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:status-untersuchungsplan", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:status-untersuchungsplan", "2")]
 pub struct CodeStatusUntersuchungsplanType;
 
 /// Type name: Code.UeberschreitungsursacheType
@@ -423,7 +423,7 @@ pub struct CodeUeberschreitungsursacheType;
 
 /// Type name: Code.UeberwachungAufbereitungType
 /// Mit dieser Codeliste wird im Kontext von XWasser definiert, wie die Überwachung der Trinkwasseraufbereitung erfolgt.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung", "2")]
 pub struct CodeUeberwachungAufbereitungType;
 
 /// Type name: Code.UnterkategorieProbennahmestelleType
@@ -470,3 +470,8 @@ pub struct CodeWasserversorgungsgebietType;
 /// Die Codeliste urn:xoev-de:xgewerbeordnung:codeliste:rueckweisungsgruende führt mögliche Gründe für eine Rücksendung einer Nachricht an den Absender auf. Mit dem Präfix des jeweiligen Schlüssels wird folgende Systematik festgelegt: T (Transportproblem), X (formales Problem mit XML), V (Versionsproblem), S (nicht spezifikationskonform).
 #[xoev_xwasser_code("urn:xoev-de:xgewerbeordnung:codeliste:rueckweisungsgruende", "1")]
 pub struct CodeRueckweisungsgrundType;
+
+/// Type name: Code.FormatAlternativeIDType
+/// Die Codeliste gibt ID-Formate an, welche parallel zu SHAPTH bestehen können. Beispielsweise aus den Landesschnittstellen wie SEBAM, oder TEIS/ZTEIS, welche durch SHAPTH ersetzt werden.
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:format-alternative-id", "1")]
+pub struct CodeFormatAlternativeIDType;

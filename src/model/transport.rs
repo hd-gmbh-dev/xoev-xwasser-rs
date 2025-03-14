@@ -51,7 +51,10 @@ pub struct NachrichtenkopfG2g {
     #[xml(name = b"referenzUUID", ty = "child")]
     pub referenz_uuid: Option<String>,
     #[xml(default, name = b"dvdvDienstkennung", ty = "child")]
-    pub dvdv_dienstkennung: String, //DvdvDienstkennung,
+    pub dvdv_dienstkennung: String,
+    #[serde(default)]
+    #[xml(name = b"zustaendigeBehoerdeID", ty = "child")]
+    pub zustaendige_behoerde_id: Vec<String>,
 }
 
 #[derive(
@@ -132,7 +135,7 @@ pub struct Verzeichnisdienst {
 #[xml(root = b"vorgang.transportieren.2010")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
 ))]
 pub struct VorgangTransportieren2010 {
     #[xml(
@@ -148,7 +151,7 @@ pub struct VorgangTransportieren2010 {
         ns = b"xsi",
         name = b"schemaLocation",
         ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/ xwasser.xsd"
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/ xwasser.xsd"
     )]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
@@ -157,7 +160,7 @@ pub struct VorgangTransportieren2010 {
         ns = b"xmlns",
         name = b"xwas",
         ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_8_0/"
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
     )]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
@@ -175,7 +178,7 @@ pub struct VorgangTransportieren2010 {
     #[xml(name = b"test", ty = "attr")]
     #[cfg_attr(feature = "builder", builder(default))]
     pub test: Option<bool>,
-    #[xml(name = b"version", ty = "attr", value = "0.8.0")]
+    #[xml(name = b"version", ty = "attr", value = "0.9.0")]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
     _version: ConstStr,

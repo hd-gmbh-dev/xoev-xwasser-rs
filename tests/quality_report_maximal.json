@@ -32,7 +32,8 @@
       "name": "Author"
     },
     "referenz_uuid": "238b7cc7-6d64-4db8-9c69-779bb65d60b1",
-    "dvdv_dienstkennung": "s"
+    "dvdv_dienstkennung": "s",
+    "zustaendige_behoerde_id": []
   },
   "vorgang": {
     "identifikation_vorgang": {
@@ -42,13 +43,173 @@
       "t": "Pruefbericht",
       "c": {
         "pruefbericht_uuid": "5e08e073-4e06-438d-9444-1275f6cbf061",
-        "vorgaenger_pruefbericht_id": "ebbf07dd-b7ca-4d74-93c1-d5b68a2fd91f",
+        "versionsnummer": 1,
         "auftragsnummer": "54713a94-983e-4a36-93b8-af5d0ebfd191",
+        "zustaendige_behoerde": [
+          {
+            "id": "behoerde22",
+            "typ": {
+              "code": "",
+              "name": "",
+              "list_uri": null,
+              "list_version_id": null
+            },
+            "zusatz": "Gemeinde Hotzingmussen",
+            "behoerdenkennung": {
+              "kennung": [
+                {
+                  "code": "1234",
+                  "name": "Behoerde Hotzingmussen",
+                  "list_uri": "",
+                  "list_version_id": ""
+                }
+              ],
+              "praefix": [
+                {
+                  "code": "1234",
+                  "name": "von"
+                }
+              ]
+            },
+            "kommunikation": [
+              {
+                "kanal": {
+                  "code": "1234",
+                  "name": "E-Mail"
+                },
+                "kennung": "1",
+                "ist_dienstlich": true,
+                "zusatz": "Austausch über Email"
+              }
+            ],
+            "behoerdenidentifikation": {
+              "id": null,
+              "beschreibung": "Gesundheitsamt",
+              "gueltigkeit": {
+                "beginn": "2024-07-26+05:00",
+                "ende": "2024-07-26+05:00",
+                "zusatz": "Ein"
+              }
+            },
+            "behoerdenname": {
+              "name": {
+                "text": "Gesundheitsamt der Gemeinde Hotzingmussen"
+              },
+              "kurzbezeichnung": "GdGH",
+              "gueltigkeit": {
+                "beginn": "2024-07-26+05:00",
+                "ende": "2024-07-26+05:00",
+                "zusatz": "Seit Bestehen und zukünftig"
+              }
+            },
+            "nachgeordnete_behoerde": [],
+            "verwaltungspolitische_zustaendigkeit": [
+              {
+                "kreis": null,
+                "bezirk": {
+                  "code": "9999",
+                  "name": "Reg.-Bez. Hotzingmussen"
+                },
+                "bundesland": {
+                  "code": "1",
+                  "name": null
+                },
+                "gemeindeschluessel": {
+                  "code": "6667",
+                  "name": "Gemeine Hotzingen"
+                },
+                "regionalschluessel": null,
+                "nation": {
+                  "staat": {
+                    "code": "2",
+                    "name": "LandLand"
+                  }
+                }
+              }
+            ],
+            "anschrift": [
+              {
+                "strassenschluessel": {
+                  "code": "1234",
+                  "name": null,
+                  "list_uri": null,
+                  "list_version_id": null
+                },
+                "strasse": "In der Stadt",
+                "hausnummer": "1",
+                "postfach": "12345",
+                "postleitzahl": "90909",
+                "ort": "Hotzingmussen",
+                "ortsteil": "Worzen",
+                "ort_frueherer_gemeindename": "Vordertupfingen",
+                "wohnungsgeber": "Wohnfirma",
+                "zusatz": "Zusatz zur Anschrift",
+                "typ": [
+                  {
+                    "code": "1234",
+                    "name": ""
+                  }
+                ],
+                "staat": {
+                  "staat": {
+                    "code": "1234",
+                    "name": ""
+                  }
+                },
+                "verwaltungspolitische_kodierung": {
+                  "kreis": {
+                    "code": "1111",
+                    "name": ""
+                  },
+                  "bezirk": {
+                    "code": "1231",
+                    "name": ""
+                  },
+                  "bundesland": {
+                    "code": "1",
+                    "name": ""
+                  },
+                  "gemeindeschluessel": {
+                    "code": "9090",
+                    "name": ""
+                  },
+                  "regionalschluessel": {
+                    "code": "9897",
+                    "name": ""
+                  },
+                  "nation": {
+                    "staat": {
+                      "code": "123456",
+                      "name": ""
+                    }
+                  }
+                },
+                "id": "anschrift4"
+              }
+            ],
+            "organisationsstruktur": [
+              {
+                "name": "Wasserprobeneinheit",
+                "hierarchieebene": 2,
+                "hierarchiename": "Zweiter Hierarchie"
+              }
+            ],
+            "anlage_nach_trinkw_vid": [
+              "",
+              ""
+            ],
+            "laenderkuerzel": {
+              "code": "DEMV",
+              "name": ""
+            },
+            "kommentar": null
+          }
+        ],
         "probennahmestelle": [
           {
             "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
             "objekt_id": "abcd",
-            "anlage_nach_trinkw_vid": "abcd",
+            "wasserversorgungsgebiet_id": "abcd",
             "probe": [],
             "terminplan_id": [],
             "name_probennahmestelle": "",
@@ -77,7 +238,7 @@
                 "name": "Adsorption, Entfernung von Chlor und Ozon, biol. Filtration, Entfernung von Partikeln"
               }
             ],
-            "alt_id": "altid2",
+            "angaben_alternative_id": null,
             "berichtspflichtig": true,
             "kommentar": "",
             "id": "probennahmestelleid1"
@@ -96,6 +257,7 @@
                 "anschrift_id": "anschrift1",
                 "zugelassene_untersuchungsstelle": "ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
                 "akkreditierte_durchfuehrung_analyse": true,
+                "zugelassene_durchfuehrung_analyse": true,
                 "untersuchungsverfahren": [
                   {
                     "code": "1010",
@@ -193,6 +355,7 @@
                 "anschrift_id": "anschrift2",
                 "zugelassene_untersuchungsstelle": "ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f",
                 "akkreditierte_durchfuehrung_analyse": false,
+                "zugelassene_durchfuehrung_analyse": false,
                 "untersuchungsverfahren": [
                   {
                     "code": "2020",
@@ -4904,166 +5067,6 @@
             }
           }
         },
-        "zustaendige_behoerde": [
-          {
-            "id": "behoerde22",
-            "typ": {
-              "code": "",
-              "name": "",
-              "list_uri": null,
-              "list_version_id": null
-            },
-            "zusatz": "Gemeinde Hotzingmussen",
-            "behoerdenkennung": {
-              "kennung": [
-                {
-                  "code": "1234",
-                  "name": "Behoerde Hotzingmussen",
-                  "list_uri": "",
-                  "list_version_id": ""
-                }
-              ],
-              "praefix": [
-                {
-                  "code": "1234",
-                  "name": "von"
-                }
-              ]
-            },
-            "kommunikation": [
-              {
-                "kanal": {
-                  "code": "1234",
-                  "name": "E-Mail"
-                },
-                "kennung": "1",
-                "ist_dienstlich": true,
-                "zusatz": "Austausch über Email"
-              }
-            ],
-            "behoerdenidentifikation": {
-              "id": null,
-              "beschreibung": "Gesundheitsamt",
-              "gueltigkeit": {
-                "beginn": "2024-07-26+05:00",
-                "ende": "2024-07-26+05:00",
-                "zusatz": "Ein"
-              }
-            },
-            "behoerdenname": {
-              "name": {
-                "text": "Gesundheitsamt der Gemeinde Hotzingmussen"
-              },
-              "kurzbezeichnung": "GdGH",
-              "gueltigkeit": {
-                "beginn": "2024-07-26+05:00",
-                "ende": "2024-07-26+05:00",
-                "zusatz": "Seit Bestehen und zukünftig"
-              }
-            },
-            "nachgeordnete_behoerde": [],
-            "verwaltungspolitische_zustaendigkeit": [
-              {
-                "kreis": null,
-                "bezirk": {
-                  "code": "9999",
-                  "name": "Reg.-Bez. Hotzingmussen"
-                },
-                "bundesland": {
-                  "code": "1",
-                  "name": null
-                },
-                "gemeindeschluessel": {
-                  "code": "6667",
-                  "name": "Gemeine Hotzingen"
-                },
-                "regionalschluessel": null,
-                "nation": {
-                  "staat": {
-                    "code": "2",
-                    "name": "LandLand"
-                  }
-                }
-              }
-            ],
-            "anschrift": [
-              {
-                "strassenschluessel": {
-                  "code": "1234",
-                  "name": null,
-                  "list_uri": null,
-                  "list_version_id": null
-                },
-                "strasse": "In der Stadt",
-                "hausnummer": "1",
-                "postfach": "12345",
-                "postleitzahl": "90909",
-                "ort": "Hotzingmussen",
-                "ortsteil": "Worzen",
-                "ort_frueherer_gemeindename": "Vordertupfingen",
-                "wohnungsgeber": "Wohnfirma",
-                "zusatz": "Zusatz zur Anschrift",
-                "typ": [
-                  {
-                    "code": "1234",
-                    "name": ""
-                  }
-                ],
-                "staat": {
-                  "staat": {
-                    "code": "1234",
-                    "name": ""
-                  }
-                },
-                "verwaltungspolitische_kodierung": {
-                  "kreis": {
-                    "code": "1111",
-                    "name": ""
-                  },
-                  "bezirk": {
-                    "code": "1231",
-                    "name": ""
-                  },
-                  "bundesland": {
-                    "code": "1",
-                    "name": ""
-                  },
-                  "gemeindeschluessel": {
-                    "code": "9090",
-                    "name": ""
-                  },
-                  "regionalschluessel": {
-                    "code": "9897",
-                    "name": ""
-                  },
-                  "nation": {
-                    "staat": {
-                      "code": "123456",
-                      "name": ""
-                    }
-                  }
-                },
-                "id": "anschrift4"
-              }
-            ],
-            "organisationsstruktur": [
-              {
-                "name": "Wasserprobeneinheit",
-                "hierarchieebene": 2,
-                "hierarchiename": "Zweiter Hierarchie"
-              }
-            ],
-            "anlage_nach_trinkw_vid": [
-              "",
-              ""
-            ],
-            "laenderkuerzel": {
-              "code": "DEMV",
-              "name": ""
-            },
-            "kommentar": null
-          }
-        ],
         "beauftragte_untersuchungsstelle": {
           "id": null,
           "rechtsform": {
@@ -6002,6 +6005,7 @@
             "id": "ID1a23bcde-7890-45bc-bcde-1a2b3c4d5e6f"
           }
         ],
+        "gefahr_in_verzug": true,
         "anhang": [
           "anhang1"
         ],
@@ -6029,6 +6033,8 @@
             "any": []
           }
         },
+        "objekt": [],
+        "anlage_nach_trinkw_v": [],
         "id": "pruefbericht1"
       }
     },

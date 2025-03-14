@@ -21,7 +21,7 @@ use super::person::natuerliche_person_type;
 pub fn probennehmer_type() -> ProbennehmerType {
     ProbennehmerType::builder()
         .id(format!("probennehmer-{}", new_id()))
-        .probennehmer_id(new_uuid())
+        .probennehmer_id(Some(new_uuid()))
         .probennehmer(Probennehmer::NatuerlichePerson(natuerliche_person_type(
             "".into(),
             "".into(),
@@ -37,7 +37,6 @@ pub fn probennahmestelle_type(name: String) -> ProbennahmestelleType {
         .id(format!("probennahmestelle-{}", new_id()))
         .probennahmestelle_id(new_uuid())
         .objekt_id(Default::default())
-        .anlage_nach_trinkw_vid(Default::default())
         .probe(Default::default())
         .terminplan_id(Default::default())
         .name_probennahmestelle(name)
@@ -47,9 +46,10 @@ pub fn probennahmestelle_type(name: String) -> ProbennahmestelleType {
         .stockwerk_probennahmestelle(Some(0))
         .medium_an_der_probennahmestelle(vec!["1010".into()])
         .desinfektion_und_aufbereitung_des_wassers(Default::default())
-        .alt_id(Default::default())
+        .angaben_alternative_id(Default::default())
         .berichtspflichtig(Default::default())
         .kommentar(Default::default())
+        .wasserversorgungsgebiet_id(Default::default())
         .build()
 }
 
@@ -98,9 +98,10 @@ pub fn analyseergebnis_parameter_type(
     AnalyseergebnisParameterType::builder()
         .id(format!("parameter-{}", new_id()))
         .analyseergebnis_parameter_id(new_uuid())
-        .anschrift_id(anschrift_id)
+        .anschrift_id(Some(anschrift_id))
         .zugelassene_untersuchungsstelle(zugelassene_untersuchungsstelle)
         .akkreditierte_durchfuehrung_analyse(Default::default())
+        .zugelassene_durchfuehrung_analyse(Default::default())
         .untersuchungsverfahren(vec!["1010".into()])
         .ergaenzung_zum_untersuchungsverfahren(Default::default())
         .untersuchter_parameter("1021".into())
