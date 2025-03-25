@@ -27,7 +27,7 @@ use super::{
 #[xml(root = b"administration.quittung.0020")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct AdministrationQuittung0020 {
     #[xml(
@@ -43,7 +43,7 @@ pub struct AdministrationQuittung0020 {
         ns = b"xsi",
         name = b"schemaLocation",
         ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/ xwasser.xsd"
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/ xwasser.xsd"
     )]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
@@ -52,7 +52,7 @@ pub struct AdministrationQuittung0020 {
         ns = b"xmlns",
         name = b"xwas",
         ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
     )]
     #[serde(skip)]
     _xmlns: ConstStr,
@@ -69,7 +69,7 @@ pub struct AdministrationQuittung0020 {
     #[xml(name = b"test", ty = "attr")]
     #[cfg_attr(feature = "builder", builder(default))]
     pub test: Option<bool>,
-    #[xml(name = b"version", ty = "attr", value = "0.9.0")]
+    #[xml(name = b"version", ty = "attr", value = "0.9.1")]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
     _version: ConstStr,
@@ -94,7 +94,7 @@ pub struct AdministrationQuittung0020 {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct QuittungType {
     /// Mit dem Code-Datentyp Code.StatusTechnisch wird der aktuelle technische Prozess-Status übermittelt.

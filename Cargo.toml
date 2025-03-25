@@ -4,7 +4,7 @@ members = ["crates/*"]
 
 [workspace.package]
 edition = "2021"
-version = "0.900.0+0.9.0"
+version = "0.901.0+0.9.1"
 description = """
 "XOEV XWasser XML Standard"
 """
@@ -17,8 +17,8 @@ keywords = []
 
 [workspace.dependencies]
 anyhow = "1.0.97"
-xoev-xwasser-codelists = { version = "0.900.0", path = "crates/codelists" }
-xoev-xwasser-derive = { version = "0.900.0", path = "crates/derive" }
+xoev-xwasser-codelists = { version = "0.901.0", path = "crates/codelists" }
+xoev-xwasser-derive = { version = "0.901.0", path = "crates/derive" }
 raxb = "0.4.4"
 raxb-validate = "0.4.4"
 raxb-xmlschema = "0.4.4"

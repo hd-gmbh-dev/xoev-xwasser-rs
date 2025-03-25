@@ -368,8 +368,8 @@
               "name_shapefile": null,
               "geokoordinaten_breitengrad": null,
               "geokoordinaten_laengengrad": null,
-              "geokoordinaten_rechtswert": null,
-              "geokoordinaten_hochwert": null
+              "geokoordinaten_rechtswert_east_wert": null,
+              "geokoordinaten_hochwert_north_wert": null
             },
             "angaben_alternative_id": null,
             "kommentar": null,

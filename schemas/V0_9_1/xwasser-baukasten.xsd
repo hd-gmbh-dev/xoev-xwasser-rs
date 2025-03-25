@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
            xmlns:bn-uq-g2g="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"
            xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
            xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
-           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
-           version="0.9.0"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
+           version="0.9.1"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
    <xs:annotation>
@@ -18,7 +18,7 @@
             <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
          </standard>
          <versionStandard>
-            <version>0.9.0</version>
+            <version>0.9.1</version>
             <versionXOEVProfil>3.0.3</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -295,7 +295,7 @@
                <xs:documentation>ID zur eindeutigen Identifikation einer Anlage nach TrinkwV. Strukturell definiertcolon (Register für a-d, f Anlagen und e-Anlagen mit öffentlicher Tätigkeit): Zu klären ob gem. OKZ oder anderes Format, z.B: Bundesland (2-stellig) - Anlagenart (1-stellig a-f) - Fortlaufende Nr. (9-stellig) ToDo: Die genaue Syntax ist an einem Beispiel zu konkretisieren!</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="zustaendigeBehoerdeID" type="xs:IDREF">
+         <xs:element name="zustaendigeBehoerdeID" minOccurs="0" type="xs:IDREF">
             <xs:annotation>
                <xs:documentation>Referenz der für die Anlage zuständige Behörde; Zuständigkeit muss eindeutig geklärt sein.</xs:documentation>
             </xs:annotation>
@@ -4655,12 +4655,16 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Geographischer Breitengrad gemäß World Geodetic System 1984 (WGS-84) in Dezimalformat bis zu 6 Dezimalstellen (Beispiel Berlin, Brandenburger Tor: Breitengrad 52.516275, Längengrad 13.377704). Für die Angabe des Breiten- und Längengrades sollte ein zentraler Punkt innerhalb der beschriebenen geografischen Entität (bspw. ein Wasserversorgungsgebiet oder ein Objekt etc.) sein. Das kann sowohl der geografische Mittelpunkt sein, als auch bspw. die “wichtigste” Stelle (für ein Wasserversorgungsgebiet könnte dies bspw. das [wichtigste] Wasserwerk oder der Flächenschwerpunkt der größten Stadt innerhalb des Gebiets sein).</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="geokoordinatenRechtswert" minOccurs="0" type="xs:decimal">
+         <xs:element name="geokoordinatenRechtswertEastWert"
+                     minOccurs="0"
+                     type="xs:decimal">
             <xs:annotation>
                <xs:documentation>Der Rechtswert der Koordinaten des WVG.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="geokoordinatenHochwert" minOccurs="0" type="xs:decimal">
+         <xs:element name="geokoordinatenHochwertNorthWert"
+                     minOccurs="0"
+                     type="xs:decimal">
             <xs:annotation>
                <xs:documentation>Der Hochwert der Koordinaten des Objekts.</xs:documentation>
             </xs:annotation>
@@ -5342,7 +5346,9 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Referenz zur eindeutigen Identifikation der Anlage nach TrinkwV, zu welcher das Objekt gehört.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="wasserversorgungsgebietID" minOccurs="0" type="xs:IDREF">
+         <xs:element name="wasserversorgungsgebietID"
+                     minOccurs="0"
+                     type="din91379:datatypeC">
             <xs:annotation>
                <xs:documentation>ID zur eindeutigen Identifikation eines Wasserversorgungsgebiets.</xs:documentation>
             </xs:annotation>
@@ -5844,7 +5850,9 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Referenz zur eindeutigen Identifikation des Objekts, zu welchem die Probennahmestelle gehört.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="wasserversorgungsgebietID" minOccurs="0" type="xs:IDREF">
+         <xs:element name="wasserversorgungsgebietID"
+                     minOccurs="0"
+                     type="din91379:datatypeC">
             <xs:annotation>
                <xs:documentation>ID zur eindeutigen Identifikation eines Wasserversorgungsgebiets.</xs:documentation>
             </xs:annotation>
@@ -5905,7 +5913,11 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="angabenAlternativeID"
                      minOccurs="0"
-                     type="xwas:AngabenAlternativeIDType"/>
+                     type="xwas:AngabenAlternativeIDType">
+            <xs:annotation>
+               <xs:documentation>Angaben zur alternativen ID.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
          <xs:element name="berichtspflichtig" minOccurs="0" type="xs:boolean">
             <xs:annotation>
                <xs:documentation>Angabe, ob Proben, welche an dieser Probennahmestelle entnommen wurden, für den Untersuchungsplan und den sektoralen Bericht genutzt werden sollen.</xs:documentation>
@@ -6003,7 +6015,7 @@ Untersuchungsplan</nameKurz>
             </xs:annotation>
          </xs:element>
          <xs:element name="zustaendigeBehoerde"
-                     maxOccurs="unbounded"
+                     minOccurs="0"
                      type="xwas:ZustaendigeBehoerdeType">
             <xs:annotation>
                <xs:documentation>Hier werden die Angaben zur zuständigen Behörde übermittelt.</xs:documentation>
@@ -6161,11 +6173,19 @@ Untersuchungsplan</nameKurz>
          <xs:element name="objekt"
                      minOccurs="0"
                      maxOccurs="unbounded"
-                     type="xwas:ObjektType"/>
+                     type="xwas:ObjektType">
+            <xs:annotation>
+               <xs:documentation>Angaben zum Objekt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
          <xs:element name="anlageNachTrinkwV"
                      minOccurs="0"
                      maxOccurs="unbounded"
-                     type="xwas:AnlageNachTrinkwVType"/>
+                     type="xwas:AnlageNachTrinkwVType">
+            <xs:annotation>
+               <xs:documentation>Angaben zur Anlage nach TrinkwV.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
       <xs:attribute name="id" type="xs:ID" use="required">
          <xs:annotation>
@@ -6591,10 +6611,18 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Hier sind die Detailangaben zur Trinkwasseranlage zu übermitteln.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="objekt" maxOccurs="unbounded" type="xwas:ObjektType"/>
+         <xs:element name="objekt" maxOccurs="unbounded" type="xwas:ObjektType">
+            <xs:annotation>
+               <xs:documentation>Angaben zum Objekt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
          <xs:element name="probennahmestelle"
                      maxOccurs="unbounded"
-                     type="xwas:ProbennahmestelleType"/>
+                     type="xwas:ProbennahmestelleType">
+            <xs:annotation>
+               <xs:documentation>Angaben zur Probennahmestelle.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
          <xs:element name="auftraggeber" type="xwas:AuftraggeberType">
             <xs:annotation>
                <xs:documentation>Hier werden die Angaben zum Auftraggeber übermittelt.</xs:documentation>

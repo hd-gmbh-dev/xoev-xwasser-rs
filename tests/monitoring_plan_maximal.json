@@ -638,8 +638,8 @@
                 "name_shapefile": "shapefile",
                 "geokoordinaten_breitengrad": 1.2,
                 "geokoordinaten_laengengrad": 1.3,
-                "geokoordinaten_rechtswert": 3.0,
-                "geokoordinaten_hochwert": 3.0
+                "geokoordinaten_rechtswert_east_wert": 3.0,
+                "geokoordinaten_hochwert_north_wert": 3.0
               },
               "datum_der_einrichtung": "2024-12-12",
               "datum_der_schliessung": "2025-12-12",
@@ -1005,8 +1005,8 @@
               "name_shapefile": null,
               "geokoordinaten_breitengrad": null,
               "geokoordinaten_laengengrad": null,
-              "geokoordinaten_rechtswert": null,
-              "geokoordinaten_hochwert": null
+              "geokoordinaten_rechtswert_east_wert": null,
+              "geokoordinaten_hochwert_north_wert": null
             },
             "angaben_alternative_id": null,
             "kommentar": null,

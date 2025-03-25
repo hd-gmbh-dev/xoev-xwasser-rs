@@ -12,7 +12,7 @@ import path from "path";
 const __dirname = import.meta.dirname;
 import xmlvalidate, { XmlValidatorError } from "@raxb/validate-wasm";
 const xsdBundle = fs.readFileSync(
-  path.resolve(__dirname, "../pkg/xwasser-v090.xsdb.bin"),
+  path.resolve(__dirname, "../pkg/xwasser-v091.xsdb.bin"),
 ).buffer;
 
 describe("minimal monitoring plan xml generation via wasm", async () => {
@@ -26,8 +26,8 @@ describe("minimal monitoring plan xml generation via wasm", async () => {
     const xml = create_vorgang_transportieren_2010(
       monitoring_plan_minimal as any as VorgangTransportieren2010,
     ).replace(
-      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/ xwasser.xsd",
-      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/ ../schemas/V0_9_0/xwasser.xsd",
+      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/ xwasser.xsd",
+      "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/ ../schemas/V0_9_1/xwasser.xsd",
     );
     const expected_xml = fs.readFileSync(
       path.resolve(__dirname, "./monitoring_plan_minimal_test_result.xml"),
