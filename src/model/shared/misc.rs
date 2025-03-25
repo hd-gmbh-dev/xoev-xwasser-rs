@@ -25,7 +25,7 @@ use super::{xoev::XWasserXoevCode, zeitraum::ZeitraumType};
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct IdentifikationType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
@@ -51,7 +51,7 @@ pub struct IdentifikationType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct ErweiterungXmlType {
     // weiteres xml schema
@@ -70,7 +70,7 @@ pub struct ErweiterungXmlType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct ErweiterungFeldType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -92,7 +92,7 @@ pub struct ErweiterungFeldType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct ErweiterungGruppeType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
@@ -122,7 +122,7 @@ pub struct ErweiterungGruppeType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct ErweiterungType {
     #[xml(ns = b"xwas", name = b"feld", ty = "child")]
@@ -144,7 +144,7 @@ pub struct ErweiterungType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct GeografischeAngabenType {
     #[xml(
@@ -159,10 +159,10 @@ pub struct GeografischeAngabenType {
     pub geokoordinaten_breitengrad: Option<f64>,
     #[xml(ns = b"xwas", name = b"geokoordinatenLaengengrad", ty = "child")]
     pub geokoordinaten_laengengrad: Option<f64>,
-    #[xml(ns = b"xwas", name = b"geokoordinatenRechtswert", ty = "child")]
-    pub geokoordinaten_rechtswert: Option<f64>,
-    #[xml(ns = b"xwas", name = b"geokoordinatenHochwert", ty = "child")]
-    pub geokoordinaten_hochwert: Option<f64>,
+    #[xml(ns = b"xwas", name = b"geokoordinatenRechtswertEastWert", ty = "child")]
+    pub geokoordinaten_rechtswert_east_wert: Option<f64>,
+    #[xml(ns = b"xwas", name = b"geokoordinatenHochwertNorthWert", ty = "child")]
+    pub geokoordinaten_hochwert_north_wert: Option<f64>,
 }
 
 /// Die Komponente "Geokodierung" beinhaltet Informationen zur geografischen Bestimmung von Dingen.
@@ -174,7 +174,7 @@ pub struct GeografischeAngabenType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct GeokodierungType {
     #[xml(
@@ -204,7 +204,7 @@ pub struct GeokodierungType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct AngabenAlternativeIDType {
     #[xml(

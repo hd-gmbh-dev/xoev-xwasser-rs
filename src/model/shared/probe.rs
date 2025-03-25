@@ -34,7 +34,7 @@ use super::{
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub enum Probennehmer {
     #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
@@ -54,7 +54,7 @@ pub enum Probennehmer {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct ProbennehmerType {
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
@@ -78,7 +78,7 @@ pub struct ProbennehmerType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
@@ -131,7 +131,7 @@ pub struct ProbennahmestelleType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
@@ -230,7 +230,7 @@ pub struct ProbeType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct AnalyseergebnisParameterType {
     #[xml(ns = b"xwas", name = b"analyseergebnisParameterID", ty = "child")]

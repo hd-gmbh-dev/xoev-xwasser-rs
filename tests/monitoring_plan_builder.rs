@@ -16,7 +16,7 @@ fn test_monitoring_plan_builder() -> anyhow::Result<()> {
     let e = VorgangTransportieren2010::builder()
         .produkt("XWasser Test".into())
         .produkthersteller("H&D GmbH".into())
-        .produktversion("0.900.0".into())
+        .produktversion("0.901.0".into())
         .test(Some(true))
         .nachrichtenkopf_g2g(nachrichtenkopf_g2g(
             NachrichtenTypEnum::VorgangTransportieren2010,
@@ -37,8 +37,8 @@ fn test_monitoring_plan_builder() -> anyhow::Result<()> {
     let json = serde_json::to_string_pretty(&e).unwrap();
     std::fs::write("tests/monitoring_plan_builder.json", json)?;
     let xml = raxb::ser::to_string_pretty_with_decl(&e)?;
-    std::fs::write("tests/monitoring_plan_builder_test_result.xml", xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/ xwasser.xsd""#,
-    r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/develop/V0_9_0/ ../schemas/V0_9_0/xwasser.xsd""#))?;
+    std::fs::write("tests/monitoring_plan_builder_test_result.xml", xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/ xwasser.xsd""#,
+    r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/ ../schemas/V0_9_1/xwasser.xsd""#))?;
     Ok(())
 }
 
