@@ -7,7 +7,10 @@ use crate::{
 };
 
 use super::{
-    behoerde::{behoerde_type, zustaendige_behoerde_type}, betreiber::objekt_type, organisation::organisation_type, probe::probennahmestelle_type
+    behoerde::{behoerde_type, zustaendige_behoerde_type},
+    betreiber::objekt_type,
+    organisation::organisation_type,
+    probe::probennahmestelle_type,
 };
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
@@ -55,7 +58,9 @@ pub fn untersuchungsplan_type() -> UntersuchungsplanType {
         .zustaendige_behoerde(zustaendige_behoerde)
         .beauftragte_untersuchungsstelle_id(Default::default())
         .objekt(vec![objekt_type()])
-        .probennahmestelle(vec![probennahmestelle_type("Probennahmestelle 1".to_string())])
+        .probennahmestelle(vec![probennahmestelle_type(
+            "Probennahmestelle 1".to_string(),
+        )])
         .aenderungshistorie(Default::default())
         .erweiterung(Default::default())
         .id(format!("untersuchungsplan-{}", new_id()))
@@ -272,7 +277,7 @@ pub fn anlage_nach_trinkw_v_type(zustaendige_behoerde_id: String) -> AnlageNachT
         .art_anlage("1010".into())
         .name_der_anlage(Default::default())
         .abgegebene_wassermenge_der_anlage_pro_tag(Default::default())
-        .anzahl_durch_anlage_versorgte_personen(Default::default())        
+        .anzahl_durch_anlage_versorgte_personen(Default::default())
         .kommentar(Default::default())
         .wasserversorgungsgebiet(vec![wasserversorgungsgebiet_type()])
         .angaben_alternative_id(Default::default())

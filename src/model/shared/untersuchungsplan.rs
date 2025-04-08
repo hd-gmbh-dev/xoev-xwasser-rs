@@ -26,7 +26,8 @@ use super::{
     auftraggeber::AuftraggeberType,
     behoerde::{BehoerdeType, ZustaendigeBehoerdeType},
     betreiber::ObjektType,
-    misc::{AngabenAlternativeIDType, ErweiterungType, GeografischeAngabenType}, probe::ProbennahmestelleType,
+    misc::{AngabenAlternativeIDType, ErweiterungType, GeografischeAngabenType},
+    probe::ProbennahmestelleType,
 };
 
 /// Klasse für den Transport von Informationen, die für die Erstellung eines
@@ -111,11 +112,7 @@ pub struct UntersuchungsplanType {
     pub auftraggeber: AuftraggeberType,
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
     pub zustaendige_behoerde: ZustaendigeBehoerdeType,
-    #[xml(
-        ns = b"xwas",
-        name = b"beauftragteUntersuchungsstelleID",
-        ty = "child"
-    )]
+    #[xml(ns = b"xwas", name = b"beauftragteUntersuchungsstelleID", ty = "child")]
     pub beauftragte_untersuchungsstelle_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Vec<KommentarType>,

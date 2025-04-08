@@ -14,9 +14,17 @@ use typed_builder::TypedBuilder;
 use super::{
     codes::{CodeAmtsspracheEuType, CodeGesamtbewertungType},
     shared::{
-        anschrift::AnschriftType, auftraggeber::AuftraggeberType, behoerde::ZustaendigeBehoerdeType, betreiber::ObjektType, misc::ErweiterungType, person::NatuerlichePersonType, probe::{ProbeType, ProbennahmestelleType, ProbennehmerType}, unterssuchungsstelle::{
+        anschrift::AnschriftType,
+        auftraggeber::AuftraggeberType,
+        behoerde::ZustaendigeBehoerdeType,
+        betreiber::ObjektType,
+        misc::ErweiterungType,
+        person::NatuerlichePersonType,
+        probe::{ProbeType, ProbennahmestelleType, ProbennehmerType},
+        unterssuchungsstelle::{
             BeauftragteUntersuchungsstelleType, ZugelasseneUntersuchungsstelleType,
-        }, untersuchungsplan::AnlageNachTrinkwVType
+        },
+        untersuchungsplan::AnlageNachTrinkwVType,
     },
 };
 
@@ -123,12 +131,7 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"ortDerLabortaetigkeiten", ty = "child")]
     #[serde(default)]
     pub ort_der_labortaetigkeiten: Vec<AnschriftType>,
-    #[xml(
-        default,
-        ns = b"xwas",
-        name = b"gefahrInVerzug",
-        ty = "child"
-    )]
+    #[xml(default, ns = b"xwas", name = b"gefahrInVerzug", ty = "child")]
     #[serde(default)]
     pub gefahr_in_verzug: bool,
     #[xml(ns = b"xwas", name = b"anhang", ty = "child")]

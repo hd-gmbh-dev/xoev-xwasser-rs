@@ -22,7 +22,8 @@ use tsify_next::Tsify;
 use typed_builder::TypedBuilder;
 
 use super::{
-    behoerde::ZustaendigeBehoerdeType, misc::AngabenAlternativeIDType, organisation::OrganisationType, person::NatuerlichePersonType
+    behoerde::ZustaendigeBehoerdeType, misc::AngabenAlternativeIDType,
+    organisation::OrganisationType, person::NatuerlichePersonType,
 };
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
@@ -245,11 +246,7 @@ pub struct AnalyseergebnisParameterType {
         ty = "child"
     )]
     pub akkreditierte_durchfuehrung_analyse: bool,
-    #[xml(
-        ns = b"xwas",
-        name = b"zugelasseneDurchfuehrungAnalyse",
-        ty = "child"
-    )]
+    #[xml(ns = b"xwas", name = b"zugelasseneDurchfuehrungAnalyse", ty = "child")]
     #[serde(default)]
     pub zugelassene_durchfuehrung_analyse: bool,
     #[xml(ns = b"xwas", name = b"untersuchungsverfahren", ty = "child")]

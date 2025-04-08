@@ -177,11 +177,7 @@ pub struct GeografischeAngabenType {
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct GeokodierungType {
-    #[xml(
-        ns = b"xwas",
-        name = b"koordinatensystem",
-        ty = "child"
-    )]
+    #[xml(ns = b"xwas", name = b"koordinatensystem", ty = "child")]
     pub koordinatensystem: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"koordinate1", ty = "child")]
     pub koordinate1: Option<f64>,
@@ -207,11 +203,7 @@ pub struct GeokodierungType {
     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
 ))]
 pub struct AngabenAlternativeIDType {
-    #[xml(
-        ns = b"xwas",
-        name = b"alternativeID",
-        ty = "child"
-    )]
+    #[xml(ns = b"xwas", name = b"alternativeID", ty = "child")]
     pub alternative_id: Option<String>,
     #[xml(ns = b"xwas", name = b"formatDerAlternativenID", ty = "child")]
     pub format_der_alternativen_id: Option<CodeFormatAlternativeIDType>,

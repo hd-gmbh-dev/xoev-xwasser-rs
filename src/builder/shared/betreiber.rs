@@ -33,7 +33,7 @@ pub fn objekt_type() -> ObjektType {
         .angaben_alternative_id(Default::default())
         .kommentar(Default::default())
         .betreiber(vec![betreiber])
-        .wasserversorgungsgebiet_id(Default::default())        
+        .wasserversorgungsgebiet_id(Default::default())
         .id(id)
         .build()
 }

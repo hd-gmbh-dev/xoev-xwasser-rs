@@ -142,7 +142,8 @@ pub struct VorgangTransportieren2010 {
         ns = b"xmlns",
         name = b"xsi",
         ty = "attr",
-        value = "http://www.w3.org/2001/XMLSchema-instance"
+        value = "http://www.w3.org/2001/XMLSchema-instance",
+        default
     )]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
@@ -151,7 +152,8 @@ pub struct VorgangTransportieren2010 {
         ns = b"xsi",
         name = b"schemaLocation",
         ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/ xwasser.xsd"
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/ xwasser.xsd",
+        default
     )]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
@@ -160,7 +162,8 @@ pub struct VorgangTransportieren2010 {
         ns = b"xmlns",
         name = b"xwas",
         ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/",
+        default
     )]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]

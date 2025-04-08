@@ -16,8 +16,11 @@ use crate::model::codes::{
 };
 
 use super::{
-    anschrift::AnschriftType, behoerde::ZustaendigeBehoerdeType, misc::{AngabenAlternativeIDType, GeografischeAngabenType},
-    organisation::OrganisationType, person::NatuerlichePersonType,
+    anschrift::AnschriftType,
+    behoerde::ZustaendigeBehoerdeType,
+    misc::{AngabenAlternativeIDType, GeografischeAngabenType},
+    organisation::OrganisationType,
+    person::NatuerlichePersonType,
 };
 
 /// Informationen zu einem Auftraggeber [Ergänzende Angaben zu den jeweiligen
