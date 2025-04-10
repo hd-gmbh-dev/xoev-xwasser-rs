@@ -6,7 +6,7 @@ members = ["crates/*"]
 edition = "2021"
 version = "0.901.1+0.9.1"
 description = """
-"XOEV XWasser XML Standard"
+XOEV XWasser XML Standard
 """
 rust-version = "1.81.0"
 authors = ["H & D GmbH Open Source <contact-oss@h-d-gmbh.de>"]
