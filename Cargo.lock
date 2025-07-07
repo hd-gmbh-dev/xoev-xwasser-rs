@@ -1346,9 +1346,9 @@ dependencies = [
 
 [[package]]
 name = "raxb"
-version = "0.4.4"
+version = "0.4.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a62d198591de2abb33e771c9938f45605a2dbeb4e77bb1e054634a741fd9c382"
+checksum = "a8ccfd0ed501beb005356fdf14c1bf82226a31275fcab063c0a55ff210de1987"
 dependencies = [
  "quick-xml",
  "raxb-derive",
@@ -1358,9 +1358,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-derive"
-version = "0.4.4"
+version = "0.4.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "58065c692a4dd18e5ea12bacb2282ca6843b69459af4faa248acd3d103a253c5"
+checksum = "59478a86de24ef5ae2c53b9501c6eb81143ca940ed34324f6b00fa072d79e96a"
 dependencies = [
  "darling",
  "heck",
@@ -1373,9 +1373,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-libxml2-sys"
-version = "0.4.4"
+version = "0.4.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fdb04235424208149994d5cf6aad65f481a34fc68e0993a9aac5279a6c889658"
+checksum = "9d64a0805542f8b659a305a498e2db854c94321ddb80d293ec6c1b1a14ea1250"
 dependencies = [
  "bindgen",
  "cmake",
@@ -1383,9 +1383,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-validate"
-version = "0.4.4"
+version = "0.4.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "244d96cecff5330448eb07b2d224346eb6ec8fad478dd6c8f38927a9d4cde0f3"
+checksum = "e8011ed6e933cc6c99ed8305a0371a88b567704fb607ead59c538d1266139aee"
 dependencies = [
  "byteorder",
  "libc",
@@ -1401,9 +1401,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-xmlschema"
-version = "0.4.4"
+version = "0.4.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "123cce3ee52942c75bfc23f820283059d8e59b2e788db7c5c6dc88a1f86b2a4a"
+checksum = "ed5db82cdf77a5da640d3b13621c387618b5886a728cb28add9ffeb769662326"
 dependencies = [
  "byteorder",
  "lz4_flex",
@@ -1415,13 +1415,12 @@ dependencies = [
 
 [[package]]
 name = "raxb-xmlschema-build"
-version = "0.4.4"
+version = "0.4.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5e2bef037bd9bf64e4a06c7cfb3a757f589eceadc75de24cdc2dfb365004428b"
+checksum = "30ba2c191266fb3673d423f3faa2f19b4b7ac426a03f2faf4f9e083d24d92756"
 dependencies = [
  "byteorder",
  "raxb",
- "raxb-derive",
  "raxb-xmlschema",
  "thiserror",
 ]
@@ -2164,9 +2163,9 @@ dependencies = [
 
 [[package]]
 name = "tracing-attributes"
-version = "0.1.27"
+version = "0.1.30"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "34704c8d6ebcbc939824180af020566b01a7c01f80641264eba0999f6c2b6be7"
+checksum = "81383ab64e72a7a8b8e13130c49e3dab29def6d0c7d76a03087b3cf71c5c6903"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2740,7 +2739,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser"
-version = "0.901.1+0.9.1"
+version = "0.901.2+0.9.1"
 dependencies = [
  "anyhow",
  "chrono",
@@ -2767,7 +2766,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser-codelists"
-version = "0.901.1+0.9.1"
+version = "0.901.2+0.9.1"
 dependencies = [
  "anyhow",
  "bson",
@@ -2781,7 +2780,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser-derive"
-version = "0.901.1+0.9.1"
+version = "0.901.2+0.9.1"
 dependencies = [
  "darling",
  "heck",
