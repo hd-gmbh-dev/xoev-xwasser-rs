@@ -272,7 +272,7 @@ pub fn wasserversorgungsgebiet_type() -> WasserversorgungsgebietType {
 pub fn anlage_nach_trinkw_v_type(zustaendige_behoerde_id: Option<String>) -> AnlageNachTrinkwVType {
     AnlageNachTrinkwVType::builder()
         .anlage_nach_trinkw_v_id(Default::default())
-        .zustaendige_behoerde_id(zustaendige_behoerde_id.clone())
+        .zustaendige_behoerde_id(zustaendige_behoerde_id)
         .untersuchungsplan_id(Default::default())
         .art_anlage("1010".into())
         .name_der_anlage(Default::default())
