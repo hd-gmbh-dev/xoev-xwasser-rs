@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "33fa4d20-7651-4d96-8ad2-21b2c928cd1f",
+      "nachrichten_uuid": "582f297d-edba-4937-9bda-be392195443b",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2025-04-08T15:10:34"
+      "erstellungszeitpunkt": "2025-07-10T18:22:13"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -37,14 +37,14 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "8855efd9-9f70-4f69-a7a4-ec1c99eb0ece"
+      "vorgangs_id": "6ae91de4-c1da-4cf9-9128-571e3ad9d803"
     },
     "vorgang_type": {
       "t": "Untersuchungsplan",
       "c": {
-        "untersuchungsplan_id": "b88e81a4-46e9-4612-87a6-00ea560e3b94",
+        "untersuchungsplan_id": "19a49640-f4da-4874-975b-cc9e19a514de",
         "wasserversorgungsgebiet": [
-          "wvg-hXbLD7Kg"
+          "wvg-PopeQFTP"
         ],
         "titel_untersuchungsplan": null,
         "jahr": [
@@ -95,10 +95,10 @@
         },
         "terminplan": [
           {
-            "terminplan_id": "f196b2aa-3b59-465b-8a92-308abd45b79d",
+            "terminplan_id": "dbedc443-84bc-4bd5-a79f-cb072440abc9",
             "probennahmestelle": null,
             "datum_zeitraum": [
-              "2025-04-08T15:10:34"
+              "2025-07-10T18:22:13"
             ],
             "probennahmestelle_kategorie": {
               "code": "L",
@@ -131,12 +131,12 @@
             "probennahmeverfahren": [],
             "ersatz_fuer_terminplan_mit_der_id": null,
             "kommentar": null,
-            "id": "terminplan-fZdzncgS"
+            "id": "terminplan-NUW4Nt5N"
           }
         ],
         "anlage_nach_trinkw_v": {
           "anlage_nach_trinkw_v_id": "",
-          "zustaendige_behoerde_id": "behoerde-e35MpIoJ",
+          "zustaendige_behoerde_id": "behoerde-MIPewS19",
           "untersuchungsplan_id": [],
           "art_anlage": {
             "code": "1010",
@@ -148,12 +148,12 @@
           "kommentar": null,
           "wasserversorgungsgebiet": [
             {
-              "wasserversorgungsgebiet_id": "cbc7954e-40a1-4e27-9775-a55a27a2b5da",
+              "wasserversorgungsgebiet_id": "09af62c6-5054-4f53-ae55-ee7ab47d4b95",
               "name_wasserversorgungsgebiet": "",
               "lau2_code": null,
               "zustaendige_behoerde": [
                 {
-                  "id": "behoerde-gXeEVB5K",
+                  "id": "behoerde-O8s9KCly",
                   "typ": {
                     "code": "",
                     "name": null,
@@ -193,7 +193,7 @@
                 }
               ],
               "geokoordinaten_shapth": null,
-              "datum_der_einrichtung": "2025-04-08",
+              "datum_der_einrichtung": "2025-07-10",
               "datum_der_schliessung": null,
               "grund_der_schliessung": null,
               "nachfolger_wvg_bei_schliessung": [],
@@ -216,15 +216,15 @@
               "derogation": [],
               "exceedance": [],
               "incident": [],
-              "id": "wvg-hXbLD7Kg"
+              "id": "wvg-PopeQFTP"
             }
           ],
           "angaben_alternative_id": null,
-          "id": "antv-iZ8Mz3q6"
+          "id": "antv-QGSd6Vxd"
         },
         "objekt": [
           {
-            "objekt_id": "4a14ad52-5b07-4a08-b3a5-09a2544aa5ca",
+            "objekt_id": "59677683-c08a-4a3c-b52b-45d037145d01",
             "anlage_nach_trinkw_vid": null,
             "wasserversorgungsgebiet_id": null,
             "anschrift_objekt": [],
@@ -249,11 +249,11 @@
             "kommentar": null,
             "betreiber": [
               {
-                "betreiber_id": "2ff7979c-2363-4911-8339-8c4001975886",
+                "betreiber_id": "ffe7efc5-c1d9-4721-a04f-4f8e91c80489",
                 "art_der_person": {
                   "t": "Organisation",
                   "c": {
-                    "id": "organisation-lhET3XK9",
+                    "id": "organisation-TK2EEov9",
                     "rechtsform": null,
                     "branche": [],
                     "zweck": [],
@@ -267,18 +267,18 @@
                   }
                 },
                 "objekt_id": [
-                  "obj-k9jElB7z"
+                  "obj-SmDcsVlR"
                 ],
                 "kommentar": null,
-                "id": "betreiber-mrfPgJ51"
+                "id": "betreiber-UaeUJgBK"
               }
             ],
-            "id": "obj-k9jElB7z"
+            "id": "obj-SmDcsVlR"
           }
         ],
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "b65e7649-8a84-4667-adb6-77e26058e951",
+            "probennahmestelle_id": "fcc44a5b-4797-4583-a183-fc4ea55fa968",
             "objekt_id": null,
             "wasserversorgungsgebiet_id": null,
             "probe": [],
@@ -307,7 +307,7 @@
             "angaben_alternative_id": null,
             "berichtspflichtig": null,
             "kommentar": null,
-            "id": "probennahmestelle-nDaXkVYx"
+            "id": "probennahmestelle-VCfxljrx"
           }
         ],
         "auftraggeber": {
@@ -319,7 +319,7 @@
           "auftraggeber": {
             "t": "Organisation",
             "c": {
-              "id": "organisation-j3aHxRXh",
+              "id": "organisation-R0W9lGGT",
               "rechtsform": null,
               "branche": [],
               "zweck": [],
@@ -334,7 +334,7 @@
           }
         },
         "zustaendige_behoerde": {
-          "id": "behoerde-e35MpIoJ",
+          "id": "behoerde-MIPewS19",
           "typ": {
             "code": "",
             "name": null,
@@ -382,7 +382,7 @@
         "kommentar": [],
         "aenderungshistorie": null,
         "erweiterung": null,
-        "id": "untersuchungsplan-oRtVEfgR"
+        "id": "untersuchungsplan-W6bddzm0"
       }
     },
     "bemerkung": null,

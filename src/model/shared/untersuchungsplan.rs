@@ -591,7 +591,7 @@ pub struct AnlageNachTrinkwVType {
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
     pub anlage_nach_trinkw_v_id: String,
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerdeID", ty = "child")]
-    pub zustaendige_behoerde_id: String,
+    pub zustaendige_behoerde_id: Option<String>,
     #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
     pub untersuchungsplan_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"artAnlage", ty = "child")]

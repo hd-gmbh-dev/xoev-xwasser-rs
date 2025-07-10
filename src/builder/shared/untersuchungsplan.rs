@@ -42,7 +42,7 @@ pub fn untersuchungsplan_type() -> UntersuchungsplanType {
         .kommentar(Default::default())
         .terminplan(vec![terminplan_type()])
         .anlage_nach_trinkw_v(anlage_nach_trinkw_v_type(
-            zustaendige_behoerde.id.as_ref().unwrap().to_owned(),
+            zustaendige_behoerde.id.as_ref().cloned(),
         ))
         .auftraggeber(
             AuftraggeberType::builder()
@@ -269,10 +269,10 @@ pub fn wasserversorgungsgebiet_type() -> WasserversorgungsgebietType {
 }
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
-pub fn anlage_nach_trinkw_v_type(zustaendige_behoerde_id: String) -> AnlageNachTrinkwVType {
+pub fn anlage_nach_trinkw_v_type(zustaendige_behoerde_id: Option<String>) -> AnlageNachTrinkwVType {
     AnlageNachTrinkwVType::builder()
         .anlage_nach_trinkw_v_id(Default::default())
-        .zustaendige_behoerde_id(zustaendige_behoerde_id.clone())
+        .zustaendige_behoerde_id(zustaendige_behoerde_id)
         .untersuchungsplan_id(Default::default())
         .art_anlage("1010".into())
         .name_der_anlage(Default::default())
