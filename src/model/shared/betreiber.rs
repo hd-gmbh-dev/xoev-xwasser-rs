@@ -35,7 +35,7 @@ use super::{
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
 ))]
 pub enum ArtDerPerson {
     #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
@@ -59,7 +59,7 @@ pub enum ArtDerPerson {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
 ))]
 pub struct BetreiberType {
     #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
@@ -83,7 +83,7 @@ pub struct BetreiberType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
 ))]
 pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
@@ -113,7 +113,7 @@ pub struct ObjektType {
     #[serde(default)]
     pub rahmen_der_trinkwasserbereitstellung: Vec<CodeRahmenTrinkwasserbereitstellungType>,
     #[xml(ns = b"xwas", name = b"geokoordinatenObjekt", ty = "child")]
-    pub geokoordinaten_objekt: GeografischeAngabenType,
+    pub geokoordinaten_objekt: Option<GeografischeAngabenType>,
     #[xml(ns = b"xwas", name = b"angabenAlternativeID", ty = "child")]
     pub angaben_alternative_id: Option<AngabenAlternativeIDType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]

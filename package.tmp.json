@@ -4,7 +4,7 @@
     "H & D GmbH Open Source <contact-oss@h-d-gmbh.de>"
   ],
   "description": "\"XOEV XWasser XML Standard\"\n",
-  "version": "0.901.2+0.9.1",
+  "version": "0.902.0+0.9.2",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "xoev_xwasser.d.ts",
     "xoev_xwasser.js",
     "codelist.json",
-    "xwasser-v091.xsdb.bin",
+    "xwasser-v092.xsdb.bin",
     "xoev-xwasser-utils.cjs",
     "xoev-xwasser-utils.cjs.map",
     "xoev-xwasser-utils.d.cts",

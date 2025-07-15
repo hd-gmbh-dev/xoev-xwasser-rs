@@ -19,7 +19,7 @@ use typed_builder::TypedBuilder;
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_1/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
 ))]
 pub struct XWasserXoevCode {
     #[xml(name = b"code", ty = "child")]
