@@ -1,5 +1,5 @@
 pub(crate) mod cl;
-pub mod v0_9_1;
+pub mod v0_9_2;
 
 use std::{collections::HashMap, sync::Arc};
 
@@ -81,8 +81,8 @@ mod tests {
     }
 
     #[test]
-    fn test_data_set_v0_9_1() -> anyhow::Result<()> {
-        let source = map::<crate::v0_9_1::Source>()?;
+    fn test_data_set_v0_9_2() -> anyhow::Result<()> {
+        let source = map::<crate::v0_9_2::Source>()?;
 
         assert_eq!(source.len(), 71);
 
