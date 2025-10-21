@@ -10,7 +10,7 @@ use strum_macros::{Display, EnumString};
 use wasm_bindgen::prelude::*;
 
 #[cfg(feature = "wasm")]
-use tsify_next::Tsify;
+use tsify::Tsify;
 
 pub fn behoerde_g2g_type<S1: Into<String>, S2: Into<String>>(
     name: S1,

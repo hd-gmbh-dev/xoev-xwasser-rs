@@ -15,7 +15,7 @@ use wasm_bindgen::prelude::*;
 use super::{misc::identifikation_type, organisation::name_organisation_type};
 
 // #[cfg(feature = "wasm")]
-// use tsify_next::Tsify;
+// use tsify::Tsify;
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
 pub fn behoerde_type() -> BehoerdeType {

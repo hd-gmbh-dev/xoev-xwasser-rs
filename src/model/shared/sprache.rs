@@ -8,7 +8,7 @@ use xoev_xwasser_derive::XWasserValidate;
 use crate::model::codes::CodeSpracheType;
 
 #[cfg(feature = "wasm")]
-use tsify_next::Tsify;
+use tsify::Tsify;
 
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;

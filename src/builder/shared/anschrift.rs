@@ -7,7 +7,7 @@ use crate::{builder::utils::new_id, model::shared::anschrift::AnschriftType};
 use wasm_bindgen::prelude::*;
 
 // #[cfg(feature = "wasm")]
-// use tsify_next::Tsify;
+// use tsify::Tsify;
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
 pub fn anschrift_type(

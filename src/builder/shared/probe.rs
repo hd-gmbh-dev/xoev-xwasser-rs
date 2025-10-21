@@ -15,7 +15,7 @@ use wasm_bindgen::prelude::*;
 use super::person::natuerliche_person_type;
 
 // #[cfg(feature = "wasm")]
-// use tsify_next::Tsify;
+// use tsify::Tsify;
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
 pub fn probennehmer_type() -> ProbennehmerType {
