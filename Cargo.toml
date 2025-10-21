@@ -23,7 +23,7 @@ raxb = "0.4.12"
 raxb-validate = "0.4.12"
 raxb-xmlschema = "0.4.12"
 raxb-xmlschema-build = "0.4.12"
-serde = { version = "1.0.228", features = ["derive"] }
+serde = { version = "1.0.228", features = ["derive", "rc"] }
 
 [package]
 name = "xoev-xwasser"
