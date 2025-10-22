@@ -9,7 +9,7 @@ use wasm_bindgen::prelude::*;
 use super::zeitraum::zeitraum_type;
 
 // #[cfg(feature = "wasm")]
-// use tsify_next::Tsify;
+// use tsify::Tsify;
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
 pub fn identifikation_type() -> IdentifikationType {

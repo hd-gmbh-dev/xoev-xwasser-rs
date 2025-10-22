@@ -40,7 +40,7 @@ fn xoev_xwasser_code2(
     };
     Ok(quote! {
         #[derive(Clone, Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
-        #[cfg_attr(feature = "wasm", derive(tsify_next::Tsify))]
+        #[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
         #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
         #[cfg_attr(feature = "builder", derive(TypedBuilder))]
         #[xml(tns(

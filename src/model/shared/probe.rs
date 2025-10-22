@@ -16,7 +16,7 @@ use crate::model::codes::{
 };
 
 #[cfg(feature = "wasm")]
-use tsify_next::Tsify;
+use tsify::Tsify;
 
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;

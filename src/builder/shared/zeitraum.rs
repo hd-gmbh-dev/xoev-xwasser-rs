@@ -7,7 +7,7 @@ use crate::model::shared::zeitraum::ZeitraumType;
 use wasm_bindgen::prelude::*;
 
 // #[cfg(feature = "wasm")]
-// use tsify_next::Tsify;
+// use tsify::Tsify;
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
 pub fn zeitraum_type() -> ZeitraumType {

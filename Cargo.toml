@@ -16,18 +16,14 @@ categories = []
 keywords = []
 
 [workspace.dependencies]
-anyhow = "1.0.97"
+anyhow = "1.0.100"
 xoev-xwasser-codelists = { version = "0.902.0", path = "crates/codelists" }
 xoev-xwasser-derive = { version = "0.902.0", path = "crates/derive" }
-raxb = "0.4.7"
-raxb-validate = "0.4.7"
-raxb-xmlschema = "0.4.7"
-raxb-xmlschema-build = "0.4.7"
-# raxb = { path = "../raxb/crates/raxb" }
-# raxb-validate = { path = "../raxb/crates/raxb-validate"}
-# raxb-xmlschema = { path = "../raxb/crates/raxb-xmlschema"}
-# raxb-xmlschema-build = { path = "../raxb/crates/raxb-xmlschema-build"}
-serde = { version = "1.0.219", features = ["derive", "rc"] }
+raxb = "0.4.12"
+raxb-validate = "0.4.12"
+raxb-xmlschema = "0.4.12"
+raxb-xmlschema-build = "0.4.12"
+serde = { version = "1.0.228", features = ["derive", "rc"] }
 
 [package]
 name = "xoev-xwasser"
@@ -48,7 +44,7 @@ crate-type = ["cdylib", "rlib"]
 default = ["builder", "validate"]
 trace = ["raxb/trace", "xoev-xwasser-codelists?/trace"]
 builder = ["dep:typed-builder", "dep:uuid", "dep:chrono", "dep:strum", "dep:strum_macros", "dep:tiny_id", "dep:once_cell"]
-wasm = ["dep:wasm-bindgen", "dep:serde-wasm-bindgen", "dep:tsify-next", "dep:uuid", "uuid/js", "tiny_id/js"]
+wasm = ["dep:wasm-bindgen", "dep:serde-wasm-bindgen", "dep:tsify", "dep:uuid", "uuid/js", "tiny_id/js"]
 schema = [
     "dep:rust-embed",
     "dep:raxb-validate",
@@ -61,20 +57,20 @@ validate = ["dep:xoev-xwasser-codelists"]
 xoev-xwasser-derive.workspace = true
 xoev-xwasser-codelists = { workspace = true, optional = true }
 anyhow = { version = "1", optional = true }
-rust-embed = { version = "8.6.0", optional = true }
+rust-embed = { version = "8.8.0", optional = true }
 raxb.workspace = true
 raxb-validate = { workspace = true, optional = true }
 raxb-xmlschema = { workspace = true, optional = true }
-wasm-bindgen = { version = "0.2.100", optional = true }
-serde-wasm-bindgen = { version = "0.6", optional = true }
-tsify-next = { version= "0.5.5", default-features = false, features = ["js"], optional = true }
+wasm-bindgen = { version = "0.2.104", optional = true }
+serde-wasm-bindgen = { version = "0.6.5", optional = true }
+tsify = { version= "0.5.6", default-features = false, features = ["js"], optional = true }
 serde.workspace = true
-typed-builder = { version = "0.20.0", optional = true }
+typed-builder = { version = "0.20.1", optional = true }
 once_cell = { version = "1.21.0", optional = true }
-uuid = { version = "1.15.1", features = ["v4"], optional = true }
-chrono = { version = "0.4.40", optional = true }
-strum = { version = "0.27.1", optional = true }
-strum_macros = { version = "0.27.1", optional = true }
+uuid = { version = "1.18.1", features = ["v4"], optional = true }
+chrono = { version = "0.4.42", optional = true }
+strum = { version = "0.27.2", optional = true }
+strum_macros = { version = "0.27.2", optional = true }
 tiny_id = { version = "0.1.6", features = [], optional = true }
 
 [build-dependencies]
@@ -85,8 +81,8 @@ raxb-xmlschema-build.workspace = true
 [dev-dependencies]
 anyhow.workspace = true
 raxb-xmlschema-build.workspace = true
-serde_json = "1.0.140"
-test-log = { version = "0.2.17", features = ["trace", "color"] }
+serde_json = "1.0.145"
+test-log = { version = "0.2.18", features = ["trace", "color"] }
 
 [profile.release]
 # Tell `rustc` to optimize for small code size.

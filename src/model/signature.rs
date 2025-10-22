@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 // use xoev_xwasser_derive::XWasserValidate;
 
 #[cfg(feature = "wasm")]
-use tsify_next::Tsify;
+use tsify::Tsify;
 #[cfg(feature = "wasm")]
 use wasm_bindgen::prelude::*;
 
