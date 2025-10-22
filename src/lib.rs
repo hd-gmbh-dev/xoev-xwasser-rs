@@ -28,6 +28,7 @@ pub enum Version {
     V0_9_0,
     V0_9_1,
     V0_9_2,
+    V0_9_5,
     Unknown,
 }
 
@@ -43,6 +44,7 @@ impl std::fmt::Display for Version {
             Version::V0_9_0 => write!(f, "090"),
             Version::V0_9_1 => write!(f, "091"),
             Version::V0_9_2 => write!(f, "092"),
+            Version::V0_9_5 => write!(f, "095"),
             Version::Unknown => write!(f, ""),
         }
     }
@@ -86,6 +88,9 @@ pub fn detect_version(xml: &str) -> Version {
                                 }
                                 b"0.9.2" => {
                                     return Version::V0_9_2;
+                                }
+                                b"0.9.5" => {
+                                    return Version::V0_9_5;
                                 }
                                 _ => {
                                     return Version::Unknown;

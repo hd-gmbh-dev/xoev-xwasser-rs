@@ -7,15 +7,16 @@
          <xoev-cl-4:shortName>Probennahmeverfahren</xoev-cl-4:shortName>
          <xoev-cl-4:codelistDescription>Diese Codeliste dient im Kontext von XWasser zur Angabe des Verfahrens, mit dem eine Probe entnommen wird</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:validFrom>2025-04-01</xoev-cl-4:validFrom>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>probennahmeverfahren</ShortName>
       <LongName>Probennahmeverfahren</LongName>
-      <Version>1</Version>
+      <Version>2</Version>
       <CanonicalUri>urn:xoev-de:xwasser:codeliste:probennahmeverfahren</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:probennahmeverfahren_1</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:probennahmeverfahren_2</CanonicalVersionUri>
       <Agency>
          <LongName>XWasser</LongName>
       </Agency>
@@ -86,28 +87,6 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>DIN ISO 5667-5:2011-02 Wasserbeschaffenheit - Probennahme - Teil 5: Anleitung zur Probennahme von Trinkwasser aus Aufbereitungsanlagen und Rohrnetzsystemen (ISO 5667-5:2006)</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Key">
-            <SimpleValue>1050</SimpleValue>
-         </Value>
-         <Value ColumnRef="Probennahmeverfahren">
-            <SimpleValue>Legionellenbeprobung gem. UBA-Empfehlung 12-2018 in Ergänzung mit 09-12-2022</SimpleValue>
-         </Value>
-         <Value ColumnRef="Beschreibung">
-            <SimpleValue>gem. UBA-Empfehlung 12-2018 "Systemische Untersuchungen von TrinkwasserInstallationen auf Legionellen nach Trinkwasserverordnung - Probennahme, Untersuchungsgang und Angabe des Ergebnisses " inkl. der Ergänzung vom 09.12.2022</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Key">
-            <SimpleValue>1060</SimpleValue>
-         </Value>
-         <Value ColumnRef="Probennahmeverfahren">
-            <SimpleValue>Probennahme mit Abweichung von den allgemein anerkannten Regeln der Technik</SimpleValue>
-         </Value>
-         <Value ColumnRef="Beschreibung">
-            <SimpleValue>Probennahme mit Abweichung von den allgemein anerkannten Regeln der Technik</SimpleValue>
          </Value>
       </Row>
       <Row>

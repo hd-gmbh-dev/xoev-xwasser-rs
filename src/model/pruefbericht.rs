@@ -17,7 +17,7 @@ use super::{
         anschrift::AnschriftType,
         auftraggeber::AuftraggeberType,
         behoerde::ZustaendigeBehoerdeType,
-        betreiber::ObjektType,
+        betreiber::{BetreiberType, ObjektType},
         misc::ErweiterungType,
         person::NatuerlichePersonType,
         probe::{ProbeType, ProbennahmestelleType, ProbennehmerType},
@@ -38,7 +38,7 @@ use super::{
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
 ))]
 pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
@@ -47,9 +47,6 @@ pub struct PruefberichtType {
     pub versionsnummer: Option<i32>,
     #[xml(ns = b"xwas", name = b"auftragsnummer", ty = "child")]
     pub auftragsnummer: String,
-    #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
-    #[serde(default)]
-    pub zustaendige_behoerde: Vec<ZustaendigeBehoerdeType>,
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
     #[serde(default)]
     pub probennahmestelle: Vec<ProbennahmestelleType>,
@@ -145,6 +142,9 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwV", ty = "child")]
     #[serde(default)]
     pub anlage_nach_trinkw_v: Vec<AnlageNachTrinkwVType>,
+    #[xml(ns = b"xwas", name = b"betreiber", ty = "child")]
+    #[serde(default)]
+    pub betreiber: Vec<BetreiberType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }

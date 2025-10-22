@@ -151,9 +151,11 @@ fn write_readme(items: &[CodeList], version: &str) -> anyhow::Result<String> {
 fn main() -> anyhow::Result<()> {
     let public_out = Path::new("./public");
     let data_dir = Path::new("./data");
-    let versions = std::fs::read_dir(data_dir)?;
-    for e in versions {
-        let version = e?.file_name();
+    let mut versions = std::fs::read_dir(data_dir)?
+        .map(|e| e.map(|e| e.file_name()))
+        .collect::<Result<Vec<_>, _>>()?;
+    versions.sort();
+    for version in versions {
         let version_dir = data_dir.join(&version);
         let json_dir = public_out.join(&version);
         let xml_files = std::fs::read_dir(&version_dir)?;

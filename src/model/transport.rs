@@ -55,6 +55,8 @@ pub struct NachrichtenkopfG2g {
     #[serde(default)]
     #[xml(name = b"zustaendigeBehoerdeID", ty = "child")]
     pub zustaendige_behoerde_id: Vec<String>,
+    #[xml(name = b"wasserversorgungsgebietID", ty = "child")]
+    pub wasserversorgungsgebiet_id: Option<String>,
 }
 
 #[derive(
@@ -135,7 +137,7 @@ pub struct Verzeichnisdienst {
 #[xml(root = b"vorgang.transportieren.2010")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
 ))]
 pub struct VorgangTransportieren2010 {
     #[xml(
@@ -152,7 +154,7 @@ pub struct VorgangTransportieren2010 {
         ns = b"xsi",
         name = b"schemaLocation",
         ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/ xwasser.xsd",
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/ xwasser.xsd",
         default
     )]
     #[serde(skip)]
@@ -162,7 +164,7 @@ pub struct VorgangTransportieren2010 {
         ns = b"xmlns",
         name = b"xwas",
         ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/",
+        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/",
         default
     )]
     #[serde(skip)]
@@ -181,7 +183,7 @@ pub struct VorgangTransportieren2010 {
     #[xml(name = b"test", ty = "attr")]
     #[cfg_attr(feature = "builder", builder(default))]
     pub test: Option<bool>,
-    #[xml(name = b"version", ty = "attr", value = "0.9.2")]
+    #[xml(name = b"version", ty = "attr", value = "0.9.5")]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
     _version: ConstStr,

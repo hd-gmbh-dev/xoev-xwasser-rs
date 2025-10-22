@@ -7,16 +7,17 @@
          <xoev-cl-4:shortName>AGS</xoev-cl-4:shortName>
          <xoev-cl-4:codelistDescription>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>Destatis</xoev-cl-4:agencyShortName>
-         <xoev-cl-4:validFrom>2024-09-01</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionDescription>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.</xoev-cl-4:versionDescription>
+         <xoev-cl-4:validFrom>2025-10-01</xoev-cl-4:validFrom>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>AGS</ShortName>
       <LongName>Gemeinden, dargestellt durch den Amtlichen Gemeindeschlüssel (AGS) des Statistischen Bundesamtes</LongName>
-      <Version>2024-09-30</Version>
+      <Version>2025-10-31</Version>
       <CanonicalUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags</CanonicalUri>
-      <CanonicalVersionUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2024-09-30</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2025-10-31</CanonicalVersionUri>
       <Agency>
          <LongName>Statistisches Bundesamt, Wiesbaden</LongName>
       </Agency>
@@ -18471,7 +18472,7 @@
             <SimpleValue>03403000</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Oldenburg (Oldenburg), Stadt</SimpleValue>
+            <SimpleValue>Oldenburg (Oldb), Stadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -25849,7 +25850,7 @@
             <SimpleValue>06434002</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Friedrichsdorf, Stadt</SimpleValue>
+            <SimpleValue>Friedrichsdorf, Philipp-Reis-Stadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -28369,7 +28370,7 @@
             <SimpleValue>06633015</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Kaufungen</SimpleValue>
+            <SimpleValue>Kaufungen, Kunigundengemeinde</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -40822,15 +40823,6 @@
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
-            <SimpleValue>07232089</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Niedergeckler</SimpleValue>
-         </Value>
-         <Value ColumnRef="Hinweis"/>
-      </Row>
-      <Row>
-         <Value ColumnRef="SCHLUESSEL">
             <SimpleValue>07232090</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
@@ -40880,15 +40872,6 @@
          </Value>
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Nusbaum</SimpleValue>
-         </Value>
-         <Value ColumnRef="Hinweis"/>
-      </Row>
-      <Row>
-         <Value ColumnRef="SCHLUESSEL">
-            <SimpleValue>07232096</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Obergeckler</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -42167,6 +42150,15 @@
          </Value>
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Brimingen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07232503</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Obergeckler</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -55423,7 +55415,7 @@
             <SimpleValue>08316053</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Rheinhausen</SimpleValue>
+            <SimpleValue>Rheinhausen im Breisgau</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -62650,7 +62642,7 @@
             <SimpleValue>09184123</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Haar</SimpleValue>
+            <SimpleValue>Haar, St</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -69937,15 +69929,6 @@
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
-            <SimpleValue>09473453</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Gellnhausen</SimpleValue>
-         </Value>
-         <Value ColumnRef="Hinweis"/>
-      </Row>
-      <Row>
-         <Value ColumnRef="SCHLUESSEL">
             <SimpleValue>09473454</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
@@ -70463,15 +70446,6 @@
          </Value>
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Forst Schwarzenbach a.Wald</SimpleValue>
-         </Value>
-         <Value ColumnRef="Hinweis"/>
-      </Row>
-      <Row>
-         <Value ColumnRef="SCHLUESSEL">
-            <SimpleValue>09475452</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Gerlaser Forst</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -71128,7 +71102,7 @@
             <SimpleValue>09479166</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Weißenstadt, St</SimpleValue>
+            <SimpleValue>Bad Weißenstadt, St</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -71143,28 +71117,10 @@
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
-            <SimpleValue>09479453</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Kaiserhammer Forst-Ost</SimpleValue>
-         </Value>
-         <Value ColumnRef="Hinweis"/>
-      </Row>
-      <Row>
-         <Value ColumnRef="SCHLUESSEL">
             <SimpleValue>09479455</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Martinlamitzer Forst-Süd</SimpleValue>
-         </Value>
-         <Value ColumnRef="Hinweis"/>
-      </Row>
-      <Row>
-         <Value ColumnRef="SCHLUESSEL">
-            <SimpleValue>09479456</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Meierhöfer Seite</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -71201,24 +71157,6 @@
          </Value>
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Vordorfer Forst</SimpleValue>
-         </Value>
-         <Value ColumnRef="Hinweis"/>
-      </Row>
-      <Row>
-         <Value ColumnRef="SCHLUESSEL">
-            <SimpleValue>09479462</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Weißenstadter Forst-Nord</SimpleValue>
-         </Value>
-         <Value ColumnRef="Hinweis"/>
-      </Row>
-      <Row>
-         <Value ColumnRef="SCHLUESSEL">
-            <SimpleValue>09479463</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Weißenstadter Forst-Süd</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -84109,6 +84047,15 @@
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>13000998</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>gemeindefreies Gebiet M-V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
             <SimpleValue>13000999</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
@@ -86551,7 +86498,7 @@
             <SimpleValue>13073012</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Born a. Darß</SimpleValue>
+            <SimpleValue>Born a. Darß, Seebad</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -91861,7 +91808,7 @@
             <SimpleValue>14523320</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Plauen, Stadt</SimpleValue>
+            <SimpleValue>Plauen, Stadt, Hochschulstadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -92293,7 +92240,7 @@
             <SimpleValue>14625020</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bautzen / Budyšin, Stadt</SimpleValue>
+            <SimpleValue>Bautzen / Budyšin, Stadt, Hochschulstadt / Wysokošulske město</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -92869,7 +92816,7 @@
             <SimpleValue>14626110</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Görlitz, Stadt</SimpleValue>
+            <SimpleValue>Görlitz, Stadt, Hochschulstadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -93265,7 +93212,7 @@
             <SimpleValue>14626610</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Zittau, Stadt</SimpleValue>
+            <SimpleValue>Zittau, Stadt, Hochschulstadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>

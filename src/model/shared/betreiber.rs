@@ -35,7 +35,7 @@ use super::{
 #[serde(tag = "t", content = "c")]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
 ))]
 pub enum ArtDerPerson {
     #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
@@ -59,15 +59,13 @@ pub enum ArtDerPerson {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
 ))]
 pub struct BetreiberType {
     #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
     pub betreiber_id: String,
     #[xml(ns = b"xwas", name = b"artDerPerson", ty = "child")]
     pub art_der_person: ArtDerPerson,
-    #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
-    pub objekt_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]
@@ -83,7 +81,7 @@ pub struct BetreiberType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
 ))]
 pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
@@ -118,9 +116,8 @@ pub struct ObjektType {
     pub angaben_alternative_id: Option<AngabenAlternativeIDType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
-    #[xml(ns = b"xwas", name = b"betreiber", ty = "child")]
-    #[serde(default)]
-    pub betreiber: Vec<BetreiberType>,
+    #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
+    pub betreiber_id: Option<String>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }

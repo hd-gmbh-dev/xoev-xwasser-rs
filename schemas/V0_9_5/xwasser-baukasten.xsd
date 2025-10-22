@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
            xmlns:bn-uq-g2g="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"
            xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
            xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
-           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
-           version="0.9.2"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
+           version="0.9.5"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
    <xs:annotation>
@@ -18,10 +18,10 @@
             <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
          </standard>
          <versionStandard>
-            <version>0.9.2</version>
+            <version>0.9.5</version>
             <versionXOEVProfil>3.0.3</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
-            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionXGenerator>3.2.4</versionXGenerator>
             <versionModellierungswerkzeug>2024x</versionModellierungswerkzeug>
             <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
          </versionStandard>
@@ -152,7 +152,7 @@
                      minOccurs="0"
                      type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Ergänzende Informationen zum Untersuchungsverfahren; Bei Auswahl "Hausverfahren/Laborverfahren", "Testkit" oder "Sonstiges" ist eine detaillierte Angabe zum verwendeten Untersuchungsverfahren verpflichtend. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
+               <xs:documentation>Ergänzende Informationen zum Untersuchungsverfahren; Bei Auswahl Hausverfahren/Laborverfahren, Testkit oder Sonstiges ist eine detaillierte Angabe zum verwendeten Untersuchungsverfahren verpflichtend. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="untersuchterParameter" type="xwas:Code.SHAPTH-ParameterType">
@@ -174,7 +174,7 @@
          </xs:element>
          <xs:element name="wurdeDerParameterKorrigiert" minOccurs="0" type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Es muss angegeben werden, ob in einem korrigierten Bericht dieser Parameter korrigiert wurde oder nicht, und er identisch mit dem ursprünglichen Prüfbericht ist (und die Korrektur somit basierend aufgrund der Änderung von anderen Informationen/Parametern erfolgte).</xs:documentation>
+               <xs:documentation>Sofern es sich um einen Prüfbericht handelt, welcher einen anderen Prüfbericht korrigiert, muss angegeben werden, ob der Messwert, bzw. die Parameterausprägung für diesen Parameter im korrigierten Prüfbericht angepasst wurde oder unverändert geblieben ist. Auf diese Weise wird deutlich, für welche Parameter eine Korrektur gegenüber dem ursprünglichen, (fehlerhaften) Prüfbericht vorgenommen wurde und für welche nicht.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="untersuchungswertParameter" minOccurs="0" type="xs:double">
@@ -208,12 +208,12 @@
                <xs:documentation>Ausgewertetes Ansatzvolumen (bei Legionellen verpflichtend).</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="shapthParameterNummer"
+         <xs:element name="verknuepfteParameter"
                      minOccurs="0"
                      maxOccurs="unbounded"
-                     type="xs:integer">
+                     type="xs:IDREF">
             <xs:annotation>
-               <xs:documentation>Verweis auf andere untersuchte Parameter, die fast zeitgleich untersucht wurden, und direkte Relevanz für den untersuchten Parameter haben. Beispielsweise die Wassertemperatur während der Untersuchung eines Parameters; Insbesondere sollte dies für pH-Wert, Säure- und Basenkapazität, die elektrische Leitfähigkeit und Sauerstoffgehalt (+sättigung) ergänzend angegeben werden.</xs:documentation>
+               <xs:documentation>Verweis auf andere untersuchte Parameter, die fast zeitgleich untersucht wurden, und direkte Relevanz für den untersuchten Parameter haben. Die entsprechende ID der betreffenden Parameter kann hier als Referenz eingetragen und übermittelt werden. Beispielsweise die Wassertemperatur während der Untersuchung eines Parameters; Insbesondere sollte dies für pH-Wert, Säure- und Basenkapazität, die elektrische Leitfähigkeit und Sauerstoffgehalt (+sättigung) ergänzend angegeben werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="bewertungUntersuchungswert"
@@ -245,7 +245,7 @@
          </xs:element>
          <xs:element name="bestimmungsgrenzeLoQ" minOccurs="0" type="xs:double">
             <xs:annotation>
-               <xs:documentation>Die Bestimmungsgrenze/LoQ (Limit of Quantitation) des Parameters ist für quantitative Parameter (ausgenommen Summenparameter) empfohlen und gem. dem neuen EU-Berichtsformat eine Pflichtangabe, falls der Untersuchungswert gt/lt LoQ ist, oder der Parameter eine "hazardous substance" gem. EU-Berichtsformat ist. Im Falle einer erhöhten Bestimmungsgrenze hat eine Begründung im Kommentarfeld des Analyseergebnisses des Parameters zu erfolgen. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
+               <xs:documentation>Die Bestimmungsgrenze/LoQ (Limit of Quantitation) des Parameters ist für quantitative Parameter (ausgenommen Summenparameter) empfohlen und gem. dem neuen EU-Berichtsformat eine Pflichtangabe, falls der Untersuchungswert lt LoQ ist, oder der Parameter eine hazardous substance gem. EU-Berichtsformat ist. Im Falle einer erhöhten Bestimmungsgrenze hat eine Begründung im Kommentarfeld des Analyseergebnisses des Parameters zu erfolgen. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
@@ -292,20 +292,7 @@
       <xs:sequence>
          <xs:element name="anlageNachTrinkwVID" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>ID zur eindeutigen Identifikation einer Anlage nach TrinkwV. Strukturell definiertcolon (Register für a-d, f Anlagen und e-Anlagen mit öffentlicher Tätigkeit): Zu klären ob gem. OKZ oder anderes Format, z.B: Bundesland (2-stellig) - Anlagenart (1-stellig a-f) - Fortlaufende Nr. (9-stellig) ToDo: Die genaue Syntax ist an einem Beispiel zu konkretisieren!</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="zustaendigeBehoerdeID" minOccurs="0" type="xs:IDREF">
-            <xs:annotation>
-               <xs:documentation>Referenz der für die Anlage zuständige Behörde; Zuständigkeit muss eindeutig geklärt sein.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="untersuchungsplanID"
-                     minOccurs="0"
-                     maxOccurs="unbounded"
-                     type="xs:IDREF">
-            <xs:annotation>
-               <xs:documentation>Referenz zur eindeutigen Identifikation eines Untersuchungsplans.</xs:documentation>
+               <xs:documentation>SHAPTH-ID zur nachrichtenübergreifenden eindeutigen Identifikation einer Wasserversorgungsanlage. Die SHAPTH-AnlagenNachTrinkwVID kann nur durch SHAPTH erstellt werden und ist im SHAPTH Register zu finden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="artAnlage" type="xwas:Code.ArtTrinkwasseranlageType">
@@ -337,19 +324,19 @@
                <xs:documentation>Kommentar zur Beschreibung der Anlage. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="wasserversorgungsgebiet"
+         <xs:element name="wasserversorgungsgebietID"
                      minOccurs="0"
                      maxOccurs="unbounded"
-                     type="xwas:WasserversorgungsgebietType">
+                     type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Angaben zum Wasserversorgungsgebiet</xs:documentation>
+               <xs:documentation>ID des Wasserversorgungsgebiets, in dem die Wasserversorgungsanlage liegt, bzw. welches die Wasserversorgungsanlage versorgt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="angabenAlternativeID"
                      minOccurs="0"
                      type="xwas:AngabenAlternativeIDType">
             <xs:annotation>
-               <xs:documentation>Angaben zur alternativen ID.</xs:documentation>
+               <xs:documentation>Die alternative ID einer Wasserversorgungsanlage kann angegeben werden, wenn keine SHAPTH-anlageNachTrinkwVID bekannt ist. Beispiele für alternative IDs sind IDs aus anderen Landesformaten, wie bspw. OctoWare, TEIS, oder die bayerische OKZ. Es dürfen nicht SHAPTH ID und alternative ID angegeben werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -456,7 +443,7 @@
       <xs:sequence>
          <xs:element name="auftraggeberID" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>SHAPTH-ID zur eindeutigen Identifikation eines Auftraggebers; Dies ist entweder die ID eines Betreibers aus dem Betreiber Register, oder die ID einer zuständigen Behörde aus dem Behörden-Register.</xs:documentation>
+               <xs:documentation>SHAPTH-ID zur eindeutigen Identifikation eines Auftraggebers; Dies ist entweder die ID eines Betreibers aus dem Betreiberregister oder die ID einer zuständigen Behörde aus dem Behördenregister.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="auftraggeberart" type="xwas:Code.AuftraggeberartType">
@@ -466,23 +453,23 @@
          </xs:element>
          <xs:element name="auftraggeber">
             <xs:annotation>
-               <xs:documentation>Hier ist einer der Personentypen auszuwählen (NP, Organisation, Behörde), und zwar der, der zur "Auftraggeberart" gehört.</xs:documentation>
+               <xs:documentation>Hier ist einer der Personentypen auszuwählen (NP, Organisation, Behörde), und zwar der, der zur Auftraggeberart gehört.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:choice>
                   <xs:element name="organisation" type="xwas:OrganisationType">
                      <xs:annotation>
-                        <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z. B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Das Schema "Organisation" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Behörde oder natürliche Person handelt.</xs:documentation>
+                        <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z. B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Das Schema Organisation ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Behörde oder natürliche Person handelt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="natuerlichePerson" type="xwas:NatuerlichePersonType">
                      <xs:annotation>
-                        <xs:documentation>Das Schema "natürliche Person" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Organisation oder Behörde handelt.</xs:documentation>
+                        <xs:documentation>Das Schema natürliche Person ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Organisation oder Behörde handelt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="zustaendigeBehoerde" type="xwas:ZustaendigeBehoerdeType">
                      <xs:annotation>
-                        <xs:documentation>Das Schema "zuständige Behörde" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Organisation oder natürliche Person handelt.</xs:documentation>
+                        <xs:documentation>Das Schema zuständige Behörde ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Organisation oder natürliche Person handelt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:choice>
@@ -746,26 +733,21 @@
                <xs:choice>
                   <xs:element name="organisation" type="xwas:OrganisationType">
                      <xs:annotation>
-                        <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z. B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Das Schema "Organisation" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Behörde oder natürliche Person handelt.</xs:documentation>
+                        <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z. B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Das Schema Organisation ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Behörde oder natürliche Person handelt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="natuerlichePerson" type="xwas:NatuerlichePersonType">
                      <xs:annotation>
-                        <xs:documentation>Das Schema "natürliche Person" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Organisation oder Behörde handelt.</xs:documentation>
+                        <xs:documentation>Das Schema natürliche Person ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Organisation oder Behörde handelt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="zustaendigeBehoerde" type="xwas:ZustaendigeBehoerdeType">
                      <xs:annotation>
-                        <xs:documentation>Das Schema "zuständige Behörde" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Organisation oder natürliche Person handelt.</xs:documentation>
+                        <xs:documentation>Das Schema zuständige Behörde ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Organisation oder natürliche Person handelt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:choice>
             </xs:complexType>
-         </xs:element>
-         <xs:element name="objektID" maxOccurs="unbounded" type="xs:IDREF">
-            <xs:annotation>
-               <xs:documentation>Referenz zur eindeutigen Identifikation eines Objekts.</xs:documentation>
-            </xs:annotation>
          </xs:element>
          <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
@@ -2462,8 +2444,10 @@
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>1</version>
+               <version>2</version>
+               <datumGueltigkeitAb>2025-11-01</datumGueltigkeitAb>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+               <aenderungZurVorversion>Anpassung der Codeliste an die EU-Gesetzgebung; Einführung einer neuen Schlüsselsystematik</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <Key>
@@ -2472,6 +2456,12 @@
                   <verwendung>required</verwendung>
                   <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
                </Key>
+               <Code>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </Code>
                <KategorieProbennahmestelle>
                   <spaltennameLang>Kategorie der Probennahmestelle</spaltennameLang>
                   <datentyp>string</datentyp>
@@ -2501,7 +2491,7 @@
             <xs:attribute name="listVersionID"
                           type="xs:normalizedString"
                           use="optional"
-                          fixed="1"/>
+                          fixed="2"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -4423,7 +4413,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="trivialExceedance" type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Liegt eine geringfügige Überschreitung vor.</xs:documentation>
+               <xs:documentation>Information, ob eine geringfügige Überschreitung vorliegt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="trivialExceedanceJustification"
@@ -4647,12 +4637,12 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="geokoordinatenBreitengrad" minOccurs="0" type="xs:decimal">
             <xs:annotation>
-               <xs:documentation>Geographischer Breitengrad gemäß World Geodetic System 1984 (WGS-84) in Dezimalformat bis zu 6 Dezimalstellen (Beispiel Berlin, Brandenburger Tor: Breitengrad 52.516275, Längengrad 13.377704). Für die Angabe des Breiten- und Längengrades sollte ein zentraler Punkt innerhalb der beschriebenen geografischen Entität (bspw. ein Wasserversorgungsgebiet oder ein Objekt etc.) sein. Das kann sowohl der geografische Mittelpunkt sein, als auch bspw. die “wichtigste” Stelle (für ein Wasserversorgungsgebiet könnte dies bspw. das [wichtigste] Wasserwerk oder der Flächenschwerpunkt der größten Stadt innerhalb des Gebiets sein).</xs:documentation>
+               <xs:documentation>Geographischer Breitengrad gemäß World Geodetic System 1984 (WGS-84) in Dezimalformat bis zu 6 Dezimalstellen Beispiel Berlin, Brandenburger Tor: Breitengrad 52.516275, Längengrad 13.377704. Für die Angabe des Breiten- und Längengrades sollte ein zentraler Punkt innerhalb der beschriebenen geografischen Entität (bspw. ein Wasserversorgungsgebiet oder ein Objekt etc.) gewählt werden. Das kann sowohl der geografische Mittelpunkt sein, als auch bspw. die wichtigste Stelle (für ein Wasserversorgungsgebiet könnte dies bspw. das [wichtigste] Wasserwerk oder der Flächenschwerpunkt der größten Stadt innerhalb des Gebiets sein).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="geokoordinatenLaengengrad" minOccurs="0" type="xs:decimal">
             <xs:annotation>
-               <xs:documentation>Geographischer Breitengrad gemäß World Geodetic System 1984 (WGS-84) in Dezimalformat bis zu 6 Dezimalstellen (Beispiel Berlin, Brandenburger Tor: Breitengrad 52.516275, Längengrad 13.377704). Für die Angabe des Breiten- und Längengrades sollte ein zentraler Punkt innerhalb der beschriebenen geografischen Entität (bspw. ein Wasserversorgungsgebiet oder ein Objekt etc.) sein. Das kann sowohl der geografische Mittelpunkt sein, als auch bspw. die “wichtigste” Stelle (für ein Wasserversorgungsgebiet könnte dies bspw. das [wichtigste] Wasserwerk oder der Flächenschwerpunkt der größten Stadt innerhalb des Gebiets sein).</xs:documentation>
+               <xs:documentation>Geographischer Längengrad gemäß World Geodetic System 1984 (WGS-84) in Dezimalformat bis zu 6 Dezimalstellen Beispiel Berlin, Brandenburger Tor: Breitengrad 52.516275, Längengrad 13.377704. Für die Angabe des Breiten- und Längengrades sollte ein zentraler Punkt innerhalb der beschriebenen geografischen Entität (bspw. ein Wasserversorgungsgebiet oder ein Objekt etc.) gewählt werden. Das kann sowohl der geografische Mittelpunkt sein, als auch bspw. die wichtigste Stelle (für ein Wasserversorgungsgebiet könnte dies bspw. das [wichtigste] Wasserwerk oder der Flächenschwerpunkt der größten Stadt innerhalb des Gebiets sein).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="geokoordinatenRechtswertEastWert"
@@ -4839,7 +4829,7 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xs:IDREF">
             <xs:annotation>
-               <xs:documentation>Referenz auf ein Überschreitung (Exceedance).</xs:documentation>
+               <xs:documentation>Referenz auf eine Überschreitung (Exceedance).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="incidentStartDate" type="xs:date">
@@ -5338,7 +5328,7 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="objektID" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>ID zur eindeutigen Identifikation eines Objekts. Strukturell definiertcolon Folgt der OKZ-Nummer: Art Objekt (4-stellig) - Topografische Karten Nr. (4-stellig) - Fortlaufende Nr. (8-stellig) ToDo: Die genaue Syntax ist an einem Beispiel zu konkretisieren!</xs:documentation>
+               <xs:documentation>SHAPTH-ID zur nachrichtenübergreifenden eindeutigen Identifikation eines Objekts. Die SHAPTH-ObjektID kann nur durch SHAPTH erstellt werden und ist im SHAPTH Register zu finden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="anlageNachTrinkwVID" minOccurs="0" type="xs:IDREF">
@@ -5407,7 +5397,7 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="xwas:AngabenAlternativeIDType">
             <xs:annotation>
-               <xs:documentation>Angaben zur alternativen ID.</xs:documentation>
+               <xs:documentation>Die alternative ID eines Objekts kann angegeben werden, wenn keine SHAPTH-ObjektID bekannt ist. Beispiele für alternative IDs sind IDs aus anderen Landesformaten, wie bspw. OctoWare, TEIS, oder die bayerische OKZ. Es dürfen nicht SHAPTH ID und alternative ID angegeben werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
@@ -5415,12 +5405,9 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Kommentar zu dem Objekt.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="betreiber"
-                     minOccurs="0"
-                     maxOccurs="unbounded"
-                     type="xwas:BetreiberType">
+         <xs:element name="betreiberID" minOccurs="0" type="xs:IDREF">
             <xs:annotation>
-               <xs:documentation>Hier sind die Angaben zum Betreiber zu übermitteln.</xs:documentation>
+               <xs:documentation>ID des Betreibers, welcher dieses Objekt betreibt. Die ID muss auf einen Betreiber verweisen, welcher in der Klasse Prüfbericht als Betreiber angegeben wurde.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -5581,7 +5568,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="reduzierbarOhneRAU" type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Für einige Parameter macht die TrinkwV an verschiedenen Stellen Vorgaben, wann sie zu untersuchen sind oder wann nicht. Diese Parameter müssen nicht zwingend in der Häufigkeit für die jeweilige Parametergruppe nach TrinkwV untersucht werden sondern sind unabhängig eines RAP/RAU reduzierbar.</xs:documentation>
+               <xs:documentation>Für einige Parameter macht die TrinkwV an verschiedenen Stellen Vorgaben, wann sie zu untersuchen sind oder wann nicht. Diese Parameter müssen nicht zwingend in der Häufigkeit für die jeweilige Parametergruppe nach TrinkwV untersucht werden, sondern sind unabhängig eines RAP/RAU reduzierbar.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="bemerkung" minOccurs="0" type="din91379:datatypeC">
@@ -5660,9 +5647,9 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Hier kann die Probennahmestelle referenziert werden, bei der die Probe entnommen wurde.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="untersuchungsplanID" minOccurs="0" type="din91379:datatypeC">
+         <xs:element name="terminplanID" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Eindeutige ID des Untersuchungsplans, zu dem dieser Prüfbericht gehört.</xs:documentation>
+               <xs:documentation>Die ID, die eine in einem Untersuchungsplan geplante Probe eindeutig identifiziert.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="probennehmer" minOccurs="0" type="xs:IDREF">
@@ -5670,7 +5657,7 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Referenz auf die ID eines erfassten Probennehmers. Im Falle einer angelieferten Probe ist die Angabe an dieser Stelle nicht verpflichtend.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="titelProbe" minOccurs="0" type="din91379:datatypeC">
+         <xs:element name="titelProbe" type="din91379:datatypeC">
             <xs:annotation>
                <xs:documentation>Mit diesem Element kann ein Probentitel angegeben werden.</xs:documentation>
             </xs:annotation>
@@ -5691,7 +5678,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="medium" minOccurs="0" type="xwas:Code.MediumType">
             <xs:annotation>
-               <xs:documentation>Art des Mediums der Probe; Wird automatisch aus dem Register der Probennahmestelle gezogen, es sei denn es ist nicht korrekt angelegt, dann muss es hier speziell eingetragen werden. Falls eine Probennahme nicht erfolgt ist, kann dies hier ebenso angegeben werden; In diesem Fall ist die Information, warum diese nicht erfolgt ist, unter „Ergänzung zum Medium“ anzugeben. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>Art des Mediums der Probe; Wird automatisch aus dem Register der Probennahmestelle gezogen, es sei denn es ist nicht korrekt angelegt, dann muss es hier speziell eingetragen werden. Falls eine Probennahme nicht erfolgt ist, kann dies hier ebenso angegeben werden; In diesem Fall ist die Information, warum diese nicht erfolgt ist, unter Ergänzung zum Medium anzugeben. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="akkreditierteDurchfuehrungDerProbennahme" type="xs:boolean">
@@ -5713,7 +5700,7 @@ Untersuchungsplan</nameKurz>
                      maxOccurs="unbounded"
                      type="xwas:Code.ProbennahmeverfahrenType">
             <xs:annotation>
-               <xs:documentation>Art des Probennahmeverfahrens; Mehrfachangabe möglich, z. B. bei Probennahme für mikrobiologische und chemische Parameter könnten z. B. "Beprobung der Trinkwasserinstallation bis kurz vor der Entnahmearmatur (Zweck B)" und "Zufallsstichprobe ohne Ablauf (Z-Probe)" angegeben werden.</xs:documentation>
+               <xs:documentation>Art des Probennahmeverfahrens; Mehrfachangabe möglich, z. B. bei Probennahme für mikrobiologische und chemische Parameter könnten z. B. Beprobung der Trinkwasserinstallation bis kurz vor der Entnahmearmatur (Zweck B) und Zufallsstichprobe ohne Ablauf (Z-Probe) angegeben werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="probenentnahmegeraet"
@@ -5742,7 +5729,7 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Angabe, ob das Probenentnahmegerät desinfiziert wurde; Angabe falls Probennahmegerät verwendet wurde.</xs:documentation>
+               <xs:documentation>Angabe, ob das Probenentnahmegerät desinfiziert wurde; Angabe, falls Probennahmegerät verwendet wurde.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="konservierungDerProbe"
@@ -5757,7 +5744,7 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Kommentar für ergänzende Informationen zur Probennahme. Pflichtangabe des genauen Probennahmeverfahrens, falls Sonstiges oder Probennahme mit Abweichung von den allgemein anerkannten Regeln der Technik als Probennahmeverfahren gewählt wurde. Angabe von vorübergehender Aufbereitung/Desinfektion an der PNS, z. B. Chlorung des Wassers bei Untersuchung einer e-Anlage; Bei Zweck b Untersuchung: Angabe zur chemischen Desinfektion, falls diese anstatt der thermischen Desinfektion durchgeführt wurde. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
+               <xs:documentation>Kommentar für ergänzende Informationen zur Probennahme. Pflichtangabe des genauen Probennahmeverfahrens, falls Sonstiges oder Probennahme mit Abweichung von den allgemein anerkannten Regeln der Technik als Probennahmeverfahren gewählt wurde. Angabe von vorübergehender Aufbereitung/Desinfektion an der PNS PNS Probennahmestelle , z. B. Chlorung des Wassers bei Untersuchung einer e-Anlage; Bei Zweck b Untersuchung: Angabe zur chemischen Desinfektion, falls diese anstatt der thermischen Desinfektion durchgeführt wurde. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="informationenZumProbentransport"
@@ -5797,7 +5784,7 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>ID zur eindeutigen Identifikation einer Probe, die vom Probennehmer vergeben wurde, falls diese nicht der probeID_ausLabor entspricht..</xs:documentation>
+               <xs:documentation>ID zur eindeutigen Identifikation einer Probe, die vom Probennehmer vergeben wurde, falls diese nicht der probeID_ausLabor entspricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="angelieferteProbe" minOccurs="0" type="xs:boolean">
@@ -5847,19 +5834,12 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="probennahmestelleID" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>ID zur nachrichtenübergreifenden eindeutigen Identifikation einer Probennahmestelle. Strukturell definiertcolon Objekt ID - Fortlaufende Nr. (4-stellig) ToDo: Die Syntax ist an einem Beispiel zu konkretisieren!</xs:documentation>
+               <xs:documentation>SHAPTH-ID zur nachrichtenübergreifenden eindeutigen Identifikation einer Probennahmestelle. Die SHAPTH-ProbennahmestellenID kann nur durch SHAPTH erstellt werden und ist im SHAPTH Register zu finden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="objektID" minOccurs="0" type="xs:IDREF">
             <xs:annotation>
                <xs:documentation>Referenz zur eindeutigen Identifikation des Objekts, zu welchem die Probennahmestelle gehört.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="wasserversorgungsgebietID"
-                     minOccurs="0"
-                     type="din91379:datatypeC">
-            <xs:annotation>
-               <xs:documentation>ID zur eindeutigen Identifikation eines Wasserversorgungsgebiets.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="probe"
@@ -5920,12 +5900,7 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="xwas:AngabenAlternativeIDType">
             <xs:annotation>
-               <xs:documentation>Angaben zur alternativen ID.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="berichtspflichtig" minOccurs="0" type="xs:boolean">
-            <xs:annotation>
-               <xs:documentation>Angabe, ob Proben, welche an dieser Probennahmestelle entnommen wurden, für den Untersuchungsplan und den sektoralen Bericht genutzt werden sollen.</xs:documentation>
+               <xs:documentation>Die alternative ID einer Probennahmestelle kann angegeben werden, wenn keine SHAPTH-ProbennahmestellenID bekannt ist. Beispiele für alternative IDs sind IDs aus anderen Landesformaten, wie bspw. OctoWare, TEIS, oder die bayerische OKZ. Es dürfen nicht SHAPTH ID und alternative ID angegeben werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
@@ -5945,7 +5920,7 @@ Untersuchungsplan</nameKurz>
          <xs:appinfo>
             <title>Probennehmer</title>
          </xs:appinfo>
-         <xs:documentation>Klasse für den Transport von Informationen zu einem Probennehmer [Durch das Labor mit dem Prüfbericht mit zu übermittelnde Informationen]. Für jeden Probennehmer ist das Anstellungsverhältnis, und somit die Organisation oder Behörde, anzugeben.</xs:documentation>
+         <xs:documentation>Klasse für den Transport von Informationen zu einem Probennehmer [Durch das Labor mit dem Prüfbericht zu übermittelnde Informationen]. Für jeden Probennehmer ist das Anstellungsverhältnis, und somit die Organisation oder Behörde, anzugeben.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="probennehmerID" minOccurs="0" type="bn-uq-g2g:UUID">
@@ -5961,17 +5936,17 @@ Untersuchungsplan</nameKurz>
                <xs:choice>
                   <xs:element name="organisation" type="xwas:OrganisationType">
                      <xs:annotation>
-                        <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z. B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Das Schema "Organisation" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Behörde oder natürliche Person handelt.</xs:documentation>
+                        <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck, z. B. im wirtschaftlichen, gemeinnützigen, religiösen, öffentlichen oder politischen Bereich. Das Schema Organisation ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Behörde oder natürliche Person handelt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="natuerlichePerson" type="xwas:NatuerlichePersonType">
                      <xs:annotation>
-                        <xs:documentation>Das Schema "natürliche Person" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Organisation oder Behörde handelt.</xs:documentation>
+                        <xs:documentation>Das Schema natürliche Person ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Organisation oder Behörde handelt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="zustaendigeBehoerde" type="xwas:ZustaendigeBehoerdeType">
                      <xs:annotation>
-                        <xs:documentation>Das Schema "zuständige Behörde" ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Organisation oder natürliche Person handelt.</xs:documentation>
+                        <xs:documentation>Das Schema zuständige Behörde ist auszuwählen bzw. zu füllen, falls es sich bei der Person nicht um eine Organisation oder natürliche Person handelt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:choice>
@@ -6011,19 +5986,12 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="versionsnummer" type="xs:integer">
             <xs:annotation>
-               <xs:documentation>Die Versionsnummer gibt die Version eines Prüfberichts an. Sie beginnt immer mit Version 1 und ist hochzuzählen wenn bspw. eine Korrektur erfolgen muss oder weitere Teilergebnisse eines Prüfberichts übermittelt werden.</xs:documentation>
+               <xs:documentation>Die Versionsnummer gibt die Version eines Prüfberichts an. Sie beginnt immer mit Version 1 und ist hochzuzählen, wenn bspw. eine Korrektur erfolgen muss oder weitere Teilergebnisse eines Prüfberichts übermittelt werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="auftragsnummer" type="din91379:datatypeC">
             <xs:annotation>
                <xs:documentation>ID zur eindeutigen Identifikation eines Auftrags.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="zustaendigeBehoerde"
-                     minOccurs="0"
-                     type="xwas:ZustaendigeBehoerdeType">
-            <xs:annotation>
-               <xs:documentation>Hier werden die Angaben zur zuständigen Behörde übermittelt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="probennahmestelle"
@@ -6035,7 +6003,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="probe" maxOccurs="unbounded" type="xwas:ProbeType">
             <xs:annotation>
-               <xs:documentation>Hier sind die Angaben zu den untersuchten Proben zu übermitteln. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld im Prüfbericht, es darf nur bei der Erzeugung eines Untersuchungsplans leer bzw. weggelassen werden!</xs:documentation>
+               <xs:documentation>Hier sind die Angaben zu den untersuchten Proben zu übermitteln.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="probennehmer"
@@ -6049,27 +6017,27 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Ja ist auszuwählen, falls der Prüfbericht Teilergebnisse enthält. z. B. bei der Meldung einer Grenzwertüberschreitung an ein Gesundheitsamt, bevor alle Parameter analysiert sind. Im Titel ist verpflichtend der Grund der Teilübermittlung mit anzugeben! z. B. Korrektur oder Vorabübermittlung bei Grenzwertüberschreitung; Pflichtangabe falls nur Teilergebnisse, ohne Angabe wird angenommen, dass es ein vollständiger Prüfbericht ist. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>true ist auszuwählen, falls der Prüfbericht Teilergebnisse enthält. z. B. bei der Meldung einer Grenzwertüberschreitung an ein Gesundheitsamt, bevor alle Parameter analysiert sind. Im Titel ist verpflichtend der Grund der Teilübermittlung mit anzugeben, z. B. Korrektur oder Vorabübermittlung bei Grenzwertüberschreitung; Pflichtangabe falls es sich nur um Teilergebnisse handelt; ohne Angabe wird angenommen, dass es sich um einen vollständigen Prüfbericht handelt. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="korrekturvermerk" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Hier muss bei Korrektur eines Prüfberichts Informationen zu dieser Korrektur eingetragen werden. Z. B. Informationen zur Versionierung und Informationen darüber, welche Daten sich verändert haben und weshalb.</xs:documentation>
+               <xs:documentation>Hier müssen bei Korrektur eines Prüfberichts Informationen zu dieser Korrektur eingetragen werden, z. B. Informationen zur Versionierung und darüber, welche Daten sich verändert haben und weshalb.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="pruefberichtGemVorgabenAkkredition" type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Ja ist auszuwählen, falls der Prüfbericht alle Informationen enthält, welche die Akkreditierung fordert. z. B. Alle Angaben gem. DIN ISO 17025. Nein ist auszuwählen, falls nicht alle Angaben gemacht werden, z. B. für eine Eigenüberwachung, die nicht alle Angaben erfordert.</xs:documentation>
+               <xs:documentation>true ist auszuwählen, falls der Prüfbericht alle Informationen enthält, welche die Akkreditierung fordert, z. B. alle Angaben gem. DIN ISO 17025. false ist auszuwählen, falls nicht alle Angaben gemacht werden, z. B. für eine Eigenüberwachung, die nicht alle Angaben erfordert.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="titel" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Titel des Prüfberichts. Bspw. „Prüfbericht Garching Forschungszentrum der Technischen Universität München, Gebäude 5500 Maschinenwesen“.</xs:documentation>
+               <xs:documentation>Titel des Prüfberichts, beispielsweise Prüfbericht Garching Forschungszentrum der Technischen Universität München, Gebäude 5500 Maschinenwesen.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="gesamtbewertung" type="xwas:Code.GesamtbewertungType">
             <xs:annotation>
-               <xs:documentation>Bewertung der Untersuchung aller Proben des Prüfberichts(Falls eine oder mehrere auffällige Proben vorliegen gilt der Prüfbericht als auffällig); Auffällig ist jede Probe, wo mindestens ein Parameter einen Grenzwert überschreitet, oder nicht innerhalb der für Trinkwasser annehmbaren Norm liegt. [Falls keine eigene Angabe getätigt wird, kann die Angabe automatisch durch die Aggregation der Bewertung des Untersuchungswerts der einzelnen Parameter befüllt werden]</xs:documentation>
+               <xs:documentation>Bewertung der Untersuchung aller Proben des Prüfberichts (falls eine oder mehrere auffällige Proben vorliegen, gilt der Prüfbericht als auffällig); Auffällig ist jede Probe, wo mindestens ein Parameter einen Grenzwert überschreitet oder nicht innerhalb der für Trinkwasser annehmbaren Norm liegt [Falls keine eigene Angabe getätigt wird, kann die Angabe automatisch durch die Aggregation der Bewertung des Untersuchungswerts der einzelnen Parameter befüllt werden].</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="auffaelligkeiten"
@@ -6159,7 +6127,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="gefahrInVerzug" type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Wenn die Analyseergebnisse auf Gefahren hindeuten, welche eine schnelle Handlung erfordern, muss hier “WAHR” angegeben werden. In diesem Fall erfolgt eine Übermittlung des Prüfberichts ohne weitere Validierungen. Diese Option darf nur für potenziell gesundheitsgefährdende Situationen genutzt werden.</xs:documentation>
+               <xs:documentation>Wenn die Analyseergebnisse auf Gefahren hindeuten, welche eine schnelle Handlung erfordern, muss hier true angegeben werden. In diesem Fall erfolgt eine Übermittlung des Prüfberichts ohne weitere Validierungen. Diese Option darf nur für potenziell gesundheitsgefährdende Situationen genutzt werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="anhang"
@@ -6191,6 +6159,14 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Angaben zur Anlage nach TrinkwV.</xs:documentation>
             </xs:annotation>
          </xs:element>
+         <xs:element name="betreiber"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xwas:BetreiberType">
+            <xs:annotation>
+               <xs:documentation>Angabe von Informationen zu dem oder den Betreibern/Wasserversorgern, welche die Wasserversorgungsanlage oder einzelne Objekte betreiben, für welche Wasserproben genommen und analysiert wurden. Bei e-Anlagen/Gebäudewasserversorgungsanlagen können bspw. auch einzelne Wohnungen als Objekte mit eigenen Betreibern im Sinne von Eigentümern betrachtet werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
       <xs:attribute name="id" type="xs:ID" use="required">
          <xs:annotation>
@@ -6218,30 +6194,30 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="parameterThresholdValue" type="xs:double">
             <xs:annotation>
-               <xs:documentation>"Grenzwert Parameter": Grenzwert des Parameters.</xs:documentation>
+               <xs:documentation>Grenzwert des Parameters.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="parameterThresholdValueUnit"
                      type="xwas:Code.SHAPTH-Parameter-EinheitType">
             <xs:annotation>
-               <xs:documentation>"Einheit Grenzwert Parameter": Einheit des Grenzwerts des Parameters.</xs:documentation>
+               <xs:documentation>Einheit des Grenzwerts des Parameters.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="samplingFrequency" type="xs:integer">
             <xs:annotation>
-               <xs:documentation>"Häufigkeit der Probennahme": Häufigkeit, in der die Probennahme erfolgt.</xs:documentation>
+               <xs:documentation>Häufigkeit, in der die Probennahme erfolgt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="samplingPeriod" type="xwas:Code.ProbennahmezeitraumType">
             <xs:annotation>
-               <xs:documentation>"Probennahmezeitraum": Zeitraum der Probennahme.</xs:documentation>
+               <xs:documentation>Zeitraum der Probennahme.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="samplingLocationType"
                      maxOccurs="unbounded"
                      type="xwas:Code.ArtProbennahmestelleEUType">
             <xs:annotation>
-               <xs:documentation>"Art der Probennahmestelle": Art der Probennahmestelle.</xs:documentation>
+               <xs:documentation>Art der Probennahmestelle.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="remarks" minOccurs="0" type="din91379:datatypeC">
@@ -6390,12 +6366,12 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="terminplanID" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Fachliche ID zur eindeutigen Identifikation eines Terminplans. Strukturell definiertcolon Untersuchungsplan ID - Fortlaufende Nr. (4-stellig). ToDo: Die genaue Syntax ist an einem Beispiel zu konkretisieren!</xs:documentation>
+               <xs:documentation>ID zur eindeutigen Identifikation eines Terminplans (entspricht einer geplanten Probe). Strukturell definiert: UntersuchungsplanID_Fortlaufende Nr. (3-stellig) Für den 21. Terminplan bzw. die 21. Untersuchung gemäß einem Untersuchungsplan, der nur für das Jahr 2025 gelten soll, könnte die ID wie folgt aussehen: UP_BY162TWA655-20252025-01_021</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="probennahmestelle" minOccurs="0" type="xs:IDREF">
+         <xs:element name="probennahmestelle" type="xs:IDREF">
             <xs:annotation>
-               <xs:documentation>Eindeitige ID einer Probennahmestelle (sofern vorhanden). Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
+               <xs:documentation>ID-Verweis auf eine Probennahmestelle, die im Untersuchungsplan angegeben wurde; Angabe erfolgt via ID-Verweis um Datenmengen zu reduzieren wenn mehreren Planproben der gleichen Probennahmestelle in einem Untersuchungsplan geplant werden. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein fachliches Pflichtfeld, welches nur in begründeten Fällen leer bleiben bzw. entfallen darf. Die fachlichen Bedingungen sind bei der Nachrichtenerzeugung im Fachverfahren/ Fachportal zu prüfen!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="datumZeitraum" maxOccurs="unbounded" type="xs:dateTime">
@@ -6485,7 +6461,7 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="untersuchungsplanID" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>ID zur eindeutigen Identifikation eines Untersuchungsplans. Strukturell definiertcolon Anlagen ID - Jahr (8-stellig) - Fortlaufende Nr. (5-stellig); Jahr 8-stellig, da Untersuchungsplan mehrere Jahre gültig sein kann, und Angabe des ersten und letzten Jahres sinnvoll ist. ToDo: Die genaue Syntax ist an einem Beispiel zu konkretisieren!</xs:documentation>
+               <xs:documentation>ID zur eindeutigen Identifikation eines Untersuchungsplans. Strukturell definiert: UP_Anlagen ID - Jahr (8-stellig) - Fortlaufende Nr. (2-stellig); Jahr 8-stellig, da Untersuchungsplan mehrere Jahre gültig sein kann, und Angabe des ersten und letzten Jahres sinnvoll ist. Für einen Untersuchungsplan, der nur für das Jahr 2025 gelten soll könnte die ID wie folgt aussehen: UP_BY162TWA655-20252025-01 ToDo: Die genaue Syntax ist an einem Beispiel zu konkretisieren!</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="wasserversorgungsgebiet"
@@ -6496,9 +6472,7 @@ Untersuchungsplan</nameKurz>
                <xs:documentation>Referenz zur eindeutigen Identifikation eines Wasserversorgungsgebiets.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="titelUntersuchungsplan"
-                     minOccurs="0"
-                     type="din91379:datatypeC">
+         <xs:element name="titelUntersuchungsplan" type="din91379:datatypeC">
             <xs:annotation>
                <xs:documentation>Mit diesem Element kann der Titel des Untersuchungsplans angegeben werden.</xs:documentation>
             </xs:annotation>
@@ -6515,7 +6489,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="artVonWVAundWVG" type="xwas:Code.WVAType">
             <xs:annotation>
-               <xs:documentation>"Dieser Eintrag hat Einfluss darauf, welche Parameter in den Messprogrammen automatisch zur Untersuchung markiert werden. Bei Anlagen mit 100 % Fremdbezug werden z. B. keine unveränderlichen Parameter markiert. 1: Eigenständige WVA (Versorgungsgebiet der WVA =WVG; Anlage mit eigener Wassergewinnung und Verteilung oder vollständig untersuchte WVA mit 100% Fremdbezug) 2: Fern-WVA ohne versorgte Gebiete (Teil des WVG) 3: Fern-WVA mit versorgten Gebieten (gesamtes WVG) 4: WVA mit 100 % Fremdbezug (Teil des WVG einer anderen WVA oder Fern-WVA)".</xs:documentation>
+               <xs:documentation>Art der Wassserversorgungsanlage Dieser Eintrag hat Einfluss darauf, welche Parameter in den Messprogrammen automatisch zur Untersuchung markiert werden. Bei Anlagen mit 100 % Fremdbezug werden z. B. keine unveränderlichen Parameter markiert. Eigenständige WVA (Versorgungsgebiet der WVA = WVG; Anlage mit eigener Wassergewinnung und Verteilung oder vollständig untersuchte WVA mit 100% Fremdbezug); Fern-WVA ohne versorgte Gebiete (Teil des WVG); Fern-WVA mit versorgten Gebieten (gesamtes WVG); WVA mit 100 % Fremdbezug (Teil des WVG einer anderen WVA oder Fern-WVA).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="erlaeuterungZurWasserabgabemenge"
@@ -6537,28 +6511,28 @@ Untersuchungsplan</nameKurz>
          <xs:element name="desinfektionDurchgefuehrtMit"
                      type="xwas:Code.DesinfektionsartType">
             <xs:annotation>
-               <xs:documentation>"Wenn dauerhaft oder regelmäßig eine Desinfektion mit Chlor, Hypochloriten oder elektrolytisch erzeugte Chlorlösungen erfolgt, ist auf THM zu untersuchen. Wenn keine Desinfektion mit den vorgenannten Chlorprodukten erfolgt und die Chlorung nur in Bereitschaft gehalten wird, oder wenn mit Chlordioxid desinfiziert wird, ist keine Untersuchung auf THM benötigt."</xs:documentation>
+               <xs:documentation>Angabe der Arte der dauerhaften Desinfektion Hinweis Wenn dauerhaft oder regelmäßig eine Desinfektion mit Chlor, Hypochloriten oder elektrolytisch erzeugte Chlorlösungen erfolgt, ist auf THM zu untersuchen. Wenn keine Desinfektion mit den vorgenannten Chlorprodukten erfolgt und die Chlorung nur in Bereitschaft gehalten wird, oder wenn mit Chlordioxid desinfiziert wird, ist keine Untersuchung auf THM notwendig.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="abfuellungZurAbgabeInVerschlossenenBehaeltnissen"
                      type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Trinkwasserabgabe in verschlossenen Behältnissen liegt in der Regel in Deutschland nicht als Nutzungszweck ganzer Wasserversorgungsanlagen vor. Wenn Wasserversorgungsunternehmen neben der leitungsgebundenen Abgabe auch Trinkwasser in Flaschen abfüllen sollten, ist trotzdem "nein" einzutragen.</xs:documentation>
+               <xs:documentation>Trinkwasserabgabe in verschlossenen Behältnissen liegt in der Regel in Deutschland nicht als Nutzungszweck ganzer Wasserversorgungsanlagen vor. Wenn Wasserversorgungsunternehmen neben der leitungsgebundenen Abgabe auch Trinkwasser in Flaschen abfüllen sollten, ist trotzdem false einzutragen.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="acrylamid" type="xwas:Code.NachweisartType">
             <xs:annotation>
-               <xs:documentation>"Folgende Varianten würden einen rechnerischen Nachweis der Einhaltung des Parameters Acrylamid ermöglichen: • frühere Untersuchungen lagen unter der Nachweisgrenze und es gibt keine einschlägigen Änderungen in der Aufbereitung. • kein Einsatz Polyacrylamid-haltiger Flockungshilfsmittel bei der Wasseraufbereitung • Polyacrylamid-haltige Flockungshilfsmittel werden verwendet, die Einhaltung der zulässigen Zugabe und der Reinheitsanforderungen gemäß §11-Liste wird kontrolliert."</xs:documentation>
+               <xs:documentation>Angabe der Art, wie der Parameter Acrylamid nachgewiesen wurde. Hinweis Folgende Varianten würden einen rechnerischen Nachweis der Einhaltung des Parameters Acrylamid ermöglichen: frühere Untersuchungen lagen unter der Nachweisgrenze und es gibt keine einschlägigen Änderungen in der Aufbereitung; kein Einsatz Polyacrylamid-haltiger Flockungshilfsmittel bei der Wasseraufbereitung; Polyacrylamid-haltige Flockungshilfsmittel werden verwendet, die Einhaltung der zulässigen Zugabe und der Reinheitsanforderungen gemäß §11-Liste wird kontrolliert</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="epichlorhydrin" type="xwas:Code.NachweisartType">
             <xs:annotation>
-               <xs:documentation>"Folgende Varianten würden einen rechnerischen Nachweis der Einhaltung des Parameters Epichlorhydrin ermöglichen: • frühere Untersuchungen lagen unter der Nachweisgrenze und es gibt keine einschlägigen Änderungen bei Rohren, Behältern und Beschichtungen • Es sind keine trinkwasserberührten epoxidharzhaltigen Rohre, Behälter und Beschichtungen in der öffentlichen WVA vorhanden und dem Gesundheitsamt sind keine Epoxidharzbeschichtungen in Trinkwasser-Installationen bekannt. • wasserberührte epoxidharzbasierte Bauteile oder Beschichtungen sind in der öffentlichen WVA vorhanden. Es wurden ausschließlich zertifizierte Produkte und Verfahren eingesetzt."</xs:documentation>
+               <xs:documentation>Angabe der Art, wie der Parameter Epichlorhydrin nachgewiesen wurde. Hinweis Folgende Varianten würden einen rechnerischen Nachweis der Einhaltung des Parameters Epichlorhydrin ermöglichen: Frühere Untersuchungen lagen unter der Nachweisgrenze und es gibt keine einschlägigen Änderungen bei Rohren, Behältern und Beschichtungen. Es sind keine trinkwasserberührten epoxidharzhaltigen Rohre, Behälter und Beschichtungen in der öffentlichen WVA vorhanden und dem Gesundheitsamt sind keine Epoxidharzbeschichtungen in Trinkwasser-Installationen bekannt. Wasserberührte epoxidharzbasierte Bauteile oder Beschichtungen sind in der öffentlichen WVA vorhanden. Es wurden ausschließlich zertifizierte Produkte und Verfahren eingesetzt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="vinylchlorid" type="xwas:Code.NachweisartType">
             <xs:annotation>
-               <xs:documentation>"Folgende Varianten würden einen rechnerischen Nachweis der Einhaltung des Parameters Vinylchlorid ermöglichen: • Frühere Untersuchungen lagen unter der Nachweisgrenze und es gibt keine einschlägigen Änderungen bei Rohren, Behältern und Beschichtungen sowie im Einzugsgebiet. • Es sind keine trinkwasserberührten Rohre, Behälter und Beschichtungen aus PVC in der öffentlichen WVA vorhanden. • Wasserberührte Bauteile oder Beschichtungen aus PVC sind in der öffentlichen WVA vorhanden. Es wurden ausschließlich zertifizierte Produkte eingesetzt. • Belastungen mit chlorierten Lösungsmitteln im Wassereinzugsgebiet können jeweils ausgeschlossen werden."</xs:documentation>
+               <xs:documentation>Angabe der Art, wie der Parameter Vinylchlorid nachgewiesen wurde. Hinweis Folgende Varianten würden einen rechnerischen Nachweis der Einhaltung des Parameters Vinylchlorid ermöglichen: Frühere Untersuchungen lagen unter der Nachweisgrenze und es gibt keine einschlägigen Änderungen bei Rohren, Behältern und Beschichtungen sowie im Einzugsgebiet. Es sind keine trinkwasserberührten Rohre, Behälter und Beschichtungen aus PVC in der öffentlichen WVA vorhanden. Wasserberührte Bauteile oder Beschichtungen aus PVC sind in der öffentlichen WVA vorhanden. Es wurden ausschließlich zertifizierte Produkte eingesetzt. Belastungen mit chlorierten Lösungsmitteln im Wassereinzugsgebiet können jeweils ausgeschlossen werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="phWertWasserwerksausgang" type="xs:boolean">
@@ -6580,7 +6554,10 @@ Untersuchungsplan</nameKurz>
                      minOccurs="0"
                      type="xs:integer">
             <xs:annotation>
-               <xs:documentation>Wenn das Gesundheitsamt eigene Untersuchungen nach §19 (1) und (7) durchführt, können diese auf den Umfang der Überwachung angerechnet werden. Hinweis an Implementierende / Nachrichtenerzeuger: Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</xs:documentation>
+               <xs:appinfo>
+                  <implementationHint>Bei diesem Element handelt es sich um ein abhängiges/ dynamisches Pflichtfeld, dessen Befüllung von einem anderen Feldinhalt abhängt.</implementationHint>
+               </xs:appinfo>
+               <xs:documentation>Wenn das Gesundheitsamt eigene Untersuchungen nach §19 (1) und (7) durchführt, können diese auf den Umfang der Überwachung angerechnet werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="anzahlUntersuchungenproJahrGruppeB" type="xs:integer">
@@ -6597,7 +6574,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="rapDurchgefuehrt" type="xs:boolean">
             <xs:annotation>
-               <xs:documentation>Wenn eine RAP durchgeführt wurde, bitte prüfen, dass die Messprogramme und Termine entsprechend der RAP angelegt wurden. In diesem Fall erfolgt nur bei den nicht reduzierbaren Parametern eine Fehlermeldung, wenn die Untersuchungsanzahlen nach Wassermenge nicht erreicht werden.</xs:documentation>
+               <xs:documentation>Wenn eine Risikobasierte Anpassung der Probennahmeplanung (RAP) RAP Risikobasierte Anpassung der Probennahmeplanung durchgeführt wurde, bitte prüfen, dass die Messprogramme und Termine entsprechend der RAP angelegt wurden. In diesem Fall erfolgt nur bei den nicht reduzierbaren Parametern eine Fehlermeldung, wenn die Untersuchungsanzahlen nach Wassermenge nicht erreicht werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="statusUntersuchungsplan"
@@ -6799,7 +6776,7 @@ Untersuchungsplan</nameKurz>
       <xs:sequence>
          <xs:element name="wasserversorgungsgebietID" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>ID zur eindeutigen Identifikation eines Wasserversorgungsgebiets. ToDocolon Noch festzulegen!</xs:documentation>
+               <xs:documentation>Angabe der ID des Wasserversorgungsgebiets, wie sie im Jahresbericht an das UBA verwendet wird. Dabei müssen die ersten 4 Stellen das Land und Bundesland kennzeichnen. Bspw. DEBY für Bayern, DETH für Thüringen etc.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="nameWasserversorgungsgebiet" type="din91379:datatypeC">
@@ -6809,7 +6786,7 @@ Untersuchungsplan</nameKurz>
          </xs:element>
          <xs:element name="lau2Code" minOccurs="0" type="xs:integer">
             <xs:annotation>
-               <xs:documentation>NUTS-Codes der Verwaltungseinheiten auf LAU2-Ebene. Es besteht keine Notwendigkeit, die WVG an Verwaltungsgrenzen auszurichten.</xs:documentation>
+               <xs:documentation>NUTS NUTS franz. für Nomenclature des unités territoriales statistiques -Codes der Verwaltungseinheiten auf LAU LAU Local Administrative Units 2-Ebene. Es besteht keine Notwendigkeit, die WVG WVG Wasserversorgungsgebiet an Verwaltungsgrenzen auszurichten.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="zustaendigeBehoerde"
@@ -7017,7 +6994,7 @@ Untersuchungsplan</nameKurz>
             <xs:sequence>
                <xs:element name="zugelasseneUntersuchungsstelleID" type="din91379:datatypeC">
                   <xs:annotation>
-                     <xs:documentation>ID zur eindeutigen Identifikation einer zugelassenen Untersuchungsstelle. ToDocolon Noch festzulegen!</xs:documentation>
+                     <xs:documentation>Angabe der SHAPTH-ID einer für Trinkwasseranalysen zugelassenen Untersuchungsstelle. Die SHAPTH-zugelasseneUntersuchungsstelleID kann nur durch SHAPTH erstellt werden, enthält unter anderem die Akkreditierungsnummer des Labors, und ist im SHAPTH Register zu finden.</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="pruefgebieteUntersuchungenPhysChem"
@@ -7071,19 +7048,11 @@ Untersuchungsplan</nameKurz>
          <xs:appinfo>
             <title>Zuständige Behörde</title>
          </xs:appinfo>
-         <xs:documentation>Klasse für den Transport von Informationen zu einer Zuständigen Behörde [Ergänzende Angaben zu einer im Register Behörden gepflegte Behörde].</xs:documentation>
+         <xs:documentation>Klasse für den Transport von Informationen zu einer Zuständigen Behörde [Ergänzende Angaben zu einer im Register Behörden gepflegten Behörde].</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:extension base="xwas:BehoerdeType">
             <xs:sequence>
-               <xs:element name="anlageNachTrinkwVID"
-                           minOccurs="0"
-                           maxOccurs="unbounded"
-                           type="din91379:datatypeC">
-                  <xs:annotation>
-                     <xs:documentation>Referenz zur eindeutigen Identifikation einer Anlage nach TrinkwV.</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
                <xs:element name="laenderkuerzel" type="xwas:Code.LaenderkennzeichenType">
                   <xs:annotation>
                      <xs:documentation>Angabe zu dem Länderkürzel der Behörde.</xs:documentation>
@@ -7818,7 +7787,7 @@ Untersuchungsplan</nameKurz>
             <xs:annotation>
                <xs:appinfo>
                   <Bewertung-Untersuchungswert>Grenzwertüber- bzw. Grenzwertunterschreitung</Bewertung-Untersuchungswert>
-                  <Beschreibung>Hinweis: Nur für Parameter mit eindeutig definierten Grenzwerten</Beschreibung>
+                  <Beschreibung>Der Grenzwert wurde über/unterschritten.</Beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -8670,8 +8639,10 @@ Untersuchungsplan</nameKurz>
                <herausgebernameKurz>XWasser</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>1</version>
+               <version>2</version>
+               <datumGueltigkeitAb>2025-11-01</datumGueltigkeitAb>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+               <aenderungZurVorversion>Anpassung der Codeliste an die EU-Gesetzgebung; Einführung einer neuen Schlüsselsystematik</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <Key>
@@ -8680,6 +8651,12 @@ Untersuchungsplan</nameKurz>
                   <verwendung>required</verwendung>
                   <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
                </Key>
+               <Code>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </Code>
                <KategorieProbennahmestelle>
                   <spaltennameLang>Kategorie der Probennahmestelle</spaltennameLang>
                   <datentyp>string</datentyp>
@@ -8691,31 +8668,59 @@ Untersuchungsplan</nameKurz>
          </xs:appinfo>
       </xs:annotation>
       <xs:restriction base="xs:token">
-         <xs:enumeration value="L">
+         <xs:enumeration value="1000">
             <xs:annotation>
                <xs:appinfo>
-                  <KategorieProbennahmestelle>Übergabestelle Trinkwasser-Installation</KategorieProbennahmestelle>
+                  <Code>V</Code>
+                  <KategorieProbennahmestelle>Verteilungsnetz</KategorieProbennahmestelle>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
-         <xs:enumeration value="N">
+         <xs:enumeration value="1010">
             <xs:annotation>
                <xs:appinfo>
-                  <KategorieProbennahmestelle>Öffentliches Verteilungsnetz</KategorieProbennahmestelle>
+                  <Code>Z</Code>
+                  <KategorieProbennahmestelle>Zapfhahn, Wasserhahn</KategorieProbennahmestelle>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
-         <xs:enumeration value="T">
+         <xs:enumeration value="1020">
             <xs:annotation>
                <xs:appinfo>
-                  <KategorieProbennahmestelle>Häusliche Trinkwasserinstallation</KategorieProbennahmestelle>
+                  <Code>P</Code>
+                  <KategorieProbennahmestelle>Abfüllung von Flaschen oder Container/Behälter</KategorieProbennahmestelle>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
-         <xs:enumeration value="W">
+         <xs:enumeration value="1030">
             <xs:annotation>
                <xs:appinfo>
-                  <KategorieProbennahmestelle>Wasserwerk(sausgang)</KategorieProbennahmestelle>
+                  <Code>N</Code>
+                  <KategorieProbennahmestelle>Stelle der Verwendung in einem Lebensmittelunternehmen</KategorieProbennahmestelle>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1040">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Code>T</Code>
+                  <KategorieProbennahmestelle>Wassertransport-Fahrzeug</KategorieProbennahmestelle>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1050">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Code>W</Code>
+                  <KategorieProbennahmestelle>Wasserwerk / Wasserwerksausgang</KategorieProbennahmestelle>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="1060">
+            <xs:annotation>
+               <xs:appinfo>
+                  <Code>Ü</Code>
+                  <KategorieProbennahmestelle>Übergabestelle zur Gebäude- oder Hausinstallation</KategorieProbennahmestelle>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>

@@ -1,47 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
-             xmlns:xoev-cl-3="http://xoev.de/schemata/genericode/3"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <Annotation>
       <Description>
-         <xoev-cl-3:nameKurz>Kreis</xoev-cl-3:nameKurz>
-         <xoev-cl-3:beschreibung-codeliste>Die Bundesrepublik Deutschland ist ein Zusammenschluss von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke.Diese Codeliste stellt die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).</xoev-cl-3:beschreibung-codeliste>
-         <xoev-cl-3:herausgebernameKurz>Destatis</xoev-cl-3:herausgebernameKurz>
-         <xoev-cl-3:datumGueltigkeitAb>2021-07-31</xoev-cl-3:datumGueltigkeitAb>
-         <xoev-cl-3:versionCodelistenHandbuch>1.0</xoev-cl-3:versionCodelistenHandbuch>
-         <xoev-cl-3:aenderungZurVorversion>Mehrere Aenderungen</xoev-cl-3:aenderungZurVorversion>
+         <xoev-cl-4:shortName>Kreis</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Die Bundesrepublik Deutschland ist ein Zusammenschluss von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke.Diese Codeliste stellt die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>Destatis</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:validFrom>2025-03-01</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>Kreis</ShortName>
-      <LongName xml:lang="de-DE">Die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes</LongName>
-      <Version>2021-07-31</Version>
+      <LongName>Die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes</LongName>
+      <Version>2025-03-31</Version>
       <CanonicalUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis</CanonicalUri>
-      <CanonicalVersionUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis_2021-07-31</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis_2025-03-31</CanonicalVersionUri>
       <Agency>
-         <LongName xml:lang="de-DE">Statistisches Bundesamt, Wiesbaden</LongName>
+         <LongName>Statistisches Bundesamt, Wiesbaden</LongName>
       </Agency>
    </Identification>
    <ColumnSet>
       <Column Id="SCHLUESSEL" Use="required">
          <ShortName>SCHLUESSEL</ShortName>
-         <LongName xml:lang="de-DE">SCHLUESSEL</LongName>
+         <LongName>SCHLUESSEL</LongName>
          <Data Type="string"/>
       </Column>
       <Column Id="Bezeichnung" Use="required">
          <ShortName>Bezeichnung</ShortName>
-         <LongName xml:lang="de-DE">Bezeichnung</LongName>
+         <LongName>Bezeichnung</LongName>
          <Data Type="string"/>
       </Column>
       <Column Id="Hinweis" Use="optional">
          <ShortName>Hinweis</ShortName>
-         <LongName xml:lang="de-DE">Hinweis</LongName>
+         <LongName>Hinweis</LongName>
          <Data Type="string"/>
       </Column>
       <Key Id="SCHLUESSELKey">
          <Annotation>
             <AppInfo>
-               <xoev-cl-3:empfohleneCodeSpalte/>
+               <xoev-cl-4:recommendedKeyColumn/>
             </AppInfo>
          </Annotation>
          <ShortName>SCHLUESSELKey</ShortName>
@@ -56,6 +55,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Flensburg, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -64,6 +64,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kiel, Landeshauptstadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -72,6 +73,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Lübeck, Hansestadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -80,6 +82,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Neumünster, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -88,6 +91,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Dithmarschen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -96,6 +100,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Herzogtum Lauenburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -104,6 +109,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Nordfriesland</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -112,6 +118,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ostholstein</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -120,6 +127,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Pinneberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -128,6 +136,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Plön</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -136,6 +145,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rendsburg-Eckernförde</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -144,6 +154,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Schleswig-Flensburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -152,6 +163,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Segeberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -160,6 +172,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Steinburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -168,6 +181,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Stormarn</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -176,6 +190,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Hamburg, Freie und Hansestadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1339,6 +1354,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Braunschweig, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1347,6 +1363,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Salzgitter, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1355,6 +1372,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Wolfsburg, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1363,6 +1381,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Gifhorn</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1371,6 +1390,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Goslar</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1379,6 +1399,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Helmstedt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1387,6 +1408,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Northeim</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1395,6 +1417,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Peine</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1403,6 +1426,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Wolfenbüttel</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1411,6 +1435,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Göttingen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1419,6 +1444,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Region Hannover</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1427,6 +1453,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Diepholz</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1435,6 +1462,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Hameln-Pyrmont</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1443,6 +1471,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Hildesheim</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1451,6 +1480,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Holzminden</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1459,6 +1489,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Nienburg (Weser)</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1467,6 +1498,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Schaumburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1475,6 +1507,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Celle</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1483,6 +1516,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Cuxhaven</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1491,6 +1525,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Harburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1499,6 +1534,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Lüchow-Dannenberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1507,6 +1543,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Lüneburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1515,6 +1552,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Osterholz</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1523,6 +1561,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rotenburg (Wümme)</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1531,6 +1570,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Heidekreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1539,6 +1579,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Stade</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1547,6 +1588,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Uelzen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1555,6 +1597,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Verden</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1563,6 +1606,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Delmenhorst, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1571,14 +1615,16 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Emden, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
             <SimpleValue>03403</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Oldenburg (Oldenburg), Stadt</SimpleValue>
+            <SimpleValue>Oldenburg (Oldb), Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1587,6 +1633,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Osnabrück, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1595,6 +1642,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Wilhelmshaven, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1603,6 +1651,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ammerland</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1611,6 +1660,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Aurich</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1619,6 +1669,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Cloppenburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1627,6 +1678,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Emsland</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1635,6 +1687,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Friesland</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1643,6 +1696,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Grafschaft Bentheim</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1651,6 +1705,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Leer</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1659,6 +1714,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Oldenburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1667,6 +1723,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Osnabrück</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1675,6 +1732,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Vechta</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1683,6 +1741,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Wesermarsch</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1691,6 +1750,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Wittmund</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1699,6 +1759,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bremen, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1707,6 +1768,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bremerhaven, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1715,6 +1777,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Düsseldorf, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1723,6 +1786,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Duisburg, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1731,6 +1795,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Essen, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1739,6 +1804,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Krefeld, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1747,6 +1813,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Mönchengladbach, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1755,6 +1822,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Mülheim an der Ruhr, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1763,6 +1831,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Oberhausen, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1771,6 +1840,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Remscheid, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1779,6 +1849,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Solingen, Klingenstadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1787,6 +1858,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Wuppertal, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1795,6 +1867,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kleve</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1803,6 +1876,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Mettmann</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1811,6 +1885,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rhein-Kreis Neuss</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1819,6 +1894,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Viersen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1827,6 +1903,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Wesel</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1835,6 +1912,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bonn, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1843,6 +1921,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Köln, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1851,6 +1930,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Leverkusen, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1859,6 +1939,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Städteregion Aachen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1867,6 +1948,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Düren</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1875,6 +1957,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rhein-Erft-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1883,6 +1966,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Euskirchen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1891,6 +1975,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Heinsberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1899,6 +1984,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Oberbergischer Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1907,6 +1993,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rheinisch-Bergischer Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1915,6 +2002,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rhein-Sieg-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1923,6 +2011,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bottrop, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1931,6 +2020,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Gelsenkirchen, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1939,6 +2029,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Münster, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1947,6 +2038,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Borken</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1955,6 +2047,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Coesfeld</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1963,6 +2056,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Recklinghausen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1971,6 +2065,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Steinfurt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1979,6 +2074,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Warendorf</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1987,6 +2083,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bielefeld, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -1995,6 +2092,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Gütersloh</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2003,6 +2101,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Herford</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2011,6 +2110,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Höxter</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2019,6 +2119,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Lippe</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2027,6 +2128,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Minden-Lübbecke</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2035,6 +2137,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Paderborn</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2043,6 +2146,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bochum, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2051,6 +2155,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Dortmund, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2059,6 +2164,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Hagen, Stadt der FernUniversität</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2067,6 +2173,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Hamm, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2075,6 +2182,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Herne, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2083,6 +2191,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ennepe-Ruhr-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2091,6 +2200,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Hochsauerlandkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2099,6 +2209,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Märkischer Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2107,6 +2218,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Olpe</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2115,6 +2227,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Siegen-Wittgenstein</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2123,6 +2236,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Soest</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2131,6 +2245,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Unna</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2139,6 +2254,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Darmstadt, Wissenschaftsstadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2147,6 +2263,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Frankfurt am Main, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2155,6 +2272,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Offenbach am Main, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2163,6 +2281,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Wiesbaden, Landeshauptstadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2171,6 +2290,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bergstraße</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2179,6 +2299,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Darmstadt-Dieburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2187,6 +2308,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Groß-Gerau</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2195,6 +2317,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Hochtaunuskreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2203,6 +2326,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Main-Kinzig-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2211,6 +2335,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Main-Taunus-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2219,6 +2344,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Odenwaldkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2227,6 +2353,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Offenbach</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2235,6 +2362,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rheingau-Taunus-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2243,6 +2371,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Wetteraukreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2251,6 +2380,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Gießen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2259,6 +2389,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Lahn-Dill-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2267,6 +2398,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Limburg-Weilburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2275,6 +2407,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Marburg-Biedenkopf</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2283,6 +2416,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Vogelsbergkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2291,6 +2425,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kassel, documenta-Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2299,6 +2434,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Fulda</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2307,6 +2443,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Hersfeld-Rotenburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2315,6 +2452,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kassel</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2323,6 +2461,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Schwalm-Eder-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2331,6 +2470,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Waldeck-Frankenberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2339,6 +2479,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Werra-Meißner-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2347,6 +2488,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Koblenz, kreisfreie Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2355,6 +2497,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ahrweiler</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2363,6 +2506,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Altenkirchen (Westerwald)</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2371,6 +2515,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bad Kreuznach</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2379,6 +2524,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Birkenfeld</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2387,6 +2533,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Cochem-Zell</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2395,6 +2542,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Mayen-Koblenz</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2403,6 +2551,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Neuwied</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2411,6 +2560,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rhein-Hunsrück-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2419,6 +2569,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rhein-Lahn-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2427,6 +2578,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Westerwaldkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2435,6 +2587,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Trier, kreisfreie Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2443,6 +2596,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bernkastel-Wittlich</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2451,6 +2605,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Eifelkreis Bitburg-Prüm</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2459,6 +2614,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Vulkaneifel</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2467,6 +2623,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Trier-Saarburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2475,6 +2632,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Frankenthal (Pfalz), kreisfreie Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2483,6 +2641,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kaiserslautern, kreisfreie Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2491,6 +2650,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Landau in der Pfalz, kreisfreie Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2499,6 +2659,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ludwigshafen am Rhein, kreisfreie Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2507,6 +2668,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Mainz, kreisfreie Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2515,6 +2677,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Neustadt an der Weinstraße, kreisfreie Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2523,6 +2686,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Pirmasens, kreisfreie Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2531,6 +2695,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Speyer, kreisfreie Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2539,6 +2704,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Worms, kreisfreie Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2547,6 +2713,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Zweibrücken, kreisfreie Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2555,6 +2722,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Alzey-Worms</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2563,6 +2731,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bad Dürkheim</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2571,6 +2740,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Donnersbergkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2579,6 +2749,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Germersheim</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2587,6 +2758,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kaiserslautern</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2595,6 +2767,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kusel</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2603,6 +2776,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Südliche Weinstraße</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2611,6 +2785,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rhein-Pfalz-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2619,6 +2794,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Mainz-Bingen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2627,6 +2803,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Südwestpfalz</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2635,6 +2812,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Stuttgart, Stadtkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2643,6 +2821,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Böblingen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2651,6 +2830,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Esslingen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2659,6 +2839,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Göppingen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2667,6 +2848,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ludwigsburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2675,6 +2857,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rems-Murr-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2683,6 +2866,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Heilbronn, Stadtkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2691,6 +2875,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Heilbronn</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2699,6 +2884,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Hohenlohekreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2707,6 +2893,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Schwäbisch Hall</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2715,6 +2902,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Main-Tauber-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2723,6 +2911,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Heidenheim</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2731,6 +2920,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ostalbkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2739,6 +2929,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Baden-Baden, Stadtkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2747,6 +2938,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Karlsruhe, Stadtkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2755,6 +2947,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Karlsruhe</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2763,6 +2956,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rastatt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2771,6 +2965,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Heidelberg, Stadtkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2779,6 +2974,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Mannheim, Stadtkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2787,6 +2983,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Neckar-Odenwald-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2795,6 +2992,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rhein-Neckar-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2803,6 +3001,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Pforzheim, Stadtkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2811,6 +3010,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Calw</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2819,6 +3019,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Enzkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2827,6 +3028,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Freudenstadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2835,6 +3037,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Freiburg im Breisgau, Stadtkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2843,6 +3046,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Breisgau-Hochschwarzwald</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2851,6 +3055,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Emmendingen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2859,6 +3064,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ortenaukreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2867,6 +3073,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rottweil</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2875,6 +3082,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Schwarzwald-Baar-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2883,6 +3091,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Tuttlingen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2891,6 +3100,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Konstanz</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2899,6 +3109,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Lörrach</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2907,6 +3118,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Waldshut</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2915,6 +3127,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Reutlingen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2923,6 +3136,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Tübingen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2931,6 +3145,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Zollernalbkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2939,6 +3154,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ulm, Stadtkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2947,6 +3163,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Alb-Donau-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2955,6 +3172,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Biberach</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2963,6 +3181,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bodenseekreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2971,6 +3190,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ravensburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2979,6 +3199,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Sigmaringen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2987,6 +3208,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ingolstadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -2995,6 +3217,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>München, Landeshauptstadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3003,6 +3226,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rosenheim</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3011,6 +3235,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Altötting</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3019,6 +3244,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Berchtesgadener Land</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3027,6 +3253,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bad Tölz-Wolfratshausen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3035,6 +3262,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Dachau</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3043,6 +3271,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ebersberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3051,6 +3280,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Eichstätt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3059,6 +3289,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Erding</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3067,6 +3298,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Freising</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3075,6 +3307,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Fürstenfeldbruck</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3083,6 +3316,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Garmisch-Partenkirchen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3091,6 +3325,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Landsberg am Lech</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3099,6 +3334,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Miesbach</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3107,6 +3343,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Mühldorf a.Inn</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3115,6 +3352,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>München</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3123,6 +3361,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Neuburg-Schrobenhausen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3131,6 +3370,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Pfaffenhofen a.d.Ilm</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3139,6 +3379,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rosenheim</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3147,6 +3388,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Starnberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3155,6 +3397,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Traunstein</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3163,6 +3406,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Weilheim-Schongau</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3171,6 +3415,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Landshut</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3179,6 +3424,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Passau</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3187,6 +3433,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Straubing</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3195,6 +3442,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Deggendorf</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3203,6 +3451,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Freyung-Grafenau</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3211,6 +3460,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kelheim</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3219,6 +3469,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Landshut</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3227,6 +3478,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Passau</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3235,6 +3487,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Regen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3243,6 +3496,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rottal-Inn</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3251,6 +3505,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Straubing-Bogen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3259,6 +3514,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Dingolfing-Landau</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3267,6 +3523,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Amberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3275,6 +3532,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Regensburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3283,6 +3541,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Weiden i.d.OPf.</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3291,6 +3550,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Amberg-Sulzbach</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3299,6 +3559,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Cham</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3307,6 +3568,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Neumarkt i.d.OPf.</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3315,6 +3577,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Neustadt a.d.Waldnaab</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3323,6 +3586,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Regensburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3331,6 +3595,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Schwandorf</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3339,6 +3604,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Tirschenreuth</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3347,6 +3613,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bamberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3355,6 +3622,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bayreuth</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3363,6 +3631,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Coburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3371,6 +3640,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Hof</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3379,6 +3649,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bamberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3387,6 +3658,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bayreuth</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3395,6 +3667,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Coburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3403,6 +3676,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Forchheim</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3411,6 +3685,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Hof</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3419,6 +3694,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kronach</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3427,6 +3703,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kulmbach</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3435,6 +3712,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Lichtenfels</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3443,6 +3721,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Wunsiedel i.Fichtelgebirge</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3451,6 +3730,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ansbach</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3459,6 +3739,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Erlangen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3467,6 +3748,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Fürth</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3475,6 +3757,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Nürnberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3483,6 +3766,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Schwabach</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3491,6 +3775,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ansbach</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3499,6 +3784,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Erlangen-Höchstadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3507,6 +3793,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Fürth</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3515,6 +3802,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Nürnberger Land</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3523,6 +3811,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Neustadt a.d.Aisch-Bad Windsheim</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3531,6 +3820,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Roth</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3539,6 +3829,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Weißenburg-Gunzenhausen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3547,6 +3838,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Aschaffenburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3555,6 +3847,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Schweinfurt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3563,6 +3856,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Würzburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3571,6 +3865,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Aschaffenburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3579,6 +3874,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bad Kissingen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3587,6 +3883,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rhön-Grabfeld</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3595,6 +3892,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Haßberge</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3603,6 +3901,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kitzingen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3611,6 +3910,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Miltenberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3619,6 +3919,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Main-Spessart</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3627,6 +3928,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Schweinfurt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3635,6 +3937,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Würzburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3643,6 +3946,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Augsburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3651,6 +3955,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kaufbeuren</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3659,6 +3964,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kempten (Allgäu)</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3667,6 +3973,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Memmingen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3675,6 +3982,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Aichach-Friedberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3683,6 +3991,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Augsburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3691,6 +4000,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Dillingen a.d.Donau</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3699,6 +4009,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Günzburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3707,6 +4018,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Neu-Ulm</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3715,6 +4027,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Lindau (Bodensee)</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3723,6 +4036,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ostallgäu</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3731,6 +4045,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Unterallgäu</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3739,6 +4054,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Donau-Ries</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3747,6 +4063,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Oberallgäu</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3755,6 +4072,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Regionalverband Saarbrücken</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3763,6 +4081,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Merzig-Wadern</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3771,6 +4090,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Neunkirchen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3779,6 +4099,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Saarlouis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3787,6 +4108,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Saarpfalz-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3795,6 +4117,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>St. Wendel</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3803,6 +4126,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Berlin, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3943,6 +4267,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Brandenburg an der Havel, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3951,6 +4276,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Cottbus, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3959,6 +4285,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Frankfurt (Oder), Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3967,6 +4294,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Potsdam, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3975,6 +4303,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Barnim</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3983,6 +4312,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Dahme-Spreewald</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3991,6 +4321,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Elbe-Elster</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -3999,6 +4330,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Havelland</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4007,6 +4339,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Märkisch-Oderland</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4015,6 +4348,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Oberhavel</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4023,6 +4357,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Oberspreewald-Lausitz</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4031,6 +4366,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Oder-Spree</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4039,6 +4375,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ostprignitz-Ruppin</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4047,6 +4384,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Potsdam-Mittelmark</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4055,6 +4393,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Prignitz</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4063,6 +4402,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Spree-Neiße</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4071,6 +4411,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Teltow-Fläming</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4079,6 +4420,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Uckermark</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4087,6 +4429,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Rostock</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4095,6 +4438,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Schwerin</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4103,6 +4447,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Mecklenburgische Seenplatte</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4111,6 +4456,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Landkreis Rostock</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4119,6 +4465,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Vorpommern-Rügen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4127,6 +4474,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Nordwestmecklenburg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4135,6 +4483,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Vorpommern-Greifswald</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4143,6 +4492,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ludwigslust-Parchim</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4151,6 +4501,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Chemnitz, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4159,6 +4510,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Erzgebirgskreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4167,6 +4519,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Mittelsachsen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4175,6 +4528,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Vogtlandkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4183,6 +4537,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Zwickau</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4191,6 +4546,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Dresden, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4199,6 +4555,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Bautzen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4207,6 +4564,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Görlitz</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4215,6 +4573,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Meißen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4223,6 +4582,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Sächsische Schweiz-Osterzgebirge</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4231,6 +4591,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Leipzig, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4239,6 +4600,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Leipzig</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4247,6 +4609,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Nordsachsen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4255,6 +4618,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Dessau-Roßlau, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4263,6 +4627,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Halle (Saale), Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4271,6 +4636,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Magdeburg, Landeshauptstadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4279,6 +4645,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Altmarkkreis Salzwedel</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4287,6 +4654,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Anhalt-Bitterfeld</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4295,6 +4663,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Börde</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4303,6 +4672,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Burgenlandkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4311,6 +4681,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Harz</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4319,6 +4690,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Jerichower Land</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4327,6 +4699,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Mansfeld-Südharz</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4335,6 +4708,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Saalekreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4343,6 +4717,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Salzlandkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4351,6 +4726,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Stendal</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4359,6 +4735,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Wittenberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4367,6 +4744,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Erfurt, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4375,6 +4753,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Gera, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4383,6 +4762,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Jena, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4391,6 +4771,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Suhl, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4399,6 +4780,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Weimar, Stadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4407,6 +4789,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Eichsfeld</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4415,6 +4798,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Nordhausen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4423,6 +4807,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Wartburgkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4431,6 +4816,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Unstrut-Hainich-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4439,6 +4825,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Kyffhäuserkreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4447,6 +4834,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Schmalkalden-Meiningen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4455,6 +4843,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Gotha</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4463,6 +4852,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Sömmerda</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4471,6 +4861,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Hildburghausen</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4479,6 +4870,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Ilm-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4487,6 +4879,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Weimarer Land</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4495,6 +4888,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Sonneberg</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4503,6 +4897,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Saalfeld-Rudolstadt</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4511,6 +4906,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Saale-Holzland-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4519,6 +4915,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Saale-Orla-Kreis</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4527,6 +4924,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Greiz</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
       <Row>
          <Value ColumnRef="SCHLUESSEL">
@@ -4535,6 +4933,7 @@
          <Value ColumnRef="Bezeichnung">
             <SimpleValue>Altenburger Land</SimpleValue>
          </Value>
+         <Value ColumnRef="Hinweis"/>
       </Row>
    </SimpleCodeList>
 </gc:CodeList>

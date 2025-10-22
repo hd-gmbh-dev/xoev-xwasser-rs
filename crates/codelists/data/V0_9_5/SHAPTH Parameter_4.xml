@@ -7,7 +7,7 @@
          <xoev-cl-4:shortName>SHAPTH Parameter</xoev-cl-4:shortName>
          <xoev-cl-4:codelistDescription>Mit dieser Codeliste werden im Kontext von XWasser die SHAPTH-Parameter definiert.</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
-         <xoev-cl-4:validFrom>2024-12-01</xoev-cl-4:validFrom>
+         <xoev-cl-4:validFrom>2025-04-01</xoev-cl-4:validFrom>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
          <xoev-cl-4:changes>Die Schlüsselsystematik wurde geändert. Der ursprüngliche Schlüssel SHAPTH-Parameter-Nummer
 wurde in Leger-Nr umbenannt und ein neuer Schlüssel SHATPH-Parameter-ID eingeführt. Die Spalte Kommentar wurde entfernt und folgende neue Spalten ergänzt: Synonyme, SEBAM-Langname, TEIS-Code, TEIS-Kurzbezeichnung,
@@ -17,9 +17,9 @@ TEIS-Bezeichnung, Octoware-Schluessel und Octoware-Name. Neue Einträge hinzugef
    <Identification>
       <ShortName>shapth-parameter</ShortName>
       <LongName>SHAPTH Parameter</LongName>
-      <Version>3</Version>
+      <Version>4</Version>
       <CanonicalUri>urn:xoev-de:xwasser:codeliste:shapth-parameter</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:shapth-parameter_3</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:shapth-parameter_4</CanonicalVersionUri>
       <Agency>
          <LongName>XWasser</LongName>
       </Agency>
@@ -18831,7 +18831,7 @@ TEIS-Bezeichnung, Octoware-Schluessel und Octoware-Name. Neue Einträge hinzugef
             <SimpleValue>mg/l</SimpleValue>
          </Value>
          <Value ColumnRef="Langname">
-            <SimpleValue>PCB 81</SimpleValue>
+            <SimpleValue>3,4,4',5-Tetrachlorobiphenyl (PCB 81)</SimpleValue>
          </Value>
          <Value ColumnRef="Synonyme"/>
          <Value ColumnRef="SEBAM-Langname">
@@ -71326,7 +71326,7 @@ TEIS-Bezeichnung, Octoware-Schluessel und Octoware-Name. Neue Einträge hinzugef
             <SimpleValue>1755</SimpleValue>
          </Value>
          <Value ColumnRef="Parameter">
-            <SimpleValue>Mikrocystin LR</SimpleValue>
+            <SimpleValue>Microcystin-LR</SimpleValue>
          </Value>
          <Value ColumnRef="CAS-Nummer">
             <SimpleValue>101043-37-2</SimpleValue>
@@ -71341,7 +71341,7 @@ TEIS-Bezeichnung, Octoware-Schluessel und Octoware-Name. Neue Einträge hinzugef
             <SimpleValue>mg/l</SimpleValue>
          </Value>
          <Value ColumnRef="Langname">
-            <SimpleValue>Mikrocystin LR</SimpleValue>
+            <SimpleValue>Microcystin-LR</SimpleValue>
          </Value>
          <Value ColumnRef="Synonyme">
             <SimpleValue>Microcystin LR</SimpleValue>

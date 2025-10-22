@@ -30,7 +30,7 @@ impl FromStr for ConstStr {
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
+//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
 // ))]
 // pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
 //     #[xml(name = b"code", ty = "child")]
@@ -55,7 +55,7 @@ impl FromStr for ConstStr {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
 ))]
 pub struct CodeBehoerdenkennungType {
     #[xml(name = b"code", ty = "child")]
@@ -76,7 +76,7 @@ pub struct CodeBehoerdenkennungType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(
     b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
+    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
 ))]
 pub struct CodePersonenrolleType {
     #[xml(name = b"code", ty = "child")]
@@ -280,7 +280,7 @@ pub struct CodeIncidentExceedanceCauseType;
 
 /// Type name: Code.KategorieProbennahmestelleType
 /// Mit dieser Codeliste wird im Kontext von XWasser die Kategorie der Probennahmestelle definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle", "2")]
 pub struct CodeKategorieProbennahmestelleType;
 
 /// Type name: Code.KommunikationType

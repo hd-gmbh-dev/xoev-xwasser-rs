@@ -7,16 +7,17 @@
          <xoev-cl-4:shortName>DVDV.Praefixe</xoev-cl-4:shortName>
          <xoev-cl-4:codelistDescription>Diese Codeliste enthält alle Präfixe, welche im DVDV zum Einsatz kommen.</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>BMI/ITZBund</xoev-cl-4:agencyShortName>
-         <xoev-cl-4:validFrom>2024-04-19</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionDescription>Diese Codeliste enthält alle Präfixe, welche im DVDV zum Einsatz kommen.</xoev-cl-4:versionDescription>
+         <xoev-cl-4:validFrom>2025-08-06</xoev-cl-4:validFrom>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>dvdv.praefix</ShortName>
       <LongName>Präfixe im DVDV</LongName>
-      <Version>49</Version>
+      <Version>51</Version>
       <CanonicalUri>urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix_49</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix_51</CanonicalVersionUri>
       <Agency>
          <LongName>Informationstechnikzentrum Bund</LongName>
       </Agency>
@@ -50,17 +51,6 @@
    <SimpleCodeList>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>dbs</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Koordinierende Stelle DVDV</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>§ 38 1 einfache Behörde, § 38 1 und 5 einfache Behörde, § 38 3 und 5 Sicherheitsbehörde, Bundesbehörde</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
             <SimpleValue>ag</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
@@ -72,13 +62,13 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>asb</SimpleValue>
+            <SimpleValue>ags</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Geschäftsstelle des Standards XUnternehmen bei der d-NRW AöR </SimpleValue>
+            <SimpleValue>Statistische Landesämter / Statistisches Bundesamt</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Arbeitsschutzbehörde</SimpleValue>
+            <SimpleValue>Meldebehörde</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -94,28 +84,6 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>ane</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Bundesverwaltungsamt</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Aufnahmeeinrichtung</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>azr</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Bundesverwaltungsamt</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Ausländerbehörde</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
             <SimpleValue>alp</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
@@ -127,145 +95,35 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>bab</SimpleValue>
+            <SimpleValue>ane</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Statistische Landesämter / Statistisches Bundesamt</SimpleValue>
+            <SimpleValue>Bundesverwaltungsamt</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Bauaufsichtsbehörde</SimpleValue>
+            <SimpleValue>Aufnahmeeinrichtung</SimpleValue>
          </Value>
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>bet</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Leitstelle Planung / XBau</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Baubeteiligte Stelle</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>bap</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Leitstelle XPlanung/Xbau</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Bauportal</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>bgs</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Beglaubigungsstelle</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>bqp</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>d-NRW AöR</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Berufsqualifikationsanerkennungsportal</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>bqa</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>d-NRW AöR</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Berufsqualifikationsanerkennungsstelle</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>vps</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Bewilligungsstelle Vereinspauschale</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>bnd</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Koordinierungsstelle für IT-Standards (KoSIT)</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Bundesnachrichtendienst</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>dmb</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Denkmalbehörde</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>eid</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Bundesamt für Sicherheit in der Informationstechnik</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>eID-Kartebehörde</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>ebb</SimpleValue>
+            <SimpleValue>art</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
             <SimpleValue>KDN – Dachverband kommunaler IT-Dienstleister</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Einbürgerungsbehörde</SimpleValue>
+            <SimpleValue>Vollzugsbehörde Artenschutz</SimpleValue>
          </Value>
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>eip</SimpleValue>
+            <SimpleValue>asb</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>d-NRW AöR</SimpleValue>
+            <SimpleValue>Geschäftsstelle des Standards XUnternehmen bei der d-NRW AöR </SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Einbürgerungsportal</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>egs</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Leitstelle XFamilie</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Elterngeldstelle</SimpleValue>
+            <SimpleValue>Arbeitsschutzbehörde</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -281,13 +139,90 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>bto</SimpleValue>
+            <SimpleValue>azr</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
+            <SimpleValue>Bundesverwaltungsamt</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Empfangende Stelle BuT-Leistungen ohne laufenden Leistungsbezug</SimpleValue>
+            <SimpleValue>Ausländerbehörde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>bab</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Statistische Landesämter / Statistisches Bundesamt</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Bauaufsichtsbehörde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>bap</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Leitstelle XPlanung/Xbau</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Bauportal</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>bet</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Leitstelle Planung / XBau</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Baubeteiligte Stelle</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>bgs</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Beglaubigungsstelle</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>bnd</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Koordinierungsstelle für IT-Standards (KoSIT)</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Bundesnachrichtendienst</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>bqa</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>d-NRW AöR</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Berufsqualifikationsanerkennungsstelle</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>bqp</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>d-NRW AöR</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Berufsqualifikationsanerkennungsportal</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -299,17 +234,6 @@
          </Value>
          <Value ColumnRef="behoerdenkategorie">
             <SimpleValue>Empfangende Stelle BuT-Leistungen zum Bezug von Arbeitslosengeld II</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>bty</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Empfangende Stelle BuT-Leistungen zum Bezug von Asylbewerberleistung</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -347,6 +271,17 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
+            <SimpleValue>bto</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Empfangende Stelle BuT-Leistungen ohne laufenden Leistungsbezug</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
             <SimpleValue>btw</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
@@ -354,6 +289,127 @@
          </Value>
          <Value ColumnRef="behoerdenkategorie">
             <SimpleValue>Empfangende Stelle BuT-Leistungen zum Bezug von Wohngeld</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>bty</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Empfangende Stelle BuT-Leistungen zum Bezug von Asylbewerberleistung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>bza</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Gesundheitsamt Oldenburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Bezahldienstanbieter</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>dbs</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Koordinierende Stelle DVDV</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>§ 38 1 einfache Behörde, § 38 1 und 5 einfache Behörde, § 38 3 und 5 Sicherheitsbehörde, Bundesbehörde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>dmb</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Denkmalbehörde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>dsc</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Der Senator für Finanzen der Freien Hansestadt Bremen</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Datenschutzcockpit</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>eap</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Bundesministerium für Wirtschaft und Energie</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Einheitlicher Ansprechpartner</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>ebb</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>KDN – Dachverband kommunaler IT-Dienstleister</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Einbürgerungsbehörde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>egs</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Leitstelle XFamilie</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Elterngeldstelle</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>ehp</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Staatskanzlei, Zentrales IT-Management der Landesregierung Schleswig-Holstein</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Engagement- und Hobbyportal</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>eid</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Bundesamt für Sicherheit in der Informationstechnik</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>eID-Kartebehörde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>eip</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>d-NRW AöR</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Einbürgerungsportal</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -369,79 +425,13 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>gru</SimpleValue>
+            <SimpleValue>fap</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
+            <SimpleValue>Leitstelle XFamilie</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Empfangende Stelle Grundsicherung</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>pfg</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Empfangende Stelle Pass für Geringverdiener</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>sps</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Empfangende Stelle Seniorenpass</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>mrh</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Empfangende Stelle Übernahme von Mietrückständen</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>wbs</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Empfangende Stelle Wohnberechtigungsschein</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>xga</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Bundesministerium für Wirtschaft und Energie</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Empfangsstelle_Gewerbeanzeige</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>ehp</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Staatskanzlei, Zentrales IT-Management der Landesregierung Schleswig-Holstein</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Engagement- und Hobbyportal</SimpleValue>
+            <SimpleValue>Familienportal</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -468,35 +458,13 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>fss</SimpleValue>
+            <SimpleValue>fib</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Hessisches Ministerium für Wirtschaft, Energie, Verkehr und Wohnen Landesbetrieb</SimpleValue>
+            <SimpleValue>Staatskanzlei, Zentrales IT-Management der Landesregierung Schleswig-Holstein</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Fahrtenschreiber sonstige Stellen</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>fsp</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Hessisches Ministerium für Wirtschaft, Energie, Verkehr und Wohnen Landesbetrieb</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Fahrtenschreiber-Portal</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>fap</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Leitstelle XFamilie</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Familienportal</SimpleValue>
+            <SimpleValue>Fischereibehörde</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -512,13 +480,35 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>fib</SimpleValue>
+            <SimpleValue>fsp</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Staatskanzlei, Zentrales IT-Management der Landesregierung Schleswig-Holstein</SimpleValue>
+            <SimpleValue>Hessisches Ministerium für Wirtschaft, Energie, Verkehr und Wohnen Landesbetrieb</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Fischereibehörde</SimpleValue>
+            <SimpleValue>Fahrtenschreiber-Portal</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>fss</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Hessisches Ministerium für Wirtschaft, Energie, Verkehr und Wohnen Landesbetrieb</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Fahrtenschreiber sonstige Stellen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>gaa</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern </SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Gutachterausschuss</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -545,17 +535,6 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>gka</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Leitstelle XFamilie </SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Gesetzliche Krankenkasse</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
             <SimpleValue>ghb</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
@@ -567,13 +546,24 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>MELDID</SimpleValue>
+            <SimpleValue>gka</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Statistische Landesämter / Statistisches Bundesamt</SimpleValue>
+            <SimpleValue>Leitstelle XFamilie </SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Gewerbe</SimpleValue>
+            <SimpleValue>Gesetzliche Krankenkasse</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>gru</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Empfangende Stelle Grundsicherung</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -585,6 +575,17 @@
          </Value>
          <Value ColumnRef="behoerdenkategorie">
             <SimpleValue>Glücksspielaufsichtsbehörde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>gst</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Staatskanzlei Zentrales IT-Management der Landesregierung Schleswig-Holstein</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Gefahrstoffbehörde</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -611,13 +612,13 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>kat</SimpleValue>
+            <SimpleValue>iga</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
+            <SimpleValue>Geschäftsstelle des Standards XUnternehmen bei der d-NRW AöR</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Katastrophenschutzbehörde</SimpleValue>
+            <SimpleValue>Integrationsamt</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -633,13 +634,13 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>iga</SimpleValue>
+            <SimpleValue>jab</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Geschäftsstelle des Standards XUnternehmen bei der d-NRW AöR</SimpleValue>
+            <SimpleValue>Ministerium für Klimaschutz, Umwelt, Energie und Mobilität Rheinland-Pfalz</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Integrationsamt</SimpleValue>
+            <SimpleValue>Jagdbehörde</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -651,6 +652,17 @@
          </Value>
          <Value ColumnRef="behoerdenkategorie">
             <SimpleValue>Jugendamt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>kat</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Katastrophenschutzbehörde</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -688,13 +700,24 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>omp</SimpleValue>
+            <SimpleValue>lap</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>ekom21 GmbH</SimpleValue>
+            <SimpleValue>Koordinierende Stelle DVDV</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Kraftomnibusportal</SimpleValue>
+            <SimpleValue>Landesportal</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>las</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Freie Hansestadt Bremen Der Senator für Finanzen</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Lichtbildabrufservice</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -710,13 +733,13 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>lap</SimpleValue>
+            <SimpleValue>lic</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Koordinierende Stelle DVDV</SimpleValue>
+            <SimpleValue>Bundesamt für Sicherheit in der Informationstechnik</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Landesportal</SimpleValue>
+            <SimpleValue>Lichtbild-Cloud</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -732,24 +755,13 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>lic</SimpleValue>
+            <SimpleValue>mad</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Bundesamt für Sicherheit in der Informationstechnik</SimpleValue>
+            <SimpleValue>Koordinierungsstelle für IT-Standards (KoSIT)</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Lichtbild-Cloud</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>ags</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Statistische Landesämter / Statistisches Bundesamt</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Meldebehörde</SimpleValue>
+            <SimpleValue>Militärischer Abschirmdienst</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -765,13 +777,35 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>mad</SimpleValue>
+            <SimpleValue>MELDID</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Koordinierungsstelle für IT-Standards (KoSIT)</SimpleValue>
+            <SimpleValue>Statistische Landesämter / Statistisches Bundesamt</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Militärischer Abschirmdienst</SimpleValue>
+            <SimpleValue>Gewerbe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>mrh</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Empfangende Stelle Übernahme von Mietrückständen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>omp</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>ekom21 GmbH</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Kraftomnibusportal</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -798,17 +832,6 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>psb</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Statistische Landesämter / Bundesamt für Sicherheit in der Informationstechnik</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Passbehörde</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
             <SimpleValue>pab</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
@@ -820,13 +843,13 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>pbs</SimpleValue>
+            <SimpleValue>pap</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>ekom21 GmbH</SimpleValue>
+            <SimpleValue>Freie Hansestadt Bremen Der Senator für Finanzen</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Personenbeförderung sonstige Genehmigungsstelle</SimpleValue>
+            <SimpleValue>Passausweisportal</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -838,6 +861,17 @@
          </Value>
          <Value ColumnRef="behoerdenkategorie">
             <SimpleValue>Personenbeförderungsportal</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>pbs</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>ekom21 GmbH</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Personenbeförderung sonstige Genehmigungsstelle</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -864,6 +898,17 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
+            <SimpleValue>pfg</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Empfangende Stelle Pass für Geringverdiener</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
             <SimpleValue>pin</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
@@ -875,6 +920,28 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
+            <SimpleValue>psb</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Statistische Landesämter / Bundesamt für Sicherheit in der Informationstechnik</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Passbehörde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>psw</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Statistische Landesämter / Statistisches Bundesamt</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Standesamt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
             <SimpleValue>rel</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
@@ -882,6 +949,39 @@
          </Value>
          <Value ColumnRef="behoerdenkategorie">
             <SimpleValue>Religionsgesellschaft</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>sap</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Koordinierungsstelle für IT-Standards (KoSIT)</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Standesamtsportal</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>sbb</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Leitstelle Planung / XBau</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Straßenbaubehörde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>sfd</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Koordinierungsstelle für IT-Standards (KoSIT)</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Steuerfahndungsdienststelle der Länder</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -908,46 +1008,13 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>stk</SimpleValue>
+            <SimpleValue>sps</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Information und Technik Nordrhein-Westfalen (IT-NRW)</SimpleValue>
+            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Staatskanzlei</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>psw</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Statistische Landesämter / Statistisches Bundesamt</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Standesamt</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>sap</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Koordinierungsstelle für IT-Standards (KoSIT)</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Standesamtsportal</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>sfd</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Koordinierungsstelle für IT-Standards (KoSIT)</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Steuerfahndungsdienststelle der Länder</SimpleValue>
+            <SimpleValue>Empfangende Stelle Seniorenpass</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -963,13 +1030,13 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>sbb</SimpleValue>
+            <SimpleValue>stk</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Leitstelle Planung / XBau</SimpleValue>
+            <SimpleValue>Information und Technik Nordrhein-Westfalen (IT-NRW)</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Straßenbaubehörde</SimpleValue>
+            <SimpleValue>Staatskanzlei</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -985,17 +1052,6 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>tpg</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Hessisches Ministerium für Wirtschaft, Energie, Verkehr und Wohnen Landesbetrieb</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Technische Prüfgesellschaften</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
             <SimpleValue>töj</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
@@ -1007,13 +1063,13 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>uwp</SimpleValue>
+            <SimpleValue>tpg</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Staatskanzlei, Zentrales IT-Management der Landesregierung Schleswig-Holstein</SimpleValue>
+            <SimpleValue>Hessisches Ministerium für Wirtschaft, Energie, Verkehr und Wohnen Landesbetrieb</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Umweltportal</SimpleValue>
+            <SimpleValue>Technische Prüfgesellschaften</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -1040,6 +1096,28 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
+            <SimpleValue>unb</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern </SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Untere Naturschutzbehörde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>upo</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Geschäftsstelle des Standards XUnternehmen bei der d-NRW AöR </SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Unternehmensportal</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
             <SimpleValue>usv</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
@@ -1062,35 +1140,13 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>upo</SimpleValue>
+            <SimpleValue>uwp</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Geschäftsstelle des Standards XUnternehmen bei der d-NRW AöR </SimpleValue>
+            <SimpleValue>Staatskanzlei, Zentrales IT-Management der Landesregierung Schleswig-Holstein</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Unternehmensportal</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>vsb</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Koordinierungsstelle für IT-Standards (KoSIT)</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Verfassungsschutzbehörde des Bundes und der Länder</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>vma</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Vermessungsamt</SimpleValue>
+            <SimpleValue>Umweltportal</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -1106,13 +1162,35 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>art</SimpleValue>
+            <SimpleValue>vma</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>KDN – Dachverband kommunaler IT-Dienstleister</SimpleValue>
+            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Vollzugsbehörde Artenschutz</SimpleValue>
+            <SimpleValue>Vermessungsamt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>vps</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Bewilligungsstelle Vereinspauschale</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>vsb</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Koordinierungsstelle für IT-Standards (KoSIT)</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Verfassungsschutzbehörde des Bundes und der Länder</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -1139,24 +1217,13 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>wrb</SimpleValue>
+            <SimpleValue>wbs</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
+            <SimpleValue>Leitstelle XSozial-basis d-NRW AöR</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Wasserrechtsbehörde</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="praefix">
-            <SimpleValue>wku</SimpleValue>
-         </Value>
-         <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Geschäftsstelle des Standards XUnternehmen bei der d-NRW AöR</SimpleValue>
-         </Value>
-         <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Weitere Kommunikationspartner Xunternehmen</SimpleValue>
+            <SimpleValue>Empfangende Stelle Wohnberechtigungsschein</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -1183,6 +1250,61 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
+            <SimpleValue>whp</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Bayerisches Landesamt für Gesundheit und Lebensmittelsicherheit (LGL)</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Wasserhygieneportal</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>wku</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Geschäftsstelle des Standards XUnternehmen bei der d-NRW AöR</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Weitere Kommunikationspartner Xunternehmen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>wrb</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Wasserrechtsbehörde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>xga</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Bundesministerium für Wirtschaft und Energie</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Empfangsstelle_Gewerbeanzeige</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>zfd</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>Koordinierungsstelle für IT-Standards (KoSIT)</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Zollfahndungsdienst</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
             <SimpleValue>zla</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
@@ -1205,13 +1327,24 @@
       </Row>
       <Row>
          <Value ColumnRef="praefix">
-            <SimpleValue>zfd</SimpleValue>
+            <SimpleValue>bwb</SimpleValue>
          </Value>
          <Value ColumnRef="vergebendestelle">
-            <SimpleValue>Koordinierungsstelle für IT-Standards (KoSIT)</SimpleValue>
+            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
          </Value>
          <Value ColumnRef="behoerdenkategorie">
-            <SimpleValue>Zollfahndungsdienst</SimpleValue>
+            <SimpleValue>Bestattungswesensbehörde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="praefix">
+            <SimpleValue>asl</SimpleValue>
+         </Value>
+         <Value ColumnRef="vergebendestelle">
+            <SimpleValue>IT-Dienstleistungszentrum des Freistaats Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="behoerdenkategorie">
+            <SimpleValue>Anzeigestelle Ladenschluss</SimpleValue>
          </Value>
       </Row>
    </SimpleCodeList>

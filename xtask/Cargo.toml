@@ -1,0 +1,20 @@
+[package]
+name = "xtask"
+edition = "2021"
+version = "0.905.0+0.9.5"
+description = """
+XOEV XWasser XML Standard
+"""
+rust-version = "1.84.0"
+authors = ["H & D GmbH Open Source <contact-oss@h-d-gmbh.de>"]
+license = "MIT"
+repository = "https://github.com/hd-gmbh-dev/xoev-xwasser-rs"
+categories = []
+keywords = []
+
+[dependencies]
+xflags = "0.3.2"
+reqwest = { version = "0.12.24", features = ["blocking", "json"] }
+zip = "2.2.3"
+raxb.workspace = true
+encoding_rs.workspace = true

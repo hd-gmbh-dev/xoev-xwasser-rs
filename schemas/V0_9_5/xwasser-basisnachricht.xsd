@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
+           xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
            xmlns:bn-uq-g2g="http://xoev.de/schemata/basisnachricht/unqualified/g2g/1_1"
            xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
            xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
-           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/"
-           version="0.9.2"
+           targetNamespace="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
+           version="0.9.5"
            elementFormDefault="unqualified"
            attributeFormDefault="unqualified">
    <xs:annotation>
@@ -18,10 +18,10 @@
             <beschreibung>XWasser ist ein bundesweit einheitlicher digitaler Datenaustauschstandard zur Trinkwasserhygiene.</beschreibung>
          </standard>
          <versionStandard>
-            <version>0.9.2</version>
+            <version>0.9.5</version>
             <versionXOEVProfil>3.0.3</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
-            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionXGenerator>3.2.4</versionXGenerator>
             <versionModellierungswerkzeug>2024x</versionModellierungswerkzeug>
             <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
          </versionStandard>
@@ -92,7 +92,7 @@
             <xs:sequence>
                <xs:element name="nachrichtenUUID" type="bn-uq-g2g:UUID">
                   <xs:annotation>
-                     <xs:documentation>Dieses Element enthält den „Universally Unique IDentifier (UUID)“ der Nachricht, der das primäre Identifikationsmerkmal einer Nachricht darstellt. Der UUID der Nachricht wird entsprechend rfc4122 gebildet und ermöglicht Nachrichten hersteller- und anwendungsübergreifend weltweit eindeutig zu identifizieren. Für jede Nachricht muss ein neuer UUID erzeugt werden, um eine eindeutige Identifikation der Nachricht sicherzustellen. Insbesondere ist es nicht zulässig, in einer korrigierten Nachricht den UUID der ursprünglichen Nachricht wiederzuverwenden. Sofern eine einmal erzeugte Nachricht ein weiteres Mal gesendet werden soll (bspw. aufgrund von Problemen beim Nachrichtentransport), muss der UUID nicht angepasst werden.</xs:documentation>
+                     <xs:documentation>Dieses Element enthält den „Universally Unique IDentifier (UUID) UUID Universally Unique IDentifier “ der Nachricht, der das primäre Identifikationsmerkmal einer Nachricht darstellt. Der UUID der Nachricht wird entsprechend rfc4122 gebildet und ermöglicht Nachrichten hersteller- und anwendungsübergreifend weltweit eindeutig zu identifizieren. Für jede Nachricht muss ein neuer UUID erzeugt werden, um eine eindeutige Identifikation der Nachricht sicherzustellen. Insbesondere ist es nicht zulässig, in einer korrigierten Nachricht den UUID der ursprünglichen Nachricht wiederzuverwenden. Sofern eine einmal erzeugte Nachricht ein weiteres Mal gesendet werden soll (bspw. aufgrund von Problemen beim Nachrichtentransport), muss der UUID nicht angepasst werden.</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="nachrichtentyp" type="xwas:Code.NachrichtentypType">
@@ -151,7 +151,7 @@
       <xs:attribute name="version"
                     type="din91379:datatypeC"
                     use="required"
-                    fixed="0.9.2">
+                    fixed="0.9.5">
          <xs:annotation>
             <xs:documentation>In diesem Attribut wird die Version des XÖV-Standards eingetragen, aus dem die Nachricht stammt.</xs:documentation>
          </xs:annotation>
@@ -193,7 +193,14 @@
                      maxOccurs="unbounded"
                      type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Die ID der zuständigen Behörde.</xs:documentation>
+               <xs:documentation>Angabe der SHAPTH ID der Behörde welche eine Nachricht (bspw. Prüfbericht, Untersuchungsplan, Jahresbericht) empfangen soll. Die SHAPTH-BehördenID kann nur durch SHAPTH erstellt werden und ist im SHAPTH Register zu finden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="wasserversorgungsgebietID"
+                     minOccurs="0"
+                     type="din91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>D zur eindeutigen Identifikation eines Wasserversorgungsgebiets.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
