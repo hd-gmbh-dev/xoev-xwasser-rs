@@ -1,4 +1,4 @@
-# XWasser codelists - version `V0_9_2`
+# XWasser codelists - version `V0_9_5`
 
 ## Desinfektionsart
 
@@ -47,6 +47,22 @@ Diese Codeliste dient im Kontext von XWasser der Angabe des Mediums einer Proben
 | type | Key | Value |
 | Usage | Required | Required |
 | Lang | None | None |
+
+## Präfixe im DVDV
+
+Diese Codeliste enthält alle Präfixe, welche im DVDV zum Einsatz kommen.
+
+| | |
+| -- | -- |
+| short name | dvdv.praefix |
+| canonical uri | `urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix` |
+| canonical version uri | urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix_51 |
+
+| Field | `praefix` (0) | `behoerdenkategorie` (1) | `vergebendestelle` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Required |
+| Lang | None | None | None |
 
 ## Art der Vertretung
 
@@ -208,22 +224,6 @@ Mit dieser Codeliste wird im Kontext von XWasser definiert, wie die Überwachung
 | Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
-## Gemeinden, dargestellt durch den Amtlichen Gemeindeschlüssel (AGS) des Statistischen Bundesamtes
-
-Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
-
-| | |
-| -- | -- |
-| short name | AGS |
-| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags` |
-| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2024-09-30 |
-
-| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Required | Optional |
-| Lang | None | None | None |
-
 ## Grund der Ausnahmeregelung
 
 Mit dieser Codeliste werden im Kontext von XWasser die Gründe für eine Ausnahmeregelung gem. den neuen Vorgaben für das EU-Berichtsformat festgelegt.
@@ -352,6 +352,22 @@ Diese Codeliste wird im Kontext von XWasser zur Erläuterung der Wasserabgabemen
 | Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
+## SHAPTH Parameter
+
+Mit dieser Codeliste werden im Kontext von XWasser die SHAPTH-Parameter definiert.
+
+| | |
+| -- | -- |
+| short name | shapth-parameter |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:shapth-parameter` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:shapth-parameter_4 |
+
+| Field | `SHAPTH-Parameter-ID` (0) | `CAS-Nummer` (1) | `Datentyp` (2) | `Einheit` (3) | `Langname` (4) | `Leger-Nr` (5) | `Octoware-Name` (6) | `Octoware-Schluessel` (7) | `Parameter` (8) | `SEBAM-Langname` (9) | `Stoffgruppe` (10) | `Synonyme` (11) | `TEIS-Bezeichnung` (12) | `TEIS-Code` (13) | `TEIS-Kurzbezeichnung` (14) |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value | Value | Value | Key | Value | Value | Value | Value | Value | Value | Value | Key | Value |
+| Usage | Required | Optional | Required | Required | Optional | Required | Optional | Optional | Required | Optional | Required | Optional | Optional | Required | Optional |
+| Lang | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None |
+
 ## Art des Auftraggebers
 
 Mit dieser Codeliste wird im Kontext von XWasser die Art des Auftraggebers definiert.
@@ -383,22 +399,6 @@ Diese Codeliste definiert die Kategorien eines Vorfalls gem. den Vorgaben für d
 | type | RecommendedKey | Value | Key | Value |
 | Usage | Required | Optional | Required | Required |
 | Lang | None | Some("de-DE") | Some("en-GB") | Some("de-DE") |
-
-## Gemeinden, dargestellt durch den Amtlichen Regionalschlüssel (ARS) des Statistischen Bundesamtes
-
-Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Regionalschlüssel (ARS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
-
-| | |
-| -- | -- |
-| short name | Regionalschluessel |
-| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs` |
-| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2024-09-30 |
-
-| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Required | Optional |
-| Lang | None | None | None |
 
 ## Bewertung des Untersuchungswerts
 
@@ -448,22 +448,6 @@ Diese Codeliste wird im Rahmen von XWasser für die Ergänzung von Messwertangab
 | Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
-## Die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes
-
-
-
-| | |
-| -- | -- |
-| short name | Kreis |
-| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis` |
-| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis_2021-07-31 |
-
-| Field | `Bezeichnung` (0) | `Hinweis` (1) | `SCHLUESSEL` (2) |
-| -- | -- | -- | -- |
-| type | Value | Value | Key |
-| Usage | Required | Optional | Required |
-| Lang | None | None | None |
-
 ## Die deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes
 
 
@@ -479,22 +463,6 @@ Diese Codeliste wird im Rahmen von XWasser für die Ergänzung von Messwertangab
 | type | Key | Key |
 | Usage | Required | Required |
 | Lang | None | None |
-
-## SHAPTH Parameter
-
-Mit dieser Codeliste werden im Kontext von XWasser die SHAPTH-Parameter definiert.
-
-| | |
-| -- | -- |
-| short name | shapth-parameter |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:shapth-parameter` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:shapth-parameter_3 |
-
-| Field | `SHAPTH-Parameter-ID` (0) | `CAS-Nummer` (1) | `Datentyp` (2) | `Einheit` (3) | `Langname` (4) | `Leger-Nr` (5) | `Octoware-Name` (6) | `Octoware-Schluessel` (7) | `Parameter` (8) | `SEBAM-Langname` (9) | `Stoffgruppe` (10) | `Synonyme` (11) | `TEIS-Bezeichnung` (12) | `TEIS-Code` (13) | `TEIS-Kurzbezeichnung` (14) |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value | Value | Value | Key | Value | Value | Value | Value | Value | Value | Value | Key | Value |
-| Usage | Required | Optional | Required | Required | Optional | Required | Optional | Optional | Required | Optional | Required | Optional | Optional | Required | Optional |
-| Lang | None | None | None | None | None | None | None | None | None | None | None | None | None | None | None |
 
 ## Kategorie des Vorfalls
 
@@ -576,21 +544,37 @@ Mit dieser Codeliste wird im Kontext von XWasser der Anlass einer Wasseruntersuc
 | Usage | Required | Optional | Required |
 | Lang | None | None | None |
 
+## Probennahmeverfahren
+
+Diese Codeliste dient im Kontext von XWasser zur Angabe des Verfahrens, mit dem eine Probe entnommen wird
+
+| | |
+| -- | -- |
+| short name | probennahmeverfahren |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:probennahmeverfahren` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:probennahmeverfahren_2 |
+
+| Field | `Key` (0) | `Beschreibung` (1) | `Probennahmeverfahren` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
+| Lang | None | None | None |
+
 ## Rechtsformen
 
-Die Codeliste urn:xoev-de:xunternehmen:codeliste:rechtsformen bildet ab Version 2 fachbereichsübergreifend Anforderungen an die Codierung von Rechtsforminformationen ab und ermöglicht deren bereichsübergreifend einheitliche Codierung und Übermittlung. Aktuell werden die Anforderungen aus dem Grundinformationsdienst GINSTER der Steuerverwaltung und damit auch der Codierung im ELSTER-Unternehmenskonto, aus dem Registerportal der Handels-, Genossenschafts-, Partnerschafts- und Vereinsregister, dem Standard XGewerbeanzeige / XGewerbeordnung und damit auch dem Unternehmerverzeichnis der gesetzlichen Unfallversicherung umgesetzt. Auf diese Weise können beispielweise Rechtsforminformationen ohne semantische Brüche aus dem ELSTER-Unternehmenskonto über einen Online-Dienst zur Gewerbeanmeldung an die zuständige Gewerbebehörde übermittelt werden und dort mit Daten aus dem Registerportal der Justiz und (perspektivisch) mit dem Basisregister gemäß UBRegG zusammengeführt werden. Seit Version 2 sind die Codes sechsstellig und hierarchisch gegliedert, um unterschiedliche Granularitäten der Rechtsformdifferenzierung zu unterstützen und Codes einfacher zueinander in Bezug setzen zu können. Die Version 2 der Rechtsformcodierung ist vollständig rückwärtskompatibel zur Version 1 in dem Sinne, dass eine Eins-zu-eins-Umschlüsselung der bisherigen Codes erfolgen kann.
+Die Codeliste urn:xoev-de:xunternehmen:codeliste:rechtsformen bildet ab Version 2 fachbereichsübergreifend Anforderungen an die Codierung von Rechtsforminformationen ab und ermöglicht deren bereichsübergreifend einheitliche Codierung und Übermittlung. Aktuell werden die Anforderungen aus dem Grundinformationsdienst GINSTER der Steuerverwaltung und damit auch der Codierung im ELSTER-Unternehmenskonto, aus dem Registerportal der Handels-, Genossenschafts-, Gesellschafts-, Partnerschafts- und Vereinsregister, dem Standard XGewerbeordnung, dem Unternehmerverzeichnis der gesetzlichen Unfallversicherung und dem Unternehmensbasisdatenregister umgesetzt.  Seit Version 2 sind die Codes sechsstellig und hierarchisch gegliedert, um unterschiedliche Granularitäten der Rechtsformdifferenzierung zu unterstützen und Codes einfacher zueinander in Bezug setzen zu können. Die Version 2 der Rechtsformcodierung ist vollständig rückwärtskompatibel zur Version 1 in dem Sinne, dass eine Eins-zu-eins-Umschlüsselung der bisherigen Codes erfolgen kann.
 
 | | |
 | -- | -- |
 | short name | rechtsformen |
 | canonical uri | `urn:xoev-de:xunternehmen:codeliste:rechtsformen` |
-| canonical version uri | urn:xoev-de:xunternehmen:codeliste:rechtsformen_2.2 |
+| canonical version uri | urn:xoev-de:xunternehmen:codeliste:rechtsformen_2.3 |
 
-| Field | `Code` (0) | `Bezeichnung-kurz` (1) | `Bezeichnung-lang` (2) | `Eintragungsart` (3) | `Hinweise-fachlich` (4) | `Mapping-in-Standardprofil` (5) | `Standardprofil` (6) |
-| -- | -- | -- | -- | -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value | Value | Value | Value | Value |
-| Usage | Required | Required | Required | Optional | Optional | Optional | Optional |
-| Lang | None | None | None | None | None | None | None |
+| Field | `Code` (0) | `Art` (1) | `Bezeichnung-kurz-1` (2) | `Bezeichnung-kurz-2` (3) | `Bezeichnung-lang` (4) | `Eintragungsart` (5) | `Hinweise-fachlich` (6) | `Mapping-GINSTER` (7) | `Mapping-XUnternehmen-v1` (8) | `Mapping-in-Standardprofil` (9) | `Standardprofil` (10) | `Verwendung-in-XGewO` (11) | `Verwendung-in-ZUV` (12) |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value |
+| Usage | Required | Required | Optional | Optional | Required | Optional | Optional | Optional | Optional | Optional | Optional | Optional | Optional |
+| Lang | None | None | None | None | None | None | None | None | None | None | None | None | None |
 
 ## Probennahmezeitraum
 
@@ -623,22 +607,6 @@ Die Codeliste Staat (eigenständige, von Deutschland diplomatisch anerkannte der
 | type | Value | Value | Value | Value | Key | Value | Value | Value | Value |
 | Usage | Optional | Optional | Optional | Optional | Required | Optional | Optional | Optional | Optional |
 | Lang | None | None | None | None | None | None | None | None | None |
-
-## Probennahmeverfahren
-
-Diese Codeliste dient im Kontext von XWasser zur Angabe des Verfahrens, mit dem eine Probe entnommen wird
-
-| | |
-| -- | -- |
-| short name | probennahmeverfahren |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:probennahmeverfahren` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:probennahmeverfahren_1 |
-
-| Field | `Key` (0) | `Beschreibung` (1) | `Probennahmeverfahren` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Optional | Required |
-| Lang | None | None | None |
 
 ## Grund für Schließung des Wasserversorgungsgebiets
 
@@ -736,21 +704,21 @@ Beschreibung der Codeliste.
 | Usage | Required | Optional | Optional | Required | Required |
 | Lang | None | Some("de-DE") | Some("en-GB") | Some("en-GB") | Some("de-DE") |
 
-## Kategorie der Probennahmestelle
+## Gemeinden, dargestellt durch den Amtlichen Gemeindeschlüssel (AGS) des Statistischen Bundesamtes
 
-Mit dieser Codeliste wird im Kontext von XWasser die Kategorie der Probennahmestelle definiert.
+Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
 
 | | |
 | -- | -- |
-| short name | kategorie-probennahmestelle |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle_1 |
+| short name | AGS |
+| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags` |
+| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2025-10-31 |
 
-| Field | `Key` (0) | `KategorieProbennahmestelle` (1) |
-| -- | -- | -- |
-| type | RecommendedKey | Value |
-| Usage | Required | Required |
-| Lang | None | None |
+| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
+| Lang | None | None | None |
 
 ## Abhilfemaßnahmen
 
@@ -815,6 +783,38 @@ Mit dieser Codeliste wird im Rahman von XWasser die Art der Probennahmestelle ge
 | type | Key | Value |
 | Usage | Required | Required |
 | Lang | None | None |
+
+## Die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes
+
+Die Bundesrepublik Deutschland ist ein Zusammenschluss von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke.Diese Codeliste stellt die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).
+
+| | |
+| -- | -- |
+| short name | Kreis |
+| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis` |
+| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis_2025-03-31 |
+
+| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
+| Lang | None | None | None |
+
+## Kategorie der Probennahmestelle
+
+Mit dieser Codeliste wird im Kontext von XWasser die Kategorie der Probennahmestelle definiert.
+
+| | |
+| -- | -- |
+| short name | kategorie-probennahmestelle |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle_2 |
+
+| Field | `Key` (0) | `Code` (1) | `KategorieProbennahmestelle` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Required |
+| Lang | None | None | None |
 
 ## Maßnahmen
 
@@ -928,6 +928,22 @@ In dieser Codeliste werden Arten von Entnahmearmaturen definiert.
 | Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
+## Parameterausprägung
+
+Diese Codeliste definiert im Rahmen von XWasser die speziellen Ausprägungen von qualitativen Parametern.
+
+| | |
+| -- | -- |
+| short name | parameterauspraegung |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:parameterauspraegung` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:parameterauspraegung_4 |
+
+| Field | `SHAPTH-Parameterauspraegung-ID` (0) | `Parameterklassifizierung` (1) | `Stoffgruppe` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Required |
+| Lang | None | None | None |
+
 ## Probenbewertung
 
 Mit dieser Codeliste wird im Kontext von XWasser definiert, ob in einer Wasserprobe alle Werte in Ordnung waren oder es Auffälligkeiten/Mängel/Grenzwertüberschreitungen/... von mindestens einem Parameter gab.
@@ -976,20 +992,20 @@ Diese Codeliste dient im Kontext von XWasser zur Definition der Aufbereitungssto
 | Usage | Required | Required | Optional | Optional | Optional |
 | Lang | None | None | None | None | None |
 
-## Präfixe im DVDV
+## Gemeinden, dargestellt durch den Amtlichen Regionalschlüssel (ARS) des Statistischen Bundesamtes
 
-Diese Codeliste enthält alle Präfixe, welche im DVDV zum Einsatz kommen.
+Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Regionalschlüssel (ARS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
 
 | | |
 | -- | -- |
-| short name | dvdv.praefix |
-| canonical uri | `urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix` |
-| canonical version uri | urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix_49 |
+| short name | Regionalschluessel |
+| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs` |
+| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2025-10-31 |
 
-| Field | `praefix` (0) | `behoerdenkategorie` (1) | `vergebendestelle` (2) |
+| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
 | -- | -- | -- | -- |
 | type | RecommendedKey | Value | Value |
-| Usage | Required | Required | Required |
+| Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
 ## Kommunikationskanal / Erreichbarkeit
@@ -1071,22 +1087,6 @@ Mit dieser Codeliste wird im Rahmen von XWasser die Ursache eines Überschreitun
 | type | RecommendedKey | Value | Value | Key | Value |
 | Usage | Required | Optional | Optional | Required | Required |
 | Lang | None | Some("de-DE") | Some("en-GB") | Some("en-GB") | Some("de-DE") |
-
-## Parameterausprägung
-
-Diese Codeliste definiert im Rahmen von XWasser die speziellen Ausprägungen von qualitativen Parametern.
-
-| | |
-| -- | -- |
-| short name | parameterauspraegung |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:parameterauspraegung` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:parameterauspraegung_3 |
-
-| Field | `SHAPTH-Parameterauspraegung-ID` (0) | `Parameterklassifizierung` (1) | `Stoffgruppe` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Required | Required |
-| Lang | None | None | None |
 
 ## WVA und WVG
 

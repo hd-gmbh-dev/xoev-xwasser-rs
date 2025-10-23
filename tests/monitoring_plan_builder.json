@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "a9945930-e958-4c3c-a1eb-067cdde2b7d9",
+      "nachrichten_uuid": "30671f66-6db7-47ec-b356-7b28367a1b06",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2025-07-15T15:50:55"
+      "erstellungszeitpunkt": "2025-10-23T15:22:16"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -33,20 +33,21 @@
     },
     "referenz_uuid": null,
     "dvdv_dienstkennung": "",
-    "zustaendige_behoerde_id": []
+    "zustaendige_behoerde_id": [],
+    "wasserversorgungsgebiet_id": null
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "fb3f24d2-b17e-4334-9464-c9a7126baef5"
+      "vorgangs_id": "558802f4-cc3b-453f-8e2d-42194aeb8e34"
     },
     "vorgang_type": {
       "t": "Untersuchungsplan",
       "c": {
-        "untersuchungsplan_id": "6aa6b6ab-1027-4557-aef0-8448a2d69108",
+        "untersuchungsplan_id": "d1e02dc1-b3a4-491c-a3c8-5b2cdc305581",
         "wasserversorgungsgebiet": [
-          "wvg-DZScU5Js"
+          "wvg-6zLTKc93"
         ],
-        "titel_untersuchungsplan": null,
+        "titel_untersuchungsplan": "",
         "jahr": [
           2024,
           2025
@@ -95,13 +96,13 @@
         },
         "terminplan": [
           {
-            "terminplan_id": "113bd18b-8167-4799-9d5c-f51052ce1810",
-            "probennahmestelle": null,
+            "terminplan_id": "e34497db-9275-4843-8545-624c433c835e",
+            "probennahmestelle": "probennahmestelle-3bSHbsTZ",
             "datum_zeitraum": [
-              "2025-07-15T15:50:55"
+              "2025-10-23T15:22:16"
             ],
             "probennahmestelle_kategorie": {
-              "code": "L",
+              "code": "1000",
               "name": null
             },
             "weitere_beschreibung_der_probennahmestelle": null,
@@ -131,13 +132,11 @@
             "probennahmeverfahren": [],
             "ersatz_fuer_terminplan_mit_der_id": null,
             "kommentar": null,
-            "id": "terminplan-BFZvJbI1"
+            "id": "terminplan-4hX8J25R"
           }
         ],
         "anlage_nach_trinkw_v": {
           "anlage_nach_trinkw_v_id": "",
-          "zustaendige_behoerde_id": "behoerde-A3q7ZLWV",
-          "untersuchungsplan_id": [],
           "art_anlage": {
             "code": "1010",
             "name": null
@@ -146,85 +145,15 @@
           "abgegebene_wassermenge_der_anlage_pro_tag": null,
           "anzahl_durch_anlage_versorgte_personen": null,
           "kommentar": null,
-          "wasserversorgungsgebiet": [
-            {
-              "wasserversorgungsgebiet_id": "f5a860e6-9335-41a7-837d-004a5da59597",
-              "name_wasserversorgungsgebiet": "",
-              "lau2_code": null,
-              "zustaendige_behoerde": [
-                {
-                  "id": "behoerde-CjN3h6jE",
-                  "typ": {
-                    "code": "",
-                    "name": null,
-                    "list_uri": null,
-                    "list_version_id": null
-                  },
-                  "zusatz": null,
-                  "behoerdenkennung": {
-                    "kennung": [],
-                    "praefix": []
-                  },
-                  "kommunikation": [],
-                  "behoerdenidentifikation": {
-                    "id": null,
-                    "beschreibung": null,
-                    "gueltigkeit": {
-                      "beginn": "2024-01-01",
-                      "ende": "2099-01-01",
-                      "zusatz": null
-                    }
-                  },
-                  "behoerdenname": {
-                    "name": {
-                      "text": null
-                    },
-                    "kurzbezeichnung": "",
-                    "gueltigkeit": {
-                      "beginn": "2024-01-01",
-                      "ende": "2099-01-01",
-                      "zusatz": null
-                    }
-                  },
-                  "nachgeordnete_behoerde": [],
-                  "verwaltungspolitische_zustaendigkeit": [],
-                  "anschrift": [],
-                  "organisationsstruktur": []
-                }
-              ],
-              "geokoordinaten_shapth": null,
-              "datum_der_einrichtung": "2025-07-15",
-              "datum_der_schliessung": null,
-              "grund_der_schliessung": null,
-              "nachfolger_wvg_bei_schliessung": [],
-              "wvg_fremdbezogen": [],
-              "abgegebene_wassermenge": 0.0,
-              "anzahl_versorgte_personen_wvg": 0,
-              "referenzjahr_angaben_wvg": 0,
-              "art_der_wasserressource": [
-                {
-                  "code": "1010",
-                  "name": null
-                }
-              ],
-              "anteil_der_wasserressource": [
-                0
-              ],
-              "vorgeschriebene_untersuchungshaeufigkeit_parameter_a": 0,
-              "vorgeschriebene_untersuchungshaeufigkeit_parameter_b": 0,
-              "kommentar": null,
-              "derogation": [],
-              "exceedance": [],
-              "incident": [],
-              "id": "wvg-DZScU5Js"
-            }
+          "wasserversorgungsgebiet_id": [
+            "wvg-6zLTKc93"
           ],
           "angaben_alternative_id": null,
-          "id": "antv-EHkxPl87"
+          "id": "antv-7LC7GVPp"
         },
         "objekt": [
           {
-            "objekt_id": "48abb680-1e38-4088-8739-9f401644fc54",
+            "objekt_id": "b749f71e-3fe1-4302-9b1d-fde2611deed1",
             "anlage_nach_trinkw_vid": null,
             "wasserversorgungsgebiet_id": null,
             "anschrift_objekt": [],
@@ -237,55 +166,22 @@
             "datum_in_betriebnahme": null,
             "datum_ausser_betriebnahme": null,
             "rahmen_der_trinkwasserbereitstellung": [],
-            "geokoordinaten_objekt": {
-              "geografische_position_und_ausdehnung": null,
-              "name_shapefile": null,
-              "geokoordinaten_breitengrad": null,
-              "geokoordinaten_laengengrad": null,
-              "geokoordinaten_rechtswert_east_wert": null,
-              "geokoordinaten_hochwert_north_wert": null
-            },
+            "geokoordinaten_objekt": null,
             "angaben_alternative_id": null,
             "kommentar": null,
-            "betreiber": [
-              {
-                "betreiber_id": "fcbd6800-86fe-4a63-9268-8efc5132675c",
-                "art_der_person": {
-                  "t": "Organisation",
-                  "c": {
-                    "id": "organisation-H1sno4Ss",
-                    "rechtsform": null,
-                    "branche": [],
-                    "zweck": [],
-                    "name": null,
-                    "unterorganisation": [],
-                    "kommunikation": [],
-                    "registrierung": [],
-                    "identifikation": [],
-                    "existenzzeitraum": null,
-                    "anschrift": []
-                  }
-                },
-                "objekt_id": [
-                  "obj-GdyIrJbT"
-                ],
-                "kommentar": null,
-                "id": "betreiber-IRXPEiep"
-              }
-            ],
-            "id": "obj-GdyIrJbT"
+            "betreiber_id": "betreiber-bRzzaEF8",
+            "id": "obj-9fzuiOfb"
           }
         ],
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "76bf132d-f645-445c-9628-6532ae30677d",
+            "probennahmestelle_id": "a1081646-0171-42bc-aa0a-579e626e2c1e",
             "objekt_id": null,
-            "wasserversorgungsgebiet_id": null,
             "probe": [],
             "terminplan_id": [],
             "name_probennahmestelle": "Probennahmestelle 1",
             "kategorie_probennahmestelle": {
-              "code": "L",
+              "code": "1000",
               "name": null
             },
             "unterkategorie_probennahmestelle": {
@@ -305,9 +201,8 @@
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
             "angaben_alternative_id": null,
-            "berichtspflichtig": null,
             "kommentar": null,
-            "id": "probennahmestelle-JJ9kQ334"
+            "id": "probennahmestelle-3bSHbsTZ"
           }
         ],
         "auftraggeber": {
@@ -319,7 +214,7 @@
           "auftraggeber": {
             "t": "Organisation",
             "c": {
-              "id": "organisation-FrcLps3A",
+              "id": "organisation-8ZR33vY9",
               "rechtsform": null,
               "branche": [],
               "zweck": [],
@@ -334,7 +229,7 @@
           }
         },
         "zustaendige_behoerde": {
-          "id": "behoerde-A3q7ZLWV",
+          "id": "behoerde-27VaIOYX",
           "typ": {
             "code": "",
             "name": null,
@@ -371,7 +266,6 @@
           "verwaltungspolitische_zustaendigkeit": [],
           "anschrift": [],
           "organisationsstruktur": [],
-          "anlage_nach_trinkw_vid": [],
           "laenderkuerzel": {
             "code": "DEBY",
             "name": null
@@ -382,7 +276,7 @@
         "kommentar": [],
         "aenderungshistorie": null,
         "erweiterung": null,
-        "id": "untersuchungsplan-KD5c0com"
+        "id": "untersuchungsplan-cd1qrcfy"
       }
     },
     "bemerkung": null,

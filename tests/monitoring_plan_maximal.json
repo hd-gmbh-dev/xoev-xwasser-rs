@@ -1,17 +1,17 @@
 {
-  "produkt": "SHAPTH CLI",
-  "produkthersteller": "H &amp;amp; D GmbH",
-  "produktversion": "H &amp;amp; D GmbH",
+  "produkt": "XWasser Test",
+  "produkthersteller": "H&amp;D GmbH",
+  "produktversion": "0.901.0",
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "693c64d6-456f-4d14-abe7-fe9681c74aae",
+      "nachrichten_uuid": "a2d0b0ed-8ea8-4084-a04a-8e611b4eb0c0",
       "nachrichten_typ": {
         "code": {
-          "code": "0010"
+          "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2024-05-28T09:00:00"
+      "erstellungszeitpunkt": "2025-10-23T14:36:48"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -19,8 +19,8 @@
           "code": ""
         }
       },
-      "kennung": "mp:09000000",
-      "name": "Reader"
+      "kennung": "",
+      "name": ""
     },
     "autor": {
       "verzeichnisdienst": {
@@ -28,29 +28,31 @@
           "code": ""
         }
       },
-      "kennung": "gha:090",
-      "name": "Author"
+      "kennung": "",
+      "name": ""
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "s",
-    "zustaendige_behoerde_id": []
+    "dvdv_dienstkennung": "",
+    "zustaendige_behoerde_id": [],
+    "wasserversorgungsgebiet_id": null
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "5e08e073-4e06-438d-9444-1275f6cbf061"
+      "vorgangs_id": "8bdf59f2-ef49-4fca-9ad0-16abe2a02845"
     },
     "vorgang_type": {
       "t": "Untersuchungsplan",
       "c": {
-        "untersuchungsplan_id": "1234",
+        "untersuchungsplan_id": "0fadfec0-fe58-4720-b84c-3a27b4f8c6aa",
         "wasserversorgungsgebiet": [
-          "betreiber-1"
+          "wvg-jz28waIw"
         ],
-        "titel_untersuchungsplan": null,
+        "titel_untersuchungsplan": "",
         "jahr": [
-          2024
+          2024,
+          2025
         ],
-        "wasserabgabe_vorjahr": 5000.0,
+        "wasserabgabe_vorjahr": 0.0,
         "art_von_wva_und_wvg": {
           "code": "1010",
           "name": null
@@ -63,12 +65,12 @@
           "code": "1010",
           "name": null
         },
-        "oberflaechenwassereinfluss": true,
+        "oberflaechenwassereinfluss": false,
         "desinfektion_durchgefuehrt_mit": {
           "code": "1010",
           "name": null
         },
-        "abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen": true,
+        "abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen": false,
         "acrylamid": {
           "code": "1010",
           "name": null
@@ -81,913 +83,77 @@
           "code": "1010",
           "name": null
         },
-        "ph_wert_wasserwerksausgang": true,
-        "wasserabgabe_vorjahr_pro_tag": 225.0,
-        "anzahl_untersuchungen_pro_jahr_gruppe_a": 1,
-        "abzudecken_durch_betreiber_gruppe_a": 12,
-        "anzahl_untersuchungenpro_jahr_gruppe_b": 2,
-        "abzudecken_durch_betreiber_gruppe_b": 123,
-        "rap_durchgefuehrt": true,
+        "ph_wert_wasserwerksausgang": false,
+        "wasserabgabe_vorjahr_pro_tag": 0.0,
+        "anzahl_untersuchungen_pro_jahr_gruppe_a": 0,
+        "abzudecken_durch_betreiber_gruppe_a": null,
+        "anzahl_untersuchungenpro_jahr_gruppe_b": 0,
+        "abzudecken_durch_betreiber_gruppe_b": null,
+        "rap_durchgefuehrt": false,
         "status_untersuchungsplan": {
           "code": "1010",
           "name": null
         },
         "terminplan": [
           {
-            "terminplan_id": "0001",
-            "probennahmestelle": "probennahmestelle1",
+            "terminplan_id": "a6836e29-9e16-46df-84e4-53b88e333944",
+            "probennahmestelle": "probennahmestelle-g73xXhy3",
             "datum_zeitraum": [
-              "2024-06-15T09:00:00"
+              "2025-10-23T14:36:48"
             ],
             "probennahmestelle_kategorie": {
-              "code": "L",
+              "code": "1000",
               "name": null
             },
-            "weitere_beschreibung_der_probennahmestelle": "Probennahmestelle ist eine durch das Gesundheitsamt ausgewiesener Ort beim Wasserversorger, der eine fachgerechte Entnahme der Probe ermöglicht.",
+            "weitere_beschreibung_der_probennahmestelle": null,
             "untersuchung_durch": [
               {
                 "code": "1010",
                 "name": null
-              },
-              {
-                "code": "1010",
-                "name": null
               }
             ],
-            "untersuchung_durch_erlaeuterung": "Die Probe wird durch WVA und GHA untersucht.",
-            "anlass_der_untersuchung": [
-              {
-                "code": "1010",
-                "name": null
-              },
-              {
-                "code": "1040",
-                "name": null
-              },
-              {
-                "code": "1050",
-                "name": null
-              },
-              {
-                "code": "1060",
-                "name": null
-              }
-            ],
+            "untersuchung_durch_erlaeuterung": null,
+            "anlass_der_untersuchung": [],
             "zu_untersuchender_parameter": [
               {
                 "parameter": {
-                  "code": "1010",
+                  "code": "",
                   "name": null
                 },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              },
-              {
-                "parameter": {
-                  "code": "1011",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              },
-              {
-                "parameter": {
-                  "code": "1012",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              },
-              {
-                "parameter": {
-                  "code": "1013",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              },
-              {
-                "parameter": {
-                  "code": "1014",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
+                "messprogramm": "",
+                "parameter_gruppe": "",
+                "veraenderlich": false,
+                "probennahmeverfahren_uba": false,
+                "reduzierbar_durch_rap_rau": false,
+                "reduzierbar_ohne_rau": false,
+                "bemerkung": null
               }
             ],
-            "probennahmeverfahren": [
-              {
-                "code": "1010",
-                "name": null
-              },
-              {
-                "code": "1020",
-                "name": null
-              },
-              {
-                "code": "1030",
-                "name": null
-              }
-            ],
-            "ersatz_fuer_terminplan_mit_der_id": "123",
-            "kommentar": {
-              "autor": "Testuser",
-              "erstellungszeitpunkt": "2024-08-01T10:00:00",
-              "inhalt": "Hier sind die zu untersuchenden Parameter und Probennahmeverfahren angegeben."
-            },
-            "id": "terminplan1"
-          },
-          {
-            "terminplan_id": "0002",
-            "probennahmestelle": "probennahmestelle1",
-            "datum_zeitraum": [
-              "2024-08-01T10:00:00",
-              "2024-08-31T14:00:00"
-            ],
-            "probennahmestelle_kategorie": {
-              "code": "N",
-              "name": null
-            },
-            "weitere_beschreibung_der_probennahmestelle": "Probennahmestelle befindet sich am Hauptsitz des Versorgers.",
-            "untersuchung_durch": [
-              {
-                "code": "1010",
-                "name": null
-              },
-              {
-                "code": "1010",
-                "name": null
-              }
-            ],
-            "untersuchung_durch_erlaeuterung": "Untersuchung erfolgt durch das Labor und das Gesundheitsamt.",
-            "anlass_der_untersuchung": [
-              {
-                "code": "1020",
-                "name": null
-              },
-              {
-                "code": "1070",
-                "name": null
-              },
-              {
-                "code": "1080",
-                "name": null
-              }
-            ],
-            "zu_untersuchender_parameter": [
-              {
-                "parameter": {
-                  "code": "1010",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              },
-              {
-                "parameter": {
-                  "code": "1011",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              },
-              {
-                "parameter": {
-                  "code": "1012",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              },
-              {
-                "parameter": {
-                  "code": "1013",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              },
-              {
-                "parameter": {
-                  "code": "1014",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              }
-            ],
-            "probennahmeverfahren": [
-              {
-                "code": "1040",
-                "name": null
-              },
-              {
-                "code": "1050",
-                "name": null
-              }
-            ],
-            "ersatz_fuer_terminplan_mit_der_id": "124",
-            "kommentar": {
-              "autor": "Testuser",
-              "erstellungszeitpunkt": "2024-08-01T10:00:00",
-              "inhalt": "Untersuchung an verschiedenen Zeitpunkten durchgeführt."
-            },
-            "id": "terminplan2"
-          },
-          {
-            "terminplan_id": "0003",
-            "probennahmestelle": "probennahmestelle1",
-            "datum_zeitraum": [
-              "2024-09-01T08:00:00",
-              "2024-09-15T16:00:00"
-            ],
-            "probennahmestelle_kategorie": {
-              "code": "W",
-              "name": null
-            },
-            "weitere_beschreibung_der_probennahmestelle": "Probennahmestelle in einem ländlichen Versorgungsgebiet.",
-            "untersuchung_durch": [
-              {
-                "code": "1010",
-                "name": null
-              },
-              {
-                "code": "1010",
-                "name": null
-              }
-            ],
-            "untersuchung_durch_erlaeuterung": "Untersuchung durchgeführt durch das regionale Labor.",
-            "anlass_der_untersuchung": [
-              {
-                "code": "1030",
-                "name": null
-              },
-              {
-                "code": "1090",
-                "name": null
-              }
-            ],
-            "zu_untersuchender_parameter": [
-              {
-                "parameter": {
-                  "code": "1010",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              },
-              {
-                "parameter": {
-                  "code": "1011",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              },
-              {
-                "parameter": {
-                  "code": "1012",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              },
-              {
-                "parameter": {
-                  "code": "1013",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              },
-              {
-                "parameter": {
-                  "code": "1014",
-                  "name": null
-                },
-                "messprogramm": "1",
-                "parameter_gruppe": "g1",
-                "veraenderlich": true,
-                "probennahmeverfahren_uba": true,
-                "reduzierbar_durch_rap_rau": true,
-                "reduzierbar_ohne_rau": true,
-                "bemerkung": ""
-              }
-            ],
-            "probennahmeverfahren": [
-              {
-                "code": "1080",
-                "name": null
-              },
-              {
-                "code": "1090",
-                "name": null
-              }
-            ],
-            "ersatz_fuer_terminplan_mit_der_id": "125",
-            "kommentar": {
-              "autor": "Testuser",
-              "erstellungszeitpunkt": "2024-08-01T10:00:00",
-              "inhalt": "Aufgrund besonderer Bedingungen wurde eine zweite Untersuchung angeordnet."
-            },
-            "id": "terminplan3"
+            "probennahmeverfahren": [],
+            "ersatz_fuer_terminplan_mit_der_id": null,
+            "kommentar": null,
+            "id": "terminplan-hz7Z8h3z"
           }
         ],
         "anlage_nach_trinkw_v": {
           "anlage_nach_trinkw_v_id": "",
-          "zustaendige_behoerde_id": "GHA1",
-          "untersuchungsplan_id": [
-            "untersuchungsplan1"
-          ],
           "art_anlage": {
             "code": "1010",
             "name": null
           },
-          "name_der_anlage": "Anlage1",
-          "abgegebene_wassermenge_der_anlage_pro_tag": 123456.0121234,
-          "anzahl_durch_anlage_versorgte_personen": 123499,
-          "kommentar": "Pumpe eines Wasserversorgers",
-          "wasserversorgungsgebiet": [
-            {
-              "wasserversorgungsgebiet_id": "wvg1",
-              "name_wasserversorgungsgebiet": "",
-              "lau2_code": 2,
-              "zustaendige_behoerde": [
-                {
-                  "id": "behoerde22",
-                  "typ": {
-                    "code": "",
-                    "name": "",
-                    "list_uri": null,
-                    "list_version_id": null
-                  },
-                  "zusatz": "Gemeinde Hotzingmussen",
-                  "behoerdenkennung": {
-                    "kennung": [
-                      {
-                        "code": "1234",
-                        "name": "Behoerde Hotzingmussen",
-                        "list_uri": "",
-                        "list_version_id": ""
-                      }
-                    ],
-                    "praefix": [
-                      {
-                        "code": "1234",
-                        "name": "von"
-                      }
-                    ]
-                  },
-                  "kommunikation": [
-                    {
-                      "kanal": {
-                        "code": "1234",
-                        "name": "E-Mail"
-                      },
-                      "kennung": "1",
-                      "ist_dienstlich": true,
-                      "zusatz": "Austausch über Email"
-                    }
-                  ],
-                  "behoerdenidentifikation": {
-                    "id": null,
-                    "beschreibung": "Gesundheitsamt",
-                    "gueltigkeit": {
-                      "beginn": "2024-07-26+05:00",
-                      "ende": "2024-07-26+05:00",
-                      "zusatz": "Ein"
-                    }
-                  },
-                  "behoerdenname": {
-                    "name": {
-                      "text": "Gesundheitsamt der Gemeinde Hotzingmussen"
-                    },
-                    "kurzbezeichnung": "GdGH",
-                    "gueltigkeit": {
-                      "beginn": "2024-07-26+05:00",
-                      "ende": "2024-07-26+05:00",
-                      "zusatz": "Seit Bestehen und zukünftig"
-                    }
-                  },
-                  "nachgeordnete_behoerde": [],
-                  "verwaltungspolitische_zustaendigkeit": [
-                    {
-                      "kreis": null,
-                      "bezirk": {
-                        "code": "9999",
-                        "name": "Reg.-Bez. Hotzingmussen"
-                      },
-                      "bundesland": {
-                        "code": "1",
-                        "name": null
-                      },
-                      "gemeindeschluessel": {
-                        "code": "6667",
-                        "name": "Gemeine Hotzingen"
-                      },
-                      "regionalschluessel": null,
-                      "nation": {
-                        "staat": {
-                          "code": "2",
-                          "name": "LandLand"
-                        }
-                      }
-                    }
-                  ],
-                  "anschrift": [
-                    {
-                      "strassenschluessel": {
-                        "code": "1234",
-                        "name": null,
-                        "list_uri": null,
-                        "list_version_id": null
-                      },
-                      "strasse": "In der Stadt",
-                      "hausnummer": "1",
-                      "postfach": "12345",
-                      "postleitzahl": "90909",
-                      "ort": "Hotzingmussen",
-                      "ortsteil": "Worzen",
-                      "ort_frueherer_gemeindename": "Vordertupfingen",
-                      "wohnungsgeber": "Wohnfirma",
-                      "zusatz": "Zusatz zur Anschrift",
-                      "typ": [
-                        {
-                          "code": "1234",
-                          "name": ""
-                        }
-                      ],
-                      "staat": {
-                        "staat": {
-                          "code": "1234",
-                          "name": ""
-                        }
-                      },
-                      "verwaltungspolitische_kodierung": {
-                        "kreis": {
-                          "code": "1111",
-                          "name": ""
-                        },
-                        "bezirk": {
-                          "code": "1231",
-                          "name": ""
-                        },
-                        "bundesland": {
-                          "code": "1",
-                          "name": ""
-                        },
-                        "gemeindeschluessel": {
-                          "code": "9090",
-                          "name": ""
-                        },
-                        "regionalschluessel": {
-                          "code": "9897",
-                          "name": ""
-                        },
-                        "nation": {
-                          "staat": {
-                            "code": "123456",
-                            "name": ""
-                          }
-                        }
-                      },
-                      "id": "anschrift4"
-                    }
-                  ],
-                  "organisationsstruktur": [
-                    {
-                      "name": "Wasserprobeneinheit",
-                      "hierarchieebene": 2,
-                      "hierarchiename": "Zweiter Hierarchie"
-                    }
-                  ]
-                }
-              ],
-              "geokoordinaten_shapth": {
-                "geografische_position_und_ausdehnung": "SGVsbG8sIHdvcmxkIQ==",
-                "name_shapefile": "shapefile",
-                "geokoordinaten_breitengrad": 1.2,
-                "geokoordinaten_laengengrad": 1.3,
-                "geokoordinaten_rechtswert_east_wert": 3.0,
-                "geokoordinaten_hochwert_north_wert": 3.0
-              },
-              "datum_der_einrichtung": "2024-12-12",
-              "datum_der_schliessung": "2025-12-12",
-              "grund_der_schliessung": {
-                "code": "N",
-                "name": null
-              },
-              "nachfolger_wvg_bei_schliessung": [
-                "NachfolgerWVG"
-              ],
-              "wvg_fremdbezogen": [
-                "wvgfremdbezogen"
-              ],
-              "abgegebene_wassermenge": 5000.0,
-              "anzahl_versorgte_personen_wvg": 200000,
-              "referenzjahr_angaben_wvg": 4,
-              "art_der_wasserressource": [
-                {
-                  "code": "1010",
-                  "name": null
-                }
-              ],
-              "anteil_der_wasserressource": [
-                3,
-                4,
-                5
-              ],
-              "vorgeschriebene_untersuchungshaeufigkeit_parameter_a": 1,
-              "vorgeschriebene_untersuchungshaeufigkeit_parameter_b": 1,
-              "kommentar": "Wasserversorgungsgebiet des Landkreises Kaffhausen",
-              "derogation": [
-                {
-                  "derogation_identifier": "550e8400-e29b-41d4-a716-446655440000",
-                  "trivial_derogation": true,
-                  "trivial_derogation_justification": "trivialderogationjustification",
-                  "derogation_start_date": "2024-10-10",
-                  "derogation_end_date": "2024-12-12",
-                  "volume_of_water_supplied": 123.9,
-                  "derogation_affected_population": 12345,
-                  "food_production_affected": true,
-                  "derogation_under_recast_dwd": true,
-                  "derogation_grounds": {
-                    "code": "1010",
-                    "name": null
-                  },
-                  "previous_derogation_identifier": "derogationidentifier",
-                  "previous_derogation_conclusions": "conclusions",
-                  "previous_derogation_start_date": "2024-09-09",
-                  "previous_derogation_end_date": "2024-09-10",
-                  "previous_derogation_grounds": {
-                    "code": "1010",
-                    "name": null
-                  },
-                  "remarks": "remarks",
-                  "derogation_remedial_action": [
-                    {
-                      "derogation_remedial_action_identifier": "C74272E8-8C67-4823-8229-2E569AAEBC38",
-                      "derogation_remedial_action": {
-                        "code": "1010",
-                        "name": null
-                      },
-                      "derogation_remedial_action_start_date": "2024-09-15",
-                      "derogation_remedial_action_end_date": "2024-09-15",
-                      "derogation_remedial_action_cost": 1.11,
-                      "remarks": "remarks",
-                      "id": "derogation_identifier_1"
-                    },
-                    {
-                      "derogation_remedial_action_identifier": "3D0F5219-4241-4969-95A3-AB5C2B46D32B",
-                      "derogation_remedial_action": {
-                        "code": "1020",
-                        "name": null
-                      },
-                      "derogation_remedial_action_start_date": "2024-10-01",
-                      "derogation_remedial_action_end_date": "2024-12-01",
-                      "derogation_remedial_action_cost": 2.5,
-                      "remarks": "Remedial action scheduled for the end of the year.",
-                      "id": "derogation_identifier"
-                    },
-                    {
-                      "derogation_remedial_action_identifier": "6EA872B6-3E71-4D50-AB7B-E8C21A066663",
-                      "derogation_remedial_action": {
-                        "code": "1030",
-                        "name": null
-                      },
-                      "derogation_remedial_action_start_date": "2025-01-15",
-                      "derogation_remedial_action_end_date": "2025-03-15",
-                      "derogation_remedial_action_cost": 3.75,
-                      "remarks": "Second round of corrective actions.",
-                      "id": "derogation_identifier_3"
-                    },
-                    {
-                      "derogation_remedial_action_identifier": "B5CBCAC6-1254-47D3-9D44-AD05625CE340",
-                      "derogation_remedial_action": {
-                        "code": "1040",
-                        "name": null
-                      },
-                      "derogation_remedial_action_start_date": "2025-05-01",
-                      "derogation_remedial_action_end_date": "2025-06-30",
-                      "derogation_remedial_action_cost": 4.9,
-                      "remarks": "Final phase of remedial work.",
-                      "id": "derogation_identifier_2"
-                    }
-                  ],
-                  "quality_and_monitoring": [
-                    {
-                      "quality_and_monitoring_requirement_identifier": "554e8400-e29b-41d4-a716-446655440000",
-                      "parameter_code": {
-                        "code": "1711",
-                        "name": null
-                      },
-                      "parameter_threshold_value": 1.11,
-                      "parameter_threshold_value_unit": {
-                        "code": "1010",
-                        "name": null
-                      },
-                      "sampling_frequency": 2,
-                      "sampling_period": {
-                        "code": "a",
-                        "name": null
-                      },
-                      "sampling_location_type": [
-                        {
-                          "code": "1010",
-                          "name": null
-                        },
-                        {
-                          "code": "1020",
-                          "name": null
-                        },
-                        {
-                          "code": "1030",
-                          "name": null
-                        },
-                        {
-                          "code": "1040",
-                          "name": null
-                        }
-                      ],
-                      "remarks": "remarks",
-                      "id": "qam1"
-                    },
-                    {
-                      "quality_and_monitoring_requirement_identifier": "664e8400-e29b-41d4-a716-446655440001",
-                      "parameter_code": {
-                        "code": "1722",
-                        "name": null
-                      },
-                      "parameter_threshold_value": 2.22,
-                      "parameter_threshold_value_unit": {
-                        "code": "1020",
-                        "name": null
-                      },
-                      "sampling_frequency": 3,
-                      "sampling_period": {
-                        "code": "d",
-                        "name": null
-                      },
-                      "sampling_location_type": [
-                        {
-                          "code": "1050",
-                          "name": null
-                        },
-                        {
-                          "code": "1010",
-                          "name": null
-                        },
-                        {
-                          "code": "1040",
-                          "name": null
-                        }
-                      ],
-                      "remarks": "Monitoring for secondary parameters.",
-                      "id": "anhang"
-                    },
-                    {
-                      "quality_and_monitoring_requirement_identifier": "774e8400-e29b-41d4-a716-446655440002",
-                      "parameter_code": {
-                        "code": "1733",
-                        "name": null
-                      },
-                      "parameter_threshold_value": 3.33,
-                      "parameter_threshold_value_unit": {
-                        "code": "1030",
-                        "name": null
-                      },
-                      "sampling_frequency": 4,
-                      "sampling_period": {
-                        "code": "a",
-                        "name": null
-                      },
-                      "sampling_location_type": [
-                        {
-                          "code": "1050",
-                          "name": null
-                        }
-                      ],
-                      "remarks": "Quarterly monitoring for critical parameters.",
-                      "id": "wvg1"
-                    },
-                    {
-                      "quality_and_monitoring_requirement_identifier": "884e8400-e29b-41d4-a716-446655440003",
-                      "parameter_code": {
-                        "code": "1744",
-                        "name": null
-                      },
-                      "parameter_threshold_value": 4.44,
-                      "parameter_threshold_value_unit": {
-                        "code": "1040",
-                        "name": null
-                      },
-                      "sampling_frequency": 5,
-                      "sampling_period": {
-                        "code": "d",
-                        "name": null
-                      },
-                      "sampling_location_type": [
-                        {
-                          "code": "1020",
-                          "name": null
-                        },
-                        {
-                          "code": "1010",
-                          "name": null
-                        }
-                      ],
-                      "remarks": "Annual monitoring with expanded parameter set.",
-                      "id": "NachfolgerWVG"
-                    }
-                  ],
-                  "id": "derogationidentifier"
-                }
-              ],
-              "exceedance": [
-                {
-                  "exceedance_identifier": "557e8400-e29b-41d4-a716-446655440000",
-                  "trivial_exceedance": true,
-                  "trivial_exceedance_justification": "justification",
-                  "parameter_code": {
-                    "code": "1711",
-                    "name": null
-                  },
-                  "exceedance_start_date": "2024-09-15",
-                  "exceedance_end_date": "2024-09-15",
-                  "exceedance_affected_population": 1,
-                  "point_of_compliance_type": [
-                    {
-                      "code": "1010",
-                      "name": null
-                    },
-                    {
-                      "code": "1020",
-                      "name": null
-                    },
-                    {
-                      "code": "1030",
-                      "name": null
-                    },
-                    {
-                      "code": "1040",
-                      "name": null
-                    },
-                    {
-                      "code": "1050",
-                      "name": null
-                    }
-                  ],
-                  "number_of_samples_per_year": 1,
-                  "incident_identifier": "incident_identifier",
-                  "derogation_identifier": "derogation_identifier",
-                  "remarks": "remarks",
-                  "exceedance_cause_and_remedial_action": [
-                    {
-                      "exceedance_cause_and_remedial_action_identifier": "557e8400-e29b-41d4-a716-446655440001",
-                      "exceedance_cause": {
-                        "code": "1010",
-                        "name": null
-                      },
-                      "exceedance_remedial_action": {
-                        "code": "1010",
-                        "name": null
-                      },
-                      "exceedance_remedial_action_start_date": "2024-09-15",
-                      "exceedance_remedial_action_end_date": "2024-09-15",
-                      "remarks": "remarks",
-                      "id": "ex1"
-                    }
-                  ],
-                  "id": "e1"
-                }
-              ],
-              "incident": [
-                {
-                  "incident_identifier": "557e8400-e29b-41d5-a716-446655440000",
-                  "exceedance": [
-                    "ex1"
-                  ],
-                  "incident_start_date": "2024-09-15",
-                  "incident_end_date": "2024-09-15",
-                  "incident_category": [
-                    {
-                      "code": "1010",
-                      "name": null
-                    },
-                    {
-                      "code": "1020",
-                      "name": null
-                    },
-                    {
-                      "code": "1030",
-                      "name": null
-                    },
-                    {
-                      "code": "1040",
-                      "name": null
-                    }
-                  ],
-                  "incident_affected_population": 1,
-                  "remarks": "remarks",
-                  "incident_cause_and_remedial_action": [
-                    {
-                      "incident_cause_and_remidial_action_identifier": "557e8400-e29b-21d4-a716-446655440001",
-                      "incident_cause": {
-                        "code": "1010",
-                        "name": null
-                      },
-                      "incident_remedial_action": {
-                        "code": "1010",
-                        "name": null
-                      },
-                      "incident_remedial_action_start_date": "2024-09-15",
-                      "incident_remedial_action_end_date": "2024-09-15",
-                      "remarks": "remarks",
-                      "id": "remaction1"
-                    }
-                  ],
-                  "id": "incident_identifier"
-                }
-              ],
-              "id": "wvgfremdbezogen"
-            }
+          "name_der_anlage": "",
+          "abgegebene_wassermenge_der_anlage_pro_tag": null,
+          "anzahl_durch_anlage_versorgte_personen": null,
+          "kommentar": null,
+          "wasserversorgungsgebiet_id": [
+            "wvg-jz28waIw"
           ],
           "angaben_alternative_id": null,
-          "id": "abcd"
+          "id": "antv-k71zTgYl"
         },
         "objekt": [
           {
-            "objekt_id": "497869a6-c859-47e9-8353-526b07bfa5ef",
+            "objekt_id": "c07a349a-504b-4c59-9fa1-2240aa115093",
             "anlage_nach_trinkw_vid": null,
             "wasserversorgungsgebiet_id": null,
             "anschrift_objekt": [],
@@ -1000,55 +166,22 @@
             "datum_in_betriebnahme": null,
             "datum_ausser_betriebnahme": null,
             "rahmen_der_trinkwasserbereitstellung": [],
-            "geokoordinaten_objekt": {
-              "geografische_position_und_ausdehnung": null,
-              "name_shapefile": null,
-              "geokoordinaten_breitengrad": null,
-              "geokoordinaten_laengengrad": null,
-              "geokoordinaten_rechtswert_east_wert": null,
-              "geokoordinaten_hochwert_north_wert": null
-            },
+            "geokoordinaten_objekt": null,
             "angaben_alternative_id": null,
             "kommentar": null,
-            "betreiber": [
-              {
-                "betreiber_id": "85d6c328-e01e-4362-9d39-44f6319e6eb4",
-                "art_der_person": {
-                  "t": "Organisation",
-                  "c": {
-                    "id": "organisation-ECelFPri",
-                    "rechtsform": null,
-                    "branche": [],
-                    "zweck": [],
-                    "name": null,
-                    "unterorganisation": [],
-                    "kommunikation": [],
-                    "registrierung": [],
-                    "identifikation": [],
-                    "existenzzeitraum": null,
-                    "anschrift": []
-                  }
-                },
-                "objekt_id": [
-                  "obj-DEHK5z3p"
-                ],
-                "kommentar": null,
-                "id": "betreiber-FCHZpfnY"
-              }
-            ],
-            "id": "obj-DEHK5z3p"
+            "betreiber_id": "betreiber-oDxqnud3",
+            "id": "obj-mjkuauCY"
           }
         ],
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "probennahmestelle-1",
+            "probennahmestelle_id": "2ac293de-0aad-4639-97a1-cd2fa6aaff3f",
             "objekt_id": null,
-            "wasserversorgungsgebiet_id": null,
             "probe": [],
             "terminplan_id": [],
             "name_probennahmestelle": "Probennahmestelle 1",
             "kategorie_probennahmestelle": {
-              "code": "L",
+              "code": "1000",
               "name": null
             },
             "unterkategorie_probennahmestelle": {
@@ -1068,172 +201,83 @@
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
             "angaben_alternative_id": null,
-            "berichtspflichtig": null,
             "kommentar": null,
-            "id": "probennahmestelle-1"
+            "id": "probennahmestelle-g73xXhy3"
           }
         ],
         "auftraggeber": {
-          "auftraggeber_id": "Auftraggeber1",
+          "auftraggeber_id": "",
           "auftraggeberart": {
             "code": "1010",
             "name": null
           },
           "auftraggeber": {
-            "t": "ZustaendigeBehoerde",
+            "t": "Organisation",
             "c": {
-              "id": "probennehmer1",
-              "typ": null,
-              "zusatz": null,
-              "behoerdenkennung": null,
+              "id": "organisation-lH5X88rH",
+              "rechtsform": null,
+              "branche": [],
+              "zweck": [],
+              "name": null,
+              "unterorganisation": [],
               "kommunikation": [],
-              "behoerdenidentifikation": null,
-              "behoerdenname": null,
-              "nachgeordnete_behoerde": [],
-              "verwaltungspolitische_zustaendigkeit": [],
-              "anschrift": [],
-              "organisationsstruktur": [],
-              "anlage_nach_trinkw_vid": [
-                ""
-              ],
-              "laenderkuerzel": {
-                "code": "DEAA",
-                "name": null
-              },
-              "kommentar": null
+              "registrierung": [],
+              "identifikation": [],
+              "existenzzeitraum": null,
+              "anschrift": []
             }
           }
         },
         "zustaendige_behoerde": {
-          "id": "GHA1",
-          "typ": null,
+          "id": "behoerde-fHOxKIbh",
+          "typ": {
+            "code": "",
+            "name": null,
+            "list_uri": null,
+            "list_version_id": null
+          },
           "zusatz": null,
-          "behoerdenkennung": null,
+          "behoerdenkennung": {
+            "kennung": [],
+            "praefix": []
+          },
           "kommunikation": [],
-          "behoerdenidentifikation": null,
-          "behoerdenname": null,
+          "behoerdenidentifikation": {
+            "id": null,
+            "beschreibung": null,
+            "gueltigkeit": {
+              "beginn": "2024-01-01",
+              "ende": "2099-01-01",
+              "zusatz": null
+            }
+          },
+          "behoerdenname": {
+            "name": null,
+            "kurzbezeichnung": "",
+            "gueltigkeit": {
+              "beginn": "2024-01-01",
+              "ende": "2099-01-01",
+              "zusatz": null
+            }
+          },
           "nachgeordnete_behoerde": [],
           "verwaltungspolitische_zustaendigkeit": [],
           "anschrift": [],
           "organisationsstruktur": [],
-          "anlage_nach_trinkw_vid": [
-            ""
-          ],
           "laenderkuerzel": {
-            "code": "DEAA",
+            "code": "DEBY",
             "name": null
           },
           "kommentar": null
         },
         "beauftragte_untersuchungsstelle_id": [],
-        "kommentar": [
-          {
-            "autor": "test autor",
-            "erstellungszeitpunkt": "2024-06-15T09:00:00",
-            "inhalt": "Reguläre Untersuchung im ersten Quartal"
-          }
-        ],
+        "kommentar": [],
         "aenderungshistorie": null,
-        "erweiterung": {
-          "feld": [
-            {
-              "name": "feldname",
-              "beschreibung": "beschreibung",
-              "datentyp": {
-                "code": "",
-                "name": null
-              },
-              "wert": "feldwert"
-            }
-          ],
-          "gruppe": [
-            {
-              "name": "gruppenname",
-              "beschreibung": "gruppenbeschreibung",
-              "untergruppe": [
-                {
-                  "name": "untergruppenname",
-                  "beschreibung": "untergruppenbeschreibung",
-                  "untergruppe": [
-                    {
-                      "name": "unteruntergruppennanme",
-                      "beschreibung": "unteruntergruppenbeschreibung",
-                      "untergruppe": [],
-                      "feld": [
-                        {
-                          "name": "feldname2",
-                          "beschreibung": "beschreibung2",
-                          "datentyp": {
-                            "code": "1020",
-                            "name": null
-                          },
-                          "wert": "feldwert2"
-                        },
-                        {
-                          "name": "feldname3",
-                          "beschreibung": "beschreibung3",
-                          "datentyp": {
-                            "code": "1030",
-                            "name": null
-                          },
-                          "wert": "feldwert3"
-                        },
-                        {
-                          "name": "feldname4",
-                          "beschreibung": "beschreibung4",
-                          "datentyp": {
-                            "code": "1040",
-                            "name": null
-                          },
-                          "wert": "feldwert4"
-                        }
-                      ]
-                    }
-                  ],
-                  "feld": [
-                    {
-                      "name": "feldname2",
-                      "beschreibung": "beschreibung2",
-                      "datentyp": {
-                        "code": "1020",
-                        "name": null
-                      },
-                      "wert": "feldwert2"
-                    },
-                    {
-                      "name": "feldname3",
-                      "beschreibung": "beschreibung3",
-                      "datentyp": {
-                        "code": "1030",
-                        "name": null
-                      },
-                      "wert": "feldwert3"
-                    },
-                    {
-                      "name": "feldname4",
-                      "beschreibung": "beschreibung4",
-                      "datentyp": {
-                        "code": "1040",
-                        "name": null
-                      },
-                      "wert": "feldwert4"
-                    }
-                  ]
-                }
-              ],
-              "feld": []
-            }
-          ],
-          "xml": {
-            "any": [
-              "some more xml"
-            ]
-          }
-        },
+        "erweiterung": null,
         "id": "untersuchungsplan1"
       }
     },
-    "bemerkung": "Bemerkung",
+    "bemerkung": null,
     "anlage": []
   },
   "signature": null

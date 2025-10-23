@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/ ../schemas/V0_9_2/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/" produkt="XWasser Test" produkthersteller="H&amp;amp;D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="0.9.2">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/ ../schemas/V0_9_5/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/" produkt="XWasser Test" produkthersteller="H&amp;amp;D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="0.9.5">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
-      <nachrichtenUUID>9bd6a2ba-34f7-4e29-99cf-5fba73beab15</nachrichtenUUID>
+      <nachrichtenUUID>a2a37829-eecd-476d-bb61-8424338d4756</nachrichtenUUID>
       <nachrichtentyp listURI="urn:xoev-de:xwasser:codeliste:nachrichtentyp" listVersionID="1">
         <code>2010</code>
       </nachrichtentyp>
-      <erstellungszeitpunkt>2025-07-15T15:50:55</erstellungszeitpunkt>
+      <erstellungszeitpunkt>2025-10-23T15:22:17</erstellungszeitpunkt>
     </identifikation.nachricht>
     <leser>
       <verzeichnisdienst listVersionID="">
@@ -26,7 +26,7 @@
   </nachrichtenkopf.g2g>
   <xwas:vorgang>
     <xwas:identifikationVorgang>
-      <xwas:vorgangsID>8b0b7649-21f2-40ef-8541-bc6b0d9b45ff</xwas:vorgangsID>
+      <xwas:vorgangsID>6a72ecd2-c614-474c-ada5-383ba5749cea</xwas:vorgangsID>
     </xwas:identifikationVorgang>
     <xwas:vorgangType>
       <xwas:olb_bericht dokumentID="id12345">

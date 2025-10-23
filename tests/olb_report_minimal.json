@@ -33,7 +33,8 @@
     },
     "referenz_uuid": null,
     "dvdv_dienstkennung": "s",
-    "zustaendige_behoerde_id": []
+    "zustaendige_behoerde_id": [],
+    "wasserversorgungsgebiet_id": null
   },
   "vorgang": {
     "identifikation_vorgang": {

@@ -7,15 +7,17 @@
          <xoev-cl-4:shortName>Kategorie der Probennahmestelle</xoev-cl-4:shortName>
          <xoev-cl-4:codelistDescription>Mit dieser Codeliste wird im Kontext von XWasser die Kategorie der Probennahmestelle definiert.</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:validFrom>2025-11-01</xoev-cl-4:validFrom>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+         <xoev-cl-4:changes>Anpassung der Codeliste an die EU-Gesetzgebung; Einführung einer neuen Schlüsselsystematik</xoev-cl-4:changes>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>kategorie-probennahmestelle</ShortName>
       <LongName>Kategorie der Probennahmestelle</LongName>
-      <Version>1</Version>
+      <Version>2</Version>
       <CanonicalUri>urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle_1</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle_2</CanonicalVersionUri>
       <Agency>
          <LongName>XWasser</LongName>
       </Agency>
@@ -23,6 +25,10 @@
    <ColumnSet>
       <Column Id="Key" Use="required">
          <ShortName>Key</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Code" Use="required">
+         <ShortName>Code</ShortName>
          <Data Type="string"/>
       </Column>
       <Column Id="KategorieProbennahmestelle" Use="required">
@@ -43,34 +49,79 @@
    <SimpleCodeList>
       <Row>
          <Value ColumnRef="Key">
-            <SimpleValue>L</SimpleValue>
+            <SimpleValue>1000</SimpleValue>
+         </Value>
+         <Value ColumnRef="Code">
+            <SimpleValue>V</SimpleValue>
          </Value>
          <Value ColumnRef="KategorieProbennahmestelle">
-            <SimpleValue>Übergabestelle Trinkwasser-Installation</SimpleValue>
+            <SimpleValue>Verteilungsnetz</SimpleValue>
          </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
+            <SimpleValue>1010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Code">
+            <SimpleValue>Z</SimpleValue>
+         </Value>
+         <Value ColumnRef="KategorieProbennahmestelle">
+            <SimpleValue>Zapfhahn, Wasserhahn</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1020</SimpleValue>
+         </Value>
+         <Value ColumnRef="Code">
+            <SimpleValue>P</SimpleValue>
+         </Value>
+         <Value ColumnRef="KategorieProbennahmestelle">
+            <SimpleValue>Abfüllung von Flaschen oder Container/Behälter</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1030</SimpleValue>
+         </Value>
+         <Value ColumnRef="Code">
             <SimpleValue>N</SimpleValue>
          </Value>
          <Value ColumnRef="KategorieProbennahmestelle">
-            <SimpleValue>Öffentliches Verteilungsnetz</SimpleValue>
+            <SimpleValue>Stelle der Verwendung in einem Lebensmittelunternehmen</SimpleValue>
          </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
+            <SimpleValue>1040</SimpleValue>
+         </Value>
+         <Value ColumnRef="Code">
             <SimpleValue>T</SimpleValue>
          </Value>
          <Value ColumnRef="KategorieProbennahmestelle">
-            <SimpleValue>Häusliche Trinkwasserinstallation</SimpleValue>
+            <SimpleValue>Wassertransport-Fahrzeug</SimpleValue>
          </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
+            <SimpleValue>1050</SimpleValue>
+         </Value>
+         <Value ColumnRef="Code">
             <SimpleValue>W</SimpleValue>
          </Value>
          <Value ColumnRef="KategorieProbennahmestelle">
-            <SimpleValue>Wasserwerk(sausgang)</SimpleValue>
+            <SimpleValue>Wasserwerk / Wasserwerksausgang</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Code">
+            <SimpleValue>Ü</SimpleValue>
+         </Value>
+         <Value ColumnRef="KategorieProbennahmestelle">
+            <SimpleValue>Übergabestelle zur Gebäude- oder Hausinstallation</SimpleValue>
          </Value>
       </Row>
    </SimpleCodeList>

@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "bd2e99e1-f6b3-4ece-9f21-b441d5a58f54",
+      "nachrichten_uuid": "ffe782b4-a6ab-4431-94e2-23ef26a27f47",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2025-07-15T15:50:55"
+      "erstellungszeitpunkt": "2025-10-23T15:22:17"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -33,49 +33,28 @@
     },
     "referenz_uuid": null,
     "dvdv_dienstkennung": "1",
-    "zustaendige_behoerde_id": []
+    "zustaendige_behoerde_id": [],
+    "wasserversorgungsgebiet_id": null
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "8bf2e3a0-cf60-4068-a7c7-bed962fbb82f"
+      "vorgangs_id": "9b6afc74-ccdf-494c-b234-256ae8b7a64e"
     },
     "vorgang_type": {
       "t": "Pruefbericht",
       "c": {
-        "pruefbericht_uuid": "2e192b46-0900-4a45-b0fd-e7aa054a62fb",
+        "pruefbericht_uuid": "e982a634-86db-44c9-9abf-159b2e96d1d8",
         "versionsnummer": 1,
-        "auftragsnummer": "8b189ff3-70d3-4f42-983e-fe82f94abd65",
-        "zustaendige_behoerde": [
-          {
-            "id": null,
-            "typ": null,
-            "zusatz": null,
-            "behoerdenkennung": null,
-            "kommunikation": [],
-            "behoerdenidentifikation": null,
-            "behoerdenname": null,
-            "nachgeordnete_behoerde": [],
-            "verwaltungspolitische_zustaendigkeit": [],
-            "anschrift": [],
-            "organisationsstruktur": [],
-            "anlage_nach_trinkw_vid": [],
-            "laenderkuerzel": {
-              "code": "DEBY",
-              "name": null
-            },
-            "kommentar": null
-          }
-        ],
+        "auftragsnummer": "4371b1ad-8231-4806-9d3f-3f6a16b44200",
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "id-82449dc5-acf3-4281-8013-f7dd01c65969",
+            "probennahmestelle_id": "id-e164e0db-567b-494d-8fa4-254d25806909",
             "objekt_id": "none",
-            "wasserversorgungsgebiet_id": null,
             "probe": [],
             "terminplan_id": [],
             "name_probennahmestelle": "",
             "kategorie_probennahmestelle": {
-              "code": "L",
+              "code": "1000",
               "name": null
             },
             "unterkategorie_probennahmestelle": {
@@ -95,22 +74,21 @@
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
             "angaben_alternative_id": null,
-            "berichtspflichtig": null,
             "kommentar": null,
-            "id": "id-82449dc5-acf3-4281-8013-f7dd01c65969"
+            "id": "id-e164e0db-567b-494d-8fa4-254d25806909"
           }
         ],
         "probe": [
           {
-            "probe_id": "67a8884c-ce7a-48be-81ef-04fee4d024d9",
-            "probennahmestelle": "id-82449dc5-acf3-4281-8013-f7dd01c65969",
-            "untersuchungsplan_id": null,
+            "probe_id": "60ef2d0c-9f45-448d-93d9-e207b346dcec",
+            "probennahmestelle": "id-e164e0db-567b-494d-8fa4-254d25806909",
+            "terminplan_id": null,
             "probennehmer": null,
-            "titel_probe": null,
+            "titel_probe": "",
             "analyseergebnis_parameter": [
               {
-                "analyseergebnis_parameter_id": "10d4a157-8572-462f-b852-7263b2df1823",
-                "anschrift_id": "anschrift-01sK7ceh",
+                "analyseergebnis_parameter_id": "37ec9942-43c4-43d3-88da-fa7a499a18b7",
+                "anschrift_id": "anschrift-lDje9KZa",
                 "zugelassene_untersuchungsstelle": "wsu-1",
                 "akkreditierte_durchfuehrung_analyse": false,
                 "zugelassene_durchfuehrung_analyse": true,
@@ -139,7 +117,7 @@
                 "ergaenzung_zum_untersuchungswert_parameter": null,
                 "parameterwert_ergaenzung": null,
                 "ausgewertetes_ansatzvolumen": 0.0,
-                "shapth_parameter_nummer": [],
+                "verknuepfte_parameter": [],
                 "bewertung_untersuchungswert": {
                   "code": "1010",
                   "name": null
@@ -164,7 +142,7 @@
             },
             "akkreditierte_durchfuehrung_der_probennahme": false,
             "ergaenzung_zum_medium": null,
-            "zeitpunkt_probennahme": "2025-07-15T15:50:55",
+            "zeitpunkt_probennahme": "2025-10-23T15:22:17",
             "probennahmeverfahren": [
               {
                 "code": "1010",
@@ -183,9 +161,9 @@
             ],
             "kommentar_zur_probennahme": null,
             "informationen_zum_probentransport": null,
-            "eingang_probe_bei_untersuchungsstelle": "2025-07-15T15:50:55",
-            "beginn_labortaetigkeit_analytik": "2025-07-15T15:50:55",
-            "abschluss_labortaetigkeit_analytik": "2025-07-15T15:50:55",
+            "eingang_probe_bei_untersuchungsstelle": "2025-10-23T15:22:17",
+            "beginn_labortaetigkeit_analytik": "2025-10-23T15:22:17",
+            "abschluss_labortaetigkeit_analytik": "2025-10-23T15:22:17",
             "konformitaetsbewertung_der_probe": {
               "code": "1010",
               "name": null
@@ -202,7 +180,7 @@
         ],
         "probennehmer": [
           {
-            "probennehmer_id": "924ba420-b7ef-40e9-920d-0810ac3c9759",
+            "probennehmer_id": "b4379448-fa6b-4746-b2f5-c73f451267b4",
             "probennehmer": {
               "t": "NatuerlichePerson",
               "c": {
@@ -237,7 +215,7 @@
           "name": null
         },
         "auffaelligkeiten": [],
-        "zeitpunkt_validierung_pruefbericht": "2025-07-15T15:50:55",
+        "zeitpunkt_validierung_pruefbericht": "2025-10-23T15:22:17",
         "fuer_validierung_verantwortliche_person": [
           {
             "auskunftssperre": [],
@@ -327,7 +305,7 @@
             "typ": [],
             "staat": null,
             "verwaltungspolitische_kodierung": null,
-            "id": "anschrift-01sK7ceh"
+            "id": "anschrift-lDje9KZa"
           }
         ],
         "gefahr_in_verzug": false,
@@ -335,6 +313,7 @@
         "erweiterung": null,
         "objekt": [],
         "anlage_nach_trinkw_v": [],
+        "betreiber": [],
         "id": "pruefbericht-1"
       }
     },
