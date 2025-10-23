@@ -1,39 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/ ../schemas/V0_9_5/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/" produkt="SHAPTH CLI" produkthersteller="H &amp;amp;amp;amp; D GmbH" produktversion="H &amp;amp;amp;amp; D GmbH" standard="XWasser" test="true" version="0.9.5">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/ ../schemas/V0_9_5/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/" produkt="XWasser Test" produkthersteller="H&amp;amp;amp;D GmbH" produktversion="0.901.0" standard="XWasser" test="true" version="0.9.5">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
-      <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
+      <nachrichtenUUID>a2d0b0ed-8ea8-4084-a04a-8e611b4eb0c0</nachrichtenUUID>
       <nachrichtentyp listURI="urn:xoev-de:xwasser:codeliste:nachrichtentyp" listVersionID="1">
-        <code>0010</code>
+        <code>2010</code>
       </nachrichtentyp>
-      <erstellungszeitpunkt>2024-05-28T09:00:00</erstellungszeitpunkt>
+      <erstellungszeitpunkt>2025-10-23T14:36:48</erstellungszeitpunkt>
     </identifikation.nachricht>
     <leser>
       <verzeichnisdienst listVersionID="">
         <code></code>
       </verzeichnisdienst>
-      <kennung>mp:09000000</kennung>
-      <name>Reader</name>
+      <kennung></kennung>
+      <name></name>
     </leser>
     <autor>
       <verzeichnisdienst listVersionID="">
         <code></code>
       </verzeichnisdienst>
-      <kennung>gha:090</kennung>
-      <name>Author</name>
+      <kennung></kennung>
+      <name></name>
     </autor>
-    <dvdvDienstkennung>s</dvdvDienstkennung>
+    <dvdvDienstkennung></dvdvDienstkennung>
   </nachrichtenkopf.g2g>
   <xwas:vorgang>
     <xwas:identifikationVorgang>
-      <xwas:vorgangsID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:vorgangsID>
+      <xwas:vorgangsID>8bdf59f2-ef49-4fca-9ad0-16abe2a02845</xwas:vorgangsID>
     </xwas:identifikationVorgang>
     <xwas:vorgangType>
       <xwas:untersuchungsplan id="untersuchungsplan1">
-        <xwas:untersuchungsplanID>1234</xwas:untersuchungsplanID>
-        <xwas:wasserversorgungsgebiet>betreiber-1</xwas:wasserversorgungsgebiet>
+        <xwas:untersuchungsplanID>0fadfec0-fe58-4720-b84c-3a27b4f8c6aa</xwas:untersuchungsplanID>
+        <xwas:wasserversorgungsgebiet>wvg-jz28waIw</xwas:wasserversorgungsgebiet>
+        <xwas:titelUntersuchungsplan></xwas:titelUntersuchungsplan>
         <xwas:jahr>2024</xwas:jahr>
-        <xwas:wasserabgabeVorjahr>5000</xwas:wasserabgabeVorjahr>
+        <xwas:jahr>2025</xwas:jahr>
+        <xwas:wasserabgabeVorjahr>0</xwas:wasserabgabeVorjahr>
         <xwas:artVonWVAundWVG listURI="urn:xoev-de:xwasser:codeliste:wva" listVersionID="1">
           <code>1010</code>
         </xwas:artVonWVAundWVG>
@@ -43,11 +45,11 @@
         <xwas:flockung listURI="urn:xoev-de:xwasser:codeliste:flockung" listVersionID="1">
           <code>1010</code>
         </xwas:flockung>
-        <xwas:oberflaechenwassereinfluss>true</xwas:oberflaechenwassereinfluss>
+        <xwas:oberflaechenwassereinfluss>false</xwas:oberflaechenwassereinfluss>
         <xwas:desinfektionDurchgefuehrtMit listURI="urn:xoev-de:xwasser:codeliste:desinfektionsart" listVersionID="1">
           <code>1010</code>
         </xwas:desinfektionDurchgefuehrtMit>
-        <xwas:abfuellungZurAbgabeInVerschlossenenBehaeltnissen>true</xwas:abfuellungZurAbgabeInVerschlossenenBehaeltnissen>
+        <xwas:abfuellungZurAbgabeInVerschlossenenBehaeltnissen>false</xwas:abfuellungZurAbgabeInVerschlossenenBehaeltnissen>
         <xwas:acrylamid listURI="urn:xoev-de:xwasser:codeliste:nachweisart" listVersionID="1">
           <code>1010</code>
         </xwas:acrylamid>
@@ -57,724 +59,57 @@
         <xwas:vinylchlorid listURI="urn:xoev-de:xwasser:codeliste:nachweisart" listVersionID="1">
           <code>1010</code>
         </xwas:vinylchlorid>
-        <xwas:phWertWasserwerksausgang>true</xwas:phWertWasserwerksausgang>
-        <xwas:wasserabgabeVorjahrProTag>225</xwas:wasserabgabeVorjahrProTag>
-        <xwas:anzahlUntersuchungenproJahrGruppeA>1</xwas:anzahlUntersuchungenproJahrGruppeA>
-        <xwas:abzudeckenDurchBetreiberGruppeA>12</xwas:abzudeckenDurchBetreiberGruppeA>
-        <xwas:anzahlUntersuchungenproJahrGruppeB>2</xwas:anzahlUntersuchungenproJahrGruppeB>
-        <xwas:abzudeckenDurchBetreiberGruppeB>123</xwas:abzudeckenDurchBetreiberGruppeB>
-        <xwas:rapDurchgefuehrt>true</xwas:rapDurchgefuehrt>
+        <xwas:phWertWasserwerksausgang>false</xwas:phWertWasserwerksausgang>
+        <xwas:wasserabgabeVorjahrProTag>0</xwas:wasserabgabeVorjahrProTag>
+        <xwas:anzahlUntersuchungenproJahrGruppeA>0</xwas:anzahlUntersuchungenproJahrGruppeA>
+        <xwas:anzahlUntersuchungenproJahrGruppeB>0</xwas:anzahlUntersuchungenproJahrGruppeB>
+        <xwas:rapDurchgefuehrt>false</xwas:rapDurchgefuehrt>
         <xwas:statusUntersuchungsplan listURI="urn:xoev-de:xwasser:codeliste:status-untersuchungsplan" listVersionID="2">
           <code>1010</code>
         </xwas:statusUntersuchungsplan>
-        <xwas:terminplan id="terminplan1">
-          <xwas:terminplanID>0001</xwas:terminplanID>
-          <xwas:probennahmestelle>probennahmestelle1</xwas:probennahmestelle>
-          <xwas:datumZeitraum>2024-06-15T09:00:00</xwas:datumZeitraum>
-          <xwas:probennahmestelleKategorie listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="1">
-            <code>L</code>
+        <xwas:terminplan id="terminplan-hz7Z8h3z">
+          <xwas:terminplanID>a6836e29-9e16-46df-84e4-53b88e333944</xwas:terminplanID>
+          <xwas:probennahmestelle>probennahmestelle-g73xXhy3</xwas:probennahmestelle>
+          <xwas:datumZeitraum>2025-10-23T14:36:48</xwas:datumZeitraum>
+          <xwas:probennahmestelleKategorie listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="2">
+            <code>1000</code>
           </xwas:probennahmestelleKategorie>
-          <xwas:weitereBeschreibungDerProbennahmestelle>Probennahmestelle ist eine durch das Gesundheitsamt ausgewiesener Ort beim Wasserversorger, der eine fachgerechte Entnahme der Probe ermöglicht.</xwas:weitereBeschreibungDerProbennahmestelle>
           <xwas:untersuchungDurch listURI="urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung" listVersionID="2">
             <code>1010</code>
           </xwas:untersuchungDurch>
-          <xwas:untersuchungDurch listURI="urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung" listVersionID="2">
-            <code>1010</code>
-          </xwas:untersuchungDurch>
-          <xwas:untersuchungDurchErlaeuterung>Die Probe wird durch WVA und GHA untersucht.</xwas:untersuchungDurchErlaeuterung>
-          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
-            <code>1010</code>
-          </xwas:anlassDerUntersuchung>
-          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
-            <code>1040</code>
-          </xwas:anlassDerUntersuchung>
-          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
-            <code>1050</code>
-          </xwas:anlassDerUntersuchung>
-          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
-            <code>1060</code>
-          </xwas:anlassDerUntersuchung>
           <xwas:zuUntersuchenderParameter>
             <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1010</code>
+              <code></code>
             </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
+            <xwas:messprogramm></xwas:messprogramm>
+            <xwas:parameterGruppe></xwas:parameterGruppe>
+            <xwas:veraenderlich>false</xwas:veraenderlich>
+            <xwas:probennahmeverfahrenUBA>false</xwas:probennahmeverfahrenUBA>
+            <xwas:reduzierbarDurchRapRau>false</xwas:reduzierbarDurchRapRau>
+            <xwas:reduzierbarOhneRAU>false</xwas:reduzierbarOhneRAU>
           </xwas:zuUntersuchenderParameter>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1011</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1012</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1013</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1014</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:probennahmeverfahren listURI="urn:xoev-de:xwasser:codeliste:probennahmeverfahren" listVersionID="1">
-            <code>1010</code>
-          </xwas:probennahmeverfahren>
-          <xwas:probennahmeverfahren listURI="urn:xoev-de:xwasser:codeliste:probennahmeverfahren" listVersionID="1">
-            <code>1020</code>
-          </xwas:probennahmeverfahren>
-          <xwas:probennahmeverfahren listURI="urn:xoev-de:xwasser:codeliste:probennahmeverfahren" listVersionID="1">
-            <code>1030</code>
-          </xwas:probennahmeverfahren>
-          <xwas:ersatzFuerTerminplanMitDerID>123</xwas:ersatzFuerTerminplanMitDerID>
-          <xwas:kommentar>
-            <xwas:autor>Testuser</xwas:autor>
-            <xwas:erstellungszeitpunkt>2024-08-01T10:00:00</xwas:erstellungszeitpunkt>
-            <xwas:inhalt>Hier sind die zu untersuchenden Parameter und Probennahmeverfahren angegeben.</xwas:inhalt>
-          </xwas:kommentar>
         </xwas:terminplan>
-        <xwas:terminplan id="terminplan2">
-          <xwas:terminplanID>0002</xwas:terminplanID>
-          <xwas:probennahmestelle>probennahmestelle1</xwas:probennahmestelle>
-          <xwas:datumZeitraum>2024-08-01T10:00:00</xwas:datumZeitraum>
-          <xwas:datumZeitraum>2024-08-31T14:00:00</xwas:datumZeitraum>
-          <xwas:probennahmestelleKategorie listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="1">
-            <code>N</code>
-          </xwas:probennahmestelleKategorie>
-          <xwas:weitereBeschreibungDerProbennahmestelle>Probennahmestelle befindet sich am Hauptsitz des Versorgers.</xwas:weitereBeschreibungDerProbennahmestelle>
-          <xwas:untersuchungDurch listURI="urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung" listVersionID="2">
-            <code>1010</code>
-          </xwas:untersuchungDurch>
-          <xwas:untersuchungDurch listURI="urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung" listVersionID="2">
-            <code>1010</code>
-          </xwas:untersuchungDurch>
-          <xwas:untersuchungDurchErlaeuterung>Untersuchung erfolgt durch das Labor und das Gesundheitsamt.</xwas:untersuchungDurchErlaeuterung>
-          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
-            <code>1020</code>
-          </xwas:anlassDerUntersuchung>
-          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
-            <code>1070</code>
-          </xwas:anlassDerUntersuchung>
-          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
-            <code>1080</code>
-          </xwas:anlassDerUntersuchung>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1010</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1011</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1012</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1013</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1014</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:probennahmeverfahren listURI="urn:xoev-de:xwasser:codeliste:probennahmeverfahren" listVersionID="1">
-            <code>1040</code>
-          </xwas:probennahmeverfahren>
-          <xwas:probennahmeverfahren listURI="urn:xoev-de:xwasser:codeliste:probennahmeverfahren" listVersionID="1">
-            <code>1050</code>
-          </xwas:probennahmeverfahren>
-          <xwas:ersatzFuerTerminplanMitDerID>124</xwas:ersatzFuerTerminplanMitDerID>
-          <xwas:kommentar>
-            <xwas:autor>Testuser</xwas:autor>
-            <xwas:erstellungszeitpunkt>2024-08-01T10:00:00</xwas:erstellungszeitpunkt>
-            <xwas:inhalt>Untersuchung an verschiedenen Zeitpunkten durchgeführt.</xwas:inhalt>
-          </xwas:kommentar>
-        </xwas:terminplan>
-        <xwas:terminplan id="terminplan3">
-          <xwas:terminplanID>0003</xwas:terminplanID>
-          <xwas:probennahmestelle>probennahmestelle1</xwas:probennahmestelle>
-          <xwas:datumZeitraum>2024-09-01T08:00:00</xwas:datumZeitraum>
-          <xwas:datumZeitraum>2024-09-15T16:00:00</xwas:datumZeitraum>
-          <xwas:probennahmestelleKategorie listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="1">
-            <code>W</code>
-          </xwas:probennahmestelleKategorie>
-          <xwas:weitereBeschreibungDerProbennahmestelle>Probennahmestelle in einem ländlichen Versorgungsgebiet.</xwas:weitereBeschreibungDerProbennahmestelle>
-          <xwas:untersuchungDurch listURI="urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung" listVersionID="2">
-            <code>1010</code>
-          </xwas:untersuchungDurch>
-          <xwas:untersuchungDurch listURI="urn:xoev-de:xwasser:codeliste:ueberwachung-aufbereitung" listVersionID="2">
-            <code>1010</code>
-          </xwas:untersuchungDurch>
-          <xwas:untersuchungDurchErlaeuterung>Untersuchung durchgeführt durch das regionale Labor.</xwas:untersuchungDurchErlaeuterung>
-          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
-            <code>1030</code>
-          </xwas:anlassDerUntersuchung>
-          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
-            <code>1090</code>
-          </xwas:anlassDerUntersuchung>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1010</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1011</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1012</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1013</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-              <code>1014</code>
-            </xwas:parameter>
-            <xwas:messprogramm>1</xwas:messprogramm>
-            <xwas:parameterGruppe>g1</xwas:parameterGruppe>
-            <xwas:veraenderlich>true</xwas:veraenderlich>
-            <xwas:probennahmeverfahrenUBA>true</xwas:probennahmeverfahrenUBA>
-            <xwas:reduzierbarDurchRapRau>true</xwas:reduzierbarDurchRapRau>
-            <xwas:reduzierbarOhneRAU>true</xwas:reduzierbarOhneRAU>
-            <xwas:bemerkung></xwas:bemerkung>
-          </xwas:zuUntersuchenderParameter>
-          <xwas:probennahmeverfahren listURI="urn:xoev-de:xwasser:codeliste:probennahmeverfahren" listVersionID="1">
-            <code>1080</code>
-          </xwas:probennahmeverfahren>
-          <xwas:probennahmeverfahren listURI="urn:xoev-de:xwasser:codeliste:probennahmeverfahren" listVersionID="1">
-            <code>1090</code>
-          </xwas:probennahmeverfahren>
-          <xwas:ersatzFuerTerminplanMitDerID>125</xwas:ersatzFuerTerminplanMitDerID>
-          <xwas:kommentar>
-            <xwas:autor>Testuser</xwas:autor>
-            <xwas:erstellungszeitpunkt>2024-08-01T10:00:00</xwas:erstellungszeitpunkt>
-            <xwas:inhalt>Aufgrund besonderer Bedingungen wurde eine zweite Untersuchung angeordnet.</xwas:inhalt>
-          </xwas:kommentar>
-        </xwas:terminplan>
-        <xwas:anlageNachTrinkwV id="abcd">
+        <xwas:anlageNachTrinkwV id="antv-k71zTgYl">
           <xwas:anlageNachTrinkwVID></xwas:anlageNachTrinkwVID>
-          <xwas:zustaendigeBehoerdeID>GHA1</xwas:zustaendigeBehoerdeID>
-          <xwas:untersuchungsplanID>untersuchungsplan1</xwas:untersuchungsplanID>
           <xwas:artAnlage listURI="urn:xoev-de:xwasser:codeliste:art-trinkwasseranlage" listVersionID="1">
             <code>1010</code>
           </xwas:artAnlage>
-          <xwas:nameDerAnlage>Anlage1</xwas:nameDerAnlage>
-          <xwas:abgegebeneWassermengeDerAnlageProTag>123456.0121234</xwas:abgegebeneWassermengeDerAnlageProTag>
-          <xwas:anzahlDurchAnlageVersorgtePersonen>123499</xwas:anzahlDurchAnlageVersorgtePersonen>
-          <xwas:kommentar>Pumpe eines Wasserversorgers</xwas:kommentar>
-          <xwas:wasserversorgungsgebiet id="wvgfremdbezogen">
-            <xwas:wasserversorgungsgebietID>wvg1</xwas:wasserversorgungsgebietID>
-            <xwas:nameWasserversorgungsgebiet></xwas:nameWasserversorgungsgebiet>
-            <xwas:lau2Code>2</xwas:lau2Code>
-            <xwas:zustaendigeBehoerde>
-              <xwas:id>behoerde22</xwas:id>
-              <xwas:typ>
-                <code></code>
-                <name></name>
-              </xwas:typ>
-              <xwas:zusatz>Gemeinde Hotzingmussen</xwas:zusatz>
-              <xwas:behoerdenkennung>
-                <xwas:kennung listURI="" listVersionID="">
-                  <code>1234</code>
-                  <name>Behoerde Hotzingmussen</name>
-                </xwas:kennung>
-                <xwas:praefix listURI="urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix" listVersionID="">
-                  <code>1234</code>
-                  <name>von</name>
-                </xwas:praefix>
-              </xwas:behoerdenkennung>
-              <xwas:kommunikation>
-                <xwas:kanal listURI="urn:de:xoev:codeliste:erreichbarkeit" listVersionID="3">
-                  <code>1234</code>
-                  <name>E-Mail</name>
-                </xwas:kanal>
-                <xwas:kennung>1</xwas:kennung>
-                <xwas:istDienstlich>true</xwas:istDienstlich>
-                <xwas:zusatz>Austausch über Email</xwas:zusatz>
-              </xwas:kommunikation>
-              <xwas:behoerdenidentifikation>
-                <xwas:beschreibung>Gesundheitsamt</xwas:beschreibung>
-                <xwas:gueltigkeit>
-                  <xwas:beginn>2024-07-26+05:00</xwas:beginn>
-                  <xwas:ende>2024-07-26+05:00</xwas:ende>
-                  <xwas:zusatz>Ein</xwas:zusatz>
-                </xwas:gueltigkeit>
-              </xwas:behoerdenidentifikation>
-              <xwas:behoerdenname>
-                <xwas:name>Gesundheitsamt der Gemeinde Hotzingmussen</xwas:name>
-                <xwas:kurzbezeichnung>GdGH</xwas:kurzbezeichnung>
-                <xwas:gueltigkeit>
-                  <xwas:beginn>2024-07-26+05:00</xwas:beginn>
-                  <xwas:ende>2024-07-26+05:00</xwas:ende>
-                  <xwas:zusatz>Seit Bestehen und zukünftig</xwas:zusatz>
-                </xwas:gueltigkeit>
-              </xwas:behoerdenname>
-              <xwas:verwaltungspolitischeZustaendigkeit>
-                <xwas:bezirk listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk" listVersionID="">
-                  <code>9999</code>
-                  <name>Reg.-Bez. Hotzingmussen</name>
-                </xwas:bezirk>
-                <xwas:bundesland listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland" listVersionID="2010-04-01">
-                  <code>1</code>
-                </xwas:bundesland>
-                <xwas:gemeindeschluessel listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags" listVersionID="">
-                  <code>6667</code>
-                  <name>Gemeine Hotzingen</name>
-                </xwas:gemeindeschluessel>
-                <xwas:nation>
-                  <xwas:staat listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat" listVersionID="">
-                    <code>2</code>
-                    <name>LandLand</name>
-                  </xwas:staat>
-                </xwas:nation>
-              </xwas:verwaltungspolitischeZustaendigkeit>
-              <xwas:anschrift id="anschrift4">
-                <xwas:strassenschluessel>
-                  <code>1234</code>
-                </xwas:strassenschluessel>
-                <xwas:strasse>In der Stadt</xwas:strasse>
-                <xwas:hausnummer>1</xwas:hausnummer>
-                <xwas:postfach>12345</xwas:postfach>
-                <xwas:postleitzahl>90909</xwas:postleitzahl>
-                <xwas:ort>Hotzingmussen</xwas:ort>
-                <xwas:ortsteil>Worzen</xwas:ortsteil>
-                <xwas:ortFruehererGemeindename>Vordertupfingen</xwas:ortFruehererGemeindename>
-                <xwas:wohnungsgeber>Wohnfirma</xwas:wohnungsgeber>
-                <xwas:zusatz>Zusatz zur Anschrift</xwas:zusatz>
-                <xwas:typ listURI="urn:xoev-de:fim:codeliste:xzufi.anschrifttyp" listVersionID="2.0">
-                  <code>1234</code>
-                  <name></name>
-                </xwas:typ>
-                <xwas:staat>
-                  <xwas:staat listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat" listVersionID="">
-                    <code>1234</code>
-                    <name></name>
-                  </xwas:staat>
-                </xwas:staat>
-                <xwas:verwaltungspolitischeKodierung>
-                  <xwas:kreis listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis" listVersionID="">
-                    <code>1111</code>
-                    <name></name>
-                  </xwas:kreis>
-                  <xwas:bezirk listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk" listVersionID="">
-                    <code>1231</code>
-                    <name></name>
-                  </xwas:bezirk>
-                  <xwas:bundesland listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland" listVersionID="2010-04-01">
-                    <code>1</code>
-                    <name></name>
-                  </xwas:bundesland>
-                  <xwas:gemeindeschluessel listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags" listVersionID="">
-                    <code>9090</code>
-                    <name></name>
-                  </xwas:gemeindeschluessel>
-                  <xwas:regionalschluessel listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs" listVersionID="">
-                    <code>9897</code>
-                    <name></name>
-                  </xwas:regionalschluessel>
-                  <xwas:nation>
-                    <xwas:staat listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat" listVersionID="">
-                      <code>123456</code>
-                      <name></name>
-                    </xwas:staat>
-                  </xwas:nation>
-                </xwas:verwaltungspolitischeKodierung>
-              </xwas:anschrift>
-              <xwas:organisationsstruktur>
-                <xwas:name>Wasserprobeneinheit</xwas:name>
-                <xwas:hierarchieebene>2</xwas:hierarchieebene>
-                <xwas:hierarchiename>Zweiter Hierarchie</xwas:hierarchiename>
-              </xwas:organisationsstruktur>
-            </xwas:zustaendigeBehoerde>
-            <xwas:geokoordinatenSHAPTH>
-              <xwas:geografischePositionUndAusdehnung>SGVsbG8sIHdvcmxkIQ==</xwas:geografischePositionUndAusdehnung>
-              <xwas:nameShapefile>shapefile</xwas:nameShapefile>
-              <xwas:geokoordinatenBreitengrad>1.2</xwas:geokoordinatenBreitengrad>
-              <xwas:geokoordinatenLaengengrad>1.3</xwas:geokoordinatenLaengengrad>
-              <xwas:geokoordinatenRechtswertEastWert>3</xwas:geokoordinatenRechtswertEastWert>
-              <xwas:geokoordinatenHochwertNorthWert>3</xwas:geokoordinatenHochwertNorthWert>
-            </xwas:geokoordinatenSHAPTH>
-            <xwas:datumDerEinrichtung>2024-12-12</xwas:datumDerEinrichtung>
-            <xwas:datumDerSchliessung>2025-12-12</xwas:datumDerSchliessung>
-            <xwas:grundDerSchliessung listURI="urn:xoev-de:xwasser:codeliste:grund-schliessung-wasserversorgungsgebiet" listVersionID="1">
-              <code>N</code>
-            </xwas:grundDerSchliessung>
-            <xwas:nachfolgerWVGbeiSchliessung>NachfolgerWVG</xwas:nachfolgerWVGbeiSchliessung>
-            <xwas:wvgFremdbezogen>wvgfremdbezogen</xwas:wvgFremdbezogen>
-            <xwas:abgegebeneWassermenge>5000</xwas:abgegebeneWassermenge>
-            <xwas:anzahlVersorgtePersonenWVG>200000</xwas:anzahlVersorgtePersonenWVG>
-            <xwas:referenzjahrAngabenWVG>4</xwas:referenzjahrAngabenWVG>
-            <xwas:artDerWasserressource listURI="urn:xoev-de:xwasser:codeliste:art-wasserressource" listVersionID="1">
-              <code>1010</code>
-            </xwas:artDerWasserressource>
-            <xwas:anteilDerWasserressource>3</xwas:anteilDerWasserressource>
-            <xwas:anteilDerWasserressource>4</xwas:anteilDerWasserressource>
-            <xwas:anteilDerWasserressource>5</xwas:anteilDerWasserressource>
-            <xwas:vorgeschriebeneUntersuchungshaeufigkeitParameterA>1</xwas:vorgeschriebeneUntersuchungshaeufigkeitParameterA>
-            <xwas:vorgeschriebeneUntersuchungshaeufigkeitParameterB>1</xwas:vorgeschriebeneUntersuchungshaeufigkeitParameterB>
-            <xwas:kommentar>Wasserversorgungsgebiet des Landkreises Kaffhausen</xwas:kommentar>
-            <xwas:derogation id="derogationidentifier">
-              <xwas:derogationIdentifier>550e8400-e29b-41d4-a716-446655440000</xwas:derogationIdentifier>
-              <xwas:trivialDerogation>true</xwas:trivialDerogation>
-              <xwas:trivialDerogationJustification>trivialderogationjustification</xwas:trivialDerogationJustification>
-              <xwas:derogationStartDate>2024-10-10</xwas:derogationStartDate>
-              <xwas:derogationEndDate>2024-12-12</xwas:derogationEndDate>
-              <xwas:volumeOfWaterSupplied>123.9</xwas:volumeOfWaterSupplied>
-              <xwas:derogationAffectedPopulation>12345</xwas:derogationAffectedPopulation>
-              <xwas:foodProductionAffected>true</xwas:foodProductionAffected>
-              <xwas:derogationUnderRecastDWD>true</xwas:derogationUnderRecastDWD>
-              <xwas:derogationGrounds listURI="urn:xoev-de:xwasser:codeliste:grund-ausnahmeregelung" listVersionID="1">
-                <code>1010</code>
-              </xwas:derogationGrounds>
-              <xwas:previousDerogationIdentifier>derogationidentifier</xwas:previousDerogationIdentifier>
-              <xwas:previousDerogationConclusions>conclusions</xwas:previousDerogationConclusions>
-              <xwas:previousDerogationStartDate>2024-09-09</xwas:previousDerogationStartDate>
-              <xwas:previousDerogationEndDate>2024-09-10</xwas:previousDerogationEndDate>
-              <xwas:previousDerogationGrounds listURI="urn:xoev-de:xwasser:codeliste:grund-ausnahmeregelung" listVersionID="1">
-                <code>1010</code>
-              </xwas:previousDerogationGrounds>
-              <xwas:remarks>remarks</xwas:remarks>
-              <xwas:derogationRemedialAction id="derogation_identifier_1">
-                <xwas:derogationRemedialActionIdentifier>C74272E8-8C67-4823-8229-2E569AAEBC38</xwas:derogationRemedialActionIdentifier>
-                <xwas:derogationRemedialAction listURI="urn:xoev-de:xwasser:codeliste:abhilfemassnahmen" listVersionID="1">
-                  <code>1010</code>
-                </xwas:derogationRemedialAction>
-                <xwas:derogationRemedialActionStartDate>2024-09-15</xwas:derogationRemedialActionStartDate>
-                <xwas:derogationRemedialActionEndDate>2024-09-15</xwas:derogationRemedialActionEndDate>
-                <xwas:derogationRemedialActionCost>1.11</xwas:derogationRemedialActionCost>
-                <xwas:remarks>remarks</xwas:remarks>
-              </xwas:derogationRemedialAction>
-              <xwas:derogationRemedialAction id="derogation_identifier">
-                <xwas:derogationRemedialActionIdentifier>3D0F5219-4241-4969-95A3-AB5C2B46D32B</xwas:derogationRemedialActionIdentifier>
-                <xwas:derogationRemedialAction listURI="urn:xoev-de:xwasser:codeliste:abhilfemassnahmen" listVersionID="1">
-                  <code>1020</code>
-                </xwas:derogationRemedialAction>
-                <xwas:derogationRemedialActionStartDate>2024-10-01</xwas:derogationRemedialActionStartDate>
-                <xwas:derogationRemedialActionEndDate>2024-12-01</xwas:derogationRemedialActionEndDate>
-                <xwas:derogationRemedialActionCost>2.5</xwas:derogationRemedialActionCost>
-                <xwas:remarks>Remedial action scheduled for the end of the year.</xwas:remarks>
-              </xwas:derogationRemedialAction>
-              <xwas:derogationRemedialAction id="derogation_identifier_3">
-                <xwas:derogationRemedialActionIdentifier>6EA872B6-3E71-4D50-AB7B-E8C21A066663</xwas:derogationRemedialActionIdentifier>
-                <xwas:derogationRemedialAction listURI="urn:xoev-de:xwasser:codeliste:abhilfemassnahmen" listVersionID="1">
-                  <code>1030</code>
-                </xwas:derogationRemedialAction>
-                <xwas:derogationRemedialActionStartDate>2025-01-15</xwas:derogationRemedialActionStartDate>
-                <xwas:derogationRemedialActionEndDate>2025-03-15</xwas:derogationRemedialActionEndDate>
-                <xwas:derogationRemedialActionCost>3.75</xwas:derogationRemedialActionCost>
-                <xwas:remarks>Second round of corrective actions.</xwas:remarks>
-              </xwas:derogationRemedialAction>
-              <xwas:derogationRemedialAction id="derogation_identifier_2">
-                <xwas:derogationRemedialActionIdentifier>B5CBCAC6-1254-47D3-9D44-AD05625CE340</xwas:derogationRemedialActionIdentifier>
-                <xwas:derogationRemedialAction listURI="urn:xoev-de:xwasser:codeliste:abhilfemassnahmen" listVersionID="1">
-                  <code>1040</code>
-                </xwas:derogationRemedialAction>
-                <xwas:derogationRemedialActionStartDate>2025-05-01</xwas:derogationRemedialActionStartDate>
-                <xwas:derogationRemedialActionEndDate>2025-06-30</xwas:derogationRemedialActionEndDate>
-                <xwas:derogationRemedialActionCost>4.9</xwas:derogationRemedialActionCost>
-                <xwas:remarks>Final phase of remedial work.</xwas:remarks>
-              </xwas:derogationRemedialAction>
-              <xwas:qualityAndMonitoring id="qam1">
-                <xwas:qualityAndMonitoringRequirementIdentifier>554e8400-e29b-41d4-a716-446655440000</xwas:qualityAndMonitoringRequirementIdentifier>
-                <xwas:parameterCode listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-                  <code>1711</code>
-                </xwas:parameterCode>
-                <xwas:parameterThresholdValue>1.11</xwas:parameterThresholdValue>
-                <xwas:parameterThresholdValueUnit listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit" listVersionID="2">
-                  <code>1010</code>
-                </xwas:parameterThresholdValueUnit>
-                <xwas:samplingFrequency>2</xwas:samplingFrequency>
-                <xwas:samplingPeriod listURI="urn:xoev-de:xwasser:codeliste:probennahmezeitraum" listVersionID="1">
-                  <code>a</code>
-                </xwas:samplingPeriod>
-                <xwas:samplingLocationType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                  <code>1010</code>
-                </xwas:samplingLocationType>
-                <xwas:samplingLocationType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                  <code>1020</code>
-                </xwas:samplingLocationType>
-                <xwas:samplingLocationType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                  <code>1030</code>
-                </xwas:samplingLocationType>
-                <xwas:samplingLocationType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                  <code>1040</code>
-                </xwas:samplingLocationType>
-                <xwas:remarks>remarks</xwas:remarks>
-              </xwas:qualityAndMonitoring>
-              <xwas:qualityAndMonitoring id="anhang">
-                <xwas:qualityAndMonitoringRequirementIdentifier>664e8400-e29b-41d4-a716-446655440001</xwas:qualityAndMonitoringRequirementIdentifier>
-                <xwas:parameterCode listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-                  <code>1722</code>
-                </xwas:parameterCode>
-                <xwas:parameterThresholdValue>2.22</xwas:parameterThresholdValue>
-                <xwas:parameterThresholdValueUnit listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit" listVersionID="2">
-                  <code>1020</code>
-                </xwas:parameterThresholdValueUnit>
-                <xwas:samplingFrequency>3</xwas:samplingFrequency>
-                <xwas:samplingPeriod listURI="urn:xoev-de:xwasser:codeliste:probennahmezeitraum" listVersionID="1">
-                  <code>d</code>
-                </xwas:samplingPeriod>
-                <xwas:samplingLocationType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                  <code>1050</code>
-                </xwas:samplingLocationType>
-                <xwas:samplingLocationType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                  <code>1010</code>
-                </xwas:samplingLocationType>
-                <xwas:samplingLocationType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                  <code>1040</code>
-                </xwas:samplingLocationType>
-                <xwas:remarks>Monitoring for secondary parameters.</xwas:remarks>
-              </xwas:qualityAndMonitoring>
-              <xwas:qualityAndMonitoring id="wvg1">
-                <xwas:qualityAndMonitoringRequirementIdentifier>774e8400-e29b-41d4-a716-446655440002</xwas:qualityAndMonitoringRequirementIdentifier>
-                <xwas:parameterCode listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-                  <code>1733</code>
-                </xwas:parameterCode>
-                <xwas:parameterThresholdValue>3.33</xwas:parameterThresholdValue>
-                <xwas:parameterThresholdValueUnit listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit" listVersionID="2">
-                  <code>1030</code>
-                </xwas:parameterThresholdValueUnit>
-                <xwas:samplingFrequency>4</xwas:samplingFrequency>
-                <xwas:samplingPeriod listURI="urn:xoev-de:xwasser:codeliste:probennahmezeitraum" listVersionID="1">
-                  <code>a</code>
-                </xwas:samplingPeriod>
-                <xwas:samplingLocationType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                  <code>1050</code>
-                </xwas:samplingLocationType>
-                <xwas:remarks>Quarterly monitoring for critical parameters.</xwas:remarks>
-              </xwas:qualityAndMonitoring>
-              <xwas:qualityAndMonitoring id="NachfolgerWVG">
-                <xwas:qualityAndMonitoringRequirementIdentifier>884e8400-e29b-41d4-a716-446655440003</xwas:qualityAndMonitoringRequirementIdentifier>
-                <xwas:parameterCode listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-                  <code>1744</code>
-                </xwas:parameterCode>
-                <xwas:parameterThresholdValue>4.44</xwas:parameterThresholdValue>
-                <xwas:parameterThresholdValueUnit listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit" listVersionID="2">
-                  <code>1040</code>
-                </xwas:parameterThresholdValueUnit>
-                <xwas:samplingFrequency>5</xwas:samplingFrequency>
-                <xwas:samplingPeriod listURI="urn:xoev-de:xwasser:codeliste:probennahmezeitraum" listVersionID="1">
-                  <code>d</code>
-                </xwas:samplingPeriod>
-                <xwas:samplingLocationType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                  <code>1020</code>
-                </xwas:samplingLocationType>
-                <xwas:samplingLocationType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                  <code>1010</code>
-                </xwas:samplingLocationType>
-                <xwas:remarks>Annual monitoring with expanded parameter set.</xwas:remarks>
-              </xwas:qualityAndMonitoring>
-            </xwas:derogation>
-            <xwas:exceedance id="e1">
-              <xwas:exceedanceIdentifier>557e8400-e29b-41d4-a716-446655440000</xwas:exceedanceIdentifier>
-              <xwas:trivialExceedance>true</xwas:trivialExceedance>
-              <xwas:trivialExceedanceJustification>justification</xwas:trivialExceedanceJustification>
-              <xwas:parameterCode listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
-                <code>1711</code>
-              </xwas:parameterCode>
-              <xwas:exceedanceStartDate>2024-09-15</xwas:exceedanceStartDate>
-              <xwas:exceedanceEndDate>2024-09-15</xwas:exceedanceEndDate>
-              <xwas:exceedanceAffectedPopulation>1</xwas:exceedanceAffectedPopulation>
-              <xwas:pointOfComplianceType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                <code>1010</code>
-              </xwas:pointOfComplianceType>
-              <xwas:pointOfComplianceType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                <code>1020</code>
-              </xwas:pointOfComplianceType>
-              <xwas:pointOfComplianceType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                <code>1030</code>
-              </xwas:pointOfComplianceType>
-              <xwas:pointOfComplianceType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                <code>1040</code>
-              </xwas:pointOfComplianceType>
-              <xwas:pointOfComplianceType listURI="urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu" listVersionID="1">
-                <code>1050</code>
-              </xwas:pointOfComplianceType>
-              <xwas:numberOfSamplesPerYear>1</xwas:numberOfSamplesPerYear>
-              <xwas:incidentIdentifier>incident_identifier</xwas:incidentIdentifier>
-              <xwas:derogationIdentifier>derogation_identifier</xwas:derogationIdentifier>
-              <xwas:remarks>remarks</xwas:remarks>
-              <xwas:exceedanceCauseAndRemedialAction id="ex1">
-                <xwas:exceedanceCauseAndRemedialActionIdentifier>557e8400-e29b-41d4-a716-446655440001</xwas:exceedanceCauseAndRemedialActionIdentifier>
-                <xwas:exceedanceCause listURI="urn:xoev-de:xwasser:codeliste:incident-exceedance-cause" listVersionID="1">
-                  <code>1010</code>
-                </xwas:exceedanceCause>
-                <xwas:exceedanceRemedialAction listURI="urn:xoev-de:xwasser:codeliste:massnahmen" listVersionID="1">
-                  <code>1010</code>
-                </xwas:exceedanceRemedialAction>
-                <xwas:exceedanceRemedialActionStartDate>2024-09-15</xwas:exceedanceRemedialActionStartDate>
-                <xwas:exceedanceRemedialActionEndDate>2024-09-15</xwas:exceedanceRemedialActionEndDate>
-                <xwas:remarks>remarks</xwas:remarks>
-              </xwas:exceedanceCauseAndRemedialAction>
-            </xwas:exceedance>
-            <xwas:incident id="incident_identifier">
-              <xwas:incidentIdentifier>557e8400-e29b-41d5-a716-446655440000</xwas:incidentIdentifier>
-              <xwas:exceedance>ex1</xwas:exceedance>
-              <xwas:incidentStartDate>2024-09-15</xwas:incidentStartDate>
-              <xwas:incidentEndDate>2024-09-15</xwas:incidentEndDate>
-              <xwas:incidentCategory listURI="urn:xoev-de:xwasser:codeliste:incident-category" listVersionID="1">
-                <code>1010</code>
-              </xwas:incidentCategory>
-              <xwas:incidentCategory listURI="urn:xoev-de:xwasser:codeliste:incident-category" listVersionID="1">
-                <code>1020</code>
-              </xwas:incidentCategory>
-              <xwas:incidentCategory listURI="urn:xoev-de:xwasser:codeliste:incident-category" listVersionID="1">
-                <code>1030</code>
-              </xwas:incidentCategory>
-              <xwas:incidentCategory listURI="urn:xoev-de:xwasser:codeliste:incident-category" listVersionID="1">
-                <code>1040</code>
-              </xwas:incidentCategory>
-              <xwas:incidentAffectedPopulation>1</xwas:incidentAffectedPopulation>
-              <xwas:remarks>remarks</xwas:remarks>
-              <xwas:incidentCauseAndRemedialAction id="remaction1">
-                <xwas:incidentCauseAndRemidialActionIdentifier>557e8400-e29b-21d4-a716-446655440001</xwas:incidentCauseAndRemidialActionIdentifier>
-                <xwas:incidentCause listURI="urn:xoev-de:xwasser:codeliste:incident-exceedance-cause" listVersionID="1">
-                  <code>1010</code>
-                </xwas:incidentCause>
-                <xwas:incidentRemedialAction listURI="urn:xoev-de:xwasser:codeliste:massnahmen" listVersionID="1">
-                  <code>1010</code>
-                </xwas:incidentRemedialAction>
-                <xwas:incidentRemedialActionStartDate>2024-09-15</xwas:incidentRemedialActionStartDate>
-                <xwas:incidentRemedialActionEndDate>2024-09-15</xwas:incidentRemedialActionEndDate>
-                <xwas:remarks>remarks</xwas:remarks>
-              </xwas:incidentCauseAndRemedialAction>
-            </xwas:incident>
-          </xwas:wasserversorgungsgebiet>
+          <xwas:nameDerAnlage></xwas:nameDerAnlage>
+          <xwas:wasserversorgungsgebietID>wvg-jz28waIw</xwas:wasserversorgungsgebietID>
         </xwas:anlageNachTrinkwV>
-        <xwas:objekt id="obj-DEHK5z3p">
-          <xwas:objektID>497869a6-c859-47e9-8353-526b07bfa5ef</xwas:objektID>
+        <xwas:objekt id="obj-mjkuauCY">
+          <xwas:objektID>c07a349a-504b-4c59-9fa1-2240aa115093</xwas:objektID>
           <xwas:artObjekt listURI="urn:xoev-de:xwasser:codeliste:art-objekt" listVersionID="1">
             <code>1010</code>
           </xwas:artObjekt>
           <xwas:nameObjekt></xwas:nameObjekt>
-          <xwas:geokoordinatenObjekt>
-          </xwas:geokoordinatenObjekt>
-          <xwas:betreiber id="betreiber-FCHZpfnY">
-            <xwas:betreiberID>85d6c328-e01e-4362-9d39-44f6319e6eb4</xwas:betreiberID>
-            <xwas:artDerPerson>
-              <xwas:organisation id="organisation-ECelFPri">
-              </xwas:organisation>
-            </xwas:artDerPerson>
-            <xwas:objektID>obj-DEHK5z3p</xwas:objektID>
-          </xwas:betreiber>
+          <xwas:betreiberID>betreiber-oDxqnud3</xwas:betreiberID>
         </xwas:objekt>
-        <xwas:probennahmestelle id="probennahmestelle-1">
-          <xwas:probennahmestelleID>probennahmestelle-1</xwas:probennahmestelleID>
+        <xwas:probennahmestelle id="probennahmestelle-g73xXhy3">
+          <xwas:probennahmestelleID>2ac293de-0aad-4639-97a1-cd2fa6aaff3f</xwas:probennahmestelleID>
           <xwas:nameProbennahmestelle>Probennahmestelle 1</xwas:nameProbennahmestelle>
-          <xwas:kategorieProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="1">
-            <code>L</code>
+          <xwas:kategorieProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="2">
+            <code>1000</code>
           </xwas:kategorieProbennahmestelle>
           <xwas:unterkategorieProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle" listVersionID="1">
             <code>1030</code>
@@ -788,107 +123,40 @@
           </xwas:mediumAnDerProbennahmestelle>
         </xwas:probennahmestelle>
         <xwas:auftraggeber>
-          <xwas:auftraggeberID>Auftraggeber1</xwas:auftraggeberID>
+          <xwas:auftraggeberID></xwas:auftraggeberID>
           <xwas:auftraggeberart listURI="urn:xoev-de:xwasser:codeliste:auftraggeberart" listVersionID="1">
             <code>1010</code>
           </xwas:auftraggeberart>
           <xwas:auftraggeber>
-            <xwas:zustaendigeBehoerde>
-              <xwas:id>probennehmer1</xwas:id>
-              <xwas:anlageNachTrinkwVID></xwas:anlageNachTrinkwVID>
-              <xwas:laenderkuerzel listURI="urn:xoev-de:xwasser:codeliste:laenderkennzeichen" listVersionID="1">
-                <code>DEAA</code>
-              </xwas:laenderkuerzel>
-            </xwas:zustaendigeBehoerde>
+            <xwas:organisation id="organisation-lH5X88rH">
+            </xwas:organisation>
           </xwas:auftraggeber>
         </xwas:auftraggeber>
         <xwas:zustaendigeBehoerde>
-          <xwas:id>GHA1</xwas:id>
-          <xwas:anlageNachTrinkwVID></xwas:anlageNachTrinkwVID>
+          <xwas:id>behoerde-fHOxKIbh</xwas:id>
+          <xwas:typ>
+            <code></code>
+          </xwas:typ>
+          <xwas:behoerdenkennung>
+          </xwas:behoerdenkennung>
+          <xwas:behoerdenidentifikation>
+            <xwas:gueltigkeit>
+              <xwas:beginn>2024-01-01</xwas:beginn>
+              <xwas:ende>2099-01-01</xwas:ende>
+            </xwas:gueltigkeit>
+          </xwas:behoerdenidentifikation>
+          <xwas:behoerdenname>
+            <xwas:kurzbezeichnung></xwas:kurzbezeichnung>
+            <xwas:gueltigkeit>
+              <xwas:beginn>2024-01-01</xwas:beginn>
+              <xwas:ende>2099-01-01</xwas:ende>
+            </xwas:gueltigkeit>
+          </xwas:behoerdenname>
           <xwas:laenderkuerzel listURI="urn:xoev-de:xwasser:codeliste:laenderkennzeichen" listVersionID="1">
-            <code>DEAA</code>
+            <code>DEBY</code>
           </xwas:laenderkuerzel>
         </xwas:zustaendigeBehoerde>
-        <xwas:kommentar>
-          <xwas:autor>test autor</xwas:autor>
-          <xwas:erstellungszeitpunkt>2024-06-15T09:00:00</xwas:erstellungszeitpunkt>
-          <xwas:inhalt>Reguläre Untersuchung im ersten Quartal</xwas:inhalt>
-        </xwas:kommentar>
-        <xwas:erweiterung>
-          <xwas:feld>
-            <xwas:name>feldname</xwas:name>
-            <xwas:beschreibung>beschreibung</xwas:beschreibung>
-            <xwas:datentyp listURI="urn:xoev-de:xdomea:codeliste:datentyp" listVersionID="1.1">
-              <code></code>
-            </xwas:datentyp>
-            <xwas:wert>feldwert</xwas:wert>
-          </xwas:feld>
-          <xwas:gruppe>
-            <xwas:name>gruppenname</xwas:name>
-            <xwas:beschreibung>gruppenbeschreibung</xwas:beschreibung>
-            <xwas:untergruppe>
-              <xwas:name>untergruppenname</xwas:name>
-              <xwas:beschreibung>untergruppenbeschreibung</xwas:beschreibung>
-              <xwas:untergruppe>
-                <xwas:name>unteruntergruppennanme</xwas:name>
-                <xwas:beschreibung>unteruntergruppenbeschreibung</xwas:beschreibung>
-                <xwas:feld>
-                  <xwas:name>feldname2</xwas:name>
-                  <xwas:beschreibung>beschreibung2</xwas:beschreibung>
-                  <xwas:datentyp listURI="urn:xoev-de:xdomea:codeliste:datentyp" listVersionID="1.1">
-                    <code>1020</code>
-                  </xwas:datentyp>
-                  <xwas:wert>feldwert2</xwas:wert>
-                </xwas:feld>
-                <xwas:feld>
-                  <xwas:name>feldname3</xwas:name>
-                  <xwas:beschreibung>beschreibung3</xwas:beschreibung>
-                  <xwas:datentyp listURI="urn:xoev-de:xdomea:codeliste:datentyp" listVersionID="1.1">
-                    <code>1030</code>
-                  </xwas:datentyp>
-                  <xwas:wert>feldwert3</xwas:wert>
-                </xwas:feld>
-                <xwas:feld>
-                  <xwas:name>feldname4</xwas:name>
-                  <xwas:beschreibung>beschreibung4</xwas:beschreibung>
-                  <xwas:datentyp listURI="urn:xoev-de:xdomea:codeliste:datentyp" listVersionID="1.1">
-                    <code>1040</code>
-                  </xwas:datentyp>
-                  <xwas:wert>feldwert4</xwas:wert>
-                </xwas:feld>
-              </xwas:untergruppe>
-              <xwas:feld>
-                <xwas:name>feldname2</xwas:name>
-                <xwas:beschreibung>beschreibung2</xwas:beschreibung>
-                <xwas:datentyp listURI="urn:xoev-de:xdomea:codeliste:datentyp" listVersionID="1.1">
-                  <code>1020</code>
-                </xwas:datentyp>
-                <xwas:wert>feldwert2</xwas:wert>
-              </xwas:feld>
-              <xwas:feld>
-                <xwas:name>feldname3</xwas:name>
-                <xwas:beschreibung>beschreibung3</xwas:beschreibung>
-                <xwas:datentyp listURI="urn:xoev-de:xdomea:codeliste:datentyp" listVersionID="1.1">
-                  <code>1030</code>
-                </xwas:datentyp>
-                <xwas:wert>feldwert3</xwas:wert>
-              </xwas:feld>
-              <xwas:feld>
-                <xwas:name>feldname4</xwas:name>
-                <xwas:beschreibung>beschreibung4</xwas:beschreibung>
-                <xwas:datentyp listURI="urn:xoev-de:xdomea:codeliste:datentyp" listVersionID="1.1">
-                  <code>1040</code>
-                </xwas:datentyp>
-                <xwas:wert>feldwert4</xwas:wert>
-              </xwas:feld>
-            </xwas:untergruppe>
-          </xwas:gruppe>
-          <xwas:xml>
-            <xwas:any>some more xml</xwas:any>
-          </xwas:xml>
-        </xwas:erweiterung>
       </xwas:untersuchungsplan>
     </xwas:vorgangType>
-    <xwas:bemerkung>Bemerkung</xwas:bemerkung>
   </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>

@@ -60,7 +60,6 @@ pub fn zustaendige_behoerde_type(laenderkuerzel: String) -> ZustaendigeBehoerdeT
         .verwaltungspolitische_zustaendigkeit(Default::default())
         .anschrift(Default::default())
         .organisationsstruktur(Default::default())
-        .anlage_nach_trinkw_vid(Default::default())
         .laenderkuerzel(laenderkuerzel.into())
         .kommentar(Default::default())
         .build()

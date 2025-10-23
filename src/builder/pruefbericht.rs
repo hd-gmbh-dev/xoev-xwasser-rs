@@ -63,7 +63,6 @@ pub fn pruefbericht_type(
                 .auftraggeber(Auftraggeber::Organisation(organisation_type()))
                 .build(),
         )
-        .zustaendige_behoerde(Default::default())
         .beauftragte_untersuchungsstelle(beauftragte_untersuchungsstelle_type(details))
         .zugelassene_untersuchungsstelle(Default::default())
         .ort_der_labortaetigkeiten(Default::default())
@@ -71,6 +70,7 @@ pub fn pruefbericht_type(
         .erweiterung(Default::default())
         .id(format!("pruefbericht-{}", new_id()))
         .anlage_nach_trinkw_v(Default::default())
+        .betreiber(vec![])
         .gefahr_in_verzug(false)
         .objekt(Default::default())
         .build()

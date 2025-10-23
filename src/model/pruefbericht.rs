@@ -16,7 +16,6 @@ use super::{
     shared::{
         anschrift::AnschriftType,
         auftraggeber::AuftraggeberType,
-        behoerde::ZustaendigeBehoerdeType,
         betreiber::{BetreiberType, ObjektType},
         misc::ErweiterungType,
         person::NatuerlichePersonType,

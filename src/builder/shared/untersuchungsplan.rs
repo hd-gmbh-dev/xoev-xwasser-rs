@@ -16,6 +16,7 @@ use super::{
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
 pub fn untersuchungsplan_type() -> UntersuchungsplanType {
     let zustaendige_behoerde = zustaendige_behoerde_type("DEBY".to_string());
+    let probennahmestelle = probennahmestelle_type("Probennahmestelle 1".to_string());
     let mut result = UntersuchungsplanType::builder()
         .untersuchungsplan_id(new_uuid())
         .wasserversorgungsgebiet(Default::default())
@@ -40,10 +41,8 @@ pub fn untersuchungsplan_type() -> UntersuchungsplanType {
         .rap_durchgefuehrt(Default::default())
         .status_untersuchungsplan("1010".into())
         .kommentar(Default::default())
-        .terminplan(vec![terminplan_type()])
-        .anlage_nach_trinkw_v(anlage_nach_trinkw_v_type(
-            zustaendige_behoerde.id.as_ref().cloned(),
-        ))
+        .terminplan(vec![terminplan_type(probennahmestelle.id.clone())])
+        .anlage_nach_trinkw_v(anlage_nach_trinkw_v_type())
         .auftraggeber(
             AuftraggeberType::builder()
                 .auftraggeber_id(Default::default())
@@ -58,31 +57,28 @@ pub fn untersuchungsplan_type() -> UntersuchungsplanType {
         .zustaendige_behoerde(zustaendige_behoerde)
         .beauftragte_untersuchungsstelle_id(Default::default())
         .objekt(vec![objekt_type()])
-        .probennahmestelle(vec![probennahmestelle_type(
-            "Probennahmestelle 1".to_string(),
-        )])
+        .probennahmestelle(vec![probennahmestelle])
         .aenderungshistorie(Default::default())
         .erweiterung(Default::default())
         .id(format!("untersuchungsplan-{}", new_id()))
         .build();
     let wvg = result
         .anlage_nach_trinkw_v
-        .wasserversorgungsgebiet
+        .wasserversorgungsgebiet_id
         .first()
         .unwrap()
-        .id
         .clone();
     result.wasserversorgungsgebiet = vec![wvg];
     result
 }
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
-pub fn terminplan_type() -> TerminplanType {
+pub fn terminplan_type(probennahmestelle_id: String) -> TerminplanType {
     TerminplanType::builder()
         .terminplan_id(new_uuid())
-        .probennahmestelle(Default::default())
+        .probennahmestelle(probennahmestelle_id)
         .datum_zeitraum(vec![now()])
-        .probennahmestelle_kategorie("L".into())
+        .probennahmestelle_kategorie("1000".into())
         .weitere_beschreibung_der_probennahmestelle(Default::default())
         .untersuchung_durch(vec!["1010".into()])
         .untersuchung_durch_erlaeuterung(Default::default())
@@ -269,17 +265,15 @@ pub fn wasserversorgungsgebiet_type() -> WasserversorgungsgebietType {
 }
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
-pub fn anlage_nach_trinkw_v_type(zustaendige_behoerde_id: Option<String>) -> AnlageNachTrinkwVType {
+pub fn anlage_nach_trinkw_v_type() -> AnlageNachTrinkwVType {
     AnlageNachTrinkwVType::builder()
         .anlage_nach_trinkw_v_id(Default::default())
-        .zustaendige_behoerde_id(zustaendige_behoerde_id)
-        .untersuchungsplan_id(Default::default())
         .art_anlage("1010".into())
         .name_der_anlage(Default::default())
         .abgegebene_wassermenge_der_anlage_pro_tag(Default::default())
         .anzahl_durch_anlage_versorgte_personen(Default::default())
         .kommentar(Default::default())
-        .wasserversorgungsgebiet(vec![wasserversorgungsgebiet_type()])
+        .wasserversorgungsgebiet_id(vec![wasserversorgungsgebiet_type().id])
         .angaben_alternative_id(Default::default())
         .id(format!("antv-{}", new_id()))
         .build()

@@ -1,7 +1,7 @@
 {
   "produkt": "SHAPTH CLI",
-  "produkthersteller": "H &amp; D GmbH",
-  "produktversion": "H &amp; D GmbH",
+  "produkthersteller": "H &amp;amp; D GmbH",
+  "produktversion": "H &amp;amp; D GmbH",
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
@@ -33,7 +33,8 @@
     },
     "referenz_uuid": null,
     "dvdv_dienstkennung": "s",
-    "zustaendige_behoerde_id": []
+    "zustaendige_behoerde_id": [],
+    "wasserversorgungsgebiet_id": null
   },
   "vorgang": {
     "identifikation_vorgang": {
@@ -45,39 +46,15 @@
         "pruefbericht_uuid": "5e08e073-4e06-438d-9444-1275f6cbf061",
         "versionsnummer": 1,
         "auftragsnummer": "54713a94-983e-4a36-93b8-af5d0ebfd191",
-        "zustaendige_behoerde": [
-          {
-            "id": "T1000212",
-            "typ": null,
-            "zusatz": null,
-            "behoerdenkennung": null,
-            "kommunikation": [],
-            "behoerdenidentifikation": null,
-            "behoerdenname": null,
-            "nachgeordnete_behoerde": [],
-            "verwaltungspolitische_zustaendigkeit": [],
-            "anschrift": [],
-            "organisationsstruktur": [],
-            "anlage_nach_trinkw_vid": [
-              ""
-            ],
-            "laenderkuerzel": {
-              "code": "DEAA",
-              "name": null
-            },
-            "kommentar": null
-          }
-        ],
         "probennahmestelle": [
           {
             "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
             "objekt_id": "abcd",
-            "wasserversorgungsgebiet_id": "awefw",
             "probe": [],
             "terminplan_id": [],
             "name_probennahmestelle": "wasserloch um die ecke",
             "kategorie_probennahmestelle": {
-              "code": "L",
+              "code": "1000",
               "name": null
             },
             "unterkategorie_probennahmestelle": {
@@ -102,7 +79,6 @@
               }
             ],
             "angaben_alternative_id": null,
-            "berichtspflichtig": null,
             "kommentar": "kommentar zur proebennahmestelle",
             "id": "probennahmestelleid1"
           }
@@ -111,9 +87,9 @@
           {
             "probe_id": "5e08e073-4e06-438d-9444-1275f6cbf061",
             "probennahmestelle": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
-            "untersuchungsplan_id": "1345",
+            "terminplan_id": null,
             "probennehmer": "probennehmer1",
-            "titel_probe": null,
+            "titel_probe": "probe-5e08e073-4e06-438d-9444-1275f6cbf061",
             "analyseergebnis_parameter": [
               {
                 "analyseergebnis_parameter_id": "753d97bc-4262-45e8-8c1f-cb7b6ab7864a",
@@ -143,7 +119,7 @@
                 "ergaenzung_zum_untersuchungswert_parameter": null,
                 "parameterwert_ergaenzung": null,
                 "ausgewertetes_ansatzvolumen": 11.1,
-                "shapth_parameter_nummer": [],
+                "verknuepfte_parameter": [],
                 "bewertung_untersuchungswert": {
                   "code": "1010",
                   "name": null
@@ -528,6 +504,7 @@
         "erweiterung": null,
         "objekt": [],
         "anlage_nach_trinkw_v": [],
+        "betreiber": [],
         "id": "ID5e08e073-4e06-438d-9444-1275f6cbf061"
       }
     },

@@ -11,7 +11,6 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
             pruefbericht::PruefberichtType,
             shared::{
                 auftraggeber::{Auftraggeber, AuftraggeberType},
-                behoerde::ZustaendigeBehoerdeType,
                 organisation::OrganisationType,
                 person::NatuerlichePersonType,
                 probe::{
@@ -88,6 +87,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .referenz_uuid(None)
         .identifikation_nachricht(identifikation_nachricht)
         .zustaendige_behoerde_id(Default::default())
+        .wasserversorgungsgebiet_id(Default::default())
         .build();
 
     let identifikation_vorgang = IdentifikationVorgang::builder()
@@ -118,7 +118,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .ergaenzung_zum_untersuchungswert_parameter(Default::default())
         .parameterwert_ergaenzung(Default::default())
         .ausgewertetes_ansatzvolumen(Some(0.0))
-        .shapth_parameter_nummer(Default::default())
+        .verknuepfte_parameter(Default::default())
         .bewertung_untersuchungswert("1010".into())
         .parameterauffaelligkeit(Default::default())
         .messunsicherheit_untersuchungswert_absolut(Default::default())
@@ -133,7 +133,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     let probe = ProbeType::builder()
         .probe_id(new_uuid())
         .probennahmestelle(probenahmestelle_id.clone())
-        .untersuchungsplan_id(Default::default())
+        .terminplan_id(Default::default())
         .probennehmer(Default::default())
         .titel_probe(Default::default())
         .analyseergebnis_parameter(vec![param])
@@ -166,19 +166,17 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
 
     let probennahmestelle = ProbennahmestelleType::builder()
         .probennahmestelle_id(probenahmestelle_id.clone())
-        .wasserversorgungsgebiet_id(None)
         .objekt_id(Some("none".into()))
         .probe(Default::default())
         .terminplan_id(Default::default())
         .name_probennahmestelle(Default::default())
-        .kategorie_probennahmestelle("L".into())
+        .kategorie_probennahmestelle("1000".into())
         .unterkategorie_probennahmestelle(Some("1030".into()))
         .art_der_entnahmearmatur(Some("1010".into()))
         .stockwerk_probennahmestelle(0.into())
         .medium_an_der_probennahmestelle(vec!["1010".into()])
         .desinfektion_und_aufbereitung_des_wassers(Default::default())
         .angaben_alternative_id(None)
-        .berichtspflichtig(Default::default())
         .kommentar(Default::default())
         .id(probenahmestelle_id)
         .build();
@@ -203,23 +201,6 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .auftraggeber_id(Default::default())
         .auftraggeberart("1010".into())
         .auftraggeber(auftraggeber)
-        .build();
-
-    let zustaendige_behoerde = ZustaendigeBehoerdeType::builder()
-        .id(Default::default())
-        .typ(Default::default())
-        .zusatz(Default::default())
-        .behoerdenkennung(Default::default())
-        .kommunikation(Default::default())
-        .behoerdenidentifikation(Default::default())
-        .behoerdenname(Default::default())
-        .nachgeordnete_behoerde(Default::default())
-        .verwaltungspolitische_zustaendigkeit(Default::default())
-        .anschrift(Default::default())
-        .organisationsstruktur(Default::default())
-        .anlage_nach_trinkw_vid(Default::default())
-        .laenderkuerzel("DEBY".into())
-        .kommentar(Default::default())
         .build();
 
     let beauftragte_untersuchungsstelle = BeauftragteUntersuchungsstelleType::builder()
@@ -267,7 +248,6 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .zeitpunkt_uebermittlung_an_shapth(Default::default())
         .kommentar(Default::default())
         .auftraggeber(auftraggeber)
-        .zustaendige_behoerde(vec![zustaendige_behoerde])
         .beauftragte_untersuchungsstelle(beauftragte_untersuchungsstelle)
         .zugelassene_untersuchungsstelle(Default::default())
         .ort_der_labortaetigkeiten(vec![ort_der_labortaetigkeiten])
@@ -276,6 +256,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .gefahr_in_verzug(false)
         .anlage_nach_trinkw_v(Default::default())
         .objekt(Default::default())
+        .betreiber(Default::default())
         .id("pruefbericht-1".into())
         .build();
 

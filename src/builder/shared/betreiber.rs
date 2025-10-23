@@ -17,8 +17,7 @@ use super::organisation::organisation_type;
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
 pub fn objekt_type() -> ObjektType {
     let id = format!("obj-{}", new_id());
-    let mut betreiber = betreiber_type();
-    betreiber.objekt_id = vec![id.clone()];
+    let betreiber = betreiber_type();
     ObjektType::builder()
         .objekt_id(new_uuid())
         .anlage_nach_trinkw_vid(Default::default())
@@ -32,7 +31,7 @@ pub fn objekt_type() -> ObjektType {
         .geokoordinaten_objekt(Default::default())
         .angaben_alternative_id(Default::default())
         .kommentar(Default::default())
-        .betreiber(vec![betreiber])
+        .betreiber_id(betreiber.id.into())
         .wasserversorgungsgebiet_id(Default::default())
         .id(id)
         .build()
@@ -45,7 +44,6 @@ pub fn betreiber_type() -> BetreiberType {
         .art_der_person(crate::model::shared::betreiber::ArtDerPerson::Organisation(
             organisation_type(),
         ))
-        .objekt_id(Default::default())
         .kommentar(Default::default())
         .id(format!("betreiber-{}", new_id()))
         .build()
