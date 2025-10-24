@@ -43,10 +43,7 @@ fn xoev_xwasser_code2(
         #[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
         #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
         #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-        #[xml(tns(
-            b"xwas",
-            b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-        ))]
+        #[xml(tns(b"xwas", crate::TNS))]
         pub struct #name {
             #[xml(name = b"code", ty = "child")]
             pub code: String,

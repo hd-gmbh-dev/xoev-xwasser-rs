@@ -11,15 +11,18 @@ use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::model::codes::{
-    CodeAbhilfemassnahmeType, CodeAnlassUntersuchungType, CodeArtProbennahmestelleEuType,
-    CodeArtTrinkwasseranlageType, CodeArtWasserressourceType, CodeDesinfektionsartType,
-    CodeErlaeuterungWasserabgabemengeType, CodeFlockungType, CodeGrundAusnahmeregelungType,
-    CodeGrundSchliessungWasserversorgungsgebietType, CodeIncidentCategoryType,
-    CodeIncidentExceedanceCauseType, CodeKategorieProbennahmestelleType, CodeMassnahmeType,
-    CodeNachweisartType, CodeProbennahmeverfahrenType, CodeProbennahmezeitraumType,
-    CodeShapthParameterEinheitType, CodeShapthParameterType, CodeStatusUntersuchungsplanType,
-    CodeUeberwachungAufbereitungType, CodeWvaType,
+use crate::{
+    model::codes::{
+        CodeAbhilfemassnahmeType, CodeAnlassUntersuchungType, CodeArtProbennahmestelleEuType,
+        CodeArtTrinkwasseranlageType, CodeArtWasserressourceType, CodeDesinfektionsartType,
+        CodeErlaeuterungWasserabgabemengeType, CodeFlockungType, CodeGrundAusnahmeregelungType,
+        CodeGrundSchliessungWasserversorgungsgebietType, CodeIncidentCategoryType,
+        CodeIncidentExceedanceCauseType, CodeKategorieProbennahmestelleType, CodeMassnahmeType,
+        CodeNachweisartType, CodeProbennahmeverfahrenType, CodeProbennahmezeitraumType,
+        CodeShapthParameterEinheitType, CodeShapthParameterType, CodeStatusUntersuchungsplanType,
+        CodeUeberwachungAufbereitungType, CodeWvaType,
+    },
+    TNS,
 };
 
 use super::{
@@ -38,10 +41,7 @@ use super::{
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct UntersuchungsplanType {
     #[xml(ns = b"xwas", name = b"untersuchungsplanID", ty = "child")]
     pub untersuchungsplan_id: String,
@@ -132,10 +132,7 @@ pub struct UntersuchungsplanType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct TerminplanType {
     #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
     pub terminplan_id: String,
@@ -176,10 +173,7 @@ pub struct TerminplanType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct KommentarType {
     #[xml(ns = b"xwas", name = b"autor", ty = "child")]
     pub autor: String,
@@ -196,10 +190,7 @@ pub struct KommentarType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct AenderungshistorieType {
     #[xml(ns = b"xwas", name = b"eintrag", ty = "child")]
     pub eintrag: Vec<KommentarType>,
@@ -213,10 +204,7 @@ pub struct AenderungshistorieType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct IncidentType {
     #[xml(ns = b"xwas", name = b"incidentIdentifier", ty = "child")]
     pub incident_identifier: String,
@@ -245,10 +233,7 @@ pub struct IncidentType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct ParameterangabenType {
     #[xml(ns = b"xwas", name = b"parameter", ty = "child")]
     pub parameter: CodeShapthParameterType,
@@ -276,10 +261,7 @@ pub struct ParameterangabenType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct QualityAndMonitoringType {
     #[xml(
         ns = b"xwas",
@@ -313,10 +295,7 @@ pub struct QualityAndMonitoringType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct DerogationRemedialActionType {
     #[xml(
         ns = b"xwas",
@@ -350,10 +329,7 @@ pub struct DerogationRemedialActionType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct DerogationType {
     #[xml(ns = b"xwas", name = b"derogationIdentifier", ty = "child")]
     pub derogation_identifier: String,
@@ -403,10 +379,7 @@ pub struct DerogationType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct ExceedanceCauseAndRemedialActionType {
     #[xml(
         ns = b"xwas",
@@ -440,10 +413,7 @@ pub struct ExceedanceCauseAndRemedialActionType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct ExceedanceType {
     #[xml(ns = b"xwas", name = b"exceedanceIdentifier", ty = "child")]
     pub exceedance_identifier: String,
@@ -484,10 +454,7 @@ pub struct ExceedanceType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct IncidentCauseAndRemedialActionType {
     #[xml(
         ns = b"xwas",
@@ -517,10 +484,7 @@ pub struct IncidentCauseAndRemedialActionType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
     pub wasserversorgungsgebiet_id: String,
@@ -583,10 +547,7 @@ pub struct WasserversorgungsgebietType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct AnlageNachTrinkwVType {
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
     pub anlage_nach_trinkw_v_id: String,

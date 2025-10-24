@@ -5,14 +5,17 @@ use serde::{Deserialize, Serialize};
 
 use xoev_xwasser_derive::XWasserValidate;
 
-use crate::model::codes::{
-    CodeAnlassUntersuchungType, CodeArtEntnahmearmaturType,
-    CodeAufbereitungsstoffDesinfektionsverfahrenType, CodeBewertungUntersuchungswertType,
-    CodeKategorieProbennahmestelleType, CodeMediumType, CodeMesswertergaenzungType,
-    CodeParameterauspraegungType, CodeProbenbewertungType, CodeProbenentnahmegeraetType,
-    CodeProbengefaessType, CodeProbennahmeverfahrenType, CodeShapthParameterEinheitType,
-    CodeShapthParameterType, CodeUnterkategorieProbennahmestelleType,
-    CodeUntersuchungsverfahrenType,
+use crate::{
+    model::codes::{
+        CodeAnlassUntersuchungType, CodeArtEntnahmearmaturType,
+        CodeAufbereitungsstoffDesinfektionsverfahrenType, CodeBewertungUntersuchungswertType,
+        CodeKategorieProbennahmestelleType, CodeMediumType, CodeMesswertergaenzungType,
+        CodeParameterauspraegungType, CodeProbenbewertungType, CodeProbenentnahmegeraetType,
+        CodeProbengefaessType, CodeProbennahmeverfahrenType, CodeShapthParameterEinheitType,
+        CodeShapthParameterType, CodeUnterkategorieProbennahmestelleType,
+        CodeUntersuchungsverfahrenType,
+    },
+    TNS,
 };
 
 #[cfg(feature = "wasm")]
@@ -33,10 +36,7 @@ use super::{
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[serde(tag = "t", content = "c")]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub enum Probennehmer {
     #[xml(ns = b"xwas", name = b"organisation", ty = "child")]
     Organisation(OrganisationType),
@@ -53,10 +53,7 @@ pub enum Probennehmer {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct ProbennehmerType {
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
     pub probennehmer_id: Option<String>, // TODO: Invent UUID
@@ -77,10 +74,7 @@ pub struct ProbennehmerType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
     pub probennahmestelle_id: String,
@@ -126,10 +120,7 @@ pub struct ProbennahmestelleType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"probeID", ty = "child")]
     pub probe_id: String,
@@ -225,10 +216,7 @@ pub struct ProbeType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct AnalyseergebnisParameterType {
     #[xml(ns = b"xwas", name = b"analyseergebnisParameterID", ty = "child")]
     pub analyseergebnis_parameter_id: String, // TODO: Invent UUID

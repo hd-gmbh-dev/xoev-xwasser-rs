@@ -557,9 +557,9 @@ checksum = "52051878f80a721bb68ebfbc930e07b65ba72f2da88968ea5c06fd6ca3d3a127"
 
 [[package]]
 name = "flate2"
-version = "1.1.4"
+version = "1.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dc5a4e564e38c699f2880d3fda590bedc2e69f3f84cd48b457bd892ce61d0aa9"
+checksum = "bfe33edd8e85a12a67454e37f8c75e730830d83e313556ab9ebf9ee7fbeb3bfb"
 dependencies = [
  "crc32fast",
  "miniz_oxide",
@@ -1377,9 +1377,9 @@ dependencies = [
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.102"
+version = "1.0.103"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8e0f6df8eaa422d97d72edcd152e1451618fed47fabbdbd5a8864167b1d4aff7"
+checksum = "5ee95bc4ef87b8d5ba32e8b7714ccc834865276eab0aed5c9958d00ec45f49e8"
 dependencies = [
  "unicode-ident",
 ]
@@ -1475,9 +1475,9 @@ dependencies = [
 
 [[package]]
 name = "raxb"
-version = "0.4.13"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "14c022729db319707a7df5601c5c26aacb10646a870f2b26dc6c71fa2842c988"
+checksum = "896a36e9f572b6347feadc112ecc4738cfb228366e14c8522b1699744b3dbdab"
 dependencies = [
  "quick-xml",
  "raxb-derive",
@@ -1487,11 +1487,10 @@ dependencies = [
 
 [[package]]
 name = "raxb-derive"
-version = "0.4.13"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e131bd9f868b4d0494feb162aeb6b6658b1af86381dd4ebf0b5070ab65b9db26"
+checksum = "79af6b82f51214c650fd2b70557be955a7cf0075bb4bd32b2657c60aed0cf9d9"
 dependencies = [
- "darling",
  "heck",
  "proc-macro2",
  "quick-xml",
@@ -1502,9 +1501,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-libxml2-sys"
-version = "0.4.13"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "40a7cc5b2d3e1fe60daf0211d8690bb00cf97521c06201a937ba230d6c5745e4"
+checksum = "7f3e1a9e7a1a6452c4763192b43616f59ac2c3f10f3750346cbbcbd48e464aeb"
 dependencies = [
  "bindgen",
  "cmake",
@@ -1512,9 +1511,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-validate"
-version = "0.4.13"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "279e4c846c9fd3c3e74e3cb90dfd0851a8d9fdead1e3e45ca7eef2ce6d1bd607"
+checksum = "ae676d8960d25e164e4d11f56ab7a2bac6ff7715c7741328e4486a57607613f0"
 dependencies = [
  "byteorder",
  "libc",
@@ -1530,9 +1529,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-xmlschema"
-version = "0.4.13"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4a27ceb9a6ebcf1c92cf8b9c0e1ed79b62b113fc934da14c5b1c473124d3a24f"
+checksum = "c74ef91f58b54899d01a3bb1662b975adc44d3dca5865fd6b7dcb03f575538c5"
 dependencies = [
  "byteorder",
  "lz4_flex",
@@ -1544,9 +1543,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-xmlschema-build"
-version = "0.4.13"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d2293870809788c337abe1a63cf800ad30b56767ab8fbba0bf693aa0d3e54a04"
+checksum = "04fbddfc8505d66f869ac7f0d76d791f1363c39120f95edf276065faec31a2b0"
 dependencies = [
  "byteorder",
  "raxb",

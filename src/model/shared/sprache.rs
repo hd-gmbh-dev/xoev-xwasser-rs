@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 
 use xoev_xwasser_derive::XWasserValidate;
 
-use crate::model::codes::CodeSpracheType;
+use crate::{model::codes::CodeSpracheType, TNS};
 
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
@@ -18,10 +18,7 @@ use typed_builder::TypedBuilder;
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct SpracheType {
     #[xml(ns = b"xwas", name = b"sprache", ty = "child")]
     pub sprache: CodeSpracheType,
