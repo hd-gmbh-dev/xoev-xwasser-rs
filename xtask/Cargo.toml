@@ -1,20 +1,22 @@
 [package]
 name = "xtask"
-edition = "2021"
-version = "0.905.0+0.9.5"
+edition.workspace = true
+version.workspace = true
 description = """
-XOEV XWasser XML Standard
+XOEV XWasser XML Standard: XTask
 """
-rust-version = "1.84.0"
-authors = ["H & D GmbH Open Source <contact-oss@h-d-gmbh.de>"]
-license = "MIT"
-repository = "https://github.com/hd-gmbh-dev/xoev-xwasser-rs"
-categories = []
-keywords = []
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+categories.workspace = true
+keywords.workspace = true
 
 [dependencies]
-xflags = "0.3.2"
-reqwest = { version = "0.12.24", features = ["blocking", "json"] }
-zip = "2.2.3"
-raxb.workspace = true
 encoding_rs.workspace = true
+json-spanned-value = "0.2.2"
+raxb.workspace = true
+reqwest = { version = "0.12.24", features = ["blocking", "json"] }
+serde.workspace = true
+xflags = "0.3.2"
+zip = "6.0.0"
