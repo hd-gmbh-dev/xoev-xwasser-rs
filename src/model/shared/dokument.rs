@@ -11,7 +11,7 @@ use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::model::codes::CodeDokumenttypType;
+use crate::{model::codes::CodeDokumenttypType, TNS};
 
 /// Sofern das Dokument signiert wurde findet sich hier eine Referenzliste auf die
 /// Signaturen. Diese sind ihrerseits wieder Dokumente, die auch als Dokumentelemente in
@@ -22,10 +22,7 @@ use crate::model::codes::CodeDokumenttypType;
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct SignaturenType {
     #[xml(ns = b"xwas", name = b"signaturDokumentID", ty = "child")]
     #[serde(default)]
@@ -41,10 +38,7 @@ pub struct SignaturenType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct DokumentRepraesentationType {
     #[xml(ns = b"xwas", name = b"referenz", ty = "child")]
     pub referenz: Option<String>,
@@ -73,10 +67,7 @@ pub struct DokumentRepraesentationType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct DokumentType {
     #[xml(ns = b"xwas", name = b"dokumentTyp", ty = "child")]
     pub dokument_typ: CodeDokumenttypType,

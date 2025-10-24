@@ -11,6 +11,8 @@ use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
+use crate::TNS;
+
 /// Der Zeitraum kennzeichnet einen Abschnitt auf einem Zeitstrahl durch Angabe von
 /// Beginn und/oder Ende.
 #[derive(
@@ -19,10 +21,7 @@ use typed_builder::TypedBuilder;
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct ZeitraumType {
     #[xml(ns = b"xwas", name = b"beginn", ty = "child")]
     pub beginn: Option<String>, // eigentlich of type xs:date

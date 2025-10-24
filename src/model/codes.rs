@@ -1,20 +1,17 @@
 #![allow(non_snake_case, dead_code)]
 
-use raxb::{XmlDeserialize, XmlSerialize};
+use std::str::FromStr;
+
+use raxb::{de::XmlDeserializeError, XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
-
-use xoev_xwasser_derive::XWasserValidate;
-
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
-
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use xoev_xwasser_derive::xoev_xwasser_code;
+use xoev_xwasser_derive::{xoev_xwasser_code, XWasserValidate};
 
-use raxb::de::XmlDeserializeError;
-use std::str::FromStr;
+use crate::TNS;
 
 #[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord, Deserialize, Serialize)]
 pub struct ConstStr;
@@ -30,7 +27,7 @@ impl FromStr for ConstStr {
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
 //     b"xwas",
-//     b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
+//     TNS
 // ))]
 // pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType {
 //     #[xml(name = b"code", ty = "child")]
@@ -53,10 +50,7 @@ impl FromStr for ConstStr {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct CodeBehoerdenkennungType {
     #[xml(name = b"code", ty = "child")]
     pub code: String,
@@ -74,10 +68,7 @@ pub struct CodeBehoerdenkennungType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct CodePersonenrolleType {
     #[xml(name = b"code", ty = "child")]
     pub code: String,

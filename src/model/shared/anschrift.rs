@@ -11,7 +11,7 @@ use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::model::codes::CodeAnschrifttypType;
+use crate::{model::codes::CodeAnschrifttypType, TNS};
 
 use super::{
     behoerde::VerwaltungspolitischeKodierungType, staat::StaatType, xoev::XWasserXoevCode,
@@ -33,10 +33,7 @@ use super::{
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct AnschriftType {
     #[xml(ns = b"xwas", name = b"strassenschluessel", ty = "child")]
     pub strassenschluessel: Option<XWasserXoevCode>,

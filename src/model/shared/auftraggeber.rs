@@ -11,7 +11,7 @@ use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::model::codes::CodeAuftraggeberartType;
+use crate::{model::codes::CodeAuftraggeberartType, TNS};
 
 use super::{
     behoerde::ZustaendigeBehoerdeType, organisation::OrganisationType,
@@ -26,10 +26,7 @@ use super::{
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct AuftraggeberType {
     #[xml(ns = b"xwas", name = b"auftraggeberID", ty = "child")]
     pub auftraggeber_id: String,
@@ -47,10 +44,7 @@ pub struct AuftraggeberType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[serde(tag = "t", content = "c")]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub enum Auftraggeber {
     #[xml(ns = b"xwas", name = b"organisation")]
     Organisation(OrganisationType),

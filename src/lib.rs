@@ -17,6 +17,8 @@ pub use xoev_xwasser_codelists::{self as codelists, CodeListValue, CodeLists, Co
 #[cfg(feature = "validate")]
 pub use validate::{XWasserValidate, XWasserValidateError, XWasserValidateMarker};
 
+pub static TNS: &[u8] = b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/";
+
 #[derive(Debug, PartialEq, Eq)]
 pub enum Version {
     V0_5_2,

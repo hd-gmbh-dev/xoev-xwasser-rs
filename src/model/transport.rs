@@ -13,6 +13,8 @@ use wasm_bindgen::prelude::*;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
+use crate::TNS;
+
 use super::{signature::Signature, vorgang::Vorgang};
 
 #[derive(
@@ -135,10 +137,7 @@ pub struct Verzeichnisdienst {
 #[cfg_attr(feature = "wasm", derive(Tsify), tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(root = b"vorgang.transportieren.2010")]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct VorgangTransportieren2010 {
     #[xml(
         ns = b"xmlns",

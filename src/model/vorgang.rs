@@ -13,6 +13,8 @@ use wasm_bindgen::prelude::*;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
+use crate::TNS;
+
 use super::{
     pruefbericht::PruefberichtType,
     shared::{dokument::DokumentType, untersuchungsplan::UntersuchungsplanType},
@@ -24,10 +26,7 @@ use super::{
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct IdentifikationVorgang {
     #[xml(ns = b"xwas", name = b"vorgangsID", ty = "child")]
     pub vorgangs_id: String,
@@ -42,10 +41,7 @@ pub struct IdentifikationVorgang {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct Vorgang {
     #[xml(ns = b"xwas", name = b"identifikationVorgang", ty = "child")]
     pub identifikation_vorgang: IdentifikationVorgang,
@@ -66,10 +62,7 @@ pub struct Vorgang {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[serde(tag = "t", content = "c")]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub enum VorgangType {
     #[xml(ns = b"xwas", name = b"pruefbericht")]
     Pruefbericht(PruefberichtType),

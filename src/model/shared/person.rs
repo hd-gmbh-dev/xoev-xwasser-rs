@@ -11,10 +11,13 @@ use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::model::codes::{
-    CodeAuskunftssperreType, CodeAusweisdokumenteType, CodeFamilienstandBeendigungsgrundType,
-    CodeFamilienstandType, CodeGeschlechtType, CodeNamensartType, CodePersonenrolleType,
-    CodeRechtsformenType, CodeVertretungsartType,
+use crate::{
+    model::codes::{
+        CodeAuskunftssperreType, CodeAusweisdokumenteType, CodeFamilienstandBeendigungsgrundType,
+        CodeFamilienstandType, CodeGeschlechtType, CodeNamensartType, CodePersonenrolleType,
+        CodeRechtsformenType, CodeVertretungsartType,
+    },
+    TNS,
 };
 
 use super::{
@@ -35,10 +38,7 @@ use super::{
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct AllgemeinerNameType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<String>,
@@ -67,10 +67,7 @@ pub struct AllgemeinerNameType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct AlternativeRepraesentationType {
     #[xml(ns = b"xwas", name = b"repraesentation", ty = "child")]
     pub repraesentation: String,
@@ -88,10 +85,7 @@ pub struct AlternativeRepraesentationType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct NameNatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"titel", ty = "child")]
     pub titel: Option<String>,
@@ -137,10 +131,7 @@ pub struct NameNatuerlichePersonType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct AuskunftssperreType {
     #[xml(ns = b"xwas", name = b"grund", ty = "child")]
     pub grund: Option<CodeAuskunftssperreType>,
@@ -155,10 +146,7 @@ pub struct AuskunftssperreType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct GeburtType {
     #[xml(ns = b"xwas", name = b"datum", ty = "child")]
     pub datum: Option<String>,
@@ -178,10 +166,7 @@ pub struct GeburtType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct DoktorgradType {
     // hier gibt es eine striction mit max length 120, wie umsetzen ?
     #[xml(ns = b"xwas", name = b"bezeichnung", ty = "child")]
@@ -196,10 +181,7 @@ pub struct DoktorgradType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct VertreterBevollmaechtigterType {
     #[xml(ns = b"xwas", name = b"vertreterBevollmaechtigterID", ty = "child")]
     pub vertreter_bevollmaechtigter_id: String,
@@ -212,10 +194,7 @@ pub struct VertreterBevollmaechtigterType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct FamilienstandType {
     #[xml(ns = b"xwas", name = b"familienstand", ty = "child")]
     pub familienstand: Option<CodeFamilienstandType>,
@@ -235,10 +214,7 @@ pub struct FamilienstandType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct AusweisdokumentType {
     #[xml(ns = b"xwas", name = b"ausweisart", ty = "child")]
     pub ausweisart: Option<CodeAusweisdokumenteType>,
@@ -265,10 +241,7 @@ pub struct AusweisdokumentType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct JuristischePersonType {
     #[xml(
         ns = b"xwas",
@@ -308,10 +281,7 @@ pub struct JuristischePersonType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct GeschlechtType {
     #[xml(ns = b"xwas", name = b"geschlecht", ty = "child")]
     pub geschlecht: CodeGeschlechtType,
@@ -330,10 +300,7 @@ pub struct GeschlechtType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct NatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"auskunftssperre", ty = "child")]
     pub auskunftssperre: Vec<AuskunftssperreType>,
@@ -375,10 +342,7 @@ pub struct NatuerlichePersonType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[serde(tag = "t", content = "c")]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub enum Person {
     #[xml(ns = b"xwas", name = b"natuerlichePerson")]
     NatuerlichePerson(NatuerlichePersonType),
@@ -396,10 +360,7 @@ pub enum Person {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct PersonType {
     #[xml(ns = b"xwas", name = b"personRolle", ty = "child")]
     #[serde(default)]

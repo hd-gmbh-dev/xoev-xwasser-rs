@@ -11,17 +11,17 @@ use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::model::codes::{CodeStaatType, CodeStaatsangehoerigkeitType};
+use crate::{
+    model::codes::{CodeStaatType, CodeStaatsangehoerigkeitType},
+    TNS,
+};
 
 /// Hier werden Angaben zur Staatsangehörigkeit zusammengefasst.
 #[derive(Clone, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize)]
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct StaatsangehoerigkeitType {
     #[xml(ns = b"xwas", name = b"staatsangehoerigkeit", ty = "child")]
     pub staatsangehoerigkeit: CodeStaatsangehoerigkeitType,
@@ -34,10 +34,7 @@ pub struct StaatsangehoerigkeitType {
 #[cfg_attr(feature = "wasm", derive(Tsify))]
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
-#[xml(tns(
-    b"xwas",
-    b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/"
-))]
+#[xml(tns(b"xwas", TNS))]
 pub struct StaatType {
     #[xml(ns = b"xwas", name = b"staat", ty = "child")]
     pub staat: CodeStaatType,
