@@ -232,9 +232,9 @@ dependencies = [
 
 [[package]]
 name = "cc"
-version = "1.2.42"
+version = "1.2.43"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "81bbf3b3619004ad9bd139f62a9ab5cfe467f307455a0d307b0cf58bf070feaa"
+checksum = "739eb0f94557554b3ca9a86d2d37bebd49c5e6d0c1d2bda35ba5bdac830befc2"
 dependencies = [
  "find-msvc-tools",
  "jobserver",
@@ -414,9 +414,9 @@ checksum = "26bf8fc351c5ed29b5c2f0cbbac1b209b74f60ecd62e675a998df72c49af5204"
 
 [[package]]
 name = "deranged"
-version = "0.5.4"
+version = "0.5.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a41953f86f8a05768a6cda24def994fd2f424b04ec5c719cf89989779f199071"
+checksum = "ececcb659e7ba858fb4f10388c250a7252eb0a27373f1a72b8748afdd248e587"
 dependencies = [
  "powerfmt",
 ]
@@ -1395,7 +1395,9 @@ version = "0.36.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f7649a7b4df05aed9ea7ec6f628c67c9953a43869b8bc50929569b2999d443fe"
 dependencies = [
+ "encoding_rs",
  "memchr",
+ "serde",
 ]
 
 [[package]]
@@ -1480,14 +1482,41 @@ dependencies = [
 
 [[package]]
 name = "raxb"
+version = "0.4.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a8ccfd0ed501beb005356fdf14c1bf82226a31275fcab063c0a55ff210de1987"
+dependencies = [
+ "quick-xml",
+ "raxb-derive 0.4.7",
+ "thiserror 1.0.69",
+ "tracing",
+]
+
+[[package]]
+name = "raxb"
 version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "896a36e9f572b6347feadc112ecc4738cfb228366e14c8522b1699744b3dbdab"
 dependencies = [
  "quick-xml",
- "raxb-derive",
+ "raxb-derive 0.5.0",
  "thiserror 1.0.69",
  "tracing",
+]
+
+[[package]]
+name = "raxb-derive"
+version = "0.4.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "59478a86de24ef5ae2c53b9501c6eb81143ca940ed34324f6b00fa072d79e96a"
+dependencies = [
+ "darling",
+ "heck",
+ "proc-macro2",
+ "quick-xml",
+ "quote",
+ "strum 0.26.3",
+ "syn",
 ]
 
 [[package]]
@@ -1524,7 +1553,7 @@ dependencies = [
  "libc",
  "lz4_flex",
  "once_cell",
- "raxb",
+ "raxb 0.5.0",
  "raxb-libxml2-sys",
  "raxb-xmlschema",
  "thiserror 1.0.69",
@@ -1553,7 +1582,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "04fbddfc8505d66f869ac7f0d76d791f1363c39120f95edf276065faec31a2b0"
 dependencies = [
  "byteorder",
- "raxb",
+ "raxb 0.5.0",
  "raxb-xmlschema",
  "thiserror 1.0.69",
 ]
@@ -1723,9 +1752,9 @@ dependencies = [
 
 [[package]]
 name = "rustls-pki-types"
-version = "1.12.0"
+version = "1.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "229a4a4c221013e7e1f1a043678c5cc39fe5171437c88fb47151a21e6f5b5c79"
+checksum = "94182ad936a0c91c324cd46c6511b9510ed16af436d7b5bab34beab0afd55f7a"
 dependencies = [
  "zeroize",
 ]
@@ -2329,7 +2358,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "784e0ac535deb450455cbfa28a6f0df145ea1bb7ae51b821cf5e7927fdcfbdd0"
 dependencies = [
  "pin-project-lite",
+ "tracing-attributes",
  "tracing-core",
+]
+
+[[package]]
+name = "tracing-attributes"
+version = "0.1.30"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "81383ab64e72a7a8b8e13130c49e3dab29def6d0c7d76a03087b3cf71c5c6903"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
 ]
 
 [[package]]
@@ -2920,7 +2961,7 @@ dependencies = [
  "anyhow",
  "chrono",
  "once_cell",
- "raxb",
+ "raxb 0.5.0",
  "raxb-validate",
  "raxb-xmlschema",
  "raxb-xmlschema-build",
@@ -2947,7 +2988,8 @@ dependencies = [
  "anyhow",
  "bson",
  "encoding_rs",
- "raxb",
+ "raxb 0.4.7",
+ "raxb-derive 0.4.7",
  "rust-embed",
  "serde",
  "serde_json",
@@ -2971,7 +3013,7 @@ version = "0.905.1+0.9.5"
 dependencies = [
  "encoding_rs",
  "json-spanned-value",
- "raxb",
+ "raxb 0.5.0",
  "reqwest",
  "serde",
  "xflags",
