@@ -19,10 +19,10 @@ keywords = []
 anyhow = "1.0.100"
 xoev-xwasser-codelists = { version = "=0.905.2", path = "crates/codelists" }
 xoev-xwasser-derive = { version = "=0.905.2", path = "crates/derive" }
-raxb = "0.5.0"
-raxb-validate = "0.5.0"
-raxb-xmlschema = "0.5.0"
-raxb-xmlschema-build = "0.5.0"
+raxb = "0.5.1"
+raxb-validate = "0.5.1"
+raxb-xmlschema = "0.5.1"
+raxb-xmlschema-build = "0.5.1"
 serde = { version = "1.0.228", features = ["derive", "rc"] }
 encoding_rs = "0.8.34"
 

@@ -1050,9 +1050,9 @@ dependencies = [
 
 [[package]]
 name = "js-sys"
-version = "0.3.81"
+version = "0.3.82"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ec48937a97411dcb524a265206ccd4c90bb711fca92b2792c407f268825b9305"
+checksum = "b011eec8cc36da2aab2d5cff675ec18454fad408585853910a202391cf9f8e65"
 dependencies = [
  "once_cell",
  "wasm-bindgen",
@@ -1395,9 +1395,7 @@ version = "0.36.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f7649a7b4df05aed9ea7ec6f628c67c9953a43869b8bc50929569b2999d443fe"
 dependencies = [
- "encoding_rs",
  "memchr",
- "serde",
 ]
 
 [[package]]
@@ -1482,48 +1480,21 @@ dependencies = [
 
 [[package]]
 name = "raxb"
-version = "0.4.7"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a8ccfd0ed501beb005356fdf14c1bf82226a31275fcab063c0a55ff210de1987"
+checksum = "464d5dc262e948f3aebe58a9b3a82f77d9d8ca45cd26fa1a75d19921cd706d02"
 dependencies = [
  "quick-xml",
- "raxb-derive 0.4.7",
- "thiserror 1.0.69",
- "tracing",
-]
-
-[[package]]
-name = "raxb"
-version = "0.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "896a36e9f572b6347feadc112ecc4738cfb228366e14c8522b1699744b3dbdab"
-dependencies = [
- "quick-xml",
- "raxb-derive 0.5.0",
+ "raxb-derive",
  "thiserror 1.0.69",
  "tracing",
 ]
 
 [[package]]
 name = "raxb-derive"
-version = "0.4.7"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "59478a86de24ef5ae2c53b9501c6eb81143ca940ed34324f6b00fa072d79e96a"
-dependencies = [
- "darling",
- "heck",
- "proc-macro2",
- "quick-xml",
- "quote",
- "strum 0.26.3",
- "syn",
-]
-
-[[package]]
-name = "raxb-derive"
-version = "0.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "79af6b82f51214c650fd2b70557be955a7cf0075bb4bd32b2657c60aed0cf9d9"
+checksum = "db3da77fee66970c72f56e77d79e9dc07f468a4421c1553452e42f44e3a15786"
 dependencies = [
  "heck",
  "proc-macro2",
@@ -1535,9 +1506,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-libxml2-sys"
-version = "0.5.0"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7f3e1a9e7a1a6452c4763192b43616f59ac2c3f10f3750346cbbcbd48e464aeb"
+checksum = "a62ec81cf5ce7d8a9a1da3321cfe51add8043738dfa1ef12a135a6231a909c0e"
 dependencies = [
  "bindgen",
  "cmake",
@@ -1545,15 +1516,15 @@ dependencies = [
 
 [[package]]
 name = "raxb-validate"
-version = "0.5.0"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ae676d8960d25e164e4d11f56ab7a2bac6ff7715c7741328e4486a57607613f0"
+checksum = "8f1e4c16c2f6d28a0d712f96fc6b6fb01a6006722a8375989413c74fda321d22"
 dependencies = [
  "byteorder",
  "libc",
  "lz4_flex",
  "once_cell",
- "raxb 0.5.0",
+ "raxb",
  "raxb-libxml2-sys",
  "raxb-xmlschema",
  "thiserror 1.0.69",
@@ -1563,9 +1534,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-xmlschema"
-version = "0.5.0"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c74ef91f58b54899d01a3bb1662b975adc44d3dca5865fd6b7dcb03f575538c5"
+checksum = "f682db3388f44770829a1f6a588620786ea0dcfe064917a9576387a0f4eb7fd1"
 dependencies = [
  "byteorder",
  "lz4_flex",
@@ -1577,12 +1548,12 @@ dependencies = [
 
 [[package]]
 name = "raxb-xmlschema-build"
-version = "0.5.0"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "04fbddfc8505d66f869ac7f0d76d791f1363c39120f95edf276065faec31a2b0"
+checksum = "3b7d7eefaf217fbb83a880413c39adc0102b2bab3cff20316692ea7f3df7445c"
 dependencies = [
  "byteorder",
- "raxb 0.5.0",
+ "raxb",
  "raxb-xmlschema",
  "thiserror 1.0.69",
 ]
@@ -2358,19 +2329,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "784e0ac535deb450455cbfa28a6f0df145ea1bb7ae51b821cf5e7927fdcfbdd0"
 dependencies = [
  "pin-project-lite",
- "tracing-attributes",
  "tracing-core",
-]
-
-[[package]]
-name = "tracing-attributes"
-version = "0.1.30"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "81383ab64e72a7a8b8e13130c49e3dab29def6d0c7d76a03087b3cf71c5c6903"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
 ]
 
 [[package]]
@@ -2579,9 +2538,9 @@ dependencies = [
 
 [[package]]
 name = "wasm-bindgen"
-version = "0.2.104"
+version = "0.2.105"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c1da10c01ae9f1ae40cbfac0bac3b1e724b320abfcf52229f80b547c0d250e2d"
+checksum = "da95793dfc411fbbd93f5be7715b0578ec61fe87cb1a42b12eb625caa5c5ea60"
 dependencies = [
  "cfg-if",
  "once_cell",
@@ -2591,24 +2550,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "wasm-bindgen-backend"
-version = "0.2.104"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "671c9a5a66f49d8a47345ab942e2cb93c7d1d0339065d4f8139c486121b43b19"
-dependencies = [
- "bumpalo",
- "log",
- "proc-macro2",
- "quote",
- "syn",
- "wasm-bindgen-shared",
-]
-
-[[package]]
 name = "wasm-bindgen-futures"
-version = "0.4.54"
+version = "0.4.55"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7e038d41e478cc73bae0ff9b36c60cff1c98b8f38f8d7e8061e79ee63608ac5c"
+checksum = "551f88106c6d5e7ccc7cd9a16f312dd3b5d36ea8b4954304657d5dfba115d4a0"
 dependencies = [
  "cfg-if",
  "js-sys",
@@ -2619,9 +2564,9 @@ dependencies = [
 
 [[package]]
 name = "wasm-bindgen-macro"
-version = "0.2.104"
+version = "0.2.105"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7ca60477e4c59f5f2986c50191cd972e3a50d8a95603bc9434501cf156a9a119"
+checksum = "04264334509e04a7bf8690f2384ef5265f05143a4bff3889ab7a3269adab59c2"
 dependencies = [
  "quote",
  "wasm-bindgen-macro-support",
@@ -2629,31 +2574,31 @@ dependencies = [
 
 [[package]]
 name = "wasm-bindgen-macro-support"
-version = "0.2.104"
+version = "0.2.105"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9f07d2f20d4da7b26400c9f4a0511e6e0345b040694e8a75bd41d578fa4421d7"
+checksum = "420bc339d9f322e562942d52e115d57e950d12d88983a14c79b86859ee6c7ebc"
 dependencies = [
+ "bumpalo",
  "proc-macro2",
  "quote",
  "syn",
- "wasm-bindgen-backend",
  "wasm-bindgen-shared",
 ]
 
 [[package]]
 name = "wasm-bindgen-shared"
-version = "0.2.104"
+version = "0.2.105"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bad67dc8b2a1a6e5448428adec4c3e84c43e561d8c9ee8a9e5aabeb193ec41d1"
+checksum = "76f218a38c84bcb33c25ec7059b07847d465ce0e0a76b995e134a45adcb6af76"
 dependencies = [
  "unicode-ident",
 ]
 
 [[package]]
 name = "web-sys"
-version = "0.3.81"
+version = "0.3.82"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9367c417a924a74cae129e6a2ae3b47fabb1f8995595ab474029da749a8be120"
+checksum = "3a1f95c0d03a47f4ae1f7a64643a6bb97465d9b740f0fa8f90ea33915c99a9a1"
 dependencies = [
  "js-sys",
  "wasm-bindgen",
@@ -2961,7 +2906,7 @@ dependencies = [
  "anyhow",
  "chrono",
  "once_cell",
- "raxb 0.5.0",
+ "raxb",
  "raxb-validate",
  "raxb-xmlschema",
  "raxb-xmlschema-build",
@@ -2988,8 +2933,7 @@ dependencies = [
  "anyhow",
  "bson",
  "encoding_rs",
- "raxb 0.4.7",
- "raxb-derive 0.4.7",
+ "raxb",
  "rust-embed",
  "serde",
  "serde_json",
@@ -3013,7 +2957,7 @@ version = "0.905.2+0.9.5"
 dependencies = [
  "encoding_rs",
  "json-spanned-value",
- "raxb 0.5.0",
+ "raxb",
  "reqwest",
  "serde",
  "xflags",
