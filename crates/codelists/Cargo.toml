@@ -18,7 +18,8 @@ trace = ["raxb/trace"]
 anyhow.workspace = true
 bson = "2.13.0"
 serde.workspace = true
-raxb.workspace = true
+raxb = "=0.4.7"
+raxb-derive = "=0.4.7"
 rust-embed = { version = "8.5.0", features = ["interpolate-folder-path"] }
 unicode-normalization = "0.1.24"
 
@@ -26,7 +27,8 @@ unicode-normalization = "0.1.24"
 anyhow.workspace = true
 serde.workspace = true
 serde_json = "1.0.128"
-raxb.workspace = true
+raxb = "=0.4.7"
+raxb-derive = "=0.4.7"
 bson = "2.13.0"
 encoding_rs.workspace = true
 unicode-normalization = "0.1.24"
