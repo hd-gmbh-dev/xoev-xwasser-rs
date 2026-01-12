@@ -53,7 +53,7 @@
           2025
         ],
         "wasserabgabe_vorjahr": 0.0,
-        "art_von_wva_und_wvg": {
+        "beruecksichtigung_lieferketten": {
           "code": "1010",
           "name": null
         },
@@ -83,13 +83,14 @@
           "code": "1010",
           "name": null
         },
+        "vorkommen_cyanobakterien": false,
         "ph_wert_wasserwerksausgang": false,
         "wasserabgabe_vorjahr_pro_tag": 0.0,
         "anzahl_untersuchungen_pro_jahr_gruppe_a": 0,
         "abzudecken_durch_betreiber_gruppe_a": null,
         "anzahl_untersuchungenpro_jahr_gruppe_b": 0,
         "abzudecken_durch_betreiber_gruppe_b": null,
-        "rap_durchgefuehrt": false,
+        "rau_durchgefuehrt": false,
         "status_untersuchungsplan": {
           "code": "1010",
           "name": null
@@ -156,6 +157,7 @@
             "objekt_id": "c07a349a-504b-4c59-9fa1-2240aa115093",
             "anlage_nach_trinkw_vid": null,
             "wasserversorgungsgebiet_id": null,
+            "betreiber_id": "betreiber-oDxqnud3",
             "anschrift_objekt": [],
             "art_objekt": {
               "code": "1010",
@@ -168,8 +170,8 @@
             "rahmen_der_trinkwasserbereitstellung": [],
             "geokoordinaten_objekt": null,
             "angaben_alternative_id": null,
+            "angaben_umweltbereich_id": null,
             "kommentar": null,
-            "betreiber_id": "betreiber-oDxqnud3",
             "id": "obj-mjkuauCY"
           }
         ],
@@ -201,6 +203,7 @@
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
             "angaben_alternative_id": null,
+            "angaben_umweltbereich_id": null,
             "kommentar": null,
             "id": "probennahmestelle-g73xXhy3"
           }

@@ -22,6 +22,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
             transport::{NachrichtenkopfG2g, VorgangTransportieren2010},
             vorgang::{IdentifikationVorgang, Vorgang},
         },
+        LOCAL_SCHEMA, SCHEMA,
     };
     let identifikation_nachricht = xoev_xwasser::builder::transport::identifikation_nachricht(
         NachrichtenTypEnum::VorgangTransportieren2010,
@@ -165,7 +166,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .build();
 
     let probennahmestelle = ProbennahmestelleType::builder()
-        .probennahmestelle_id(probenahmestelle_id.clone())
+        .probennahmestelle_id(probenahmestelle_id.clone().into())
         .objekt_id(Some("none".into()))
         .probe(Default::default())
         .terminplan_id(Default::default())
@@ -177,6 +178,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .medium_an_der_probennahmestelle(vec!["1010".into()])
         .desinfektion_und_aufbereitung_des_wassers(Default::default())
         .angaben_alternative_id(None)
+        .angaben_umweltbereich_id(None)
         .kommentar(Default::default())
         .id(probenahmestelle_id)
         .build();
@@ -282,8 +284,10 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     let json = serde_json::to_string_pretty(&e).unwrap();
     std::fs::write("tests/quality_report_builder.json", json)?;
     let xml = raxb::ser::to_string_pretty_with_decl(&e)?;
-    std::fs::write("tests/quality_report_builder_test_result.xml", xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/ xwasser.xsd""#,
-    r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/ ../schemas/V0_9_5/xwasser.xsd""#))?;
+    std::fs::write(
+        "tests/quality_report_builder_test_result.xml",
+        xml.replace(SCHEMA, LOCAL_SCHEMA),
+    )?;
     Ok(())
 }
 

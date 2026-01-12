@@ -25,8 +25,10 @@ use tsify::Tsify;
 use typed_builder::TypedBuilder;
 
 use super::{
-    behoerde::ZustaendigeBehoerdeType, misc::AngabenAlternativeIDType,
-    organisation::OrganisationType, person::NatuerlichePersonType,
+    behoerde::ZustaendigeBehoerdeType,
+    misc::{AngabenAlternativeIDType, AngabenUmweltbereichIDType},
+    organisation::OrganisationType,
+    person::NatuerlichePersonType,
 };
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
@@ -77,7 +79,7 @@ pub struct ProbennehmerType {
 #[xml(tns(b"xwas", TNS))]
 pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
-    pub probennahmestelle_id: String,
+    pub probennahmestelle_id: Option<String>,
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
     pub objekt_id: Option<String>,
     #[xml(ns = b"xwas", name = b"probe", ty = "child")]
@@ -108,6 +110,8 @@ pub struct ProbennahmestelleType {
         Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
     #[xml(ns = b"xwas", name = b"angabenAlternativeID", ty = "child")]
     pub angaben_alternative_id: Option<AngabenAlternativeIDType>,
+    #[xml(ns = b"xwas", name = b"angabenUmweltbereichID", ty = "child")]
+    pub angaben_umweltbereich_id: Option<AngabenUmweltbereichIDType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]

@@ -32,6 +32,7 @@ fn test_maximal_monitoring_plan_against_deserialize() -> anyhow::Result<()> {
 #[cfg(feature = "schema")]
 #[test]
 fn test_maximal_monitoring_plan_against_serialize() -> anyhow::Result<()> {
+    use xoev_xwasser::{LOCAL_SCHEMA, SCHEMA};
     let s: VorgangTransportieren2010 = serde_json::from_str(&maximal_monitoring_plan_json())?;
     let xml = raxb::ser::to_string_pretty_with_decl(&s)?;
     let validation = xoev_xwasser::schemas::XmlValidation::new()?;
@@ -40,6 +41,9 @@ fn test_maximal_monitoring_plan_against_serialize() -> anyhow::Result<()> {
         eprintln!("{e}");
     }
     dbg!(&xml);
-    std::fs::write("tests/monitoring_plan_maximal_test_result.xml", xml.replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/ ../schemas/V0_9_5/xwasser.xsd"))?;
+    std::fs::write(
+        "tests/monitoring_plan_maximal_test_result.xml",
+        xml.replace(SCHEMA, LOCAL_SCHEMA),
+    )?;
     Ok(())
 }

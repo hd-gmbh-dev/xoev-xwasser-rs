@@ -52,7 +52,7 @@
           2024
         ],
         "wasserabgabe_vorjahr": 5000.0,
-        "art_von_wva_und_wvg": {
+        "beruecksichtigung_lieferketten": {
           "code": "1010",
           "name": null
         },
@@ -82,13 +82,14 @@
           "code": "1010",
           "name": null
         },
+        "vorkommen_cyanobakterien": true,
         "ph_wert_wasserwerksausgang": true,
         "wasserabgabe_vorjahr_pro_tag": 225.0,
         "anzahl_untersuchungen_pro_jahr_gruppe_a": 1,
         "abzudecken_durch_betreiber_gruppe_a": null,
         "anzahl_untersuchungenpro_jahr_gruppe_b": 2,
         "abzudecken_durch_betreiber_gruppe_b": null,
-        "rap_durchgefuehrt": true,
+        "rau_durchgefuehrt": true,
         "status_untersuchungsplan": {
           "code": "1010",
           "name": null
@@ -165,6 +166,7 @@
             "objekt_id": "497869a6-c859-47e9-8353-526b07bfa5ef",
             "anlage_nach_trinkw_vid": null,
             "wasserversorgungsgebiet_id": null,
+            "betreiber_id": null,
             "anschrift_objekt": [],
             "art_objekt": {
               "code": "1010",
@@ -184,8 +186,8 @@
               "geokoordinaten_hochwert_north_wert": null
             },
             "angaben_alternative_id": null,
+            "angaben_umweltbereich_id": null,
             "kommentar": null,
-            "betreiber_id": null,
             "id": "obj-DEHK5z3p"
           }
         ],
@@ -217,6 +219,7 @@
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
             "angaben_alternative_id": null,
+            "angaben_umweltbereich_id": null,
             "kommentar": null,
             "id": "probennahmestelle-GEaAta8v"
           }

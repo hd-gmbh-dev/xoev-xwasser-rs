@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "fc7ac92e-475f-4d6e-a2da-e20765444dd3",
+      "nachrichten_uuid": "37b7380c-04c4-4b1b-9f9d-a75010f467f2",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2025-10-23T18:52:31"
+      "erstellungszeitpunkt": "2026-01-12T23:41:54"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -38,14 +38,14 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "4ecb65cc-508b-4908-958c-a83f5cdc200f"
+      "vorgangs_id": "a23cc993-5b81-46ab-8e9a-f129995bc7d7"
     },
     "vorgang_type": {
       "t": "Untersuchungsplan",
       "c": {
-        "untersuchungsplan_id": "064a5682-9364-45ec-a02a-534b70fe37a0",
+        "untersuchungsplan_id": "e09917d2-541a-47ba-ae22-d947b26c21d1",
         "wasserversorgungsgebiet": [
-          "wvg-9CbdlAKn"
+          "wvg-rmdY0ZBZ"
         ],
         "titel_untersuchungsplan": "",
         "jahr": [
@@ -53,7 +53,7 @@
           2025
         ],
         "wasserabgabe_vorjahr": 0.0,
-        "art_von_wva_und_wvg": {
+        "beruecksichtigung_lieferketten": {
           "code": "1010",
           "name": null
         },
@@ -83,23 +83,24 @@
           "code": "1010",
           "name": null
         },
+        "vorkommen_cyanobakterien": false,
         "ph_wert_wasserwerksausgang": false,
         "wasserabgabe_vorjahr_pro_tag": 0.0,
         "anzahl_untersuchungen_pro_jahr_gruppe_a": 0,
         "abzudecken_durch_betreiber_gruppe_a": null,
         "anzahl_untersuchungenpro_jahr_gruppe_b": 0,
         "abzudecken_durch_betreiber_gruppe_b": null,
-        "rap_durchgefuehrt": false,
+        "rau_durchgefuehrt": false,
         "status_untersuchungsplan": {
           "code": "1010",
           "name": null
         },
         "terminplan": [
           {
-            "terminplan_id": "a128ad43-7622-4a3f-8b40-ede998d770bf",
-            "probennahmestelle": "probennahmestelle-6kCpYJUO",
+            "terminplan_id": "8b84232e-dde7-493f-930a-d689ea89c5fe",
+            "probennahmestelle": "probennahmestelle-oQBrB25B",
             "datum_zeitraum": [
-              "2025-10-23T18:52:31"
+              "2026-01-12T23:41:54"
             ],
             "probennahmestelle_kategorie": {
               "code": "1000",
@@ -132,11 +133,11 @@
             "probennahmeverfahren": [],
             "ersatz_fuer_terminplan_mit_der_id": null,
             "kommentar": null,
-            "id": "terminplan-7oZvonmB"
+            "id": "terminplan-pEvpWI66"
           }
         ],
         "anlage_nach_trinkw_v": {
-          "anlage_nach_trinkw_v_id": "",
+          "anlage_nach_trinkw_v_id": null,
           "art_anlage": {
             "code": "1010",
             "name": null
@@ -146,16 +147,17 @@
           "anzahl_durch_anlage_versorgte_personen": null,
           "kommentar": null,
           "wasserversorgungsgebiet_id": [
-            "wvg-9CbdlAKn"
+            "wvg-rmdY0ZBZ"
           ],
           "angaben_alternative_id": null,
-          "id": "antv-aM8smXSP"
+          "id": "antv-sg99puwy"
         },
         "objekt": [
           {
-            "objekt_id": "30fbbd67-c111-4ac7-902a-15cd1fcd5c03",
+            "objekt_id": "4092c6ae-51a8-49b4-b171-fe2ba9751659",
             "anlage_nach_trinkw_vid": null,
             "wasserversorgungsgebiet_id": null,
+            "betreiber_id": "betreiber-wcBjfbTH",
             "anschrift_objekt": [],
             "art_objekt": {
               "code": "1010",
@@ -168,14 +170,14 @@
             "rahmen_der_trinkwasserbereitstellung": [],
             "geokoordinaten_objekt": null,
             "angaben_alternative_id": null,
+            "angaben_umweltbereich_id": null,
             "kommentar": null,
-            "betreiber_id": "betreiber-eKPB9fzR",
-            "id": "obj-cc5jFMs2"
+            "id": "obj-uavIYxWa"
           }
         ],
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "6bc5919b-7156-49ff-aea2-a3cb99494e36",
+            "probennahmestelle_id": "4dcfe2bb-6302-4762-872c-1a042af373e2",
             "objekt_id": null,
             "probe": [],
             "terminplan_id": [],
@@ -201,8 +203,9 @@
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
             "angaben_alternative_id": null,
+            "angaben_umweltbereich_id": null,
             "kommentar": null,
-            "id": "probennahmestelle-6kCpYJUO"
+            "id": "probennahmestelle-oQBrB25B"
           }
         ],
         "auftraggeber": {
@@ -214,7 +217,7 @@
           "auftraggeber": {
             "t": "Organisation",
             "c": {
-              "id": "organisation-bYpBRmLy",
+              "id": "organisation-tcTb9MrW",
               "rechtsform": null,
               "branche": [],
               "zweck": [],
@@ -229,7 +232,7 @@
           }
         },
         "zustaendige_behoerde": {
-          "id": "behoerde-5ijVwZXV",
+          "id": "behoerde-n4gbNYaU",
           "typ": {
             "code": "",
             "name": null,
@@ -276,7 +279,7 @@
         "kommentar": [],
         "aenderungshistorie": null,
         "erweiterung": null,
-        "id": "untersuchungsplan-f439Ye1X"
+        "id": "untersuchungsplan-xgdgk9cP"
       }
     },
     "bemerkung": null,

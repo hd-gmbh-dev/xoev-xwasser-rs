@@ -466,3 +466,8 @@ pub struct CodeRueckweisungsgrundType;
 /// Die Codeliste gibt ID-Formate an, welche parallel zu SHAPTH bestehen können. Beispielsweise aus den Landesschnittstellen wie SEBAM, oder TEIS/ZTEIS, welche durch SHAPTH ersetzt werden.
 #[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:format-alternative-id", "1")]
 pub struct CodeFormatAlternativeIDType;
+
+/// Type name: Code.FormatUmweltbereichIDType
+/// Diese Codeliste beinhaltet im Kontext von XWasser die Herkunft des Schemas der ID des Umweltbereichs.
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:format-umweltbereich-id", "1")]
+pub struct CodeFormatUmweltbereichIDType;

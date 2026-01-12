@@ -12,7 +12,7 @@ use tsify::Tsify;
 use typed_builder::TypedBuilder;
 
 use crate::{
-    model::codes::{CodeDatentypType, CodeFormatAlternativeIDType},
+    model::codes::{CodeDatentypType, CodeFormatAlternativeIDType, CodeFormatUmweltbereichIDType},
     TNS,
 };
 
@@ -186,4 +186,19 @@ pub struct AngabenAlternativeIDType {
     pub alternative_id: Option<String>,
     #[xml(ns = b"xwas", name = b"formatDerAlternativenID", ty = "child")]
     pub format_der_alternativen_id: Option<CodeFormatAlternativeIDType>,
+}
+
+/// Mit dieser Klasse wird die ID des Umweltbreichs und die Herkunft des dazugehörigen Schemas übertragen.
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
+#[xml(tns(b"xwas", TNS))]
+pub struct AngabenUmweltbereichIDType {
+    #[xml(ns = b"xwas", name = b"umweltbereichID", ty = "child")]
+    pub umweltbereich_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"formatUmweltbereichID", ty = "child")]
+    pub format_umweltbereich_id: Option<CodeFormatUmweltbereichIDType>,
 }

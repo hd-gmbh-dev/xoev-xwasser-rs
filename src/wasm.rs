@@ -4,6 +4,30 @@ use crate::model::{
     administration::AdministrationQuittung0020, transport::VorgangTransportieren2010,
 };
 
+/// Returns the XML namespace used in the XML documents.
+#[wasm_bindgen]
+pub fn xmlns() -> String {
+    crate::XMLNS.into()
+}
+
+/// Returns the XML schema used in the XML documents.
+#[wasm_bindgen]
+pub fn schema() -> String {
+    crate::SCHEMA.into()
+}
+
+/// Returns the local XML schema used in the XML documents.
+#[wasm_bindgen]
+pub fn local_schema() -> String {
+    crate::LOCAL_SCHEMA.into()
+}
+
+/// Returns the current version of the XML schema used in the XML documents.
+#[wasm_bindgen]
+pub fn version() -> String {
+    crate::VERSION.into()
+}
+
 #[wasm_bindgen]
 pub fn detect_version(xml: String) -> Result<String, JsValue> {
     Ok(crate::detect_version(&xml).to_string())

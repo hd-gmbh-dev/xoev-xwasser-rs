@@ -53,8 +53,8 @@ pub struct UntersuchungsplanType {
     pub jahr: Vec<u32>, // eigentlich: Vec<JahrType> -> xs:gYear ([0-9]{4})
     #[xml(ns = b"xwas", name = b"wasserabgabeVorjahr", ty = "child")]
     pub wasserabgabe_vorjahr: f64,
-    #[xml(ns = b"xwas", name = b"artVonWVAundWVG", ty = "child")]
-    pub art_von_wva_und_wvg: CodeWvaType,
+    #[xml(ns = b"xwas", name = b"beruecksichtigungLieferketten", ty = "child")]
+    pub beruecksichtigung_lieferketten: CodeWvaType,
     #[xml(ns = b"xwas", name = b"erlaeuterungZurWasserabgabemenge", ty = "child")]
     pub erlaeuterung_zur_wasserabgabemenge: CodeErlaeuterungWasserabgabemengeType,
     #[xml(ns = b"xwas", name = b"flockung", ty = "child")]
@@ -75,6 +75,8 @@ pub struct UntersuchungsplanType {
     pub epichlorhydrin: CodeNachweisartType,
     #[xml(ns = b"xwas", name = b"vinylchlorid", ty = "child")]
     pub vinylchlorid: CodeNachweisartType,
+    #[xml(ns = b"xwas", name = b"vorkommenCyanobakterien", ty = "child")]
+    pub vorkommen_cyanobakterien: bool,
     #[xml(ns = b"xwas", name = b"phWertWasserwerksausgang", ty = "child")]
     pub ph_wert_wasserwerksausgang: bool,
     #[xml(ns = b"xwas", name = b"wasserabgabeVorjahrProTag", ty = "child")]
@@ -95,8 +97,8 @@ pub struct UntersuchungsplanType {
     pub anzahl_untersuchungenpro_jahr_gruppe_b: u32,
     #[xml(ns = b"xwas", name = b"abzudeckenDurchBetreiberGruppeB", ty = "child")]
     pub abzudecken_durch_betreiber_gruppe_b: Option<u32>,
-    #[xml(ns = b"xwas", name = b"rapDurchgefuehrt", ty = "child")]
-    pub rap_durchgefuehrt: bool,
+    #[xml(ns = b"xwas", name = b"rauDurchgefuehrt", ty = "child")]
+    pub rau_durchgefuehrt: bool,
     #[xml(ns = b"xwas", name = b"statusUntersuchungsplan", ty = "child")]
     pub status_untersuchungsplan: CodeStatusUntersuchungsplanType,
     #[xml(ns = b"xwas", name = b"terminplan", ty = "child")]
@@ -550,7 +552,7 @@ pub struct WasserversorgungsgebietType {
 #[xml(tns(b"xwas", TNS))]
 pub struct AnlageNachTrinkwVType {
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
-    pub anlage_nach_trinkw_v_id: String,
+    pub anlage_nach_trinkw_v_id: Option<String>,
     #[xml(ns = b"xwas", name = b"artAnlage", ty = "child")]
     pub art_anlage: CodeArtTrinkwasseranlageType,
     #[xml(ns = b"xwas", name = b"nameDerAnlage", ty = "child")]

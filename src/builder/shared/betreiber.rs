@@ -19,7 +19,7 @@ pub fn objekt_type() -> ObjektType {
     let id = format!("obj-{}", new_id());
     let betreiber = betreiber_type();
     ObjektType::builder()
-        .objekt_id(new_uuid())
+        .objekt_id(new_uuid().into())
         .anlage_nach_trinkw_vid(Default::default())
         .anschrift_objekt(Default::default())
         .art_objekt("1010".into())
@@ -30,6 +30,7 @@ pub fn objekt_type() -> ObjektType {
         .rahmen_der_trinkwasserbereitstellung(Default::default())
         .geokoordinaten_objekt(Default::default())
         .angaben_alternative_id(Default::default())
+        .angaben_umweltbereich_id(Default::default())
         .kommentar(Default::default())
         .betreiber_id(betreiber.id.into())
         .wasserversorgungsgebiet_id(Default::default())
@@ -45,6 +46,7 @@ pub fn betreiber_type() -> BetreiberType {
             organisation_type(),
         ))
         .kommentar(Default::default())
+        .juristischer_betreiber(Default::default())
         .id(format!("betreiber-{}", new_id()))
         .build()
 }

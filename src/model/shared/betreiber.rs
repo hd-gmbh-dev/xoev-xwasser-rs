@@ -21,7 +21,7 @@ use crate::{
 use super::{
     anschrift::AnschriftType,
     behoerde::ZustaendigeBehoerdeType,
-    misc::{AngabenAlternativeIDType, GeografischeAngabenType},
+    misc::{AngabenAlternativeIDType, AngabenUmweltbereichIDType, GeografischeAngabenType},
     organisation::OrganisationType,
     person::NatuerlichePersonType,
 };
@@ -65,6 +65,9 @@ pub struct BetreiberType {
     pub art_der_person: ArtDerPerson,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
+    #[serde(default)]
+    #[xml(ns = b"xwas", name = b"juristischerBetreiber", ty = "child")]
+    pub juristischer_betreiber: bool,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
@@ -79,11 +82,13 @@ pub struct BetreiberType {
 #[xml(tns(b"xwas", TNS))]
 pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
-    pub objekt_id: String,
+    pub objekt_id: Option<String>,
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
     pub anlage_nach_trinkw_vid: Option<String>,
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
     pub wasserversorgungsgebiet_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
+    pub betreiber_id: Option<String>,
     #[xml(ns = b"xwas", name = b"anschriftObjekt", ty = "child")]
     #[serde(default)]
     pub anschrift_objekt: Vec<AnschriftType>,
@@ -108,10 +113,10 @@ pub struct ObjektType {
     pub geokoordinaten_objekt: Option<GeografischeAngabenType>,
     #[xml(ns = b"xwas", name = b"angabenAlternativeID", ty = "child")]
     pub angaben_alternative_id: Option<AngabenAlternativeIDType>,
+    #[xml(ns = b"xwas", name = b"angabenUmweltbereichID", ty = "child")]
+    pub angaben_umweltbereich_id: Option<AngabenUmweltbereichIDType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
-    #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
-    pub betreiber_id: Option<String>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }

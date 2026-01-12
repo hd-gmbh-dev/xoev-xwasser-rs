@@ -35,7 +35,7 @@ pub fn probennehmer_type() -> ProbennehmerType {
 pub fn probennahmestelle_type(name: String) -> ProbennahmestelleType {
     ProbennahmestelleType::builder()
         .id(format!("probennahmestelle-{}", new_id()))
-        .probennahmestelle_id(new_uuid())
+        .probennahmestelle_id(new_uuid().into())
         .objekt_id(Default::default())
         .probe(Default::default())
         .terminplan_id(Default::default())
@@ -47,6 +47,7 @@ pub fn probennahmestelle_type(name: String) -> ProbennahmestelleType {
         .medium_an_der_probennahmestelle(vec!["1010".into()])
         .desinfektion_und_aufbereitung_des_wassers(Default::default())
         .angaben_alternative_id(Default::default())
+        .angaben_umweltbereich_id(Default::default())
         .kommentar(Default::default())
         .build()
 }

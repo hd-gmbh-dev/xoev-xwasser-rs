@@ -79,6 +79,7 @@
               }
             ],
             "angaben_alternative_id": null,
+            "angaben_umweltbereich_id": null,
             "kommentar": "kommentar zur proebennahmestelle",
             "id": "probennahmestelleid1"
           }
@@ -332,7 +333,6 @@
         },
         "rechtlicher_disclaimer": "DUMMY",
         "zeitpunkt_uebermittlung_an_shapth": "2024-12-21T00:00:12",
-        "kommentar": null,
         "auftraggeber": {
           "auftraggeber_id": "DUMMY",
           "auftraggeberart": {
@@ -501,10 +501,11 @@
         ],
         "gefahr_in_verzug": true,
         "anhang": [],
-        "erweiterung": null,
         "objekt": [],
         "anlage_nach_trinkw_v": [],
         "betreiber": [],
+        "kommentar": null,
+        "erweiterung": null,
         "id": "ID5e08e073-4e06-438d-9444-1275f6cbf061"
       }
     },
