@@ -13,7 +13,7 @@ use wasm_bindgen::prelude::*;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::TNS;
+use crate::{SCHEMA, TNS, VERSION, XMLNS};
 
 use super::{
     codes::CodeStatusTechnischType, transport::NachrichtenkopfG2g, vorgang::IdentifikationVorgang,
@@ -38,21 +38,11 @@ pub struct AdministrationQuittung0020 {
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
     _xmlns_xsi: ConstStr,
-    #[xml(
-        ns = b"xsi",
-        name = b"schemaLocation",
-        ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 xwasser.xsd"
-    )]
+    #[xml(ns = b"xsi", name = b"schemaLocation", ty = "attr", value = SCHEMA)]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
     schema_location: ConstStr,
-    #[xml(
-        ns = b"xmlns",
-        name = b"xwas",
-        ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"
-    )]
+    #[xml(ns = b"xmlns", name = b"xwas", ty = "attr", value = XMLNS)]
     #[serde(skip)]
     _xmlns: ConstStr,
     #[xml(name = b"produkt", ty = "attr")]
@@ -68,7 +58,7 @@ pub struct AdministrationQuittung0020 {
     #[xml(name = b"test", ty = "attr")]
     #[cfg_attr(feature = "builder", builder(default))]
     pub test: Option<bool>,
-    #[xml(name = b"version", ty = "attr", value = "1.0.0")]
+    #[xml(name = b"version", ty = "attr", value = VERSION)]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
     _version: ConstStr,

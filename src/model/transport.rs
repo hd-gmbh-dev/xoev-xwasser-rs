@@ -13,7 +13,7 @@ use wasm_bindgen::prelude::*;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::TNS;
+use crate::{SCHEMA, TNS, VERSION, XMLNS};
 
 use super::{signature::Signature, vorgang::Vorgang};
 
@@ -153,19 +153,13 @@ pub struct VorgangTransportieren2010 {
         ns = b"xsi",
         name = b"schemaLocation",
         ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 xwasser.xsd",
+        value = SCHEMA,
         default
     )]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
     schema_location: ConstStr,
-    #[xml(
-        ns = b"xmlns",
-        name = b"xwas",
-        ty = "attr",
-        value = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0",
-        default
-    )]
+    #[xml(ns = b"xmlns", name = b"xwas", ty = "attr", value = XMLNS, default)]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
     _xmlns: ConstStr,
@@ -182,7 +176,7 @@ pub struct VorgangTransportieren2010 {
     #[xml(name = b"test", ty = "attr")]
     #[cfg_attr(feature = "builder", builder(default))]
     pub test: Option<bool>,
-    #[xml(name = b"version", ty = "attr", value = "1.0.0")]
+    #[xml(name = b"version", ty = "attr", value = VERSION)]
     #[serde(skip)]
     #[cfg_attr(feature = "builder", builder(default))]
     _version: ConstStr,
