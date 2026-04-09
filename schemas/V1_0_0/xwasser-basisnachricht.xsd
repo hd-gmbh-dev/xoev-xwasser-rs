@@ -19,10 +19,11 @@
          </standard>
          <versionStandard>
             <version>1.0.0</version>
+            <beschreibung>Die Änderungen sind dem Anhang G der Spezifikation zu entnehmen.</beschreibung>
             <versionXOEVProfil>3.0.3</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
             <versionXGenerator>3.2.4</versionXGenerator>
-            <versionModellierungswerkzeug>2024x</versionModellierungswerkzeug>
+            <versionModellierungswerkzeug>2026x</versionModellierungswerkzeug>
             <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
          </versionStandard>
       </xs:appinfo>
@@ -186,21 +187,6 @@
          <xs:element name="dvdvDienstkennung" minOccurs="0" type="din91379:datatypeC">
             <xs:annotation>
                <xs:documentation>Damit eine Nachricht versendet werden kann, muss zuvor im DVDV ein entsprechender Dienst angelegt worden sein. Zu jeder Version eines Dienstes gehört eine entsprechende WSDL WSDL Web Services Description Language -Datei. Hier ist der targetNamespace dieser WSDL-Datei einzutragen, unter dem diese WSDL-Datei im DVDV DVDV Deutsches Verwaltungsdiensteverzeichnis zu finden ist. Diese Information dient zur Unterstützung für Sender und Empfänger, wenn die zu verwendende WSDL-Datei nicht anhand anderer Kriterien eindeutig ermittelt werden kann.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="zustaendigeBehoerdeID"
-                     minOccurs="0"
-                     maxOccurs="unbounded"
-                     type="din91379:datatypeC">
-            <xs:annotation>
-               <xs:documentation>Angabe der SHAPTH ID der Behörde welche eine Nachricht (bspw. Prüfbericht, Untersuchungsplan, Jahresbericht) empfangen soll. Die SHAPTH-BehördenID kann nur durch SHAPTH erstellt werden und ist im SHAPTH Register zu finden.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="wasserversorgungsgebietID"
-                     minOccurs="0"
-                     type="din91379:datatypeC">
-            <xs:annotation>
-               <xs:documentation>D zur eindeutigen Identifikation eines Wasserversorgungsgebiets.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>

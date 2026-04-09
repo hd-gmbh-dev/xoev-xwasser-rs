@@ -18,10 +18,11 @@
          </standard>
          <versionStandard>
             <version>1.0.0</version>
+            <beschreibung>Die Änderungen sind dem Anhang G der Spezifikation zu entnehmen.</beschreibung>
             <versionXOEVProfil>3.0.3</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
             <versionXGenerator>3.2.4</versionXGenerator>
-            <versionModellierungswerkzeug>2024x</versionModellierungswerkzeug>
+            <versionModellierungswerkzeug>2026x</versionModellierungswerkzeug>
             <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
          </versionStandard>
       </xs:appinfo>
@@ -123,8 +124,8 @@
    <xs:element name="weiterleitung.nichtzustaendigkeit.1030">
       <xs:annotation>
          <xs:appinfo>
-            <autor>Grundsätzlich alle Kommunikationteilnehmer im XInneres-Verbund</autor>
-            <leser>Grundsätzlich alle Kommunikationteilnehmer im XInneres-Verbund</leser>
+            <autor>Grundsätzlich alle Kommunikationteilnehmer im XWasser-Verbund</autor>
+            <leser>Grundsätzlich alle Kommunikationteilnehmer im XWasser-Verbund</leser>
             <rechtsgrundlage>TrinkwV</rechtsgrundlage>
             <title>Nachricht bei ungeklärter Zuständigkeit</title>
          </xs:appinfo>

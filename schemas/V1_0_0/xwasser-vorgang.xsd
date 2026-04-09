@@ -18,10 +18,11 @@
          </standard>
          <versionStandard>
             <version>1.0.0</version>
+            <beschreibung>Die Änderungen sind dem Anhang G der Spezifikation zu entnehmen.</beschreibung>
             <versionXOEVProfil>3.0.3</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
             <versionXGenerator>3.2.4</versionXGenerator>
-            <versionModellierungswerkzeug>2024x</versionModellierungswerkzeug>
+            <versionModellierungswerkzeug>2026x</versionModellierungswerkzeug>
             <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
          </versionStandard>
       </xs:appinfo>
@@ -49,9 +50,16 @@
                         <xs:documentation>Hier werden Daten zum Vorgang übermittelt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
+                  <xs:element name="zusatzinformationen"
+                              minOccurs="0"
+                              type="xwas:ZusatzinformationenType">
+                     <xs:annotation>
+                        <xs:documentation>Hier können zusätzliche fachliche Informationen transportiert werden. Da die Klasse Zusatzinformationen parallel zur Klasse Vorgang mit der Nachricht vorgang.transportieren.2010 durch eine gerichtete Komposition verknüpft ist, können Informationen unterhalb des Elements zusatzinformationen noch nachträglich geändert werden, ohne dass die Signatur ungültig wird, wenn zuvor alle Inhalte ab dem Element vorgang und darunter signiert wurden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
                   <xs:element ref="ds:Signature" minOccurs="0">
                      <xs:annotation>
-                        <xs:documentation>Mit diesem Element kann die Nachricht elektronisch unterschrieben werden, entsprechend der W3C Spezifiaktion für elektronische Signaturen.</xs:documentation>
+                        <xs:documentation>Mit diesem Element kann die Nachricht elektronisch unterschrieben werden, entsprechend der W3C Spezifikation für elektronische Signaturen.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -62,7 +70,7 @@
    <xs:element name="vorgang.nachricht.2020">
       <xs:annotation>
          <xs:appinfo>
-            <rechtsgrundlage>TrinkwV</rechtsgrundlage>
+            <rechtsgrundlage>Onlinezugangsgesetz (OZG)</rechtsgrundlage>
             <title>Freie Nachricht</title>
          </xs:appinfo>
          <xs:documentation>Diese Nachricht dient zum Transport von Informationen in Freitext, zum Beispiel anstatt einer E-Mail oder eines Telefonanrufes, oder zur Übermittlung von Unterlagen zu einem bereits existierenden Vorgang. Dieser Nachricht muss zuerst eine Nachricht vom Typ vorgang.transportieren.2010 vorausgegangen sein. Der Vorgang, auf den sich diese Nachricht bezieht, wird mit dem Element identifikationVorgang referenziert. Die Nachricht, auf die Bezug genommen wird, ist mit dem Element nachrichtenkopf.g2g/referenzUUID anzugeben.</xs:documentation>
@@ -122,7 +130,7 @@
             <rechtsgrundlage>TrinkwV</rechtsgrundlage>
             <title>Statusantwort (Fachliche Quittung)</title>
          </xs:appinfo>
-         <xs:documentation>Mit dieser Nachricht wird der fachliche Status zu einem Vorgang übermittelt. Dieser Nachricht muss zunächst eine Nachricht vorgang.transportieren.2010 oder vorgang.statusanfrage.2030 vorausgegangen sein. Im Element identifikationVorgang/vorgangsID ist dabei die UUID des Vorgangs anzugeben, auf die sich diese fachliche Quittung bezieht. Da es sich um eine Antwortnachricht handelt, ist im Element nachrichtenkopf/referenzUUID die UUID der Nachricht anzugeben, auf die geantwortet wird.</xs:documentation>
+         <xs:documentation>Mit dieser Nachricht wird der fachliche Status zu einem Vorgang übermittelt. Dieser Nachricht muss zunächst eine Nachricht vorgang.transportieren.2010 oder vorgang.statusanfrage.2030 vorausgegangen sein. Im Element identifikationVorgang/vorgangsID ist dabei die UUID des Vorgangs anzugeben, auf die sich diese fachliche Quittung bezieht. Da es sich um eine Antwortnachricht handelt, ist im Element nachrichtenkopf/referenzUUID die UUID der Nachricht anzugeben, auf die geantwortet wird. Auf diese Nachricht darf nicht mit einer weiteren Nachricht vorgang.statusantwort.2040 geantwortet werden.</xs:documentation>
       </xs:annotation>
       <xs:complexType>
          <xs:complexContent>

@@ -17,10 +17,11 @@
          </standard>
          <versionStandard>
             <version>1.0.0</version>
+            <beschreibung>Die Änderungen sind dem Anhang G der Spezifikation zu entnehmen.</beschreibung>
             <versionXOEVProfil>3.0.3</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
             <versionXGenerator>3.2.4</versionXGenerator>
-            <versionModellierungswerkzeug>2024x</versionModellierungswerkzeug>
+            <versionModellierungswerkzeug>2026x</versionModellierungswerkzeug>
             <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
          </versionStandard>
       </xs:appinfo>
