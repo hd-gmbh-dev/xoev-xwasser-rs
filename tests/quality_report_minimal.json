@@ -48,8 +48,6 @@
           {
             "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
             "objekt_id": "abcd",
-            "probe": [],
-            "terminplan_id": [],
             "name_probennahmestelle": "wasserloch um die ecke",
             "kategorie_probennahmestelle": {
               "code": "1000",
@@ -154,10 +152,12 @@
               "code": "1010",
               "name": "probenentnahmegeraet"
             },
-            "probengefaess": {
-              "code": "1010",
-              "name": "probengefaess"
-            },
+            "probengefaess": [
+              {
+                "code": "1010",
+                "name": "probengefaess"
+              }
+            ],
             "ergaenzende_informationen_zu_probenentnahmegeraet": "",
             "desinfektion_probenentnahmegeraet_durchgefuehrt": true,
             "konservierung_der_probe": [],
@@ -373,7 +373,8 @@
               "vertreter_bevollmaechtigter": [],
               "id": null
             }
-          }
+          },
+          "kommentar": null
         },
         "beauftragte_untersuchungsstelle": {
           "id": null,
@@ -535,5 +536,6 @@
       }
     ]
   },
+  "zusatzinformationen": null,
   "signature": null
 }

@@ -99,11 +99,6 @@
             "datum_zeitraum": [
               "2024-06-15T09:00:00"
             ],
-            "probennahmestelle_kategorie": {
-              "code": "1000",
-              "name": null
-            },
-            "weitere_beschreibung_der_probennahmestelle": null,
             "untersuchung_durch": [
               {
                 "code": "1010",
@@ -138,8 +133,9 @@
                 "name": null
               }
             ],
+            "aufnahme_berichtsplan_ga": null,
             "ersatz_fuer_terminplan_mit_der_id": null,
-            "kommentar": null,
+            "kommentar": [],
             "id": "terminplan1"
           }
         ],
@@ -157,6 +153,9 @@
             "www"
           ],
           "angaben_alternative_id_gesundheit": null,
+          "versorgter_ortsteil": [],
+          "ueberwachende_behoerde": [],
+          "anlage_an_die_wasser_abgegeben_wird": [],
           "id": "abcd"
         },
         "objekt": [
@@ -178,12 +177,14 @@
             "geokoordinaten_objekt": {
               "geografische_position_und_ausdehnung": null,
               "name_shapefile": null,
+              "geokoordinaten_zone": null,
+              "geokoordinaten_ostwert": null,
+              "geokoordinaten_nordwert": null,
               "geokoordinaten_breitengrad": null,
-              "geokoordinaten_laengengrad": null,
-              "geokoordinaten_rechtswert_east_wert": null,
-              "geokoordinaten_hochwert_north_wert": null
+              "geokoordinaten_laengengrad": null
             },
             "angaben_alternative_id_gesundheit": null,
+            "angaben_alternative_id_umwelt": null,
             "kommentar": null,
             "id": "obj-DEHK5z3p"
           }
@@ -192,8 +193,6 @@
           {
             "probennahmestelle_id": "f6c67456-6bde-4b31-9cd7-506e9b7363b5",
             "objekt_id": null,
-            "probe": [],
-            "terminplan_id": [],
             "name_probennahmestelle": "Probennahmestelle 1",
             "kategorie_probennahmestelle": {
               "code": "1000",
@@ -247,7 +246,8 @@
               },
               "kommentar": null
             }
-          }
+          },
+          "kommentar": null
         },
         "zustaendige_behoerde": {
           "id": "GHA1",
@@ -277,5 +277,6 @@
     "bemerkung": "Bemerkung",
     "anlage": []
   },
+  "zusatzinformationen": null,
   "signature": null
 }

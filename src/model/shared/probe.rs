@@ -153,7 +153,8 @@ pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"probenentnahmegeraet", ty = "child")]
     pub probenentnahmegeraet: Option<CodeProbenentnahmegeraetType>,
     #[xml(ns = b"xwas", name = b"probengefaess", ty = "child")]
-    pub probengefaess: Option<CodeProbengefaessType>,
+    #[serde(default)]
+    pub probengefaess: Vec<CodeProbengefaessType>,
     #[xml(
         ns = b"xwas",
         name = b"ergaenzendeInformationenZuProbenentnahmegeraet",

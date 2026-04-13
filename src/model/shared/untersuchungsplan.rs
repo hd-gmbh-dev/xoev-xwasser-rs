@@ -222,7 +222,7 @@ pub struct IncidentType {
     #[xml(ns = b"xwas", name = b"incidentCategory", ty = "child")]
     pub incident_category: Vec<CodeIncidentCategoryType>,
     #[xml(ns = b"xwas", name = b"incidentAffectedPopulation", ty = "child")]
-    pub incident_affected_population: u32,
+    pub incident_affected_population: i32,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
     pub remarks: Option<String>,
     #[xml(ns = b"xwas", name = b"incidentCauseAndRemedialAction", ty = "child")]
@@ -349,7 +349,7 @@ pub struct DerogationType {
     #[xml(ns = b"xwas", name = b"volumeOfWaterSupplied", ty = "child")]
     pub volume_of_water_supplied: Option<f64>,
     #[xml(ns = b"xwas", name = b"derogationAffectedPopulation", ty = "child")]
-    pub derogation_affected_population: Option<u32>,
+    pub derogation_affected_population: Option<i32>,
     #[xml(ns = b"xwas", name = b"foodProductionAffected", ty = "child")]
     pub food_production_affected: Option<bool>,
     #[xml(ns = b"xwas", name = b"derogationUnderRecastDWD", ty = "child")]
@@ -433,7 +433,7 @@ pub struct ExceedanceType {
     #[xml(ns = b"xwas", name = b"exceedanceEndDate", ty = "child")]
     pub exceedance_end_date: String,
     #[xml(ns = b"xwas", name = b"exceedanceAffectedPopulation", ty = "child")]
-    pub exceedance_affected_population: u32,
+    pub exceedance_affected_population: i32,
     #[xml(ns = b"xwas", name = b"pointOfComplianceType", ty = "child")]
     pub point_of_compliance_type: Vec<CodeArtProbennahmestelleEuType>,
     #[xml(ns = b"xwas", name = b"numberOfSamplesPerYear", ty = "child")]

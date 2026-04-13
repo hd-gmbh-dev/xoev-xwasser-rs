@@ -100,11 +100,6 @@
             "datum_zeitraum": [
               "2025-10-23T14:36:48"
             ],
-            "probennahmestelle_kategorie": {
-              "code": "1000",
-              "name": null
-            },
-            "weitere_beschreibung_der_probennahmestelle": null,
             "untersuchung_durch": [
               {
                 "code": "1010",
@@ -129,8 +124,9 @@
               }
             ],
             "probennahmeverfahren": [],
+            "aufnahme_berichtsplan_ga": null,
             "ersatz_fuer_terminplan_mit_der_id": null,
-            "kommentar": null,
+            "kommentar": [],
             "id": "terminplan-hz7Z8h3z"
           }
         ],
@@ -148,6 +144,9 @@
             "wvg-jz28waIw"
           ],
           "angaben_alternative_id_gesundheit": null,
+          "versorgter_ortsteil": [],
+          "ueberwachende_behoerde": [],
+          "anlage_an_die_wasser_abgegeben_wird": [],
           "id": "antv-k71zTgYl"
         },
         "objekt": [
@@ -168,6 +167,7 @@
             "rahmen_der_trinkwasserbereitstellung": [],
             "geokoordinaten_objekt": null,
             "angaben_alternative_id_gesundheit": null,
+            "angaben_alternative_id_umwelt": null,
             "kommentar": null,
             "id": "obj-mjkuauCY"
           }
@@ -176,8 +176,6 @@
           {
             "probennahmestelle_id": "2ac293de-0aad-4639-97a1-cd2fa6aaff3f",
             "objekt_id": null,
-            "probe": [],
-            "terminplan_id": [],
             "name_probennahmestelle": "Probennahmestelle 1",
             "kategorie_probennahmestelle": {
               "code": "1000",
@@ -226,7 +224,8 @@
               "existenzzeitraum": null,
               "anschrift": []
             }
-          }
+          },
+          "kommentar": null
         },
         "zustaendige_behoerde": {
           "id": "behoerde-fHOxKIbh",
@@ -280,5 +279,6 @@
     "bemerkung": null,
     "anlage": []
   },
+  "zusatzinformationen": null,
   "signature": null
 }

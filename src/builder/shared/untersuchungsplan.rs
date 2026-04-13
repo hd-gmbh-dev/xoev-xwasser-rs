@@ -53,6 +53,7 @@ pub fn untersuchungsplan_type() -> UntersuchungsplanType {
                         organisation_type(),
                     ),
                 )
+                .kommentar(Default::default())
                 .build(),
         )
         .zustaendige_behoerde(zustaendige_behoerde)

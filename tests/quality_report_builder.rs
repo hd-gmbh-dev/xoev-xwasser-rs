@@ -199,6 +199,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .auftraggeber_id(Default::default())
         .auftraggeberart("1010".into())
         .auftraggeber(auftraggeber)
+        .kommentar(Default::default())
         .build();
 
     let beauftragte_untersuchungsstelle = BeauftragteUntersuchungsstelleType::builder()

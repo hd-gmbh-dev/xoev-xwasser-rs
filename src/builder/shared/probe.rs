@@ -68,7 +68,7 @@ pub fn probe_type() -> ProbeType {
         .zeitpunkt_probennahme(now())
         .probennahmeverfahren(vec!["1010".into()])
         .probenentnahmegeraet(Some("1010".into()))
-        .probengefaess(Some("1010".into()))
+        .probengefaess(vec!["1010".into()])
         .ergaenzende_informationen_zu_probenentnahmegeraet(Some("".into()))
         .desinfektion_probenentnahmegeraet_durchgefuehrt(Some(true))
         .konservierung_der_probe(Default::default())
