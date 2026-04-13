@@ -2,15 +2,15 @@
 #[test]
 fn test_olb_report_signature_builder() -> anyhow::Result<()> {
     use xoev_xwasser::{
+        LOCAL_SCHEMA, SCHEMA,
         builder::{
-            transport::{nachrichtenkopf_g2g, NachrichtenTypEnum},
+            transport::{NachrichtenTypEnum, nachrichtenkopf_g2g},
             vorgang::identifikation_vorgang,
         },
         model::{
             codes::CodeDokumenttypType, shared::dokument::DokumentType, signature::Signature,
             transport::VorgangTransportieren2010, vorgang::Vorgang,
         },
-        LOCAL_SCHEMA, SCHEMA,
     };
 
     let identifikation_vorgang = identifikation_vorgang(None);

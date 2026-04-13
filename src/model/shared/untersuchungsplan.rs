@@ -12,6 +12,7 @@ use tsify::Tsify;
 use typed_builder::TypedBuilder;
 
 use crate::{
+    TNS,
     model::codes::{
         CodeAbhilfemassnahmeType, CodeAnlassUntersuchungType, CodeArtProbennahmestelleEuType,
         CodeArtTrinkwasseranlageType, CodeArtWasserressourceType, CodeDesinfektionsartType,
@@ -22,7 +23,6 @@ use crate::{
         CodeShapthParameterType, CodeStatusUntersuchungsplanType, CodeUeberwachungAufbereitungType,
         CodeWvaType,
     },
-    TNS,
 };
 
 use super::{

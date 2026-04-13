@@ -2,13 +2,13 @@
 #[test]
 fn test_monitoring_plan_builder() -> anyhow::Result<()> {
     use xoev_xwasser::{
+        LOCAL_SCHEMA, SCHEMA,
         builder::{
             shared::untersuchungsplan::untersuchungsplan_type,
-            transport::{nachrichtenkopf_g2g, NachrichtenTypEnum},
+            transport::{NachrichtenTypEnum, nachrichtenkopf_g2g},
             vorgang::identifikation_vorgang,
         },
         model::{transport::VorgangTransportieren2010, vorgang::Vorgang},
-        LOCAL_SCHEMA, SCHEMA,
     };
 
     let identifikation_vorgang = identifikation_vorgang(None);

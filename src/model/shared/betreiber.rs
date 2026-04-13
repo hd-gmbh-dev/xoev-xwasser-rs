@@ -12,10 +12,10 @@ use tsify::Tsify;
 use typed_builder::TypedBuilder;
 
 use crate::{
+    TNS,
     model::codes::{
         CodeArtObjektType, CodeBetriebszustandType, CodeRahmenTrinkwasserbereitstellungType,
     },
-    TNS,
 };
 
 use super::{

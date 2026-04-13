@@ -11,7 +11,7 @@ use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::{model::codes::CodeAuftraggeberartType, TNS};
+use crate::{TNS, model::codes::CodeAuftraggeberartType};
 
 use super::{
     behoerde::ZustaendigeBehoerdeType, organisation::OrganisationType,

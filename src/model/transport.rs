@@ -1,6 +1,6 @@
 #![allow(non_snake_case, dead_code)]
 
-use raxb::{value::ConstStr, XmlDeserialize, XmlSerialize};
+use raxb::{XmlDeserialize, XmlSerialize, value::ConstStr};
 use serde::{Deserialize, Serialize};
 
 use xoev_xwasser_derive::XWasserValidate;

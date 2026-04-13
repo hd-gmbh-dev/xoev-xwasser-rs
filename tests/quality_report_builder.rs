@@ -2,6 +2,7 @@
 #[test]
 fn test_quality_report_builder() -> anyhow::Result<()> {
     use xoev_xwasser::{
+        LOCAL_SCHEMA, SCHEMA,
         builder::{
             shared::anschrift::anschrift_type,
             transport::NachrichtenTypEnum,
@@ -22,7 +23,6 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
             transport::{NachrichtenkopfG2g, VorgangTransportieren2010},
             vorgang::{IdentifikationVorgang, Vorgang},
         },
-        LOCAL_SCHEMA, SCHEMA,
     };
     let identifikation_nachricht = xoev_xwasser::builder::transport::identifikation_nachricht(
         NachrichtenTypEnum::VorgangTransportieren2010,

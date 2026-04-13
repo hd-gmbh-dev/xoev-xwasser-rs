@@ -2,14 +2,14 @@
 
 use std::str::FromStr;
 
-use raxb::{de::XmlDeserializeError, XmlDeserialize, XmlSerialize};
+use raxb::{XmlDeserialize, XmlSerialize, de::XmlDeserializeError};
 use serde::{Deserialize, Serialize};
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use xoev_xwasser_derive::{xoev_xwasser_code, XWasserValidate};
+use xoev_xwasser_derive::{XWasserValidate, xoev_xwasser_code};
 
 use crate::TNS;
 

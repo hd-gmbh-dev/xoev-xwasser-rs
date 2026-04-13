@@ -6,6 +6,7 @@ use serde::{Deserialize, Serialize};
 use xoev_xwasser_derive::XWasserValidate;
 
 use crate::{
+    TNS,
     model::codes::{
         CodeAnlassUntersuchungType, CodeArtEntnahmearmaturType,
         CodeAufbereitungsstoffDesinfektionsverfahrenType, CodeBewertungUntersuchungswertType,
@@ -15,7 +16,6 @@ use crate::{
         CodeShapthParameterType, CodeUnterkategorieProbennahmestelleType,
         CodeUntersuchungsverfahrenType,
     },
-    TNS,
 };
 
 #[cfg(feature = "wasm")]
