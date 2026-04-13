@@ -210,8 +210,8 @@
                     "alternative_repraesentation": []
                   },
                   "rufname": null,
-                  "frueherer_vorname": null,
-                  "alternative_repraesentation": null,
+                  "frueherer_vorname": [],
+                  "alternative_repraesentation": [],
                   "ordensname": null,
                   "kuenstlername": [],
                   "weiterer_name": []
@@ -301,8 +301,8 @@
                 "alternative_repraesentation": []
               },
               "rufname": null,
-              "frueherer_vorname": null,
-              "alternative_repraesentation": null,
+              "frueherer_vorname": [],
+              "alternative_repraesentation": [],
               "ordensname": null,
               "kuenstlername": [],
               "weiterer_name": []

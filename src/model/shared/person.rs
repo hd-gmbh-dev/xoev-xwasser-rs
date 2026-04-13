@@ -12,12 +12,12 @@ use tsify::Tsify;
 use typed_builder::TypedBuilder;
 
 use crate::{
-    TNS,
     model::codes::{
         CodeAuskunftssperreType, CodeAusweisdokumenteType, CodeFamilienstandBeendigungsgrundType,
         CodeFamilienstandType, CodeGeschlechtType, CodeNamensartType, CodePersonenrolleType,
         CodeRechtsformenType, CodeVertretungsartType,
     },
+    TNS,
 };
 
 use super::{
@@ -111,9 +111,11 @@ pub struct NameNatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"rufname", ty = "child")]
     pub rufname: Option<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"fruehererVorname", ty = "child")]
-    pub frueherer_vorname: Option<AllgemeinerNameType>,
+    #[serde(default)]
+    pub frueherer_vorname: Vec<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"alternativeRepraesentation", ty = "child")]
-    pub alternative_repraesentation: Option<AlternativeRepraesentationType>,
+    #[serde(default)]
+    pub alternative_repraesentation: Vec<AlternativeRepraesentationType>,
     #[xml(ns = b"xwas", name = b"ordensname", ty = "child")]
     pub ordensname: Option<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"kuenstlername", ty = "child")]
