@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "961233fc-80e5-4033-879b-91892739c86a",
+      "nachrichten_uuid": "bc2aa83d-ca91-4eaf-8617-005ceb6ce322",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2026-04-13T23:09:41"
+      "erstellungszeitpunkt": "2026-04-13T23:52:36"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -36,14 +36,14 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "1805f159-fddc-436b-865b-7c0e449d8ac1"
+      "vorgangs_id": "b75e6893-9310-4964-a664-c2b3827b9161"
     },
     "vorgang_type": {
       "t": "Untersuchungsplan",
       "c": {
-        "untersuchungsplan_id": "28c3d755-de5d-4d91-9834-0e6911f305d5",
+        "untersuchungsplan_id": "09a08e7d-7c59-4a7c-854d-d5ad152019ad",
         "wasserversorgungsgebiet": [
-          "wvg-ilFF3JgM"
+          "wvg-dCQs9vaX"
         ],
         "titel_untersuchungsplan": "",
         "jahr": [
@@ -95,10 +95,10 @@
         },
         "terminplan": [
           {
-            "terminplan_id": "50a65b01-4ec9-4800-ad23-c1e0e7644021",
-            "probennahmestelle": "probennahmestelle-fnGOkKH1",
+            "terminplan_id": "535a515f-0429-451e-b6be-7611276c7c15",
+            "probennahmestelle": "probennahmestelle-a0yJwXxD",
             "datum_zeitraum": [
-              "2026-04-13T23:09:41"
+              "2026-04-13T23:52:36"
             ],
             "untersuchung_durch": [
               {
@@ -127,7 +127,7 @@
             "aufnahme_berichtsplan_ga": null,
             "ersatz_fuer_terminplan_mit_der_id": null,
             "kommentar": [],
-            "id": "terminplan-gF4BuI4f"
+            "id": "terminplan-bQWId6yd"
           }
         ],
         "anlage_nach_trinkw_v": {
@@ -141,20 +141,20 @@
           "anzahl_durch_anlage_versorgte_personen": null,
           "kommentar": null,
           "wasserversorgungsgebiet_id": [
-            "wvg-ilFF3JgM"
+            "wvg-dCQs9vaX"
           ],
           "angaben_alternative_id_gesundheit": null,
           "versorgter_ortsteil": [],
           "ueberwachende_behoerde": [],
           "anlage_an_die_wasser_abgegeben_wird": [],
-          "id": "antv-jJZpV8B7"
+          "id": "antv-eyt3jTfM"
         },
         "objekt": [
           {
-            "objekt_id": "4aab9702-10dd-4aa3-8164-fc10b1e1557a",
+            "objekt_id": "da42d290-f7a5-4c72-bc38-541a530646af",
             "anlage_nach_trinkw_vid": null,
             "wasserversorgungsgebiet_id": null,
-            "betreiber_id": "betreiber-nBH7fo5p",
+            "betreiber_id": "betreiber-iCl3ygg2",
             "anschrift_objekt": [],
             "art_objekt": {
               "code": "1010",
@@ -169,12 +169,12 @@
             "angaben_alternative_id_gesundheit": null,
             "angaben_alternative_id_umwelt": null,
             "kommentar": null,
-            "id": "obj-lB2rsaes"
+            "id": "obj-gwpKFXnv"
           }
         ],
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "c28620ab-27e8-4004-9a8c-e8f6062a08fe",
+            "probennahmestelle_id": "1a642cdb-b1b2-40fc-a0e0-458304e28fbb",
             "objekt_id": null,
             "name_probennahmestelle": "Probennahmestelle 1",
             "kategorie_probennahmestelle": {
@@ -200,7 +200,7 @@
             "angaben_alternative_id_gesundheit": null,
             "angaben_alternative_id_umwelt": null,
             "kommentar": null,
-            "id": "probennahmestelle-fnGOkKH1"
+            "id": "probennahmestelle-a0yJwXxD"
           }
         ],
         "auftraggeber": {
@@ -212,7 +212,7 @@
           "auftraggeber": {
             "t": "Organisation",
             "c": {
-              "id": "organisation-k96PhiL7",
+              "id": "organisation-fwYTDA7M",
               "rechtsform": null,
               "branche": [],
               "zweck": [],
@@ -228,7 +228,7 @@
           "kommentar": null
         },
         "zustaendige_behoerde": {
-          "id": "behoerde-e7OMeYSr",
+          "id": "behoerde-9cLjFxno",
           "typ": {
             "code": "",
             "name": null,
@@ -275,7 +275,7 @@
         "kommentar": [],
         "aenderungshistorie": null,
         "erweiterung": null,
-        "id": "untersuchungsplan-o9yW0bKn"
+        "id": "untersuchungsplan-jIYDSrS2"
       }
     },
     "bemerkung": null,

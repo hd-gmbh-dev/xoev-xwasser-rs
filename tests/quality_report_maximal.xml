@@ -37,7 +37,7 @@
           <xwas:probennahmestelleID>id-c5e23ffb-c307-4121-94e5-6a007d99bb02</xwas:probennahmestelleID>
           <xwas:objektID>none</xwas:objektID>
           <xwas:nameProbennahmestelle></xwas:nameProbennahmestelle>
-          <xwas:kategorieProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="2">
+          <xwas:kategorieProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="3">
             <code>1000</code>
           </xwas:kategorieProbennahmestelle>
           <xwas:unterkategorieProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle" listVersionID="1">
@@ -61,7 +61,7 @@
             <xwas:zugelasseneUntersuchungsstelle>wsu-1</xwas:zugelasseneUntersuchungsstelle>
             <xwas:akkreditierteDurchfuehrungAnalyse>false</xwas:akkreditierteDurchfuehrungAnalyse>
             <xwas:zugelasseneDurchfuehrungAnalyse>true</xwas:zugelasseneDurchfuehrungAnalyse>
-            <xwas:untersuchungsverfahren listURI="urn:xoev-de:xwasser:codeliste:untersuchungsverfahren" listVersionID="2">
+            <xwas:untersuchungsverfahren listURI="urn:xoev-de:xwasser:codeliste:untersuchungsverfahren" listVersionID="3">
               <code>1010</code>
             </xwas:untersuchungsverfahren>
             <xwas:untersuchterParameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
@@ -72,7 +72,7 @@
             </xwas:parameterauspraegung>
             <xwas:parameterDurchBetreiberUntersucht>false</xwas:parameterDurchBetreiberUntersucht>
             <xwas:untersuchungswertParameter>0</xwas:untersuchungswertParameter>
-            <xwas:einheitDesUntersuchungswerts listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit" listVersionID="2">
+            <xwas:einheitDesUntersuchungswerts listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit" listVersionID="3">
               <code>1400</code>
             </xwas:einheitDesUntersuchungswerts>
             <xwas:ausgewertetesAnsatzvolumen>0</xwas:ausgewertetesAnsatzvolumen>
@@ -81,7 +81,7 @@
             </xwas:bewertungUntersuchungswert>
             <xwas:bestimmungsgrenzeLoQ>0</xwas:bestimmungsgrenzeLoQ>
           </xwas:analyseergebnisParameter>
-          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="2">
+          <xwas:anlassDerUntersuchung listURI="urn:xoev-de:xwasser:codeliste:untersuchung-anlass" listVersionID="3">
             <code>1010</code>
           </xwas:anlassDerUntersuchung>
           <xwas:medium listURI="urn:xoev-de:xwasser:codeliste:medium" listVersionID="1">

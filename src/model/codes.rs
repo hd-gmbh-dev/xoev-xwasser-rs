@@ -2,14 +2,14 @@
 
 use std::str::FromStr;
 
-use raxb::{XmlDeserialize, XmlSerialize, de::XmlDeserializeError};
+use raxb::{de::XmlDeserializeError, XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use xoev_xwasser_derive::{XWasserValidate, xoev_xwasser_code};
+use xoev_xwasser_derive::{xoev_xwasser_code, XWasserValidate};
 
 use crate::TNS;
 
@@ -185,12 +185,12 @@ pub struct CodeAusweisdokumenteType;
 
 /// Type name: Code.BetriebszustandType
 /// Diese Codeliste dient zur Beschreibung des Betriebszustands eines Objekts.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:betriebszustand", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:betriebszustand", "1")]
 pub struct CodeBetriebszustandType;
 
 /// Type name: Code.BewertungUntersuchungswertType
 /// Diese Codeliste dient im Kontext von XWasser zur Bewertung des Untersuchungswerts eines Parameters.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert", "1")]
 pub struct CodeBewertungUntersuchungswertType;
 
 /// Type name: Code.BezirkType
@@ -208,17 +208,17 @@ pub struct CodeBundeslandType;
 
 /// Type name: Code.DesinfektionsartType
 /// Mit dieser Codeliste wird im Kontext von XWasser definiert, auf welche Art eine dauerhafte Desinfektion durchgeführt wird.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:desinfektionsart", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:desinfektionsart", "1")]
 pub struct CodeDesinfektionsartType;
 
 /// Type name: Code.DokumenttypType
 /// Diese Codeliste dient innerhalb von XWasser zur Festlegung des fachlichen Typs eines Dokumentes.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:dokumenttyp", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:dokumenttyp", "1")]
 pub struct CodeDokumenttypType;
 
 /// Type name: Code.ErlaeuterungWasserabgabemengeType
 /// Diese Codeliste wird im Kontext von XWasser zur Erläuterung der Wasserabgabemenge verwendet.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:erlaeuterung-wasserabgabemenge", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:erlaeuterung-wasserabgabemenge", "1")]
 pub struct CodeErlaeuterungWasserabgabemengeType;
 
 /// Type name: Code.FamilienstandBeendigungsgrundType
@@ -233,7 +233,7 @@ pub struct CodeFamilienstandType;
 
 /// Type name: Code.FlockungType
 /// Mit dieser Codeliste wird im Kontext von XWasser die Art der Flockung definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:flockung", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:flockung", "1")]
 pub struct CodeFlockungType;
 
 /// Type name: Code.GesamtbewertungType
@@ -248,7 +248,7 @@ pub struct CodeGeschlechtType;
 
 /// Type name: Code.GrundAusnahmeregelungType
 /// Mit dieser Codeliste werden im Kontext von XWasser die Gründen für eine Ausnahmeregelungen gem. den neuen Vorgaben für das EU Berichtsformat festgelegt.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:grund-ausnahmeregelung", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:grund-ausnahmeregelung", "1")]
 pub struct CodeGrundAusnahmeregelungType;
 
 /// Type name: Code.GrundSchliessungWasserversorgungsgebietType
@@ -306,7 +306,7 @@ pub struct CodeMesswertergaenzungType;
 
 /// Type name: Code.NachweisartType
 /// Mit dieser Codeliste wird im Kontext von XWasser für bestimmte Parameter (z. B. Acrylamid, Epichlorhydrin oder Vinylchlorid) definiert, wie der Nachweis erbracht wird.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:nachweisart", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:nachweisart", "1")]
 pub struct CodeNachweisartType;
 
 /// Type name: Code.NamensartType
