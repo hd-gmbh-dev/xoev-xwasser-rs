@@ -17,10 +17,10 @@ use crate::{
         CodeArtTrinkwasseranlageType, CodeArtWasserressourceType, CodeDesinfektionsartType,
         CodeErlaeuterungWasserabgabemengeType, CodeFlockungType, CodeGrundAusnahmeregelungType,
         CodeGrundSchliessungWasserversorgungsgebietType, CodeIncidentCategoryType,
-        CodeIncidentExceedanceCauseType, CodeKategorieProbennahmestelleType, CodeMassnahmeType,
-        CodeNachweisartType, CodeProbennahmeverfahrenType, CodeProbennahmezeitraumType,
-        CodeShapthParameterEinheitType, CodeShapthParameterType, CodeStatusUntersuchungsplanType,
-        CodeUeberwachungAufbereitungType, CodeWvaType,
+        CodeIncidentExceedanceCauseType, CodeMassnahmeType, CodeNachweisartType,
+        CodeProbennahmeverfahrenType, CodeProbennahmezeitraumType, CodeShapthParameterEinheitType,
+        CodeShapthParameterType, CodeStatusUntersuchungsplanType, CodeUeberwachungAufbereitungType,
+        CodeWvaType,
     },
     TNS,
 };
@@ -29,7 +29,10 @@ use super::{
     auftraggeber::AuftraggeberType,
     behoerde::{BehoerdeType, ZustaendigeBehoerdeType},
     betreiber::ObjektType,
-    misc::{AngabenAlternativeIDType, ErweiterungType, GeografischeAngabenType},
+    misc::{
+        AngabenAlternativeIdGesundheitType, ErweiterungType, GeografischeAngabenType,
+        UeberwachendeBehoerdeType, VersorgterOrtsteilType,
+    },
     probe::ProbennahmestelleType,
 };
 
@@ -141,29 +144,29 @@ pub struct TerminplanType {
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
     pub probennahmestelle: String,
     #[xml(ns = b"xwas", name = b"datumZeitraum", ty = "child")]
+    #[serde(default)]
     pub datum_zeitraum: Vec<String>,
-    #[xml(ns = b"xwas", name = b"probennahmestelleKategorie", ty = "child")]
-    pub probennahmestelle_kategorie: CodeKategorieProbennahmestelleType,
-    #[xml(
-        ns = b"xwas",
-        name = b"weitereBeschreibungDerProbennahmestelle",
-        ty = "child"
-    )]
-    pub weitere_beschreibung_der_probennahmestelle: Option<String>,
     #[xml(ns = b"xwas", name = b"untersuchungDurch", ty = "child")]
+    #[serde(default)]
     pub untersuchung_durch: Vec<CodeUeberwachungAufbereitungType>,
     #[xml(ns = b"xwas", name = b"untersuchungDurchErlaeuterung", ty = "child")]
     pub untersuchung_durch_erlaeuterung: Option<String>,
     #[xml(ns = b"xwas", name = b"anlassDerUntersuchung", ty = "child")]
+    #[serde(default)]
     pub anlass_der_untersuchung: Vec<CodeAnlassUntersuchungType>,
     #[xml(ns = b"xwas", name = b"zuUntersuchenderParameter", ty = "child")]
+    #[serde(default)]
     pub zu_untersuchender_parameter: Vec<ParameterangabenType>,
     #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
+    #[serde(default)]
     pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
+    #[xml(ns = b"xwas", name = b"aufnahmeBerichtsplanGA", ty = "child")]
+    pub aufnahme_berichtsplan_ga: Option<bool>,
     #[xml(ns = b"xwas", name = b"ersatzFuerTerminplanMitDerID", ty = "child")]
     pub ersatz_fuer_terminplan_mit_der_id: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    pub kommentar: Option<KommentarType>,
+    #[serde(default)]
+    pub kommentar: Vec<KommentarType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
@@ -538,6 +541,12 @@ pub struct WasserversorgungsgebietType {
     pub exceedance: Vec<ExceedanceType>,
     #[xml(ns = b"xwas", name = b"incident", ty = "child")]
     pub incident: Vec<IncidentType>,
+    #[xml(ns = b"xwas", name = b"versorgterOrtsteil", ty = "child")]
+    #[serde(default)]
+    pub versorgter_ortsteil: Vec<VersorgterOrtsteilType>,
+    #[xml(ns = b"xwas", name = b"ueberwachendeBehoerde", ty = "child")]
+    #[serde(default)]
+    pub ueberwachende_behoerde: Vec<UeberwachendeBehoerdeType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
@@ -573,8 +582,17 @@ pub struct AnlageNachTrinkwVType {
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
     pub wasserversorgungsgebiet_id: Vec<String>,
-    #[xml(ns = b"xwas", name = b"angabenAlternativeID", ty = "child")]
-    pub angaben_alternative_id: Option<AngabenAlternativeIDType>,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeIDGesundheit", ty = "child")]
+    pub angaben_alternative_id_gesundheit: Option<AngabenAlternativeIdGesundheitType>,
+    #[xml(ns = b"xwas", name = b"versorgterOrtsteil", ty = "child")]
+    #[serde(default)]
+    pub versorgter_ortsteil: Vec<VersorgterOrtsteilType>,
+    #[xml(ns = b"xwas", name = b"ueberwachendeBehoerde", ty = "child")]
+    #[serde(default)]
+    pub ueberwachende_behoerde: Vec<UeberwachendeBehoerdeType>,
+    #[xml(ns = b"xwas", name = b"anlageAnDieWasserAbgegebenWird", ty = "child")]
+    #[serde(default)]
+    pub anlage_an_die_wasser_abgegeben_wird: Vec<String>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }

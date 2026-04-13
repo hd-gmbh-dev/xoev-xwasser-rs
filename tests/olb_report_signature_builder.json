@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "a2a548f1-7029-4477-8a2e-1c3d488da2c0",
+      "nachrichten_uuid": "cbad5968-867c-4f5c-8fdb-56a7806664fa",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2026-03-11T15:47:36"
+      "erstellungszeitpunkt": "2026-04-09T23:30:22"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -32,13 +32,11 @@
       "name": ""
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "",
-    "zustaendige_behoerde_id": [],
-    "wasserversorgungsgebiet_id": null
+    "dvdv_dienstkennung": ""
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "d35e428a-a3ca-4d07-864b-827481cf8b73"
+      "vorgangs_id": "a40c6d04-5b88-415c-9658-63651d742e9d"
     },
     "vorgang_type": {
       "t": "OlbBericht",

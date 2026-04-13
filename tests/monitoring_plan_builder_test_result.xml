@@ -2,11 +2,11 @@
 <xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="XWasser Test" produkthersteller="H&amp;D GmbH" produktversion="0.901.0" standard="XWasser" test="true" version="1.0.0">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
-      <nachrichtenUUID>6b8f0c70-80f7-4c66-b652-a80600f26936</nachrichtenUUID>
+      <nachrichtenUUID>36a6f4da-2b6a-449c-b823-daa0c8cb043c</nachrichtenUUID>
       <nachrichtentyp listURI="urn:xoev-de:xwasser:codeliste:nachrichtentyp" listVersionID="1">
         <code>2010</code>
       </nachrichtentyp>
-      <erstellungszeitpunkt>2026-03-11T15:47:34</erstellungszeitpunkt>
+      <erstellungszeitpunkt>2026-04-09T23:30:20</erstellungszeitpunkt>
     </identifikation.nachricht>
     <leser>
       <verzeichnisdienst listVersionID="">
@@ -26,12 +26,12 @@
   </nachrichtenkopf.g2g>
   <xwas:vorgang>
     <xwas:identifikationVorgang>
-      <xwas:vorgangsID>b3cbf58f-d3cf-4ce7-a2d2-6156dcf6ffa7</xwas:vorgangsID>
+      <xwas:vorgangsID>065331ce-ea4c-4e76-aa3e-70c835fc9197</xwas:vorgangsID>
     </xwas:identifikationVorgang>
     <xwas:vorgangType>
-      <xwas:untersuchungsplan id="untersuchungsplan-vfFRU1Nu">
-        <xwas:untersuchungsplanID>c05ab582-34f5-4197-a59d-fd5a625ca305</xwas:untersuchungsplanID>
-        <xwas:wasserversorgungsgebiet>wvg-pFrIvtoT</xwas:wasserversorgungsgebiet>
+      <xwas:untersuchungsplan id="untersuchungsplan-6fLd2cVs">
+        <xwas:untersuchungsplanID>c80cc8e0-707b-4b64-a47f-97d2a19c0974</xwas:untersuchungsplanID>
+        <xwas:wasserversorgungsgebiet>wvg-0Ly1fpdg</xwas:wasserversorgungsgebiet>
         <xwas:titelUntersuchungsplan></xwas:titelUntersuchungsplan>
         <xwas:jahr>2024</xwas:jahr>
         <xwas:jahr>2025</xwas:jahr>
@@ -68,10 +68,10 @@
         <xwas:statusUntersuchungsplan listURI="urn:xoev-de:xwasser:codeliste:status-untersuchungsplan" listVersionID="2">
           <code>1010</code>
         </xwas:statusUntersuchungsplan>
-        <xwas:terminplan id="terminplan-nJ8D0DxA">
-          <xwas:terminplanID>ebcd6f17-81e6-441f-91e7-36deb1173d7f</xwas:terminplanID>
-          <xwas:probennahmestelle>probennahmestelle-mjM0lsYY</xwas:probennahmestelle>
-          <xwas:datumZeitraum>2026-03-11T15:47:34</xwas:datumZeitraum>
+        <xwas:terminplan id="terminplan-YQkkog0B">
+          <xwas:terminplanID>0e9b953c-7b5a-4b76-88a4-c1822b978122</xwas:terminplanID>
+          <xwas:probennahmestelle>probennahmestelle-XWsovdjW</xwas:probennahmestelle>
+          <xwas:datumZeitraum>2026-04-09T23:30:20</xwas:datumZeitraum>
           <xwas:probennahmestelleKategorie listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="2">
             <code>1000</code>
           </xwas:probennahmestelleKategorie>
@@ -90,23 +90,23 @@
             <xwas:reduzierbarOhneRAU>false</xwas:reduzierbarOhneRAU>
           </xwas:zuUntersuchenderParameter>
         </xwas:terminplan>
-        <xwas:anlageNachTrinkwV id="antv-qbwFAZZk">
+        <xwas:anlageNachTrinkwV id="antv-1L29oVhJ">
           <xwas:artAnlage listURI="urn:xoev-de:xwasser:codeliste:art-trinkwasseranlage" listVersionID="1">
             <code>1010</code>
           </xwas:artAnlage>
           <xwas:nameDerAnlage></xwas:nameDerAnlage>
-          <xwas:wasserversorgungsgebietID>wvg-pFrIvtoT</xwas:wasserversorgungsgebietID>
+          <xwas:wasserversorgungsgebietID>wvg-0Ly1fpdg</xwas:wasserversorgungsgebietID>
         </xwas:anlageNachTrinkwV>
-        <xwas:objekt id="obj-sjP4LjDV">
-          <xwas:objektID>7c437779-896f-490d-abab-a040b5bbaee5</xwas:objektID>
-          <xwas:betreiberID>betreiber-uzMeNWem</xwas:betreiberID>
+        <xwas:objekt id="obj-3R4ilk8b">
+          <xwas:objektID>17f6956e-1ab3-4cbe-8f0c-c5c70eaec463</xwas:objektID>
+          <xwas:betreiberID>betreiber-55DX08pC</xwas:betreiberID>
           <xwas:artObjekt listURI="urn:xoev-de:xwasser:codeliste:art-objekt" listVersionID="1">
             <code>1010</code>
           </xwas:artObjekt>
           <xwas:nameObjekt></xwas:nameObjekt>
         </xwas:objekt>
-        <xwas:probennahmestelle id="probennahmestelle-mjM0lsYY">
-          <xwas:probennahmestelleID>7cd9a631-5bcb-4ccc-a739-f5e220f86786</xwas:probennahmestelleID>
+        <xwas:probennahmestelle id="probennahmestelle-XWsovdjW">
+          <xwas:probennahmestelleID>2c5c0b2d-f62d-46c3-a399-87b7cc730e8f</xwas:probennahmestelleID>
           <xwas:nameProbennahmestelle>Probennahmestelle 1</xwas:nameProbennahmestelle>
           <xwas:kategorieProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="2">
             <code>1000</code>
@@ -128,12 +128,12 @@
             <code>1010</code>
           </xwas:auftraggeberart>
           <xwas:auftraggeber>
-            <xwas:organisation id="organisation-rJCLzFDZ">
+            <xwas:organisation id="organisation-2NweMJol">
             </xwas:organisation>
           </xwas:auftraggeber>
         </xwas:auftraggeber>
         <xwas:zustaendigeBehoerde>
-          <xwas:id>behoerde-lVbzyQC4</xwas:id>
+          <xwas:id>behoerde-W4lIYdBH</xwas:id>
           <xwas:typ>
             <code></code>
           </xwas:typ>

@@ -50,7 +50,9 @@ fn fetch_codelists(version: &str) -> Result<(), Box<dyn std::error::Error>> {
         .nth(1)
         .expect("version of XWasser after + sign");
     let file_path_version = format!("v{}", version.replace('.', "_"));
-    let url = format!("https://www.xrepository.de/api/version_standard/urn:xoev-de:lgl:standard:xwasser_{version}/genutzteAktuelleCodelisten");
+    let url = format!(
+        "https://www.xrepository.de/api/version_standard/urn:xoev-de:lgl:standard:xwasser_{version}/genutzteAktuelleCodelisten"
+    );
     println!("Fetching codelists from {}", url);
     let response = reqwest::blocking::get(url)?.error_for_status()?.bytes()?;
     let zip_data = Cursor::new(response);

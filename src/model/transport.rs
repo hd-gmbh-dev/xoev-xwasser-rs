@@ -15,6 +15,7 @@ use typed_builder::TypedBuilder;
 
 use crate::{SCHEMA, TNS, VERSION, XMLNS};
 
+use super::shared::misc::ZusatzinformationenType;
 use super::{signature::Signature, vorgang::Vorgang};
 
 #[derive(
@@ -54,11 +55,6 @@ pub struct NachrichtenkopfG2g {
     pub referenz_uuid: Option<String>,
     #[xml(default, name = b"dvdvDienstkennung", ty = "child")]
     pub dvdv_dienstkennung: String,
-    #[serde(default)]
-    #[xml(name = b"zustaendigeBehoerdeID", ty = "child")]
-    pub zustaendige_behoerde_id: Vec<String>,
-    #[xml(name = b"wasserversorgungsgebietID", ty = "child")]
-    pub wasserversorgungsgebiet_id: Option<String>,
 }
 
 #[derive(
@@ -184,6 +180,8 @@ pub struct VorgangTransportieren2010 {
     pub nachrichtenkopf_g2g: NachrichtenkopfG2g,
     #[xml(ns = b"xwas", name = b"vorgang", ty = "child")]
     pub vorgang: Vorgang,
+    #[xml(ns = b"xwas", name = b"zusatzinformationen", ty = "child")]
+    pub zusatzinformationen: Option<ZusatzinformationenType>,
     #[xml(ns = b"ds", name = b"Signature", ty = "child")]
     pub signature: Option<Signature>,
 }

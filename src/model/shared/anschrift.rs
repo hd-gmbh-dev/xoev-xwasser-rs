@@ -11,7 +11,7 @@ use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::{model::codes::CodeAnschrifttypType, TNS};
+use crate::{TNS, model::codes::CodeAnschrifttypType};
 
 use super::{
     behoerde::VerwaltungspolitischeKodierungType, staat::StaatType, xoev::XWasserXoevCode,

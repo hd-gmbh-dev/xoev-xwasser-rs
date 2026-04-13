@@ -11,7 +11,7 @@ use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::{model::codes::CodeDokumenttypType, TNS};
+use crate::{TNS, model::codes::CodeDokumenttypType};
 
 /// Sofern das Dokument signiert wurde findet sich hier eine Referenzliste auf die
 /// Signaturen. Diese sind ihrerseits wieder Dokumente, die auch als Dokumentelemente in

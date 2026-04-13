@@ -32,9 +32,7 @@
       "name": "lab 1"
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "1",
-    "zustaendige_behoerde_id": [],
-    "wasserversorgungsgebiet_id": null
+    "dvdv_dienstkennung": "1"
   },
   "vorgang": {
     "identifikation_vorgang": {
@@ -73,8 +71,8 @@
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
-            "angaben_alternative_id": null,
-            "angaben_umweltbereich_id": null,
+            "angaben_alternative_id_gesundheit": null,
+            "angaben_alternative_id_umwelt": null,
             "kommentar": null,
             "id": "id-c5e23ffb-c307-4121-94e5-6a007d99bb02"
           }

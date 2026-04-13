@@ -1,6 +1,6 @@
 use proc_macro2::TokenStream;
 use quote::quote;
-use syn::{parse2, spanned::Spanned, Data, DeriveInput, Error, Fields, Result};
+use syn::{Data, DeriveInput, Error, Fields, Result, parse2, spanned::Spanned};
 
 pub(super) fn derive(input: TokenStream) -> Result<TokenStream> {
     let ast: DeriveInput = parse2(input)?;

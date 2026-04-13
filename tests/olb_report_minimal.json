@@ -32,9 +32,7 @@
       "name": "Author"
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "s",
-    "zustaendige_behoerde_id": [],
-    "wasserversorgungsgebiet_id": null
+    "dvdv_dienstkennung": "s"
   },
   "vorgang": {
     "identifikation_vorgang": {

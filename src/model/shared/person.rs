@@ -12,12 +12,12 @@ use tsify::Tsify;
 use typed_builder::TypedBuilder;
 
 use crate::{
+    TNS,
     model::codes::{
         CodeAuskunftssperreType, CodeAusweisdokumenteType, CodeFamilienstandBeendigungsgrundType,
         CodeFamilienstandType, CodeGeschlechtType, CodeNamensartType, CodePersonenrolleType,
         CodeRechtsformenType, CodeVertretungsartType,
     },
-    TNS,
 };
 
 use super::{

@@ -32,9 +32,7 @@
       "name": "Author"
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "s",
-    "zustaendige_behoerde_id": [],
-    "wasserversorgungsgebiet_id": null
+    "dvdv_dienstkennung": "s"
   },
   "vorgang": {
     "identifikation_vorgang": {
@@ -78,8 +76,8 @@
                 "name": "desinfektionAufbereitungDesWassers"
               }
             ],
-            "angaben_alternative_id": null,
-            "angaben_umweltbereich_id": null,
+            "angaben_alternative_id_gesundheit": null,
+            "angaben_alternative_id_umwelt": null,
             "kommentar": "kommentar zur proebennahmestelle",
             "id": "probennahmestelleid1"
           }

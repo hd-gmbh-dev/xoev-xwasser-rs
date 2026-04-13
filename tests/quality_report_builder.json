@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "f21ef002-5406-4ad4-8ef1-a40886c76aab",
+      "nachrichten_uuid": "06883b3b-036f-4c17-8784-a8ee3db172d3",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2026-03-11T15:47:36"
+      "erstellungszeitpunkt": "2026-04-09T23:30:22"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -32,23 +32,21 @@
       "name": "lab 1"
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "1",
-    "zustaendige_behoerde_id": [],
-    "wasserversorgungsgebiet_id": null
+    "dvdv_dienstkennung": "1"
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "5b1550ca-b03b-4c6b-81b3-0804af918359"
+      "vorgangs_id": "9d95c1c2-7196-47f7-b17d-278204d1b6fb"
     },
     "vorgang_type": {
       "t": "Pruefbericht",
       "c": {
-        "pruefbericht_uuid": "0ce939a0-fab5-4842-94e3-cabe16f7a262",
+        "pruefbericht_uuid": "e53f86c3-303a-4edb-8439-4a289cf8d07e",
         "versionsnummer": 1,
-        "auftragsnummer": "18c6ea6c-0c6e-4e2c-a330-dfddf0e5b6e4",
+        "auftragsnummer": "a3a5f0c5-592c-404c-b338-5f1f99fc58b5",
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "id-e4b47977-36a6-459b-b5f6-1a3634d94f96",
+            "probennahmestelle_id": "id-098270dd-e217-4649-9342-0c08e9e4608f",
             "objekt_id": "none",
             "probe": [],
             "terminplan_id": [],
@@ -73,23 +71,23 @@
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
-            "angaben_alternative_id": null,
-            "angaben_umweltbereich_id": null,
+            "angaben_alternative_id_gesundheit": null,
+            "angaben_alternative_id_umwelt": null,
             "kommentar": null,
-            "id": "id-e4b47977-36a6-459b-b5f6-1a3634d94f96"
+            "id": "id-098270dd-e217-4649-9342-0c08e9e4608f"
           }
         ],
         "probe": [
           {
-            "probe_id": "42117dee-34d0-4708-8c80-510eb4e7d885",
-            "probennahmestelle": "id-e4b47977-36a6-459b-b5f6-1a3634d94f96",
+            "probe_id": "1337606e-8c56-4e83-86bf-be9bd2d4443f",
+            "probennahmestelle": "id-098270dd-e217-4649-9342-0c08e9e4608f",
             "terminplan_id": null,
             "probennehmer": null,
             "titel_probe": "",
             "analyseergebnis_parameter": [
               {
-                "analyseergebnis_parameter_id": "6d475907-128b-4888-8a76-ee2d834d52ae",
-                "anschrift_id": "anschrift-yULfRQfs",
+                "analyseergebnis_parameter_id": "9c0e6188-543e-4c54-88db-49f456332ff9",
+                "anschrift_id": "anschrift-nX9vcVFj",
                 "zugelassene_untersuchungsstelle": "wsu-1",
                 "akkreditierte_durchfuehrung_analyse": false,
                 "zugelassene_durchfuehrung_analyse": true,
@@ -143,7 +141,7 @@
             },
             "akkreditierte_durchfuehrung_der_probennahme": false,
             "ergaenzung_zum_medium": null,
-            "zeitpunkt_probennahme": "2026-03-11T15:47:36",
+            "zeitpunkt_probennahme": "2026-04-09T23:30:22",
             "probennahmeverfahren": [
               {
                 "code": "1010",
@@ -162,9 +160,9 @@
             ],
             "kommentar_zur_probennahme": null,
             "informationen_zum_probentransport": null,
-            "eingang_probe_bei_untersuchungsstelle": "2026-03-11T15:47:36",
-            "beginn_labortaetigkeit_analytik": "2026-03-11T15:47:36",
-            "abschluss_labortaetigkeit_analytik": "2026-03-11T15:47:36",
+            "eingang_probe_bei_untersuchungsstelle": "2026-04-09T23:30:22",
+            "beginn_labortaetigkeit_analytik": "2026-04-09T23:30:22",
+            "abschluss_labortaetigkeit_analytik": "2026-04-09T23:30:22",
             "konformitaetsbewertung_der_probe": {
               "code": "1010",
               "name": null
@@ -181,7 +179,7 @@
         ],
         "probennehmer": [
           {
-            "probennehmer_id": "07a5c09f-d8f6-4a7b-bfba-f303b66fbee1",
+            "probennehmer_id": "1031de02-b956-4baa-b924-44d558589495",
             "probennehmer": {
               "t": "NatuerlichePerson",
               "c": {
@@ -216,7 +214,7 @@
           "name": null
         },
         "auffaelligkeiten": [],
-        "zeitpunkt_validierung_pruefbericht": "2026-03-11T15:47:36",
+        "zeitpunkt_validierung_pruefbericht": "2026-04-09T23:30:22",
         "fuer_validierung_verantwortliche_person": [
           {
             "auskunftssperre": [],
@@ -305,7 +303,7 @@
             "typ": [],
             "staat": null,
             "verwaltungspolitische_kodierung": null,
-            "id": "anschrift-yULfRQfs"
+            "id": "anschrift-nX9vcVFj"
           }
         ],
         "gefahr_in_verzug": false,

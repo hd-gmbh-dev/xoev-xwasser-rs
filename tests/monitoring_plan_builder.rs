@@ -32,6 +32,7 @@ fn test_monitoring_plan_builder() -> anyhow::Result<()> {
                 )
                 .build(),
         )
+        .zusatzinformationen(Default::default())
         .signature(None)
         .build();
 

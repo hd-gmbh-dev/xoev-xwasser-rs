@@ -87,8 +87,6 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .dvdv_dienstkennung("1".into())
         .referenz_uuid(None)
         .identifikation_nachricht(identifikation_nachricht)
-        .zustaendige_behoerde_id(Default::default())
-        .wasserversorgungsgebiet_id(Default::default())
         .build();
 
     let identifikation_vorgang = IdentifikationVorgang::builder()
@@ -168,8 +166,6 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
     let probennahmestelle = ProbennahmestelleType::builder()
         .probennahmestelle_id(probenahmestelle_id.clone().into())
         .objekt_id(Some("none".into()))
-        .probe(Default::default())
-        .terminplan_id(Default::default())
         .name_probennahmestelle(Default::default())
         .kategorie_probennahmestelle("1000".into())
         .unterkategorie_probennahmestelle(Some("1030".into()))
@@ -177,8 +173,8 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .stockwerk_probennahmestelle(0.into())
         .medium_an_der_probennahmestelle(vec!["1010".into()])
         .desinfektion_und_aufbereitung_des_wassers(Default::default())
-        .angaben_alternative_id(None)
-        .angaben_umweltbereich_id(None)
+        .angaben_alternative_id_gesundheit(None)
+        .angaben_alternative_id_umwelt(None)
         .kommentar(Default::default())
         .id(probenahmestelle_id)
         .build();
@@ -278,6 +274,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
                 ))
                 .build(),
         )
+        .zusatzinformationen(Default::default())
         .signature(None)
         .build();
 

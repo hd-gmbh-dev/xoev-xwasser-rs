@@ -47,6 +47,7 @@ fn test_olb_report_signature_builder() -> anyhow::Result<()> {
                 ))
                 .build(),
         )
+        .zusatzinformationen(Default::default())
         .signature(Some(Signature { exists: true }))
         .build();
 

@@ -21,7 +21,9 @@ use crate::{
 use super::{
     anschrift::AnschriftType,
     behoerde::ZustaendigeBehoerdeType,
-    misc::{AngabenAlternativeIDType, AngabenUmweltbereichIDType, GeografischeAngabenType},
+    misc::{
+        AngabenAlternativeIdGesundheitType, AngabenAlternativeIdUmweltType, GeografischeAngabenType,
+    },
     organisation::OrganisationType,
     person::NatuerlichePersonType,
 };
@@ -60,14 +62,16 @@ pub enum ArtDerPerson {
 #[xml(tns(b"xwas", TNS))]
 pub struct BetreiberType {
     #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
-    pub betreiber_id: String,
+    pub betreiber_id: Option<String>,
     #[xml(ns = b"xwas", name = b"artDerPerson", ty = "child")]
     pub art_der_person: ArtDerPerson,
-    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    pub kommentar: Option<String>,
     #[serde(default)]
     #[xml(ns = b"xwas", name = b"juristischerBetreiber", ty = "child")]
     pub juristischer_betreiber: bool,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeIDUmwelt", ty = "child")]
+    pub angaben_alternative_id_umwelt: Option<AngabenAlternativeIdUmweltType>,
+    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
@@ -111,10 +115,10 @@ pub struct ObjektType {
     pub rahmen_der_trinkwasserbereitstellung: Vec<CodeRahmenTrinkwasserbereitstellungType>,
     #[xml(ns = b"xwas", name = b"geokoordinatenObjekt", ty = "child")]
     pub geokoordinaten_objekt: Option<GeografischeAngabenType>,
-    #[xml(ns = b"xwas", name = b"angabenAlternativeID", ty = "child")]
-    pub angaben_alternative_id: Option<AngabenAlternativeIDType>,
-    #[xml(ns = b"xwas", name = b"angabenUmweltbereichID", ty = "child")]
-    pub angaben_umweltbereich_id: Option<AngabenUmweltbereichIDType>,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeIDGesundheit", ty = "child")]
+    pub angaben_alternative_id_gesundheit: Option<AngabenAlternativeIdGesundheitType>,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeIDUmwelt", ty = "child")]
+    pub angaben_alternative_id_umwelt: Option<AngabenAlternativeIdUmweltType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]

@@ -26,7 +26,7 @@ use typed_builder::TypedBuilder;
 
 use super::{
     behoerde::ZustaendigeBehoerdeType,
-    misc::{AngabenAlternativeIDType, AngabenUmweltbereichIDType},
+    misc::{AngabenAlternativeIdGesundheitType, AngabenAlternativeIdUmweltType},
     organisation::OrganisationType,
     person::NatuerlichePersonType,
 };
@@ -82,12 +82,6 @@ pub struct ProbennahmestelleType {
     pub probennahmestelle_id: Option<String>,
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
     pub objekt_id: Option<String>,
-    #[xml(ns = b"xwas", name = b"probe", ty = "child")]
-    #[serde(default)]
-    pub probe: Vec<String>,
-    #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
-    #[serde(default)]
-    pub terminplan_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"nameProbennahmestelle", ty = "child")]
     pub name_probennahmestelle: String,
     #[xml(ns = b"xwas", name = b"kategorieProbennahmestelle", ty = "child")]
@@ -108,10 +102,10 @@ pub struct ProbennahmestelleType {
     )]
     pub desinfektion_und_aufbereitung_des_wassers:
         Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
-    #[xml(ns = b"xwas", name = b"angabenAlternativeID", ty = "child")]
-    pub angaben_alternative_id: Option<AngabenAlternativeIDType>,
-    #[xml(ns = b"xwas", name = b"angabenUmweltbereichID", ty = "child")]
-    pub angaben_umweltbereich_id: Option<AngabenUmweltbereichIDType>,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeIDGesundheit", ty = "child")]
+    pub angaben_alternative_id_gesundheit: Option<AngabenAlternativeIdGesundheitType>,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeIDUmwelt", ty = "child")]
+    pub angaben_alternative_id_umwelt: Option<AngabenAlternativeIdUmweltType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]

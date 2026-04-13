@@ -32,9 +32,7 @@
       "name": ""
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "",
-    "zustaendige_behoerde_id": [],
-    "wasserversorgungsgebiet_id": null
+    "dvdv_dienstkennung": ""
   },
   "vorgang": {
     "identifikation_vorgang": {
@@ -149,7 +147,7 @@
           "wasserversorgungsgebiet_id": [
             "wvg-jz28waIw"
           ],
-          "angaben_alternative_id": null,
+          "angaben_alternative_id_gesundheit": null,
           "id": "antv-k71zTgYl"
         },
         "objekt": [
@@ -169,8 +167,7 @@
             "datum_ausser_betriebnahme": null,
             "rahmen_der_trinkwasserbereitstellung": [],
             "geokoordinaten_objekt": null,
-            "angaben_alternative_id": null,
-            "angaben_umweltbereich_id": null,
+            "angaben_alternative_id_gesundheit": null,
             "kommentar": null,
             "id": "obj-mjkuauCY"
           }
@@ -202,8 +199,8 @@
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
-            "angaben_alternative_id": null,
-            "angaben_umweltbereich_id": null,
+            "angaben_alternative_id_gesundheit": null,
+            "angaben_alternative_id_umwelt": null,
             "kommentar": null,
             "id": "probennahmestelle-g73xXhy3"
           }
