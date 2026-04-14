@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "2536e507-fae2-4b1f-812a-719c4af6a3f3",
+      "nachrichten_uuid": "aa3c81ef-a0c0-41a1-8a32-d619567d989c",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2026-04-14T11:17:04"
+      "erstellungszeitpunkt": "2026-04-14T20:56:56"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -36,17 +36,17 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "25203711-ecc2-440a-a106-792f0e939fa9"
+      "vorgangs_id": "d93bde75-8482-431b-95fd-510ac3a83cca"
     },
     "vorgang_type": {
       "t": "Pruefbericht",
       "c": {
-        "pruefbericht_uuid": "c841a359-13d3-417b-9374-6849cdbc1184",
+        "pruefbericht_uuid": "d67f0cd8-1811-4a00-86f2-84fe9a6aca01",
         "versionsnummer": 1,
-        "auftragsnummer": "3e89eaf2-61a2-47cd-acca-7db837855e4e",
+        "auftragsnummer": "45c808f1-1850-4338-b4ee-56d685bed442",
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "id-9cdb0863-9ad3-4ba3-82ae-ee5d232aaf6f",
+            "probennahmestelle_id": "id-b5b5814a-2960-46ab-9cb0-7cd2a55aa10c",
             "objekt_id": "none",
             "name_probennahmestelle": "",
             "kategorie_probennahmestelle": {
@@ -72,20 +72,20 @@
             "angaben_alternative_id_gesundheit": null,
             "angaben_alternative_id_umwelt": null,
             "kommentar": null,
-            "id": "id-9cdb0863-9ad3-4ba3-82ae-ee5d232aaf6f"
+            "id": "id-b5b5814a-2960-46ab-9cb0-7cd2a55aa10c"
           }
         ],
         "probe": [
           {
-            "probe_id": "c755b95c-6452-456d-9c2b-26ff9d6eddd2",
-            "probennahmestelle": "id-9cdb0863-9ad3-4ba3-82ae-ee5d232aaf6f",
+            "probe_id": "ed99a07a-8ab9-41b6-8e86-9e7814a3753a",
+            "probennahmestelle": "id-b5b5814a-2960-46ab-9cb0-7cd2a55aa10c",
             "terminplan_id": null,
             "probennehmer": null,
             "titel_probe": "",
             "analyseergebnis_parameter": [
               {
-                "analyseergebnis_parameter_id": "db4d65bd-ce95-40a5-88cd-cc586a881aff",
-                "anschrift_id": "anschrift-0nDXYcXM",
+                "analyseergebnis_parameter_id": "ff317fd9-e069-48c8-a9b5-a6a43250ebfe",
+                "anschrift_id": "anschrift-VLJBXz0J",
                 "zugelassene_untersuchungsstelle": "wsu-1",
                 "akkreditierte_durchfuehrung_analyse": false,
                 "zugelassene_durchfuehrung_analyse": true,
@@ -139,7 +139,7 @@
             },
             "akkreditierte_durchfuehrung_der_probennahme": false,
             "ergaenzung_zum_medium": null,
-            "zeitpunkt_probennahme": "2026-04-14T11:17:04",
+            "zeitpunkt_probennahme": "2026-04-14T20:56:56",
             "probennahmeverfahren": [
               {
                 "code": "1010",
@@ -158,9 +158,9 @@
             ],
             "kommentar_zur_probennahme": null,
             "informationen_zum_probentransport": null,
-            "eingang_probe_bei_untersuchungsstelle": "2026-04-14T11:17:04",
-            "beginn_labortaetigkeit_analytik": "2026-04-14T11:17:04",
-            "abschluss_labortaetigkeit_analytik": "2026-04-14T11:17:04",
+            "eingang_probe_bei_untersuchungsstelle": "2026-04-14T20:56:56",
+            "beginn_labortaetigkeit_analytik": "2026-04-14T20:56:56",
+            "abschluss_labortaetigkeit_analytik": "2026-04-14T20:56:56",
             "konformitaetsbewertung_der_probe": {
               "code": "1010",
               "name": null
@@ -177,7 +177,7 @@
         ],
         "probennehmer": [
           {
-            "probennehmer_id": "fd67c488-3630-41ad-8d2d-2c41ff7132a2",
+            "probennehmer_id": "daa6d8a6-0f65-4b05-97b3-521c0d6e019c",
             "probennehmer": {
               "t": "NatuerlichePerson",
               "c": {
@@ -212,7 +212,7 @@
           "name": null
         },
         "auffaelligkeiten": [],
-        "zeitpunkt_validierung_pruefbericht": "2026-04-14T11:17:04",
+        "zeitpunkt_validierung_pruefbericht": "2026-04-14T20:56:56",
         "fuer_validierung_verantwortliche_person": [
           {
             "auskunftssperre": [],
@@ -302,7 +302,7 @@
             "typ": [],
             "staat": null,
             "verwaltungspolitische_kodierung": null,
-            "id": "anschrift-0nDXYcXM"
+            "id": "anschrift-VLJBXz0J"
           }
         ],
         "gefahr_in_verzug": false,
