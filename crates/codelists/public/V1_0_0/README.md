@@ -192,6 +192,22 @@ Mit dieser Codeliste wird im Kontext von XWasser die Einheit eines SHAPTH Parame
 | Usage | Required | Required |
 | Lang | None | None |
 
+## Gemeinden, dargestellt durch den Amtlichen Gemeindeschlüssel (AGS) des Statistischen Bundesamtes
+
+Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
+
+| | |
+| -- | -- |
+| short name | AGS |
+| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags` |
+| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2026-04-30 |
+
+| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
+| Lang | None | None | None |
+
 ## DSMeld Familienstand Beendigungsgrund (DSMeld-Blatt 1405)
 
 
@@ -576,6 +592,22 @@ In dieser Codeliste werden Unterkategorien von Probennahmestellen definiert.
 | Usage | Required | Optional | Required | Required |
 | Lang | None | None | None | None |
 
+## Gemeinden, dargestellt durch den Amtlichen Regionalschlüssel (ARS) des Statistischen Bundesamtes
+
+Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Regionalschlüssel (ARS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
+
+| | |
+| -- | -- |
+| short name | Regionalschluessel |
+| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs` |
+| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2026-04-30 |
+
+| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
+| Lang | None | None | None |
+
 ## Probennahmeverfahren
 
 Diese Codeliste dient im Kontext von XWasser zur Angabe des Verfahrens, mit dem eine Probe entnommen wird
@@ -767,22 +799,6 @@ Mit dieser Codeliste wird im Kontext von XWasser die Kategorie der Probennahmest
 | type | RecommendedKey | Value | Value | Value |
 | Usage | Required | Required | Required | Optional |
 | Lang | None | None | None | None |
-
-## Gemeinden, dargestellt durch den Amtlichen Regionalschlüssel (ARS) des Statistischen Bundesamtes
-
-Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Regionalschlüssel (ARS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
-
-| | |
-| -- | -- |
-| short name | Regionalschluessel |
-| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs` |
-| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2026-03-31 |
-
-| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Required | Optional |
-| Lang | None | None | None |
 
 ## Amtssprache Europäische Union
 
@@ -990,22 +1006,6 @@ Mit dieser Codeliste wird im Kontext von XWasser definiert, ob in einer Wasserpr
 | -- | -- | -- | -- |
 | type | RecommendedKey | Value | Value |
 | Usage | Required | Optional | Required |
-| Lang | None | None | None |
-
-## Gemeinden, dargestellt durch den Amtlichen Gemeindeschlüssel (AGS) des Statistischen Bundesamtes
-
-Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
-
-| | |
-| -- | -- |
-| short name | AGS |
-| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags` |
-| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2026-03-31 |
-
-| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
 ## Flockung
