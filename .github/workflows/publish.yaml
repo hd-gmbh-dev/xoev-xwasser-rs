@@ -24,9 +24,18 @@ jobs:
       uses: lukka/get-cmake@latest
     - name: Publish to crates.io.
       run: |
-        cargo publish --token ${CRATES_TOKEN} -p xoev-xwasser-derive
-        cargo publish --token ${CRATES_TOKEN} --no-verify -p xoev-xwasser-codelists
-        cargo publish --token ${CRATES_TOKEN} -p xoev-xwasser
+        set -e
+        for crate in xoev-xwasser-derive xoev-xwasser-codelists xoev-xwasser; do
+          if cargo search "$crate" --limit 1 2>/dev/null | grep -q "${crate}.*1.0.0"; then
+            echo "Skipping $crate - already published"
+          else
+            if [ "$crate" = "xoev-xwasser-codelists" ]; then
+              cargo publish --token ${CRATES_TOKEN} --no-verify -p "$crate"
+            else
+              cargo publish --token ${CRATES_TOKEN} -p "$crate"
+            fi
+          fi
+        done
       env:
         CRATES_TOKEN: ${{ secrets.CRATES_TOKEN }}
     - uses: actions/setup-node@v4
