@@ -8,16 +8,16 @@
          <xoev-cl-4:codelistDescription>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>Destatis</xoev-cl-4:agencyShortName>
          <xoev-cl-4:versionDescription>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.</xoev-cl-4:versionDescription>
-         <xoev-cl-4:validFrom>2026-03-01</xoev-cl-4:validFrom>
+         <xoev-cl-4:validFrom>2026-04-01</xoev-cl-4:validFrom>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>AGS</ShortName>
       <LongName>Gemeinden, dargestellt durch den Amtlichen Gemeindeschlüssel (AGS) des Statistischen Bundesamtes</LongName>
-      <Version>2026-03-31</Version>
+      <Version>2026-04-30</Version>
       <CanonicalUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags</CanonicalUri>
-      <CanonicalVersionUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2026-03-31</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2026-04-30</CanonicalVersionUri>
       <Agency>
          <LongName>Statistisches Bundesamt, Wiesbaden</LongName>
       </Agency>
@@ -19975,7 +19975,7 @@
             <SimpleValue>03458010</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Hude (Oldb)</SimpleValue>
+            <SimpleValue>Hude (Oldenburg)</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -85859,7 +85859,7 @@
             <SimpleValue>13072062</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Laage, Stadt</SimpleValue>
+            <SimpleValue>Laage, Recknitzstadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -87758,7 +87758,7 @@
             <SimpleValue>13074065</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Rehna, Stadt</SimpleValue>
+            <SimpleValue>Rehna, Klosterstadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
