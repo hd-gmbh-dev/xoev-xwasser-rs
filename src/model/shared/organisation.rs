@@ -122,7 +122,7 @@ pub struct OrganisationseinheitType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: String,
     #[xml(ns = b"xwas", name = b"hierarchieebene", ty = "child")]
-    pub hierarchieebene: Option<u32>, //Option<u8>,
+    pub hierarchieebene: Option<i32>, //Option<u8>,
     #[xml(ns = b"xwas", name = b"hierarchiename", ty = "child")]
     pub hierarchiename: Option<String>, //Option<String>,
 }

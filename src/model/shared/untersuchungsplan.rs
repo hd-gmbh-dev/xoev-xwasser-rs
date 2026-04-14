@@ -89,17 +89,17 @@ pub struct UntersuchungsplanType {
         name = b"anzahlUntersuchungenproJahrGruppeA",
         ty = "child"
     )]
-    pub anzahl_untersuchungen_pro_jahr_gruppe_a: u32,
+    pub anzahl_untersuchungen_pro_jahr_gruppe_a: i32,
     #[xml(ns = b"xwas", name = b"abzudeckenDurchBetreiberGruppeA", ty = "child")]
-    pub abzudecken_durch_betreiber_gruppe_a: Option<u32>,
+    pub abzudecken_durch_betreiber_gruppe_a: Option<i32>,
     #[xml(
         ns = b"xwas",
         name = b"anzahlUntersuchungenproJahrGruppeB",
         ty = "child"
     )]
-    pub anzahl_untersuchungenpro_jahr_gruppe_b: u32,
+    pub anzahl_untersuchungenpro_jahr_gruppe_b: i32,
     #[xml(ns = b"xwas", name = b"abzudeckenDurchBetreiberGruppeB", ty = "child")]
-    pub abzudecken_durch_betreiber_gruppe_b: Option<u32>,
+    pub abzudecken_durch_betreiber_gruppe_b: Option<i32>,
     #[xml(ns = b"xwas", name = b"rauDurchgefuehrt", ty = "child")]
     pub rau_durchgefuehrt: bool,
     #[xml(ns = b"xwas", name = b"statusUntersuchungsplan", ty = "child")]
@@ -281,7 +281,7 @@ pub struct QualityAndMonitoringType {
     #[xml(ns = b"xwas", name = b"parameterThresholdValueUnit", ty = "child")]
     pub parameter_threshold_value_unit: CodeShapthParameterEinheitType,
     #[xml(ns = b"xwas", name = b"samplingFrequency", ty = "child")]
-    pub sampling_frequency: u32,
+    pub sampling_frequency: i32,
     #[xml(ns = b"xwas", name = b"samplingPeriod", ty = "child")]
     pub sampling_period: CodeProbennahmezeitraumType,
     #[xml(ns = b"xwas", name = b"samplingLocationType", ty = "child")]
@@ -437,7 +437,7 @@ pub struct ExceedanceType {
     #[xml(ns = b"xwas", name = b"pointOfComplianceType", ty = "child")]
     pub point_of_compliance_type: Vec<CodeArtProbennahmestelleEuType>,
     #[xml(ns = b"xwas", name = b"numberOfSamplesPerYear", ty = "child")]
-    pub number_of_samples_per_year: u32,
+    pub number_of_samples_per_year: i32,
     #[xml(ns = b"xwas", name = b"incidentIdentifier", ty = "child")]
     pub incident_identifier: Option<String>,
     #[xml(ns = b"xwas", name = b"derogationIdentifier", ty = "child")]
@@ -514,9 +514,9 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"abgegebeneWassermenge", ty = "child")]
     pub abgegebene_wassermenge: f64,
     #[xml(ns = b"xwas", name = b"anzahlVersorgtePersonenWVG", ty = "child")]
-    pub anzahl_versorgte_personen_wvg: u32,
+    pub anzahl_versorgte_personen_wvg: i32,
     #[xml(ns = b"xwas", name = b"referenzjahrAngabenWVG", ty = "child")]
-    pub referenzjahr_angaben_wvg: u32,
+    pub referenzjahr_angaben_wvg: i32,
     #[xml(ns = b"xwas", name = b"artDerWasserressource", ty = "child")]
     pub art_der_wasserressource: Vec<CodeArtWasserressourceType>,
     #[xml(ns = b"xwas", name = b"anteilDerWasserressource", ty = "child")]
@@ -526,13 +526,13 @@ pub struct WasserversorgungsgebietType {
         name = b"vorgeschriebeneUntersuchungshaeufigkeitParameterA",
         ty = "child"
     )]
-    pub vorgeschriebene_untersuchungshaeufigkeit_parameter_a: u32,
+    pub vorgeschriebene_untersuchungshaeufigkeit_parameter_a: i32,
     #[xml(
         ns = b"xwas",
         name = b"vorgeschriebeneUntersuchungshaeufigkeitParameterB",
         ty = "child"
     )]
-    pub vorgeschriebene_untersuchungshaeufigkeit_parameter_b: u32,
+    pub vorgeschriebene_untersuchungshaeufigkeit_parameter_b: i32,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"derogation", ty = "child")]
@@ -577,7 +577,7 @@ pub struct AnlageNachTrinkwVType {
         name = b"anzahlDurchAnlageVersorgtePersonen",
         ty = "child"
     )]
-    pub anzahl_durch_anlage_versorgte_personen: Option<u32>,
+    pub anzahl_durch_anlage_versorgte_personen: Option<i32>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
