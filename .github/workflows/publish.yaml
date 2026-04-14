@@ -24,10 +24,10 @@ jobs:
       uses: lukka/get-cmake@latest
     - name: Publish to crates.io.
       run: |
-        set -e
+        VERSION=$(cargo pkgid -p xoev-xwasser 2>/dev/null | sed 's/.*@//')
         for crate in xoev-xwasser-derive xoev-xwasser-codelists xoev-xwasser; do
-          if cargo search "$crate" --limit 1 2>/dev/null | grep -q "${crate}.*1.0.0"; then
-            echo "Skipping $crate - already published"
+          if cargo search "$crate" --limit 1 2>/dev/null | grep -q "${crate}.*${VERSION}"; then
+            echo "Skipping $crate - already published ($VERSION)"
           else
             if [ "$crate" = "xoev-xwasser-codelists" ]; then
               cargo publish --token ${CRATES_TOKEN} --no-verify -p "$crate"
