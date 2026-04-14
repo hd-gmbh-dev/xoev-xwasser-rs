@@ -52,16 +52,17 @@ The builder feature enables a fluent API for constructing XML messages:
 use xoev_xwasser::{
     builder::{
         pruefbericht::pruefbericht_type,
-        transport::{nachrichtenkopf_g2g, NachrichtenTypEnum, behoerde_g2g_type},
-        utils::new_uuid,
+        transport::{nachrichtenkopf_g2g, NachrichtenTypEnum},
+        vorgang::identifikation_vorgang,
     },
     model::{
-        pruefbericht::PruefberichtType,
+        signature::Signature,
         transport::VorgangTransportieren2010,
-        vorgang::Vorgang,
+        vorgang::{Vorgang, VorgangType},
     },
 };
 
+// Create a Pruefbericht
 let pruefbericht = pruefbericht_type(
     "1.0".into(),
     None,
@@ -69,17 +70,24 @@ let pruefbericht = pruefbericht_type(
     Default::default(),
 );
 
+// Build the message with all required fields
 let message = VorgangTransportieren2010::builder()
     .produkt("MyApp".into())
     .produkthersteller("My Company".into())
     .produktversion("1.0.0".into())
-    .nachrichtenkopf_g2g(NachrichtenTypEnum::VorgangTransportieren2010)
+    .nachrichtenkopf_g2g(nachrichtenkopf_g2g(
+        NachrichtenTypEnum::VorgangTransportieren2010,
+    ))
     .vorgang(
         Vorgang::builder()
-            .identifikation_vorgang(Default::default())
-            .vorgang_type(xoev_xwasser::model::vorgang::VorgangType::Pruefbericht(pruefbericht))
+            .identifikation_vorgang(identifikation_vorgang(None))
+            .vorgang_type(VorgangType::Pruefbericht(pruefbericht))
+            .bemerkung(None)
+            .anlage(Default::default())
             .build(),
     )
+    .zusatzinformationen(Default::default())
+    .signature(Some(Signature { exists: true }))
     .build();
 ```
 
@@ -131,10 +139,12 @@ use xoev_xwasser::{
     builder::{
         pruefbericht::pruefbericht_type,
         transport::{nachrichtenkopf_g2g, NachrichtenTypEnum},
+        vorgang::identifikation_vorgang,
     },
     model::{
+        signature::Signature,
         transport::VorgangTransportieren2010,
-        vorgang::{IdentifikationVorgang, Vorgang},
+        vorgang::{Vorgang, VorgangType},
     },
 };
 
@@ -145,31 +155,30 @@ let pruefbericht = pruefbericht_type(
     Default::default(),
 );
 
-let identifikation_vorgang = IdentifikationVorgang {
-    vorgangs_id: None,
-    aktenzeichen: None,
-};
-
 let message = VorgangTransportieren2010::builder()
     .produkt("MyApp".into())
     .produkthersteller("My Company".into())
     .produktversion("1.0.0".into())
-    .nachrichtenkopf_g2g(NachrichtenTypEnum::Pruefbericht)
+    .nachrichtenkopf_g2g(nachrichtenkopf_g2g(
+        NachrichtenTypEnum::VorgangTransportieren2010,
+    ))
     .vorgang(
         Vorgang::builder()
-            .identifikation_vorgang(identifikation_vorgang)
-            .vorgang_type(xoev_xwasser::model::vorgang::VorgangType::Pruefbericht(pruefbericht))
+            .identifikation_vorgang(identifikation_vorgang(None))
+            .vorgang_type(VorgangType::Pruefbericht(pruefbericht))
+            .bemerkung(None)
+            .anlage(Default::default())
             .build(),
     )
+    .zusatzinformationen(Default::default())
+    .signature(Some(Signature { exists: true }))
     .build();
 ```
 
 ### Working with Addresses
 
 ```rust
-use xoev_xwasser::{
-    builder::shared::anschrift::anschrift_type,
-};
+use xoev_xwasser::builder::shared::anschrift::anschrift_type;
 
 let addr = anschrift_type(
     "Teststr.".into(),
