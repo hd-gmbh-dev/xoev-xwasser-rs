@@ -198,8 +198,12 @@ fn patch_version(metadata: &str) -> Result<(), String> {
 }
 
 fn set_package_json_versions(version: &str) -> Result<(), String> {
+    // For npm packages, strip everything after '+' to comply with SemVer
+    // e.g., "1.0.0+1.0.0" -> "1.0.0"
+    let npm_version = version.split('+').next().unwrap_or(version);
+
     for json_file in ["package.json", "package.tmp.json", "package.tmp.web.json"] {
-        set_json_version(json_file, version)?;
+        set_json_version(json_file, npm_version)?;
     }
     Ok(())
 }
