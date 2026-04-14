@@ -17,9 +17,20 @@ pub use xoev_xwasser_codelists::{self as codelists, CodeListValue, CodeLists, Co
 #[cfg(feature = "validate")]
 pub use validate::{XWasserValidate, XWasserValidateError, XWasserValidateMarker};
 
-pub static TNS: &[u8] = b"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/";
+/// The XML namespace of the XWasser specification.
+pub static XMLNS: &str = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0";
+/// The schema URL of the XWasser specification.
+pub static SCHEMA: &str =
+    "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 xwasser.xsd";
+/// The schema URL of the XWasser specification.
+pub static LOCAL_SCHEMA: &str =
+    "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd";
+/// The namespace of the XWasser specification as bytes.
+pub static TNS: &[u8] = XMLNS.as_bytes();
+/// The version of the XWasser specification.
+pub static VERSION: &str = "1.0.0";
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Default, PartialEq, Eq)]
 pub enum Version {
     V0_5_2,
     V0_5_3,
@@ -31,6 +42,8 @@ pub enum Version {
     V0_9_1,
     V0_9_2,
     V0_9_5,
+    #[default]
+    V1_0_0,
     Unknown,
 }
 
@@ -47,11 +60,13 @@ impl std::fmt::Display for Version {
             Version::V0_9_1 => write!(f, "091"),
             Version::V0_9_2 => write!(f, "092"),
             Version::V0_9_5 => write!(f, "095"),
+            Version::V1_0_0 => write!(f, "100"),
             Version::Unknown => write!(f, ""),
         }
     }
 }
 
+/// Detects the version of the XWasser specification from the given XML string.
 pub fn detect_version(xml: &str) -> Version {
     let mut rdr = raxb::quick_xml::Reader::from_str(xml);
     rdr.config_mut().allow_unmatched_ends = true;
@@ -94,6 +109,9 @@ pub fn detect_version(xml: &str) -> Version {
                                 b"0.9.5" => {
                                     return Version::V0_9_5;
                                 }
+                                b"1.0.0" => {
+                                    return Version::V1_0_0;
+                                }
                                 _ => {
                                     return Version::Unknown;
                                 }
@@ -110,4 +128,9 @@ pub fn detect_version(xml: &str) -> Version {
         }
     }
     Version::Unknown
+}
+
+/// Returns the current version of the XWasser specification.
+pub fn current_version() -> Version {
+    Version::default()
 }

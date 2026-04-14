@@ -32,9 +32,7 @@
       "name": "lab 1"
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "1",
-    "zustaendige_behoerde_id": [],
-    "wasserversorgungsgebiet_id": null
+    "dvdv_dienstkennung": "1"
   },
   "vorgang": {
     "identifikation_vorgang": {
@@ -50,8 +48,6 @@
           {
             "probennahmestelle_id": "id-c5e23ffb-c307-4121-94e5-6a007d99bb02",
             "objekt_id": "none",
-            "probe": [],
-            "terminplan_id": [],
             "name_probennahmestelle": "",
             "kategorie_probennahmestelle": {
               "code": "1000",
@@ -73,7 +69,8 @@
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
-            "angaben_alternative_id": null,
+            "angaben_alternative_id_gesundheit": null,
+            "angaben_alternative_id_umwelt": null,
             "kommentar": null,
             "id": "id-c5e23ffb-c307-4121-94e5-6a007d99bb02"
           }
@@ -153,7 +150,7 @@
               "code": "9020",
               "name": null
             },
-            "probengefaess": null,
+            "probengefaess": [],
             "ergaenzende_informationen_zu_probenentnahmegeraet": null,
             "desinfektion_probenentnahmegeraet_durchgefuehrt": null,
             "konservierung_der_probe": [
@@ -244,7 +241,6 @@
         },
         "rechtlicher_disclaimer": "",
         "zeitpunkt_uebermittlung_an_shapth": null,
-        "kommentar": null,
         "auftraggeber": {
           "auftraggeber_id": "",
           "auftraggeberart": {
@@ -266,7 +262,8 @@
               "existenzzeitraum": null,
               "anschrift": []
             }
-          }
+          },
+          "kommentar": null
         },
         "beauftragte_untersuchungsstelle": {
           "id": "wsu-1",
@@ -310,15 +307,17 @@
         ],
         "gefahr_in_verzug": false,
         "anhang": [],
-        "erweiterung": null,
         "objekt": [],
         "anlage_nach_trinkw_v": [],
         "betreiber": [],
+        "kommentar": null,
+        "erweiterung": null,
         "id": "pruefbericht-1"
       }
     },
     "bemerkung": null,
     "anlage": []
   },
+  "zusatzinformationen": null,
   "signature": null
 }

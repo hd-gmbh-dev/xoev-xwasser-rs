@@ -32,9 +32,7 @@
       "name": "Author"
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "s",
-    "zustaendige_behoerde_id": [],
-    "wasserversorgungsgebiet_id": null
+    "dvdv_dienstkennung": "s"
   },
   "vorgang": {
     "identifikation_vorgang": {
@@ -50,8 +48,6 @@
           {
             "probennahmestelle_id": "ID14aeb6cd-bc5e-443f-890c-cbdfe6f50c86",
             "objekt_id": "abcd",
-            "probe": [],
-            "terminplan_id": [],
             "name_probennahmestelle": "wasserloch um die ecke",
             "kategorie_probennahmestelle": {
               "code": "1000",
@@ -78,7 +74,8 @@
                 "name": "desinfektionAufbereitungDesWassers"
               }
             ],
-            "angaben_alternative_id": null,
+            "angaben_alternative_id_gesundheit": null,
+            "angaben_alternative_id_umwelt": null,
             "kommentar": "kommentar zur proebennahmestelle",
             "id": "probennahmestelleid1"
           }
@@ -155,10 +152,12 @@
               "code": "1010",
               "name": "probenentnahmegeraet"
             },
-            "probengefaess": {
-              "code": "1010",
-              "name": "probengefaess"
-            },
+            "probengefaess": [
+              {
+                "code": "1010",
+                "name": "probengefaess"
+              }
+            ],
             "ergaenzende_informationen_zu_probenentnahmegeraet": "",
             "desinfektion_probenentnahmegeraet_durchgefuehrt": true,
             "konservierung_der_probe": [],
@@ -211,8 +210,8 @@
                     "alternative_repraesentation": []
                   },
                   "rufname": null,
-                  "frueherer_vorname": null,
-                  "alternative_repraesentation": null,
+                  "frueherer_vorname": [],
+                  "alternative_repraesentation": [],
                   "ordensname": null,
                   "kuenstlername": [],
                   "weiterer_name": []
@@ -302,8 +301,8 @@
                 "alternative_repraesentation": []
               },
               "rufname": null,
-              "frueherer_vorname": null,
-              "alternative_repraesentation": null,
+              "frueherer_vorname": [],
+              "alternative_repraesentation": [],
               "ordensname": null,
               "kuenstlername": [],
               "weiterer_name": []
@@ -332,7 +331,6 @@
         },
         "rechtlicher_disclaimer": "DUMMY",
         "zeitpunkt_uebermittlung_an_shapth": "2024-12-21T00:00:12",
-        "kommentar": null,
         "auftraggeber": {
           "auftraggeber_id": "DUMMY",
           "auftraggeberart": {
@@ -375,7 +373,8 @@
               "vertreter_bevollmaechtigter": [],
               "id": null
             }
-          }
+          },
+          "kommentar": null
         },
         "beauftragte_untersuchungsstelle": {
           "id": null,
@@ -501,10 +500,11 @@
         ],
         "gefahr_in_verzug": true,
         "anhang": [],
-        "erweiterung": null,
         "objekt": [],
         "anlage_nach_trinkw_v": [],
         "betreiber": [],
+        "kommentar": null,
+        "erweiterung": null,
         "id": "ID5e08e073-4e06-438d-9444-1275f6cbf061"
       }
     },
@@ -536,5 +536,6 @@
       }
     ]
   },
+  "zusatzinformationen": null,
   "signature": null
 }

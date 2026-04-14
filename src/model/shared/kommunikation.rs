@@ -11,7 +11,7 @@ use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::{model::codes::CodeKommunikationType, TNS};
+use crate::{TNS, model::codes::CodeKommunikationType};
 
 /// "Kommunikation" fasst Angaben zur Erreichbarkeit über elektronische
 /// Kommunikationskanäle (z.B. Telefon, Fax, E-Mail) zusammen.

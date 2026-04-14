@@ -12,11 +12,11 @@ use tsify::Tsify;
 use typed_builder::TypedBuilder;
 
 use crate::{
+    TNS,
     model::codes::{
         CodeAgsType, CodeBehoerdenkennungType, CodeBezirkType, CodeBundeslandType, CodeKreisType,
         CodeLaenderkennzeichenType, CodePraefixType, CodeRegionalschluesselType,
     },
-    TNS,
 };
 
 use super::{

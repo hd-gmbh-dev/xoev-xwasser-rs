@@ -6,6 +6,7 @@ use serde::{Deserialize, Serialize};
 use xoev_xwasser_derive::XWasserValidate;
 
 use crate::{
+    TNS,
     model::codes::{
         CodeAnlassUntersuchungType, CodeArtEntnahmearmaturType,
         CodeAufbereitungsstoffDesinfektionsverfahrenType, CodeBewertungUntersuchungswertType,
@@ -15,7 +16,6 @@ use crate::{
         CodeShapthParameterType, CodeUnterkategorieProbennahmestelleType,
         CodeUntersuchungsverfahrenType,
     },
-    TNS,
 };
 
 #[cfg(feature = "wasm")]
@@ -25,8 +25,10 @@ use tsify::Tsify;
 use typed_builder::TypedBuilder;
 
 use super::{
-    behoerde::ZustaendigeBehoerdeType, misc::AngabenAlternativeIDType,
-    organisation::OrganisationType, person::NatuerlichePersonType,
+    behoerde::ZustaendigeBehoerdeType,
+    misc::{AngabenAlternativeIdGesundheitType, AngabenAlternativeIdUmweltType},
+    organisation::OrganisationType,
+    person::NatuerlichePersonType,
 };
 
 // TODO: implement Box<T>, Arc<T>, Rc<T> for raxb
@@ -77,15 +79,9 @@ pub struct ProbennehmerType {
 #[xml(tns(b"xwas", TNS))]
 pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
-    pub probennahmestelle_id: String,
+    pub probennahmestelle_id: Option<String>,
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
     pub objekt_id: Option<String>,
-    #[xml(ns = b"xwas", name = b"probe", ty = "child")]
-    #[serde(default)]
-    pub probe: Vec<String>,
-    #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
-    #[serde(default)]
-    pub terminplan_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"nameProbennahmestelle", ty = "child")]
     pub name_probennahmestelle: String,
     #[xml(ns = b"xwas", name = b"kategorieProbennahmestelle", ty = "child")]
@@ -106,8 +102,10 @@ pub struct ProbennahmestelleType {
     )]
     pub desinfektion_und_aufbereitung_des_wassers:
         Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
-    #[xml(ns = b"xwas", name = b"angabenAlternativeID", ty = "child")]
-    pub angaben_alternative_id: Option<AngabenAlternativeIDType>,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeIDGesundheit", ty = "child")]
+    pub angaben_alternative_id_gesundheit: Option<AngabenAlternativeIdGesundheitType>,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeIDUmwelt", ty = "child")]
+    pub angaben_alternative_id_umwelt: Option<AngabenAlternativeIdUmweltType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]
@@ -155,7 +153,8 @@ pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"probenentnahmegeraet", ty = "child")]
     pub probenentnahmegeraet: Option<CodeProbenentnahmegeraetType>,
     #[xml(ns = b"xwas", name = b"probengefaess", ty = "child")]
-    pub probengefaess: Option<CodeProbengefaessType>,
+    #[serde(default)]
+    pub probengefaess: Vec<CodeProbengefaessType>,
     #[xml(
         ns = b"xwas",
         name = b"ergaenzendeInformationenZuProbenentnahmegeraet",

@@ -11,7 +11,7 @@ use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::{model::codes::CodeRechtsformenType, TNS};
+use crate::{TNS, model::codes::CodeRechtsformenType};
 
 use super::{
     anschrift::AnschriftType,

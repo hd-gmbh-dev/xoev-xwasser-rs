@@ -12,16 +12,18 @@ use tsify::Tsify;
 use typed_builder::TypedBuilder;
 
 use crate::{
+    TNS,
     model::codes::{
         CodeArtObjektType, CodeBetriebszustandType, CodeRahmenTrinkwasserbereitstellungType,
     },
-    TNS,
 };
 
 use super::{
     anschrift::AnschriftType,
     behoerde::ZustaendigeBehoerdeType,
-    misc::{AngabenAlternativeIDType, GeografischeAngabenType},
+    misc::{
+        AngabenAlternativeIdGesundheitType, AngabenAlternativeIdUmweltType, GeografischeAngabenType,
+    },
     organisation::OrganisationType,
     person::NatuerlichePersonType,
 };
@@ -60,9 +62,14 @@ pub enum ArtDerPerson {
 #[xml(tns(b"xwas", TNS))]
 pub struct BetreiberType {
     #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
-    pub betreiber_id: String,
+    pub betreiber_id: Option<String>,
     #[xml(ns = b"xwas", name = b"artDerPerson", ty = "child")]
     pub art_der_person: ArtDerPerson,
+    #[serde(default)]
+    #[xml(ns = b"xwas", name = b"juristischerBetreiber", ty = "child")]
+    pub juristischer_betreiber: bool,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeIDUmwelt", ty = "child")]
+    pub angaben_alternative_id_umwelt: Option<AngabenAlternativeIdUmweltType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]
@@ -79,11 +86,13 @@ pub struct BetreiberType {
 #[xml(tns(b"xwas", TNS))]
 pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
-    pub objekt_id: String,
+    pub objekt_id: Option<String>,
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
     pub anlage_nach_trinkw_vid: Option<String>,
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
     pub wasserversorgungsgebiet_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
+    pub betreiber_id: Option<String>,
     #[xml(ns = b"xwas", name = b"anschriftObjekt", ty = "child")]
     #[serde(default)]
     pub anschrift_objekt: Vec<AnschriftType>,
@@ -106,12 +115,12 @@ pub struct ObjektType {
     pub rahmen_der_trinkwasserbereitstellung: Vec<CodeRahmenTrinkwasserbereitstellungType>,
     #[xml(ns = b"xwas", name = b"geokoordinatenObjekt", ty = "child")]
     pub geokoordinaten_objekt: Option<GeografischeAngabenType>,
-    #[xml(ns = b"xwas", name = b"angabenAlternativeID", ty = "child")]
-    pub angaben_alternative_id: Option<AngabenAlternativeIDType>,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeIDGesundheit", ty = "child")]
+    pub angaben_alternative_id_gesundheit: Option<AngabenAlternativeIdGesundheitType>,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeIDUmwelt", ty = "child")]
+    pub angaben_alternative_id_umwelt: Option<AngabenAlternativeIdUmweltType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
-    #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
-    pub betreiber_id: Option<String>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }

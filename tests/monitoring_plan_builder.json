@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "fc7ac92e-475f-4d6e-a2da-e20765444dd3",
+      "nachrichten_uuid": "2bee643c-6de5-4e0c-8428-9f6d70429978",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2025-10-23T18:52:31"
+      "erstellungszeitpunkt": "2026-04-14T11:17:02"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -32,20 +32,18 @@
       "name": ""
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "",
-    "zustaendige_behoerde_id": [],
-    "wasserversorgungsgebiet_id": null
+    "dvdv_dienstkennung": ""
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "4ecb65cc-508b-4908-958c-a83f5cdc200f"
+      "vorgangs_id": "d8da10dd-ffdc-421e-9117-8df1a0b77f64"
     },
     "vorgang_type": {
       "t": "Untersuchungsplan",
       "c": {
-        "untersuchungsplan_id": "064a5682-9364-45ec-a02a-534b70fe37a0",
+        "untersuchungsplan_id": "c50b3e14-3ea9-4c4c-ae4e-5d75d6258a2e",
         "wasserversorgungsgebiet": [
-          "wvg-9CbdlAKn"
+          "wvg-Yo4X2qyA"
         ],
         "titel_untersuchungsplan": "",
         "jahr": [
@@ -53,7 +51,7 @@
           2025
         ],
         "wasserabgabe_vorjahr": 0.0,
-        "art_von_wva_und_wvg": {
+        "beruecksichtigung_lieferketten": {
           "code": "1010",
           "name": null
         },
@@ -83,29 +81,25 @@
           "code": "1010",
           "name": null
         },
+        "vorkommen_cyanobakterien": false,
         "ph_wert_wasserwerksausgang": false,
         "wasserabgabe_vorjahr_pro_tag": 0.0,
         "anzahl_untersuchungen_pro_jahr_gruppe_a": 0,
         "abzudecken_durch_betreiber_gruppe_a": null,
         "anzahl_untersuchungenpro_jahr_gruppe_b": 0,
         "abzudecken_durch_betreiber_gruppe_b": null,
-        "rap_durchgefuehrt": false,
+        "rau_durchgefuehrt": false,
         "status_untersuchungsplan": {
           "code": "1010",
           "name": null
         },
         "terminplan": [
           {
-            "terminplan_id": "a128ad43-7622-4a3f-8b40-ede998d770bf",
-            "probennahmestelle": "probennahmestelle-6kCpYJUO",
+            "terminplan_id": "30d8f437-a4f7-48cf-8b86-df1cf0297433",
+            "probennahmestelle": "probennahmestelle-VAbVwtES",
             "datum_zeitraum": [
-              "2025-10-23T18:52:31"
+              "2026-04-14T11:17:02"
             ],
-            "probennahmestelle_kategorie": {
-              "code": "1000",
-              "name": null
-            },
-            "weitere_beschreibung_der_probennahmestelle": null,
             "untersuchung_durch": [
               {
                 "code": "1010",
@@ -130,13 +124,14 @@
               }
             ],
             "probennahmeverfahren": [],
+            "aufnahme_berichtsplan_ga": null,
             "ersatz_fuer_terminplan_mit_der_id": null,
-            "kommentar": null,
-            "id": "terminplan-7oZvonmB"
+            "kommentar": [],
+            "id": "terminplan-WuEsFsNv"
           }
         ],
         "anlage_nach_trinkw_v": {
-          "anlage_nach_trinkw_v_id": "",
+          "anlage_nach_trinkw_v_id": null,
           "art_anlage": {
             "code": "1010",
             "name": null
@@ -146,16 +141,20 @@
           "anzahl_durch_anlage_versorgte_personen": null,
           "kommentar": null,
           "wasserversorgungsgebiet_id": [
-            "wvg-9CbdlAKn"
+            "wvg-Yo4X2qyA"
           ],
-          "angaben_alternative_id": null,
-          "id": "antv-aM8smXSP"
+          "angaben_alternative_id_gesundheit": null,
+          "versorgter_ortsteil": [],
+          "ueberwachende_behoerde": [],
+          "anlage_an_die_wasser_abgegeben_wird": [],
+          "id": "antv-Zo9gfrA1"
         },
         "objekt": [
           {
-            "objekt_id": "30fbbd67-c111-4ac7-902a-15cd1fcd5c03",
+            "objekt_id": "356f64be-a9e5-427d-8cb2-9c0ebfeaeda6",
             "anlage_nach_trinkw_vid": null,
             "wasserversorgungsgebiet_id": null,
+            "betreiber_id": "betreiber-3J7LG1E3",
             "anschrift_objekt": [],
             "art_objekt": {
               "code": "1010",
@@ -167,18 +166,16 @@
             "datum_ausser_betriebnahme": null,
             "rahmen_der_trinkwasserbereitstellung": [],
             "geokoordinaten_objekt": null,
-            "angaben_alternative_id": null,
+            "angaben_alternative_id_gesundheit": null,
+            "angaben_alternative_id_umwelt": null,
             "kommentar": null,
-            "betreiber_id": "betreiber-eKPB9fzR",
-            "id": "obj-cc5jFMs2"
+            "id": "obj-1vnmOTya"
           }
         ],
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "6bc5919b-7156-49ff-aea2-a3cb99494e36",
+            "probennahmestelle_id": "0da9d95a-b0b7-4cc8-b93c-d722be61c9ca",
             "objekt_id": null,
-            "probe": [],
-            "terminplan_id": [],
             "name_probennahmestelle": "Probennahmestelle 1",
             "kategorie_probennahmestelle": {
               "code": "1000",
@@ -200,13 +197,14 @@
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
-            "angaben_alternative_id": null,
+            "angaben_alternative_id_gesundheit": null,
+            "angaben_alternative_id_umwelt": null,
             "kommentar": null,
-            "id": "probennahmestelle-6kCpYJUO"
+            "id": "probennahmestelle-VAbVwtES"
           }
         ],
         "auftraggeber": {
-          "auftraggeber_id": "",
+          "auftraggeber_id": null,
           "auftraggeberart": {
             "code": "1010",
             "name": null
@@ -214,7 +212,7 @@
           "auftraggeber": {
             "t": "Organisation",
             "c": {
-              "id": "organisation-bYpBRmLy",
+              "id": "organisation-0reJ3REw",
               "rechtsform": null,
               "branche": [],
               "zweck": [],
@@ -226,10 +224,11 @@
               "existenzzeitraum": null,
               "anschrift": []
             }
-          }
+          },
+          "kommentar": null
         },
         "zustaendige_behoerde": {
-          "id": "behoerde-5ijVwZXV",
+          "id": "behoerde-UIsPzoFd",
           "typ": {
             "code": "",
             "name": null,
@@ -276,11 +275,12 @@
         "kommentar": [],
         "aenderungshistorie": null,
         "erweiterung": null,
-        "id": "untersuchungsplan-f439Ye1X"
+        "id": "untersuchungsplan-4TQavkTF"
       }
     },
     "bemerkung": null,
     "anlage": []
   },
+  "zusatzinformationen": null,
   "signature": null
 }

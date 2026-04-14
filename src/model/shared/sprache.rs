@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 
 use xoev_xwasser_derive::XWasserValidate;
 
-use crate::{model::codes::CodeSpracheType, TNS};
+use crate::{TNS, model::codes::CodeSpracheType};
 
 #[cfg(feature = "wasm")]
 use tsify::Tsify;

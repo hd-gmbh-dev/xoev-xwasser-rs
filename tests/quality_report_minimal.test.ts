@@ -3,14 +3,18 @@ import {
   VorgangTransportieren2010,
   create_vorgang_transportieren_2010,
   parse_vorgang_transportieren_2010,
-  PruefberichtType
+  PruefberichtType,
+  local_schema,
+  schema,
 } from "../pkg/xoev_xwasser";
-import quality_report_minimal from './quality_report_minimal.json'
-import fs from 'fs'
-import path from 'path'
+import quality_report_minimal from "./quality_report_minimal.json";
+import fs from "fs";
+import path from "path";
 const __dirname = import.meta.dirname;
-import xmlvalidate, { XmlValidatorError } from '@raxb/validate-wasm'
-const xsdBundle = fs.readFileSync(path.resolve(__dirname, '../pkg/xwasser-v095.xsdb.bin')).buffer;
+import xmlvalidate, { XmlValidatorError } from "@raxb/validate-wasm";
+const xsdBundle = fs.readFileSync(
+  path.resolve(__dirname, "../pkg/xwasser-v100.xsdb.bin"),
+).buffer;
 
 describe("minimal quality report xml generation via wasm", async () => {
   const { XmlValidator } = await xmlvalidate();
@@ -20,20 +24,29 @@ describe("minimal quality report xml generation via wasm", async () => {
   });
 
   it("should be able to create minimal quality report xml", async () => {
-    const xml = create_vorgang_transportieren_2010(quality_report_minimal as any as VorgangTransportieren2010)
-      .replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/ ../schemas/V0_9_5/xwasser.xsd");
-    const expected_xml = fs.readFileSync(path.resolve(__dirname, './quality_report_minimal_test_result.xml'), 'utf-8');
+    const xml = create_vorgang_transportieren_2010(
+      quality_report_minimal as any as VorgangTransportieren2010,
+    ).replace(schema(), local_schema());
+    const expected_xml = fs.readFileSync(
+      path.resolve(__dirname, "./quality_report_minimal_test_result.xml"),
+      "utf-8",
+    );
     expect(xml).to.equal(expected_xml);
     validator.validateXml(xml, (err: XmlValidatorError) => {
       console.log({ level: err.level, line: err.line, message: err.message });
-    })
+    });
   });
 
   it("should be able to parse minimal quality report xml", async () => {
-    const source = fs.readFileSync(path.resolve(__dirname, './quality_report_minimal.xml'), 'utf-8');
-    const obj = parse_vorgang_transportieren_2010(source)
+    const source = fs.readFileSync(
+      path.resolve(__dirname, "./quality_report_minimal.xml"),
+      "utf-8",
+    );
+    const obj = parse_vorgang_transportieren_2010(source);
     expect(obj.vorgang.vorgang_type.t).to.equal("Pruefbericht");
-    const p = (obj.vorgang.vorgang_type as { t: "Pruefbericht"; c: PruefberichtType }).c;
+    const p = (
+      obj.vorgang.vorgang_type as { t: "Pruefbericht"; c: PruefberichtType }
+    ).c;
     expect(p.id).toEqual("ID5e08e073-4e06-438d-9444-1275f6cbf061");
   });
 });

@@ -109,8 +109,6 @@ pub struct PruefberichtType {
     pub rechtlicher_disclaimer: String,
     #[xml(ns = b"xwas", name = b"zeitpunktUebermittlungAnSHAPTH", ty = "child")]
     pub zeitpunkt_uebermittlung_an_shapth: Option<String>,
-    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"auftraggeber", ty = "child")]
     pub auftraggeber: AuftraggeberType,
     #[xml(
@@ -132,8 +130,6 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"anhang", ty = "child")]
     #[serde(default)]
     pub anhang: Vec<String>,
-    #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
-    pub erweiterung: Option<ErweiterungType>,
     #[xml(ns = b"xwas", name = b"objekt", ty = "child")]
     #[serde(default)]
     pub objekt: Vec<ObjektType>,
@@ -143,6 +139,10 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"betreiber", ty = "child")]
     #[serde(default)]
     pub betreiber: Vec<BetreiberType>,
+    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    pub kommentar: Option<String>,
+    #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
+    pub erweiterung: Option<ErweiterungType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }

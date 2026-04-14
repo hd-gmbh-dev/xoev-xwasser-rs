@@ -58,9 +58,10 @@ pub fn pruefbericht_type(
         .kommentar(Default::default())
         .auftraggeber(
             AuftraggeberType::builder()
-                .auftraggeber_id(context)
+                .auftraggeber_id(Some(context))
                 .auftraggeberart("1020".into())
                 .auftraggeber(Auftraggeber::Organisation(organisation_type()))
+                .kommentar(Default::default())
                 .build(),
         )
         .beauftragte_untersuchungsstelle(beauftragte_untersuchungsstelle_type(details))

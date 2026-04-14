@@ -2,14 +2,14 @@
 
 use std::str::FromStr;
 
-use raxb::{de::XmlDeserializeError, XmlDeserialize, XmlSerialize};
+use raxb::{XmlDeserialize, XmlSerialize, de::XmlDeserializeError};
 use serde::{Deserialize, Serialize};
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use xoev_xwasser_derive::{xoev_xwasser_code, XWasserValidate};
+use xoev_xwasser_derive::{XWasserValidate, xoev_xwasser_code};
 
 use crate::TNS;
 
@@ -107,7 +107,7 @@ pub struct CodeAgsType;
 
 /// Type name: Code.AbhilfemassnahmeType
 /// Mit dieser Codeliste werden im Kontext von XWasser die Abhilfemaßnahmen definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:abhilfemassnahmen", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:abhilfemassnahmen", "2")]
 pub struct CodeAbhilfemassnahmeType;
 
 /// Type name: Code.AmtsspracheEUType
@@ -127,7 +127,7 @@ pub struct CodeAnschrifttypType;
 
 /// Type name: Code.ArtEntnahmearmaturType
 /// In dieser Codeliste werden Arten von Entnahmearmaturen definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-entnahmearmatur", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-entnahmearmatur", "2")]
 pub struct CodeArtEntnahmearmaturType;
 
 /// Type name: Code.ArtGesetzlicherVertreterType
@@ -137,12 +137,12 @@ pub struct CodeArtGesetzlicherVertreterType;
 
 /// Type name: Code.ArtObjektType
 /// Diese Codeliste definiert, welcher Art ein Objekt ist.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-objekt", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-objekt", "2")]
 pub struct CodeArtObjektType;
 
 /// Type name: Code.ArtProbennahmestelleEUType
 /// Mit dieser Codeliste wird im Rahman von XWasser die Art der Probennahmestelle gem. den neuen EU Vorgaben spezifiziert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-probennahmestelle-eu", "2")]
 pub struct CodeArtProbennahmestelleEuType;
 
 /// Type name: Code.ArtProbennahmestelleType
@@ -152,12 +152,12 @@ pub struct CodeArtProbennahmestelleType;
 
 /// Type name: Code.ArtTrinkwasseranlageType
 /// Mit dieser Codeliste wird im Rahmen von XWassser die Art einee Trinkwasseranlage gem. TrinkwV beschrieben.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-trinkwasseranlage", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-trinkwasseranlage", "2")]
 pub struct CodeArtTrinkwasseranlageType;
 
 /// Type name: Code.ArtWasserressourceType
 /// Mit Hilfe dieser Codeliste wird die Art der Wasserressource angegeben, die in einem Wasserversorgungsgebiete vorliegt.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-wasserressource", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-wasserressource", "2")]
 pub struct CodeArtWasserressourceType;
 
 /// Type name: Code.AufbereitungsstoffDesinfektionsverfahrenType
@@ -261,17 +261,17 @@ pub struct CodeGrundSchliessungWasserversorgungsgebietType;
 
 /// Type name: Code.IncidentCategoryType
 /// Diese Codeliste definiert die Kategorien eines Vorfalls gem. den Vorgaben für das EU Berichtsformat.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:incident-category", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:incident-category", "2")]
 pub struct CodeIncidentCategoryType;
 
 /// Type name: Code.IncidentExceedanceCauseType
 /// Mit dieser Codeliste wird im Rahmen von XWasser die Ursache eines Überschreitungsvorfalls gem. den Vorgaben für das EU Berichtsformat definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:incident-exceedance-cause", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:incident-exceedance-cause", "2")]
 pub struct CodeIncidentExceedanceCauseType;
 
 /// Type name: Code.KategorieProbennahmestelleType
 /// Mit dieser Codeliste wird im Kontext von XWasser die Kategorie der Probennahmestelle definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle", "3")]
 pub struct CodeKategorieProbennahmestelleType;
 
 /// Type name: Code.KommunikationType
@@ -291,12 +291,12 @@ pub struct CodeLaenderkennzeichenType;
 
 /// Type name: Code.MassnahmeType
 /// Mit dieser Codeliste werden im Kontext von XWasser die Maßnahmen definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:massnahmen", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:massnahmen", true)]
 pub struct CodeMassnahmeType;
 
 /// Type name: Code.MediumType
 /// Diese Codeliste dient im Kontext von XWasser der Angabe des Mediums einer Probennahme.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:medium", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:medium", "3")]
 pub struct CodeMediumType;
 
 /// Type name: Code.MesswertergaenzungType
@@ -351,7 +351,7 @@ pub struct CodeProbennahmezeitraumType;
 
 /// Type name: Code.RahmenTrinkwasserbereitstellungType
 /// Diese Codeliste definiert im Kontext von XWasser den Rahmen der Trinkwasserbereitstellung von einem Objekt.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:rahmen-trinkwasserbereitstellung", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:rahmen-trinkwasserbereitstellung", "2")]
 pub struct CodeRahmenTrinkwasserbereitstellungType;
 
 /// Type name: Code.RechtsformenType
@@ -409,7 +409,7 @@ pub struct CodeStatusUntersuchungsplanType;
 
 /// Type name: Code.UeberschreitungsursacheType
 /// Beschreibung der Codeliste.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:ueberschreitungsursache", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:ueberschreitungsursache", "2")]
 pub struct CodeUeberschreitungsursacheType;
 
 /// Type name: Code.UeberwachungAufbereitungType
@@ -419,7 +419,7 @@ pub struct CodeUeberwachungAufbereitungType;
 
 /// Type name: Code.UnterkategorieProbennahmestelleType
 /// In dieser Codeliste werden Unterkategorien von Probennahmestellen definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle", "2")]
 pub struct CodeUnterkategorieProbennahmestelleType;
 
 /// Type name: Code.UntersuchungsstelleType
@@ -462,7 +462,12 @@ pub struct CodeWasserversorgungsgebietType;
 #[xoev_xwasser_code("urn:xoev-de:xgewerbeordnung:codeliste:rueckweisungsgruende", "1")]
 pub struct CodeRueckweisungsgrundType;
 
-/// Type name: Code.FormatAlternativeIDType
-/// Die Codeliste gibt ID-Formate an, welche parallel zu SHAPTH bestehen können. Beispielsweise aus den Landesschnittstellen wie SEBAM, oder TEIS/ZTEIS, welche durch SHAPTH ersetzt werden.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:format-alternative-id", "1")]
-pub struct CodeFormatAlternativeIDType;
+/// Type name: Code.FormatAlternativeID_GesundheitType
+/// Die Codeliste gibt Formate von Alternativen IDs_Gesundheit an, welche parallel zu SHAPTH bestehen können. Beispielsweise aus den Landesschnittstellen wie SEBAM, oder TEIS/ZTEIS, welche durch SHAPTH ersetzt werden.
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:format-alternative-id-gesundheit", "1")]
+pub struct CodeFormatAlternativeIdGesundheitType;
+
+/// Type name: Code.FormatAlternativeID_UmweltType
+/// Diese Codeliste beinhaltet im Kontext von XWasser die Herkunft des Schemas der Alternativen ID_Umwelt.
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:format-alternative-id-umwelt", "1")]
+pub struct CodeFormatAlternativeIdUmweltType;

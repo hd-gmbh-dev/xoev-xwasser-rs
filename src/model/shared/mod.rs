@@ -14,3 +14,5 @@ pub mod unterssuchungsstelle;
 pub mod untersuchungsplan;
 pub mod xoev;
 pub mod zeitraum;
+
+pub mod future;

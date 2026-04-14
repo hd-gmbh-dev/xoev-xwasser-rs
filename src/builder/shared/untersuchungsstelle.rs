@@ -60,19 +60,21 @@ pub fn zugelassene_untersuchungsstelle_type(
             details
                 .unterorganisation
                 .map(|val| {
-                    vec![OrganisationType::builder()
-                        .id(format!("{id}-unterorganisation-{}", new_id()).into())
-                        .rechtsform(Default::default())
-                        .branche(Default::default())
-                        .zweck(Default::default())
-                        .name(Some(name_organisation_type(Some(val.name), Some(val.id))))
-                        .unterorganisation(Default::default())
-                        .kommunikation(Default::default())
-                        .registrierung(Default::default())
-                        .identifikation(Default::default())
-                        .existenzzeitraum(Some(zeitraum_type()))
-                        .anschrift(Default::default())
-                        .build()]
+                    vec![
+                        OrganisationType::builder()
+                            .id(format!("{id}-unterorganisation-{}", new_id()).into())
+                            .rechtsform(Default::default())
+                            .branche(Default::default())
+                            .zweck(Default::default())
+                            .name(Some(name_organisation_type(Some(val.name), Some(val.id))))
+                            .unterorganisation(Default::default())
+                            .kommunikation(Default::default())
+                            .registrierung(Default::default())
+                            .identifikation(Default::default())
+                            .existenzzeitraum(Some(zeitraum_type()))
+                            .anschrift(Default::default())
+                            .build(),
+                    ]
                 })
                 .unwrap_or_default(),
         )
@@ -111,19 +113,21 @@ pub fn beauftragte_untersuchungsstelle_type(
             details
                 .unterorganisation
                 .map(|val| {
-                    vec![OrganisationType::builder()
-                        .id(format!("{id}-unterorganisation-{}", new_id()).into())
-                        .rechtsform(Default::default())
-                        .branche(Default::default())
-                        .zweck(Default::default())
-                        .name(Some(name_organisation_type(Some(val.name), Some(val.id))))
-                        .unterorganisation(Default::default())
-                        .kommunikation(Default::default())
-                        .registrierung(Default::default())
-                        .identifikation(Default::default())
-                        .existenzzeitraum(Some(zeitraum_type()))
-                        .anschrift(Default::default())
-                        .build()]
+                    vec![
+                        OrganisationType::builder()
+                            .id(format!("{id}-unterorganisation-{}", new_id()).into())
+                            .rechtsform(Default::default())
+                            .branche(Default::default())
+                            .zweck(Default::default())
+                            .name(Some(name_organisation_type(Some(val.name), Some(val.id))))
+                            .unterorganisation(Default::default())
+                            .kommunikation(Default::default())
+                            .registrierung(Default::default())
+                            .identifikation(Default::default())
+                            .existenzzeitraum(Some(zeitraum_type()))
+                            .anschrift(Default::default())
+                            .build(),
+                    ]
                 })
                 .unwrap_or_default(),
         )

@@ -31,8 +31,6 @@ pub fn nachrichtenkopf_g2g(typ: NachrichtenTypEnum) -> NachrichtenkopfG2g {
         .autor(behoerde_g2g_type("", ""))
         .referenz_uuid(Default::default())
         .dvdv_dienstkennung(Default::default())
-        .zustaendige_behoerde_id(Default::default())
-        .wasserversorgungsgebiet_id(Default::default())
         .build()
 }
 

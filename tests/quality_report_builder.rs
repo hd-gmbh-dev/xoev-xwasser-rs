@@ -2,6 +2,7 @@
 #[test]
 fn test_quality_report_builder() -> anyhow::Result<()> {
     use xoev_xwasser::{
+        LOCAL_SCHEMA, SCHEMA,
         builder::{
             shared::anschrift::anschrift_type,
             transport::NachrichtenTypEnum,
@@ -86,8 +87,6 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .dvdv_dienstkennung("1".into())
         .referenz_uuid(None)
         .identifikation_nachricht(identifikation_nachricht)
-        .zustaendige_behoerde_id(Default::default())
-        .wasserversorgungsgebiet_id(Default::default())
         .build();
 
     let identifikation_vorgang = IdentifikationVorgang::builder()
@@ -165,10 +164,8 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .build();
 
     let probennahmestelle = ProbennahmestelleType::builder()
-        .probennahmestelle_id(probenahmestelle_id.clone())
+        .probennahmestelle_id(probenahmestelle_id.clone().into())
         .objekt_id(Some("none".into()))
-        .probe(Default::default())
-        .terminplan_id(Default::default())
         .name_probennahmestelle(Default::default())
         .kategorie_probennahmestelle("1000".into())
         .unterkategorie_probennahmestelle(Some("1030".into()))
@@ -176,7 +173,8 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .stockwerk_probennahmestelle(0.into())
         .medium_an_der_probennahmestelle(vec!["1010".into()])
         .desinfektion_und_aufbereitung_des_wassers(Default::default())
-        .angaben_alternative_id(None)
+        .angaben_alternative_id_gesundheit(None)
+        .angaben_alternative_id_umwelt(None)
         .kommentar(Default::default())
         .id(probenahmestelle_id)
         .build();
@@ -201,6 +199,7 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .auftraggeber_id(Default::default())
         .auftraggeberart("1010".into())
         .auftraggeber(auftraggeber)
+        .kommentar(Default::default())
         .build();
 
     let beauftragte_untersuchungsstelle = BeauftragteUntersuchungsstelleType::builder()
@@ -276,14 +275,17 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
                 ))
                 .build(),
         )
+        .zusatzinformationen(Default::default())
         .signature(None)
         .build();
 
     let json = serde_json::to_string_pretty(&e).unwrap();
     std::fs::write("tests/quality_report_builder.json", json)?;
     let xml = raxb::ser::to_string_pretty_with_decl(&e)?;
-    std::fs::write("tests/quality_report_builder_test_result.xml", xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/ xwasser.xsd""#,
-    r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_5/ ../schemas/V0_9_5/xwasser.xsd""#))?;
+    std::fs::write(
+        "tests/quality_report_builder_test_result.xml",
+        xml.replace(SCHEMA, LOCAL_SCHEMA),
+    )?;
     Ok(())
 }
 

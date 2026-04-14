@@ -12,8 +12,8 @@ use tsify::Tsify;
 use typed_builder::TypedBuilder;
 
 use crate::{
-    model::codes::{CodeStaatType, CodeStaatsangehoerigkeitType},
     TNS,
+    model::codes::{CodeStaatType, CodeStaatsangehoerigkeitType},
 };
 
 /// Hier werden Angaben zur Staatsangehörigkeit zusammengefasst.

@@ -12,24 +12,27 @@ use tsify::Tsify;
 use typed_builder::TypedBuilder;
 
 use crate::{
+    TNS,
     model::codes::{
         CodeAbhilfemassnahmeType, CodeAnlassUntersuchungType, CodeArtProbennahmestelleEuType,
         CodeArtTrinkwasseranlageType, CodeArtWasserressourceType, CodeDesinfektionsartType,
         CodeErlaeuterungWasserabgabemengeType, CodeFlockungType, CodeGrundAusnahmeregelungType,
         CodeGrundSchliessungWasserversorgungsgebietType, CodeIncidentCategoryType,
-        CodeIncidentExceedanceCauseType, CodeKategorieProbennahmestelleType, CodeMassnahmeType,
-        CodeNachweisartType, CodeProbennahmeverfahrenType, CodeProbennahmezeitraumType,
-        CodeShapthParameterEinheitType, CodeShapthParameterType, CodeStatusUntersuchungsplanType,
-        CodeUeberwachungAufbereitungType, CodeWvaType,
+        CodeIncidentExceedanceCauseType, CodeMassnahmeType, CodeNachweisartType,
+        CodeProbennahmeverfahrenType, CodeProbennahmezeitraumType, CodeShapthParameterEinheitType,
+        CodeShapthParameterType, CodeStatusUntersuchungsplanType, CodeUeberwachungAufbereitungType,
+        CodeWvaType,
     },
-    TNS,
 };
 
 use super::{
     auftraggeber::AuftraggeberType,
     behoerde::{BehoerdeType, ZustaendigeBehoerdeType},
     betreiber::ObjektType,
-    misc::{AngabenAlternativeIDType, ErweiterungType, GeografischeAngabenType},
+    misc::{
+        AngabenAlternativeIdGesundheitType, ErweiterungType, GeografischeAngabenType,
+        UeberwachendeBehoerdeType, VersorgterOrtsteilType,
+    },
     probe::ProbennahmestelleType,
 };
 
@@ -53,8 +56,8 @@ pub struct UntersuchungsplanType {
     pub jahr: Vec<u32>, // eigentlich: Vec<JahrType> -> xs:gYear ([0-9]{4})
     #[xml(ns = b"xwas", name = b"wasserabgabeVorjahr", ty = "child")]
     pub wasserabgabe_vorjahr: f64,
-    #[xml(ns = b"xwas", name = b"artVonWVAundWVG", ty = "child")]
-    pub art_von_wva_und_wvg: CodeWvaType,
+    #[xml(ns = b"xwas", name = b"beruecksichtigungLieferketten", ty = "child")]
+    pub beruecksichtigung_lieferketten: CodeWvaType,
     #[xml(ns = b"xwas", name = b"erlaeuterungZurWasserabgabemenge", ty = "child")]
     pub erlaeuterung_zur_wasserabgabemenge: CodeErlaeuterungWasserabgabemengeType,
     #[xml(ns = b"xwas", name = b"flockung", ty = "child")]
@@ -75,6 +78,8 @@ pub struct UntersuchungsplanType {
     pub epichlorhydrin: CodeNachweisartType,
     #[xml(ns = b"xwas", name = b"vinylchlorid", ty = "child")]
     pub vinylchlorid: CodeNachweisartType,
+    #[xml(ns = b"xwas", name = b"vorkommenCyanobakterien", ty = "child")]
+    pub vorkommen_cyanobakterien: bool,
     #[xml(ns = b"xwas", name = b"phWertWasserwerksausgang", ty = "child")]
     pub ph_wert_wasserwerksausgang: bool,
     #[xml(ns = b"xwas", name = b"wasserabgabeVorjahrProTag", ty = "child")]
@@ -84,19 +89,19 @@ pub struct UntersuchungsplanType {
         name = b"anzahlUntersuchungenproJahrGruppeA",
         ty = "child"
     )]
-    pub anzahl_untersuchungen_pro_jahr_gruppe_a: u32,
+    pub anzahl_untersuchungen_pro_jahr_gruppe_a: i32,
     #[xml(ns = b"xwas", name = b"abzudeckenDurchBetreiberGruppeA", ty = "child")]
-    pub abzudecken_durch_betreiber_gruppe_a: Option<u32>,
+    pub abzudecken_durch_betreiber_gruppe_a: Option<i32>,
     #[xml(
         ns = b"xwas",
         name = b"anzahlUntersuchungenproJahrGruppeB",
         ty = "child"
     )]
-    pub anzahl_untersuchungenpro_jahr_gruppe_b: u32,
+    pub anzahl_untersuchungenpro_jahr_gruppe_b: i32,
     #[xml(ns = b"xwas", name = b"abzudeckenDurchBetreiberGruppeB", ty = "child")]
-    pub abzudecken_durch_betreiber_gruppe_b: Option<u32>,
-    #[xml(ns = b"xwas", name = b"rapDurchgefuehrt", ty = "child")]
-    pub rap_durchgefuehrt: bool,
+    pub abzudecken_durch_betreiber_gruppe_b: Option<i32>,
+    #[xml(ns = b"xwas", name = b"rauDurchgefuehrt", ty = "child")]
+    pub rau_durchgefuehrt: bool,
     #[xml(ns = b"xwas", name = b"statusUntersuchungsplan", ty = "child")]
     pub status_untersuchungsplan: CodeStatusUntersuchungsplanType,
     #[xml(ns = b"xwas", name = b"terminplan", ty = "child")]
@@ -139,29 +144,29 @@ pub struct TerminplanType {
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
     pub probennahmestelle: String,
     #[xml(ns = b"xwas", name = b"datumZeitraum", ty = "child")]
+    #[serde(default)]
     pub datum_zeitraum: Vec<String>,
-    #[xml(ns = b"xwas", name = b"probennahmestelleKategorie", ty = "child")]
-    pub probennahmestelle_kategorie: CodeKategorieProbennahmestelleType,
-    #[xml(
-        ns = b"xwas",
-        name = b"weitereBeschreibungDerProbennahmestelle",
-        ty = "child"
-    )]
-    pub weitere_beschreibung_der_probennahmestelle: Option<String>,
     #[xml(ns = b"xwas", name = b"untersuchungDurch", ty = "child")]
+    #[serde(default)]
     pub untersuchung_durch: Vec<CodeUeberwachungAufbereitungType>,
     #[xml(ns = b"xwas", name = b"untersuchungDurchErlaeuterung", ty = "child")]
     pub untersuchung_durch_erlaeuterung: Option<String>,
     #[xml(ns = b"xwas", name = b"anlassDerUntersuchung", ty = "child")]
+    #[serde(default)]
     pub anlass_der_untersuchung: Vec<CodeAnlassUntersuchungType>,
     #[xml(ns = b"xwas", name = b"zuUntersuchenderParameter", ty = "child")]
+    #[serde(default)]
     pub zu_untersuchender_parameter: Vec<ParameterangabenType>,
     #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
+    #[serde(default)]
     pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
+    #[xml(ns = b"xwas", name = b"aufnahmeBerichtsplanGA", ty = "child")]
+    pub aufnahme_berichtsplan_ga: Option<bool>,
     #[xml(ns = b"xwas", name = b"ersatzFuerTerminplanMitDerID", ty = "child")]
     pub ersatz_fuer_terminplan_mit_der_id: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
-    pub kommentar: Option<KommentarType>,
+    #[serde(default)]
+    pub kommentar: Vec<KommentarType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
@@ -217,7 +222,7 @@ pub struct IncidentType {
     #[xml(ns = b"xwas", name = b"incidentCategory", ty = "child")]
     pub incident_category: Vec<CodeIncidentCategoryType>,
     #[xml(ns = b"xwas", name = b"incidentAffectedPopulation", ty = "child")]
-    pub incident_affected_population: u32,
+    pub incident_affected_population: i32,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
     pub remarks: Option<String>,
     #[xml(ns = b"xwas", name = b"incidentCauseAndRemedialAction", ty = "child")]
@@ -276,7 +281,7 @@ pub struct QualityAndMonitoringType {
     #[xml(ns = b"xwas", name = b"parameterThresholdValueUnit", ty = "child")]
     pub parameter_threshold_value_unit: CodeShapthParameterEinheitType,
     #[xml(ns = b"xwas", name = b"samplingFrequency", ty = "child")]
-    pub sampling_frequency: u32,
+    pub sampling_frequency: i32,
     #[xml(ns = b"xwas", name = b"samplingPeriod", ty = "child")]
     pub sampling_period: CodeProbennahmezeitraumType,
     #[xml(ns = b"xwas", name = b"samplingLocationType", ty = "child")]
@@ -344,7 +349,7 @@ pub struct DerogationType {
     #[xml(ns = b"xwas", name = b"volumeOfWaterSupplied", ty = "child")]
     pub volume_of_water_supplied: Option<f64>,
     #[xml(ns = b"xwas", name = b"derogationAffectedPopulation", ty = "child")]
-    pub derogation_affected_population: Option<u32>,
+    pub derogation_affected_population: Option<i32>,
     #[xml(ns = b"xwas", name = b"foodProductionAffected", ty = "child")]
     pub food_production_affected: Option<bool>,
     #[xml(ns = b"xwas", name = b"derogationUnderRecastDWD", ty = "child")]
@@ -428,11 +433,11 @@ pub struct ExceedanceType {
     #[xml(ns = b"xwas", name = b"exceedanceEndDate", ty = "child")]
     pub exceedance_end_date: String,
     #[xml(ns = b"xwas", name = b"exceedanceAffectedPopulation", ty = "child")]
-    pub exceedance_affected_population: u32,
+    pub exceedance_affected_population: i32,
     #[xml(ns = b"xwas", name = b"pointOfComplianceType", ty = "child")]
     pub point_of_compliance_type: Vec<CodeArtProbennahmestelleEuType>,
     #[xml(ns = b"xwas", name = b"numberOfSamplesPerYear", ty = "child")]
-    pub number_of_samples_per_year: u32,
+    pub number_of_samples_per_year: i32,
     #[xml(ns = b"xwas", name = b"incidentIdentifier", ty = "child")]
     pub incident_identifier: Option<String>,
     #[xml(ns = b"xwas", name = b"derogationIdentifier", ty = "child")]
@@ -509,9 +514,9 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"abgegebeneWassermenge", ty = "child")]
     pub abgegebene_wassermenge: f64,
     #[xml(ns = b"xwas", name = b"anzahlVersorgtePersonenWVG", ty = "child")]
-    pub anzahl_versorgte_personen_wvg: u32,
+    pub anzahl_versorgte_personen_wvg: i32,
     #[xml(ns = b"xwas", name = b"referenzjahrAngabenWVG", ty = "child")]
-    pub referenzjahr_angaben_wvg: u32,
+    pub referenzjahr_angaben_wvg: i32,
     #[xml(ns = b"xwas", name = b"artDerWasserressource", ty = "child")]
     pub art_der_wasserressource: Vec<CodeArtWasserressourceType>,
     #[xml(ns = b"xwas", name = b"anteilDerWasserressource", ty = "child")]
@@ -521,13 +526,13 @@ pub struct WasserversorgungsgebietType {
         name = b"vorgeschriebeneUntersuchungshaeufigkeitParameterA",
         ty = "child"
     )]
-    pub vorgeschriebene_untersuchungshaeufigkeit_parameter_a: u32,
+    pub vorgeschriebene_untersuchungshaeufigkeit_parameter_a: i32,
     #[xml(
         ns = b"xwas",
         name = b"vorgeschriebeneUntersuchungshaeufigkeitParameterB",
         ty = "child"
     )]
-    pub vorgeschriebene_untersuchungshaeufigkeit_parameter_b: u32,
+    pub vorgeschriebene_untersuchungshaeufigkeit_parameter_b: i32,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"derogation", ty = "child")]
@@ -536,6 +541,12 @@ pub struct WasserversorgungsgebietType {
     pub exceedance: Vec<ExceedanceType>,
     #[xml(ns = b"xwas", name = b"incident", ty = "child")]
     pub incident: Vec<IncidentType>,
+    #[xml(ns = b"xwas", name = b"versorgterOrtsteil", ty = "child")]
+    #[serde(default)]
+    pub versorgter_ortsteil: Vec<VersorgterOrtsteilType>,
+    #[xml(ns = b"xwas", name = b"ueberwachendeBehoerde", ty = "child")]
+    #[serde(default)]
+    pub ueberwachende_behoerde: Vec<UeberwachendeBehoerdeType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }
@@ -550,7 +561,7 @@ pub struct WasserversorgungsgebietType {
 #[xml(tns(b"xwas", TNS))]
 pub struct AnlageNachTrinkwVType {
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
-    pub anlage_nach_trinkw_v_id: String,
+    pub anlage_nach_trinkw_v_id: Option<String>,
     #[xml(ns = b"xwas", name = b"artAnlage", ty = "child")]
     pub art_anlage: CodeArtTrinkwasseranlageType,
     #[xml(ns = b"xwas", name = b"nameDerAnlage", ty = "child")]
@@ -566,13 +577,22 @@ pub struct AnlageNachTrinkwVType {
         name = b"anzahlDurchAnlageVersorgtePersonen",
         ty = "child"
     )]
-    pub anzahl_durch_anlage_versorgte_personen: Option<u32>,
+    pub anzahl_durch_anlage_versorgte_personen: Option<i32>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
     pub wasserversorgungsgebiet_id: Vec<String>,
-    #[xml(ns = b"xwas", name = b"angabenAlternativeID", ty = "child")]
-    pub angaben_alternative_id: Option<AngabenAlternativeIDType>,
+    #[xml(ns = b"xwas", name = b"angabenAlternativeIDGesundheit", ty = "child")]
+    pub angaben_alternative_id_gesundheit: Option<AngabenAlternativeIdGesundheitType>,
+    #[xml(ns = b"xwas", name = b"versorgterOrtsteil", ty = "child")]
+    #[serde(default)]
+    pub versorgter_ortsteil: Vec<VersorgterOrtsteilType>,
+    #[xml(ns = b"xwas", name = b"ueberwachendeBehoerde", ty = "child")]
+    #[serde(default)]
+    pub ueberwachende_behoerde: Vec<UeberwachendeBehoerdeType>,
+    #[xml(ns = b"xwas", name = b"anlageAnDieWasserAbgegebenWird", ty = "child")]
+    #[serde(default)]
+    pub anlage_an_die_wasser_abgegeben_wird: Vec<String>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
 }

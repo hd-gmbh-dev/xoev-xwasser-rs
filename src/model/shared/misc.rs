@@ -12,8 +12,10 @@ use tsify::Tsify;
 use typed_builder::TypedBuilder;
 
 use crate::{
-    model::codes::{CodeDatentypType, CodeFormatAlternativeIDType},
     TNS,
+    model::codes::{
+        CodeDatentypType, CodeFormatAlternativeIdGesundheitType, CodeFormatAlternativeIdUmweltType,
+    },
 };
 
 use super::{xoev::XWasserXoevCode, zeitraum::ZeitraumType};
@@ -137,17 +139,19 @@ pub struct GeografischeAngabenType {
         name = b"geografischePositionUndAusdehnung",
         ty = "child"
     )]
-    pub geografische_position_und_ausdehnung: Option<String>, // xs:base64Binary
+    pub geografische_position_und_ausdehnung: Option<String>,
     #[xml(ns = b"xwas", name = b"nameShapefile", ty = "child")]
     pub name_shapefile: Option<String>,
+    #[xml(ns = b"xwas", name = b"geokoordinatenZone", ty = "child")]
+    pub geokoordinaten_zone: Option<String>,
+    #[xml(ns = b"xwas", name = b"geokoordinatenOstwert", ty = "child")]
+    pub geokoordinaten_ostwert: Option<f64>,
+    #[xml(ns = b"xwas", name = b"geokoordinatenNordwert", ty = "child")]
+    pub geokoordinaten_nordwert: Option<f64>,
     #[xml(ns = b"xwas", name = b"geokoordinatenBreitengrad", ty = "child")]
     pub geokoordinaten_breitengrad: Option<f64>,
     #[xml(ns = b"xwas", name = b"geokoordinatenLaengengrad", ty = "child")]
     pub geokoordinaten_laengengrad: Option<f64>,
-    #[xml(ns = b"xwas", name = b"geokoordinatenRechtswertEastWert", ty = "child")]
-    pub geokoordinaten_rechtswert_east_wert: Option<f64>,
-    #[xml(ns = b"xwas", name = b"geokoordinatenHochwertNorthWert", ty = "child")]
-    pub geokoordinaten_hochwert_north_wert: Option<f64>,
 }
 
 /// Die Komponente "Geokodierung" beinhaltet Informationen zur geografischen Bestimmung von Dingen.
@@ -173,7 +177,7 @@ pub struct GeokodierungType {
     pub gemarkung: Option<String>,
 }
 
-/// Klasse für den Transport von Informationen zu einer Trinkwasserversorgungsanlage.
+/// Mit dieser Klasse wird die Alternative ID_Gesundheit und das Format, bzw. der Typ, dem die Alternative ID_Gesundheit folgt, übertragen.
 #[derive(
     Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
@@ -181,9 +185,79 @@ pub struct GeokodierungType {
 #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 #[xml(tns(b"xwas", TNS))]
-pub struct AngabenAlternativeIDType {
-    #[xml(ns = b"xwas", name = b"alternativeID", ty = "child")]
-    pub alternative_id: Option<String>,
-    #[xml(ns = b"xwas", name = b"formatDerAlternativenID", ty = "child")]
-    pub format_der_alternativen_id: Option<CodeFormatAlternativeIDType>,
+pub struct AngabenAlternativeIdGesundheitType {
+    #[xml(ns = b"xwas", name = b"alternativeIDGesundheit", ty = "child")]
+    pub alternative_id_gesundheit: Option<String>,
+    #[xml(ns = b"xwas", name = b"formatAlternativeIDGesundheit", ty = "child")]
+    pub format_alternative_id_gesundheit: Option<CodeFormatAlternativeIdGesundheitType>,
+}
+
+/// Mit dieser Klasse wird die Alternative ID_Umwelt und die Herkunft des dazugehörigen Schemas übertragen.
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
+#[xml(tns(b"xwas", TNS))]
+pub struct AngabenAlternativeIdUmweltType {
+    #[xml(ns = b"xwas", name = b"alternativeIDUmwelt", ty = "child")]
+    pub alternative_id_umwelt: String,
+    #[xml(ns = b"xwas", name = b"formatAlternativeIDUmwelt", ty = "child")]
+    pub format_alternative_id_umwelt: CodeFormatAlternativeIdUmweltType,
+}
+
+/// Mit dieser Klasse wird eine für die Überwachung von Sollproben zuständige Behörde spezifiziert.
+/// Bei grenzübergreifenden Wasserversorgungsgebieten bzw. Wasserversorgungsanlagen kann es sein,
+/// dass mehrere Behörden sich die Solluntersuchungen nach Berichtsplan untereinander aufteilen müssen.
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
+#[xml(tns(b"xwas", TNS))]
+pub struct UeberwachendeBehoerdeType {
+    #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
+    pub zustaendige_behoerde: String,
+    #[xml(ns = b"xwas", name = b"untersuchungenGruppeA", ty = "child")]
+    pub untersuchungen_gruppe_a: Option<i32>,
+    #[xml(ns = b"xwas", name = b"untersuchungenGruppeB", ty = "child")]
+    pub untersuchungen_gruppe_b: Option<i32>,
+}
+
+/// Mit dieser Klasse wird ein Ortsteil spezifiziert, der im Wasserversorgungsgebiet liegt bzw.
+/// von der Wasserversorgungsanlage mit Wasser versorgt wird.
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
+#[xml(tns(b"xwas", TNS))]
+pub struct VersorgterOrtsteilType {
+    #[xml(ns = b"xwas", name = b"nameOrtsteil", ty = "child")]
+    pub name_ortsteil: String,
+    #[xml(ns = b"xwas", name = b"ortsteilID", ty = "child")]
+    pub ortsteil_id: String,
+    #[xml(ns = b"xwas", name = b"anzahlVersorgterPersonen", ty = "child")]
+    pub anzahl_versorgter_personen: i32,
+}
+
+/// Mit dieser Klasse können zusätzliche fachliche Informationen transportiert werden.
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
+#[xml(tns(b"xwas", TNS))]
+pub struct ZusatzinformationenType {
+    #[xml(ns = b"xwas", name = b"zustaendigeBehoerdeID", ty = "child")]
+    #[serde(default)]
+    pub zustaendige_behoerde_id: Vec<String>,
+    #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
+    pub wasserversorgungsgebiet_id: Option<String>,
+    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    pub kommentar: Option<String>,
 }

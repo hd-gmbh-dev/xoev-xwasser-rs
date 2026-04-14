@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "207561cb-67ff-47db-b2ec-6fe0fcfff410",
+      "nachrichten_uuid": "2536e507-fae2-4b1f-812a-719c4af6a3f3",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2025-10-23T18:52:33"
+      "erstellungszeitpunkt": "2026-04-14T11:17:04"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -32,26 +32,22 @@
       "name": "lab 1"
     },
     "referenz_uuid": null,
-    "dvdv_dienstkennung": "1",
-    "zustaendige_behoerde_id": [],
-    "wasserversorgungsgebiet_id": null
+    "dvdv_dienstkennung": "1"
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "4f56a16e-1ce0-4793-b158-8022972b3e7b"
+      "vorgangs_id": "25203711-ecc2-440a-a106-792f0e939fa9"
     },
     "vorgang_type": {
       "t": "Pruefbericht",
       "c": {
-        "pruefbericht_uuid": "0828f084-c04c-40d9-83a6-9463e371fedf",
+        "pruefbericht_uuid": "c841a359-13d3-417b-9374-6849cdbc1184",
         "versionsnummer": 1,
-        "auftragsnummer": "db15cf95-3542-4768-a733-d39803db4036",
+        "auftragsnummer": "3e89eaf2-61a2-47cd-acca-7db837855e4e",
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "id-1402ab81-2363-462c-9588-0cd7120fa960",
+            "probennahmestelle_id": "id-9cdb0863-9ad3-4ba3-82ae-ee5d232aaf6f",
             "objekt_id": "none",
-            "probe": [],
-            "terminplan_id": [],
             "name_probennahmestelle": "",
             "kategorie_probennahmestelle": {
               "code": "1000",
@@ -73,22 +69,23 @@
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
-            "angaben_alternative_id": null,
+            "angaben_alternative_id_gesundheit": null,
+            "angaben_alternative_id_umwelt": null,
             "kommentar": null,
-            "id": "id-1402ab81-2363-462c-9588-0cd7120fa960"
+            "id": "id-9cdb0863-9ad3-4ba3-82ae-ee5d232aaf6f"
           }
         ],
         "probe": [
           {
-            "probe_id": "b6282c28-d954-40e2-bf18-383a89e65523",
-            "probennahmestelle": "id-1402ab81-2363-462c-9588-0cd7120fa960",
+            "probe_id": "c755b95c-6452-456d-9c2b-26ff9d6eddd2",
+            "probennahmestelle": "id-9cdb0863-9ad3-4ba3-82ae-ee5d232aaf6f",
             "terminplan_id": null,
             "probennehmer": null,
             "titel_probe": "",
             "analyseergebnis_parameter": [
               {
-                "analyseergebnis_parameter_id": "d5a7b1ca-9fca-494d-8caf-f03414a7d74a",
-                "anschrift_id": "anschrift-XQ8nqtC5",
+                "analyseergebnis_parameter_id": "db4d65bd-ce95-40a5-88cd-cc586a881aff",
+                "anschrift_id": "anschrift-0nDXYcXM",
                 "zugelassene_untersuchungsstelle": "wsu-1",
                 "akkreditierte_durchfuehrung_analyse": false,
                 "zugelassene_durchfuehrung_analyse": true,
@@ -142,7 +139,7 @@
             },
             "akkreditierte_durchfuehrung_der_probennahme": false,
             "ergaenzung_zum_medium": null,
-            "zeitpunkt_probennahme": "2025-10-23T18:52:33",
+            "zeitpunkt_probennahme": "2026-04-14T11:17:04",
             "probennahmeverfahren": [
               {
                 "code": "1010",
@@ -153,7 +150,7 @@
               "code": "9020",
               "name": null
             },
-            "probengefaess": null,
+            "probengefaess": [],
             "ergaenzende_informationen_zu_probenentnahmegeraet": null,
             "desinfektion_probenentnahmegeraet_durchgefuehrt": null,
             "konservierung_der_probe": [
@@ -161,9 +158,9 @@
             ],
             "kommentar_zur_probennahme": null,
             "informationen_zum_probentransport": null,
-            "eingang_probe_bei_untersuchungsstelle": "2025-10-23T18:52:33",
-            "beginn_labortaetigkeit_analytik": "2025-10-23T18:52:33",
-            "abschluss_labortaetigkeit_analytik": "2025-10-23T18:52:33",
+            "eingang_probe_bei_untersuchungsstelle": "2026-04-14T11:17:04",
+            "beginn_labortaetigkeit_analytik": "2026-04-14T11:17:04",
+            "abschluss_labortaetigkeit_analytik": "2026-04-14T11:17:04",
             "konformitaetsbewertung_der_probe": {
               "code": "1010",
               "name": null
@@ -180,7 +177,7 @@
         ],
         "probennehmer": [
           {
-            "probennehmer_id": "7e8f74e4-f3a8-4008-a44b-36297dfcbcf0",
+            "probennehmer_id": "fd67c488-3630-41ad-8d2d-2c41ff7132a2",
             "probennehmer": {
               "t": "NatuerlichePerson",
               "c": {
@@ -215,7 +212,7 @@
           "name": null
         },
         "auffaelligkeiten": [],
-        "zeitpunkt_validierung_pruefbericht": "2025-10-23T18:52:33",
+        "zeitpunkt_validierung_pruefbericht": "2026-04-14T11:17:04",
         "fuer_validierung_verantwortliche_person": [
           {
             "auskunftssperre": [],
@@ -244,9 +241,8 @@
         },
         "rechtlicher_disclaimer": "",
         "zeitpunkt_uebermittlung_an_shapth": null,
-        "kommentar": null,
         "auftraggeber": {
-          "auftraggeber_id": "",
+          "auftraggeber_id": null,
           "auftraggeberart": {
             "code": "1010",
             "name": null
@@ -266,7 +262,8 @@
               "existenzzeitraum": null,
               "anschrift": []
             }
-          }
+          },
+          "kommentar": null
         },
         "beauftragte_untersuchungsstelle": {
           "id": "wsu-1",
@@ -305,20 +302,22 @@
             "typ": [],
             "staat": null,
             "verwaltungspolitische_kodierung": null,
-            "id": "anschrift-XQ8nqtC5"
+            "id": "anschrift-0nDXYcXM"
           }
         ],
         "gefahr_in_verzug": false,
         "anhang": [],
-        "erweiterung": null,
         "objekt": [],
         "anlage_nach_trinkw_v": [],
         "betreiber": [],
+        "kommentar": null,
+        "erweiterung": null,
         "id": "pruefbericht-1"
       }
     },
     "bemerkung": null,
     "anlage": []
   },
+  "zusatzinformationen": null,
   "signature": null
 }
