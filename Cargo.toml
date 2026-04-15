@@ -18,8 +18,8 @@ keywords = []
 [workspace.dependencies]
 anyhow = "1.0.97"
 encoding_rs = "0.8.35"
-xoev-xwasser-codelists = { version = "0.902.1", path = "crates/codelists" }
-xoev-xwasser-derive = { version = "0.902.1", path = "crates/derive" }
+xoev-xwasser-codelists = { version = "=0.902.1", path = "crates/codelists" }
+xoev-xwasser-derive = { version = "=0.902.1", path = "crates/derive" }
 raxb = "0.6.0"
 raxb-validate = "0.6.0"
 raxb-xmlschema = "0.6.0"
