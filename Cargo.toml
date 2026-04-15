@@ -1,10 +1,10 @@
 [workspace]
 resolver = "3"
-members = ["crates/*"]
+members = ["crates/*", "xtask"]
 
 [workspace.package]
 edition = "2021"
-version = "0.902.0+0.9.2"
+version = "0.902.1+0.9.2"
 description = """
 XOEV XWasser XML Standard
 """
@@ -17,16 +17,13 @@ keywords = []
 
 [workspace.dependencies]
 anyhow = "1.0.97"
-xoev-xwasser-codelists = { version = "0.902.0", path = "crates/codelists" }
-xoev-xwasser-derive = { version = "0.902.0", path = "crates/derive" }
-raxb = "0.4.7"
-raxb-validate = "0.4.7"
-raxb-xmlschema = "0.4.7"
-raxb-xmlschema-build = "0.4.7"
-# raxb = { path = "../raxb/crates/raxb" }
-# raxb-validate = { path = "../raxb/crates/raxb-validate"}
-# raxb-xmlschema = { path = "../raxb/crates/raxb-xmlschema"}
-# raxb-xmlschema-build = { path = "../raxb/crates/raxb-xmlschema-build"}
+encoding_rs = "0.8.35"
+xoev-xwasser-codelists = { version = "0.902.1", path = "crates/codelists" }
+xoev-xwasser-derive = { version = "0.902.1", path = "crates/derive" }
+raxb = "0.6.0"
+raxb-validate = "0.6.0"
+raxb-xmlschema = "0.6.0"
+raxb-xmlschema-build = "0.6.0"
 serde = { version = "1.0.219", features = ["derive", "rc"] }
 
 [package]

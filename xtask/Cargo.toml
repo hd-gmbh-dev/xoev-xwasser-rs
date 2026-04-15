@@ -1,0 +1,22 @@
+[package]
+name = "xtask"
+edition.workspace = true
+version.workspace = true
+description = """
+XOEV XWasser XML Standard: XTask
+"""
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+encoding_rs.workspace = true
+json-spanned-value = "0.2.2"
+raxb.workspace = true
+reqwest = { version = "0.12.24", features = ["blocking", "json"] }
+serde.workspace = true
+xflags = "0.3.2"
+zip = "6.0.0"
