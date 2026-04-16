@@ -27,7 +27,7 @@ jobs:
         set -e
         VERSION=$(cargo pkgid -p xoev-xwasser 2>/dev/null | sed 's/.*@//')
         for crate in xoev-xwasser-derive xoev-xwasser-codelists xoev-xwasser; do
-          if cargo search "$crate@$VERSION" --limit 1 2>/dev/null | grep -q "$crate"; then
+          if curl -s -f -I "https://crates.io/api/v1/crates/${crate}/${VERSION}" >/dev/null 2>&1; then
             echo "Skipping $crate - already published ($VERSION)"
           else
             if [ "$crate" = "xoev-xwasser-codelists" ]; then
