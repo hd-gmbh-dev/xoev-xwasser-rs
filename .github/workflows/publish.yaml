@@ -25,8 +25,12 @@ jobs:
     - name: Publish to crates.io.
       run: |
         VERSION=$(cargo pkgid -p xoev-xwasser 2>/dev/null | sed 's/.*@//')
+        echo "Version: $VERSION"
         for crate in xoev-xwasser-derive xoev-xwasser-codelists xoev-xwasser; do
-          if cargo search "$crate@$VERSION" --limit 1 2>/dev/null | grep -q "$crate"; then
+          if curl -s -4 --fail-with-body \
+                -H "User-Agent: github-actions/${GITHUB_REPOSITORY}" \
+                "https://crates.io/api/v1/crates/${crate}/versions" \
+                | jq -e --arg v "${VERSION}" '.versions[] | select(.num == $v) | .num' > /dev/null; then
             echo "Skipping $crate - already published ($VERSION)"
           else
             if [ "$crate" = "xoev-xwasser-codelists" ]; then
