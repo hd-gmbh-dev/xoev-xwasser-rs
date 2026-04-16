@@ -50,7 +50,9 @@ fn fetch_codelists(version: &str) -> Result<(), Box<dyn std::error::Error>> {
         .nth(1)
         .expect("version of XWasser after + sign");
     let file_path_version = format!("v{}", version.replace('.', "_"));
-    let url = format!("https://www.xrepository.de/api/version_standard/urn:xoev-de:lgl:standard:xwasser_{version}/genutzteAktuelleCodelisten");
+    let url = format!(
+        "https://www.xrepository.de/api/version_standard/urn:xoev-de:lgl:standard:xwasser_{version}/genutzteAktuelleCodelisten"
+    );
     println!("Fetching codelists from {}", url);
     let response = reqwest::blocking::get(url)?.error_for_status()?.bytes()?;
     let zip_data = Cursor::new(response);
@@ -196,8 +198,12 @@ fn patch_version(metadata: &str) -> Result<(), String> {
 }
 
 fn set_package_json_versions(version: &str) -> Result<(), String> {
+    // For npm packages, strip everything after '+' to comply with SemVer
+    // e.g., "1.0.0+1.0.0" -> "1.0.0"
+    let npm_version = version.split('+').next().unwrap_or(version);
+
     for json_file in ["package.json", "package.tmp.json", "package.tmp.web.json"] {
-        set_json_version(json_file, version)?;
+        set_json_version(json_file, npm_version)?;
     }
     Ok(())
 }

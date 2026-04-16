@@ -24,9 +24,23 @@ jobs:
       uses: lukka/get-cmake@latest
     - name: Publish to crates.io.
       run: |
-        cargo publish --token ${CRATES_TOKEN} -p xoev-xwasser-derive
-        cargo publish --token ${CRATES_TOKEN} --no-verify -p xoev-xwasser-codelists
-        cargo publish --token ${CRATES_TOKEN} -p xoev-xwasser
+        set -e
+        VERSION=$(cargo pkgid -p xoev-xwasser 2>/dev/null | sed 's/.*@//')
+        echo "Version: $VERSION"
+        for crate in xoev-xwasser-derive xoev-xwasser-codelists xoev-xwasser; do
+          if curl -s -4 --fail-with-body \
+                -H "User-Agent: github-actions/${GITHUB_REPOSITORY}" \
+                "https://crates.io/api/v1/crates/${crate}/versions" \
+                | jq -e --arg v "${VERSION}" '.versions[] | select(.num == $v) | .num' > /dev/null; then
+            echo "Skipping $crate - already published ($VERSION)"
+          else
+            if [ "$crate" = "xoev-xwasser-codelists" ]; then
+              cargo publish --token ${CRATES_TOKEN} --no-verify -p "$crate"
+            else
+              cargo publish --token ${CRATES_TOKEN} -p "$crate"
+            fi
+          fi
+        done
       env:
         CRATES_TOKEN: ${{ secrets.CRATES_TOKEN }}
     - uses: actions/setup-node@v4
