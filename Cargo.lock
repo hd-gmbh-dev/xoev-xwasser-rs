@@ -1480,9 +1480,9 @@ dependencies = [
 
 [[package]]
 name = "raxb"
-version = "0.5.1"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "464d5dc262e948f3aebe58a9b3a82f77d9d8ca45cd26fa1a75d19921cd706d02"
+checksum = "0e7753b2543fdc9e8a24889f4dd9d3299824bd196936c86a4f2adefff932cbd6"
 dependencies = [
  "quick-xml",
  "raxb-derive",
@@ -1492,9 +1492,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-derive"
-version = "0.5.1"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "db3da77fee66970c72f56e77d79e9dc07f468a4421c1553452e42f44e3a15786"
+checksum = "4427d2c9c8b1d8d632dbb1dc250e66dbc7a5b507f3c3076f8933e74c7cdb6384"
 dependencies = [
  "heck",
  "proc-macro2",
@@ -1506,9 +1506,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-libxml2-sys"
-version = "0.5.1"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a62ec81cf5ce7d8a9a1da3321cfe51add8043738dfa1ef12a135a6231a909c0e"
+checksum = "45bca83fe5f7c45195c7f7ea3a058d4b53144c8983f0a878eb051391cfa43009"
 dependencies = [
  "bindgen",
  "cmake",
@@ -1516,9 +1516,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-validate"
-version = "0.5.1"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8f1e4c16c2f6d28a0d712f96fc6b6fb01a6006722a8375989413c74fda321d22"
+checksum = "6d16a81ce997e098b4a623577c65ba61644183eaf911dfdd1f10ed3b4a3b80ff"
 dependencies = [
  "byteorder",
  "libc",
@@ -1534,9 +1534,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-xmlschema"
-version = "0.5.1"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f682db3388f44770829a1f6a588620786ea0dcfe064917a9576387a0f4eb7fd1"
+checksum = "d75d57e822ab48b5f212710d0d587eb4d861ddcbb78aad43bda0e3bc7c3f2011"
 dependencies = [
  "byteorder",
  "lz4_flex",
@@ -1548,9 +1548,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-xmlschema-build"
-version = "0.5.1"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3b7d7eefaf217fbb83a880413c39adc0102b2bab3cff20316692ea7f3df7445c"
+checksum = "a9dc52311dcaf534685388dba07c2afc06ac09cdf26258d10e791010d5e3daee"
 dependencies = [
  "byteorder",
  "raxb",
@@ -2901,7 +2901,7 @@ checksum = "672423d4fea7ffa2f6c25ba60031ea13dc6258070556f125cc4d790007d4a155"
 
 [[package]]
 name = "xoev-xwasser"
-version = "0.905.3+0.9.5"
+version = "0.905.4+0.9.5"
 dependencies = [
  "anyhow",
  "chrono",
@@ -2928,7 +2928,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser-codelists"
-version = "0.905.3+0.9.5"
+version = "0.905.4+0.9.5"
 dependencies = [
  "anyhow",
  "bson",
@@ -2942,7 +2942,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser-derive"
-version = "0.905.3+0.9.5"
+version = "0.905.4+0.9.5"
 dependencies = [
  "darling",
  "heck",
@@ -2953,7 +2953,7 @@ dependencies = [
 
 [[package]]
 name = "xtask"
-version = "0.905.3+0.9.5"
+version = "0.905.4+0.9.5"
 dependencies = [
  "encoding_rs",
  "json-spanned-value",
