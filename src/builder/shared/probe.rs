@@ -110,7 +110,7 @@ pub fn analyseergebnis_parameter_type(
         .einheit_des_untersuchungswerts(Some("1400".into()))
         .ergaenzung_zum_untersuchungswert_parameter(Default::default())
         .parameterwert_ergaenzung(Default::default())
-        .ausgewertetes_ansatzvolumen(Some(0.0))
+        .ausgewertetes_ansatzvolumen(Default::default())
         .verknuepfte_parameter(Default::default())
         .bewertung_untersuchungswert("1010".into())
         .parameterauffaelligkeit(Default::default())
