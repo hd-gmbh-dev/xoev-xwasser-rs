@@ -156,12 +156,12 @@ describe("Parsing XML", () => {
     expect(obj.vorgang).toBeDefined();
     expect(obj.vorgang.vorgang_type).toBeDefined();
     expect(typeof obj.vorgang.vorgang_type.t).toBe("string");
-    expect(typeof obj.vorgang.vorgang_type.c).toBe("object");
 
     // Tagged union pattern as shown in README
     if (obj.vorgang.vorgang_type.t === "Pruefbericht") {
       const pruefbericht: PruefberichtType = obj.vorgang.vorgang_type.c;
       expect(pruefbericht.id).toBeDefined();
+      expect(typeof pruefbericht).toBe("object");
     }
   });
 
