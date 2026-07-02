@@ -423,13 +423,17 @@ console.log(vorname(person));     // "Sepp"
 console.log(familienname(person)); // "Meier"
 ```
 
-## Schema Validation (Node.js)
+## Schema Validation
 
-For Node.js applications, schema validation requires the separate `@raxb/validate-wasm` package:
+Schema validation requires the separate `@raxb/validate-wasm` package:
 
 ```bash
 npm install @raxb/validate-wasm
 ```
+
+The `.xsdb.bin` file is included in the npm package and contains the compiled XWasser XSD schema for version 1.0.0.
+
+### Node.js
 
 ```typescript
 import fs from "fs";
@@ -452,7 +456,26 @@ validator.validateXml(xmlString, (err: XmlValidatorError) => {
 });
 ```
 
-The `.xsdb.bin` file is included in the npm package and contains the compiled XWasser XSD schema for version 1.0.0.
+### Browser
+
+```typescript
+import xmlvalidate, { XmlValidatorError } from "@raxb/validate-wasm";
+
+// Fetch the compiled XSD bundle (served from your public directory)
+const response = await fetch("/xwasser-v100.xsdb.bin");
+const xsdBundle = await response.arrayBuffer();
+
+const { XmlValidator } = await xmlvalidate();
+const validator = new XmlValidator(new Uint8Array(xsdBundle));
+validator.init((err: string) => console.error(err));
+
+// Validate XML against the schema
+validator.validateXml(xmlString, (err: XmlValidatorError) => {
+  if (err.level === "fatal") {
+    console.error({ line: err.line, message: err.message });
+  }
+});
+```
 
 ## Version Detection
 
@@ -484,7 +507,7 @@ import {
 } from "xoev-xwasser-web";
 ```
 
-> **Note:** Schema validation (`@raxb/validate-wasm`) requires Node.js and is not available in browser environments.
+
 
 ## TypeScript Types
 
