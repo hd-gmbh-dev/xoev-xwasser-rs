@@ -132,16 +132,15 @@ import {
   identifikation_nachricht,
   nachrichtenkopf_g2g,
   identifikation_vorgang,
-  NachrichtenTypEnum,
 } from "xoev-xwasser";
 
-const msgId = identifikation_nachricht(NachrichtenTypEnum.VorgangTransportieren2010);
-// Returns: { nachrichten_uuid: "auto-generated-uuid", erstellungszeitpunkt: "...", ... }
+const msgId = identifikation_nachricht("VorgangTransportieren2010");
+// Returns: { nachrichten_uuid: "...", nachrichten_typ: {...}, erstellungszeitpunkt: "..." }
 
-const header = nachrichtenkopf_g2g(NachrichtenTypEnum.VorgangTransportieren2010);
+const header = nachrichtenkopf_g2g("VorgangTransportieren2010");
 
-const vId = identifikation_vorgang();           // auto-generated ID
-const vIdCustom = identifikation_vorgang("my-id-123"); // custom ID
+const vId = identifikation_vorgang();                  // auto-generated vorgangs_id
+const vIdCustom = identifikation_vorgang("my-id-123"); // custom vorgangs_id
 ```
 
 ### Addresses
@@ -166,13 +165,19 @@ import {
   allgemeiner_name_type,
   name_organisation_type,
 } from "xoev-xwasser";
+import { vorname, familienname } from "xoev-xwasser/utils";
 
 const person = natuerliche_person_type("Sepp", "Meier");
-// Returns: { vorname: "Sepp", familienname: "Meier", id: "person-..." }
+// Returns: { name_natuerliche_person: {...}, id: "person-..." }
+// Use utility functions to extract name parts:
+const first = vorname(person);       // "Sepp"
+const last  = familienname(person);  // "Meier"
 
 const name = allgemeiner_name_type("Max Mustermann");
+// Returns: { name: "Max Mustermann" }
 
 const orgName = name_organisation_type("ACME GmbH", "ACME");
+// Returns: { name: { text: "ACME GmbH" }, kurzbezeichnung: "ACME", ... }
 ```
 
 ### Authorities and Institutions
@@ -186,13 +191,29 @@ import {
   zugelassene_untersuchungsstelle_type,
   beauftragte_untersuchungsstelle_type,
   betreiber_type,
+  UntersuchungsstelleDetails,
 } from "xoev-xwasser";
 
 const authority = behoerde_type();
 const author = autor("Name", "KENNUNG");
 const reader = leser("Name", "KENNUNG");
 const responsible = zustaendige_behoerde_type("NW"); // Bundesland code
-const lab = zugelassene_untersuchungsstelle_type({ /* details */ });
+
+// Untersuchungsstelle with required accreditation details
+const labDetails: UntersuchungsstelleDetails = {
+  id: "lab-1",
+  name: "Umweltlabor GmbH",
+  zugelassene_untersuchungsstelle_id: "ZUL-12345",
+  pruefgebiete_untersuchungen_phys_chem: true,
+  pruefgebiete_untersuchungen_mikrobio: true,
+  pruefgebiete_untersuchungen_radionuklide: false,
+  pruefgebiete_nur_vor_ort_parameter: false,
+  akkreditierungsnummer: "AKK-D-PL-12345-01",
+  unterorganisation: undefined,
+};
+
+const lab = zugelassene_untersuchungsstelle_type(labDetails);
+const commissioner = beauftragte_untersuchungsstelle_type(labDetails);
 const operator = betreiber_type();
 ```
 
@@ -210,14 +231,28 @@ import {
   kommentar_type,
   zeitraum_type,
   aenderungshistorie_type,
+  UntersuchungsstelleDetails,
 } from "xoev-xwasser";
+
+// Untersuchungsstelle details
+const labDetails: UntersuchungsstelleDetails = {
+  id: "lab-1",
+  name: "Umweltlabor GmbH",
+  zugelassene_untersuchungsstelle_id: "ZUL-12345",
+  pruefgebiete_untersuchungen_phys_chem: true,
+  pruefgebiete_untersuchungen_mikrobio: true,
+  pruefgebiete_untersuchungen_radionuklide: false,
+  pruefgebiete_nur_vor_ort_parameter: false,
+  akkreditierungsnummer: "AKK-D-PL-12345-01",
+  unterorganisation: undefined,
+};
 
 // Create a test report
 const report = pruefbericht_type(
   "1.0",          // sw_version
   null,           // id (null = auto-generated)
   "test-context", // context
-  { /* details */ },
+  labDetails,
 );
 
 const sig = pruefbericht_signature_template(); // Signature template
@@ -225,6 +260,8 @@ const sig = pruefbericht_signature_template(); // Signature template
 // Sampling
 const sample = probe_type();
 const site = probennahmestelle_type("Sampling Point 1");
+// site.name_probennahmestelle === "Sampling Point 1"
+
 const sampler = probennehmer_type();
 
 // Analysis
