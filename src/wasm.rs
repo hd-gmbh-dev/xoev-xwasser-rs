@@ -34,7 +34,7 @@ pub fn version() -> String {
 pub fn detect_version(xml: String) -> Result<String, JsValue> {
     Ok(crate::detect_version(&xml).to_string())
 }
-/// Custom TS type definition injected into .d.ts for the transform options.
+/// Custom TS type definitions injected into .d.ts.
 #[wasm_bindgen(typescript_custom_section)]
 const TS_TRANSFORM_OPTIONS: &'static str = r#"
 export interface TransformOptions {
@@ -42,6 +42,8 @@ export interface TransformOptions {
   autor?: { kennung?: string; name?: string };
   zusatzinformationen?: Array<{ kennung?: string; name?: string }>;
 }
+
+export function transformXml(xml: string, options?: TransformOptions): string;
 "#;
 
 /// Helper struct to deserialize the options parameter.
