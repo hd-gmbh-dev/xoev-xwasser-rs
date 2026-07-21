@@ -1159,14 +1159,11 @@ mod tests {
                 ..Default::default()
             },
         );
-        assert!(result.contains("<kennung>psw:99999999</kennung>"));
-        assert!(result.contains("<name>NewReader</name>"));
-        assert!(result.contains("<kennung>psw:01003110</kennung>"));
-        assert!(result.contains("<name>Author</name>"));
         let parsed = assert_raxb_roundtrip(&result);
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:99999999");
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "NewReader");
         assert_eq!(parsed.nachrichtenkopf_g2g.autor.kennung, "psw:01003110");
+        assert_eq!(parsed.nachrichtenkopf_g2g.autor.name, "Author");
     }
 
     #[test]
@@ -1182,13 +1179,11 @@ mod tests {
                 ..Default::default()
             },
         );
-        assert!(result.contains("<kennung>psw:11113110</kennung>"));
-        assert!(result.contains("<name>Reader</name>"));
-        assert!(result.contains("<kennung>psw:autor123</kennung>"));
-        assert!(result.contains("<name>Updated Autor</name>"));
         let parsed = assert_raxb_roundtrip(&result);
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:11113110");
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "Reader");
         assert_eq!(parsed.nachrichtenkopf_g2g.autor.kennung, "psw:autor123");
+        assert_eq!(parsed.nachrichtenkopf_g2g.autor.name, "Updated Autor");
     }
 
     #[test]
@@ -1208,13 +1203,11 @@ mod tests {
                 ..Default::default()
             },
         );
-        assert!(result.contains("<kennung>psw:leser1</kennung>"));
-        assert!(result.contains("<name>Leser1</name>"));
-        assert!(result.contains("<kennung>psw:autor1</kennung>"));
-        assert!(result.contains("<name>Autor1</name>"));
         let parsed = assert_raxb_roundtrip(&result);
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:leser1");
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "Leser1");
         assert_eq!(parsed.nachrichtenkopf_g2g.autor.kennung, "psw:autor1");
+        assert_eq!(parsed.nachrichtenkopf_g2g.autor.name, "Autor1");
     }
 
     #[test]
@@ -1242,8 +1235,6 @@ mod tests {
                 ..Default::default()
             },
         );
-        assert!(result.contains("<xwas:kennung>auth-001</xwas:kennung>"));
-        assert!(result.contains("<xwas:name>Updated Authority</xwas:name>"));
         let parsed = assert_raxb_roundtrip(&result);
         assert!(
             parsed.zusatzinformationen.is_some(),
