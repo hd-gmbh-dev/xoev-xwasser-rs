@@ -12,10 +12,11 @@
 //! A no-op transform (all options `None`) produces output that is
 //! byte-identical to the input, keeping XML digital signatures valid.
 
-use raxb::quick_xml::events::{BytesEnd, BytesStart, BytesText, Event};
-use raxb::quick_xml::name::{Namespace, ResolveResult};
-use raxb::quick_xml::NsReader;
-use raxb::quick_xml::Writer;
+use raxb::quick_xml::{
+    NsReader, Writer,
+    events::{BytesEnd, BytesStart, BytesText, Event},
+    name::{Namespace, ResolveResult},
+};
 
 /// The XWasser namespace URI as a quick-xml `Namespace` value.
 const XWAS_NS: Namespace = Namespace(crate::TNS);
@@ -84,16 +85,30 @@ pub fn transform_xml(xml: &str, options: &TransformOptions) -> String {
                 state.depth += 1;
                 let lok = e.local_name().as_ref().to_vec();
                 handle_start(
-                    &mut state, has_leser, has_autor, has_zusatzinfo_updates, options, &mut writer,
-                    ns, &lok, &e,
+                    &mut state,
+                    has_leser,
+                    has_autor,
+                    has_zusatzinfo_updates,
+                    options,
+                    &mut writer,
+                    ns,
+                    &lok,
+                    &e,
                 );
             }
 
             Ok((ns, Event::End(e))) => {
                 let lok = e.local_name().as_ref().to_vec();
                 handle_end(
-                    &mut state, has_leser, has_autor, has_zusatzinfo_updates, options, &mut writer,
-                    ns, &lok, &e,
+                    &mut state,
+                    has_leser,
+                    has_autor,
+                    has_zusatzinfo_updates,
+                    options,
+                    &mut writer,
+                    ns,
+                    &lok,
+                    &e,
                 );
                 state.depth = state.depth.saturating_sub(1);
             }
@@ -101,7 +116,13 @@ pub fn transform_xml(xml: &str, options: &TransformOptions) -> String {
             Ok((_ns, Event::Empty(e))) => {
                 let lok = e.local_name().as_ref().to_vec();
                 handle_empty(
-                    &mut state, has_leser, has_autor, has_zusatzinfo_updates, &mut writer, &lok, &e,
+                    &mut state,
+                    has_leser,
+                    has_autor,
+                    has_zusatzinfo_updates,
+                    &mut writer,
+                    &lok,
+                    &e,
                 );
             }
 
@@ -271,7 +292,9 @@ fn handle_start(
     }
 
     // --- zustaendigeBehoerde (xwas namespace) ---
-    if state.zi_depth > 0 && lok == b"zustaendigeBehoerde" && ns_is_xwas(&ns)
+    if state.zi_depth > 0
+        && lok == b"zustaendigeBehoerde"
+        && ns_is_xwas(&ns)
         && has_zusatzinfo_updates
     {
         state.in_zb = true;
@@ -334,10 +357,9 @@ fn handle_end(
         }
     }
     // Schedule autor insertion after leser end
-    if state.nk_depth > 0 && lok == b"leser"
-        && has_autor && !state.seen_autor {
-            state.should_insert_autor = true;
-        }
+    if state.nk_depth > 0 && lok == b"leser" && has_autor && !state.seen_autor {
+        state.should_insert_autor = true;
+    }
 
     // Buffer nested end events for g2g elements
     if state.in_g2g_element {
@@ -375,7 +397,8 @@ fn handle_end(
     }
 
     // --- closing root (insert zusatzinformationen if still missing) ---
-    if state.root_depth > 0 && lok == b"vorgang.transportieren.2010"
+    if state.root_depth > 0
+        && lok == b"vorgang.transportieren.2010"
         && state.depth == state.root_depth
     {
         if !state.seen_zi && has_zusatzinfo_updates {
@@ -528,7 +551,9 @@ fn emit_mutated_zustaendige_behoerde<W: std::io::Write>(
     let current_kennung = extract_kennung_from_zb_buf(buffered);
 
     if let Some(ref cur) = current_kennung
-        && let Some(matching) = zusatzinformationen.iter().find(|a| a.kennung.as_deref() == Some(cur))
+        && let Some(matching) = zusatzinformationen
+            .iter()
+            .find(|a| a.kennung.as_deref() == Some(cur))
     {
         if let Some(Event::Start(first)) = buffered.first() {
             write_event(writer, Event::Start(first.clone()));
@@ -545,7 +570,10 @@ fn emit_mutated_zustaendige_behoerde<W: std::io::Write>(
         write_event(writer, Event::End(BytesEnd::new("xwas:name")));
         write_text_bytes(writer, b"\n");
         write_text_bytes(writer, b"      ");
-        write_event(writer, Event::End(BytesEnd::new("xwas:zustaendigeBehoerde")));
+        write_event(
+            writer,
+            Event::End(BytesEnd::new("xwas:zustaendigeBehoerde")),
+        );
         return;
     }
 
@@ -969,7 +997,10 @@ mod tests {
         assert!(result.contains("<name>Inserted Reader</name>"));
         let leser_pos = result.find("psw:inserted").unwrap();
         let dvdv_pos = result.find("dvdvDienstkennung").unwrap();
-        assert!(leser_pos < dvdv_pos, "leser must appear before dvdvDienstkennung");
+        assert!(
+            leser_pos < dvdv_pos,
+            "leser must appear before dvdvDienstkennung"
+        );
     }
 
     #[test]
