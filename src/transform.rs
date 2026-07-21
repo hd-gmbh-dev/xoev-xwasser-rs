@@ -63,8 +63,37 @@ pub struct ZustaendigeBehoerdeUpdate {
 // Core streaming transform
 // ---------------------------------------------------------------------------
 
-/// Run the XML transform in a single streaming pass.
+/// Run the XML transform in a single streaming pass with the internal options struct.
 pub fn transform_xml(xml: &str, options: &TransformOptions) -> String {
+    transform_xml_impl(xml, options)
+}
+
+/// Convenience wrapper accepting `<zustaendigeBehoerdeID>` strings.
+pub fn transform_xml_with_ids(
+    xml: &str,
+    leser: Option<&ElementUpdate>,
+    autor: Option<&ElementUpdate>,
+    zusatzinfo_ids: Option<&[String]>,
+) -> String {
+    let zusatz = zusatzinfo_ids.map(|ids| {
+        ids.iter()
+            .map(|id| ZustaendigeBehoerdeUpdate {
+                kennung: Some(id.clone()),
+                name: None,
+            })
+            .collect::<Vec<_>>()
+    });
+    transform_xml_impl(
+        xml,
+        &TransformOptions {
+            leser: leser.cloned(),
+            autor: autor.cloned(),
+            zusatzinformationen: zusatz.as_deref(),
+        },
+    )
+}
+
+fn transform_xml_impl(xml: &str, options: &TransformOptions) -> String {
     let mut rdr = NsReader::from_str(xml);
     rdr.config_mut().trim_text(false);
     rdr.config_mut().allow_unmatched_ends = true;

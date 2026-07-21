@@ -91,38 +91,20 @@ pub fn transform_xml(xml: String, options: Option<JsValue>) -> String {
         })
         .unwrap_or_default();
 
-    let leser = opts.leser.map(|p| transform::ElementUpdate {
-        kennung: p.kennung,
-        name: p.name,
+    let leser = opts.leser.as_ref().map(|p| transform::ElementUpdate {
+        kennung: p.kennung.clone(),
+        name: p.name.clone(),
     });
-    let autor = opts.autor.map(|p| transform::ElementUpdate {
-        kennung: p.kennung,
-        name: p.name,
+    let autor = opts.autor.as_ref().map(|p| transform::ElementUpdate {
+        kennung: p.kennung.clone(),
+        name: p.name.clone(),
     });
-    let had_auth_key = opts.authorities.is_some();
-    let auth_vec: Vec<transform::ZustaendigeBehoerdeUpdate> = opts
-        .authorities
-        .unwrap_or_default()
-        .into_iter()
-        .map(|a| transform::ZustaendigeBehoerdeUpdate {
-            kennung: a.kennung,
-            name: a.name,
-        })
-        .collect();
 
-    let zusatzinformationen = if auth_vec.is_empty() && !had_auth_key {
-        None
-    } else {
-        Some(auth_vec.as_slice())
-    };
-
-    transform::transform_xml(
+    transform::transform_xml_with_ids(
         &xml,
-        &transform::TransformOptions {
-            leser,
-            autor,
-            zusatzinformationen,
-        },
+        leser.as_ref(),
+        autor.as_ref(),
+        opts.authorities.as_deref(),
     )
 }
 
