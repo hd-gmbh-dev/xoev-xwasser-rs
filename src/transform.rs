@@ -833,127 +833,72 @@ mod tests {
         .to_string()
     }
 
+    /// Raxb-parseable document without `<leser>` and `<autor>` in nachrichtenkopf.g2g.
     fn sample_xml_no_leser_no_autor() -> String {
-        r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
-  <nachrichtenkopf.g2g>
-    <identifikation.nachricht>
-      <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
-    </identifikation.nachricht>
-    <dvdvDienstkennung>s</dvdvDienstkennung>
-  </nachrichtenkopf.g2g>
-  <xwas:vorgang>
-    <xwas:identifikationVorgang>
-      <xwas:vorgangsID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:vorgangsID>
-    </xwas:identifikationVorgang>
-  </xwas:vorgang>
-</xwas:vorgang.transportieren.2010>"#
-        .to_string()
+        // Build by loading quality report and removing leser+autor lines
+        let base = load_quality_report();
+        let mut lines: Vec<&str> = base.lines().collect();
+        let mut i = 0;
+        while i < lines.len() {
+            if lines[i].contains("<leser>") || lines[i].contains("<autor>") {
+                // Remove the element start tag and all following lines until </tag>
+                let tag = if lines[i].contains("<leser>") {
+                    "</leser>"
+                } else {
+                    "</autor>"
+                };
+                lines.remove(i);
+                while i < lines.len() && !lines[i].contains(tag) {
+                    lines.remove(i);
+                }
+                if i < lines.len() {
+                    lines.remove(i); // remove closing tag
+                }
+            } else {
+                i += 1;
+            }
+        }
+        lines.join("\n")
     }
 
+    /// Raxb-parseable document without `<xwas:zusatzinformationen>`.
     fn sample_xml_no_zi() -> String {
-        r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
-  <nachrichtenkopf.g2g>
-    <identifikation.nachricht>
-      <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
-    </identifikation.nachricht>
-    <leser>
-      <verzeichnisdienst listVersionID="">
-        <code></code>
-      </verzeichnisdienst>
-      <kennung>psw:11113110</kennung>
-      <name>Reader</name>
-    </leser>
-    <autor>
-      <verzeichnisdienst listVersionID="">
-        <code></code>
-      </verzeichnisdienst>
-      <kennung>psw:01003110</kennung>
-      <name>Author</name>
-    </autor>
-  </nachrichtenkopf.g2g>
-  <xwas:vorgang>
-    <xwas:identifikationVorgang>
-      <xwas:vorgangsID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:vorgangsID>
-    </xwas:identifikationVorgang>
-  </xwas:vorgang>
-</xwas:vorgang.transportieren.2010>"#
-        .to_string()
+        load_quality_report()
     }
 
+    /// Raxb-parseable document WITH `<xwas:zusatzinformationen>` containing one authority.
     fn sample_xml_with_zi() -> String {
-        r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
-  <nachrichtenkopf.g2g>
-    <identifikation.nachricht>
-      <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
-    </identifikation.nachricht>
-    <leser>
-      <verzeichnisdienst listVersionID="">
-        <code></code>
-      </verzeichnisdienst>
-      <kennung>psw:11113110</kennung>
-      <name>Reader</name>
-    </leser>
-    <autor>
-      <verzeichnisdienst listVersionID="">
-        <code></code>
-      </verzeichnisdienst>
-      <kennung>psw:01003110</kennung>
-      <name>Author</name>
-    </autor>
-  </nachrichtenkopf.g2g>
-  <xwas:vorgang>
-    <xwas:identifikationVorgang>
-      <xwas:vorgangsID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:vorgangsID>
-    </xwas:identifikationVorgang>
-  </xwas:vorgang>
-  <xwas:zusatzinformationen>
-    <xwas:zustaendigeBehoerde>
-      <xwas:kennung>auth-001</xwas:kennung>
-      <xwas:name>Existing Authority</xwas:name>
-    </xwas:zustaendigeBehoerde>
-  </xwas:zusatzinformationen>
-</xwas:vorgang.transportieren.2010>"#
-        .to_string()
+        let base = load_quality_report();
+        transform_xml(
+            &base,
+            &TransformOptions {
+                zusatzinformationen: &[ZustaendigeBehoerdeUpdate {
+                    kennung: Some("auth-001".into()),
+                    name: Some("Existing Authority".into()),
+                }],
+                ..Default::default()
+            },
+        )
     }
 
+    /// Raxb-parseable document using custom `xw:` prefix for the XWasser namespace.
     fn sample_xml_custom_prefix() -> String {
-        r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xw:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xw="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
-  <nachrichtenkopf.g2g>
-    <identifikation.nachricht>
-      <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
-    </identifikation.nachricht>
-    <leser>
-      <verzeichnisdienst listVersionID="">
-        <code></code>
-      </verzeichnisdienst>
-      <kennung>psw:11113110</kennung>
-      <name>Reader</name>
-    </leser>
-    <autor>
-      <verzeichnisdienst listVersionID="">
-        <code></code>
-      </verzeichnisdienst>
-      <kennung>psw:01003110</kennung>
-      <name>Author</name>
-    </autor>
-  </nachrichtenkopf.g2g>
-  <xw:vorgang>
-    <xw:identifikationVorgang>
-      <xw:vorgangsID>5e08e073-4e06-438d-9444-1275f6cbf061</xw:vorgangsID>
-    </xw:identifikationVorgang>
-  </xw:vorgang>
-  <xw:zusatzinformationen>
-    <xw:zustaendigeBehoerde>
-      <xw:kennung>auth-001</xw:kennung>
-      <xw:name>Existing Authority</xw:name>
-    </xw:zustaendigeBehoerde>
-  </xw:zusatzinformationen>
-</xw:vorgang.transportieren.2010>"#
-        .to_string()
+        let base = sample_xml_with_zi();
+        // Replace xmlns:xwas= with xmlns:xw= and xwas: with xw: except for ds:
+        // This is lossy in general but covers the common case
+        let result = base
+            .replace("xmlns:xwas=", "xmlns:xw=")
+            .replace("xwas:", "xw:")
+            .replace("xmlns:xw:Signature", "xmlns:ds:Signature")
+            .replace("xw:Signature", "ds:Signature");
+        // Verify it still parses via raxb
+        let parsed =
+            raxb::de::from_str::<crate::model::transport::VorgangTransportieren2010>(&result);
+        assert!(
+            parsed.is_ok(),
+            "custom prefix fixture must be raxb-parseable"
+        );
+        result
     }
 
     fn load_quality_report() -> String {
@@ -968,17 +913,6 @@ mod tests {
             raxb::de::from_str(xml);
         assert!(parsed.is_ok(), "raxb round-trip failed: {:?}", parsed.err());
         parsed.unwrap()
-    }
-
-    /// Try raxb round-trip — useful for minimal test fixtures that may
-    /// lack some raxb-required fields. Only asserts when parsing succeeds.
-    fn try_raxb_roundtrip(xml: &str) {
-        if let Err(e) =
-            raxb::de::from_str::<crate::model::transport::VorgangTransportieren2010>(xml)
-        {
-            // This may legitimately fail for minimal test fixtures
-            eprintln!("raxb parse (optional): {e:?}");
-        }
     }
 
     fn sample_xml_two_space_indent() -> String {
@@ -1331,9 +1265,13 @@ mod tests {
         // Replaced authority gets xwas: prefix (hardcoded), but matching worked by namespace
         assert!(result.contains("xwas:kennung>auth-001"));
         assert!(result.contains("xwas:name>Updated via custom prefix"));
-        // Note: replaced authorities use hardcoded xwas: prefix, so the output may
-        // have mixed prefixes. Namespace matching works; try_raxb for well-formedness.
-        try_raxb_roundtrip(&result);
+        // Normalize mixed prefixes back to xwas: for raxb roundtrip
+        let normalized = result
+            .replace("xmlns:xw=", "xmlns:xwas=")
+            .replace("xw:", "xwas:")
+            .replace("xmlns:xwas:Signature", "xmlns:ds:Signature")
+            .replace("xwas:Signature", "ds:Signature");
+        assert_raxb_roundtrip(&normalized);
     }
 
     #[test]
@@ -1345,11 +1283,6 @@ mod tests {
 
     #[test]
     fn test_raxb_roundtrip_insert_leser_and_autor() {
-        // Insert leser+autor into quality-report-based fixture that is raxb-friendly
-        let mut base = load_quality_report();
-        // Replace the existing leser+autor with minimal content to prove insertion works
-        // using sample_xml_no_leser_no_autor as the base (it lacks vorgang_type, so
-        // just verify well-formedness)
         let result = transform_xml(
             &sample_xml_no_leser_no_autor(),
             &TransformOptions {
@@ -1364,11 +1297,9 @@ mod tests {
                 ..Default::default()
             },
         );
-        // Minimal fixture is not raxb-parseable, so use try_raxb
-        try_raxb_roundtrip(&result);
-        assert!(result.contains("<kennung>psw:l</kennung>"));
-        assert!(result.contains("<kennung>psw:a</kennung>"));
-        _ = base;
+        let parsed = assert_raxb_roundtrip(&result);
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:l");
+        assert_eq!(parsed.nachrichtenkopf_g2g.autor.kennung, "psw:a");
     }
 
     #[test]
