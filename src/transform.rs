@@ -241,11 +241,6 @@ impl TransformState {
             &self.root_child_indent
         }
     }
-
-    fn zi_child_indent(&self) -> Vec<u8> {
-        // One level deeper than root child indent (for zustaendigeBehoerdeID)
-        [self.root_child_indent(), b"  "].concat()
-    }
 }
 
 // ---------------------------------------------------------------------------
@@ -369,8 +364,8 @@ fn handle_end(
         if !state.zi_buf.is_empty() {
             write_zusatzinfo_content(
                 writer,
+                &state.zi_buf,
                 options.zusatzinformationen,
-                state.zi_child_indent(),
                 &state.root_ns_prefix,
             );
             state.zi_buf.clear();
@@ -542,36 +537,84 @@ fn qn_str(prefix: &[u8], local: &str) -> String {
     }
 }
 
-/// Emit the entire `<zusatzinformationen>` content (start tag, entries, end tag)
-/// using the provided authority IDs.
+/// Emit the `<zusatzinformationen>` content, replaying buffered events but
+/// replacing `<zustaendigeBehoerdeID>` elements with the new IDs.
+///
+/// This preserves all other content inside `<zusatzinformationen>` — comments,
+/// `<wasserversorgungsgebietID>`, `<kommentar>`, whitespace text nodes, etc.
+/// — while only swapping out the authority ID entries.
+///
+/// The buffer includes the `<zusatzinformationen>` start tag but not the end
+/// tag (the end tag is handled by the caller's early return).
 fn write_zusatzinfo_content<W: std::io::Write>(
     writer: &mut Writer<W>,
+    buffered: &[Event<'static>],
     updates: Option<&[String]>,
-    indent: Vec<u8>,
     prefix: &[u8],
 ) {
-    let inner = [&indent[..], b"  "].concat();
+    let zbid_local = b"zustaendigeBehoerdeID";
+    let mut inside_zbid = false;
+    let mut skip_zbid = false;
+    let mut zi_end_name: Vec<u8> = Vec::new();
 
-    let zi = qn_str(prefix, "zusatzinformationen");
-    let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
+    for ev in buffered {
+        match ev {
+            Event::Start(e) => {
+                if e.local_name().as_ref() == zbid_local {
+                    inside_zbid = true;
+                    skip_zbid = true;
+                    continue;
+                }
+                // Capture the zusatzinformationen element name for the end tag
+                if zi_end_name.is_empty() && e.local_name().as_ref() == b"zusatzinformationen" {
+                    zi_end_name = e.name().as_ref().to_vec();
+                }
+                write_event(writer, ev.clone());
+            }
+            Event::End(e) => {
+                if e.local_name().as_ref() == zbid_local && skip_zbid {
+                    skip_zbid = false;
+                    inside_zbid = false;
+                    continue;
+                }
+                write_event(writer, ev.clone());
+            }
+            Event::Empty(e) => {
+                if e.local_name().as_ref() == zbid_local {
+                    continue;
+                }
+                write_event(writer, ev.clone());
+            }
+            Event::Text(_) => {
+                if inside_zbid && skip_zbid {
+                    continue;
+                }
+                write_event(writer, ev.clone());
+            }
+            _ => {
+                write_event(writer, ev.clone());
+            }
+        }
+    }
 
-    write_text_bytes(writer, b"\n");
-    write_text_bytes(writer, &indent);
-    write_event(writer, Event::Start(BytesStart::new(&zi)));
-
+    // Insert new zustaendigeBehoerdeID entries at the end (before the closing tag)
     if let Some(entries) = updates {
+        let indent = b"    ";
+        let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
         for id in entries {
             write_text_bytes(writer, b"\n");
-            write_text_bytes(writer, &inner);
+            write_text_bytes(writer, indent);
             write_event(writer, Event::Start(BytesStart::new(&zbid)));
             write_text_bytes(writer, id.as_bytes());
             write_event(writer, Event::End(BytesEnd::new(&zbid)));
         }
     }
 
-    write_text_bytes(writer, b"\n");
-    write_text_bytes(writer, &indent);
-    write_event(writer, Event::End(BytesEnd::new(&zi)));
+    // Write the closing tag for zusatzinformationen
+    if !zi_end_name.is_empty() {
+        write_text_bytes(writer, b"\n");
+        write_event(writer, Event::End(BytesEnd::new(std::str::from_utf8(&zi_end_name).unwrap_or("zusatzinformationen"))));
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -1032,6 +1075,61 @@ mod tests {
         let parsed = assert_raxb_roundtrip(&result);
         let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo element should remain");
         assert!(zi.zustaendige_behoerde_id.is_empty());
+    }
+
+    #[test]
+    fn test_zusatzinfo_preserves_kommentar_and_wasserversorgungsgebiet() {
+        // Start from the quality report (valid XWasser document), insert
+        // zusatzinformationen with kommentar, wasserversorgungsgebietID, and
+        // a comment, then replace the IDs — should preserve everything else.
+        let base = load_quality_report();
+        let with_zi = transform_xml(
+            &base,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+        eprintln!("DEBUG WITH_ZI:\n{}", with_zi);
+
+        // Inject kommentar, wasserversorgungsgebietID, and a comment into the
+        // zusatzinformationen block
+        let with_extra = with_zi.replace(
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n\n  </xwas:zusatzinformationen>",
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>some comment</xwas:kommentar>\n    <!-- important comment -->\n\n  </xwas:zusatzinformationen>",
+        );
+
+        // Verify the injection worked
+        assert!(with_extra.contains("<xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>"));
+        assert!(with_extra.contains("<xwas:kommentar>some comment</xwas:kommentar>"));
+        assert!(with_extra.contains("<!-- important comment -->"));
+
+        // Now replace the ID — should preserve kommentar, wasserversorgungsgebietID, and comment
+        let result = transform_xml(
+            &with_extra,
+            &TransformOptions {
+                zusatzinformationen: Some(&["new-id".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Comments preserved
+        assert!(result.contains("<!-- important comment -->"));
+        // kommentar preserved
+        assert!(result.contains("<xwas:kommentar>some comment</xwas:kommentar>"));
+        // wasserversorgungsgebietID preserved
+        assert!(result.contains("<xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>"));
+        // Old ID replaced
+        assert!(!result.contains("auth-001"));
+        // New ID present with correct prefix
+        assert!(result.contains("<xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>"));
+
+        // raxb round-trip proves the output is valid XWasser
+        let parsed = assert_raxb_roundtrip(&result);
+        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo must be present");
+        assert_eq!(zi.zustaendige_behoerde_id, vec!["new-id"]);
+        assert_eq!(zi.wasserversorgungsgebiet_id.as_deref(), Some("wv-123"));
+        assert_eq!(zi.kommentar.as_deref(), Some("some comment"));
     }
 
     #[test]

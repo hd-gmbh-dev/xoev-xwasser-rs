@@ -213,7 +213,7 @@ describe("transformXml via wasm", () => {
     expect(result).toMatch(/xwas:zusatzinformationen/);
   });
 
-  it("replaces authority element (drops extra children)", () => {
+  it("replaces zustaendigeBehoerdeID while preserving other fields", () => {
     const ns = "xmlns:xwas=\"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0\"";
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <xwas:vorgang.transportieren.2010 ${ns}>
@@ -225,14 +225,19 @@ describe("transformXml via wasm", () => {
   <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>t</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
   <xwas:zusatzinformationen>
     <xwas:zustaendigeBehoerdeID>Old</xwas:zustaendigeBehoerdeID>
-    <xwas:kommentar>should disappear</xwas:kommentar>
+    <xwas:kommentar>should be preserved</xwas:kommentar>
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>`;
     const result = transformXml(xml, {
       zusatzinformationen: ["auth-1"],
     });
     expect(result).toMatch(/xwas:zusatzinformationen/);
-    expect(result).not.toContain("should disappear");
+    // Old ID replaced
+    expect(result).not.toContain("Old");
+    // New ID present
+    expect(result).toContain("auth-1");
+    // kommentar preserved
+    expect(result).toContain("should be preserved");
   });
 
   it("preserves comments verbatim through round-trip", () => {
