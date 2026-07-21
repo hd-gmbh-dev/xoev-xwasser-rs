@@ -273,7 +273,7 @@ describe("transformXml via wasm", () => {
     expect(result).toContain("<kennung>psw:new</kennung>");
   });
 
-  it.skip("preserves comments outside replaced authority element", () => {
+  it("preserves comments outside replaced authority element", () => {
     const ns = 'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
     const xml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" ${ns} produkt="t" produkthersteller="t" produktversion="t" standard="XWasser" test="false" version="1.0.0">
@@ -293,7 +293,7 @@ describe("transformXml via wasm", () => {
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>`;
     const result = transformXml(xml, {
-      zusatzinformationen: [{ kennung: "auth-001", name: "Replaced" }],
+      zusatzinformationen: ["auth-001"],
     });
     expect(result).toMatch(/xwas:zusatzinformationen/);
     expect(result).not.toContain("Old");
