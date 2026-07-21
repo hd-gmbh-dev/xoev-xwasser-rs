@@ -984,10 +984,8 @@ mod tests {
             },
         );
         let parsed = assert_raxb_roundtrip(&result);
-        assert!(
-            parsed.zusatzinformationen.is_some(),
-            "zusatzinfo must be present"
-        );
+        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo must be present");
+        assert_eq!(zi.zustaendige_behoerde_id, vec!["auth-001"]);
     }
 
     #[test]
@@ -1009,7 +1007,8 @@ mod tests {
             },
         );
         let parsed = assert_raxb_roundtrip(&result);
-        assert!(parsed.zusatzinformationen.is_some());
+        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo must be present");
+        assert_eq!(zi.zustaendige_behoerde_id, vec!["new-1", "new-2"]);
     }
 
     #[test]
@@ -1031,10 +1030,8 @@ mod tests {
             },
         );
         let parsed = assert_raxb_roundtrip(&result);
-        assert!(
-            parsed.zusatzinformationen.is_some(),
-            "zusatzinfo element should remain"
-        );
+        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo element should remain");
+        assert!(zi.zustaendige_behoerde_id.is_empty());
     }
 
     #[test]
@@ -1100,10 +1097,8 @@ mod tests {
             },
         );
         let parsed = assert_raxb_roundtrip(&result);
-        assert!(
-            parsed.zusatzinformationen.is_some(),
-            "zusatzinfo must be present"
-        );
+        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo must be present");
+        assert_eq!(zi.zustaendige_behoerde_id, vec!["new-auth"]);
     }
 
     #[test]
@@ -1129,10 +1124,8 @@ mod tests {
         let parsed = assert_raxb_roundtrip(&result);
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:custom");
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "Custom");
-        assert!(
-            parsed.zusatzinformationen.is_some(),
-            "zusatzinfo must be present"
-        );
+        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo must be present");
+        assert_eq!(zi.zustaendige_behoerde_id, vec!["auth-001"]);
         // Verify output uses xw: prefix throughout (not xwas:)
         assert!(
             result.contains("xw:zusatzinformationen"),
