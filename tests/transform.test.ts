@@ -252,6 +252,80 @@ describe("transformXml via wasm", () => {
     expect(transformXml(xml)).toContain("<!-- root comment -->");
   });
 
+  it("preserves comments through leser mutation", () => {
+    const ns = 'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 ${ns}>
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht>
+    <leser>
+      <!-- inside leser -->
+      <verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst>
+      <!-- before kennung -->
+      <kennung>old</kennung>
+      <!-- before name -->
+      <name>Old</name>
+    </leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
+</xwas:vorgang.transportieren.2010>`;
+    const result = transformXml(xml, {
+      leser: { kennung: "psw:new", name: "New" },
+    });
+    expect(result).toContain("<!-- inside leser -->");
+    expect(result).toContain("<!-- before kennung -->");
+    expect(result).toContain("<!-- before name -->");
+    expect(result).toContain("<kennung>psw:new</kennung>");
+  });
+
+  it("preserves comments outside replaced authority element", () => {
+    const ns = 'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
+    const xml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" ${ns} produkt="t" produkthersteller="t" produktversion="t" standard="XWasser" test="false" version="1.0.0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
+  <xwas:zusatzinformationen>
+    <!-- zusatzinfo comment -->
+    <xwas:zustaendigeBehoerde>
+      <xwas:kennung>auth-001</xwas:kennung>
+      <xwas:name>Old</xwas:name>
+    </xwas:zustaendigeBehoerde>
+    <!-- after authority -->
+  </xwas:zusatzinformationen>
+</xwas:vorgang.transportieren.2010>`;
+    const result = transformXml(xml, {
+      zusatzinformationen: [{ kennung: "auth-001", name: "Replaced" }],
+    });
+    expect(result).toContain("<!-- zusatzinfo comment -->");
+    expect(result).toContain("<!-- after authority -->");
+    expect(result).toContain("<xwas:name>Replaced</xwas:name>");
+  });
+
+  it("preserves comments when inserting missing leser", () => {
+    const ns = 'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 ${ns}>
+  <nachrichtenkopf.g2g>
+    <!-- existing comment -->
+    <identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht>
+    <!-- after ident -->
+    <dvdvDienstkennung>s</dvdvDienstkennung>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
+</xwas:vorgang.transportieren.2010>`;
+    const result = transformXml(xml, {
+      leser: { kennung: "psw:l", name: "Leser" },
+    });
+    expect(result).toContain("<!-- existing comment -->");
+    expect(result).toContain("<!-- after ident -->");
+    expect(result).toContain("<kennung>psw:l</kennung>");
+  });
+
   it("preserves whitespace text nodes verbatim through round-trip", () => {
     const xml = sampleXml();
     const result = transformXml(xml);

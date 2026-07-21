@@ -1263,6 +1263,154 @@ mod tests {
     }
 
     #[test]
+    fn test_comment_preservation_through_leser_mutation() {
+        let xml = r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht>
+    <leser>
+      <!-- leser comment -->
+      <verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst>
+      <!-- before kennung -->
+      <kennung>psw:old</kennung>
+      <!-- before name -->
+      <name>Old</name>
+    </leser>
+    <autor>
+      <verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst>
+      <kennung>psw:a</kennung>
+      <!-- autor inner comment -->
+      <name>Autor</name>
+    </autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+        let result = transform_xml(
+            xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:new".into()),
+                    name: Some("New".into()),
+                }),
+                ..Default::default()
+            },
+        );
+        assert!(
+            result.contains("<!-- leser comment -->"),
+            "comment inside leser before mutation must survive"
+        );
+        assert!(
+            result.contains("<!-- before kennung -->"),
+            "comment before kennung must survive"
+        );
+        assert!(
+            result.contains("<!-- before name -->"),
+            "comment before name must survive"
+        );
+        assert!(
+            result.contains("<!-- autor inner comment -->"),
+            "comment in unchanged autor must survive"
+        );
+        // kennung/name values must be updated
+        assert!(
+            result.contains("<kennung>psw:new</kennung>"),
+            "kennung must be updated"
+        );
+        assert!(result.contains("<name>New</name>"), "name must be updated");
+    }
+
+    #[test]
+    fn test_comment_preservation_through_authority_replacement() {
+        let xml = r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="t" produkthersteller="t" produktversion="t" standard="XWasser" test="false" version="1.0.0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
+  <xwas:zusatzinformationen>
+    <!-- zusatzinfo comment -->
+    <xwas:zustaendigeBehoerde>
+      <!-- zb comment -->
+      <xwas:kennung>auth-001</xwas:kennung>
+      <!-- between kennung and name -->
+      <xwas:name>Old</xwas:name>
+    </xwas:zustaendigeBehoerde>
+    <!-- after first authority -->
+  </xwas:zusatzinformationen>
+</xwas:vorgang.transportieren.2010>"#;
+        let result = transform_xml(
+            xml,
+            &TransformOptions {
+                zusatzinformationen: &[ZustaendigeBehoerdeUpdate {
+                    kennung: Some("auth-001".into()),
+                    name: Some("Replaced".into()),
+                }],
+                ..Default::default()
+            },
+        );
+        // Comments inside zusatzinformationen but outside the replaced element survive
+        assert!(
+            result.contains("<!-- zusatzinfo comment -->"),
+            "zusatzinfo-level comment must survive"
+        );
+        assert!(
+            result.contains("<!-- after first authority -->"),
+            "trailing comment must survive"
+        );
+        // Comments inside the replaced zustaendigeBehoerde are dropped (element is replaced)
+        // This is expected because we emit only kennung+name for matched authorities
+        assert!(
+            !result.contains("<!-- zb comment -->"),
+            "comment inside replaced element is dropped (expected)"
+        );
+        assert!(
+            !result.contains("<!-- between kennung and name -->"),
+            "comment inside replaced element is dropped (expected)"
+        );
+    }
+
+    #[test]
+    fn test_comment_preservation_through_inserted_leser() {
+        // No existing leser — insert one; existing comments in g2g must survive
+        let xml = r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <!-- ident comment -->
+    <identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht>
+    <!-- between ident and dvdv -->
+    <dvdvDienstkennung>s</dvdvDienstkennung>
+    <!-- trailing g2g comment -->
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+        let result = transform_xml(
+            xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:l".into()),
+                    name: Some("Leser".into()),
+                }),
+                ..Default::default()
+            },
+        );
+        // Comments that were in g2g before insertion must survive
+        assert!(
+            result.contains("<!-- ident comment -->"),
+            "comment before ident must survive"
+        );
+        assert!(
+            result.contains("<!-- trailing g2g comment -->"),
+            "trailing comment must survive"
+        );
+        assert!(
+            result.contains("<!-- between ident and dvdv -->"),
+            "comment between ident and dvdv must survive"
+        );
+    }
+
+    #[test]
     fn test_whitespace_preservation() {
         let xml = sample_xml();
         let result = transform_xml(&xml, &TransformOptions::default());
