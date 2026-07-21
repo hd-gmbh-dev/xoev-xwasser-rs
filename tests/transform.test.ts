@@ -223,8 +223,9 @@ describe("transformXml via wasm", () => {
   });
 
   it("replaces authority element (drops extra children)", () => {
+    const ns = "xmlns:xwas=\"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0\"";
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010>
+<xwas:vorgang.transportieren.2010 ${ns}>
   <nachrichtenkopf.g2g>
     <identifikation.nachricht><nachrichtenUUID>t</nachrichtenUUID></identifikation.nachricht>
     <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>

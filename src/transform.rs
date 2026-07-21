@@ -5,16 +5,24 @@
 //! pass, preserving all comments, processing instructions, whitespace text
 //! nodes, and attribute order.
 //!
-//! Element matching is namespace-agnostic — it uses local names (e.g.
-//! `"zustaendigeBehoerde"`) and differentiates by context. This works regardless
-//! of which prefix the source XML uses for the XWasser namespace.
+//! Element matching uses resolved namespace URIs, not prefixes — so the
+//! transform works regardless of which prefix the source XML uses for the
+//! XWasser namespace.
 //!
 //! A no-op transform (all options `None`) produces output that is
 //! byte-identical to the input, keeping XML digital signatures valid.
 
 use raxb::quick_xml::events::{BytesEnd, BytesStart, BytesText, Event};
-use raxb::quick_xml::Reader;
+use raxb::quick_xml::name::{Namespace, ResolveResult};
+use raxb::quick_xml::NsReader;
 use raxb::quick_xml::Writer;
+
+/// The XWasser namespace URI as a quick-xml `Namespace` value.
+const XWAS_NS: Namespace = Namespace(crate::TNS);
+
+// ---------------------------------------------------------------------------
+// Options structs
+// ---------------------------------------------------------------------------
 
 /// Top-level options for the XML transform.
 #[derive(Debug, Clone, Default)]
@@ -54,13 +62,13 @@ pub struct ZustaendigeBehoerdeUpdate {
 
 /// Run the XML transform in a single streaming pass.
 pub fn transform_xml(xml: &str, options: &TransformOptions) -> String {
-    let mut rdr = Reader::from_str(xml);
+    let mut rdr = NsReader::from_str(xml);
     rdr.config_mut().trim_text(false);
     rdr.config_mut().allow_unmatched_ends = true;
 
     let mut writer = Writer::new(Vec::<u8>::new());
 
-    let has_zusatzinformation_updates = options
+    let has_zusatzinfo_updates = options
         .zusatzinformationen
         .iter()
         .any(|a| a.kennung.is_some() || a.name.is_some());
@@ -71,79 +79,61 @@ pub fn transform_xml(xml: &str, options: &TransformOptions) -> String {
     let mut buf = Vec::new();
 
     loop {
-        match rdr.read_event_into(&mut buf) {
-            Ok(Event::Start(e)) => {
+        match rdr.read_resolved_event_into(&mut buf) {
+            Ok((ns, Event::Start(e))) => {
                 state.depth += 1;
                 let lok = e.local_name().as_ref().to_vec();
                 handle_start(
-                    &mut state,
-                    has_leser,
-                    has_autor,
-                    has_zusatzinformation_updates,
-                    options,
-                    &mut writer,
-                    &lok,
-                    &e,
+                    &mut state, has_leser, has_autor, has_zusatzinfo_updates, options, &mut writer,
+                    ns, &lok, &e,
                 );
             }
 
-            Ok(Event::End(e)) => {
+            Ok((ns, Event::End(e))) => {
                 let lok = e.local_name().as_ref().to_vec();
                 handle_end(
-                    &mut state,
-                    has_leser,
-                    has_autor,
-                    has_zusatzinformation_updates,
-                    options,
-                    &mut writer,
-                    &lok,
-                    &e,
+                    &mut state, has_leser, has_autor, has_zusatzinfo_updates, options, &mut writer,
+                    ns, &lok, &e,
                 );
                 state.depth = state.depth.saturating_sub(1);
             }
 
-            Ok(Event::Empty(e)) => {
+            Ok((_ns, Event::Empty(e))) => {
                 let lok = e.local_name().as_ref().to_vec();
                 handle_empty(
-                    &mut state,
-                    has_leser,
-                    has_autor,
-                    has_zusatzinformation_updates,
-                    &mut writer,
-                    &lok,
-                    &e,
+                    &mut state, has_leser, has_autor, has_zusatzinfo_updates, &mut writer, &lok, &e,
                 );
             }
 
-            Ok(Event::Text(e)) => {
+            Ok((_ns, Event::Text(e))) => {
                 let owned = Event::Text(e.clone().into_owned());
                 handle_generic(&mut state, &mut writer, owned);
             }
 
-            Ok(Event::CData(e)) => {
+            Ok((_ns, Event::CData(e))) => {
                 let owned = Event::CData(e.clone().into_owned());
                 handle_generic(&mut state, &mut writer, owned);
             }
 
-            Ok(Event::Comment(e)) => {
+            Ok((_ns, Event::Comment(e))) => {
                 let owned = Event::Comment(e.clone().into_owned());
                 handle_generic(&mut state, &mut writer, owned);
             }
 
-            Ok(Event::PI(e)) => {
+            Ok((_ns, Event::PI(e))) => {
                 let owned = Event::PI(e.clone().into_owned());
                 handle_generic(&mut state, &mut writer, owned);
             }
 
-            Ok(Event::Decl(e)) => {
+            Ok((_ns, Event::Decl(e))) => {
                 write_event(&mut writer, Event::Decl(e.clone().into_owned()));
             }
 
-            Ok(Event::DocType(e)) => {
+            Ok((_ns, Event::DocType(e))) => {
                 write_event(&mut writer, Event::DocType(e.clone().into_owned()));
             }
 
-            Ok(Event::Eof) => break,
+            Ok((_ns, Event::Eof)) => break,
 
             Err(_) => break,
         }
@@ -154,14 +144,27 @@ pub fn transform_xml(xml: &str, options: &TransformOptions) -> String {
 }
 
 // ---------------------------------------------------------------------------
+// Helpers: namespace check
+// ---------------------------------------------------------------------------
+
+/// Returns `true` when the resolved namespace is the XWasser namespace.
+fn ns_is_xwas(ns: &ResolveResult) -> bool {
+    matches!(ns, ResolveResult::Bound(b) if *b == XWAS_NS)
+}
+
+/// Returns `true` when the resolved namespace is explicitly *not* the XWasser
+/// namespace.
+fn ns_is_foreign(ns: &ResolveResult) -> bool {
+    matches!(ns, ResolveResult::Bound(b) if *b != XWAS_NS)
+}
+
+// ---------------------------------------------------------------------------
 // State
 // ---------------------------------------------------------------------------
 
 #[derive(Default)]
 struct TransformState {
     depth: usize,
-
-    // Root element tracking
     root_depth: usize,
 
     // nachrichtenkopf.g2g tracking
@@ -171,16 +174,16 @@ struct TransformState {
     should_insert_leser: bool,
     should_insert_autor: bool,
 
-    // Buffering for leser/author mutation
-    in_g2g_element: bool, // true when we are inside a buffered g2g element (leser/author)
+    // Buffering for g2g element (leser/author) mutation
+    in_g2g_element: bool,
     g2g_buf: Vec<Event<'static>>,
-    g2g_element_name: Vec<u8>, // name of the element being buffered
+    g2g_element_name: Vec<u8>,
 
     // zusatzinformationen tracking
     zi_depth: usize,
     seen_zi: bool,
 
-    // zustaendigeBehoerde buffering (inside zusatzinfo)
+    // zustaendigeBehoerde buffering
     in_zb: bool,
     zb_buf: Vec<Event<'static>>,
 }
@@ -194,9 +197,10 @@ fn handle_start(
     state: &mut TransformState,
     has_leser: bool,
     has_autor: bool,
-    has_zusatzinformation_updates: bool,
+    has_zusatzinfo_updates: bool,
     options: &TransformOptions,
     writer: &mut Writer<Vec<u8>>,
+    ns: ResolveResult,
     lok: &[u8],
     e: &BytesStart<'_>,
 ) {
@@ -210,31 +214,32 @@ fn handle_start(
         return;
     }
 
-    // Track root element depth
+    // Track root element (unqualified)
     if lok == b"vorgang.transportieren.2010" && state.root_depth == 0 {
         state.root_depth = state.depth;
     }
 
-    // Track parent depth
-    if lok == b"nachrichtenkopf.g2g" {
+    // Track parent depth — nachrichtenkopf.g2g is unqualified
+    if lok == b"nachrichtenkopf.g2g" && !ns_is_foreign(&ns) {
         state.nk_depth = state.depth;
         state.seen_leser = false;
         state.seen_autor = false;
         state.should_insert_leser = false;
         state.should_insert_autor = false;
     }
-    if lok == b"zusatzinformationen" {
+
+    // Track zusatzinformationen by namespace + local name
+    if lok == b"zusatzinformationen" && ns_is_xwas(&ns) {
         state.zi_depth = state.depth;
         state.seen_zi = true;
     }
 
-    // Insert missing leser before autor or any other child after identifikation.nachricht
+    // Insert missing leser before autor (second-child position)
     if state.should_insert_leser && lok != b"nachrichtenkopf.g2g" {
         if let Some(r) = &options.leser {
             insert_g2g_element(writer, "leser", r, 2);
         }
         state.should_insert_leser = false;
-        // After inserting leser, schedule autor after it
         if has_autor && !state.seen_autor {
             state.should_insert_autor = true;
         }
@@ -247,7 +252,7 @@ fn handle_start(
         state.should_insert_autor = false;
     }
 
-    // --- leser element ---
+    // --- leser element (unqualified) ---
     if state.nk_depth > 0 && lok == b"leser" {
         state.seen_leser = true;
         if has_leser {
@@ -256,7 +261,7 @@ fn handle_start(
         }
     }
 
-    // --- autor element ---
+    // --- autor element (unqualified) ---
     if state.nk_depth > 0 && lok == b"autor" {
         state.seen_autor = true;
         if has_autor {
@@ -265,8 +270,10 @@ fn handle_start(
         }
     }
 
-    // --- zustaendigeBehoerde element ---
-    if state.zi_depth > 0 && lok == b"zustaendigeBehoerde" && has_zusatzinformation_updates {
+    // --- zustaendigeBehoerde (xwas namespace) ---
+    if state.zi_depth > 0 && lok == b"zustaendigeBehoerde" && ns_is_xwas(&ns)
+        && has_zusatzinfo_updates
+    {
         state.in_zb = true;
         state.zb_buf.clear();
         state.zb_buf.push(Event::Start(e.clone().into_owned()));
@@ -281,9 +288,10 @@ fn handle_end(
     state: &mut TransformState,
     has_leser: bool,
     has_autor: bool,
-    has_zusatzinformation_updates: bool,
+    has_zusatzinfo_updates: bool,
     options: &TransformOptions,
     writer: &mut Writer<Vec<u8>>,
+    _ns: ResolveResult,
     lok: &[u8],
     e: &BytesEnd<'_>,
 ) {
@@ -316,18 +324,16 @@ fn handle_end(
         }
     }
 
-    // Schedule leser/autor insertion after identifikation.nachricht
+    // Schedule leser/autor insertion after identifikation.nachricht (unqualified)
     if state.nk_depth > 0 && lok == b"identifikation.nachricht" {
         if has_leser && !state.seen_leser {
             state.should_insert_leser = true;
         }
         if has_autor && !state.seen_autor && !state.should_insert_leser {
-            // Only schedule autor here if leser already exists (we see it later)
-            // If leser is also missing, both get inserted at g2g close
+            // autor scheduled only if leser already exists (handled via leser end)
         }
     }
-
-    // Schedule autor insertion after leser end (works whether leser existed or was inserted)
+    // Schedule autor insertion after leser end
     if state.nk_depth > 0 && lok == b"leser"
         && has_autor && !state.seen_autor {
             state.should_insert_autor = true;
@@ -343,14 +349,13 @@ fn handle_end(
         return;
     }
 
-    // --- closing nachrichtenkopf.g2g (insert missing elements in order) ---
+    // --- closing nachrichtenkopf.g2g (insert missing elements) ---
     if state.nk_depth > 0 && lok == b"nachrichtenkopf.g2g" {
         if state.should_insert_leser {
             if let Some(r) = &options.leser {
                 insert_g2g_element(writer, "leser", r, 2);
             }
             state.should_insert_leser = false;
-            // After inserting leser, schedule autor after it
             if has_autor && !state.seen_autor {
                 state.should_insert_autor = true;
             }
@@ -365,7 +370,7 @@ fn handle_end(
     }
 
     // --- closing zusatzinformationen ---
-    if lok == b"zusatzinformationen" {
+    if lok == b"zusatzinformationen" && !ns_is_foreign(&ResolveResult::Bound(XWAS_NS)) {
         state.zi_depth = 0;
     }
 
@@ -373,7 +378,7 @@ fn handle_end(
     if state.root_depth > 0 && lok == b"vorgang.transportieren.2010"
         && state.depth == state.root_depth
     {
-        if !state.seen_zi && has_zusatzinformation_updates {
+        if !state.seen_zi && has_zusatzinfo_updates {
             insert_zusatzinformationen_element(writer, options.zusatzinformationen);
         }
         state.root_depth = 0;
@@ -386,7 +391,7 @@ fn handle_empty(
     state: &mut TransformState,
     has_leser: bool,
     has_autor: bool,
-    has_zusatzinformation_updates: bool,
+    has_zusatzinfo_updates: bool,
     writer: &mut Writer<Vec<u8>>,
     lok: &[u8],
     e: &BytesStart<'_>,
@@ -399,7 +404,7 @@ fn handle_empty(
         state.zb_buf.push(Event::Empty(e.clone().into_owned()));
         return;
     }
-    let _ = (has_leser, has_autor, has_zusatzinformation_updates, lok);
+    let _ = (has_leser, has_autor, has_zusatzinfo_updates, lok);
     write_event(writer, Event::Empty(e.clone().into_owned()));
 }
 
@@ -525,11 +530,9 @@ fn emit_mutated_zustaendige_behoerde<W: std::io::Write>(
     if let Some(ref cur) = current_kennung
         && let Some(matching) = zusatzinformationen.iter().find(|a| a.kennung.as_deref() == Some(cur))
     {
-        // Write start tag from first buffered event (preserving prefix/attrs)
         if let Some(Event::Start(first)) = buffered.first() {
             write_event(writer, Event::Start(first.clone()));
         }
-        // Write updated content: kennung and name only (xwas: prefix)
         write_text_bytes(writer, b"\n");
         write_text_bytes(writer, b"        ");
         write_event(writer, Event::Start(BytesStart::new("xwas:kennung")));
@@ -546,7 +549,6 @@ fn emit_mutated_zustaendige_behoerde<W: std::io::Write>(
         return;
     }
 
-    // No match – passthrough original
     for ev in buffered {
         write_event(writer, ev.clone());
     }
@@ -569,7 +571,6 @@ fn extract_kennung_from_zb_buf(buffered: &[Event<'static>]) -> Option<String> {
 
 // ---------------------------------------------------------------------------
 // Insert a new g2g element (leser/autor) as Nth child
-// level = 2 means double-indented (4 spaces), used for children of nachrichtenkopf.g2g
 // ---------------------------------------------------------------------------
 
 fn insert_g2g_element<W: std::io::Write>(
@@ -827,7 +828,7 @@ mod tests {
     }
 
     fn sample_xml_custom_prefix() -> String {
-        // Use a different prefix "xw" for the XWasser namespace
+        // Uses a different prefix "xw" bound to the same XWasser namespace
         r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xw:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xw="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
   <nachrichtenkopf.g2g>
@@ -870,7 +871,7 @@ mod tests {
     fn test_noop_is_byte_identical() {
         let xml = sample_xml();
         let result = transform_xml(&xml, &TransformOptions::default());
-        assert_eq!(result, xml, "no-op transform must produce byte-identical output");
+        assert_eq!(result, xml);
     }
 
     #[test]
@@ -905,10 +906,10 @@ mod tests {
                 ..Default::default()
             },
         );
-        assert!(result.contains("<kennung>psw:11113110</kennung>"), "leser unchanged");
-        assert!(result.contains("<name>Reader</name>"), "leser unchanged");
-        assert!(result.contains("<kennung>psw:autor123</kennung>"), "autor kennung updated");
-        assert!(result.contains("<name>Updated Autor</name>"), "autor name updated");
+        assert!(result.contains("<kennung>psw:11113110</kennung>"));
+        assert!(result.contains("<name>Reader</name>"));
+        assert!(result.contains("<kennung>psw:autor123</kennung>"));
+        assert!(result.contains("<name>Updated Autor</name>"));
     }
 
     #[test]
@@ -935,7 +936,7 @@ mod tests {
     }
 
     #[test]
-    fn test_authorities_mutation() {
+    fn test_zusatzinformationen_mutation() {
         let xml = sample_xml_with_zi();
         let result = transform_xml(
             &xml,
@@ -966,7 +967,6 @@ mod tests {
         );
         assert!(result.contains("<kennung>psw:inserted</kennung>"));
         assert!(result.contains("<name>Inserted Reader</name>"));
-        // leser should be before dvdvDienstkennung
         let leser_pos = result.find("psw:inserted").unwrap();
         let dvdv_pos = result.find("dvdvDienstkennung").unwrap();
         assert!(leser_pos < dvdv_pos, "leser must appear before dvdvDienstkennung");
@@ -1017,8 +1017,8 @@ mod tests {
 
     #[test]
     fn test_custom_namespace_prefix() {
-        // XML uses "xw:" instead of "xwas:" — transform should still work
-        // by matching local names
+        // Uses "xw:" prefix — the namespace-aware NsReader resolves URI so
+        // matching works regardless of prefix
         let xml = sample_xml_custom_prefix();
         let result = transform_xml(
             &xml,
@@ -1034,13 +1034,10 @@ mod tests {
                 ..Default::default()
             },
         );
-        // The output elements in zusatzinfo use "xwas:" hardcoded prefix for
-        // replaced authorities (since we reconstruct kennung/name with xwas:)
-        // But the reader element (unprefixed) works fine
+        // leser (unqualified) works fine
         assert!(result.contains("<kennung>psw:custom</kennung>"));
         assert!(result.contains("<name>Custom</name>"));
-        // Authority: emitted with xwas: prefix (hardcoded); original prefix is lost
-        // but local name matching works for identification
+        // Authority replacement works because namespace resolves to XWAS_NS
         assert!(result.contains("xwas:kennung>auth-001"));
         assert!(result.contains("xwas:name>Updated via custom prefix"));
     }
