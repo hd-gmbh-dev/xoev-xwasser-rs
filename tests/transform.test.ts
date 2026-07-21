@@ -134,10 +134,7 @@ function sampleXmlWithZi(): string {
     </xwas:identifikationVorgang>
   </xwas:vorgang>
   <xwas:zusatzinformationen>
-    <xwas:zustaendigeBehoerde>
-      <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
-      <xwas:name>Existing Authority</xwas:name>
-    </xwas:zustaendigeBehoerde>
+    <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>`;
 }
@@ -184,7 +181,7 @@ describe("transformXml via wasm", () => {
 
   it("transforms authorities elements in-place", () => {
     const result = transformXml(sampleXmlWithZi(), {
-      zusatzinformationen: [{ kennung: "auth-001", name: "Existing Authority" }],
+      zusatzinformationen: ["auth-001"],
     });
     expect(result).toContain("zustaendigeBehoerdeID>auth-001");
   });
@@ -227,11 +224,8 @@ describe("transformXml via wasm", () => {
   </nachrichtenkopf.g2g>
   <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>t</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
   <xwas:zusatzinformationen>
-    <xwas:zustaendigeBehoerde>
-      <xwas:kennung>auth-1</xwas:kennung>
-      <xwas:kommentar>should disappear</xwas:kommentar>
-      <xwas:zustaendigeBehoerdeID>Old</xwas:zustaendigeBehoerdeID>
-    </xwas:zustaendigeBehoerde>
+    <xwas:zustaendigeBehoerdeID>Old</xwas:zustaendigeBehoerdeID>
+    <xwas:kommentar>should disappear</xwas:kommentar>
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>`;
     const result = transformXml(xml, {
@@ -285,10 +279,8 @@ describe("transformXml via wasm", () => {
   <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
   <xwas:zusatzinformationen>
     <!-- zusatzinfo comment -->
-    <xwas:zustaendigeBehoerde>
-      <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
-      <xwas:zustaendigeBehoerdeID>Old</xwas:zustaendigeBehoerdeID>
-    </xwas:zustaendigeBehoerde>
+    <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
+    <xwas:zustaendigeBehoerdeID>Old</xwas:zustaendigeBehoerdeID>
     <!-- after authority -->
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>`;
@@ -340,6 +332,6 @@ describe("transformXml via wasm", () => {
       leser: { kennung: "psw:new", name: "New" },
     });
     expect(result).toContain("<kennung>psw:new</kennung>");
-    expect(result).toContain("Existing Authority");
+    expect(result).toContain("auth-001");
   });
 });

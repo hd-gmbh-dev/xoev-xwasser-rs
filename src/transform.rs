@@ -40,21 +40,15 @@ pub struct TransformOptions<'a> {
     /// Replacement content for `<zusatzinformationen>`.
     /// - `None`: no change / do not insert if missing.
     /// - `Some(&[])`: replace existing with empty block.
-    /// - `Some(&[...])`: replace full content with given entries.
-    pub zusatzinformationen: Option<&'a [ZustaendigeBehoerdeUpdate]>,
+    /// - `Some(&["id1", "id2"])`: replace full content with given
+    ///   `<zustaendigeBehoerdeID>` entries.
+    pub zusatzinformationen: Option<&'a [String]>,
 }
 
 /// Update parameters for an element inside `nachrichtenkopf.g2g`
 /// that has `<kennung>` and `<name>` children (e.g. `<leser>`, `<autor>`).
 #[derive(Debug, Clone, Default)]
 pub struct ElementUpdate {
-    pub kennung: Option<String>,
-    pub name: Option<String>,
-}
-
-/// A single `<zustaendigeBehoerde>` entry.
-#[derive(Debug, Clone, Default)]
-pub struct ZustaendigeBehoerdeUpdate {
     pub kennung: Option<String>,
     pub name: Option<String>,
 }
@@ -75,20 +69,12 @@ pub fn transform_xml_with_ids(
     autor: Option<&ElementUpdate>,
     zusatzinfo_ids: Option<&[String]>,
 ) -> String {
-    let zusatz = zusatzinfo_ids.map(|ids| {
-        ids.iter()
-            .map(|id| ZustaendigeBehoerdeUpdate {
-                kennung: Some(id.clone()),
-                name: None,
-            })
-            .collect::<Vec<_>>()
-    });
     transform_xml_impl(
         xml,
         &TransformOptions {
             leser: leser.cloned(),
             autor: autor.cloned(),
-            zusatzinformationen: zusatz.as_deref(),
+            zusatzinformationen: zusatzinfo_ids,
         },
     )
 }
@@ -257,13 +243,8 @@ impl TransformState {
     }
 
     fn zi_child_indent(&self) -> Vec<u8> {
-        // One level deeper than root child indent (for zustaendigeBehoerde)
+        // One level deeper than root child indent (for zustaendigeBehoerdeID)
         [self.root_child_indent(), b"  "].concat()
-    }
-
-    fn zi_sub_indent(&self) -> Vec<u8> {
-        // Two levels deeper (for kennung/name)
-        [self.root_child_indent(), b"    "].concat()
     }
 }
 
@@ -562,46 +543,29 @@ fn qn_str(prefix: &[u8], local: &str) -> String {
 }
 
 /// Emit the entire `<zusatzinformationen>` content (start tag, entries, end tag)
-/// using the provided authority updates.
+/// using the provided authority IDs.
 fn write_zusatzinfo_content<W: std::io::Write>(
     writer: &mut Writer<W>,
-    updates: Option<&[ZustaendigeBehoerdeUpdate]>,
+    updates: Option<&[String]>,
     indent: Vec<u8>,
     prefix: &[u8],
 ) {
     let inner = [&indent[..], b"  "].concat();
-    let inner2 = [&indent[..], b"    "].concat();
-
-    // Write start tag from buffered first event (preserves prefix/attrs)
-    // Use hardcoded xwas prefix for new content; original start tag already written before.
 
     let zi = qn_str(prefix, "zusatzinformationen");
-    let zb = qn_str(prefix, "zustaendigeBehoerde");
-    let kn = qn_str(prefix, "kennung");
-    let nm = qn_str(prefix, "name");
+    let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
 
     write_text_bytes(writer, b"\n");
     write_text_bytes(writer, &indent);
     write_event(writer, Event::Start(BytesStart::new(&zi)));
 
     if let Some(entries) = updates {
-        for auth in entries {
+        for id in entries {
             write_text_bytes(writer, b"\n");
             write_text_bytes(writer, &inner);
-            write_event(writer, Event::Start(BytesStart::new(&zb)));
-            write_text_bytes(writer, b"\n");
-            write_text_bytes(writer, &inner2);
-            write_event(writer, Event::Start(BytesStart::new(&kn)));
-            write_text_bytes(writer, auth.kennung.as_deref().unwrap_or("").as_bytes());
-            write_event(writer, Event::End(BytesEnd::new(&kn)));
-            write_text_bytes(writer, b"\n");
-            write_text_bytes(writer, &inner2);
-            write_event(writer, Event::Start(BytesStart::new(&nm)));
-            write_text_bytes(writer, auth.name.as_deref().unwrap_or("").as_bytes());
-            write_event(writer, Event::End(BytesEnd::new(&nm)));
-            write_text_bytes(writer, b"\n");
-            write_text_bytes(writer, &inner);
-            write_event(writer, Event::End(BytesEnd::new(&zb)));
+            write_event(writer, Event::Start(BytesStart::new(&zbid)));
+            write_text_bytes(writer, id.as_bytes());
+            write_event(writer, Event::End(BytesEnd::new(&zbid)));
         }
     }
 
@@ -735,13 +699,13 @@ fn insert_g2g_element<W: std::io::Write>(
 
 fn insert_zusatzinformationen_element<W: std::io::Write>(
     writer: &mut Writer<W>,
-    zusatzinformationen: &[ZustaendigeBehoerdeUpdate],
+    zusatzinformationen: &[String],
     prefix: &[u8],
     indent: &[u8],
 ) {
-    let non_empty: Vec<&ZustaendigeBehoerdeUpdate> = zusatzinformationen
+    let non_empty: Vec<&String> = zusatzinformationen
         .iter()
-        .filter(|a| a.kennung.is_some() || a.name.is_some())
+        .filter(|id| !id.is_empty())
         .collect();
 
     if non_empty.is_empty() {
@@ -749,34 +713,20 @@ fn insert_zusatzinformationen_element<W: std::io::Write>(
     }
 
     let sub = [indent, b"  "].concat();
-    let subsub = [indent, b"    "].concat();
 
     let zi = qn_str(prefix, "zusatzinformationen");
-    let zb = qn_str(prefix, "zustaendigeBehoerde");
-    let kn = qn_str(prefix, "kennung");
-    let nm = qn_str(prefix, "name");
+    let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
 
     write_text_bytes(writer, b"\n");
     write_text_bytes(writer, indent);
     write_event(writer, Event::Start(BytesStart::new(&zi)));
 
-    for auth in &non_empty {
+    for id in &non_empty {
         write_text_bytes(writer, b"\n");
         write_text_bytes(writer, &sub);
-        write_event(writer, Event::Start(BytesStart::new(&zb)));
-        write_text_bytes(writer, b"\n");
-        write_text_bytes(writer, &subsub);
-        write_event(writer, Event::Start(BytesStart::new(&kn)));
-        write_text_bytes(writer, auth.kennung.as_deref().unwrap_or("").as_bytes());
-        write_event(writer, Event::End(BytesEnd::new(&kn)));
-        write_text_bytes(writer, b"\n");
-        write_text_bytes(writer, &subsub);
-        write_event(writer, Event::Start(BytesStart::new(&nm)));
-        write_text_bytes(writer, auth.name.as_deref().unwrap_or("").as_bytes());
-        write_event(writer, Event::End(BytesEnd::new(&nm)));
-        write_text_bytes(writer, b"\n");
-        write_text_bytes(writer, &sub);
-        write_event(writer, Event::End(BytesEnd::new(&zb)));
+        write_event(writer, Event::Start(BytesStart::new(&zbid)));
+        write_text_bytes(writer, id.as_bytes());
+        write_event(writer, Event::End(BytesEnd::new(&zbid)));
     }
 
     write_text_bytes(writer, b"\n");
@@ -853,10 +803,7 @@ mod tests {
         transform_xml(
             &base,
             &TransformOptions {
-                zusatzinformationen: Some(&[ZustaendigeBehoerdeUpdate {
-                    kennung: Some("auth-001".into()),
-                    name: Some("Existing Authority".into()),
-                }]),
+                zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
             },
         )
@@ -1023,10 +970,7 @@ mod tests {
         let with_zi = transform_xml(
             &base,
             &TransformOptions {
-                zusatzinformationen: Some(&[ZustaendigeBehoerdeUpdate {
-                    kennung: Some("auth-001".into()),
-                    name: Some("Original".into()),
-                }]),
+                zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
             },
         );
@@ -1035,10 +979,7 @@ mod tests {
         let result = transform_xml(
             &with_zi,
             &TransformOptions {
-                zusatzinformationen: Some(&[ZustaendigeBehoerdeUpdate {
-                    kennung: Some("auth-001".into()),
-                    name: Some("Replaced".into()),
-                }]),
+                zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
             },
         );
@@ -1055,10 +996,7 @@ mod tests {
         let with_zi = transform_xml(
             &base,
             &TransformOptions {
-                zusatzinformationen: Some(&[ZustaendigeBehoerdeUpdate {
-                    kennung: Some("original".into()),
-                    name: Some("Original".into()),
-                }]),
+                zusatzinformationen: Some(&["original".into()]),
                 ..Default::default()
             },
         );
@@ -1066,16 +1004,7 @@ mod tests {
         let result = transform_xml(
             &with_zi,
             &TransformOptions {
-                zusatzinformationen: Some(&[
-                    ZustaendigeBehoerdeUpdate {
-                        kennung: Some("new-1".into()),
-                        name: Some("First".into()),
-                    },
-                    ZustaendigeBehoerdeUpdate {
-                        kennung: Some("new-2".into()),
-                        name: Some("Second".into()),
-                    },
-                ]),
+                zusatzinformationen: Some(&["new-1".into(), "new-2".into()]),
                 ..Default::default()
             },
         );
@@ -1089,10 +1018,7 @@ mod tests {
         let with_zi = transform_xml(
             &base,
             &TransformOptions {
-                zusatzinformationen: Some(&[ZustaendigeBehoerdeUpdate {
-                    kennung: Some("auth".into()),
-                    name: Some("Auth".into()),
-                }]),
+                zusatzinformationen: Some(&["auth".into()]),
                 ..Default::default()
             },
         );
@@ -1169,10 +1095,7 @@ mod tests {
         let result = transform_xml(
             &xml,
             &TransformOptions {
-                zusatzinformationen: Some(&[ZustaendigeBehoerdeUpdate {
-                    kennung: Some("new-auth".into()),
-                    name: Some("New Authority".into()),
-                }]),
+                zusatzinformationen: Some(&["new-auth".into()]),
                 ..Default::default()
             },
         );
@@ -1197,10 +1120,7 @@ mod tests {
                     kennung: Some("psw:custom".into()),
                     name: Some("Custom".into()),
                 }),
-                zusatzinformationen: Some(&[ZustaendigeBehoerdeUpdate {
-                    kennung: Some("auth-001".into()),
-                    name: Some("Updated".into()),
-                }]),
+                zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
             },
         );
@@ -1219,8 +1139,8 @@ mod tests {
             "should use xw: prefix for zusatzinfo"
         );
         assert!(
-            result.contains("xw:zustaendigeBehoerde"),
-            "should use xw: prefix for zustaendigeBehoerde"
+            result.contains("xw:zustaendigeBehoerdeID"),
+            "should use xw: prefix for zustaendigeBehoerdeID"
         );
         assert!(
             !result.contains("xwas:zusatzinformationen"),
@@ -1228,10 +1148,9 @@ mod tests {
         );
         // Verify authority content values via XML text
         assert!(
-            result.contains("xw:kennung>auth-001"),
-            "authority kennung value"
+            result.contains("xw:zustaendigeBehoerdeID>auth-001"),
+            "authority ID value"
         );
-        assert!(result.contains("xw:name>Updated"), "authority name value");
     }
 
     #[test]

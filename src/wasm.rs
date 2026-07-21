@@ -46,8 +46,8 @@ export interface TransformOptions {
 export function transformXml(xml: string, options?: TransformOptions): string;
 "#;
 
-/// Custom deserializer for `zusatzinformationen`: accepts an array of strings
-/// OR an array of objects `{ kennung: string }`.
+/// Custom deserializer for `zusatzinformationen`: accepts an array of
+/// `<zustaendigeBehoerdeID>` strings.
 
 
 /// Helper struct to deserialize the options parameter.
@@ -66,7 +66,7 @@ struct ElementParam {
 }
 
 /// Transforms an XML string by mutating `<leser>`, `<autor>`, and/or
-/// `<zustaendigeBehoerde>` elements in-place, preserving all comments,
+/// `<zusatzinformationen>` elements in-place, preserving all comments,
 /// whitespace, and attribute order.
 ///
 /// Accepts a plain JS options object:
