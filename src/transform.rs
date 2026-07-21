@@ -200,6 +200,9 @@ struct TransformState {
     nk_child_indent: Vec<u8>,
     root_child_indent: Vec<u8>,
 
+    // XWasser prefix from root element (e.g. "xwas" or "xw")
+    root_ns_prefix: Vec<u8>,
+
     // zusatzinformationen tracking
     zi_depth: usize,
     seen_zi: bool,
@@ -263,6 +266,7 @@ fn handle_start(
     if lok == b"vorgang.transportieren.2010" && state.root_depth == 0 {
         state.root_depth = state.depth;
         state.root_child_indent.clear();
+        state.root_ns_prefix = prefix_of_qualified(e.name().as_ref());
     }
 
     if lok == b"nachrichtenkopf.g2g" && !ns_is_foreign(&ns) {
@@ -353,7 +357,12 @@ fn handle_end(
     if state.in_zi && lok == b"zusatzinformationen" {
         state.in_zi = false;
         if !state.zi_buf.is_empty() {
-            write_zusatzinfo_content(writer, options.zusatzinformationen, state.zi_child_indent());
+            write_zusatzinfo_content(
+                writer,
+                options.zusatzinformationen,
+                state.zi_child_indent(),
+                &state.root_ns_prefix,
+            );
             state.zi_buf.clear();
             return;
         }
@@ -407,7 +416,11 @@ fn handle_end(
             insert_zusatzinformationen_element(
                 writer,
                 options.zusatzinformationen.unwrap_or(&[]),
-                b"xwas",
+                if state.root_ns_prefix.is_empty() {
+                    b"xwas"
+                } else {
+                    &state.root_ns_prefix
+                },
                 state.root_child_indent(),
             );
         }
@@ -496,6 +509,15 @@ fn write_text_bytes<W: std::io::Write>(writer: &mut Writer<W>, bytes: &[u8]) {
         .ok();
 }
 
+/// Extract the prefix part of a qualified name (e.g. `"xwas:kennung"` -> `b"xwas"`).
+fn prefix_of_qualified(name: &[u8]) -> Vec<u8> {
+    if let Some(pos) = name.iter().position(|b| *b == b':') {
+        name[..pos].to_vec()
+    } else {
+        Vec::new()
+    }
+}
+
 /// Write `qname(prefix, local)` as a string-slice, trimming empty prefix case.
 fn qn_str(prefix: &[u8], local: &str) -> String {
     if prefix.is_empty() {
@@ -516,6 +538,7 @@ fn write_zusatzinfo_content<W: std::io::Write>(
     writer: &mut Writer<W>,
     updates: Option<&[ZustaendigeBehoerdeUpdate]>,
     indent: Vec<u8>,
+    prefix: &[u8],
 ) {
     let inner = [&indent[..], b"  "].concat();
     let inner2 = [&indent[..], b"    "].concat();
@@ -523,46 +546,39 @@ fn write_zusatzinfo_content<W: std::io::Write>(
     // Write start tag from buffered first event (preserves prefix/attrs)
     // Use hardcoded xwas prefix for new content; original start tag already written before.
 
+    let zi = qn_str(prefix, "zusatzinformationen");
+    let zb = qn_str(prefix, "zustaendigeBehoerde");
+    let kn = qn_str(prefix, "kennung");
+    let nm = qn_str(prefix, "name");
+
     write_text_bytes(writer, b"\n");
     write_text_bytes(writer, &indent);
-    write_event(
-        writer,
-        Event::Start(BytesStart::new("xwas:zusatzinformationen")),
-    );
+    write_event(writer, Event::Start(BytesStart::new(&zi)));
 
     if let Some(entries) = updates {
         for auth in entries {
             write_text_bytes(writer, b"\n");
             write_text_bytes(writer, &inner);
-            write_event(
-                writer,
-                Event::Start(BytesStart::new("xwas:zustaendigeBehoerde")),
-            );
+            write_event(writer, Event::Start(BytesStart::new(&zb)));
             write_text_bytes(writer, b"\n");
             write_text_bytes(writer, &inner2);
-            write_event(writer, Event::Start(BytesStart::new("xwas:kennung")));
+            write_event(writer, Event::Start(BytesStart::new(&kn)));
             write_text_bytes(writer, auth.kennung.as_deref().unwrap_or("").as_bytes());
-            write_event(writer, Event::End(BytesEnd::new("xwas:kennung")));
+            write_event(writer, Event::End(BytesEnd::new(&kn)));
             write_text_bytes(writer, b"\n");
             write_text_bytes(writer, &inner2);
-            write_event(writer, Event::Start(BytesStart::new("xwas:name")));
+            write_event(writer, Event::Start(BytesStart::new(&nm)));
             write_text_bytes(writer, auth.name.as_deref().unwrap_or("").as_bytes());
-            write_event(writer, Event::End(BytesEnd::new("xwas:name")));
+            write_event(writer, Event::End(BytesEnd::new(&nm)));
             write_text_bytes(writer, b"\n");
             write_text_bytes(writer, &inner);
-            write_event(
-                writer,
-                Event::End(BytesEnd::new("xwas:zustaendigeBehoerde")),
-            );
+            write_event(writer, Event::End(BytesEnd::new(&zb)));
         }
     }
 
     write_text_bytes(writer, b"\n");
     write_text_bytes(writer, &indent);
-    write_event(
-        writer,
-        Event::End(BytesEnd::new("xwas:zusatzinformationen")),
-    );
+    write_event(writer, Event::End(BytesEnd::new(&zi)));
 }
 
 // ---------------------------------------------------------------------------
@@ -1139,23 +1155,14 @@ mod tests {
     }
 
     #[test]
-    fn test_custom_namespace_prefix() {
-        let base = load_quality_report();
-        let with_zi = transform_xml(
-            &base,
-            &TransformOptions {
-                zusatzinformationen: Some(&[ZustaendigeBehoerdeUpdate {
-                    kennung: Some("auth-001".into()),
-                    name: Some("Original".into()),
-                }]),
-                ..Default::default()
-            },
-        );
-        let custom_xml = with_zi
-            .replace("xmlns:xwas=", "xmlns:xw=")
-            .replace("xwas:", "xw:");
+    fn test_custom_prefix_raxb_roundtrip() {
+        // sample_xml_custom_prefix uses "xw:" prefix; verify transform preserves
+        // raxb parseability and field values
+        let xml = sample_xml_custom_prefix();
+        assert!(xml.contains("xw:"), "fixture must use custom xw: prefix");
+
         let result = transform_xml(
-            &custom_xml,
+            &xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
                     kennung: Some("psw:custom".into()),
@@ -1168,12 +1175,15 @@ mod tests {
                 ..Default::default()
             },
         );
-        let normalized = result
-            .replace("xmlns:xw=", "xmlns:xwas=")
-            .replace("xw:", "xwas:")
-            .replace("xmlns:xwas:Signature", "xmlns:ds:Signature")
-            .replace("xwas:Signature", "ds:Signature");
-        assert_raxb_roundtrip(&normalized);
+
+        // raxb must parse output directly (no prefix normalization)
+        let parsed = assert_raxb_roundtrip(&result);
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:custom");
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "Custom");
+        assert!(
+            parsed.zusatzinformationen.is_some(),
+            "zusatzinfo must be present"
+        );
     }
 
     #[test]
