@@ -1,7 +1,7 @@
 use serde::Deserialize;
 use wasm_bindgen::prelude::*;
 
-use crate::transform::{self, AuthorityUpdate, ReaderUpdate};
+use crate::transform;
 use crate::model::{
     administration::AdministrationQuittung0020, transport::VorgangTransportieren2010,
 };
@@ -34,64 +34,76 @@ pub fn version() -> String {
 pub fn detect_version(xml: String) -> Result<String, JsValue> {
     Ok(crate::detect_version(&xml).to_string())
 }
-/// Helper struct to deserialize a plain JS object `{kennung?: string, name?: string}`
-/// for the reader parameter.
+/// Helper struct to deserialize the options parameter.
 #[derive(Deserialize, Default)]
-struct ReaderParam {
+struct TransformOptionsParam {
+    leser: Option<ElementParam>,
+    autor: Option<ElementParam>,
+    #[serde(default)]
+    authorities: Vec<AuthorityParam>,
+}
+
+#[derive(Deserialize, Default)]
+struct ElementParam {
     kennung: Option<String>,
     name: Option<String>,
 }
 
-/// Helper struct to deserialize a plain JS object `{kennung?: string, name?: string}`
-/// for each authority entry.
 #[derive(Deserialize)]
 struct AuthorityParam {
     kennung: Option<String>,
     name: Option<String>,
 }
 
-/// Transforms an XML string by mutating `<leser>` and/or `<zustaendigeBehoerde>`
-/// elements in-place, preserving all comments, whitespace, and attribute order.
+/// Transforms an XML string by mutating `<leser>`, `<autor>`, and/or
+/// `<zustaendigeBehoerde>` elements in-place, preserving all comments,
+/// whitespace, and attribute order.
 ///
-/// Accepts plain JS objects:
-/// - `reader?: {kennung?: string, name?: string}`
-/// - `authorities?: Array<{kennung?: string, name?: string}>`
+/// Accepts a plain JS options object:
+/// ```ts
+/// transformXml(xml, {
+///   leser?: { kennung?: string, name?: string },
+///   autor?: { kennung?: string, name?: string },
+///   authorities?: Array<{ kennung?: string, name?: string }>,
+/// })
+/// ```
 #[wasm_bindgen(js_name = transformXml)]
-pub fn transform_xml(
-    xml: String,
-    reader: Option<JsValue>,
-    authorities: Option<Vec<JsValue>>,
-) -> String {
-    let r = reader.and_then(|v| {
-        if v.is_null() || v.is_undefined() {
-            None
-        } else {
-            serde_wasm_bindgen::from_value::<ReaderParam>(v).ok()
-        }
-    });
-    let r_update = r.map(|p| ReaderUpdate {
-        kennung: p.kennung,
-        name: p.name,
-    });
-
-    let auths: Vec<AuthorityUpdate> = authorities
-        .unwrap_or_default()
-        .into_iter()
-        .filter_map(|v| {
+pub fn transform_xml(xml: String, options: Option<JsValue>) -> String {
+    let opts: TransformOptionsParam = options
+        .and_then(|v| {
             if v.is_null() || v.is_undefined() {
                 None
             } else {
-                serde_wasm_bindgen::from_value::<AuthorityParam>(v)
-                    .ok()
-                    .map(|a| AuthorityUpdate {
-                        kennung: a.kennung,
-                        name: a.name,
-                    })
+                serde_wasm_bindgen::from_value(v).ok()
             }
+        })
+        .unwrap_or_default();
+
+    let leser = opts.leser.map(|p| transform::ElementUpdate {
+        kennung: p.kennung,
+        name: p.name,
+    });
+    let autor = opts.autor.map(|p| transform::ElementUpdate {
+        kennung: p.kennung,
+        name: p.name,
+    });
+    let authorities: Vec<transform::AuthorityUpdate> = opts
+        .authorities
+        .into_iter()
+        .map(|a| transform::AuthorityUpdate {
+            kennung: a.kennung,
+            name: a.name,
         })
         .collect();
 
-    transform::transform_xml(&xml, r_update.as_ref(), &auths)
+    transform::transform_xml(
+        &xml,
+        &transform::TransformOptions {
+            leser,
+            autor,
+            authorities: &authorities,
+        },
+    )
 }
 
 #[wasm_bindgen]
