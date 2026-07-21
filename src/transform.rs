@@ -573,15 +573,15 @@ fn emit_mutated_g2g_element<W: std::io::Write>(
                 if en == b"kennung" {
                     inside_kennung = true;
                     write_event(writer, Event::Start(e.clone()));
-                    if has_kennung_update {
-                        write_text_bytes(writer, update.kennung.as_deref().unwrap().as_bytes());
+                    if let Some(ref k) = update.kennung {
+                        write_text_bytes(writer, k.as_bytes());
                         continue;
                     }
                 } else if en == b"name" {
                     inside_name = true;
                     write_event(writer, Event::Start(e.clone()));
-                    if has_name_update {
-                        write_text_bytes(writer, update.name.as_deref().unwrap().as_bytes());
+                    if let Some(ref n) = update.name {
+                        write_text_bytes(writer, n.as_bytes());
                         continue;
                     }
                 } else {
@@ -1001,17 +1001,22 @@ mod tests {
     }
 
     fn load_quality_report() -> String {
-        let path = std::env::current_dir()
-            .unwrap()
-            .join("tests/quality_report_minimal.xml");
-        std::fs::read_to_string(path).unwrap()
+        let dir = match std::env::current_dir() {
+            Ok(d) => d,
+            Err(e) => panic!("cannot get current dir: {e}"),
+        };
+        let path = dir.join("tests/quality_report_minimal.xml");
+        match std::fs::read_to_string(&path) {
+            Ok(s) => s,
+            Err(e) => panic!("cannot read {:?}: {e}", path),
+        }
     }
 
     fn assert_raxb_roundtrip(xml: &str) -> crate::model::transport::VorgangTransportieren2010 {
-        let parsed: Result<crate::model::transport::VorgangTransportieren2010, _> =
-            raxb::de::from_str(xml);
-        assert!(parsed.is_ok(), "raxb round-trip failed: {:?}", parsed.err());
-        parsed.unwrap()
+        match raxb::de::from_str(xml) {
+            Ok(p) => p,
+            Err(e) => panic!("raxb round-trip failed: {e:?}"),
+        }
     }
 
     fn sample_xml_two_space_indent() -> String {
@@ -1257,12 +1262,15 @@ mod tests {
         );
         assert!(result.contains("<kennung>psw:inserted</kennung>"));
         assert!(result.contains("<name>Inserted Reader</name>"));
-        let leser_pos = result.find("psw:inserted").unwrap();
-        let dvdv_pos = result.find("dvdvDienstkennung").unwrap();
-        assert!(
-            leser_pos < dvdv_pos,
-            "leser must appear before dvdvDienstkennung"
-        );
+        let leser_pos = match result.find("psw:inserted") {
+            Some(p) => p,
+            None => panic!("psw:inserted not found"),
+        };
+        let dvdv_pos = match result.find("dvdvDienstkennung") {
+            Some(p) => p,
+            None => panic!("dvdvDienstkennung not found"),
+        };
+        assert!(leser_pos < dvdv_pos);
     }
 
     #[test]
@@ -1285,9 +1293,15 @@ mod tests {
         assert!(result.contains("<kennung>psw:inserted</kennung>"));
         assert!(result.contains("<kennung>psw:newautor</kennung>"));
         assert!(result.contains("<name>New Autor</name>"));
-        let leser_pos = result.find("psw:inserted").unwrap();
-        let autor_pos = result.find("psw:newautor").unwrap();
-        assert!(leser_pos < autor_pos, "leser must come before autor");
+        let leser_pos = match result.find("psw:inserted") {
+            Some(p) => p,
+            None => panic!("psw:inserted not found"),
+        };
+        let autor_pos = match result.find("psw:newautor") {
+            Some(p) => p,
+            None => panic!("psw:newautor not found"),
+        };
+        assert!(leser_pos < autor_pos);
     }
 
     #[test]
@@ -1591,10 +1605,15 @@ mod tests {
 
     #[test]
     fn test_raxb_roundtrip_quality_report() {
-        let path = std::env::current_dir()
-            .unwrap()
-            .join("tests/quality_report_minimal.xml");
-        let xml = std::fs::read_to_string(path).unwrap();
+        let dir = match std::env::current_dir() {
+            Ok(d) => d,
+            Err(e) => panic!("cannot get current dir: {e}"),
+        };
+        let path = dir.join("tests/quality_report_minimal.xml");
+        let xml = match std::fs::read_to_string(&path) {
+            Ok(s) => s,
+            Err(e) => panic!("cannot read {:?}: {e}", path),
+        };
 
         let result = transform_xml(
             &xml,
@@ -1607,10 +1626,11 @@ mod tests {
             },
         );
 
-        let parsed: Result<crate::model::transport::VorgangTransportieren2010, _> =
-            raxb::de::from_str(&result);
-        assert!(parsed.is_ok(), "raxb round-trip failed: {:?}", parsed.err());
-        let parsed = parsed.unwrap();
+        let parsed: crate::model::transport::VorgangTransportieren2010 =
+            match raxb::de::from_str(&result) {
+                Ok(p) => p,
+                Err(e) => panic!("raxb round-trip failed: {e:?}"),
+            };
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:mutated");
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "Mutated Reader");
         assert_eq!(parsed.nachrichtenkopf_g2g.autor.kennung, "psw:01003110");
