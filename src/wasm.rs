@@ -40,7 +40,8 @@ struct TransformOptionsParam {
     leser: Option<ElementParam>,
     autor: Option<ElementParam>,
     #[serde(default)]
-    authorities: Vec<AuthorityParam>,
+    #[serde(rename = "zusatzinformationen")]
+    authorities: Vec<ZustaendigeBehoerdeParam>,
 }
 
 #[derive(Deserialize, Default)]
@@ -50,7 +51,7 @@ struct ElementParam {
 }
 
 #[derive(Deserialize)]
-struct AuthorityParam {
+struct ZustaendigeBehoerdeParam {
     kennung: Option<String>,
     name: Option<String>,
 }
@@ -64,7 +65,7 @@ struct AuthorityParam {
 /// transformXml(xml, {
 ///   leser?: { kennung?: string, name?: string },
 ///   autor?: { kennung?: string, name?: string },
-///   authorities?: Array<{ kennung?: string, name?: string }>,
+///   zusatzinformationen?: Array<{ kennung?: string, name?: string }>,
 /// })
 /// ```
 #[wasm_bindgen(js_name = transformXml)]
@@ -87,10 +88,10 @@ pub fn transform_xml(xml: String, options: Option<JsValue>) -> String {
         kennung: p.kennung,
         name: p.name,
     });
-    let authorities: Vec<transform::AuthorityUpdate> = opts
+    let zusatzinformationen: Vec<transform::ZustaendigeBehoerdeUpdate> = opts
         .authorities
         .into_iter()
-        .map(|a| transform::AuthorityUpdate {
+        .map(|a| transform::ZustaendigeBehoerdeUpdate {
             kennung: a.kennung,
             name: a.name,
         })
@@ -101,7 +102,7 @@ pub fn transform_xml(xml: String, options: Option<JsValue>) -> String {
         &transform::TransformOptions {
             leser,
             autor,
-            authorities: &authorities,
+            zusatzinformationen: &zusatzinformationen,
         },
     )
 }

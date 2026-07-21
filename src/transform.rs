@@ -28,7 +28,7 @@ pub struct TransformOptions<'a> {
     /// the source are replaced; unmatched entries are ignored unless
     /// `<zusatzinformationen>` is entirely missing, in which case all
     /// entries are inserted.
-    pub authorities: &'a [AuthorityUpdate],
+    pub zusatzinformationen: &'a [ZustaendigeBehoerdeUpdate],
 }
 
 /// Update parameters for an element inside `nachrichtenkopf.g2g`
@@ -43,7 +43,7 @@ pub struct ElementUpdate {
 /// `<zusatzinformationen>`. `kennung` is used for matching existing elements;
 /// `name` is updated for the matched/replaced element.
 #[derive(Debug, Clone, Default)]
-pub struct AuthorityUpdate {
+pub struct ZustaendigeBehoerdeUpdate {
     pub kennung: Option<String>,
     pub name: Option<String>,
 }
@@ -60,8 +60,8 @@ pub fn transform_xml(xml: &str, options: &TransformOptions) -> String {
 
     let mut writer = Writer::new(Vec::<u8>::new());
 
-    let has_authority_updates = options
-        .authorities
+    let has_zusatzinformation_updates = options
+        .zusatzinformationen
         .iter()
         .any(|a| a.kennung.is_some() || a.name.is_some());
     let has_leser = options.leser.is_some();
@@ -79,7 +79,7 @@ pub fn transform_xml(xml: &str, options: &TransformOptions) -> String {
                     &mut state,
                     has_leser,
                     has_autor,
-                    has_authority_updates,
+                    has_zusatzinformation_updates,
                     options,
                     &mut writer,
                     &lok,
@@ -93,7 +93,7 @@ pub fn transform_xml(xml: &str, options: &TransformOptions) -> String {
                     &mut state,
                     has_leser,
                     has_autor,
-                    has_authority_updates,
+                    has_zusatzinformation_updates,
                     options,
                     &mut writer,
                     &lok,
@@ -108,7 +108,7 @@ pub fn transform_xml(xml: &str, options: &TransformOptions) -> String {
                     &mut state,
                     has_leser,
                     has_autor,
-                    has_authority_updates,
+                    has_zusatzinformation_updates,
                     &mut writer,
                     &lok,
                     &e,
@@ -194,7 +194,7 @@ fn handle_start(
     state: &mut TransformState,
     has_leser: bool,
     has_autor: bool,
-    has_authority_updates: bool,
+    has_zusatzinformation_updates: bool,
     options: &TransformOptions,
     writer: &mut Writer<Vec<u8>>,
     lok: &[u8],
@@ -266,7 +266,7 @@ fn handle_start(
     }
 
     // --- zustaendigeBehoerde element ---
-    if state.zi_depth > 0 && lok == b"zustaendigeBehoerde" && has_authority_updates {
+    if state.zi_depth > 0 && lok == b"zustaendigeBehoerde" && has_zusatzinformation_updates {
         state.in_zb = true;
         state.zb_buf.clear();
         state.zb_buf.push(Event::Start(e.clone().into_owned()));
@@ -281,7 +281,7 @@ fn handle_end(
     state: &mut TransformState,
     has_leser: bool,
     has_autor: bool,
-    has_authority_updates: bool,
+    has_zusatzinformation_updates: bool,
     options: &TransformOptions,
     writer: &mut Writer<Vec<u8>>,
     lok: &[u8],
@@ -310,7 +310,7 @@ fn handle_end(
     if state.in_zb && lok == b"zustaendigeBehoerde" {
         state.in_zb = false;
         if !state.zb_buf.is_empty() {
-            emit_mutated_authority(writer, &state.zb_buf, options.authorities);
+            emit_mutated_zustaendige_behoerde(writer, &state.zb_buf, options.zusatzinformationen);
             state.zb_buf.clear();
             return;
         }
@@ -373,8 +373,8 @@ fn handle_end(
     if state.root_depth > 0 && lok == b"vorgang.transportieren.2010"
         && state.depth == state.root_depth
     {
-        if !state.seen_zi && has_authority_updates {
-            insert_zusatzinformationen_element(writer, options.authorities);
+        if !state.seen_zi && has_zusatzinformation_updates {
+            insert_zusatzinformationen_element(writer, options.zusatzinformationen);
         }
         state.root_depth = 0;
     }
@@ -386,7 +386,7 @@ fn handle_empty(
     state: &mut TransformState,
     has_leser: bool,
     has_autor: bool,
-    has_authority_updates: bool,
+    has_zusatzinformation_updates: bool,
     writer: &mut Writer<Vec<u8>>,
     lok: &[u8],
     e: &BytesStart<'_>,
@@ -399,7 +399,7 @@ fn handle_empty(
         state.zb_buf.push(Event::Empty(e.clone().into_owned()));
         return;
     }
-    let _ = (has_leser, has_autor, has_authority_updates, lok);
+    let _ = (has_leser, has_autor, has_zusatzinformation_updates, lok);
     write_event(writer, Event::Empty(e.clone().into_owned()));
 }
 
@@ -515,15 +515,15 @@ fn emit_mutated_g2g_element<W: std::io::Write>(
 // Emit mutated <zustaendigeBehoerde> from buffered events
 // ---------------------------------------------------------------------------
 
-fn emit_mutated_authority<W: std::io::Write>(
+fn emit_mutated_zustaendige_behoerde<W: std::io::Write>(
     writer: &mut Writer<W>,
     buffered: &[Event<'static>],
-    authorities: &[AuthorityUpdate],
+    zusatzinformationen: &[ZustaendigeBehoerdeUpdate],
 ) {
     let current_kennung = extract_kennung_from_zb_buf(buffered);
 
     if let Some(ref cur) = current_kennung
-        && let Some(matching) = authorities.iter().find(|a| a.kennung.as_deref() == Some(cur))
+        && let Some(matching) = zusatzinformationen.iter().find(|a| a.kennung.as_deref() == Some(cur))
     {
         // Write start tag from first buffered event (preserving prefix/attrs)
         if let Some(Event::Start(first)) = buffered.first() {
@@ -622,9 +622,9 @@ fn insert_g2g_element<W: std::io::Write>(
 
 fn insert_zusatzinformationen_element<W: std::io::Write>(
     writer: &mut Writer<W>,
-    authorities: &[AuthorityUpdate],
+    zusatzinformationen: &[ZustaendigeBehoerdeUpdate],
 ) {
-    let non_empty: Vec<&AuthorityUpdate> = authorities
+    let non_empty: Vec<&ZustaendigeBehoerdeUpdate> = zusatzinformationen
         .iter()
         .filter(|a| a.kennung.is_some() || a.name.is_some())
         .collect();
@@ -940,7 +940,7 @@ mod tests {
         let result = transform_xml(
             &xml,
             &TransformOptions {
-                authorities: &[AuthorityUpdate {
+                zusatzinformationen: &[ZustaendigeBehoerdeUpdate {
                     kennung: Some("auth-001".into()),
                     name: Some("Updated Authority".into()),
                 }],
@@ -1003,7 +1003,7 @@ mod tests {
         let result = transform_xml(
             &xml,
             &TransformOptions {
-                authorities: &[AuthorityUpdate {
+                zusatzinformationen: &[ZustaendigeBehoerdeUpdate {
                     kennung: Some("new-auth".into()),
                     name: Some("New Authority".into()),
                 }],
@@ -1027,7 +1027,7 @@ mod tests {
                     kennung: Some("psw:custom".into()),
                     name: Some("Custom".into()),
                 }),
-                authorities: &[AuthorityUpdate {
+                zusatzinformationen: &[ZustaendigeBehoerdeUpdate {
                     kennung: Some("auth-001".into()),
                     name: Some("Updated via custom prefix".into()),
                 }],

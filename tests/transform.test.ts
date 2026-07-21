@@ -184,7 +184,7 @@ describe("transformXml via wasm", () => {
 
   it("transforms authorities elements in-place", () => {
     const result = transformXml(sampleXmlWithZi(), {
-      authorities: [{ kennung: "auth-001", name: "Updated Authority" }],
+      zusatzinformationen: [{ kennung: "auth-001", name: "Updated Authority" }],
     });
     expect(result).toContain("<xwas:kennung>auth-001</xwas:kennung>");
     expect(result).toContain("<xwas:name>Updated Authority</xwas:name>");
@@ -204,7 +204,7 @@ describe("transformXml via wasm", () => {
 
   it("inserts missing zusatzinformationen", () => {
     const result = transformXml(sampleXmlNoZi(), {
-      authorities: [{ kennung: "new-auth", name: "New Authority" }],
+      zusatzinformationen: [{ kennung: "new-auth", name: "New Authority" }],
     });
     expect(result).toContain("xwas:zusatzinformationen");
     expect(result).toContain("<xwas:kennung>new-auth</xwas:kennung>");
@@ -213,7 +213,7 @@ describe("transformXml via wasm", () => {
 
   it("inserts multiple authorities when zusatzinformationen missing", () => {
     const result = transformXml(sampleXmlNoZi(), {
-      authorities: [
+      zusatzinformationen: [
         { kennung: "first", name: "First" },
         { kennung: "second", name: "Second" },
       ],
@@ -240,7 +240,7 @@ describe("transformXml via wasm", () => {
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>`;
     const result = transformXml(xml, {
-      authorities: [{ kennung: "auth-1", name: "Replaced" }],
+      zusatzinformationen: [{ kennung: "auth-1", name: "Replaced" }],
     });
     expect(result).toContain("<xwas:name>Replaced</xwas:name>");
     expect(result).not.toContain("should disappear");
@@ -270,7 +270,7 @@ describe("transformXml via wasm", () => {
   it("unmatched authorities are dropped when zusatzinfo exists", () => {
     const result = transformXml(sampleXmlWithZi(), {
       leser: { kennung: "psw:new", name: "New" },
-      authorities: [{ kennung: "nonexistent", name: "Should Not Appear" }],
+      zusatzinformationen: [{ kennung: "nonexistent", name: "Should Not Appear" }],
     });
     expect(result).toContain("<kennung>psw:new</kennung>");
     expect(result).not.toContain("Should Not Appear");
