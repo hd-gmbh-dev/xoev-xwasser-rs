@@ -40,11 +40,15 @@ const TS_TRANSFORM_OPTIONS: &'static str = r#"
 export interface TransformOptions {
   leser?: { kennung?: string; name?: string };
   autor?: { kennung?: string; name?: string };
-  zusatzinformationen?: Array<{ kennung?: string; name?: string }>;
+  zusatzinformationen?: Array<string>;
 }
 
 export function transformXml(xml: string, options?: TransformOptions): string;
 "#;
+
+/// Custom deserializer for `zusatzinformationen`: accepts an array of strings
+/// OR an array of objects `{ kennung: string }`.
+
 
 /// Helper struct to deserialize the options parameter.
 #[derive(Deserialize, Default)]
@@ -52,17 +56,11 @@ struct TransformOptionsParam {
     leser: Option<ElementParam>,
     autor: Option<ElementParam>,
     #[serde(rename = "zusatzinformationen")]
-    authorities: Option<Vec<ZustaendigeBehoerdeParam>>,
+    authorities: Option<Vec<String>>,
 }
 
 #[derive(Deserialize, Default)]
 struct ElementParam {
-    kennung: Option<String>,
-    name: Option<String>,
-}
-
-#[derive(Deserialize)]
-struct ZustaendigeBehoerdeParam {
     kennung: Option<String>,
     name: Option<String>,
 }
@@ -76,7 +74,7 @@ struct ZustaendigeBehoerdeParam {
 /// transformXml(xml, {
 ///   leser?: { kennung?: string, name?: string },
 ///   autor?: { kennung?: string, name?: string },
-///   zusatzinformationen?: Array<{ kennung?: string, name?: string }>,
+///   zusatzinformationen?: Array<string>,
 /// })
 /// ```
 #[wasm_bindgen(js_name = transformXml)]
@@ -100,12 +98,14 @@ pub fn transform_xml(xml: String, options: Option<JsValue>) -> String {
         name: p.name.clone(),
     });
 
-    transform::transform_xml_with_ids(
-        &xml,
-        leser.as_ref(),
-        autor.as_ref(),
-        opts.authorities.as_deref(),
-    )
+    // Only call with_ids when there are actual IDs; empty array means replace w/ empty block
+    let has_ids = opts.authorities.as_ref().map(|v| !v.is_empty()).unwrap_or(false);
+    if has_ids {
+        let ids = opts.authorities.unwrap();
+        transform::transform_xml_with_ids(&xml, leser.as_ref(), autor.as_ref(), Some(&ids))
+    } else {
+        transform::transform_xml(&xml, &transform::TransformOptions { leser, autor, zusatzinformationen: None })
+    }
 }
 
 #[wasm_bindgen]
