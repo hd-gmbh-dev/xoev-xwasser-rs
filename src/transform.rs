@@ -128,16 +128,7 @@ fn transform_xml_impl(xml: &str, options: &TransformOptions) -> String {
             }
 
             Ok((_ns, Event::Empty(e))) => {
-                let lok = e.local_name().as_ref().to_vec();
-                handle_empty(
-                    &mut state,
-                    has_leser,
-                    has_autor,
-                    has_zusatzinfo_updates,
-                    &mut writer,
-                    &lok,
-                    &e,
-                );
+                handle_empty(&mut state, &mut writer, &e);
             }
 
             Ok((_ns, Event::Text(e))) => {
@@ -175,7 +166,10 @@ fn transform_xml_impl(xml: &str, options: &TransformOptions) -> String {
         buf.clear();
     }
 
-    String::from_utf8(writer.into_inner()).unwrap_or_default()
+    String::from_utf8(writer.into_inner()).unwrap_or_else(|e| {
+        // If the writer produced invalid UTF-8, return the raw bytes as lossy
+        String::from_utf8_lossy(e.as_bytes()).into_owned()
+    })
 }
 
 // ---------------------------------------------------------------------------
@@ -389,6 +383,26 @@ fn handle_end(
         return;
     }
 
+    if state.root_depth > 0
+        && lok == b"vorgang.transportieren.2010"
+        && state.depth == state.root_depth
+    {
+        let should_insert = options.zusatzinformationen.is_some_and(|a| !a.is_empty());
+        if !state.seen_zi && should_insert {
+            insert_zusatzinformationen_element(
+                writer,
+                options.zusatzinformationen.unwrap_or(&[]),
+                if state.root_ns_prefix.is_empty() {
+                    b"xwas"
+                } else {
+                    &state.root_ns_prefix
+                },
+                state.root_child_indent(),
+            );
+        }
+        state.root_depth = 0;
+    }
+
     if state.nk_depth > 0 && lok == b"nachrichtenkopf.g2g" {
         if state.should_insert_leser {
             if let Some(r) = &options.leser {
@@ -406,10 +420,6 @@ fn handle_end(
             state.should_insert_autor = false;
         }
         state.nk_depth = 0;
-    }
-
-    if lok == b"zusatzinformationen" && !ns_is_foreign(&ResolveResult::Bound(XWAS_NS)) {
-        state.zi_depth = 0;
     }
 
     if state.root_depth > 0
@@ -437,11 +447,7 @@ fn handle_end(
 
 fn handle_empty(
     state: &mut TransformState,
-    has_leser: bool,
-    has_autor: bool,
-    has_zusatzinfo_updates: bool,
     writer: &mut Writer<Vec<u8>>,
-    lok: &[u8],
     e: &BytesStart<'_>,
 ) {
     if state.in_g2g_element {
@@ -452,7 +458,6 @@ fn handle_empty(
         state.zi_buf.push(Event::Empty(e.clone().into_owned()));
         return;
     }
-    let _ = (has_leser, has_autor, has_zusatzinfo_updates, lok);
     write_event(writer, Event::Empty(e.clone().into_owned()));
 }
 
@@ -528,12 +533,8 @@ fn qn_str(prefix: &[u8], local: &str) -> String {
     if prefix.is_empty() {
         local.to_string()
     } else {
-        format!(
-            "{}{}{}",
-            std::str::from_utf8(prefix).unwrap_or("xwas"),
-            ":",
-            local
-        )
+        let prefix_str = std::str::from_utf8(prefix).unwrap_or("xwas");
+        format!("{prefix_str}:{local}")
     }
 }
 
@@ -553,7 +554,6 @@ fn write_zusatzinfo_content<W: std::io::Write>(
     prefix: &[u8],
 ) {
     let zbid_local = b"zustaendigeBehoerdeID";
-    let mut inside_zbid = false;
     let mut skip_zbid = false;
     let mut zi_end_name: Vec<u8> = Vec::new();
 
@@ -561,11 +561,9 @@ fn write_zusatzinfo_content<W: std::io::Write>(
         match ev {
             Event::Start(e) => {
                 if e.local_name().as_ref() == zbid_local {
-                    inside_zbid = true;
                     skip_zbid = true;
                     continue;
                 }
-                // Capture the zusatzinformationen element name for the end tag
                 if zi_end_name.is_empty() && e.local_name().as_ref() == b"zusatzinformationen" {
                     zi_end_name = e.name().as_ref().to_vec();
                 }
@@ -574,7 +572,6 @@ fn write_zusatzinfo_content<W: std::io::Write>(
             Event::End(e) => {
                 if e.local_name().as_ref() == zbid_local && skip_zbid {
                     skip_zbid = false;
-                    inside_zbid = false;
                     continue;
                 }
                 write_event(writer, ev.clone());
@@ -586,7 +583,7 @@ fn write_zusatzinfo_content<W: std::io::Write>(
                 write_event(writer, ev.clone());
             }
             Event::Text(_) => {
-                if inside_zbid && skip_zbid {
+                if skip_zbid {
                     continue;
                 }
                 write_event(writer, ev.clone());
