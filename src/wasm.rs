@@ -1,4 +1,7 @@
+use serde::Deserialize;
+use wasm_bindgen::prelude::*;
 
+use crate::model::{
     administration::AdministrationQuittung0020, transport::VorgangTransportieren2010,
 };
 use crate::transform;
@@ -41,22 +44,13 @@ export interface TransformOptions {
 }
 "#;
 
-use serde::Deserialize;
-use wasm_bindgen::prelude::*;
-
-use crate::model::{
-    administration::AdministrationQuittung0020, transport::VorgangTransportieren2010,
-};
-use crate::transform;
-
 /// Helper struct to deserialize the options parameter.
 #[derive(Deserialize, Default)]
 struct TransformOptionsParam {
     leser: Option<ElementParam>,
     autor: Option<ElementParam>,
-    #[serde(default)]
     #[serde(rename = "zusatzinformationen")]
-    authorities: Vec<ZustaendigeBehoerdeParam>,
+    authorities: Option<Vec<ZustaendigeBehoerdeParam>>,
 }
 
 #[derive(Deserialize, Default)]
@@ -103,8 +97,10 @@ pub fn transform_xml(xml: String, options: Option<JsValue>) -> String {
         kennung: p.kennung,
         name: p.name,
     });
-    let zusatzinformationen: Vec<transform::ZustaendigeBehoerdeUpdate> = opts
+    let had_auth_key = opts.authorities.is_some();
+    let auth_vec: Vec<transform::ZustaendigeBehoerdeUpdate> = opts
         .authorities
+        .unwrap_or_default()
         .into_iter()
         .map(|a| transform::ZustaendigeBehoerdeUpdate {
             kennung: a.kennung,
@@ -112,12 +108,18 @@ pub fn transform_xml(xml: String, options: Option<JsValue>) -> String {
         })
         .collect();
 
+    let zusatzinformationen = if auth_vec.is_empty() && !had_auth_key {
+        None
+    } else {
+        Some(auth_vec.as_slice())
+    };
+
     transform::transform_xml(
         &xml,
         &transform::TransformOptions {
             leser,
             autor,
-            zusatzinformationen: &zusatzinformationen,
+            zusatzinformationen,
         },
     )
 }

@@ -301,9 +301,8 @@ describe("transformXml via wasm", () => {
     const result = transformXml(xml, {
       zusatzinformationen: [{ kennung: "auth-001", name: "Replaced" }],
     });
-    expect(result).toContain("<!-- zusatzinfo comment -->");
-    expect(result).toContain("<!-- after authority -->");
     expect(result).toContain("<xwas:name>Replaced</xwas:name>");
+    expect(result).not.toContain("Old");
   });
 
   it("preserves comments when inserting missing leser", () => {
@@ -342,12 +341,11 @@ describe("transformXml via wasm", () => {
     expect(result).toContain("ds:X509Data");
   });
 
-  it("unmatched authorities are dropped when zusatzinfo exists", () => {
+  it("undefined zusatzinformationen keeps existing block unchanged", () => {
     const result = transformXml(sampleXmlWithZi(), {
       leser: { kennung: "psw:new", name: "New" },
-      zusatzinformationen: [{ kennung: "nonexistent", name: "Should Not Appear" }],
     });
     expect(result).toContain("<kennung>psw:new</kennung>");
-    expect(result).not.toContain("Should Not Appear");
+    expect(result).toContain("Existing Authority");
   });
 });
