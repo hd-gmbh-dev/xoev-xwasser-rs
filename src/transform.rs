@@ -212,6 +212,7 @@ struct TransformState {
     // zusatzinformationen tracking
     zi_depth: usize,
     seen_zi: bool,
+    zi_child_indent: Vec<u8>,
 
     // zustaendigeBehoerde buffering
     in_zb: bool,
@@ -374,7 +375,25 @@ fn handle_end(
     if state.in_zb && lok == b"zustaendigeBehoerde" {
         state.in_zb = false;
         if !state.zb_buf.is_empty() {
-            emit_mutated_zustaendige_behoerde(writer, &state.zb_buf, options.zusatzinformationen);
+            let prefix = state.zb_buf.first().map_or_else(Vec::new, |ev| {
+                if let Event::Start(s) = ev {
+                    prefix_of_qualified(s.name().as_ref())
+                } else {
+                    Vec::new()
+                }
+            });
+            let indent = if state.zi_child_indent.is_empty() {
+                b"      " as &[u8]
+            } else {
+                &state.zi_child_indent
+            };
+            emit_mutated_zustaendige_behoerde(
+                writer,
+                &state.zb_buf,
+                options.zusatzinformationen,
+                &prefix,
+                indent,
+            );
             state.zb_buf.clear();
             return;
         }
@@ -433,6 +452,7 @@ fn handle_end(
             insert_zusatzinformationen_element(
                 writer,
                 options.zusatzinformationen,
+                b"xwas",
                 state.root_child_indent(),
             );
         }
@@ -492,6 +512,12 @@ fn handle_generic(state: &mut TransformState, writer: &mut Writer<Vec<u8>>, even
                 && state.root_child_indent.is_empty()
             {
                 state.root_child_indent = bytes.to_vec();
+            }
+            if state.zi_depth > 0
+                && state.depth == state.zi_depth + 2
+                && state.zi_child_indent.is_empty()
+            {
+                state.zi_child_indent = bytes.to_vec();
             }
         }
     }
@@ -595,6 +621,27 @@ fn emit_mutated_g2g_element<W: std::io::Write>(
     }
 }
 
+/// Extract the prefix part of a qualified name (e.g. `"xwas:kennung"` -> `b"xwas"`).
+fn prefix_of_qualified(name: &[u8]) -> Vec<u8> {
+    if let Some(pos) = name.iter().position(|b| *b == b':') {
+        name[..pos].to_vec()
+    } else {
+        Vec::new()
+    }
+}
+
+/// Build a qualified tag name from an optional prefix and local name.
+fn qname(prefix: &[u8], local: &str) -> Vec<u8> {
+    if prefix.is_empty() {
+        local.as_bytes().to_vec()
+    } else {
+        let mut v = prefix.to_vec();
+        v.push(b':');
+        v.extend_from_slice(local.as_bytes());
+        v
+    }
+}
+
 // ---------------------------------------------------------------------------
 // Emit mutated <zustaendigeBehoerde> from buffered events
 // ---------------------------------------------------------------------------
@@ -603,6 +650,8 @@ fn emit_mutated_zustaendige_behoerde<W: std::io::Write>(
     writer: &mut Writer<W>,
     buffered: &[Event<'static>],
     zusatzinformationen: &[ZustaendigeBehoerdeUpdate],
+    prefix: &[u8],
+    indent: &[u8],
 ) {
     let current_kennung = extract_kennung_from_zb_buf(buffered);
 
@@ -611,24 +660,46 @@ fn emit_mutated_zustaendige_behoerde<W: std::io::Write>(
             .iter()
             .find(|a| a.kennung.as_deref() == Some(cur))
     {
+        let inner = [indent, b"  "].concat();
+        let sub = [indent, b"    "].concat();
+
         if let Some(Event::Start(first)) = buffered.first() {
             write_event(writer, Event::Start(first.clone()));
         }
+        let kn = qname(prefix, "kennung");
+        let nm = qname(prefix, "name");
+        let zb = qname(prefix, "zustaendigeBehoerde");
         write_text_bytes(writer, b"\n");
-        write_text_bytes(writer, b"        ");
-        write_event(writer, Event::Start(BytesStart::new("xwas:kennung")));
-        write_text_bytes(writer, matching.kennung.as_deref().unwrap_or("").as_bytes());
-        write_event(writer, Event::End(BytesEnd::new("xwas:kennung")));
-        write_text_bytes(writer, b"\n");
-        write_text_bytes(writer, b"        ");
-        write_event(writer, Event::Start(BytesStart::new("xwas:name")));
-        write_text_bytes(writer, matching.name.as_deref().unwrap_or("").as_bytes());
-        write_event(writer, Event::End(BytesEnd::new("xwas:name")));
-        write_text_bytes(writer, b"\n");
-        write_text_bytes(writer, b"      ");
+        write_text_bytes(writer, &sub);
         write_event(
             writer,
-            Event::End(BytesEnd::new("xwas:zustaendigeBehoerde")),
+            Event::Start(BytesStart::new(
+                std::str::from_utf8(&kn).unwrap_or("kennung"),
+            )),
+        );
+        write_text_bytes(writer, matching.kennung.as_deref().unwrap_or("").as_bytes());
+        write_event(
+            writer,
+            Event::End(BytesEnd::new(std::str::from_utf8(&kn).unwrap_or("kennung"))),
+        );
+        write_text_bytes(writer, b"\n");
+        write_text_bytes(writer, &sub);
+        write_event(
+            writer,
+            Event::Start(BytesStart::new(std::str::from_utf8(&nm).unwrap_or("name"))),
+        );
+        write_text_bytes(writer, matching.name.as_deref().unwrap_or("").as_bytes());
+        write_event(
+            writer,
+            Event::End(BytesEnd::new(std::str::from_utf8(&nm).unwrap_or("name"))),
+        );
+        write_text_bytes(writer, b"\n");
+        write_text_bytes(writer, &inner);
+        write_event(
+            writer,
+            Event::End(BytesEnd::new(
+                std::str::from_utf8(&zb).unwrap_or("zustaendigeBehoerde"),
+            )),
         );
         return;
     }
@@ -712,6 +783,7 @@ fn insert_g2g_element<W: std::io::Write>(
 fn insert_zusatzinformationen_element<W: std::io::Write>(
     writer: &mut Writer<W>,
     zusatzinformationen: &[ZustaendigeBehoerdeUpdate],
+    prefix: &[u8],
     indent: &[u8],
 ) {
     let non_empty: Vec<&ZustaendigeBehoerdeUpdate> = zusatzinformationen
@@ -726,11 +798,18 @@ fn insert_zusatzinformationen_element<W: std::io::Write>(
     let sub = [indent, b"  "].concat();
     let subsub = [indent, b"    "].concat();
 
+    let zi = qname(prefix, "zusatzinformationen");
+    let zb = qname(prefix, "zustaendigeBehoerde");
+    let kn = qname(prefix, "kennung");
+    let nm = qname(prefix, "name");
+
     write_text_bytes(writer, b"\n");
     write_text_bytes(writer, indent);
     write_event(
         writer,
-        Event::Start(BytesStart::new("xwas:zusatzinformationen")),
+        Event::Start(BytesStart::new(
+            std::str::from_utf8(&zi).unwrap_or("zusatzinformationen"),
+        )),
     );
 
     for auth in &non_empty {
@@ -738,23 +817,41 @@ fn insert_zusatzinformationen_element<W: std::io::Write>(
         write_text_bytes(writer, &sub);
         write_event(
             writer,
-            Event::Start(BytesStart::new("xwas:zustaendigeBehoerde")),
+            Event::Start(BytesStart::new(
+                std::str::from_utf8(&zb).unwrap_or("zustaendigeBehoerde"),
+            )),
         );
         write_text_bytes(writer, b"\n");
         write_text_bytes(writer, &subsub);
-        write_event(writer, Event::Start(BytesStart::new("xwas:kennung")));
+        write_event(
+            writer,
+            Event::Start(BytesStart::new(
+                std::str::from_utf8(&kn).unwrap_or("kennung"),
+            )),
+        );
         write_text_bytes(writer, auth.kennung.as_deref().unwrap_or("").as_bytes());
-        write_event(writer, Event::End(BytesEnd::new("xwas:kennung")));
+        write_event(
+            writer,
+            Event::End(BytesEnd::new(std::str::from_utf8(&kn).unwrap_or("kennung"))),
+        );
         write_text_bytes(writer, b"\n");
         write_text_bytes(writer, &subsub);
-        write_event(writer, Event::Start(BytesStart::new("xwas:name")));
+        write_event(
+            writer,
+            Event::Start(BytesStart::new(std::str::from_utf8(&nm).unwrap_or("name"))),
+        );
         write_text_bytes(writer, auth.name.as_deref().unwrap_or("").as_bytes());
-        write_event(writer, Event::End(BytesEnd::new("xwas:name")));
+        write_event(
+            writer,
+            Event::End(BytesEnd::new(std::str::from_utf8(&nm).unwrap_or("name"))),
+        );
         write_text_bytes(writer, b"\n");
         write_text_bytes(writer, &sub);
         write_event(
             writer,
-            Event::End(BytesEnd::new("xwas:zustaendigeBehoerde")),
+            Event::End(BytesEnd::new(
+                std::str::from_utf8(&zb).unwrap_or("zustaendigeBehoerde"),
+            )),
         );
     }
 
@@ -762,7 +859,9 @@ fn insert_zusatzinformationen_element<W: std::io::Write>(
     write_text_bytes(writer, indent);
     write_event(
         writer,
-        Event::End(BytesEnd::new("xwas:zusatzinformationen")),
+        Event::End(BytesEnd::new(
+            std::str::from_utf8(&zi).unwrap_or("zusatzinformationen"),
+        )),
     );
 }
 
@@ -1262,9 +1361,15 @@ mod tests {
         );
         assert!(result.contains("<kennung>psw:custom</kennung>"));
         assert!(result.contains("<name>Custom</name>"));
-        // Replaced authority gets xwas: prefix (hardcoded), but matching worked by namespace
-        assert!(result.contains("xwas:kennung>auth-001"));
-        assert!(result.contains("xwas:name>Updated via custom prefix"));
+        // Replaced authority uses prefix from source (xw:), extracted from buffered start
+        assert!(
+            result.contains("xw:kennung>auth-001"),
+            "replaced authority should use source prefix (xw:)"
+        );
+        assert!(
+            result.contains("xw:name>Updated via custom prefix"),
+            "replaced authority should use source prefix (xw:)"
+        );
         // Normalize mixed prefixes back to xwas: for raxb roundtrip
         let normalized = result
             .replace("xmlns:xw=", "xmlns:xwas=")
