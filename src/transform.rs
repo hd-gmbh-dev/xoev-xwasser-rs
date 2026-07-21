@@ -9,6 +9,11 @@
 //! transform works regardless of which prefix the source XML uses for the
 //! XWasser namespace.
 //!
+//! Inserted elements use the indentation style of the surrounding XML
+//! (captured from the first whitespace text node at the parent level),
+//! falling back to 4-space (g2g children) or 2-space (root children) when
+//! no indentation is detected (e.g. single-line compact XML).
+//!
 //! A no-op transform (all options `None`) produces output that is
 //! byte-identical to the input, keeping XML digital signatures valid.
 
@@ -200,6 +205,10 @@ struct TransformState {
     g2g_buf: Vec<Event<'static>>,
     g2g_element_name: Vec<u8>,
 
+    // Measured indentation from surrounding XML
+    nk_child_indent: Vec<u8>,
+    root_child_indent: Vec<u8>,
+
     // zusatzinformationen tracking
     zi_depth: usize,
     seen_zi: bool,
@@ -207,6 +216,28 @@ struct TransformState {
     // zustaendigeBehoerde buffering
     in_zb: bool,
     zb_buf: Vec<Event<'static>>,
+}
+
+impl TransformState {
+    /// Indentation string for a child of `nachrichtenkopf.g2g`.
+    /// Falls back to 4 spaces when no indentation was detected.
+    fn g2g_child_indent(&self) -> &[u8] {
+        if self.nk_child_indent.is_empty() {
+            b"    "
+        } else {
+            &self.nk_child_indent
+        }
+    }
+
+    /// Indentation string for a child of the root element.
+    /// Falls back to 2 spaces when no indentation was detected.
+    fn root_child_indent(&self) -> &[u8] {
+        if self.root_child_indent.is_empty() {
+            b"  "
+        } else {
+            &self.root_child_indent
+        }
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -238,6 +269,7 @@ fn handle_start(
     // Track root element (unqualified)
     if lok == b"vorgang.transportieren.2010" && state.root_depth == 0 {
         state.root_depth = state.depth;
+        state.root_child_indent.clear();
     }
 
     // Track parent depth — nachrichtenkopf.g2g is unqualified
@@ -247,6 +279,7 @@ fn handle_start(
         state.seen_autor = false;
         state.should_insert_leser = false;
         state.should_insert_autor = false;
+        state.nk_child_indent.clear();
     }
 
     // Track zusatzinformationen by namespace + local name
@@ -258,7 +291,7 @@ fn handle_start(
     // Insert missing leser before autor (second-child position)
     if state.should_insert_leser && lok != b"nachrichtenkopf.g2g" {
         if let Some(r) = &options.leser {
-            insert_g2g_element(writer, "leser", r, 2);
+            insert_g2g_element(writer, "leser", r, state.g2g_child_indent());
         }
         state.should_insert_leser = false;
         if has_autor && !state.seen_autor {
@@ -268,7 +301,7 @@ fn handle_start(
     // Insert missing autor after leser or before any later child
     if state.should_insert_autor && lok != b"nachrichtenkopf.g2g" && lok != b"leser" {
         if let Some(r) = &options.autor {
-            insert_g2g_element(writer, "autor", r, 2);
+            insert_g2g_element(writer, "autor", r, state.g2g_child_indent());
         }
         state.should_insert_autor = false;
     }
@@ -348,13 +381,8 @@ fn handle_end(
     }
 
     // Schedule leser/autor insertion after identifikation.nachricht (unqualified)
-    if state.nk_depth > 0 && lok == b"identifikation.nachricht" {
-        if has_leser && !state.seen_leser {
-            state.should_insert_leser = true;
-        }
-        if has_autor && !state.seen_autor && !state.should_insert_leser {
-            // autor scheduled only if leser already exists (handled via leser end)
-        }
+    if state.nk_depth > 0 && lok == b"identifikation.nachricht" && has_leser && !state.seen_leser {
+        state.should_insert_leser = true;
     }
     // Schedule autor insertion after leser end
     if state.nk_depth > 0 && lok == b"leser" && has_autor && !state.seen_autor {
@@ -375,7 +403,7 @@ fn handle_end(
     if state.nk_depth > 0 && lok == b"nachrichtenkopf.g2g" {
         if state.should_insert_leser {
             if let Some(r) = &options.leser {
-                insert_g2g_element(writer, "leser", r, 2);
+                insert_g2g_element(writer, "leser", r, state.g2g_child_indent());
             }
             state.should_insert_leser = false;
             if has_autor && !state.seen_autor {
@@ -384,7 +412,7 @@ fn handle_end(
         }
         if state.should_insert_autor {
             if let Some(r) = &options.autor {
-                insert_g2g_element(writer, "autor", r, 2);
+                insert_g2g_element(writer, "autor", r, state.g2g_child_indent());
             }
             state.should_insert_autor = false;
         }
@@ -402,7 +430,11 @@ fn handle_end(
         && state.depth == state.root_depth
     {
         if !state.seen_zi && has_zusatzinfo_updates {
-            insert_zusatzinformationen_element(writer, options.zusatzinformationen);
+            insert_zusatzinformationen_element(
+                writer,
+                options.zusatzinformationen,
+                state.root_child_indent(),
+            );
         }
         state.root_depth = 0;
     }
@@ -440,6 +472,30 @@ fn handle_generic(state: &mut TransformState, writer: &mut Writer<Vec<u8>>, even
         state.zb_buf.push(event);
         return;
     }
+
+    // Capture indentation of children from surrounding whitespace-only text nodes
+    if let Event::Text(t) = &event {
+        let bytes = t.as_ref();
+        if !bytes.is_empty()
+            && bytes
+                .iter()
+                .all(|b| *b == b' ' || *b == b'\n' || *b == b'\r' || *b == b'\t')
+        {
+            if state.nk_depth > 0
+                && state.depth == state.nk_depth
+                && state.nk_child_indent.is_empty()
+            {
+                state.nk_child_indent = bytes.to_vec();
+            }
+            if state.root_depth > 0
+                && state.depth == state.root_depth
+                && state.root_child_indent.is_empty()
+            {
+                state.root_child_indent = bytes.to_vec();
+            }
+        }
+    }
+
     write_event(writer, event);
 }
 
@@ -598,23 +654,27 @@ fn extract_kennung_from_zb_buf(buffered: &[Event<'static>]) -> Option<String> {
 }
 
 // ---------------------------------------------------------------------------
-// Insert a new g2g element (leser/autor) as Nth child
+// Insert a new g2g element (leser/autor)
+// `indent` is the indentation of the parent's children (e.g. `b"    "`).
 // ---------------------------------------------------------------------------
 
 fn insert_g2g_element<W: std::io::Write>(
     writer: &mut Writer<W>,
     element_name: &str,
     update: &ElementUpdate,
-    _level: usize,
+    indent: &[u8],
 ) {
     let kennung = update.kennung.as_deref().unwrap_or("");
     let name = update.name.as_deref().unwrap_or("");
 
+    let sub = [indent, b"  "].concat();
+    let subsub = [indent, b"    "].concat();
+
     write_text_bytes(writer, b"\n");
-    write_text_bytes(writer, b"    ");
+    write_text_bytes(writer, indent);
     write_event(writer, Event::Start(BytesStart::new(element_name)));
     write_text_bytes(writer, b"\n");
-    write_text_bytes(writer, b"      ");
+    write_text_bytes(writer, &sub);
     write_event(
         writer,
         Event::Start(BytesStart::from_content(
@@ -623,35 +683,36 @@ fn insert_g2g_element<W: std::io::Write>(
         )),
     );
     write_text_bytes(writer, b"\n");
-    write_text_bytes(writer, b"        ");
+    write_text_bytes(writer, &subsub);
     write_event(writer, Event::Start(BytesStart::new("code")));
     write_event(writer, Event::End(BytesEnd::new("code")));
     write_text_bytes(writer, b"\n");
-    write_text_bytes(writer, b"      ");
+    write_text_bytes(writer, &sub);
     write_event(writer, Event::End(BytesEnd::new("verzeichnisdienst")));
     write_text_bytes(writer, b"\n");
-    write_text_bytes(writer, b"      ");
+    write_text_bytes(writer, &sub);
     write_event(writer, Event::Start(BytesStart::new("kennung")));
     write_text_bytes(writer, kennung.as_bytes());
     write_event(writer, Event::End(BytesEnd::new("kennung")));
     write_text_bytes(writer, b"\n");
-    write_text_bytes(writer, b"      ");
+    write_text_bytes(writer, &sub);
     write_event(writer, Event::Start(BytesStart::new("name")));
     write_text_bytes(writer, name.as_bytes());
     write_event(writer, Event::End(BytesEnd::new("name")));
     write_text_bytes(writer, b"\n");
-    write_text_bytes(writer, b"    ");
+    write_text_bytes(writer, indent);
     write_event(writer, Event::End(BytesEnd::new(element_name)));
 }
 
 // ---------------------------------------------------------------------------
 // Insert a new <xwas:zusatzinformationen> at the end of the root element
-// (before </xwas:vorgang.transportieren.2010>)
+// `indent` is the indentation of root children (e.g. `b"  "`).
 // ---------------------------------------------------------------------------
 
 fn insert_zusatzinformationen_element<W: std::io::Write>(
     writer: &mut Writer<W>,
     zusatzinformationen: &[ZustaendigeBehoerdeUpdate],
+    indent: &[u8],
 ) {
     let non_empty: Vec<&ZustaendigeBehoerdeUpdate> = zusatzinformationen
         .iter()
@@ -662,8 +723,11 @@ fn insert_zusatzinformationen_element<W: std::io::Write>(
         return;
     }
 
+    let sub = [indent, b"  "].concat();
+    let subsub = [indent, b"    "].concat();
+
     write_text_bytes(writer, b"\n");
-    write_text_bytes(writer, b"  ");
+    write_text_bytes(writer, indent);
     write_event(
         writer,
         Event::Start(BytesStart::new("xwas:zusatzinformationen")),
@@ -671,23 +735,23 @@ fn insert_zusatzinformationen_element<W: std::io::Write>(
 
     for auth in &non_empty {
         write_text_bytes(writer, b"\n");
-        write_text_bytes(writer, b"    ");
+        write_text_bytes(writer, &sub);
         write_event(
             writer,
             Event::Start(BytesStart::new("xwas:zustaendigeBehoerde")),
         );
         write_text_bytes(writer, b"\n");
-        write_text_bytes(writer, b"      ");
+        write_text_bytes(writer, &subsub);
         write_event(writer, Event::Start(BytesStart::new("xwas:kennung")));
         write_text_bytes(writer, auth.kennung.as_deref().unwrap_or("").as_bytes());
         write_event(writer, Event::End(BytesEnd::new("xwas:kennung")));
         write_text_bytes(writer, b"\n");
-        write_text_bytes(writer, b"      ");
+        write_text_bytes(writer, &subsub);
         write_event(writer, Event::Start(BytesStart::new("xwas:name")));
         write_text_bytes(writer, auth.name.as_deref().unwrap_or("").as_bytes());
         write_event(writer, Event::End(BytesEnd::new("xwas:name")));
         write_text_bytes(writer, b"\n");
-        write_text_bytes(writer, b"    ");
+        write_text_bytes(writer, &sub);
         write_event(
             writer,
             Event::End(BytesEnd::new("xwas:zustaendigeBehoerde")),
@@ -695,7 +759,7 @@ fn insert_zusatzinformationen_element<W: std::io::Write>(
     }
 
     write_text_bytes(writer, b"\n");
-    write_text_bytes(writer, b"  ");
+    write_text_bytes(writer, indent);
     write_event(
         writer,
         Event::End(BytesEnd::new("xwas:zusatzinformationen")),
@@ -856,7 +920,6 @@ mod tests {
     }
 
     fn sample_xml_custom_prefix() -> String {
-        // Uses a different prefix "xw" bound to the same XWasser namespace
         r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xw:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xw="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
   <nachrichtenkopf.g2g>
@@ -893,6 +956,25 @@ mod tests {
         .to_string()
     }
 
+    fn sample_xml_two_space_indent() -> String {
+        // Uses 2-space indentation throughout, no root child \n + 2 spaces
+        r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>id</nachrichtenUUID>
+    </identifikation.nachricht>
+    <dvdvDienstkennung>s</dvdvDienstkennung>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#
+        .to_string()
+    }
+
     // ---- tests ----
 
     #[test]
@@ -900,6 +982,110 @@ mod tests {
         let xml = sample_xml();
         let result = transform_xml(&xml, &TransformOptions::default());
         assert_eq!(result, xml);
+    }
+
+    #[test]
+    fn test_single_line_compact_roundtrip() {
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"><nachrichtenkopf.g2g><identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht><leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>k</kennung><name>n</name></leser><autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>ak</kennung><name>an</name></autor></nachrichtenkopf.g2g><xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang></xwas:vorgang.transportieren.2010>"#;
+        let result = transform_xml(xml, &TransformOptions::default());
+        assert!(
+            result.contains("<kennung>k</kennung>"),
+            "leser kennung lost"
+        );
+        assert!(
+            result.contains("<kennung>ak</kennung>"),
+            "autor kennung lost"
+        );
+        assert!(
+            result.contains("<xwas:vorgangsID>id</xwas:vorgangsID>"),
+            "vorgangsID lost"
+        );
+    }
+
+    #[test]
+    fn test_inserted_element_indentation() {
+        let xml = sample_xml_no_leser_no_autor();
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:l".into()),
+                    name: Some("Leser".into()),
+                }),
+                autor: Some(ElementUpdate {
+                    kennung: Some("psw:a".into()),
+                    name: Some("Autor".into()),
+                }),
+                ..Default::default()
+            },
+        );
+        // Inserted leser uses measured 4 spaces (matching \n + indent from source)
+        assert!(
+            result.contains("\n    <leser>"),
+            "inserted leser should be indented 4 spaces"
+        );
+        assert!(
+            result.contains("\n      <kennung>psw:l</kennung>"),
+            "kennung inside leser should be indented 6 spaces"
+        );
+        assert!(
+            result.contains("\n    <autor>"),
+            "inserted autor should be indented 4 spaces"
+        );
+    }
+
+    #[test]
+    fn test_inserted_zusatzinfo_indentation_two_spaces() {
+        // With 2-space indent XML, inserted zusatzinfo should use 2 spaces
+        let xml = sample_xml_two_space_indent();
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: &[ZustaendigeBehoerdeUpdate {
+                    kennung: Some("test".into()),
+                    name: Some("Test".into()),
+                }],
+                ..Default::default()
+            },
+        );
+        // Root child indent should be measured as b"  "
+        // Check that zusatzinfo uses 2-space indent (matching source)
+        assert!(
+            result.contains("\n  <xwas:zusatzinformationen>"),
+            "root child should be 2-space indented"
+        );
+        assert!(
+            result.contains("\n    <xwas:zustaendigeBehoerde>"),
+            "sub child should be 4-space indented"
+        );
+        assert!(
+            result.contains("\n      <xwas:kennung>test"),
+            "subsub child should be 6-space indented"
+        );
+    }
+
+    #[test]
+    fn test_single_line_insert_preserves_content() {
+        // Single-line compact XML: no indentation measured, defaults used
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"><nachrichtenkopf.g2g><identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht></nachrichtenkopf.g2g><xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang></xwas:vorgang.transportieren.2010>"#;
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted".into()),
+                }),
+                ..Default::default()
+            },
+        );
+        // Fallback 4-space indent used for g2g child
+        assert!(
+            result.contains("    <leser>"),
+            "fallback indentation should be 4 spaces for g2g child"
+        );
+        assert!(result.contains("<kennung>psw:inserted</kennung>"));
     }
 
     #[test]
@@ -1048,8 +1234,6 @@ mod tests {
 
     #[test]
     fn test_custom_namespace_prefix() {
-        // Uses "xw:" prefix — the namespace-aware NsReader resolves URI so
-        // matching works regardless of prefix
         let xml = sample_xml_custom_prefix();
         let result = transform_xml(
             &xml,
@@ -1065,10 +1249,8 @@ mod tests {
                 ..Default::default()
             },
         );
-        // leser (unqualified) works fine
         assert!(result.contains("<kennung>psw:custom</kennung>"));
         assert!(result.contains("<name>Custom</name>"));
-        // Authority replacement works because namespace resolves to XWAS_NS
         assert!(result.contains("xwas:kennung>auth-001"));
         assert!(result.contains("xwas:name>Updated via custom prefix"));
     }
