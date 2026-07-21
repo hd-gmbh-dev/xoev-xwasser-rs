@@ -1090,7 +1090,6 @@ mod tests {
                 ..Default::default()
             },
         );
-        eprintln!("DEBUG WITH_ZI:\n{}", with_zi);
 
         // Inject kommentar, wasserversorgungsgebietID, and a comment into the
         // zusatzinformationen block
