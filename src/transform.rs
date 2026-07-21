@@ -1184,6 +1184,25 @@ mod tests {
             parsed.zusatzinformationen.is_some(),
             "zusatzinfo must be present"
         );
+        // Verify output uses xw: prefix throughout (not xwas:)
+        assert!(
+            result.contains("xw:zusatzinformationen"),
+            "should use xw: prefix for zusatzinfo"
+        );
+        assert!(
+            result.contains("xw:zustaendigeBehoerde"),
+            "should use xw: prefix for zustaendigeBehoerde"
+        );
+        assert!(
+            !result.contains("xwas:zusatzinformationen"),
+            "output should NOT use xwas: prefix"
+        );
+        // Verify authority content values via XML text
+        assert!(
+            result.contains("xw:kennung>auth-001"),
+            "authority kennung value"
+        );
+        assert!(result.contains("xw:name>Updated"), "authority name value");
     }
 
     #[test]
