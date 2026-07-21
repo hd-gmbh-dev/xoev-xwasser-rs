@@ -1,7 +1,4 @@
-use serde::Deserialize;
-use wasm_bindgen::prelude::*;
 
-use crate::model::{
     administration::AdministrationQuittung0020, transport::VorgangTransportieren2010,
 };
 use crate::transform;
@@ -34,6 +31,24 @@ pub fn version() -> String {
 pub fn detect_version(xml: String) -> Result<String, JsValue> {
     Ok(crate::detect_version(&xml).to_string())
 }
+/// Custom TS type definition injected into .d.ts for the transform options.
+#[wasm_bindgen(typescript_custom_section)]
+const TS_TRANSFORM_OPTIONS: &'static str = r#"
+export interface TransformOptions {
+  leser?: { kennung?: string; name?: string };
+  autor?: { kennung?: string; name?: string };
+  zusatzinformationen?: Array<{ kennung?: string; name?: string }>;
+}
+"#;
+
+use serde::Deserialize;
+use wasm_bindgen::prelude::*;
+
+use crate::model::{
+    administration::AdministrationQuittung0020, transport::VorgangTransportieren2010,
+};
+use crate::transform;
+
 /// Helper struct to deserialize the options parameter.
 #[derive(Deserialize, Default)]
 struct TransformOptionsParam {
