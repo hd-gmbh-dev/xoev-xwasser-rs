@@ -148,34 +148,8 @@ function sampleXmlWithZi(): string {
 </xwas:vorgang.transportieren.2010>`;
 }
 
-function sampleXmlSignatureOnly(): string {
-  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
-  <nachrichtenkopf.g2g>
-    <identifikation.nachricht>
-      <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
-    </identifikation.nachricht>
-    <leser>
-      <verzeichnisdienst listVersionID="">
-        <code></code>
-      </verzeichnisdienst>
-      <kennung>psw:11113110</kennung>
-      <name>Reader</name>
-    </leser>
-    <autor>
-      <verzeichnisdienst listVersionID="">
-        <code></code>
-      </verzeichnisdienst>
-      <kennung>psw:01003110</kennung>
-      <name>Author</name>
-    </autor>
-  </nachrichtenkopf.g2g>
-  <xwas:vorgang>
-    <xwas:identifikationVorgang>
-      <xwas:vorgangsID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:vorgangsID>
-    </xwas:identifikationVorgang>
-  </xwas:vorgang>
-</xwas:vorgang.transportieren.2010>`;
+function sampleXmlNoopExpected(): string {
+  return sampleXml();
 }
 
 describe("transformXml via wasm", () => {
@@ -233,6 +207,12 @@ describe("transformXml via wasm", () => {
     expect(result).toContain("    <identifikation.nachricht>");
   });
 
+  it("no-op transform produces byte-identical output", () => {
+    const xml = sampleXml();
+    const result = transformXml(xml);
+    expect(result).toBe(xml);
+  });
+
   it("ds:Signature remains valid after no-op transform", () => {
     const result = transformXml(sampleXml());
     expect(result).toContain("ds:Signature");
@@ -240,5 +220,38 @@ describe("transformXml via wasm", () => {
     expect(result).toContain("ds:DigestValue");
     expect(result).toContain("ds:SignatureValue");
     expect(result).toContain("ds:X509Data");
+  });
+
+  it("inserts multiple authorities when zusatzinformationen missing", () => {
+    const result = transformXml(sampleXmlNoZi(), undefined, [
+      { kennung: "first", name: "First" },
+      { kennung: "second", name: "Second" },
+    ]);
+    expect(result).toContain("<xwas:kennung>first</xwas:kennung>");
+    expect(result).toContain("<xwas:kennung>second</xwas:kennung>");
+  });
+
+  it("replaces authority element (drops extra children)", () => {
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010>
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht><nachrichtenUUID>t</nachrichtenUUID></identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>t</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
+  <xwas:zusatzinformationen>
+    <xwas:zustaendigeBehoerde>
+      <xwas:kennung>auth-1</xwas:kennung>
+      <xwas:kommentar>should disappear</xwas:kommentar>
+      <xwas:name>Old</xwas:name>
+    </xwas:zustaendigeBehoerde>
+  </xwas:zusatzinformationen>
+</xwas:vorgang.transportieren.2010>`;
+    const result = transformXml(xml, undefined, [
+      { kennung: "auth-1", name: "Replaced" },
+    ]);
+    expect(result).toContain("<xwas:name>Replaced</xwas:name>");
+    expect(result).not.toContain("should disappear");
   });
 });

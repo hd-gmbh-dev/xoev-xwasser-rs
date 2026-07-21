@@ -3,6 +3,9 @@
 //! Mutates `<leser>` inside `nachrichtenkopf.g2g` and `<zustaendigeBehoerde>`
 //! elements inside `<zusatzinformationen>` in a single pass, preserving all
 //! comments, processing instructions, whitespace text nodes, and attribute order.
+//!
+//! A no-op transform (no reader, no authorities) produces output that is
+//! byte-identical to the input, keeping XML digital signatures valid.
 
 use raxb::quick_xml::events::{BytesEnd, BytesStart, BytesText, Event};
 use raxb::quick_xml::Reader;
@@ -37,7 +40,8 @@ pub fn transform_xml(
 ) -> String {
     let mut rdr = Reader::from_str(xml);
     rdr.config_mut().trim_text(false);
-    rdr.config_mut().expand_empty_elements = true;
+    // Keep expand_empty_elements = false (default) so that self-closing
+    // tags like <code/> stay as Empty events and are reproduced verbatim.
     rdr.config_mut().allow_unmatched_ends = true;
 
     let mut writer = Writer::new(Vec::<u8>::new());
@@ -125,10 +129,12 @@ struct TransformCfg<'a> {
 struct TransformState {
     depth: usize,
 
+    // Root element tracking
+    root_depth: usize,
+
     // nachrichtenkopf.g2g tracking
     nk_depth: usize,
     seen_leser: bool,
-    passed_identifikation_nachricht: bool,
     should_insert_leser: bool,
 
     // Buffering for leser mutation
@@ -143,8 +149,7 @@ struct TransformState {
     in_zb: bool,
     zb_buf: Vec<Event<'static>>,
 
-    // vorgang tracking
-    passed_vorgang: bool,
+    // vorgang tracking (for insert-after logic)
     vorgang_depth: usize,
 }
 
@@ -152,7 +157,6 @@ struct TransformState {
 // Event handlers
 // ---------------------------------------------------------------------------
 
-/// All Start events. If we are inside a buffered region, collect and return early.
 fn handle_start(
     state: &mut TransformState,
     cfg: &TransformCfg,
@@ -162,23 +166,23 @@ fn handle_start(
 ) {
     // General buffering for nested content inside leser / zustaendigeBehoerde
     if state.in_leser {
-        state
-            .leser_buf
-            .push(Event::Start(e.clone().into_owned()));
+        state.leser_buf.push(Event::Start(e.clone().into_owned()));
         return;
     }
     if state.in_zb {
-        state
-            .zb_buf
-            .push(Event::Start(e.clone().into_owned()));
+        state.zb_buf.push(Event::Start(e.clone().into_owned()));
         return;
+    }
+
+    // Track root element depth
+    if name == b"xwas:vorgang.transportieren.2010" && state.root_depth == 0 {
+        state.root_depth = state.depth;
     }
 
     // Track parent depth
     if name == b"nachrichtenkopf.g2g" {
         state.nk_depth = state.depth;
         state.seen_leser = false;
-        state.passed_identifikation_nachricht = false;
         state.should_insert_leser = false;
     }
     if name == b"xwas:zusatzinformationen" {
@@ -203,9 +207,7 @@ fn handle_start(
         if cfg.reader.is_some() {
             state.in_leser = true;
             state.leser_buf.clear();
-            state
-                .leser_buf
-                .push(Event::Start(e.clone().into_owned()));
+            state.leser_buf.push(Event::Start(e.clone().into_owned()));
             return;
         }
     }
@@ -214,16 +216,13 @@ fn handle_start(
     if state.zi_depth > 0 && name == b"xwas:zustaendigeBehoerde" && cfg.has_authority_updates {
         state.in_zb = true;
         state.zb_buf.clear();
-        state
-            .zb_buf
-            .push(Event::Start(e.clone().into_owned()));
+        state.zb_buf.push(Event::Start(e.clone().into_owned()));
         return;
     }
 
     write_event(writer, Event::Start(e.clone().into_owned()));
 }
 
-/// All End events. Early return if inside a buffered region.
 fn handle_end(
     state: &mut TransformState,
     cfg: &TransformCfg,
@@ -231,6 +230,12 @@ fn handle_end(
     name: &[u8],
     e: &BytesEnd<'_>,
 ) {
+    // Track identifikation.nachricht close -> schedule leser insertion after it
+    if state.nk_depth > 0 && name == b"identifikation.nachricht"
+        && cfg.reader.is_some() && !state.seen_leser {
+            state.should_insert_leser = true;
+        }
+
     // --- closing leser end ---
     if state.in_leser && name == b"leser" {
         state.in_leser = false;
@@ -238,6 +243,7 @@ fn handle_end(
             && !state.leser_buf.is_empty()
         {
             emit_mutated_reader(writer, &state.leser_buf, r);
+            write_event(writer, Event::End(BytesEnd::new("leser")));
             state.leser_buf.clear();
             return;
         }
@@ -253,36 +259,24 @@ fn handle_end(
         }
     }
 
-    // Track identifikation.nachricht close -> schedule leser insertion after it
-    if state.nk_depth > 0 && name == b"identifikation.nachricht" {
-        state.passed_identifikation_nachricht = true;
-        if cfg.reader.is_some() && !state.seen_leser {
-            state.should_insert_leser = true;
-        }
-    }
-
     // Buffer nested end events
     if state.in_leser {
-        state
-            .leser_buf
-            .push(Event::End(e.clone().into_owned()));
+        state.leser_buf.push(Event::End(e.clone().into_owned()));
         return;
     }
     if state.in_zb {
-        state
-            .zb_buf
-            .push(Event::End(e.clone().into_owned()));
+        state.zb_buf.push(Event::End(e.clone().into_owned()));
         return;
     }
 
-    // --- closing nachrichtenkopf.g2g (insert leser if still missing, no autor present) ---
+    // --- closing nachrichtenkopf.g2g (insert leser if still missing, no autor) ---
     if state.nk_depth > 0 && name == b"nachrichtenkopf.g2g" {
-        if let Some(r) = cfg.reader
-            && !state.seen_leser
-        {
-            insert_reader_element(writer, r);
+        if state.should_insert_leser {
+            if let Some(r) = cfg.reader {
+                insert_reader_element(writer, r);
+            }
+            state.should_insert_leser = false;
         }
-        state.should_insert_leser = false;
         state.nk_depth = 0;
     }
 
@@ -291,20 +285,20 @@ fn handle_end(
         state.zi_depth = 0;
     }
 
-    // --- closing vorgang (insert zusatzinformationen if missing) ---
-    if state.vorgang_depth > 0 && name == b"xwas:vorgang" && state.depth == state.vorgang_depth {
-        state.passed_vorgang = true;
-        state.vorgang_depth = 0;
-
+    // --- closing root (insert zusatzinformationen if still missing) ---
+    if state.root_depth > 0
+        && name == b"xwas:vorgang.transportieren.2010"
+        && state.depth == state.root_depth
+    {
         if !state.seen_zi && cfg.has_authority_updates {
             insert_zusatzinformationen_element(writer, cfg.authorities);
         }
+        state.root_depth = 0;
     }
 
     write_event(writer, Event::End(e.clone().into_owned()));
 }
 
-/// All Empty events. Early return if inside a buffered region.
 fn handle_empty(
     state: &mut TransformState,
     cfg: &TransformCfg,
@@ -313,22 +307,17 @@ fn handle_empty(
     e: &BytesStart<'_>,
 ) {
     if state.in_leser {
-        state
-            .leser_buf
-            .push(Event::Empty(e.clone().into_owned()));
+        state.leser_buf.push(Event::Empty(e.clone().into_owned()));
         return;
     }
     if state.in_zb {
-        state
-            .zb_buf
-            .push(Event::Empty(e.clone().into_owned()));
+        state.zb_buf.push(Event::Empty(e.clone().into_owned()));
         return;
     }
     let _ = cfg;
     write_event(writer, Event::Empty(e.clone().into_owned()));
 }
 
-/// Text / CData / Comment / PI events. Early return if inside a buffered region.
 fn handle_generic(state: &mut TransformState, writer: &mut Writer<Vec<u8>>, event: Event<'static>) {
     if state.in_leser {
         state.leser_buf.push(event);
@@ -411,7 +400,7 @@ fn emit_mutated_reader<W: std::io::Write>(
                 write_event(writer, Event::End(e.clone()));
             }
             Event::Text(_) => {
-                // Skip original text for kennung/name (already written replacement)
+                // Skip original text for kennung/name if we already wrote replacement
                 if inside_kennung && has_kennung_update {
                     continue;
                 }
@@ -445,7 +434,7 @@ fn emit_mutated_authority<W: std::io::Write>(
         if let Some(Event::Start(first)) = buffered.first() {
             write_event(writer, Event::Start(first.clone()));
         }
-        // Write updated content
+        // Write updated content: kennung and name only
         write_text_bytes(writer, b"\n");
         write_text_bytes(writer, b"        ");
         write_event(writer, Event::Start(BytesStart::new("xwas:kennung")));
@@ -526,7 +515,8 @@ fn insert_reader_element<W: std::io::Write>(writer: &mut Writer<W>, update: &Rea
 }
 
 // ---------------------------------------------------------------------------
-// Insert a new <xwas:zusatzinformationen> after <xwas:vorgang>
+// Insert a new <xwas:zusatzinformationen> at the end of the root element
+// (before </xwas:vorgang.transportieren.2010>)
 // ---------------------------------------------------------------------------
 
 fn insert_zusatzinformationen_element<W: std::io::Write>(
@@ -741,6 +731,90 @@ mod tests {
         .to_string()
     }
 
+    fn sample_xml_with_zi_extra_children() -> String {
+        r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
+    </identifikation.nachricht>
+    <leser>
+      <verzeichnisdienst listVersionID="">
+        <code></code>
+      </verzeichnisdienst>
+      <kennung>psw:11113110</kennung>
+      <name>Reader</name>
+    </leser>
+    <autor>
+      <verzeichnisdienst listVersionID="">
+        <code></code>
+      </verzeichnisdienst>
+      <kennung>psw:01003110</kennung>
+      <name>Author</name>
+    </autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+  <xwas:zusatzinformationen>
+    <xwas:zustaendigeBehoerde>
+      <xwas:kennung>auth-with-extra</xwas:kennung>
+      <xwas:name>With Extras</xwas:name>
+      <xwas:kommentar>some comment</xwas:kommentar>
+    </xwas:zustaendigeBehoerde>
+  </xwas:zusatzinformationen>
+</xwas:vorgang.transportieren.2010>"#
+        .to_string()
+    }
+
+    fn sample_xml_with_zi_self_closing_name() -> String {
+        r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
+    </identifikation.nachricht>
+    <leser>
+      <verzeichnisdienst listVersionID="">
+        <code></code>
+      </verzeichnisdienst>
+      <kennung>psw:11113110</kennung>
+      <name>Reader</name>
+    </leser>
+    <autor>
+      <verzeichnisdienst listVersionID="">
+        <code></code>
+      </verzeichnisdienst>
+      <kennung>psw:01003110</kennung>
+      <name>Author</name>
+    </autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+  <xwas:zusatzinformationen>
+    <xwas:zustaendigeBehoerde>
+      <xwas:kennung>auth-selfclose</xwas:kennung>
+      <xwas:name/>
+    </xwas:zustaendigeBehoerde>
+  </xwas:zusatzinformationen>
+</xwas:vorgang.transportieren.2010>"#
+        .to_string()
+    }
+
+    // ---- tests ----
+
+    #[test]
+    fn test_noop_is_byte_identical() {
+        let xml = sample_xml();
+        let result = transform_xml(&xml, None, &[]);
+        assert_eq!(result, xml, "no-op transform must produce byte-identical output");
+    }
+
     #[test]
     fn test_transform_reader_mutation() {
         let xml = sample_xml();
@@ -766,6 +840,9 @@ mod tests {
             "autor kennung missing"
         );
         assert!(result.contains("<name>Author</name>"), "autor name missing");
+
+        // Content assertions (schema model round-trip tested separately
+        // with full-quality XML documents)
     }
 
     #[test]
@@ -785,6 +862,75 @@ mod tests {
             result.contains("<xwas:name>Updated Authority</xwas:name>"),
             "auth name not updated"
         );
+
+    }
+
+    #[test]
+    fn test_transform_authorities_mutation_extra_children() {
+        let xml = sample_xml_with_zi_extra_children();
+        let result = transform_xml(
+            &xml,
+            None,
+            &[AuthorityUpdate {
+                kennung: Some("auth-with-extra".into()),
+                name: Some("Replaced".into()),
+            }],
+        );
+
+        assert!(result.contains("<xwas:kennung>auth-with-extra</xwas:kennung>"));
+        assert!(result.contains("<xwas:name>Replaced</xwas:name>"));
+        // Extra children should NOT survive — element is replaced entirely
+        assert!(!result.contains("some comment"), "extra children must be dropped on replacement");
+    }
+
+    #[test]
+    fn test_transform_authorities_mutation_self_closing_name() {
+        let xml = sample_xml_with_zi_self_closing_name();
+        let result = transform_xml(
+            &xml,
+            None,
+            &[AuthorityUpdate {
+                kennung: Some("auth-selfclose".into()),
+                name: Some("Now Has Name".into()),
+            }],
+        );
+
+        assert!(result.contains("<xwas:kennung>auth-selfclose</xwas:kennung>"));
+        assert!(result.contains("<xwas:name>Now Has Name</xwas:name>"));
+    }
+
+    #[test]
+    fn test_transform_no_authorities_noop() {
+        let xml = sample_xml_with_zi();
+        let result = transform_xml(&xml, None, &[]);
+        assert!(result.contains("<xwas:kennung>auth-001</xwas:kennung>"));
+        assert!(result.contains("<xwas:name>Existing Authority</xwas:name>"));
+    }
+
+    #[test]
+    fn test_transform_multiple_authorities() {
+        let xml = sample_xml_with_zi();
+        let result = transform_xml(
+            &xml,
+            None,
+            &[
+                AuthorityUpdate {
+                    kennung: Some("auth-001".into()),
+                    name: Some("Updated First".into()),
+                },
+                AuthorityUpdate {
+                    kennung: Some("auth-002".into()),
+                    name: Some("Second New".into()),
+                },
+            ],
+        );
+
+        // auth-001 should be updated in-place
+        assert!(result.contains("<xwas:kennung>auth-001</xwas:kennung>"));
+        assert!(result.contains("<xwas:name>Updated First</xwas:name>"));
+        // auth-002 has no match in existing zusatzinformationen,
+        // so it should NOT appear (no insertion when ZI already exists)
+        assert!(!result.contains("auth-002"), "unmatched authority should not appear when ZI exists");
     }
 
     #[test]
@@ -811,6 +957,8 @@ mod tests {
         let leser_pos = result.find("<kennung>psw:inserted</kennung>").unwrap();
         let autor_pos = result.find("<kennung>psw:01003110</kennung>").unwrap();
         assert!(leser_pos < autor_pos, "leser must come before autor");
+
+
     }
 
     #[test]
@@ -831,6 +979,33 @@ mod tests {
             result.contains("<xwas:name>New Authority</xwas:name>"),
             "auth name missing"
         );
+
+    }
+
+    #[test]
+    fn test_transform_insert_zusatzinformationen_multiple() {
+        let xml = sample_xml_no_zi();
+        let result = transform_xml(
+            &xml,
+            None,
+            &[
+                AuthorityUpdate {
+                    kennung: Some("first-auth".into()),
+                    name: Some("First Authority".into()),
+                },
+                AuthorityUpdate {
+                    kennung: Some("second-auth".into()),
+                    name: Some("Second Authority".into()),
+                },
+            ],
+        );
+
+        assert!(result.contains("xwas:zusatzinformationen"), "zusatzinformationen missing");
+        assert!(result.contains("<xwas:kennung>first-auth</xwas:kennung>"));
+        assert!(result.contains("<xwas:kennung>second-auth</xwas:kennung>"));
+        assert!(result.contains("<xwas:name>First Authority</xwas:name>"));
+        assert!(result.contains("<xwas:name>Second Authority</xwas:name>"));
+
     }
 
     #[test]
@@ -848,6 +1023,50 @@ mod tests {
 
         assert!(result.contains("  <nachrichtenkopf.g2g>"));
         assert!(result.contains("    <identifikation.nachricht>"));
+    }
+
+    #[test]
+    fn test_transform_raxb_roundtrip_quality_report() {
+        // Load a full quality report XML that raxb can parse
+        let path = std::env::current_dir()
+            .unwrap()
+            .join("tests/quality_report_minimal.xml");
+        let xml = std::fs::read_to_string(path).unwrap();
+
+        // Mutate reader
+        let result = transform_xml(
+            &xml,
+            Some(&ReaderUpdate {
+                kennung: Some("psw:mutated".into()),
+                name: Some("Mutated Reader".into()),
+            }),
+            &[],
+        );
+
+        // raxb must be able to parse the result
+        let parsed: Result<crate::model::transport::VorgangTransportieren2010, _> =
+            raxb::de::from_str(&result);
+        assert!(
+            parsed.is_ok(),
+            "raxb round-trip failed: {:?}",
+            parsed.err()
+        );
+        let parsed = parsed.unwrap();
+        assert_eq!(
+            parsed.nachrichtenkopf_g2g.leser.kennung, "psw:mutated",
+            "leser kennung should be updated"
+        );
+        assert_eq!(
+            parsed.nachrichtenkopf_g2g.leser.name, "Mutated Reader",
+            "leser name should be updated"
+        );
+        // autor unchanged
+        assert_eq!(
+            parsed.nachrichtenkopf_g2g.autor.kennung, "psw:01003110",
+            "autor kennung should stay unchanged"
+        );
+        // No authorities provided — should still parse
+        assert!(parsed.zusatzinformationen.is_none());
     }
 
     #[test]
