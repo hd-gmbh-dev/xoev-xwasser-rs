@@ -587,10 +587,13 @@ fn write_zusatzinfo_content<W: std::io::Write>(
 
     // Insert new zustaendigeBehoerdeID entries at the end (before the closing tag)
     let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
+    // root_child_indent includes leading newline (e.g. "\n  "), so
+    // nested_indent gives "\n    " for 2-space XML. We use it directly
+    // as the text before each ID and the closing tag.
     let id_indent = state.nested_indent(state.root_child_indent(), 1);
-    let close_indent = state.nested_indent(state.root_child_indent(), 1);
-    let id_text = format!("\n{}", String::from_utf8_lossy(&id_indent));
-    let close_text = format!("\n{}", String::from_utf8_lossy(&close_indent));
+    let close_indent = state.root_child_indent();
+    let id_text = String::from_utf8_lossy(&id_indent).to_string();
+    let close_text = String::from_utf8_lossy(close_indent).to_string();
     if let Some(entries) = updates {
         for id in entries {
             additional_events.push(Event::Text(BytesText::new(&id_text)));
@@ -651,16 +654,17 @@ fn write_zusatzinfo_content<W: std::io::Write>(
         }
     }
 
-    // Flush any remaining buffered text
-    text_buffer.reverse();
-    while let Some(e) = text_buffer.pop() {
-        events.push(e);
-    }
+    // Flush any remaining buffered text (but clear it to avoid double newlines,
+    // since close_text already provides the correct indent)
+    text_buffer.clear();
 
     events.push(Event::Text(BytesText::new(&close_text)));
     events.push(Event::End(BytesEnd::new(
         std::str::from_utf8(&zi_end_name).unwrap_or("zusatzinformationen"),
     )));
+    // Write indent before the start tag
+    let zi_indent = state.root_child_indent();
+    write_text_bytes(writer, zi_indent);
     for ev in events {
         write_event(writer, ev);
     }
@@ -811,19 +815,18 @@ fn insert_zusatzinformationen_element<W: std::io::Write>(
     let zi = qn_str(prefix, "zusatzinformationen");
     let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
 
-    write_text_bytes(writer, b"\n");
+    // indent includes leading newline (e.g. "\n  "), so we use it directly
     write_text_bytes(writer, indent);
     write_event(writer, Event::Start(BytesStart::new(&zi)));
 
     for id in &non_empty {
-        write_text_bytes(writer, b"\n");
+        // sub includes leading newline (e.g. "\n    ")
         write_text_bytes(writer, &sub);
         write_event(writer, Event::Start(BytesStart::new(&zbid)));
         write_text_bytes(writer, id.as_bytes());
         write_event(writer, Event::End(BytesEnd::new(&zbid)));
     }
 
-    write_text_bytes(writer, b"\n");
     write_text_bytes(writer, indent);
     write_event(writer, Event::End(BytesEnd::new(&zi)));
 }
@@ -950,6 +953,20 @@ mod tests {
 
     fn load_quality_report() -> &'static str {
         include_str!("../tests/quality_report_minimal.xml")
+    }
+
+    fn extract_zusatzinfo_block(xml: &str) -> String {
+        // Find the start of the line containing <xwas:zusatzinformationen>
+        let tag = "<xwas:zusatzinformationen>";
+        let tag_pos = xml.find(tag);
+        let end = xml.find("</xwas:zusatzinformationen>");
+        if let (Some(tp), Some(e)) = (tag_pos, end) {
+            // Find the start of the line (leading whitespace)
+            let line_start = xml[..tp].rfind('\n').map(|p| p + 1).unwrap_or(0);
+            xml[line_start..e + "</xwas:zusatzinformationen>".len()].to_string()
+        } else {
+            "<not found>".to_string()
+        }
     }
 
     fn assert_raxb_roundtrip(xml: &str) -> crate::model::transport::VorgangTransportieren2010 {
@@ -1146,8 +1163,8 @@ mod tests {
         // Inject kommentar, wasserversorgungsgebietID, and a comment into the
         // zusatzinformationen block
         let with_extra = with_zi.replace(
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n\n  </xwas:zusatzinformationen>",
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>some comment</xwas:kommentar>\n    <!-- important comment -->\n\n  </xwas:zusatzinformationen>",
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n  </xwas:zusatzinformationen>",
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>some comment</xwas:kommentar>\n    <!-- important comment -->\n  </xwas:zusatzinformationen>",
         );
 
         // Verify the injection worked
@@ -1883,8 +1900,8 @@ mod tests {
 
         // Inject all possible fields
         let with_all_fields = with_zi.replace(
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n\n  </xwas:zusatzinformationen>",
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>test comment</xwas:kommentar>\n    <!-- test comment -->\n\n  </xwas:zusatzinformationen>",
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n  </xwas:zusatzinformationen>",
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>test comment</xwas:kommentar>\n    <!-- test comment -->\n  </xwas:zusatzinformationen>",
         );
 
         // Replace the IDs
@@ -1924,8 +1941,8 @@ mod tests {
         );
 
         let with_all = with_zi.replace(
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n\n  </xwas:zusatzinformationen>",
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>comment1</xwas:kommentar>\n    <!-- c1 -->\n\n  </xwas:zusatzinformationen>",
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n  </xwas:zusatzinformationen>",
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>comment1</xwas:kommentar>\n    <!-- c1 -->\n  </xwas:zusatzinformationen>",
         );
 
         let result = transform_xml(
@@ -1969,8 +1986,8 @@ mod tests {
         );
 
         let with_comments = with_zi.replace(
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n\n  </xwas:zusatzinformationen>",
-            "<!-- before -->\n    <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <!-- between -->\n    <xwas:wasserversorgungsgebietID>wv</xwas:wasserversorgungsgebietID>\n    <!-- after -->\n\n  </xwas:zusatzinformationen>",
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n  </xwas:zusatzinformationen>",
+            "<!-- before -->\n    <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <!-- between -->\n    <xwas:wasserversorgungsgebietID>wv</xwas:wasserversorgungsgebietID>\n    <!-- after -->\n  </xwas:zusatzinformationen>",
         );
 
         let result = transform_xml(
@@ -1992,7 +2009,7 @@ mod tests {
     fn test_zusatzinfo_insertion_indentation_2space() {
         // Verify exact indentation when inserting zusatzinformationen
         // into a 2-space-indented XML document
-        // Indent unit is 2, so: root child = 2, zusatzinfo children = 4, IDs = 6
+        // Indent unit is 2, so: root child = 2, zusatzinfo children = 4
         let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
 <xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
   <nachrichtenkopf.g2g>
@@ -2017,20 +2034,12 @@ mod tests {
             },
         );
 
-        // Verify exact indentation:
-        // - <xwas:zusatzinformationen> at 2-space indent (root child)
-        // - <xwas:zustaendigeBehoerdeID> at 4-space indent (root child + 1 level)
-        assert!(
-            result.contains("  <xwas:zusatzinformationen>"),
-            "zusatzinfo should be at 2-space indent"
-        );
-        assert!(
-            result.contains("    <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
-            "authority ID should be at 4-space indent"
-        );
-        assert!(
-            result.contains("  </xwas:zusatzinformationen>"),
-            "closing zusatzinfo should be at 2-space indent"
+        // Assert the entire produced zusatzinformationen block
+        let expected_block = "  <xwas:zusatzinformationen>\n    <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n  </xwas:zusatzinformationen>";
+        let actual_block = extract_zusatzinfo_block(&result);
+        assert_eq!(
+            actual_block, expected_block,
+            "zusatzinfo block should match expected indentation"
         );
     }
 
@@ -2038,7 +2047,7 @@ mod tests {
     fn test_zusatzinfo_insertion_indentation_4space() {
         // Verify exact indentation when inserting zusatzinformationen
         // into a 4-space-indented XML document
-        // Indent unit is 4, so: root child = 4, zusatzinfo children = 8, IDs = 12
+        // Indent unit is 4, so: root child = 4, zusatzinfo children = 8
         let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
 <xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
     <nachrichtenkopf.g2g>
@@ -2063,20 +2072,12 @@ mod tests {
             },
         );
 
-        // Verify exact indentation:
-        // - <xwas:zusatzinformationen> at 4-space indent (root child)
-        // - <xwas:zustaendigeBehoerdeID> at 8-space indent (root child + 1 level)
-        assert!(
-            result.contains("    <xwas:zusatzinformationen>"),
-            "zusatzinfo should be at 4-space indent"
-        );
-        assert!(
-            result.contains("        <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
-            "authority ID should be at 8-space indent"
-        );
-        assert!(
-            result.contains("    </xwas:zusatzinformationen>"),
-            "closing zusatzinfo should be at 4-space indent"
+        // Assert the entire produced zusatzinformationen block
+        let expected_block = "    <xwas:zusatzinformationen>\n        <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    </xwas:zusatzinformationen>";
+        let actual_block = extract_zusatzinfo_block(&result);
+        assert_eq!(
+            actual_block, expected_block,
+            "zusatzinfo block should match expected indentation"
         );
     }
 
@@ -2084,7 +2085,7 @@ mod tests {
     fn test_zusatzinfo_insertion_indentation_8space() {
         // Verify exact indentation when inserting zusatzinformationen
         // into an 8-space-indented XML document
-        // Indent unit is 8, so: root child = 8, zusatzinfo children = 16, IDs = 24
+        // Indent unit is 8, so: root child = 8, zusatzinfo children = 16
         let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
 <xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
         <nachrichtenkopf.g2g>
@@ -2109,20 +2110,12 @@ mod tests {
             },
         );
 
-        // Verify exact indentation:
-        // - <xwas:zusatzinformationen> at 8-space indent (root child)
-        // - <xwas:zustaendigeBehoerdeID> at 16-space indent (root child + 1 level)
-        assert!(
-            result.contains("        <xwas:zusatzinformationen>"),
-            "zusatzinfo should be at 8-space indent"
-        );
-        assert!(
-            result.contains("                <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
-            "authority ID should be at 16-space indent"
-        );
-        assert!(
-            result.contains("        </xwas:zusatzinformationen>"),
-            "closing zusatzinfo should be at 8-space indent"
+        // Assert the entire produced zusatzinformationen block
+        let expected_block = "        <xwas:zusatzinformationen>\n                <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n        </xwas:zusatzinformationen>";
+        let actual_block = extract_zusatzinfo_block(&result);
+        assert_eq!(
+            actual_block, expected_block,
+            "zusatzinfo block should match expected indentation"
         );
     }
 
@@ -2159,22 +2152,16 @@ mod tests {
             },
         );
 
-        // Verify exact indentation after replacement:
-        // - New ID at 4-space indent (root child + 1 level)
-        // - Preserved wasserversorgungsgebietID at 4-space indent
-        // - Preserved kommentar at 4-space indent
-        assert!(
-            result.contains("    <xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>"),
-            "new ID should be at 4-space indent"
-        );
-        assert!(
-            result.contains("    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>"),
-            "preserved wasserversorgungsgebietID should be at 4-space indent"
-        );
-        assert!(
-            result.contains("    <xwas:kommentar>old comment</xwas:kommentar>"),
-            "preserved kommentar should be at 4-space indent"
+        // Assert the entire produced zusatzinformationen block
+        let expected_block = "  <xwas:zusatzinformationen>\n    <xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>old comment</xwas:kommentar>\n  </xwas:zusatzinformationen>";
+        let actual_block = extract_zusatzinfo_block(&result);
+        assert_eq!(
+            actual_block, expected_block,
+            "zusatzinfo block should match expected indentation"
         );
         assert!(!result.contains("old-id"));
+        // Print the zusatzinfo block for debugging
+        let block = extract_zusatzinfo_block(&result);
+        eprintln!("EXTRACTED BLOCK:\n{:?}", block);
     }
 }
