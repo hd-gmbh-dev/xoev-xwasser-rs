@@ -43,6 +43,10 @@ pub struct TransformOptions<'a> {
     /// - `Some(&["id1", "id2"])`: replace full content with given
     ///   `<zustaendigeBehoerdeID>` entries.
     pub zusatzinformationen: Option<&'a [String]>,
+    /// Optional update for the `<nachrichtenUUID>` element.
+    /// - `None`: no change / do not insert if missing.
+    /// - `Some(uuid)`: replace existing or insert if missing.
+    pub nachrichten_uuid: Option<&'a str>,
 }
 
 /// Update parameters for an element inside `nachrichtenkopf.g2g`
@@ -75,11 +79,12 @@ pub fn transform_xml_with_ids(
             leser: leser.cloned(),
             autor: autor.cloned(),
             zusatzinformationen: zusatzinfo_ids,
+            nachrichten_uuid: None,
         },
     )
 }
 
-fn transform_xml_impl(xml: &str, options: &TransformOptions) -> String {
+pub fn transform_xml_impl(xml: &str, options: &TransformOptions) -> String {
     let mut rdr = NsReader::from_str(xml);
     rdr.config_mut().trim_text(false);
     rdr.config_mut().allow_unmatched_ends = true;
@@ -132,22 +137,22 @@ fn transform_xml_impl(xml: &str, options: &TransformOptions) -> String {
 
             Ok((_ns, Event::Text(e))) => {
                 let owned = Event::Text(e.clone().into_owned());
-                handle_generic(&mut state, &mut writer, owned);
+                handle_generic(&mut state, &mut writer, owned, options);
             }
 
             Ok((_ns, Event::CData(e))) => {
                 let owned = Event::CData(e.clone().into_owned());
-                handle_generic(&mut state, &mut writer, owned);
+                handle_generic(&mut state, &mut writer, owned, options);
             }
 
             Ok((_ns, Event::Comment(e))) => {
                 let owned = Event::Comment(e.clone().into_owned());
-                handle_generic(&mut state, &mut writer, owned);
+                handle_generic(&mut state, &mut writer, owned, options);
             }
 
             Ok((_ns, Event::PI(e))) => {
                 let owned = Event::PI(e.clone().into_owned());
-                handle_generic(&mut state, &mut writer, owned);
+                handle_generic(&mut state, &mut writer, owned, options);
             }
 
             Ok((_ns, Event::Decl(e))) => {
@@ -198,6 +203,9 @@ struct TransformState {
     seen_autor: bool,
     should_insert_leser: bool,
     should_insert_autor: bool,
+    seen_nachrichten_uuid: bool,
+    in_nachrichten_uuid: bool,
+    nachrichten_uuid_buf: Vec<Event<'static>>,
 
     // Buffering for g2g element (leser/author) mutation
     in_g2g_element: bool,
@@ -304,6 +312,17 @@ fn handle_start(
         return;
     }
 
+    // Track nachrichtenUUID element for replacement/insertion
+    if state.nk_depth > 0 && lok == b"nachrichtenUUID" && options.nachrichten_uuid.is_some() {
+        state.in_nachrichten_uuid = true;
+        state.nachrichten_uuid_buf.clear();
+    }
+
+    if state.in_nachrichten_uuid {
+        state.nachrichten_uuid_buf.push(Event::Start(e.clone().into_owned()));
+        return;
+    }
+
     if lok == b"vorgang.transportieren.2010" && state.root_depth == 0 {
         state.root_depth = state.depth;
         state.root_child_indent.clear();
@@ -397,6 +416,24 @@ fn handle_end(
         }
     }
 
+    // Handle nachrichtenUUID end: replace text content if update is provided
+    if state.in_nachrichten_uuid && lok == b"nachrichtenUUID" {
+        state.in_nachrichten_uuid = false;
+        state.seen_nachrichten_uuid = true;
+        if let Some(uuid) = options.nachrichten_uuid {
+            // Re-emit the start tag with new text content
+            for ev in &state.nachrichten_uuid_buf {
+                if let Event::Start(s) = ev {
+                    write_event(writer, Event::Start(s.clone()));
+                }
+            }
+            write_event(writer, Event::Text(BytesText::new(uuid)));
+            write_event(writer, Event::End(BytesEnd::new("nachrichtenUUID")));
+            state.nachrichten_uuid_buf.clear();
+            return;
+        }
+    }
+
     if state.in_zi && lok == b"zusatzinformationen" {
         state.in_zi = false;
         if !state.zi_buf.is_empty() {
@@ -417,6 +454,19 @@ fn handle_end(
     }
     if state.nk_depth > 0 && lok == b"leser" && has_autor && !state.seen_autor {
         state.should_insert_autor = true;
+    }
+    // Insert nachrichtenUUID if missing and update is provided
+    if state.nk_depth > 0
+        && lok == b"identifikation.nachricht"
+        && !state.seen_nachrichten_uuid
+        && let Some(uuid) = options.nachrichten_uuid
+    {
+        let indent = state.nested_indent(&state.nk_child_indent, 1);
+        write_text_bytes(writer, &indent);
+        write_event(writer, Event::Start(BytesStart::new("nachrichtenUUID")));
+        write_text_bytes(writer, uuid.as_bytes());
+        write_event(writer, Event::End(BytesEnd::new("nachrichtenUUID")));
+        state.seen_nachrichten_uuid = true;
     }
 
     if state.in_g2g_element {
@@ -482,13 +532,23 @@ fn handle_empty(state: &mut TransformState, writer: &mut Writer<Vec<u8>>, e: &By
     write_event(writer, Event::Empty(e.clone().into_owned()));
 }
 
-fn handle_generic(state: &mut TransformState, writer: &mut Writer<Vec<u8>>, event: Event<'static>) {
+fn handle_generic(
+    state: &mut TransformState,
+    writer: &mut Writer<Vec<u8>>,
+    event: Event<'static>,
+    options: &TransformOptions,
+) {
     if state.in_g2g_element {
         state.g2g_buf.push(event);
         return;
     }
     if state.in_zi {
         state.zi_buf.push(event);
+        return;
+    }
+
+    // Skip text content inside nachrichtenUUID (we'll re-emit with new value)
+    if state.in_nachrichten_uuid && options.nachrichten_uuid.is_some() && matches!(event, Event::Text(_)) {
         return;
     }
 
@@ -2689,5 +2749,94 @@ mod tests {
             "nachrichtenkopf.g2g should be preserved exactly"
         );
         assert!(!result.contains("old-id"));
+    }
+
+    #[test]
+    fn test_nachrichten_uuid_replacement() {
+        // Verify that nachrichtenUUID is replaced when option is provided
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>old-uuid</nachrichtenUUID>
+    </identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                nachrichten_uuid: Some("new-uuid"),
+                ..Default::default()
+            },
+        );
+
+        assert!(result.contains("<nachrichtenUUID>new-uuid</nachrichtenUUID>"));
+        assert!(!result.contains("old-uuid"));
+    }
+
+    #[test]
+    fn test_nachrichten_uuid_insertion() {
+        // Verify that nachrichtenUUID is inserted when missing
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+    </identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                nachrichten_uuid: Some("inserted-uuid"),
+                ..Default::default()
+            },
+        );
+
+        assert!(result.contains("<nachrichtenUUID>inserted-uuid</nachrichtenUUID>"));
+    }
+
+    #[test]
+    fn test_nachrichten_uuid_preserved_when_not_set() {
+        // Verify that nachrichtenUUID is preserved when option is not set
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>preserved-uuid</nachrichtenUUID>
+    </identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                ..Default::default()
+            },
+        );
+
+        assert!(result.contains("<nachrichtenUUID>preserved-uuid</nachrichtenUUID>"));
     }
 }

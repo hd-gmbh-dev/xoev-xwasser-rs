@@ -62,6 +62,8 @@ pub struct TransformOptionsParam {
     #[tsify(optional)]
     #[serde(rename = "zusatzinformationen")]
     pub authorities: Option<Vec<String>>,
+    #[tsify(optional)]
+    pub nachrichten_uuid: Option<String>,
 }
 
 #[derive(Deserialize, Default, Tsify)]
@@ -103,19 +105,17 @@ pub fn transform_xml(xml: String, opts: Option<TransformOptionsParam>) -> String
         .as_ref()
         .map(|v| !v.is_empty())
         .unwrap_or(false);
-    if has_ids {
-        let ids = opts.authorities.unwrap();
-        transform::transform_xml_with_ids(&xml, leser.as_ref(), autor.as_ref(), Some(&ids))
-    } else {
-        transform::transform_xml(
-            &xml,
-            &transform::TransformOptions {
-                leser,
-                autor,
-                zusatzinformationen: None,
-            },
-        )
-    }
+    let opts_struct = transform::TransformOptions {
+        leser,
+        autor,
+        zusatzinformationen: if has_ids {
+            Some(&opts.authorities.unwrap())
+        } else {
+            None
+        },
+        nachrichten_uuid: opts.nachrichten_uuid.as_deref(),
+    };
+    transform::transform_xml_impl(&xml, &opts_struct)
 }
 
 #[wasm_bindgen]
