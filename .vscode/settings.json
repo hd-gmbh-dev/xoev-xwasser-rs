@@ -1,6 +1,7 @@
 {
-    "rust-analyzer.runnables.extraEnv": {
-        "RUST_LOG":"debug"
-    },
-    "liveServer.settings.port": 5501,
+  "rust-analyzer.cargo.features": ["wasm"],
+  "rust-analyzer.runnables.extraEnv": {
+    "RUST_LOG": "debug"
+  },
+  "liveServer.settings.port": 5501
 }

@@ -1,4 +1,5 @@
 use serde::Deserialize;
+use tsify::Tsify;
 use wasm_bindgen::prelude::*;
 
 use crate::model::{
@@ -34,35 +35,37 @@ pub fn version() -> String {
 pub fn detect_version(xml: String) -> Result<String, JsValue> {
     Ok(crate::detect_version(&xml).to_string())
 }
-/// Custom TS type definitions injected into .d.ts.
-#[wasm_bindgen(typescript_custom_section)]
-const TS_TRANSFORM_OPTIONS: &'static str = r#"
-export interface TransformOptions {
-  leser?: { kennung?: string; name?: string };
-  autor?: { kennung?: string; name?: string };
-  zusatzinformationen?: Array<string>;
-}
 
-export function transformXml(xml: string, options?: TransformOptions): string;
-"#;
+// /// Custom TS type definitions injected into .d.ts.
+// #[wasm_bindgen(typescript_custom_section)]
+// const TS_TRANSFORM_OPTIONS: &'static str = r#"
+// export interface TransformOptions {
+//   leser?: { kennung?: string; name?: string };
+//   autor?: { kennung?: string; name?: string };
+//   zusatzinformationen?: Array<string>;
+// }
+
+// export function transform_xml(xml: string, options?: TransformOptions): string;
+// "#;
 
 /// Custom deserializer for `zusatzinformationen`: accepts an array of
 /// `<zustaendigeBehoerdeID>` strings.
 
-
 /// Helper struct to deserialize the options parameter.
-#[derive(Deserialize, Default)]
-struct TransformOptionsParam {
-    leser: Option<ElementParam>,
-    autor: Option<ElementParam>,
+#[derive(Deserialize, Default, Tsify)]
+#[tsify(from_wasm_abi)]
+pub struct TransformOptionsParam {
+    pub leser: Option<ElementParam>,
+    pub autor: Option<ElementParam>,
     #[serde(rename = "zusatzinformationen")]
-    authorities: Option<Vec<String>>,
+    pub authorities: Option<Vec<String>>,
 }
 
-#[derive(Deserialize, Default)]
-struct ElementParam {
-    kennung: Option<String>,
-    name: Option<String>,
+#[derive(Deserialize, Default, Tsify)]
+#[tsify(from_wasm_abi)]
+pub struct ElementParam {
+    pub kennung: Option<String>,
+    pub name: Option<String>,
 }
 
 /// Transforms an XML string by mutating `<leser>`, `<autor>`, and/or
@@ -71,24 +74,15 @@ struct ElementParam {
 ///
 /// Accepts a plain JS options object:
 /// ```ts
-/// transformXml(xml, {
+/// transform_xml(xml, {
 ///   leser?: { kennung?: string, name?: string },
 ///   autor?: { kennung?: string, name?: string },
 ///   zusatzinformationen?: Array<string>,
 /// })
 /// ```
-#[wasm_bindgen(js_name = transformXml)]
-pub fn transform_xml(xml: String, options: Option<JsValue>) -> String {
-    let opts: TransformOptionsParam = options
-        .and_then(|v| {
-            if v.is_null() || v.is_undefined() {
-                None
-            } else {
-                serde_wasm_bindgen::from_value(v).ok()
-            }
-        })
-        .unwrap_or_default();
-
+#[wasm_bindgen]
+pub fn transform_xml(xml: String, opts: Option<TransformOptionsParam>) -> String {
+    let opts = opts.unwrap_or_default();
     let leser = opts.leser.as_ref().map(|p| transform::ElementUpdate {
         kennung: p.kennung.clone(),
         name: p.name.clone(),
@@ -99,12 +93,23 @@ pub fn transform_xml(xml: String, options: Option<JsValue>) -> String {
     });
 
     // Only call with_ids when there are actual IDs; empty array means replace w/ empty block
-    let has_ids = opts.authorities.as_ref().map(|v| !v.is_empty()).unwrap_or(false);
+    let has_ids = opts
+        .authorities
+        .as_ref()
+        .map(|v| !v.is_empty())
+        .unwrap_or(false);
     if has_ids {
         let ids = opts.authorities.unwrap();
         transform::transform_xml_with_ids(&xml, leser.as_ref(), autor.as_ref(), Some(&ids))
     } else {
-        transform::transform_xml(&xml, &transform::TransformOptions { leser, autor, zusatzinformationen: None })
+        transform::transform_xml(
+            &xml,
+            &transform::TransformOptions {
+                leser,
+                autor,
+                zusatzinformationen: None,
+            },
+        )
     }
 }
 

@@ -85,7 +85,6 @@ fn transform_xml_impl(xml: &str, options: &TransformOptions) -> String {
     rdr.config_mut().allow_unmatched_ends = true;
 
     let mut writer = Writer::new(Vec::<u8>::new());
-
     let has_zusatzinfo_updates = options.zusatzinformationen.is_some();
     let has_leser = options.leser.is_some();
     let has_autor = options.autor.is_some();
@@ -445,11 +444,7 @@ fn handle_end(
     write_event(writer, Event::End(e.clone().into_owned()));
 }
 
-fn handle_empty(
-    state: &mut TransformState,
-    writer: &mut Writer<Vec<u8>>,
-    e: &BytesStart<'_>,
-) {
+fn handle_empty(state: &mut TransformState, writer: &mut Writer<Vec<u8>>, e: &BytesStart<'_>) {
     if state.in_g2g_element {
         state.g2g_buf.push(Event::Empty(e.clone().into_owned()));
         return;
@@ -553,64 +548,82 @@ fn write_zusatzinfo_content<W: std::io::Write>(
     updates: Option<&[String]>,
     prefix: &[u8],
 ) {
+    let has_updates = updates.is_some_and(|v| !v.is_empty());
     let zbid_local = b"zustaendigeBehoerdeID";
     let mut skip_zbid = false;
     let mut zi_end_name: Vec<u8> = Vec::new();
+    let mut events = Vec::new();
+    let mut text_buffer = Vec::new();
+    let mut additional_events = Vec::new();
 
+    // Insert new zustaendigeBehoerdeID entries at the end (before the closing tag)
+    let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
+    if let Some(entries) = updates {
+        for id in entries {
+            additional_events.push(Event::Text(BytesText::new("\n    ")));
+            additional_events.push(Event::Start(BytesStart::new(&zbid)));
+            additional_events.push(Event::Text(BytesText::new(id)));
+            additional_events.push(Event::End(BytesEnd::new(&zbid)));
+        }
+    }
     for ev in buffered {
         match ev {
             Event::Start(e) => {
                 if e.local_name().as_ref() == zbid_local {
+                    if has_updates && !text_buffer.is_empty() {
+                        text_buffer.clear();
+                    }
                     skip_zbid = true;
                     continue;
                 }
+                text_buffer.reverse();
+                while let Some(e) = text_buffer.pop() {
+                    events.push(e);
+                }
+                events.push(ev.clone());
                 if zi_end_name.is_empty() && e.local_name().as_ref() == b"zusatzinformationen" {
                     zi_end_name = e.name().as_ref().to_vec();
+                    additional_events.reverse();
+                    while let Some(e) = additional_events.pop() {
+                        events.push(e);
+                    }
                 }
-                write_event(writer, ev.clone());
             }
             Event::End(e) => {
                 if e.local_name().as_ref() == zbid_local && skip_zbid {
+                    if has_updates && !text_buffer.is_empty() {
+                        text_buffer.clear();
+                    }
                     skip_zbid = false;
                     continue;
                 }
-                write_event(writer, ev.clone());
-            }
-            Event::Empty(e) => {
-                if e.local_name().as_ref() == zbid_local {
-                    continue;
+                text_buffer.reverse();
+                while let Some(e) = text_buffer.pop() {
+                    events.push(e);
                 }
-                write_event(writer, ev.clone());
+                events.push(ev.clone());
+            }
+            Event::Empty(_) => {
+                events.push(ev.clone());
             }
             Event::Text(_) => {
                 if skip_zbid {
                     continue;
                 }
-                write_event(writer, ev.clone());
+                text_buffer.push(ev.clone());
             }
             _ => {
-                write_event(writer, ev.clone());
+                events.push(ev.clone());
             }
         }
     }
 
-    // Insert new zustaendigeBehoerdeID entries at the end (before the closing tag)
-    if let Some(entries) = updates {
-        let indent = b"    ";
-        let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
-        for id in entries {
-            write_text_bytes(writer, b"\n");
-            write_text_bytes(writer, indent);
-            write_event(writer, Event::Start(BytesStart::new(&zbid)));
-            write_text_bytes(writer, id.as_bytes());
-            write_event(writer, Event::End(BytesEnd::new(&zbid)));
-        }
-    }
-
-    // Write the closing tag for zusatzinformationen
-    if !zi_end_name.is_empty() {
-        write_text_bytes(writer, b"\n");
-        write_event(writer, Event::End(BytesEnd::new(std::str::from_utf8(&zi_end_name).unwrap_or("zusatzinformationen"))));
+    events.push(Event::Text(BytesText::new("\n  ")));
+    events.push(Event::End(BytesEnd::new(
+        std::str::from_utf8(&zi_end_name).unwrap_or("zusatzinformationen"),
+    )));
+    for ev in events {
+        write_event(writer, ev);
     }
 }
 
@@ -1007,6 +1020,7 @@ mod tests {
     #[test]
     fn test_zusatzinfo_full_replacement() {
         let base = load_quality_report();
+        eprintln!("{base}");
         let with_zi = transform_xml(
             &base,
             &TransformOptions {
@@ -1014,6 +1028,7 @@ mod tests {
                 ..Default::default()
             },
         );
+        eprintln!("{with_zi}");
         assert!(with_zi.contains("xwas:zusatzinformationen"));
 
         let result = transform_xml(
@@ -1024,7 +1039,10 @@ mod tests {
             },
         );
         let parsed = assert_raxb_roundtrip(&result);
-        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo must be present");
+        let zi = parsed
+            .zusatzinformationen
+            .as_ref()
+            .expect("zusatzinfo must be present");
         assert_eq!(zi.zustaendige_behoerde_id, vec!["auth-001"]);
     }
 
@@ -1047,7 +1065,10 @@ mod tests {
             },
         );
         let parsed = assert_raxb_roundtrip(&result);
-        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo must be present");
+        let zi = parsed
+            .zusatzinformationen
+            .as_ref()
+            .expect("zusatzinfo must be present");
         assert_eq!(zi.zustaendige_behoerde_id, vec!["new-1", "new-2"]);
     }
 
@@ -1070,7 +1091,10 @@ mod tests {
             },
         );
         let parsed = assert_raxb_roundtrip(&result);
-        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo element should remain");
+        let zi = parsed
+            .zusatzinformationen
+            .as_ref()
+            .expect("zusatzinfo element should remain");
         assert!(zi.zustaendige_behoerde_id.is_empty());
     }
 
@@ -1096,7 +1120,11 @@ mod tests {
         );
 
         // Verify the injection worked
-        assert!(with_extra.contains("<xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>"));
+        assert!(
+            with_extra.contains(
+                "<xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>"
+            )
+        );
         assert!(with_extra.contains("<xwas:kommentar>some comment</xwas:kommentar>"));
         assert!(with_extra.contains("<!-- important comment -->"));
 
@@ -1114,7 +1142,11 @@ mod tests {
         // kommentar preserved
         assert!(result.contains("<xwas:kommentar>some comment</xwas:kommentar>"));
         // wasserversorgungsgebietID preserved
-        assert!(result.contains("<xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>"));
+        assert!(
+            result.contains(
+                "<xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>"
+            )
+        );
         // Old ID replaced
         assert!(!result.contains("auth-001"));
         // New ID present with correct prefix
@@ -1122,7 +1154,10 @@ mod tests {
 
         // raxb round-trip proves the output is valid XWasser
         let parsed = assert_raxb_roundtrip(&result);
-        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo must be present");
+        let zi = parsed
+            .zusatzinformationen
+            .as_ref()
+            .expect("zusatzinfo must be present");
         assert_eq!(zi.zustaendige_behoerde_id, vec!["new-id"]);
         assert_eq!(zi.wasserversorgungsgebiet_id.as_deref(), Some("wv-123"));
         assert_eq!(zi.kommentar.as_deref(), Some("some comment"));
@@ -1191,7 +1226,10 @@ mod tests {
             },
         );
         let parsed = assert_raxb_roundtrip(&result);
-        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo must be present");
+        let zi = parsed
+            .zusatzinformationen
+            .as_ref()
+            .expect("zusatzinfo must be present");
         assert_eq!(zi.zustaendige_behoerde_id, vec!["new-auth"]);
     }
 
@@ -1218,7 +1256,10 @@ mod tests {
         let parsed = assert_raxb_roundtrip(&result);
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:custom");
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "Custom");
-        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo must be present");
+        let zi = parsed
+            .zusatzinformationen
+            .as_ref()
+            .expect("zusatzinfo must be present");
         assert_eq!(zi.zustaendige_behoerde_id, vec!["auth-001"]);
         // Verify output uses xw: prefix throughout (not xwas:)
         assert!(
