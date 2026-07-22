@@ -587,7 +587,7 @@ fn write_zusatzinfo_content<W: std::io::Write>(
 
     // Insert new zustaendigeBehoerdeID entries at the end (before the closing tag)
     let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
-    let id_indent = state.nested_indent(state.root_child_indent(), 2);
+    let id_indent = state.nested_indent(state.root_child_indent(), 1);
     let close_indent = state.nested_indent(state.root_child_indent(), 1);
     let id_text = format!("\n{}", String::from_utf8_lossy(&id_indent));
     let close_text = format!("\n{}", String::from_utf8_lossy(&close_indent));
