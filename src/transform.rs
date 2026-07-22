@@ -1992,6 +1992,7 @@ mod tests {
     fn test_zusatzinfo_insertion_indentation_2space() {
         // Verify exact indentation when inserting zusatzinformationen
         // into a 2-space-indented XML document
+        // Indent unit is 2, so: root child = 2, zusatzinfo children = 4, IDs = 6
         let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
 <xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
   <nachrichtenkopf.g2g>
@@ -2037,6 +2038,7 @@ mod tests {
     fn test_zusatzinfo_insertion_indentation_4space() {
         // Verify exact indentation when inserting zusatzinformationen
         // into a 4-space-indented XML document
+        // Indent unit is 4, so: root child = 4, zusatzinfo children = 8, IDs = 12
         let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
 <xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
     <nachrichtenkopf.g2g>
@@ -2063,14 +2065,14 @@ mod tests {
 
         // Verify exact indentation:
         // - <xwas:zusatzinformationen> at 4-space indent (root child)
-        // - <xwas:zustaendigeBehoerdeID> at 6-space indent (root child + 1 level)
+        // - <xwas:zustaendigeBehoerdeID> at 8-space indent (root child + 1 level)
         assert!(
             result.contains("    <xwas:zusatzinformationen>"),
             "zusatzinfo should be at 4-space indent"
         );
         assert!(
-            result.contains("      <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
-            "authority ID should be at 6-space indent"
+            result.contains("        <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
+            "authority ID should be at 8-space indent"
         );
         assert!(
             result.contains("    </xwas:zusatzinformationen>"),
@@ -2082,6 +2084,7 @@ mod tests {
     fn test_zusatzinfo_insertion_indentation_8space() {
         // Verify exact indentation when inserting zusatzinformationen
         // into an 8-space-indented XML document
+        // Indent unit is 8, so: root child = 8, zusatzinfo children = 16, IDs = 24
         let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
 <xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
         <nachrichtenkopf.g2g>
@@ -2108,14 +2111,14 @@ mod tests {
 
         // Verify exact indentation:
         // - <xwas:zusatzinformationen> at 8-space indent (root child)
-        // - <xwas:zustaendigeBehoerdeID> at 10-space indent (root child + 1 level)
+        // - <xwas:zustaendigeBehoerdeID> at 16-space indent (root child + 1 level)
         assert!(
             result.contains("        <xwas:zusatzinformationen>"),
             "zusatzinfo should be at 8-space indent"
         );
         assert!(
-            result.contains("          <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
-            "authority ID should be at 10-space indent"
+            result.contains("                <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
+            "authority ID should be at 16-space indent"
         );
         assert!(
             result.contains("        </xwas:zusatzinformationen>"),
