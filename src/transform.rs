@@ -1853,23 +1853,18 @@ mod tests {
         rdr.config_mut().trim_text(false);
         let mut depth = 0;
         let mut buf = Vec::new();
-        let mut in_zi = false;
         let mut zi_depth = 0;
         loop {
             match rdr.read_event_into(&mut buf) {
                 Ok(raxb::quick_xml::events::Event::Start(e)) => {
                     let lok = e.local_name().as_ref().to_vec();
                     if lok == b"zusatzinformationen" {
-                        in_zi = true;
                         zi_depth = depth;
                     }
                     depth += 1;
                 }
                 Ok(raxb::quick_xml::events::Event::End(e)) => {
                     let lok = e.local_name().as_ref().to_vec();
-                    if lok == b"zusatzinformationen" {
-                        in_zi = false;
-                    }
                     depth -= 1;
                     // zusatzinformationen should close before the root element
                     if lok == b"zusatzinformationen" {
@@ -2160,8 +2155,114 @@ mod tests {
             "zusatzinfo block should match expected indentation"
         );
         assert!(!result.contains("old-id"));
-        // Print the zusatzinfo block for debugging
-        let block = extract_zusatzinfo_block(&result);
-        eprintln!("EXTRACTED BLOCK:\n{:?}", block);
+    }
+
+    #[test]
+    fn test_header_preserved_with_zusatzinfo_insertion() {
+        // Verify that the XML declaration (header) is preserved when
+        // inserting zusatzinformationen
+        let xml = r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>id</nachrichtenUUID>
+    </identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Header must be preserved exactly
+        assert!(
+            result.starts_with("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"),
+            "header should be preserved"
+        );
+    }
+
+    #[test]
+    fn test_header_preserved_with_zusatzinfo_replacement() {
+        // Verify that the XML declaration (header) is preserved when
+        // replacing zusatzinformationen
+        let xml = r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>id</nachrichtenUUID>
+    </identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+  <xwas:zusatzinformationen>
+    <xwas:zustaendigeBehoerdeID>old-id</xwas:zustaendigeBehoerdeID>
+    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>
+    <xwas:kommentar>old comment</xwas:kommentar>
+  </xwas:zusatzinformationen>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: Some(&["new-id".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Header must be preserved exactly
+        assert!(
+            result.starts_with("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"),
+            "header should be preserved"
+        );
+    }
+
+    #[test]
+    fn test_header_no_standalone_preserved() {
+        // Verify that header without standalone is also preserved
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>id</nachrichtenUUID>
+    </identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Header must be preserved exactly
+        assert!(
+            result.starts_with("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"),
+            "header should be preserved"
+        );
     }
 }
