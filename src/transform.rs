@@ -903,7 +903,7 @@ mod tests {
         lines.join("\n")
     }
 
-    fn sample_xml_no_zi() -> String {
+    fn sample_xml_no_zi() -> &'static str {
         load_quality_report()
     }
 
@@ -923,16 +923,8 @@ mod tests {
         result
     }
 
-    fn load_quality_report() -> String {
-        let dir = match std::env::current_dir() {
-            Ok(d) => d,
-            Err(e) => panic!("cannot get current dir: {e}"),
-        };
-        let path = dir.join("tests/quality_report_minimal.xml");
-        match std::fs::read_to_string(&path) {
-            Ok(s) => s,
-            Err(e) => panic!("cannot read {:?}: {e}", path),
-        }
+    fn load_quality_report() -> &'static str {
+        include_str!("../tests/quality_report_minimal.xml")
     }
 
     fn assert_raxb_roundtrip(xml: &str) -> crate::model::transport::VorgangTransportieren2010 {
@@ -1271,7 +1263,7 @@ mod tests {
 
     #[test]
     fn test_raxb_roundtrip_noop() {
-        assert_raxb_roundtrip(&load_quality_report());
+        assert_raxb_roundtrip(load_quality_report());
     }
 
     #[test]
