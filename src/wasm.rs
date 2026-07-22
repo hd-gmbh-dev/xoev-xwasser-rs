@@ -1,8 +1,11 @@
+use serde::Deserialize;
+use tsify::Tsify;
 use wasm_bindgen::prelude::*;
 
 use crate::model::{
     administration::AdministrationQuittung0020, transport::VorgangTransportieren2010,
 };
+use crate::transform;
 
 /// Returns the XML namespace used in the XML documents.
 #[wasm_bindgen]
@@ -31,6 +34,88 @@ pub fn version() -> String {
 #[wasm_bindgen]
 pub fn detect_version(xml: String) -> Result<String, JsValue> {
     Ok(crate::detect_version(&xml).to_string())
+}
+
+// /// Custom TS type definitions injected into .d.ts.
+// #[wasm_bindgen(typescript_custom_section)]
+// const TS_TRANSFORM_OPTIONS: &'static str = r#"
+// export interface TransformOptions {
+//   leser?: { kennung?: string; name?: string };
+//   autor?: { kennung?: string; name?: string };
+//   zusatzinformationen?: Array<string>;
+// }
+
+// export function transform_xml(xml: string, options?: TransformOptions): string;
+// "#;
+
+/// Custom deserializer for `zusatzinformationen`: accepts an array of
+/// `<zustaendigeBehoerdeID>` strings.
+
+/// Helper struct to deserialize the options parameter.
+#[derive(Deserialize, Default, Tsify)]
+#[tsify(from_wasm_abi)]
+pub struct TransformOptionsParam {
+    #[tsify(optional)]
+    pub leser: Option<ElementParam>,
+    #[tsify(optional)]
+    pub autor: Option<ElementParam>,
+    #[tsify(optional)]
+    #[serde(rename = "zusatzinformationen")]
+    pub authorities: Option<Vec<String>>,
+}
+
+#[derive(Deserialize, Default, Tsify)]
+#[tsify(from_wasm_abi)]
+pub struct ElementParam {
+    #[tsify(optional)]
+    pub kennung: Option<String>,
+    #[tsify(optional)]
+    pub name: Option<String>,
+}
+
+/// Transforms an XML string by mutating `<leser>`, `<autor>`, and/or
+/// `<zusatzinformationen>` elements in-place, preserving all comments,
+/// whitespace, and attribute order.
+///
+/// Accepts a plain JS options object:
+/// ```ts
+/// transform_xml(xml, {
+///   leser?: { kennung?: string, name?: string },
+///   autor?: { kennung?: string, name?: string },
+///   zusatzinformationen?: Array<string>,
+/// })
+/// ```
+#[wasm_bindgen]
+pub fn transform_xml(xml: String, opts: Option<TransformOptionsParam>) -> String {
+    let opts = opts.unwrap_or_default();
+    let leser = opts.leser.as_ref().map(|p| transform::ElementUpdate {
+        kennung: p.kennung.clone(),
+        name: p.name.clone(),
+    });
+    let autor = opts.autor.as_ref().map(|p| transform::ElementUpdate {
+        kennung: p.kennung.clone(),
+        name: p.name.clone(),
+    });
+
+    // Only call with_ids when there are actual IDs; empty array means replace w/ empty block
+    let has_ids = opts
+        .authorities
+        .as_ref()
+        .map(|v| !v.is_empty())
+        .unwrap_or(false);
+    if has_ids {
+        let ids = opts.authorities.unwrap();
+        transform::transform_xml_with_ids(&xml, leser.as_ref(), autor.as_ref(), Some(&ids))
+    } else {
+        transform::transform_xml(
+            &xml,
+            &transform::TransformOptions {
+                leser,
+                autor,
+                zusatzinformationen: None,
+            },
+        )
+    }
 }
 
 #[wasm_bindgen]

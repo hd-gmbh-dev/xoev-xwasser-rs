@@ -6,6 +6,7 @@ pub mod model;
 #[cfg(not(feature = "wasm"))]
 #[cfg(feature = "schema")]
 pub mod schemas;
+pub mod transform;
 #[cfg(feature = "validate")]
 mod validate;
 #[cfg(feature = "wasm")]

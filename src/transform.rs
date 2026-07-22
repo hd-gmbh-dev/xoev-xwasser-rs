@@ -1,0 +1,1574 @@
+//! Streaming XML transform for XWasser messages using quick-xml.
+//!
+//! Mutates `<leser>` and `<autor>` inside `nachrichtenkopf.g2g` and
+//! replaces `<zusatzinformationen>` content entirely in a single pass,
+//! preserving all comments, processing instructions, whitespace text nodes,
+//! and attribute order.
+//!
+//! Element matching uses resolved namespace URIs, not prefixes — so the
+//! transform works regardless of which prefix the source XML uses for the
+//! XWasser namespace.
+//!
+//! Inserted elements use the indentation style of the surrounding XML
+//! (captured from the first whitespace text node at the parent level),
+//! falling back to 4-space (g2g children) or 2-space (root children) when
+//! no indentation is detected (e.g. single-line compact XML).
+//!
+//! A no-op transform (all options `None`) produces output that is
+//! byte-identical to the input, keeping XML digital signatures valid.
+
+use raxb::quick_xml::{
+    NsReader, Writer,
+    events::{BytesEnd, BytesStart, BytesText, Event},
+    name::{Namespace, ResolveResult},
+};
+
+/// The XWasser namespace URI as a quick-xml `Namespace` value.
+const XWAS_NS: Namespace = Namespace(crate::TNS);
+
+// ---------------------------------------------------------------------------
+// Options structs
+// ---------------------------------------------------------------------------
+
+/// Top-level options for the XML transform.
+#[derive(Debug, Clone, Default)]
+pub struct TransformOptions<'a> {
+    /// Optional update for the `<leser>` element.
+    pub leser: Option<ElementUpdate>,
+    /// Optional update for the `<autor>` element.
+    pub autor: Option<ElementUpdate>,
+    /// Replacement content for `<zusatzinformationen>`.
+    /// - `None`: no change / do not insert if missing.
+    /// - `Some(&[])`: replace existing with empty block.
+    /// - `Some(&["id1", "id2"])`: replace full content with given
+    ///   `<zustaendigeBehoerdeID>` entries.
+    pub zusatzinformationen: Option<&'a [String]>,
+}
+
+/// Update parameters for an element inside `nachrichtenkopf.g2g`
+/// that has `<kennung>` and `<name>` children (e.g. `<leser>`, `<autor>`).
+#[derive(Debug, Clone, Default)]
+pub struct ElementUpdate {
+    pub kennung: Option<String>,
+    pub name: Option<String>,
+}
+
+// ---------------------------------------------------------------------------
+// Core streaming transform
+// ---------------------------------------------------------------------------
+
+/// Run the XML transform in a single streaming pass with the internal options struct.
+pub fn transform_xml(xml: &str, options: &TransformOptions) -> String {
+    transform_xml_impl(xml, options)
+}
+
+/// Convenience wrapper accepting `<zustaendigeBehoerdeID>` strings.
+pub fn transform_xml_with_ids(
+    xml: &str,
+    leser: Option<&ElementUpdate>,
+    autor: Option<&ElementUpdate>,
+    zusatzinfo_ids: Option<&[String]>,
+) -> String {
+    transform_xml_impl(
+        xml,
+        &TransformOptions {
+            leser: leser.cloned(),
+            autor: autor.cloned(),
+            zusatzinformationen: zusatzinfo_ids,
+        },
+    )
+}
+
+fn transform_xml_impl(xml: &str, options: &TransformOptions) -> String {
+    let mut rdr = NsReader::from_str(xml);
+    rdr.config_mut().trim_text(false);
+    rdr.config_mut().allow_unmatched_ends = true;
+
+    let mut writer = Writer::new(Vec::<u8>::new());
+    let has_zusatzinfo_updates = options.zusatzinformationen.is_some();
+    let has_leser = options.leser.is_some();
+    let has_autor = options.autor.is_some();
+
+    let mut state = TransformState::default();
+    let mut buf = Vec::new();
+
+    loop {
+        match rdr.read_resolved_event_into(&mut buf) {
+            Ok((ns, Event::Start(e))) => {
+                state.depth += 1;
+                let lok = e.local_name().as_ref().to_vec();
+                handle_start(
+                    &mut state,
+                    has_leser,
+                    has_autor,
+                    has_zusatzinfo_updates,
+                    options,
+                    &mut writer,
+                    ns,
+                    &lok,
+                    &e,
+                );
+            }
+
+            Ok((ns, Event::End(e))) => {
+                let lok = e.local_name().as_ref().to_vec();
+                handle_end(
+                    &mut state,
+                    has_leser,
+                    has_autor,
+                    has_zusatzinfo_updates,
+                    options,
+                    &mut writer,
+                    ns,
+                    &lok,
+                    &e,
+                );
+                state.depth = state.depth.saturating_sub(1);
+            }
+
+            Ok((_ns, Event::Empty(e))) => {
+                handle_empty(&mut state, &mut writer, &e);
+            }
+
+            Ok((_ns, Event::Text(e))) => {
+                let owned = Event::Text(e.clone().into_owned());
+                handle_generic(&mut state, &mut writer, owned);
+            }
+
+            Ok((_ns, Event::CData(e))) => {
+                let owned = Event::CData(e.clone().into_owned());
+                handle_generic(&mut state, &mut writer, owned);
+            }
+
+            Ok((_ns, Event::Comment(e))) => {
+                let owned = Event::Comment(e.clone().into_owned());
+                handle_generic(&mut state, &mut writer, owned);
+            }
+
+            Ok((_ns, Event::PI(e))) => {
+                let owned = Event::PI(e.clone().into_owned());
+                handle_generic(&mut state, &mut writer, owned);
+            }
+
+            Ok((_ns, Event::Decl(e))) => {
+                write_event(&mut writer, Event::Decl(e.clone().into_owned()));
+            }
+
+            Ok((_ns, Event::DocType(e))) => {
+                write_event(&mut writer, Event::DocType(e.clone().into_owned()));
+            }
+
+            Ok((_ns, Event::Eof)) => break,
+
+            Err(_) => break,
+        }
+        buf.clear();
+    }
+
+    String::from_utf8(writer.into_inner()).unwrap_or_else(|e| {
+        // If the writer produced invalid UTF-8, return the raw bytes as lossy
+        String::from_utf8_lossy(e.as_bytes()).into_owned()
+    })
+}
+
+// ---------------------------------------------------------------------------
+// Helpers: namespace check
+// ---------------------------------------------------------------------------
+
+fn ns_is_xwas(ns: &ResolveResult) -> bool {
+    matches!(ns, ResolveResult::Bound(b) if *b == XWAS_NS)
+}
+
+fn ns_is_foreign(ns: &ResolveResult) -> bool {
+    matches!(ns, ResolveResult::Bound(b) if *b != XWAS_NS)
+}
+
+// ---------------------------------------------------------------------------
+// State
+// ---------------------------------------------------------------------------
+
+#[derive(Default)]
+struct TransformState {
+    depth: usize,
+    root_depth: usize,
+
+    // nachrichtenkopf.g2g tracking
+    nk_depth: usize,
+    seen_leser: bool,
+    seen_autor: bool,
+    should_insert_leser: bool,
+    should_insert_autor: bool,
+
+    // Buffering for g2g element (leser/author) mutation
+    in_g2g_element: bool,
+    g2g_buf: Vec<Event<'static>>,
+    g2g_element_name: Vec<u8>,
+
+    // Measured indentation from surrounding XML
+    nk_child_indent: Vec<u8>,
+    root_child_indent: Vec<u8>,
+
+    // Indentation unit (one level of indentation) measured from the source XML.
+    // Falls back to 2 spaces when no indentation is detected.
+    indent_unit: Vec<u8>,
+
+    // XWasser prefix from root element (e.g. "xwas" or "xw")
+    root_ns_prefix: Vec<u8>,
+
+    // zusatzinformationen tracking
+    zi_depth: usize,
+    seen_zi: bool,
+    in_zi: bool,
+    zi_buf: Vec<Event<'static>>,
+}
+
+impl TransformState {
+    fn g2g_child_indent(&self) -> &[u8] {
+        if self.nk_child_indent.is_empty() {
+            b"    "
+        } else {
+            &self.nk_child_indent
+        }
+    }
+
+    fn root_child_indent(&self) -> &[u8] {
+        if self.root_child_indent.is_empty() {
+            b"  "
+        } else {
+            &self.root_child_indent
+        }
+    }
+
+    /// One level of indentation, measured from the source XML.
+    /// Falls back to 2 spaces when no indentation is detected.
+    fn indent_unit(&self) -> &[u8] {
+        if self.indent_unit.is_empty() {
+            b"  "
+        } else {
+            &self.indent_unit
+        }
+    }
+
+    /// Compute `indent + n * indent_unit` for nested levels.
+    fn nested_indent(&self, base: &[u8], levels: usize) -> Vec<u8> {
+        let mut result = base.to_vec();
+        for _ in 0..levels {
+            result.extend_from_slice(self.indent_unit());
+        }
+        result
+    }
+
+    /// Measure the indentation unit from a whitespace text node.
+    /// The unit is the entire indentation string of the text node.
+    /// For example, if the text is "    " (4 spaces), the unit is "    " (4 spaces).
+    /// This is the indentation of one level of nesting.
+    fn measure_indent_unit(&mut self, text: &[u8]) {
+        if !self.indent_unit.is_empty() {
+            return;
+        }
+        // Strip newlines and carriage returns to get just the indentation
+        let indent: Vec<u8> = text
+            .iter()
+            .filter(|b| **b == b' ' || **b == b'\t')
+            .copied()
+            .collect();
+        if indent.is_empty() {
+            return;
+        }
+        self.indent_unit = indent;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Event handlers
+// ---------------------------------------------------------------------------
+
+#[allow(clippy::too_many_arguments)]
+fn handle_start(
+    state: &mut TransformState,
+    has_leser: bool,
+    has_autor: bool,
+    has_zusatzinfo_updates: bool,
+    options: &TransformOptions,
+    writer: &mut Writer<Vec<u8>>,
+    ns: ResolveResult,
+    lok: &[u8],
+    e: &BytesStart<'_>,
+) {
+    if state.in_g2g_element {
+        state.g2g_buf.push(Event::Start(e.clone().into_owned()));
+        return;
+    }
+    if state.in_zi {
+        state.zi_buf.push(Event::Start(e.clone().into_owned()));
+        return;
+    }
+
+    if lok == b"vorgang.transportieren.2010" && state.root_depth == 0 {
+        state.root_depth = state.depth;
+        state.root_child_indent.clear();
+        state.root_ns_prefix = prefix_of_qualified(e.name().as_ref());
+    }
+
+    if lok == b"nachrichtenkopf.g2g" && !ns_is_foreign(&ns) {
+        state.nk_depth = state.depth;
+        state.seen_leser = false;
+        state.seen_autor = false;
+        state.should_insert_leser = false;
+        state.should_insert_autor = false;
+        state.nk_child_indent.clear();
+    }
+
+    if lok == b"zusatzinformationen" && ns_is_xwas(&ns) {
+        state.zi_depth = state.depth;
+        state.seen_zi = true;
+        if has_zusatzinfo_updates {
+            state.in_zi = true;
+            state.zi_buf.clear();
+            state.zi_buf.push(Event::Start(e.clone().into_owned()));
+            return;
+        }
+    }
+
+    if state.should_insert_leser && lok != b"nachrichtenkopf.g2g" {
+        if let Some(r) = &options.leser {
+            insert_g2g_element(writer, "leser", r, state);
+        }
+        state.should_insert_leser = false;
+        if has_autor && !state.seen_autor {
+            state.should_insert_autor = true;
+        }
+    }
+    if state.should_insert_autor && lok != b"nachrichtenkopf.g2g" && lok != b"leser" {
+        if let Some(r) = &options.autor {
+            insert_g2g_element(writer, "autor", r, state);
+        }
+        state.should_insert_autor = false;
+    }
+
+    if state.nk_depth > 0 && lok == b"leser" {
+        state.seen_leser = true;
+        if has_leser {
+            start_g2g_element_buf(state, e, b"leser");
+            return;
+        }
+    }
+
+    if state.nk_depth > 0 && lok == b"autor" {
+        state.seen_autor = true;
+        if has_autor {
+            start_g2g_element_buf(state, e, b"autor");
+            return;
+        }
+    }
+
+    write_event(writer, Event::Start(e.clone().into_owned()));
+}
+
+#[allow(clippy::too_many_arguments)]
+fn handle_end(
+    state: &mut TransformState,
+    has_leser: bool,
+    has_autor: bool,
+    _has_zusatzinfo_updates: bool,
+    options: &TransformOptions,
+    writer: &mut Writer<Vec<u8>>,
+    _ns: ResolveResult,
+    lok: &[u8],
+    e: &BytesEnd<'_>,
+) {
+    if state.in_g2g_element && lok == state.g2g_element_name {
+        state.in_g2g_element = false;
+        let r = if state.g2g_element_name == b"leser" {
+            options.leser.as_ref()
+        } else {
+            options.autor.as_ref()
+        };
+        if let Some(r) = r
+            && !state.g2g_buf.is_empty()
+        {
+            emit_mutated_g2g_element(writer, &state.g2g_buf, r);
+            let end_name = std::str::from_utf8(&state.g2g_element_name).unwrap_or("");
+            write_event(writer, Event::End(BytesEnd::new(end_name)));
+            state.g2g_buf.clear();
+            return;
+        }
+    }
+
+    if state.in_zi && lok == b"zusatzinformationen" {
+        state.in_zi = false;
+        if !state.zi_buf.is_empty() {
+            write_zusatzinfo_content(
+                writer,
+                &state.zi_buf,
+                options.zusatzinformationen,
+                &state.root_ns_prefix,
+                state,
+            );
+            state.zi_buf.clear();
+            return;
+        }
+    }
+
+    if state.nk_depth > 0 && lok == b"identifikation.nachricht" && has_leser && !state.seen_leser {
+        state.should_insert_leser = true;
+    }
+    if state.nk_depth > 0 && lok == b"leser" && has_autor && !state.seen_autor {
+        state.should_insert_autor = true;
+    }
+
+    if state.in_g2g_element {
+        state.g2g_buf.push(Event::End(e.clone().into_owned()));
+        return;
+    }
+    if state.in_zi {
+        state.zi_buf.push(Event::End(e.clone().into_owned()));
+        return;
+    }
+
+    if state.nk_depth > 0 && lok == b"nachrichtenkopf.g2g" {
+        if state.should_insert_leser {
+            if let Some(r) = &options.leser {
+                insert_g2g_element(writer, "leser", r, state);
+            }
+            state.should_insert_leser = false;
+            if has_autor && !state.seen_autor {
+                state.should_insert_autor = true;
+            }
+        }
+        if state.should_insert_autor {
+            if let Some(r) = &options.autor {
+                insert_g2g_element(writer, "autor", r, state);
+            }
+            state.should_insert_autor = false;
+        }
+        state.nk_depth = 0;
+    }
+
+    if state.root_depth > 0
+        && lok == b"vorgang.transportieren.2010"
+        && state.depth == state.root_depth
+    {
+        let should_insert = options.zusatzinformationen.is_some_and(|a| !a.is_empty());
+        if !state.seen_zi && should_insert {
+            insert_zusatzinformationen_element(
+                writer,
+                options.zusatzinformationen.unwrap_or(&[]),
+                if state.root_ns_prefix.is_empty() {
+                    b"xwas"
+                } else {
+                    &state.root_ns_prefix
+                },
+                state,
+            );
+        }
+        state.root_depth = 0;
+    }
+
+    write_event(writer, Event::End(e.clone().into_owned()));
+}
+
+fn handle_empty(state: &mut TransformState, writer: &mut Writer<Vec<u8>>, e: &BytesStart<'_>) {
+    if state.in_g2g_element {
+        state.g2g_buf.push(Event::Empty(e.clone().into_owned()));
+        return;
+    }
+    if state.in_zi {
+        state.zi_buf.push(Event::Empty(e.clone().into_owned()));
+        return;
+    }
+    write_event(writer, Event::Empty(e.clone().into_owned()));
+}
+
+fn handle_generic(state: &mut TransformState, writer: &mut Writer<Vec<u8>>, event: Event<'static>) {
+    if state.in_g2g_element {
+        state.g2g_buf.push(event);
+        return;
+    }
+    if state.in_zi {
+        state.zi_buf.push(event);
+        return;
+    }
+
+    if let Event::Text(t) = &event {
+        let bytes = t.as_ref();
+        if !bytes.is_empty()
+            && bytes
+                .iter()
+                .all(|b| *b == b' ' || *b == b'\n' || *b == b'\r' || *b == b'\t')
+        {
+            if state.nk_depth > 0
+                && state.depth == state.nk_depth
+                && state.nk_child_indent.is_empty()
+            {
+                state.nk_child_indent = bytes.to_vec();
+                state.measure_indent_unit(bytes);
+            }
+            if state.root_depth > 0
+                && state.depth == state.root_depth
+                && state.root_child_indent.is_empty()
+            {
+                state.root_child_indent = bytes.to_vec();
+                state.measure_indent_unit(bytes);
+            }
+        }
+    }
+
+    write_event(writer, event);
+}
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+fn start_g2g_element_buf(state: &mut TransformState, e: &BytesStart<'_>, element_name: &[u8]) {
+    state.in_g2g_element = true;
+    state.g2g_buf.clear();
+    state.g2g_element_name = element_name.to_vec();
+    state.g2g_buf.push(Event::Start(e.clone().into_owned()));
+}
+
+fn write_event<W: std::io::Write>(writer: &mut Writer<W>, event: Event<'_>) {
+    writer.write_event(event).ok();
+}
+
+fn write_text_bytes<W: std::io::Write>(writer: &mut Writer<W>, bytes: &[u8]) {
+    writer
+        .write_event(Event::Text(BytesText::new(
+            std::str::from_utf8(bytes).unwrap_or(""),
+        )))
+        .ok();
+}
+
+/// Extract the prefix part of a qualified name (e.g. `"xwas:kennung"` -> `b"xwas"`).
+fn prefix_of_qualified(name: &[u8]) -> Vec<u8> {
+    if let Some(pos) = name.iter().position(|b| *b == b':') {
+        name[..pos].to_vec()
+    } else {
+        Vec::new()
+    }
+}
+
+/// Write `qname(prefix, local)` as a string-slice, trimming empty prefix case.
+fn qn_str(prefix: &[u8], local: &str) -> String {
+    if prefix.is_empty() {
+        local.to_string()
+    } else {
+        let prefix_str = std::str::from_utf8(prefix).unwrap_or("xwas");
+        format!("{prefix_str}:{local}")
+    }
+}
+
+/// Emit the `<zusatzinformationen>` content, replaying buffered events but
+/// replacing `<zustaendigeBehoerdeID>` elements with the new IDs.
+///
+/// This preserves all other content inside `<zusatzinformationen>` — comments,
+/// `<wasserversorgungsgebietID>`, `<kommentar>`, whitespace text nodes, etc.
+/// — while only swapping out the authority ID entries.
+///
+/// The buffer includes the `<zusatzinformationen>` start tag but not the end
+/// tag (the end tag is handled by the caller's early return).
+fn write_zusatzinfo_content<W: std::io::Write>(
+    writer: &mut Writer<W>,
+    buffered: &[Event<'static>],
+    updates: Option<&[String]>,
+    prefix: &[u8],
+    state: &TransformState,
+) {
+    let has_updates = updates.is_some_and(|v| !v.is_empty());
+    let zbid_local = b"zustaendigeBehoerdeID";
+    let mut skip_zbid = false;
+    let mut zi_end_name: Vec<u8> = Vec::new();
+    let mut events = Vec::new();
+    let mut text_buffer = Vec::new();
+    let mut additional_events = Vec::new();
+
+    // Insert new zustaendigeBehoerdeID entries at the end (before the closing tag)
+    let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
+    if let Some(entries) = updates {
+        for id in entries {
+            additional_events.push(Event::Text(BytesText::new("\n    ")));
+            additional_events.push(Event::Start(BytesStart::new(&zbid)));
+            additional_events.push(Event::Text(BytesText::new(id)));
+            additional_events.push(Event::End(BytesEnd::new(&zbid)));
+        }
+    }
+    for ev in buffered {
+        match ev {
+            Event::Start(e) => {
+                if e.local_name().as_ref() == zbid_local {
+                    if has_updates && !text_buffer.is_empty() {
+                        text_buffer.clear();
+                    }
+                    skip_zbid = true;
+                    continue;
+                }
+                text_buffer.reverse();
+                while let Some(e) = text_buffer.pop() {
+                    events.push(e);
+                }
+                events.push(ev.clone());
+                if zi_end_name.is_empty() && e.local_name().as_ref() == b"zusatzinformationen" {
+                    zi_end_name = e.name().as_ref().to_vec();
+                    additional_events.reverse();
+                    while let Some(e) = additional_events.pop() {
+                        events.push(e);
+                    }
+                }
+            }
+            Event::End(e) => {
+                if e.local_name().as_ref() == zbid_local && skip_zbid {
+                    if has_updates && !text_buffer.is_empty() {
+                        text_buffer.clear();
+                    }
+                    skip_zbid = false;
+                    continue;
+                }
+                text_buffer.reverse();
+                while let Some(e) = text_buffer.pop() {
+                    events.push(e);
+                }
+                events.push(ev.clone());
+            }
+            Event::Empty(_) => {
+                events.push(ev.clone());
+            }
+            Event::Text(_) => {
+                if skip_zbid {
+                    continue;
+                }
+                text_buffer.push(ev.clone());
+            }
+            _ => {
+                events.push(ev.clone());
+            }
+        }
+    }
+
+    events.push(Event::Text(BytesText::new("\n  ")));
+    events.push(Event::End(BytesEnd::new(
+        std::str::from_utf8(&zi_end_name).unwrap_or("zusatzinformationen"),
+    )));
+    for ev in events {
+        write_event(writer, ev);
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Emit a mutated g2g element (leser/author) from buffered events
+// ---------------------------------------------------------------------------
+
+fn emit_mutated_g2g_element<W: std::io::Write>(
+    writer: &mut Writer<W>,
+    buffered: &[Event<'static>],
+    update: &ElementUpdate,
+) {
+    let mut inside_kennung = false;
+    let mut inside_name = false;
+    let has_kennung_update = update.kennung.is_some();
+    let has_name_update = update.name.is_some();
+
+    for ev in buffered {
+        match ev {
+            Event::Start(e) => {
+                let en = e.local_name().as_ref().to_vec();
+                if en == b"kennung" {
+                    inside_kennung = true;
+                    write_event(writer, Event::Start(e.clone()));
+                    if let Some(ref k) = update.kennung {
+                        write_text_bytes(writer, k.as_bytes());
+                        continue;
+                    }
+                } else if en == b"name" {
+                    inside_name = true;
+                    write_event(writer, Event::Start(e.clone()));
+                    if let Some(ref n) = update.name {
+                        write_text_bytes(writer, n.as_bytes());
+                        continue;
+                    }
+                } else {
+                    write_event(writer, Event::Start(e.clone()));
+                }
+            }
+            Event::End(e) => {
+                let en = e.local_name().as_ref().to_vec();
+                if en == b"kennung" {
+                    inside_kennung = false;
+                    if has_kennung_update {
+                        write_event(writer, Event::End(e.clone()));
+                        continue;
+                    }
+                } else if en == b"name" {
+                    inside_name = false;
+                    if has_name_update {
+                        write_event(writer, Event::End(e.clone()));
+                        continue;
+                    }
+                }
+                write_event(writer, Event::End(e.clone()));
+            }
+            Event::Text(_) => {
+                if inside_kennung && has_kennung_update {
+                    continue;
+                }
+                if inside_name && has_name_update {
+                    continue;
+                }
+                write_event(writer, ev.clone());
+            }
+            _ => {
+                write_event(writer, ev.clone());
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Insert a new g2g element (leser/autor)
+// ---------------------------------------------------------------------------
+
+fn insert_g2g_element<W: std::io::Write>(
+    writer: &mut Writer<W>,
+    element_name: &str,
+    update: &ElementUpdate,
+    state: &TransformState,
+) {
+    let kennung = update.kennung.as_deref().unwrap_or("");
+    let name = update.name.as_deref().unwrap_or("");
+
+    let indent = state.g2g_child_indent();
+    let sub = state.nested_indent(indent, 1);
+    let subsub = state.nested_indent(indent, 2);
+
+    write_text_bytes(writer, b"\n");
+    write_text_bytes(writer, indent);
+    write_event(writer, Event::Start(BytesStart::new(element_name)));
+    write_text_bytes(writer, b"\n");
+    write_text_bytes(writer, &sub);
+    write_event(
+        writer,
+        Event::Start(BytesStart::from_content(
+            r#"verzeichnisdienst listVersionID="""#,
+            4,
+        )),
+    );
+    write_text_bytes(writer, b"\n");
+    write_text_bytes(writer, &subsub);
+    write_event(writer, Event::Start(BytesStart::new("code")));
+    write_event(writer, Event::End(BytesEnd::new("code")));
+    write_text_bytes(writer, b"\n");
+    write_text_bytes(writer, &sub);
+    write_event(writer, Event::End(BytesEnd::new("verzeichnisdienst")));
+    write_text_bytes(writer, b"\n");
+    write_text_bytes(writer, &sub);
+    write_event(writer, Event::Start(BytesStart::new("kennung")));
+    write_text_bytes(writer, kennung.as_bytes());
+    write_event(writer, Event::End(BytesEnd::new("kennung")));
+    write_text_bytes(writer, b"\n");
+    write_text_bytes(writer, &sub);
+    write_event(writer, Event::Start(BytesStart::new("name")));
+    write_text_bytes(writer, name.as_bytes());
+    write_event(writer, Event::End(BytesEnd::new("name")));
+    write_text_bytes(writer, b"\n");
+    write_text_bytes(writer, indent);
+    write_event(writer, Event::End(BytesEnd::new(element_name)));
+}
+
+// ---------------------------------------------------------------------------
+// Insert a new `<xwas:zusatzinformationen>` at the end of the root element
+// ---------------------------------------------------------------------------
+
+fn insert_zusatzinformationen_element<W: std::io::Write>(
+    writer: &mut Writer<W>,
+    zusatzinformationen: &[String],
+    prefix: &[u8],
+    state: &TransformState,
+) {
+    let non_empty: Vec<&String> = zusatzinformationen
+        .iter()
+        .filter(|id| !id.is_empty())
+        .collect();
+
+    if non_empty.is_empty() {
+        return;
+    }
+
+    let indent = state.root_child_indent();
+    let sub = state.nested_indent(indent, 1);
+
+    let zi = qn_str(prefix, "zusatzinformationen");
+    let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
+
+    write_text_bytes(writer, b"\n");
+    write_text_bytes(writer, indent);
+    write_event(writer, Event::Start(BytesStart::new(&zi)));
+
+    for id in &non_empty {
+        write_text_bytes(writer, b"\n");
+        write_text_bytes(writer, &sub);
+        write_event(writer, Event::Start(BytesStart::new(&zbid)));
+        write_text_bytes(writer, id.as_bytes());
+        write_event(writer, Event::End(BytesEnd::new(&zbid)));
+    }
+
+    write_text_bytes(writer, b"\n");
+    write_text_bytes(writer, indent);
+    write_event(writer, Event::End(BytesEnd::new(&zi)));
+}
+
+// ---------------------------------------------------------------------------
+// Tests
+// ---------------------------------------------------------------------------
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn sample_xml() -> String {
+        r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- root comment -->
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
+    </identifikation.nachricht>
+    <leser>
+      <verzeichnisdienst listVersionID="">
+        <code></code>
+      </verzeichnisdienst>
+      <kennung>psw:11113110</kennung>
+      <name>Reader</name>
+    </leser>
+    <autor>
+      <verzeichnisdienst listVersionID="">
+        <code></code>
+      </verzeichnisdienst>
+      <kennung>psw:01003110</kennung>
+      <name>Author</name>
+    </autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+    <xwas:vorgangType>
+      <xwas:pruefbericht>
+        <xwas:pruefberichtUUID>id</xwas:pruefberichtUUID>
+        <xwas:versionsnummer>1</xwas:versionsnummer>
+        <xwas:auftragsnummer>order</xwas:auftragsnummer>
+      </xwas:pruefbericht>
+    </xwas:vorgangType>
+  </xwas:vorgang>
+  <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:SignedInfo>
+      <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+      <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <ds:Reference>
+        <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+        <ds:DigestValue/>
+      </ds:Reference>
+    </ds:SignedInfo>
+    <ds:SignatureValue/>
+    <ds:KeyInfo>
+      <ds:KeyName/>
+      <ds:X509Data>
+        <ds:X509Certificate/>
+      </ds:X509Data>
+    </ds:KeyInfo>
+  </ds:Signature>
+</xwas:vorgang.transportieren.2010>"#
+        .to_string()
+    }
+
+    fn sample_xml_with_zi() -> String {
+        let base = load_quality_report();
+        transform_xml(
+            &base,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        )
+    }
+
+    fn sample_xml_no_leser_no_autor() -> String {
+        let base = load_quality_report();
+        let mut lines: Vec<&str> = base.lines().collect();
+        let mut i = 0;
+        while i < lines.len() {
+            if lines[i].contains("<leser>") || lines[i].contains("<autor>") {
+                let tag = if lines[i].contains("<leser>") {
+                    "</leser>"
+                } else {
+                    "</autor>"
+                };
+                lines.remove(i);
+                while i < lines.len() && !lines[i].contains(tag) {
+                    lines.remove(i);
+                }
+                if i < lines.len() {
+                    lines.remove(i);
+                }
+            } else {
+                i += 1;
+            }
+        }
+        lines.join("\n")
+    }
+
+    fn sample_xml_no_zi() -> &'static str {
+        load_quality_report()
+    }
+
+    fn sample_xml_custom_prefix() -> String {
+        let base = sample_xml_with_zi();
+        let result = base
+            .replace("xmlns:xwas=", "xmlns:xw=")
+            .replace("xwas:", "xw:")
+            .replace("xmlns:xw:Signature", "xmlns:ds:Signature")
+            .replace("xw:Signature", "ds:Signature");
+        let parsed =
+            raxb::de::from_str::<crate::model::transport::VorgangTransportieren2010>(&result);
+        assert!(
+            parsed.is_ok(),
+            "custom prefix fixture must be raxb-parseable"
+        );
+        result
+    }
+
+    fn load_quality_report() -> &'static str {
+        include_str!("../tests/quality_report_minimal.xml")
+    }
+
+    fn assert_raxb_roundtrip(xml: &str) -> crate::model::transport::VorgangTransportieren2010 {
+        match raxb::de::from_str(xml) {
+            Ok(p) => p,
+            Err(e) => panic!("raxb round-trip failed: {e:?}"),
+        }
+    }
+
+    fn sample_xml_two_space_indent() -> String {
+        r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>id</nachrichtenUUID>
+    </identifikation.nachricht>
+    <dvdvDienstkennung>s</dvdvDienstkennung>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#
+        .to_string()
+    }
+
+    // ---- tests ----
+
+    #[test]
+    fn test_noop_is_byte_identical() {
+        let xml = sample_xml();
+        let result = transform_xml(&xml, &TransformOptions::default());
+        assert_eq!(result, xml);
+    }
+
+    #[test]
+    fn test_leser_mutation() {
+        let xml = load_quality_report();
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:99999999".into()),
+                    name: Some("NewReader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+        let parsed = assert_raxb_roundtrip(&result);
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:99999999");
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "NewReader");
+        assert_eq!(parsed.nachrichtenkopf_g2g.autor.kennung, "psw:01003110");
+        assert_eq!(parsed.nachrichtenkopf_g2g.autor.name, "Author");
+    }
+
+    #[test]
+    fn test_autor_mutation() {
+        let xml = load_quality_report();
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                autor: Some(ElementUpdate {
+                    kennung: Some("psw:autor123".into()),
+                    name: Some("Updated Autor".into()),
+                }),
+                ..Default::default()
+            },
+        );
+        let parsed = assert_raxb_roundtrip(&result);
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:11113110");
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "Reader");
+        assert_eq!(parsed.nachrichtenkopf_g2g.autor.kennung, "psw:autor123");
+        assert_eq!(parsed.nachrichtenkopf_g2g.autor.name, "Updated Autor");
+    }
+
+    #[test]
+    fn test_leser_and_autor_mutation() {
+        let xml = load_quality_report();
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:leser1".into()),
+                    name: Some("Leser1".into()),
+                }),
+                autor: Some(ElementUpdate {
+                    kennung: Some("psw:autor1".into()),
+                    name: Some("Autor1".into()),
+                }),
+                ..Default::default()
+            },
+        );
+        let parsed = assert_raxb_roundtrip(&result);
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:leser1");
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "Leser1");
+        assert_eq!(parsed.nachrichtenkopf_g2g.autor.kennung, "psw:autor1");
+        assert_eq!(parsed.nachrichtenkopf_g2g.autor.name, "Autor1");
+    }
+
+    #[test]
+    fn test_zusatzinfo_full_replacement() {
+        let base = load_quality_report();
+        eprintln!("{base}");
+        let with_zi = transform_xml(
+            &base,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+        eprintln!("{with_zi}");
+        assert!(with_zi.contains("xwas:zusatzinformationen"));
+
+        let result = transform_xml(
+            &with_zi,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+        let parsed = assert_raxb_roundtrip(&result);
+        let zi = parsed
+            .zusatzinformationen
+            .as_ref()
+            .expect("zusatzinfo must be present");
+        assert_eq!(zi.zustaendige_behoerde_id, vec!["auth-001"]);
+    }
+
+    #[test]
+    fn test_zusatzinfo_replace_with_multiple_entries() {
+        let base = load_quality_report();
+        let with_zi = transform_xml(
+            &base,
+            &TransformOptions {
+                zusatzinformationen: Some(&["original".into()]),
+                ..Default::default()
+            },
+        );
+        // Replace with multiple entries
+        let result = transform_xml(
+            &with_zi,
+            &TransformOptions {
+                zusatzinformationen: Some(&["new-1".into(), "new-2".into()]),
+                ..Default::default()
+            },
+        );
+        let parsed = assert_raxb_roundtrip(&result);
+        let zi = parsed
+            .zusatzinformationen
+            .as_ref()
+            .expect("zusatzinfo must be present");
+        assert_eq!(zi.zustaendige_behoerde_id, vec!["new-1", "new-2"]);
+    }
+
+    #[test]
+    fn test_zusatzinfo_replace_with_empty() {
+        let base = load_quality_report();
+        let with_zi = transform_xml(
+            &base,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth".into()]),
+                ..Default::default()
+            },
+        );
+        // Replace with empty content
+        let result = transform_xml(
+            &with_zi,
+            &TransformOptions {
+                zusatzinformationen: Some(&[]),
+                ..Default::default()
+            },
+        );
+        let parsed = assert_raxb_roundtrip(&result);
+        let zi = parsed
+            .zusatzinformationen
+            .as_ref()
+            .expect("zusatzinfo element should remain");
+        assert!(zi.zustaendige_behoerde_id.is_empty());
+    }
+
+    #[test]
+    fn test_zusatzinfo_preserves_kommentar_and_wasserversorgungsgebiet() {
+        // Start from the quality report (valid XWasser document), insert
+        // zusatzinformationen with kommentar, wasserversorgungsgebietID, and
+        // a comment, then replace the IDs — should preserve everything else.
+        let base = load_quality_report();
+        let with_zi = transform_xml(
+            &base,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Inject kommentar, wasserversorgungsgebietID, and a comment into the
+        // zusatzinformationen block
+        let with_extra = with_zi.replace(
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n\n  </xwas:zusatzinformationen>",
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>some comment</xwas:kommentar>\n    <!-- important comment -->\n\n  </xwas:zusatzinformationen>",
+        );
+
+        // Verify the injection worked
+        assert!(
+            with_extra.contains(
+                "<xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>"
+            )
+        );
+        assert!(with_extra.contains("<xwas:kommentar>some comment</xwas:kommentar>"));
+        assert!(with_extra.contains("<!-- important comment -->"));
+
+        // Now replace the ID — should preserve kommentar, wasserversorgungsgebietID, and comment
+        let result = transform_xml(
+            &with_extra,
+            &TransformOptions {
+                zusatzinformationen: Some(&["new-id".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Comments preserved
+        assert!(result.contains("<!-- important comment -->"));
+        // kommentar preserved
+        assert!(result.contains("<xwas:kommentar>some comment</xwas:kommentar>"));
+        // wasserversorgungsgebietID preserved
+        assert!(
+            result.contains(
+                "<xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>"
+            )
+        );
+        // Old ID replaced
+        assert!(!result.contains("auth-001"));
+        // New ID present with correct prefix
+        assert!(result.contains("<xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>"));
+
+        // raxb round-trip proves the output is valid XWasser
+        let parsed = assert_raxb_roundtrip(&result);
+        let zi = parsed
+            .zusatzinformationen
+            .as_ref()
+            .expect("zusatzinfo must be present");
+        assert_eq!(zi.zustaendige_behoerde_id, vec!["new-id"]);
+        assert_eq!(zi.wasserversorgungsgebiet_id.as_deref(), Some("wv-123"));
+        assert_eq!(zi.kommentar.as_deref(), Some("some comment"));
+    }
+
+    #[test]
+    fn test_insert_leser() {
+        let xml = sample_xml_no_leser_no_autor();
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+        let leser_pos = match result.find("psw:inserted") {
+            Some(p) => p,
+            None => panic!("psw:inserted not found"),
+        };
+        let dvdv_pos = match result.find("dvdvDienstkennung") {
+            Some(p) => p,
+            None => panic!("dvdv not found"),
+        };
+        assert!(leser_pos < dvdv_pos);
+    }
+
+    #[test]
+    fn test_insert_autor() {
+        let xml = sample_xml_no_leser_no_autor();
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:l".into()),
+                    name: Some("Leser".into()),
+                }),
+                autor: Some(ElementUpdate {
+                    kennung: Some("psw:a".into()),
+                    name: Some("Autor".into()),
+                }),
+                ..Default::default()
+            },
+        );
+        let leser_pos = match result.find("psw:l") {
+            Some(p) => p,
+            None => panic!("psw:l not found"),
+        };
+        let autor_pos = match result.find("psw:a") {
+            Some(p) => p,
+            None => panic!("psw:a not found"),
+        };
+        assert!(leser_pos < autor_pos);
+    }
+
+    #[test]
+    fn test_insert_zusatzinformationen() {
+        let xml = load_quality_report();
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: Some(&["new-auth".into()]),
+                ..Default::default()
+            },
+        );
+        let parsed = assert_raxb_roundtrip(&result);
+        let zi = parsed
+            .zusatzinformationen
+            .as_ref()
+            .expect("zusatzinfo must be present");
+        assert_eq!(zi.zustaendige_behoerde_id, vec!["new-auth"]);
+    }
+
+    #[test]
+    fn test_custom_prefix_raxb_roundtrip() {
+        // sample_xml_custom_prefix uses "xw:" prefix; verify transform preserves
+        // raxb parseability and field values
+        let xml = sample_xml_custom_prefix();
+        assert!(xml.contains("xw:"), "fixture must use custom xw: prefix");
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:custom".into()),
+                    name: Some("Custom".into()),
+                }),
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // raxb must parse output directly (no prefix normalization)
+        let parsed = assert_raxb_roundtrip(&result);
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:custom");
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "Custom");
+        let zi = parsed
+            .zusatzinformationen
+            .as_ref()
+            .expect("zusatzinfo must be present");
+        assert_eq!(zi.zustaendige_behoerde_id, vec!["auth-001"]);
+        // Verify output uses xw: prefix throughout (not xwas:)
+        assert!(
+            result.contains("xw:zusatzinformationen"),
+            "should use xw: prefix for zusatzinfo"
+        );
+        assert!(
+            result.contains("xw:zustaendigeBehoerdeID"),
+            "should use xw: prefix for zustaendigeBehoerdeID"
+        );
+        assert!(
+            !result.contains("xwas:zusatzinformationen"),
+            "output should NOT use xwas: prefix"
+        );
+        // Verify authority content values via XML text
+        assert!(
+            result.contains("xw:zustaendigeBehoerdeID>auth-001"),
+            "authority ID value"
+        );
+    }
+
+    #[test]
+    fn test_raxb_roundtrip_noop() {
+        assert_raxb_roundtrip(load_quality_report());
+    }
+
+    #[test]
+    fn test_comment_preservation() {
+        let result = transform_xml(&sample_xml(), &TransformOptions::default());
+        assert!(result.contains("<!-- root comment -->"));
+    }
+
+    #[test]
+    fn test_whitespace_preservation() {
+        let result = transform_xml(&sample_xml(), &TransformOptions::default());
+        assert!(result.contains("  <nachrichtenkopf.g2g>"));
+        assert!(result.contains("    <identifikation.nachricht>"));
+    }
+
+    #[test]
+    fn test_signature_roundtrip() {
+        let result = transform_xml(&sample_xml(), &TransformOptions::default());
+        assert!(result.contains("ds:Signature"));
+        assert!(result.contains("ds:SignedInfo"));
+        assert!(result.contains("ds:DigestValue"));
+        assert!(result.contains("ds:SignatureValue"));
+        assert!(result.contains("ds:X509Data"));
+    }
+
+    #[test]
+    fn test_raxb_roundtrip_quality_report() {
+        let dir = match std::env::current_dir() {
+            Ok(d) => d,
+            Err(e) => panic!("{e}"),
+        };
+        let path = dir.join("tests/quality_report_minimal.xml");
+        let xml = match std::fs::read_to_string(&path) {
+            Ok(s) => s,
+            Err(e) => panic!("{e}"),
+        };
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:mutated".into()),
+                    name: Some("Mutated Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+        let parsed: crate::model::transport::VorgangTransportieren2010 =
+            match raxb::de::from_str(&result) {
+                Ok(p) => p,
+                Err(e) => panic!("raxb round-trip failed: {e:?}"),
+            };
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:mutated");
+        assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "Mutated Reader");
+        assert_eq!(parsed.nachrichtenkopf_g2g.autor.kennung, "psw:01003110");
+    }
+
+    #[test]
+    fn test_insert_leser_preserves_indentation_unit() {
+        // Test with 4-space indentation
+        let xml_4space = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+    <nachrichtenkopf.g2g>
+        <identifikation.nachricht>
+            <nachrichtenUUID>id</nachrichtenUUID>
+        </identifikation.nachricht>
+        <dvdvDienstkennung>s</dvdvDienstkennung>
+    </nachrichtenkopf.g2g>
+    <xwas:vorgang>
+        <xwas:identifikationVorgang>
+            <xwas:vorgangsID>id</xwas:vorgangsID>
+        </xwas:identifikationVorgang>
+    </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml_4space,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+
+        // Verify the inserted leser uses 4-space indentation unit
+        assert!(
+            result.contains("        <leser>"),
+            "inserted leser should use 8-space indent (2 levels of 4), got:\n{}",
+            result
+        );
+        assert!(
+            result.contains("            <verzeichnisdienst"),
+            "inserted verzeichnisdienst should use 12-space indent (3 levels)"
+        );
+        assert!(
+            result.contains("                <code>"),
+            "inserted code should use 16-space indent (4 levels)"
+        );
+        assert!(
+            result.contains("            <kennung>psw:inserted</kennung>"),
+            "inserted kennung should use 12-space indent"
+        );
+        assert!(
+            result.contains("            <name>Inserted Reader</name>"),
+            "inserted name should use 12-space indent"
+        );
+
+        // Also verify with 2-space indentation (the default)
+        let xml_2space = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>id</nachrichtenUUID>
+    </identifikation.nachricht>
+    <dvdvDienstkennung>s</dvdvDienstkennung>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result_2 = transform_xml(
+            &xml_2space,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+
+        assert!(
+            result_2.contains("  <leser>"),
+            "inserted leser should use 2-space indent, got:\n{}",
+            result_2
+        );
+        assert!(
+            result_2.contains("    <verzeichnisdienst"),
+            "inserted verzeichnisdienst should use 4-space indent"
+        );
+        assert!(
+            result_2.contains("      <code>"),
+            "inserted code should use 6-space indent"
+        );
+
+        // Also verify with 8-space indentation
+        let xml_8space = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+        <nachrichtenkopf.g2g>
+            <identifikation.nachricht>
+                <nachrichtenUUID>id</nachrichtenUUID>
+            </identifikation.nachricht>
+            <dvdvDienstkennung>s</dvdvDienstkennung>
+        </nachrichtenkopf.g2g>
+        <xwas:vorgang>
+            <xwas:identifikationVorgang>
+                <xwas:vorgangsID>id</xwas:vorgangsID>
+            </xwas:identifikationVorgang>
+        </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result_8 = transform_xml(
+            &xml_8space,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+
+        assert!(
+            result_8.contains("        <leser>"),
+            "inserted leser should use 8-space indent, got:\n{}",
+            result_8
+        );
+        assert!(
+            result_8.contains("            <verzeichnisdienst"),
+            "inserted verzeichnisdienst should use 12-space indent"
+        );
+        assert!(
+            result_8.contains("                <code>"),
+            "inserted code should use 16-space indent"
+        );
+    }
+
+    #[test]
+    fn test_insert_zusatzinformationen_preserves_indentation_unit() {
+        // Test with 4-space indentation
+        let xml_4space = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+    <nachrichtenkopf.g2g>
+        <identifikation.nachricht>
+            <nachrichtenUUID>id</nachrichtenUUID>
+        </identifikation.nachricht>
+        <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+        <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+    </nachrichtenkopf.g2g>
+    <xwas:vorgang>
+        <xwas:identifikationVorgang>
+            <xwas:vorgangsID>id</xwas:vorgangsID>
+        </xwas:identifikationVorgang>
+    </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml_4space,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Verify the inserted zusatzinformationen uses 4-space indentation unit
+        assert!(
+            result.contains("    <xwas:zusatzinformationen>"),
+            "inserted zusatzinfo should use 4-space indent, got:\n{}",
+            result
+        );
+        assert!(
+            result.contains("        <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
+            "inserted authority ID should use 8-space indent"
+        );
+    }
+
+    #[test]
+    fn test_insert_leser_single_line_xml() {
+        // Single-line (compact) XML has no whitespace text nodes, so the
+        // indent unit falls back to 2 spaces.
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?><xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"><nachrichtenkopf.g2g><identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht><leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser><autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor><dvdvDienstkennung>s</dvdvDienstkennung></nachrichtenkopf.g2g><xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang></xwas:vorgang.transportieren.2010>"#;
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+        // Should still insert the leser element
+        assert!(result.contains("<leser>"));
+        assert!(result.contains("psw:inserted"));
+        assert!(result.contains("Inserted Reader"));
+        // Verify the output is valid XML (can be parsed by quick-xml)
+        let mut rdr = raxb::quick_xml::NsReader::from_str(&result);
+        rdr.config_mut().trim_text(false);
+        let mut depth = 0;
+        let mut buf = Vec::new();
+        loop {
+            match rdr.read_event_into(&mut buf) {
+                Ok(raxb::quick_xml::events::Event::Start(_)) => depth += 1,
+                Ok(raxb::quick_xml::events::Event::End(_)) => depth -= 1,
+                Ok(raxb::quick_xml::events::Event::Eof) => break,
+                Err(_) => panic!("output is not valid XML"),
+                _ => {}
+            }
+            buf.clear();
+        }
+        assert_eq!(depth, 0, "XML tags should be balanced");
+    }
+}
