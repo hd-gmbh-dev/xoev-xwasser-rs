@@ -2493,7 +2493,14 @@ mod tests {
         );
 
         // Assert the entire nachrichtenkopf.g2g block is preserved exactly
-        let expected_nk = "  <nachrichtenkopf.g2g>\n    <identifikation.nachricht>\n      <nachrichtenUUID>id</nachrichtenUUID>\n    </identifikation.nachricht>\n    <leser><verzeichnisdienst listVersionID=\"\"><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>\n    <autor><verzeichnisdienst listVersionID=\"\"><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>\n    <dvdvDienstkennung>s</dvdvDienstkennung>\n  </nachrichtenkopf.g2g>";
+        let expected_nk = r#"  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>id</nachrichtenUUID>
+    </identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+    <dvdvDienstkennung>s</dvdvDienstkennung>
+  </nachrichtenkopf.g2g>"#;
         assert!(
             result.contains(expected_nk),
             "nachrichtenkopf.g2g should be preserved exactly"
@@ -2530,7 +2537,14 @@ mod tests {
         );
 
         // Assert the entire nachrichtenkopf.g2g block is preserved exactly
-        let expected_nk = "    <nachrichtenkopf.g2g>\n        <identifikation.nachricht>\n            <nachrichtenUUID>id</nachrichtenUUID>\n        </identifikation.nachricht>\n        <leser><verzeichnisdienst listVersionID=\"\"><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>\n        <autor><verzeichnisdienst listVersionID=\"\"><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>\n        <dvdvDienstkennung>s</dvdvDienstkennung>\n    </nachrichtenkopf.g2g>";
+        let expected_nk = r#"    <nachrichtenkopf.g2g>
+        <identifikation.nachricht>
+            <nachrichtenUUID>id</nachrichtenUUID>
+        </identifikation.nachricht>
+        <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+        <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+        <dvdvDienstkennung>s</dvdvDienstkennung>
+    </nachrichtenkopf.g2g>"#;
         assert!(
             result.contains(expected_nk),
             "nachrichtenkopf.g2g should be preserved exactly"
@@ -2567,7 +2581,14 @@ mod tests {
         );
 
         // Assert the entire nachrichtenkopf.g2g block is preserved exactly
-        let expected_nk = "        <nachrichtenkopf.g2g>\n            <identifikation.nachricht>\n                <nachrichtenUUID>id</nachrichtenUUID>\n            </identifikation.nachricht>\n            <leser><verzeichnisdienst listVersionID=\"\"><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>\n            <autor><verzeichnisdienst listVersionID=\"\"><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>\n            <dvdvDienstkennung>s</dvdvDienstkennung>\n        </nachrichtenkopf.g2g>";
+        let expected_nk = r#"        <nachrichtenkopf.g2g>
+            <identifikation.nachricht>
+                <nachrichtenUUID>id</nachrichtenUUID>
+            </identifikation.nachricht>
+            <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+            <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+            <dvdvDienstkennung>s</dvdvDienstkennung>
+        </nachrichtenkopf.g2g>"#;
         assert!(
             result.contains(expected_nk),
             "nachrichtenkopf.g2g should be preserved exactly"
@@ -2607,7 +2628,14 @@ mod tests {
         );
 
         // Assert the entire nachrichtenkopf.g2g block is preserved exactly
-        let expected_nk = "  <nachrichtenkopf.g2g>\n    <identifikation.nachricht>\n      <nachrichtenUUID>id</nachrichtenUUID>\n    </identifikation.nachricht>\n    <leser><verzeichnisdienst listVersionID=\"\"><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>\n    <autor><verzeichnisdienst listVersionID=\"\"><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>\n    <dvdvDienstkennung>s</dvdvDienstkennung>\n  </nachrichtenkopf.g2g>";
+        let expected_nk = r#"  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>id</nachrichtenUUID>
+    </identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+    <dvdvDienstkennung>s</dvdvDienstkennung>
+  </nachrichtenkopf.g2g>"#;
         assert!(
             result.contains(expected_nk),
             "nachrichtenkopf.g2g should be preserved exactly"
@@ -2648,7 +2676,14 @@ mod tests {
         );
 
         // Assert the entire nachrichtenkopf.g2g block is preserved exactly
-        let expected_nk = "    <nachrichtenkopf.g2g>\n        <identifikation.nachricht>\n            <nachrichtenUUID>id</nachrichtenUUID>\n        </identifikation.nachricht>\n        <leser><verzeichnisdienst listVersionID=\"\"><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>\n        <autor><verzeichnisdienst listVersionID=\"\"><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>\n        <dvdvDienstkennung>s</dvdvDienstkennung>\n    </nachrichtenkopf.g2g>";
+        let expected_nk = r#"    <nachrichtenkopf.g2g>
+        <identifikation.nachricht>
+            <nachrichtenUUID>id</nachrichtenUUID>
+        </identifikation.nachricht>
+        <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+        <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+        <dvdvDienstkennung>s</dvdvDienstkennung>
+    </nachrichtenkopf.g2g>"#;
         assert!(
             result.contains(expected_nk),
             "nachrichtenkopf.g2g should be preserved exactly"
