@@ -145,12 +145,20 @@ describe("transform_xml via wasm", () => {
     expect(transform_xml(xml)).toBe(xml);
     expect(transform_xml(xml, undefined)).toBe(xml);
     expect(transform_xml(xml, null)).toBe(xml);
-    expect(transform_xml(xml, {})).toBe(xml);
+    expect(
+      transform_xml(xml, {
+        autor: undefined,
+        leser: undefined,
+        zusatzinformationen: undefined,
+      }),
+    ).toBe(xml);
   });
 
   it("transforms leser element in-place", () => {
     const result = transform_xml(sampleXml(), {
+      autor: undefined,
       leser: { kennung: "psw:99999999", name: "NewReader" },
+      zusatzinformationen: undefined,
     });
     expect(result).toContain("<kennung>psw:99999999</kennung>");
     expect(result).toContain("<name>NewReader</name>");
@@ -162,6 +170,8 @@ describe("transform_xml via wasm", () => {
   it("transforms autor element in-place", () => {
     const result = transform_xml(sampleXml(), {
       autor: { kennung: "psw:autor123", name: "Updated Autor" },
+      leser: undefined,
+      zusatzinformationen: undefined,
     });
     // leser unchanged
     expect(result).toContain("<kennung>psw:11113110</kennung>");
@@ -174,6 +184,7 @@ describe("transform_xml via wasm", () => {
     const result = transform_xml(sampleXml(), {
       leser: { kennung: "psw:L", name: "Leser" },
       autor: { kennung: "psw:A", name: "Autor" },
+      zusatzinformationen: undefined,
     });
     expect(result).toContain("<kennung>psw:L</kennung>");
     expect(result).toContain("<kennung>psw:A</kennung>");
@@ -181,6 +192,8 @@ describe("transform_xml via wasm", () => {
 
   it("transforms authorities elements in-place", () => {
     const result = transform_xml(sampleXmlWithZi(), {
+      autor: undefined,
+      leser: undefined,
       zusatzinformationen: ["auth-001"],
     });
     expect(result).toContain("zustaendigeBehoerdeID>auth-001");
@@ -190,6 +203,7 @@ describe("transform_xml via wasm", () => {
     const result = transform_xml(sampleXmlNoLeserNoAutor(), {
       leser: { kennung: "psw:inserted", name: "Inserted Reader" },
       autor: { kennung: "psw:newauthor", name: "New Autor" },
+      zusatzinformationen: undefined,
     });
     expect(result).toContain("<kennung>psw:inserted</kennung>");
     expect(result).toContain("<kennung>psw:newauthor</kennung>");
@@ -200,6 +214,8 @@ describe("transform_xml via wasm", () => {
 
   it("inserts missing zusatzinformationen", () => {
     const result = transform_xml(sampleXmlNoZi(), {
+      autor: undefined,
+      leser: undefined,
       zusatzinformationen: ["new-auth"],
     });
     expect(result).toContain("xwas:zusatzinformationen");
@@ -208,13 +224,16 @@ describe("transform_xml via wasm", () => {
 
   it("inserts multiple authorities when zusatzinformationen missing", () => {
     const result = transform_xml(sampleXmlNoZi(), {
+      autor: undefined,
+      leser: undefined,
       zusatzinformationen: ["id1", "id2"],
     });
     expect(result).toMatch(/xwas:zusatzinformationen/);
   });
 
   it("replaces zustaendigeBehoerdeID while preserving other fields", () => {
-    const ns = "xmlns:xwas=\"https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0\"";
+    const ns =
+      'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <xwas:vorgang.transportieren.2010 ${ns}>
   <nachrichtenkopf.g2g>
@@ -229,6 +248,8 @@ describe("transform_xml via wasm", () => {
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>`;
     const result = transform_xml(xml, {
+      autor: undefined,
+      leser: undefined,
       zusatzinformationen: ["auth-1"],
     });
     expect(result).toMatch(/xwas:zusatzinformationen/);
@@ -246,7 +267,8 @@ describe("transform_xml via wasm", () => {
   });
 
   it("preserves comments through leser mutation", () => {
-    const ns = 'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
+    const ns =
+      'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <xwas:vorgang.transportieren.2010 ${ns}>
   <nachrichtenkopf.g2g>
@@ -264,7 +286,9 @@ describe("transform_xml via wasm", () => {
   <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
 </xwas:vorgang.transportieren.2010>`;
     const result = transform_xml(xml, {
+      autor: undefined,
       leser: { kennung: "psw:new", name: "New" },
+      zusatzinformationen: undefined,
     });
     expect(result).toContain("<!-- inside leser -->");
     expect(result).toContain("<!-- before kennung -->");
@@ -273,7 +297,8 @@ describe("transform_xml via wasm", () => {
   });
 
   it("preserves comments outside replaced authority element", () => {
-    const ns = 'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
+    const ns =
+      'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
     const xml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" ${ns} produkt="t" produkthersteller="t" produktversion="t" standard="XWasser" test="false" version="1.0.0">
   <nachrichtenkopf.g2g>
@@ -290,6 +315,8 @@ describe("transform_xml via wasm", () => {
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>`;
     const result = transform_xml(xml, {
+      autor: undefined,
+      leser: undefined,
       zusatzinformationen: ["auth-001"],
     });
     expect(result).toMatch(/xwas:zusatzinformationen/);
@@ -297,7 +324,8 @@ describe("transform_xml via wasm", () => {
   });
 
   it("preserves comments when inserting missing leser", () => {
-    const ns = 'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
+    const ns =
+      'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <xwas:vorgang.transportieren.2010 ${ns}>
   <nachrichtenkopf.g2g>
@@ -309,7 +337,9 @@ describe("transform_xml via wasm", () => {
   <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
 </xwas:vorgang.transportieren.2010>`;
     const result = transform_xml(xml, {
+      autor: undefined,
       leser: { kennung: "psw:l", name: "Leser" },
+      zusatzinformationen: undefined,
     });
     expect(result).toContain("<!-- existing comment -->");
     expect(result).toContain("<!-- after ident -->");
@@ -334,7 +364,9 @@ describe("transform_xml via wasm", () => {
 
   it("undefined zusatzinformationen keeps existing block unchanged", () => {
     const result = transform_xml(sampleXmlWithZi(), {
+      autor: undefined,
       leser: { kennung: "psw:new", name: "New" },
+      zusatzinformationen: undefined,
     });
     expect(result).toContain("<kennung>psw:new</kennung>");
     expect(result).toContain("auth-001");
