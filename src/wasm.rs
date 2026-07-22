@@ -99,17 +99,14 @@ pub fn transform_xml(xml: String, opts: Option<TransformOptionsParam>) -> String
         name: p.name.clone(),
     });
 
-    // Only call with_ids when there are actual IDs; empty array means replace w/ empty block
-    let has_ids = opts
-        .zusatzinformationen
-        .as_ref()
-        .map(|v| !v.is_empty())
-        .unwrap_or(false);
+    // Use if let to check for non-empty zusatzinformationen
     let opts_struct = transform::TransformOptions {
         leser,
         autor,
-        zusatzinformationen: if has_ids {
-            Some(&opts.zusatzinformationen.unwrap())
+        zusatzinformationen: if let Some(ids) = opts.zusatzinformationen.as_ref()
+            && !ids.is_empty()
+        {
+            Some(ids)
         } else {
             None
         },
