@@ -4,7 +4,7 @@ members = ["crates/*", "xtask"]
 
 [workspace.package]
 edition = "2024"
-version = "1.0.1+1.0.0"
+version = "1.0.2+1.0.0"
 description = """
 XOEV XWasser XML Standard
 """
@@ -17,8 +17,8 @@ keywords = []
 
 [workspace.dependencies]
 anyhow = "1.0.100"
-xoev-xwasser-codelists = { version = "=1.0.1", path = "crates/codelists" }
-xoev-xwasser-derive = { version = "=1.0.1", path = "crates/derive" }
+xoev-xwasser-codelists = { version = "=1.0.2", path = "crates/codelists" }
+xoev-xwasser-derive = { version = "=1.0.2", path = "crates/derive" }
 raxb = "0.6.0"
 raxb-validate = "0.6.0"
 raxb-xmlschema = "0.6.0"
@@ -73,6 +73,7 @@ chrono = { version = "0.4.42", optional = true }
 strum = { version = "0.27.2", optional = true }
 strum_macros = { version = "0.27.2", optional = true }
 tiny_id = { version = "0.1.6", features = [], optional = true }
+rand = "=0.8.6"
 
 [build-dependencies]
 anyhow.workspace = true
