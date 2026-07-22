@@ -2571,4 +2571,45 @@ mod tests {
         );
         assert!(!result.contains("old-id"));
     }
+
+    #[test]
+    fn test_nachrichtenkopf_formatting_preserved_with_replacement_4space() {
+        // Verify that nachrichtenkopf.g2g formatting is preserved exactly
+        // when REPLACING zusatzinformationen in 4-space XML
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+    <nachrichtenkopf.g2g>
+        <identifikation.nachricht>
+            <nachrichtenUUID>id</nachrichtenUUID>
+        </identifikation.nachricht>
+        <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+        <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+        <dvdvDienstkennung>s</dvdvDienstkennung>
+    </nachrichtenkopf.g2g>
+    <xwas:vorgang>
+        <xwas:identifikationVorgang>
+            <xwas:vorgangsID>id</xwas:vorgangsID>
+        </xwas:identifikationVorgang>
+    </xwas:vorgang>
+    <xwas:zusatzinformationen>
+        <xwas:zustaendigeBehoerdeID>old-id</xwas:zustaendigeBehoerdeID>
+    </xwas:zusatzinformationen>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: Some(&["new-id".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Assert the entire nachrichtenkopf.g2g block is preserved exactly
+        let expected_nk = "    <nachrichtenkopf.g2g>\n        <identifikation.nachricht>\n            <nachrichtenUUID>id</nachrichtenUUID>\n        </identifikation.nachricht>\n        <leser><verzeichnisdienst listVersionID=\"\"><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>\n        <autor><verzeichnisdienst listVersionID=\"\"><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>\n        <dvdvDienstkennung>s</dvdvDienstkennung>\n    </nachrichtenkopf.g2g>";
+        assert!(
+            result.contains(expected_nk),
+            "nachrichtenkopf.g2g should be preserved exactly"
+        );
+        assert!(!result.contains("old-id"));
+    }
 }
