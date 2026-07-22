@@ -1817,4 +1817,174 @@ mod tests {
             "should have exactly 2 verzeichnisdienst close tags"
         );
     }
+
+    #[test]
+    fn test_zusatzinfo_replacement_preserves_xml_structure() {
+        // Verify that replacing zusatzinformationen produces well-formed XML
+        // with correct nesting and no orphaned tags
+        let base = load_quality_report();
+        let with_zi = transform_xml(
+            &base,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Verify XML is well-formed by parsing with quick-xml
+        let mut rdr = raxb::quick_xml::NsReader::from_str(&with_zi);
+        rdr.config_mut().trim_text(false);
+        let mut depth = 0;
+        let mut buf = Vec::new();
+        let mut in_zi = false;
+        let mut zi_depth = 0;
+        loop {
+            match rdr.read_event_into(&mut buf) {
+                Ok(raxb::quick_xml::events::Event::Start(e)) => {
+                    let lok = e.local_name().as_ref().to_vec();
+                    if lok == b"zusatzinformationen" {
+                        in_zi = true;
+                        zi_depth = depth;
+                    }
+                    depth += 1;
+                }
+                Ok(raxb::quick_xml::events::Event::End(e)) => {
+                    let lok = e.local_name().as_ref().to_vec();
+                    if lok == b"zusatzinformationen" {
+                        in_zi = false;
+                    }
+                    depth -= 1;
+                    // zusatzinformationen should close before the root element
+                    if lok == b"zusatzinformationen" {
+                        assert!(depth > 0, "zusatzinformationen should not close the root");
+                    }
+                }
+                Ok(raxb::quick_xml::events::Event::Eof) => break,
+                Err(_) => panic!("output is not well-formed XML"),
+                _ => {}
+            }
+            buf.clear();
+        }
+        assert_eq!(depth, 0, "XML tags should be balanced");
+    }
+
+    #[test]
+    fn test_zusatzinfo_replacement_preserves_all_fields() {
+        // Comprehensive test: verify that ALL fields in ZusatzinformationenType
+        // are preserved when replacing zustaendigeBehoerdeID entries
+        let base = load_quality_report();
+        let with_zi = transform_xml(
+            &base,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Inject all possible fields
+        let with_all_fields = with_zi.replace(
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n\n  </xwas:zusatzinformationen>",
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>test comment</xwas:kommentar>\n    <!-- test comment -->\n\n  </xwas:zusatzinformationen>",
+        );
+
+        // Replace the IDs
+        let result = transform_xml(
+            &with_all_fields,
+            &TransformOptions {
+                zusatzinformationen: Some(&["new-id".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Verify all fields are preserved
+        assert!(result.contains("<xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>"));
+        assert!(result.contains("<xwas:kommentar>test comment</xwas:kommentar>"));
+        assert!(result.contains("<!-- test comment -->"));
+        assert!(result.contains("<xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>"));
+        assert!(!result.contains("auth-001"));
+
+        // Verify raxb round-trip
+        let parsed = assert_raxb_roundtrip(&result);
+        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo must be present");
+        assert_eq!(zi.zustaendige_behoerde_id, vec!["new-id"]);
+        assert_eq!(zi.wasserversorgungsgebiet_id.as_deref(), Some("wv-123"));
+        assert_eq!(zi.kommentar.as_deref(), Some("test comment"));
+    }
+
+    #[test]
+    fn test_zusatzinfo_replacement_with_multiple_fields_and_ids() {
+        // Test replacing with multiple IDs while preserving multiple fields
+        let base = load_quality_report();
+        let with_zi = transform_xml(
+            &base,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        let with_all = with_zi.replace(
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n\n  </xwas:zusatzinformationen>",
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>comment1</xwas:kommentar>\n    <!-- c1 -->\n\n  </xwas:zusatzinformationen>",
+        );
+
+        let result = transform_xml(
+            &with_all,
+            &TransformOptions {
+                zusatzinformationen: Some(&["id1".into(), "id2".into(), "id3".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Verify all IDs are present
+        assert!(result.contains("<xwas:zustaendigeBehoerdeID>id1</xwas:zustaendigeBehoerdeID>"));
+        assert!(result.contains("<xwas:zustaendigeBehoerdeID>id2</xwas:zustaendigeBehoerdeID>"));
+        assert!(result.contains("<xwas:zustaendigeBehoerdeID>id3</xwas:zustaendigeBehoerdeID>"));
+        // Verify fields are preserved
+        assert!(result.contains("<xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>"));
+        assert!(result.contains("<xwas:kommentar>comment1</xwas:kommentar>"));
+        assert!(result.contains("<!-- c1 -->"));
+        // Verify old ID is gone
+        assert!(!result.contains("auth-001"));
+
+        // Verify raxb round-trip
+        let parsed = assert_raxb_roundtrip(&result);
+        let zi = parsed.zusatzinformationen.as_ref().expect("zusatzinfo must be present");
+        assert_eq!(zi.zustaendige_behoerde_id, vec!["id1", "id2", "id3"]);
+        assert_eq!(zi.wasserversorgungsgebiet_id.as_deref(), Some("wv-123"));
+        assert_eq!(zi.kommentar.as_deref(), Some("comment1"));
+    }
+
+    #[test]
+    fn test_zusatzinfo_replacement_preserves_comments_at_all_positions() {
+        // Test that comments before, between, and after zustaendigeBehoerdeID
+        // elements are all preserved
+        let base = load_quality_report();
+        let with_zi = transform_xml(
+            &base,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        let with_comments = with_zi.replace(
+            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n\n  </xwas:zusatzinformationen>",
+            "<!-- before -->\n    <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <!-- between -->\n    <xwas:wasserversorgungsgebietID>wv</xwas:wasserversorgungsgebietID>\n    <!-- after -->\n\n  </xwas:zusatzinformationen>",
+        );
+
+        let result = transform_xml(
+            &with_comments,
+            &TransformOptions {
+                zusatzinformationen: Some(&["new-id".into()]),
+                ..Default::default()
+            },
+        );
+
+        assert!(result.contains("<!-- before -->"));
+        assert!(result.contains("<!-- between -->"));
+        assert!(result.contains("<!-- after -->"));
+        assert!(result.contains("<xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>"));
+        assert!(result.contains("<xwas:wasserversorgungsgebietID>wv</xwas:wasserversorgungsgebietID>"));
+    }
 }
