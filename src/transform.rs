@@ -260,11 +260,9 @@ impl TransformState {
     }
 
     /// Measure the indentation unit from a whitespace text node.
-    /// The unit is the smallest repeating pattern of spaces/tabs.
-    /// For example, if the text is "    " (4 spaces), the unit is "  " (2 spaces)
-    /// if the parent indent is 2 spaces, or "    " (4 spaces) if the parent indent
-    /// is 4 spaces. We determine this by checking if the text is a multiple of
-    /// a candidate unit.
+    /// The unit is the entire indentation string of the text node.
+    /// For example, if the text is "    " (4 spaces), the unit is "    " (4 spaces).
+    /// This is the indentation of one level of nesting.
     fn measure_indent_unit(&mut self, text: &[u8]) {
         if !self.indent_unit.is_empty() {
             return;
@@ -278,17 +276,6 @@ impl TransformState {
         if indent.is_empty() {
             return;
         }
-        // Try to find the smallest repeating unit
-        for unit_len in 1..=indent.len() {
-            let unit = &indent[..unit_len];
-            if indent.len().is_multiple_of(unit_len)
-                && indent.chunks(unit_len).all(|chunk| chunk == unit)
-            {
-                self.indent_unit = unit.to_vec();
-                return;
-            }
-        }
-        // Fallback: use the entire indentation as the unit
         self.indent_unit = indent;
     }
 }
@@ -1339,5 +1326,179 @@ mod tests {
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:mutated");
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "Mutated Reader");
         assert_eq!(parsed.nachrichtenkopf_g2g.autor.kennung, "psw:01003110");
+    }
+
+    #[test]
+    fn test_insert_leser_preserves_indentation_unit() {
+        // Test with 4-space indentation
+        let xml_4space = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+    <nachrichtenkopf.g2g>
+        <identifikation.nachricht>
+            <nachrichtenUUID>id</nachrichtenUUID>
+        </identifikation.nachricht>
+        <dvdvDienstkennung>s</dvdvDienstkennung>
+    </nachrichtenkopf.g2g>
+    <xwas:vorgang>
+        <xwas:identifikationVorgang>
+            <xwas:vorgangsID>id</xwas:vorgangsID>
+        </xwas:identifikationVorgang>
+    </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml_4space,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+
+        // Verify the inserted leser uses 4-space indentation unit
+        assert!(
+            result.contains("        <leser>"),
+            "inserted leser should use 8-space indent (2 levels of 4), got:\n{}",
+            result
+        );
+        assert!(
+            result.contains("            <verzeichnisdienst"),
+            "inserted verzeichnisdienst should use 12-space indent (3 levels)"
+        );
+        assert!(
+            result.contains("                <code>"),
+            "inserted code should use 16-space indent (4 levels)"
+        );
+        assert!(
+            result.contains("            <kennung>psw:inserted</kennung>"),
+            "inserted kennung should use 12-space indent"
+        );
+        assert!(
+            result.contains("            <name>Inserted Reader</name>"),
+            "inserted name should use 12-space indent"
+        );
+
+        // Also verify with 2-space indentation (the default)
+        let xml_2space = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>id</nachrichtenUUID>
+    </identifikation.nachricht>
+    <dvdvDienstkennung>s</dvdvDienstkennung>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result_2 = transform_xml(
+            &xml_2space,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+
+        assert!(
+            result_2.contains("  <leser>"),
+            "inserted leser should use 2-space indent, got:\n{}",
+            result_2
+        );
+        assert!(
+            result_2.contains("    <verzeichnisdienst"),
+            "inserted verzeichnisdienst should use 4-space indent"
+        );
+        assert!(
+            result_2.contains("      <code>"),
+            "inserted code should use 6-space indent"
+        );
+
+        // Also verify with 8-space indentation
+        let xml_8space = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+        <nachrichtenkopf.g2g>
+            <identifikation.nachricht>
+                <nachrichtenUUID>id</nachrichtenUUID>
+            </identifikation.nachricht>
+            <dvdvDienstkennung>s</dvdvDienstkennung>
+        </nachrichtenkopf.g2g>
+        <xwas:vorgang>
+            <xwas:identifikationVorgang>
+                <xwas:vorgangsID>id</xwas:vorgangsID>
+            </xwas:identifikationVorgang>
+        </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result_8 = transform_xml(
+            &xml_8space,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+
+        assert!(
+            result_8.contains("        <leser>"),
+            "inserted leser should use 8-space indent, got:\n{}",
+            result_8
+        );
+        assert!(
+            result_8.contains("            <verzeichnisdienst"),
+            "inserted verzeichnisdienst should use 12-space indent"
+        );
+        assert!(
+            result_8.contains("                <code>"),
+            "inserted code should use 16-space indent"
+        );
+    }
+
+    #[test]
+    fn test_insert_zusatzinformationen_preserves_indentation_unit() {
+        // Test with 4-space indentation
+        let xml_4space = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+    <nachrichtenkopf.g2g>
+        <identifikation.nachricht>
+            <nachrichtenUUID>id</nachrichtenUUID>
+        </identifikation.nachricht>
+        <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+        <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+    </nachrichtenkopf.g2g>
+    <xwas:vorgang>
+        <xwas:identifikationVorgang>
+            <xwas:vorgangsID>id</xwas:vorgangsID>
+        </xwas:identifikationVorgang>
+    </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml_4space,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Verify the inserted zusatzinformationen uses 4-space indentation unit
+        assert!(
+            result.contains("    <xwas:zusatzinformationen>"),
+            "inserted zusatzinfo should use 4-space indent, got:\n{}",
+            result
+        );
+        assert!(
+            result.contains("        <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
+            "inserted authority ID should use 8-space indent"
+        );
     }
 }
