@@ -405,6 +405,7 @@ fn handle_end(
                 &state.zi_buf,
                 options.zusatzinformationen,
                 &state.root_ns_prefix,
+                state,
             );
             state.zi_buf.clear();
             return;
@@ -574,6 +575,7 @@ fn write_zusatzinfo_content<W: std::io::Write>(
     buffered: &[Event<'static>],
     updates: Option<&[String]>,
     prefix: &[u8],
+    state: &TransformState,
 ) {
     let has_updates = updates.is_some_and(|v| !v.is_empty());
     let zbid_local = b"zustaendigeBehoerdeID";
