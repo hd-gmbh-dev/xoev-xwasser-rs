@@ -89,25 +89,30 @@ pub struct ElementParam {
 /// ```
 #[wasm_bindgen]
 pub fn transform_xml(xml: String, opts: Option<TransformOptionsParam>) -> String {
-    let opts = opts.unwrap_or_default();
-    let leser = opts.leser.as_ref().map(|p| transform::ElementUpdate {
-        kennung: p.kennung.clone(),
-        name: p.name.clone(),
+    let TransformOptionsParam {
+        leser,
+        autor,
+        zusatzinformationen,
+        nachrichten_uuid,
+    } = opts.unwrap_or_default();
+
+    let leser = leser.map(|p| transform::ElementUpdate {
+        kennung: p.kennung,
+        name: p.name,
     });
-    let autor = opts.autor.as_ref().map(|p| transform::ElementUpdate {
-        kennung: p.kennung.clone(),
-        name: p.name.clone(),
+    let autor = autor.map(|p| transform::ElementUpdate {
+        kennung: p.kennung,
+        name: p.name,
     });
 
     // Use as_deref + filter for zusatzinformationen check
     let opts_struct = transform::TransformOptions {
         leser,
         autor,
-        zusatzinformationen: opts
-            .zusatzinformationen
+        zusatzinformationen: zusatzinformationen
             .as_deref()
             .filter(|v| !v.is_empty()),
-        nachrichten_uuid: opts.nachrichten_uuid.as_deref(),
+        nachrichten_uuid: nachrichten_uuid.as_deref(),
     };
     transform::transform_xml_impl(&xml, &opts_struct)
 }
