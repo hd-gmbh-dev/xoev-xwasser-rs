@@ -99,15 +99,14 @@ pub fn transform_xml(xml: String, opts: Option<TransformOptionsParam>) -> String
         name: p.name.clone(),
     });
 
-    // Use filter to check for non-empty zusatzinformationen
+    // Use as_deref + filter for zusatzinformationen check
     let opts_struct = transform::TransformOptions {
         leser,
         autor,
         zusatzinformationen: opts
             .zusatzinformationen
-            .as_ref()
-            .filter(|v| !v.is_empty())
-            .map(|v| v.as_slice()),
+            .as_deref()
+            .filter(|v| !v.is_empty()),
         nachrichten_uuid: opts.nachrichten_uuid.as_deref(),
     };
     transform::transform_xml_impl(&xml, &opts_struct)
