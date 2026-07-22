@@ -61,7 +61,7 @@ pub struct TransformOptionsParam {
     pub autor: Option<ElementParam>,
     #[tsify(optional)]
     #[serde(rename = "zusatzinformationen")]
-    pub authorities: Option<Vec<String>>,
+    pub zusatzinformationen: Option<Vec<String>>,
     #[tsify(optional)]
     pub nachrichten_uuid: Option<String>,
 }
@@ -101,7 +101,7 @@ pub fn transform_xml(xml: String, opts: Option<TransformOptionsParam>) -> String
 
     // Only call with_ids when there are actual IDs; empty array means replace w/ empty block
     let has_ids = opts
-        .authorities
+        .zusatzinformationen
         .as_ref()
         .map(|v| !v.is_empty())
         .unwrap_or(false);
@@ -109,7 +109,7 @@ pub fn transform_xml(xml: String, opts: Option<TransformOptionsParam>) -> String
         leser,
         autor,
         zusatzinformationen: if has_ids {
-            Some(&opts.authorities.unwrap())
+            Some(&opts.zusatzinformationen.unwrap())
         } else {
             None
         },
