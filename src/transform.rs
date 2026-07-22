@@ -1987,4 +1987,191 @@ mod tests {
         assert!(result.contains("<xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>"));
         assert!(result.contains("<xwas:wasserversorgungsgebietID>wv</xwas:wasserversorgungsgebietID>"));
     }
+
+    #[test]
+    fn test_zusatzinfo_insertion_indentation_2space() {
+        // Verify exact indentation when inserting zusatzinformationen
+        // into a 2-space-indented XML document
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>id</nachrichtenUUID>
+    </identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Verify exact indentation:
+        // - <xwas:zusatzinformationen> at 2-space indent (root child)
+        // - <xwas:zustaendigeBehoerdeID> at 4-space indent (root child + 1 level)
+        assert!(
+            result.contains("  <xwas:zusatzinformationen>"),
+            "zusatzinfo should be at 2-space indent"
+        );
+        assert!(
+            result.contains("    <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
+            "authority ID should be at 4-space indent"
+        );
+        assert!(
+            result.contains("  </xwas:zusatzinformationen>"),
+            "closing zusatzinfo should be at 2-space indent"
+        );
+    }
+
+    #[test]
+    fn test_zusatzinfo_insertion_indentation_4space() {
+        // Verify exact indentation when inserting zusatzinformationen
+        // into a 4-space-indented XML document
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+    <nachrichtenkopf.g2g>
+        <identifikation.nachricht>
+            <nachrichtenUUID>id</nachrichtenUUID>
+        </identifikation.nachricht>
+        <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+        <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+    </nachrichtenkopf.g2g>
+    <xwas:vorgang>
+        <xwas:identifikationVorgang>
+            <xwas:vorgangsID>id</xwas:vorgangsID>
+        </xwas:identifikationVorgang>
+    </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Verify exact indentation:
+        // - <xwas:zusatzinformationen> at 4-space indent (root child)
+        // - <xwas:zustaendigeBehoerdeID> at 6-space indent (root child + 1 level)
+        assert!(
+            result.contains("    <xwas:zusatzinformationen>"),
+            "zusatzinfo should be at 4-space indent"
+        );
+        assert!(
+            result.contains("      <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
+            "authority ID should be at 6-space indent"
+        );
+        assert!(
+            result.contains("    </xwas:zusatzinformationen>"),
+            "closing zusatzinfo should be at 4-space indent"
+        );
+    }
+
+    #[test]
+    fn test_zusatzinfo_insertion_indentation_8space() {
+        // Verify exact indentation when inserting zusatzinformationen
+        // into an 8-space-indented XML document
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+        <nachrichtenkopf.g2g>
+            <identifikation.nachricht>
+                <nachrichtenUUID>id</nachrichtenUUID>
+            </identifikation.nachricht>
+            <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+            <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+        </nachrichtenkopf.g2g>
+        <xwas:vorgang>
+            <xwas:identifikationVorgang>
+                <xwas:vorgangsID>id</xwas:vorgangsID>
+            </xwas:identifikationVorgang>
+        </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Verify exact indentation:
+        // - <xwas:zusatzinformationen> at 8-space indent (root child)
+        // - <xwas:zustaendigeBehoerdeID> at 10-space indent (root child + 1 level)
+        assert!(
+            result.contains("        <xwas:zusatzinformationen>"),
+            "zusatzinfo should be at 8-space indent"
+        );
+        assert!(
+            result.contains("          <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
+            "authority ID should be at 10-space indent"
+        );
+        assert!(
+            result.contains("        </xwas:zusatzinformationen>"),
+            "closing zusatzinfo should be at 8-space indent"
+        );
+    }
+
+    #[test]
+    fn test_zusatzinfo_replacement_indentation_2space() {
+        // Verify exact indentation when REPLACING zusatzinformationen
+        // in a 2-space-indented XML document
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>id</nachrichtenUUID>
+    </identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+  <xwas:zusatzinformationen>
+    <xwas:zustaendigeBehoerdeID>old-id</xwas:zustaendigeBehoerdeID>
+    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>
+    <xwas:kommentar>old comment</xwas:kommentar>
+  </xwas:zusatzinformationen>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: Some(&["new-id".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Verify exact indentation after replacement:
+        // - New ID at 4-space indent (root child + 1 level)
+        // - Preserved wasserversorgungsgebietID at 4-space indent
+        // - Preserved kommentar at 4-space indent
+        assert!(
+            result.contains("    <xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>"),
+            "new ID should be at 4-space indent"
+        );
+        assert!(
+            result.contains("    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>"),
+            "preserved wasserversorgungsgebietID should be at 4-space indent"
+        );
+        assert!(
+            result.contains("    <xwas:kommentar>old comment</xwas:kommentar>"),
+            "preserved kommentar should be at 4-space indent"
+        );
+        assert!(!result.contains("old-id"));
+    }
 }
