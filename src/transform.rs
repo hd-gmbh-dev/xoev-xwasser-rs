@@ -1493,4 +1493,41 @@ mod tests {
             "inserted authority ID should use 8-space indent"
         );
     }
+
+    #[test]
+    fn test_insert_leser_single_line_xml() {
+        // Single-line (compact) XML has no whitespace text nodes, so the
+        // indent unit falls back to 2 spaces.
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?><xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"><nachrichtenkopf.g2g><identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht><leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser><autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor><dvdvDienstkennung>s</dvdvDienstkennung></nachrichtenkopf.g2g><xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang></xwas:vorgang.transportieren.2010>"#;
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+        // Should still insert the leser element
+        assert!(result.contains("<leser>"));
+        assert!(result.contains("psw:inserted"));
+        assert!(result.contains("Inserted Reader"));
+        // Verify the output is valid XML (can be parsed by quick-xml)
+        let mut rdr = raxb::quick_xml::NsReader::from_str(&result);
+        rdr.config_mut().trim_text(false);
+        let mut depth = 0;
+        let mut buf = Vec::new();
+        loop {
+            match rdr.read_event_into(&mut buf) {
+                Ok(raxb::quick_xml::events::Event::Start(_)) => depth += 1,
+                Ok(raxb::quick_xml::events::Event::End(_)) => depth -= 1,
+                Ok(raxb::quick_xml::events::Event::Eof) => break,
+                Err(_) => panic!("output is not valid XML"),
+                _ => {}
+            }
+            buf.clear();
+        }
+        assert_eq!(depth, 0, "XML tags should be balanced");
+    }
 }
