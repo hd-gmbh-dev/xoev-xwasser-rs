@@ -330,7 +330,7 @@ fn handle_start(
         }
     }
 
-    if state.should_insert_leser && lok != b"nachrichtenkopf.g2g" {
+    if state.should_insert_leser && lok != b"nachrichtenkopf.g2g" && lok != b"leser" {
         if let Some(r) = &options.leser {
             insert_g2g_element(writer, "leser", r, state);
         }
@@ -339,7 +339,7 @@ fn handle_start(
             state.should_insert_autor = true;
         }
     }
-    if state.should_insert_autor && lok != b"nachrichtenkopf.g2g" && lok != b"leser" {
+    if state.should_insert_autor && lok != b"nachrichtenkopf.g2g" && lok != b"leser" && lok != b"autor" {
         if let Some(r) = &options.autor {
             insert_g2g_element(writer, "autor", r, state);
         }
@@ -348,6 +348,7 @@ fn handle_start(
 
     if state.nk_depth > 0 && lok == b"leser" {
         state.seen_leser = true;
+        state.should_insert_leser = false;
         if has_leser {
             start_g2g_element_buf(state, e, b"leser");
             return;
@@ -356,6 +357,7 @@ fn handle_start(
 
     if state.nk_depth > 0 && lok == b"autor" {
         state.seen_autor = true;
+        state.should_insert_autor = false;
         if has_autor {
             start_g2g_element_buf(state, e, b"autor");
             return;
@@ -585,9 +587,13 @@ fn write_zusatzinfo_content<W: std::io::Write>(
 
     // Insert new zustaendigeBehoerdeID entries at the end (before the closing tag)
     let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
+    let id_indent = state.nested_indent(state.root_child_indent(), 2);
+    let close_indent = state.nested_indent(state.root_child_indent(), 1);
+    let id_text = format!("\n{}", String::from_utf8_lossy(&id_indent));
+    let close_text = format!("\n{}", String::from_utf8_lossy(&close_indent));
     if let Some(entries) = updates {
         for id in entries {
-            additional_events.push(Event::Text(BytesText::new("\n    ")));
+            additional_events.push(Event::Text(BytesText::new(&id_text)));
             additional_events.push(Event::Start(BytesStart::new(&zbid)));
             additional_events.push(Event::Text(BytesText::new(id)));
             additional_events.push(Event::End(BytesEnd::new(&zbid)));
@@ -645,7 +651,13 @@ fn write_zusatzinfo_content<W: std::io::Write>(
         }
     }
 
-    events.push(Event::Text(BytesText::new("\n  ")));
+    // Flush any remaining buffered text
+    text_buffer.reverse();
+    while let Some(e) = text_buffer.pop() {
+        events.push(e);
+    }
+
+    events.push(Event::Text(BytesText::new(&close_text)));
     events.push(Event::End(BytesEnd::new(
         std::str::from_utf8(&zi_end_name).unwrap_or("zusatzinformationen"),
     )));
@@ -1041,7 +1053,6 @@ mod tests {
     #[test]
     fn test_zusatzinfo_full_replacement() {
         let base = load_quality_report();
-        eprintln!("{base}");
         let with_zi = transform_xml(
             &base,
             &TransformOptions {
@@ -1049,7 +1060,6 @@ mod tests {
                 ..Default::default()
             },
         );
-        eprintln!("{with_zi}");
         assert!(with_zi.contains("xwas:zusatzinformationen"));
 
         let result = transform_xml(
@@ -1332,15 +1342,7 @@ mod tests {
 
     #[test]
     fn test_raxb_roundtrip_quality_report() {
-        let dir = match std::env::current_dir() {
-            Ok(d) => d,
-            Err(e) => panic!("{e}"),
-        };
-        let path = dir.join("tests/quality_report_minimal.xml");
-        let xml = match std::fs::read_to_string(&path) {
-            Ok(s) => s,
-            Err(e) => panic!("{e}"),
-        };
+        let xml = load_quality_report();
         let result = transform_xml(
             &xml,
             &TransformOptions {
@@ -1570,5 +1572,249 @@ mod tests {
             buf.clear();
         }
         assert_eq!(depth, 0, "XML tags should be balanced");
+    }
+
+    #[test]
+    fn test_no_duplicate_tags_in_zusatzinfo_replacement() {
+        // Verify that replacing zusatzinformationen doesn't produce
+        // duplicate tags (e.g. double <zusatzinformationen> or
+        // duplicate <zustaendigeBehoerdeID> entries)
+        let base = load_quality_report();
+        let with_zi = transform_xml(
+            &base,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Count opening tags
+        let count_tag = |tag: &str| {
+            let needle = format!("<{tag}");
+            with_zi.matches(&needle).count()
+        };
+
+        // Should have exactly 1 <zusatzinformationen> open tag
+        assert_eq!(
+            count_tag("xwas:zusatzinformationen"),
+            1,
+            "should have exactly 1 zusatzinformationen open tag"
+        );
+        // Should have exactly 1 </zusatzinformationen> close tag
+        assert_eq!(
+            with_zi.matches("</xwas:zusatzinformationen>").count(),
+            1,
+            "should have exactly 1 zusatzinformationen close tag"
+        );
+        // Should have exactly 1 <zustaendigeBehoerdeID> (the new one)
+        assert_eq!(
+            count_tag("xwas:zustaendigeBehoerdeID"),
+            1,
+            "should have exactly 1 zustaendigeBehoerdeID open tag"
+        );
+        assert_eq!(
+            with_zi.matches("</xwas:zustaendigeBehoerdeID>").count(),
+            1,
+            "should have exactly 1 zustaendigeBehoerdeID close tag"
+        );
+    }
+
+    #[test]
+    fn test_no_duplicate_tags_in_leser_mutation() {
+        // Verify that mutating leser doesn't produce duplicate tags
+        let base = load_quality_report();
+        let result = transform_xml(
+            &base,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:mutated".into()),
+                    name: Some("Mutated Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+
+        // Count opening tags
+        let count_tag = |tag: &str| {
+            let needle = format!("<{tag}");
+            result.matches(&needle).count()
+        };
+
+        // Should have exactly 1 <leser> open tag
+        assert_eq!(
+            count_tag("leser"),
+            1,
+            "should have exactly 1 leser open tag"
+        );
+        // Should have exactly 1 </leser> close tag
+        assert_eq!(
+            result.matches("</leser>").count(),
+            1,
+            "should have exactly 1 leser close tag"
+        );
+        // Should have exactly 1 <kennung> inside leser (quality report has 2: leser + autor)
+        assert!(
+            count_tag("kennung") >= 1,
+            "should have at least 1 kennung open tag"
+        );
+        assert!(
+            result.matches("</kennung>").count() >= 1,
+            "should have at least 1 kennung close tag"
+        );
+        // Should have exactly 1 <name> inside leser (quality report has many <name> tags)
+        assert!(
+            count_tag("name") >= 1,
+            "should have at least 1 name open tag"
+        );
+        assert!(
+            result.matches("</name>").count() >= 1,
+            "should have at least 1 name close tag"
+        );
+    }
+
+    #[test]
+    fn test_no_duplicate_tags_in_leser_insertion() {
+        // Verify that inserting leser doesn't produce duplicate tags
+        let xml = sample_xml_no_leser_no_autor();
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+
+        // Count opening tags
+        let count_tag = |tag: &str| {
+            let needle = format!("<{tag}");
+            result.matches(&needle).count()
+        };
+
+        // Should have exactly 1 <leser> open tag
+        assert_eq!(
+            count_tag("leser"),
+            1,
+            "should have exactly 1 leser open tag"
+        );
+        assert_eq!(
+            result.matches("</leser>").count(),
+            1,
+            "should have exactly 1 leser close tag"
+        );
+        // Should have exactly 1 <verzeichnisdienst> inside inserted leser
+        assert_eq!(
+            count_tag("verzeichnisdienst"),
+            1,
+            "should have exactly 1 verzeichnisdienst open tag"
+        );
+        assert_eq!(
+            result.matches("</verzeichnisdienst>").count(),
+            1,
+            "should have exactly 1 verzeichnisdienst close tag"
+        );
+    }
+
+    #[test]
+    fn test_no_duplicate_tags_in_autor_mutation() {
+        // Verify that mutating autor doesn't produce duplicate tags
+        let base = load_quality_report();
+        let result = transform_xml(
+            &base,
+            &TransformOptions {
+                autor: Some(ElementUpdate {
+                    kennung: Some("psw:mutated_autor".into()),
+                    name: Some("Mutated Autor".into()),
+                }),
+                ..Default::default()
+            },
+        );
+
+        // Count opening tags
+        let count_tag = |tag: &str| {
+            let needle = format!("<{tag}");
+            result.matches(&needle).count()
+        };
+
+        // Should have exactly 1 <autor> open tag
+        assert_eq!(
+            count_tag("autor"),
+            1,
+            "should have exactly 1 autor open tag"
+        );
+        assert_eq!(
+            result.matches("</autor>").count(),
+            1,
+            "should have exactly 1 autor close tag"
+        );
+        // Should have at least 1 <kennung> (quality report has 2: leser + autor)
+        assert!(
+            count_tag("kennung") >= 1,
+            "should have at least 1 kennung open tag"
+        );
+        assert!(
+            result.matches("</kennung>").count() >= 1,
+            "should have at least 1 kennung close tag"
+        );
+        // Should have at least 1 <name> (quality report has many <name> tags)
+        assert!(
+            count_tag("name") >= 1,
+            "should have at least 1 name open tag"
+        );
+        assert!(
+            result.matches("</name>").count() >= 1,
+            "should have at least 1 name close tag"
+        );
+    }
+
+    #[test]
+    fn test_no_duplicate_tags_in_autor_insertion() {
+        // Verify that inserting autor doesn't produce duplicate tags
+        let xml = sample_xml_no_leser_no_autor();
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:l".into()),
+                    name: Some("Leser".into()),
+                }),
+                autor: Some(ElementUpdate {
+                    kennung: Some("psw:a".into()),
+                    name: Some("Autor".into()),
+                }),
+                ..Default::default()
+            },
+        );
+
+        // Count opening tags
+        let count_tag = |tag: &str| {
+            let needle = format!("<{tag}");
+            result.matches(&needle).count()
+        };
+
+        // Should have exactly 1 <autor> open tag
+        assert_eq!(
+            count_tag("autor"),
+            1,
+            "should have exactly 1 autor open tag"
+        );
+        assert_eq!(
+            result.matches("</autor>").count(),
+            1,
+            "should have exactly 1 autor close tag"
+        );
+        // Should have exactly 2 <verzeichnisdienst> (one in leser, one in autor)
+        assert_eq!(
+            count_tag("verzeichnisdienst"),
+            2,
+            "should have exactly 2 verzeichnisdienst open tags (leser + autor)"
+        );
+        assert_eq!(
+            result.matches("</verzeichnisdienst>").count(),
+            2,
+            "should have exactly 2 verzeichnisdienst close tags"
+        );
     }
 }
