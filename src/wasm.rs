@@ -55,8 +55,11 @@ pub fn detect_version(xml: String) -> Result<String, JsValue> {
 #[derive(Deserialize, Default, Tsify)]
 #[tsify(from_wasm_abi)]
 pub struct TransformOptionsParam {
+    #[tsify(optional)]
     pub leser: Option<ElementParam>,
+    #[tsify(optional)]
     pub autor: Option<ElementParam>,
+    #[tsify(optional)]
     #[serde(rename = "zusatzinformationen")]
     pub authorities: Option<Vec<String>>,
 }
@@ -64,7 +67,9 @@ pub struct TransformOptionsParam {
 #[derive(Deserialize, Default, Tsify)]
 #[tsify(from_wasm_abi)]
 pub struct ElementParam {
+    #[tsify(optional)]
     pub kennung: Option<String>,
+    #[tsify(optional)]
     pub name: Option<String>,
 }
 
