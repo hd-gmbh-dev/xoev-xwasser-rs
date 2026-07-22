@@ -209,6 +209,10 @@ struct TransformState {
     nk_child_indent: Vec<u8>,
     root_child_indent: Vec<u8>,
 
+    // Indentation unit (one level of indentation) measured from the source XML.
+    // Falls back to 2 spaces when no indentation is detected.
+    indent_unit: Vec<u8>,
+
     // XWasser prefix from root element (e.g. "xwas" or "xw")
     root_ns_prefix: Vec<u8>,
 
@@ -234,6 +238,58 @@ impl TransformState {
         } else {
             &self.root_child_indent
         }
+    }
+
+    /// One level of indentation, measured from the source XML.
+    /// Falls back to 2 spaces when no indentation is detected.
+    fn indent_unit(&self) -> &[u8] {
+        if self.indent_unit.is_empty() {
+            b"  "
+        } else {
+            &self.indent_unit
+        }
+    }
+
+    /// Compute `indent + n * indent_unit` for nested levels.
+    fn nested_indent(&self, base: &[u8], levels: usize) -> Vec<u8> {
+        let mut result = base.to_vec();
+        for _ in 0..levels {
+            result.extend_from_slice(self.indent_unit());
+        }
+        result
+    }
+
+    /// Measure the indentation unit from a whitespace text node.
+    /// The unit is the smallest repeating pattern of spaces/tabs.
+    /// For example, if the text is "    " (4 spaces), the unit is "  " (2 spaces)
+    /// if the parent indent is 2 spaces, or "    " (4 spaces) if the parent indent
+    /// is 4 spaces. We determine this by checking if the text is a multiple of
+    /// a candidate unit.
+    fn measure_indent_unit(&mut self, text: &[u8]) {
+        if !self.indent_unit.is_empty() {
+            return;
+        }
+        // Strip newlines and carriage returns to get just the indentation
+        let indent: Vec<u8> = text
+            .iter()
+            .filter(|b| **b == b' ' || **b == b'\t')
+            .copied()
+            .collect();
+        if indent.is_empty() {
+            return;
+        }
+        // Try to find the smallest repeating unit
+        for unit_len in 1..=indent.len() {
+            let unit = &indent[..unit_len];
+            if indent.len().is_multiple_of(unit_len)
+                && indent.chunks(unit_len).all(|chunk| chunk == unit)
+            {
+                self.indent_unit = unit.to_vec();
+                return;
+            }
+        }
+        // Fallback: use the entire indentation as the unit
+        self.indent_unit = indent;
     }
 }
 
@@ -290,7 +346,7 @@ fn handle_start(
 
     if state.should_insert_leser && lok != b"nachrichtenkopf.g2g" {
         if let Some(r) = &options.leser {
-            insert_g2g_element(writer, "leser", r, state.g2g_child_indent());
+            insert_g2g_element(writer, "leser", r, state);
         }
         state.should_insert_leser = false;
         if has_autor && !state.seen_autor {
@@ -299,7 +355,7 @@ fn handle_start(
     }
     if state.should_insert_autor && lok != b"nachrichtenkopf.g2g" && lok != b"leser" {
         if let Some(r) = &options.autor {
-            insert_g2g_element(writer, "autor", r, state.g2g_child_indent());
+            insert_g2g_element(writer, "autor", r, state);
         }
         state.should_insert_autor = false;
     }
@@ -361,6 +417,7 @@ fn handle_end(
                 &state.zi_buf,
                 options.zusatzinformationen,
                 &state.root_ns_prefix,
+                state,
             );
             state.zi_buf.clear();
             return;
@@ -383,30 +440,10 @@ fn handle_end(
         return;
     }
 
-    if state.root_depth > 0
-        && lok == b"vorgang.transportieren.2010"
-        && state.depth == state.root_depth
-    {
-        let should_insert = options.zusatzinformationen.is_some_and(|a| !a.is_empty());
-        if !state.seen_zi && should_insert {
-            insert_zusatzinformationen_element(
-                writer,
-                options.zusatzinformationen.unwrap_or(&[]),
-                if state.root_ns_prefix.is_empty() {
-                    b"xwas"
-                } else {
-                    &state.root_ns_prefix
-                },
-                state.root_child_indent(),
-            );
-        }
-        state.root_depth = 0;
-    }
-
     if state.nk_depth > 0 && lok == b"nachrichtenkopf.g2g" {
         if state.should_insert_leser {
             if let Some(r) = &options.leser {
-                insert_g2g_element(writer, "leser", r, state.g2g_child_indent());
+                insert_g2g_element(writer, "leser", r, state);
             }
             state.should_insert_leser = false;
             if has_autor && !state.seen_autor {
@@ -415,7 +452,7 @@ fn handle_end(
         }
         if state.should_insert_autor {
             if let Some(r) = &options.autor {
-                insert_g2g_element(writer, "autor", r, state.g2g_child_indent());
+                insert_g2g_element(writer, "autor", r, state);
             }
             state.should_insert_autor = false;
         }
@@ -436,7 +473,7 @@ fn handle_end(
                 } else {
                     &state.root_ns_prefix
                 },
-                state.root_child_indent(),
+                state,
             );
         }
         state.root_depth = 0;
@@ -483,12 +520,14 @@ fn handle_generic(state: &mut TransformState, writer: &mut Writer<Vec<u8>>, even
                 && state.nk_child_indent.is_empty()
             {
                 state.nk_child_indent = bytes.to_vec();
+                state.measure_indent_unit(bytes);
             }
             if state.root_depth > 0
                 && state.depth == state.root_depth
                 && state.root_child_indent.is_empty()
             {
                 state.root_child_indent = bytes.to_vec();
+                state.measure_indent_unit(bytes);
             }
         }
     }
@@ -552,6 +591,7 @@ fn write_zusatzinfo_content<W: std::io::Write>(
     buffered: &[Event<'static>],
     updates: Option<&[String]>,
     prefix: &[u8],
+    state: &TransformState,
 ) {
     let zbid_local = b"zustaendigeBehoerdeID";
     let mut skip_zbid = false;
@@ -596,11 +636,11 @@ fn write_zusatzinfo_content<W: std::io::Write>(
 
     // Insert new zustaendigeBehoerdeID entries at the end (before the closing tag)
     if let Some(entries) = updates {
-        let indent = b"    ";
+        let indent = state.nested_indent(state.root_child_indent(), 2);
         let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
         for id in entries {
             write_text_bytes(writer, b"\n");
-            write_text_bytes(writer, indent);
+            write_text_bytes(writer, &indent);
             write_event(writer, Event::Start(BytesStart::new(&zbid)));
             write_text_bytes(writer, id.as_bytes());
             write_event(writer, Event::End(BytesEnd::new(&zbid)));
@@ -691,13 +731,14 @@ fn insert_g2g_element<W: std::io::Write>(
     writer: &mut Writer<W>,
     element_name: &str,
     update: &ElementUpdate,
-    indent: &[u8],
+    state: &TransformState,
 ) {
     let kennung = update.kennung.as_deref().unwrap_or("");
     let name = update.name.as_deref().unwrap_or("");
 
-    let sub = [indent, b"  "].concat();
-    let subsub = [indent, b"    "].concat();
+    let indent = state.g2g_child_indent();
+    let sub = state.nested_indent(indent, 1);
+    let subsub = state.nested_indent(indent, 2);
 
     write_text_bytes(writer, b"\n");
     write_text_bytes(writer, indent);
@@ -741,7 +782,7 @@ fn insert_zusatzinformationen_element<W: std::io::Write>(
     writer: &mut Writer<W>,
     zusatzinformationen: &[String],
     prefix: &[u8],
-    indent: &[u8],
+    state: &TransformState,
 ) {
     let non_empty: Vec<&String> = zusatzinformationen
         .iter()
@@ -752,7 +793,8 @@ fn insert_zusatzinformationen_element<W: std::io::Write>(
         return;
     }
 
-    let sub = [indent, b"  "].concat();
+    let indent = state.root_child_indent();
+    let sub = state.nested_indent(indent, 1);
 
     let zi = qn_str(prefix, "zusatzinformationen");
     let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
