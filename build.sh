@@ -8,4 +8,5 @@ cp crates/codelists/public/V1_0_0/codelist.json pkg/codelist.json
 cp target/schemas/out/*.xsdb pkg/xwasser-v100.xsdb.bin
 #cp package.tmp.web.json pkg/package.json
 cp package.tmp.json pkg/package.json
+cp README.npm.md pkg/README.md
 pnpm tsup --format esm,cjs
