@@ -403,7 +403,6 @@ fn handle_end(
                 &state.zi_buf,
                 options.zusatzinformationen,
                 &state.root_ns_prefix,
-                state,
             );
             state.zi_buf.clear();
             return;
@@ -573,7 +572,6 @@ fn write_zusatzinfo_content<W: std::io::Write>(
     buffered: &[Event<'static>],
     updates: Option<&[String]>,
     prefix: &[u8],
-    state: &TransformState,
 ) {
     let has_updates = updates.is_some_and(|v| !v.is_empty());
     let zbid_local = b"zustaendigeBehoerdeID";
@@ -883,7 +881,7 @@ mod tests {
     fn sample_xml_with_zi() -> String {
         let base = load_quality_report();
         transform_xml(
-            &base,
+            base,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -916,10 +914,6 @@ mod tests {
         lines.join("\n")
     }
 
-    fn sample_xml_no_zi() -> &'static str {
-        load_quality_report()
-    }
-
     fn sample_xml_custom_prefix() -> String {
         let base = sample_xml_with_zi();
         let result = base
@@ -947,24 +941,6 @@ mod tests {
         }
     }
 
-    fn sample_xml_two_space_indent() -> String {
-        r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
-  <nachrichtenkopf.g2g>
-    <identifikation.nachricht>
-      <nachrichtenUUID>id</nachrichtenUUID>
-    </identifikation.nachricht>
-    <dvdvDienstkennung>s</dvdvDienstkennung>
-  </nachrichtenkopf.g2g>
-  <xwas:vorgang>
-    <xwas:identifikationVorgang>
-      <xwas:vorgangsID>id</xwas:vorgangsID>
-    </xwas:identifikationVorgang>
-  </xwas:vorgang>
-</xwas:vorgang.transportieren.2010>"#
-        .to_string()
-    }
-
     // ---- tests ----
 
     #[test]
@@ -978,7 +954,7 @@ mod tests {
     fn test_leser_mutation() {
         let xml = load_quality_report();
         let result = transform_xml(
-            &xml,
+            xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
                     kennung: Some("psw:99999999".into()),
@@ -998,7 +974,7 @@ mod tests {
     fn test_autor_mutation() {
         let xml = load_quality_report();
         let result = transform_xml(
-            &xml,
+            xml,
             &TransformOptions {
                 autor: Some(ElementUpdate {
                     kennung: Some("psw:autor123".into()),
@@ -1018,7 +994,7 @@ mod tests {
     fn test_leser_and_autor_mutation() {
         let xml = load_quality_report();
         let result = transform_xml(
-            &xml,
+            xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
                     kennung: Some("psw:leser1".into()),
@@ -1043,7 +1019,7 @@ mod tests {
         let base = load_quality_report();
         eprintln!("{base}");
         let with_zi = transform_xml(
-            &base,
+            base,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1071,7 +1047,7 @@ mod tests {
     fn test_zusatzinfo_replace_with_multiple_entries() {
         let base = load_quality_report();
         let with_zi = transform_xml(
-            &base,
+            base,
             &TransformOptions {
                 zusatzinformationen: Some(&["original".into()]),
                 ..Default::default()
@@ -1097,7 +1073,7 @@ mod tests {
     fn test_zusatzinfo_replace_with_empty() {
         let base = load_quality_report();
         let with_zi = transform_xml(
-            &base,
+            base,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth".into()]),
                 ..Default::default()
@@ -1126,7 +1102,7 @@ mod tests {
         // a comment, then replace the IDs — should preserve everything else.
         let base = load_quality_report();
         let with_zi = transform_xml(
-            &base,
+            base,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1240,7 +1216,7 @@ mod tests {
     fn test_insert_zusatzinformationen() {
         let xml = load_quality_report();
         let result = transform_xml(
-            &xml,
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["new-auth".into()]),
                 ..Default::default()
@@ -1380,7 +1356,7 @@ mod tests {
 </xwas:vorgang.transportieren.2010>"#;
 
         let result = transform_xml(
-            &xml_4space,
+            xml_4space,
             &TransformOptions {
                 leser: Some(ElementUpdate {
                     kennung: Some("psw:inserted".into()),
@@ -1430,7 +1406,7 @@ mod tests {
 </xwas:vorgang.transportieren.2010>"#;
 
         let result_2 = transform_xml(
-            &xml_2space,
+            xml_2space,
             &TransformOptions {
                 leser: Some(ElementUpdate {
                     kennung: Some("psw:inserted".into()),
@@ -1471,7 +1447,7 @@ mod tests {
 </xwas:vorgang.transportieren.2010>"#;
 
         let result_8 = transform_xml(
-            &xml_8space,
+            xml_8space,
             &TransformOptions {
                 leser: Some(ElementUpdate {
                     kennung: Some("psw:inserted".into()),
@@ -1516,7 +1492,7 @@ mod tests {
 </xwas:vorgang.transportieren.2010>"#;
 
         let result = transform_xml(
-            &xml_4space,
+            xml_4space,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1530,7 +1506,9 @@ mod tests {
             result
         );
         assert!(
-            result.contains("        <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
+            result.contains(
+                "        <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"
+            ),
             "inserted authority ID should use 8-space indent"
         );
     }
@@ -1541,7 +1519,7 @@ mod tests {
         // indent unit falls back to 2 spaces.
         let xml = r#"<?xml version="1.0" encoding="UTF-8"?><xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"><nachrichtenkopf.g2g><identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht><leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser><autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor><dvdvDienstkennung>s</dvdvDienstkennung></nachrichtenkopf.g2g><xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang></xwas:vorgang.transportieren.2010>"#;
         let result = transform_xml(
-            &xml,
+            xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
                     kennung: Some("psw:inserted".into()),
