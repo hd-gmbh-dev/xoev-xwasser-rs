@@ -208,6 +208,10 @@ struct TransformState {
     nk_child_indent: Vec<u8>,
     root_child_indent: Vec<u8>,
 
+    // Indentation unit (one level of indentation) measured from the source XML.
+    // Falls back to 2 spaces when no indentation is detected.
+    indent_unit: Vec<u8>,
+
     // XWasser prefix from root element (e.g. "xwas" or "xw")
     root_ns_prefix: Vec<u8>,
 
@@ -233,6 +237,45 @@ impl TransformState {
         } else {
             &self.root_child_indent
         }
+    }
+
+    /// One level of indentation, measured from the source XML.
+    /// Falls back to 2 spaces when no indentation is detected.
+    fn indent_unit(&self) -> &[u8] {
+        if self.indent_unit.is_empty() {
+            b"  "
+        } else {
+            &self.indent_unit
+        }
+    }
+
+    /// Compute `indent + n * indent_unit` for nested levels.
+    fn nested_indent(&self, base: &[u8], levels: usize) -> Vec<u8> {
+        let mut result = base.to_vec();
+        for _ in 0..levels {
+            result.extend_from_slice(self.indent_unit());
+        }
+        result
+    }
+
+    /// Measure the indentation unit from a whitespace text node.
+    /// The unit is the entire indentation string of the text node.
+    /// For example, if the text is "    " (4 spaces), the unit is "    " (4 spaces).
+    /// This is the indentation of one level of nesting.
+    fn measure_indent_unit(&mut self, text: &[u8]) {
+        if !self.indent_unit.is_empty() {
+            return;
+        }
+        // Strip newlines and carriage returns to get just the indentation
+        let indent: Vec<u8> = text
+            .iter()
+            .filter(|b| **b == b' ' || **b == b'\t')
+            .copied()
+            .collect();
+        if indent.is_empty() {
+            return;
+        }
+        self.indent_unit = indent;
     }
 }
 
@@ -289,7 +332,7 @@ fn handle_start(
 
     if state.should_insert_leser && lok != b"nachrichtenkopf.g2g" {
         if let Some(r) = &options.leser {
-            insert_g2g_element(writer, "leser", r, state.g2g_child_indent());
+            insert_g2g_element(writer, "leser", r, state);
         }
         state.should_insert_leser = false;
         if has_autor && !state.seen_autor {
@@ -298,7 +341,7 @@ fn handle_start(
     }
     if state.should_insert_autor && lok != b"nachrichtenkopf.g2g" && lok != b"leser" {
         if let Some(r) = &options.autor {
-            insert_g2g_element(writer, "autor", r, state.g2g_child_indent());
+            insert_g2g_element(writer, "autor", r, state);
         }
         state.should_insert_autor = false;
     }
@@ -360,6 +403,7 @@ fn handle_end(
                 &state.zi_buf,
                 options.zusatzinformationen,
                 &state.root_ns_prefix,
+                state,
             );
             state.zi_buf.clear();
             return;
@@ -382,30 +426,10 @@ fn handle_end(
         return;
     }
 
-    if state.root_depth > 0
-        && lok == b"vorgang.transportieren.2010"
-        && state.depth == state.root_depth
-    {
-        let should_insert = options.zusatzinformationen.is_some_and(|a| !a.is_empty());
-        if !state.seen_zi && should_insert {
-            insert_zusatzinformationen_element(
-                writer,
-                options.zusatzinformationen.unwrap_or(&[]),
-                if state.root_ns_prefix.is_empty() {
-                    b"xwas"
-                } else {
-                    &state.root_ns_prefix
-                },
-                state.root_child_indent(),
-            );
-        }
-        state.root_depth = 0;
-    }
-
     if state.nk_depth > 0 && lok == b"nachrichtenkopf.g2g" {
         if state.should_insert_leser {
             if let Some(r) = &options.leser {
-                insert_g2g_element(writer, "leser", r, state.g2g_child_indent());
+                insert_g2g_element(writer, "leser", r, state);
             }
             state.should_insert_leser = false;
             if has_autor && !state.seen_autor {
@@ -414,7 +438,7 @@ fn handle_end(
         }
         if state.should_insert_autor {
             if let Some(r) = &options.autor {
-                insert_g2g_element(writer, "autor", r, state.g2g_child_indent());
+                insert_g2g_element(writer, "autor", r, state);
             }
             state.should_insert_autor = false;
         }
@@ -435,7 +459,7 @@ fn handle_end(
                 } else {
                     &state.root_ns_prefix
                 },
-                state.root_child_indent(),
+                state,
             );
         }
         state.root_depth = 0;
@@ -478,12 +502,14 @@ fn handle_generic(state: &mut TransformState, writer: &mut Writer<Vec<u8>>, even
                 && state.nk_child_indent.is_empty()
             {
                 state.nk_child_indent = bytes.to_vec();
+                state.measure_indent_unit(bytes);
             }
             if state.root_depth > 0
                 && state.depth == state.root_depth
                 && state.root_child_indent.is_empty()
             {
                 state.root_child_indent = bytes.to_vec();
+                state.measure_indent_unit(bytes);
             }
         }
     }
@@ -547,6 +573,7 @@ fn write_zusatzinfo_content<W: std::io::Write>(
     buffered: &[Event<'static>],
     updates: Option<&[String]>,
     prefix: &[u8],
+    state: &TransformState,
 ) {
     let has_updates = updates.is_some_and(|v| !v.is_empty());
     let zbid_local = b"zustaendigeBehoerdeID";
@@ -704,13 +731,14 @@ fn insert_g2g_element<W: std::io::Write>(
     writer: &mut Writer<W>,
     element_name: &str,
     update: &ElementUpdate,
-    indent: &[u8],
+    state: &TransformState,
 ) {
     let kennung = update.kennung.as_deref().unwrap_or("");
     let name = update.name.as_deref().unwrap_or("");
 
-    let sub = [indent, b"  "].concat();
-    let subsub = [indent, b"    "].concat();
+    let indent = state.g2g_child_indent();
+    let sub = state.nested_indent(indent, 1);
+    let subsub = state.nested_indent(indent, 2);
 
     write_text_bytes(writer, b"\n");
     write_text_bytes(writer, indent);
@@ -754,7 +782,7 @@ fn insert_zusatzinformationen_element<W: std::io::Write>(
     writer: &mut Writer<W>,
     zusatzinformationen: &[String],
     prefix: &[u8],
-    indent: &[u8],
+    state: &TransformState,
 ) {
     let non_empty: Vec<&String> = zusatzinformationen
         .iter()
@@ -765,7 +793,8 @@ fn insert_zusatzinformationen_element<W: std::io::Write>(
         return;
     }
 
-    let sub = [indent, b"  "].concat();
+    let indent = state.root_child_indent();
+    let sub = state.nested_indent(indent, 1);
 
     let zi = qn_str(prefix, "zusatzinformationen");
     let zbid = qn_str(prefix, "zustaendigeBehoerdeID");
@@ -887,7 +916,7 @@ mod tests {
         lines.join("\n")
     }
 
-    fn sample_xml_no_zi() -> String {
+    fn sample_xml_no_zi() -> &'static str {
         load_quality_report()
     }
 
@@ -907,16 +936,8 @@ mod tests {
         result
     }
 
-    fn load_quality_report() -> String {
-        let dir = match std::env::current_dir() {
-            Ok(d) => d,
-            Err(e) => panic!("cannot get current dir: {e}"),
-        };
-        let path = dir.join("tests/quality_report_minimal.xml");
-        match std::fs::read_to_string(&path) {
-            Ok(s) => s,
-            Err(e) => panic!("cannot read {:?}: {e}", path),
-        }
+    fn load_quality_report() -> &'static str {
+        include_str!("../tests/quality_report_minimal.xml")
     }
 
     fn assert_raxb_roundtrip(xml: &str) -> crate::model::transport::VorgangTransportieren2010 {
@@ -1283,7 +1304,7 @@ mod tests {
 
     #[test]
     fn test_raxb_roundtrip_noop() {
-        assert_raxb_roundtrip(&load_quality_report());
+        assert_raxb_roundtrip(load_quality_report());
     }
 
     #[test]
@@ -1338,5 +1359,216 @@ mod tests {
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.kennung, "psw:mutated");
         assert_eq!(parsed.nachrichtenkopf_g2g.leser.name, "Mutated Reader");
         assert_eq!(parsed.nachrichtenkopf_g2g.autor.kennung, "psw:01003110");
+    }
+
+    #[test]
+    fn test_insert_leser_preserves_indentation_unit() {
+        // Test with 4-space indentation
+        let xml_4space = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+    <nachrichtenkopf.g2g>
+        <identifikation.nachricht>
+            <nachrichtenUUID>id</nachrichtenUUID>
+        </identifikation.nachricht>
+        <dvdvDienstkennung>s</dvdvDienstkennung>
+    </nachrichtenkopf.g2g>
+    <xwas:vorgang>
+        <xwas:identifikationVorgang>
+            <xwas:vorgangsID>id</xwas:vorgangsID>
+        </xwas:identifikationVorgang>
+    </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml_4space,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+
+        // Verify the inserted leser uses 4-space indentation unit
+        assert!(
+            result.contains("        <leser>"),
+            "inserted leser should use 8-space indent (2 levels of 4), got:\n{}",
+            result
+        );
+        assert!(
+            result.contains("            <verzeichnisdienst"),
+            "inserted verzeichnisdienst should use 12-space indent (3 levels)"
+        );
+        assert!(
+            result.contains("                <code>"),
+            "inserted code should use 16-space indent (4 levels)"
+        );
+        assert!(
+            result.contains("            <kennung>psw:inserted</kennung>"),
+            "inserted kennung should use 12-space indent"
+        );
+        assert!(
+            result.contains("            <name>Inserted Reader</name>"),
+            "inserted name should use 12-space indent"
+        );
+
+        // Also verify with 2-space indentation (the default)
+        let xml_2space = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>id</nachrichtenUUID>
+    </identifikation.nachricht>
+    <dvdvDienstkennung>s</dvdvDienstkennung>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result_2 = transform_xml(
+            &xml_2space,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+
+        assert!(
+            result_2.contains("  <leser>"),
+            "inserted leser should use 2-space indent, got:\n{}",
+            result_2
+        );
+        assert!(
+            result_2.contains("    <verzeichnisdienst"),
+            "inserted verzeichnisdienst should use 4-space indent"
+        );
+        assert!(
+            result_2.contains("      <code>"),
+            "inserted code should use 6-space indent"
+        );
+
+        // Also verify with 8-space indentation
+        let xml_8space = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+        <nachrichtenkopf.g2g>
+            <identifikation.nachricht>
+                <nachrichtenUUID>id</nachrichtenUUID>
+            </identifikation.nachricht>
+            <dvdvDienstkennung>s</dvdvDienstkennung>
+        </nachrichtenkopf.g2g>
+        <xwas:vorgang>
+            <xwas:identifikationVorgang>
+                <xwas:vorgangsID>id</xwas:vorgangsID>
+            </xwas:identifikationVorgang>
+        </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result_8 = transform_xml(
+            &xml_8space,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+
+        assert!(
+            result_8.contains("        <leser>"),
+            "inserted leser should use 8-space indent, got:\n{}",
+            result_8
+        );
+        assert!(
+            result_8.contains("            <verzeichnisdienst"),
+            "inserted verzeichnisdienst should use 12-space indent"
+        );
+        assert!(
+            result_8.contains("                <code>"),
+            "inserted code should use 16-space indent"
+        );
+    }
+
+    #[test]
+    fn test_insert_zusatzinformationen_preserves_indentation_unit() {
+        // Test with 4-space indentation
+        let xml_4space = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+    <nachrichtenkopf.g2g>
+        <identifikation.nachricht>
+            <nachrichtenUUID>id</nachrichtenUUID>
+        </identifikation.nachricht>
+        <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+        <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+    </nachrichtenkopf.g2g>
+    <xwas:vorgang>
+        <xwas:identifikationVorgang>
+            <xwas:vorgangsID>id</xwas:vorgangsID>
+        </xwas:identifikationVorgang>
+    </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml_4space,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Verify the inserted zusatzinformationen uses 4-space indentation unit
+        assert!(
+            result.contains("    <xwas:zusatzinformationen>"),
+            "inserted zusatzinfo should use 4-space indent, got:\n{}",
+            result
+        );
+        assert!(
+            result.contains("        <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>"),
+            "inserted authority ID should use 8-space indent"
+        );
+    }
+
+    #[test]
+    fn test_insert_leser_single_line_xml() {
+        // Single-line (compact) XML has no whitespace text nodes, so the
+        // indent unit falls back to 2 spaces.
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?><xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"><nachrichtenkopf.g2g><identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht><leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser><autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor><dvdvDienstkennung>s</dvdvDienstkennung></nachrichtenkopf.g2g><xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang></xwas:vorgang.transportieren.2010>"#;
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                leser: Some(ElementUpdate {
+                    kennung: Some("psw:inserted".into()),
+                    name: Some("Inserted Reader".into()),
+                }),
+                ..Default::default()
+            },
+        );
+        // Should still insert the leser element
+        assert!(result.contains("<leser>"));
+        assert!(result.contains("psw:inserted"));
+        assert!(result.contains("Inserted Reader"));
+        // Verify the output is valid XML (can be parsed by quick-xml)
+        let mut rdr = raxb::quick_xml::NsReader::from_str(&result);
+        rdr.config_mut().trim_text(false);
+        let mut depth = 0;
+        let mut buf = Vec::new();
+        loop {
+            match rdr.read_event_into(&mut buf) {
+                Ok(raxb::quick_xml::events::Event::Start(_)) => depth += 1,
+                Ok(raxb::quick_xml::events::Event::End(_)) => depth -= 1,
+                Ok(raxb::quick_xml::events::Event::Eof) => break,
+                Err(_) => panic!("output is not valid XML"),
+                _ => {}
+            }
+            buf.clear();
+        }
+        assert_eq!(depth, 0, "XML tags should be balanced");
     }
 }
