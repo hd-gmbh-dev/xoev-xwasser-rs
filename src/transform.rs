@@ -2265,4 +2265,178 @@ mod tests {
             "header should be preserved"
         );
     }
+
+    #[test]
+    fn test_zusatzinfo_replacement_indentation_4space() {
+        // Verify exact indentation when REPLACING zusatzinformationen
+        // in a 4-space-indented XML document
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+    <nachrichtenkopf.g2g>
+        <identifikation.nachricht>
+            <nachrichtenUUID>id</nachrichtenUUID>
+        </identifikation.nachricht>
+        <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+        <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+    </nachrichtenkopf.g2g>
+    <xwas:vorgang>
+        <xwas:identifikationVorgang>
+            <xwas:vorgangsID>id</xwas:vorgangsID>
+        </xwas:identifikationVorgang>
+    </xwas:vorgang>
+    <xwas:zusatzinformationen>
+        <xwas:zustaendigeBehoerdeID>old-id</xwas:zustaendigeBehoerdeID>
+        <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>
+        <xwas:kommentar>old comment</xwas:kommentar>
+    </xwas:zusatzinformationen>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: Some(&["new-id".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Assert the entire produced zusatzinformationen block
+        let expected_block = "    <xwas:zusatzinformationen>\n        <xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>\n        <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n        <xwas:kommentar>old comment</xwas:kommentar>\n    </xwas:zusatzinformationen>";
+        let actual_block = extract_zusatzinfo_block(&result);
+        assert_eq!(
+            actual_block, expected_block,
+            "zusatzinfo block should match expected indentation"
+        );
+        assert!(!result.contains("old-id"));
+    }
+
+    #[test]
+    fn test_zusatzinfo_replacement_indentation_8space() {
+        // Verify exact indentation when REPLACING zusatzinformationen
+        // in an 8-space-indented XML document
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+        <nachrichtenkopf.g2g>
+            <identifikation.nachricht>
+                <nachrichtenUUID>id</nachrichtenUUID>
+            </identifikation.nachricht>
+            <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+            <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+        </nachrichtenkopf.g2g>
+        <xwas:vorgang>
+            <xwas:identifikationVorgang>
+                <xwas:vorgangsID>id</xwas:vorgangsID>
+            </xwas:identifikationVorgang>
+        </xwas:vorgang>
+        <xwas:zusatzinformationen>
+                <xwas:zustaendigeBehoerdeID>old-id</xwas:zustaendigeBehoerdeID>
+                <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>
+                <xwas:kommentar>old comment</xwas:kommentar>
+        </xwas:zusatzinformationen>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: Some(&["new-id".into()]),
+                ..Default::default()
+            },
+        );
+
+        // Assert the entire produced zusatzinformationen block
+        let expected_block = "        <xwas:zusatzinformationen>\n                <xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>\n                <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n                <xwas:kommentar>old comment</xwas:kommentar>\n        </xwas:zusatzinformationen>";
+        let actual_block = extract_zusatzinfo_block(&result);
+        assert_eq!(
+            actual_block, expected_block,
+            "zusatzinfo block should match expected indentation"
+        );
+        assert!(!result.contains("old-id"));
+    }
+
+    #[test]
+    fn test_nachrichtenkopf_preserved_with_zusatzinfo_insertion() {
+        // Verify that nachrichtenkopf.g2g content is preserved when
+        // inserting zusatzinformationen
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>uuid-1234</nachrichtenUUID>
+      <nachrichtentyp listURI="urn:xoev-de:xwasser:codeliste:nachrichtentyp" listVersionID="1">
+        <code>2010</code>
+      </nachrichtentyp>
+      <erstellungszeitpunkt>2024-05-28T09:00:00</erstellungszeitpunkt>
+    </identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+    <dvdvDienstkennung>s</dvdvDienstkennung>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: Some(&["auth-001".into()]),
+                ..Default::default()
+            },
+        );
+
+        // nachrichtenkopf.g2g content must be preserved
+        assert!(result.contains("<nachrichtenUUID>uuid-1234</nachrichtenUUID>"));
+        assert!(result.contains("<code>2010</code>"));
+        assert!(result.contains("<erstellungszeitpunkt>2024-05-28T09:00:00</erstellungszeitpunkt>"));
+        assert!(result.contains("<kennung>r</kennung>"));
+        assert!(result.contains("<kennung>a</kennung>"));
+        assert!(result.contains("<dvdvDienstkennung>s</dvdvDienstkennung>"));
+    }
+
+    #[test]
+    fn test_nachrichtenkopf_preserved_with_zusatzinfo_replacement() {
+        // Verify that nachrichtenkopf.g2g content is preserved when
+        // replacing zusatzinformationen
+        let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>uuid-1234</nachrichtenUUID>
+      <nachrichtentyp listURI="urn:xoev-de:xwasser:codeliste:nachrichtentyp" listVersionID="1">
+        <code>2010</code>
+      </nachrichtentyp>
+      <erstellungszeitpunkt>2024-05-28T09:00:00</erstellungszeitpunkt>
+    </identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+    <dvdvDienstkennung>s</dvdvDienstkennung>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>id</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+  </xwas:vorgang>
+  <xwas:zusatzinformationen>
+    <xwas:zustaendigeBehoerdeID>old-id</xwas:zustaendigeBehoerdeID>
+  </xwas:zusatzinformationen>
+</xwas:vorgang.transportieren.2010>"#;
+
+        let result = transform_xml(
+            &xml,
+            &TransformOptions {
+                zusatzinformationen: Some(&["new-id".into()]),
+                ..Default::default()
+            },
+        );
+
+        // nachrichtenkopf.g2g content must be preserved
+        assert!(result.contains("<nachrichtenUUID>uuid-1234</nachrichtenUUID>"));
+        assert!(result.contains("<code>2010</code>"));
+        assert!(result.contains("<erstellungszeitpunkt>2024-05-28T09:00:00</erstellungszeitpunkt>"));
+        assert!(result.contains("<kennung>r</kennung>"));
+        assert!(result.contains("<kennung>a</kennung>"));
+        assert!(result.contains("<dvdvDienstkennung>s</dvdvDienstkennung>"));
+        assert!(!result.contains("old-id"));
+    }
 }
