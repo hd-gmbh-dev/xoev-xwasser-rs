@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { transformXml } from "../pkg/xoev_xwasser";
+import { transform_xml } from "../pkg/xoev_xwasser";
 
 function sampleXml(): string {
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -139,17 +139,17 @@ function sampleXmlWithZi(): string {
 </xwas:vorgang.transportieren.2010>`;
 }
 
-describe("transformXml via wasm", () => {
+describe("transform_xml via wasm", () => {
   it("no-op transform produces byte-identical output", () => {
     const xml = sampleXml();
-    expect(transformXml(xml)).toBe(xml);
-    expect(transformXml(xml, undefined)).toBe(xml);
-    expect(transformXml(xml, null)).toBe(xml);
-    expect(transformXml(xml, {})).toBe(xml);
+    expect(transform_xml(xml)).toBe(xml);
+    expect(transform_xml(xml, undefined)).toBe(xml);
+    expect(transform_xml(xml, null)).toBe(xml);
+    expect(transform_xml(xml, {})).toBe(xml);
   });
 
   it("transforms leser element in-place", () => {
-    const result = transformXml(sampleXml(), {
+    const result = transform_xml(sampleXml(), {
       leser: { kennung: "psw:99999999", name: "NewReader" },
     });
     expect(result).toContain("<kennung>psw:99999999</kennung>");
@@ -160,7 +160,7 @@ describe("transformXml via wasm", () => {
   });
 
   it("transforms autor element in-place", () => {
-    const result = transformXml(sampleXml(), {
+    const result = transform_xml(sampleXml(), {
       autor: { kennung: "psw:autor123", name: "Updated Autor" },
     });
     // leser unchanged
@@ -171,7 +171,7 @@ describe("transformXml via wasm", () => {
   });
 
   it("transforms both leser and autor in-place", () => {
-    const result = transformXml(sampleXml(), {
+    const result = transform_xml(sampleXml(), {
       leser: { kennung: "psw:L", name: "Leser" },
       autor: { kennung: "psw:A", name: "Autor" },
     });
@@ -180,14 +180,14 @@ describe("transformXml via wasm", () => {
   });
 
   it("transforms authorities elements in-place", () => {
-    const result = transformXml(sampleXmlWithZi(), {
+    const result = transform_xml(sampleXmlWithZi(), {
       zusatzinformationen: ["auth-001"],
     });
     expect(result).toContain("zustaendigeBehoerdeID>auth-001");
   });
 
   it("inserts missing leser as second child of nachrichtenkopf.g2g", () => {
-    const result = transformXml(sampleXmlNoLeserNoAutor(), {
+    const result = transform_xml(sampleXmlNoLeserNoAutor(), {
       leser: { kennung: "psw:inserted", name: "Inserted Reader" },
       autor: { kennung: "psw:newauthor", name: "New Autor" },
     });
@@ -199,7 +199,7 @@ describe("transformXml via wasm", () => {
   });
 
   it("inserts missing zusatzinformationen", () => {
-    const result = transformXml(sampleXmlNoZi(), {
+    const result = transform_xml(sampleXmlNoZi(), {
       zusatzinformationen: ["new-auth"],
     });
     expect(result).toContain("xwas:zusatzinformationen");
@@ -207,7 +207,7 @@ describe("transformXml via wasm", () => {
   });
 
   it("inserts multiple authorities when zusatzinformationen missing", () => {
-    const result = transformXml(sampleXmlNoZi(), {
+    const result = transform_xml(sampleXmlNoZi(), {
       zusatzinformationen: ["id1", "id2"],
     });
     expect(result).toMatch(/xwas:zusatzinformationen/);
@@ -228,7 +228,7 @@ describe("transformXml via wasm", () => {
     <xwas:kommentar>should be preserved</xwas:kommentar>
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>`;
-    const result = transformXml(xml, {
+    const result = transform_xml(xml, {
       zusatzinformationen: ["auth-1"],
     });
     expect(result).toMatch(/xwas:zusatzinformationen/);
@@ -242,7 +242,7 @@ describe("transformXml via wasm", () => {
 
   it("preserves comments verbatim through round-trip", () => {
     const xml = sampleXml();
-    expect(transformXml(xml)).toContain("<!-- root comment -->");
+    expect(transform_xml(xml)).toContain("<!-- root comment -->");
   });
 
   it("preserves comments through leser mutation", () => {
@@ -263,7 +263,7 @@ describe("transformXml via wasm", () => {
   </nachrichtenkopf.g2g>
   <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
 </xwas:vorgang.transportieren.2010>`;
-    const result = transformXml(xml, {
+    const result = transform_xml(xml, {
       leser: { kennung: "psw:new", name: "New" },
     });
     expect(result).toContain("<!-- inside leser -->");
@@ -289,7 +289,7 @@ describe("transformXml via wasm", () => {
     <!-- after authority -->
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>`;
-    const result = transformXml(xml, {
+    const result = transform_xml(xml, {
       zusatzinformationen: ["auth-001"],
     });
     expect(result).toMatch(/xwas:zusatzinformationen/);
@@ -308,7 +308,7 @@ describe("transformXml via wasm", () => {
   </nachrichtenkopf.g2g>
   <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
 </xwas:vorgang.transportieren.2010>`;
-    const result = transformXml(xml, {
+    const result = transform_xml(xml, {
       leser: { kennung: "psw:l", name: "Leser" },
     });
     expect(result).toContain("<!-- existing comment -->");
@@ -318,13 +318,13 @@ describe("transformXml via wasm", () => {
 
   it("preserves whitespace text nodes verbatim through round-trip", () => {
     const xml = sampleXml();
-    const result = transformXml(xml);
+    const result = transform_xml(xml);
     expect(result).toContain("  <nachrichtenkopf.g2g>");
     expect(result).toContain("    <identifikation.nachricht>");
   });
 
   it("ds:Signature remains valid after no-op transform", () => {
-    const result = transformXml(sampleXml());
+    const result = transform_xml(sampleXml());
     expect(result).toContain("ds:Signature");
     expect(result).toContain("ds:SignedInfo");
     expect(result).toContain("ds:DigestValue");
@@ -333,7 +333,7 @@ describe("transformXml via wasm", () => {
   });
 
   it("undefined zusatzinformationen keeps existing block unchanged", () => {
-    const result = transformXml(sampleXmlWithZi(), {
+    const result = transform_xml(sampleXmlWithZi(), {
       leser: { kennung: "psw:new", name: "New" },
     });
     expect(result).toContain("<kennung>psw:new</kennung>");
