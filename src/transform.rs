@@ -1141,8 +1141,13 @@ mod tests {
         // Inject kommentar, wasserversorgungsgebietID, and a comment into the
         // zusatzinformationen block
         let with_extra = with_zi.replace(
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n  </xwas:zusatzinformationen>",
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>some comment</xwas:kommentar>\n    <!-- important comment -->\n  </xwas:zusatzinformationen>",
+            r#"<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
+  </xwas:zusatzinformationen>"#,
+            r#"<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
+    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>
+    <xwas:kommentar>some comment</xwas:kommentar>
+    <!-- important comment -->
+  </xwas:zusatzinformationen>"#,
         );
 
         // Verify the injection worked
@@ -1390,7 +1395,8 @@ mod tests {
         // Verify the inserted leser uses 4-space indentation unit
         assert!(
             result.contains("        <leser>"),
-            "inserted leser should use 8-space indent (2 levels of 4), got:\n{}",
+            r#"inserted leser should use 8-space indent (2 levels of 4), got:
+{}"#,
             result
         );
         assert!(
@@ -1439,7 +1445,8 @@ mod tests {
 
         assert!(
             result_2.contains("  <leser>"),
-            "inserted leser should use 2-space indent, got:\n{}",
+            r#"inserted leser should use 2-space indent, got:
+{}"#,
             result_2
         );
         assert!(
@@ -1480,7 +1487,8 @@ mod tests {
 
         assert!(
             result_8.contains("        <leser>"),
-            "inserted leser should use 8-space indent, got:\n{}",
+            r#"inserted leser should use 8-space indent, got:
+{}"#,
             result_8
         );
         assert!(
@@ -1523,7 +1531,8 @@ mod tests {
         // Verify the inserted zusatzinformationen uses 4-space indentation unit
         assert!(
             result.contains("    <xwas:zusatzinformationen>"),
-            "inserted zusatzinfo should use 4-space indent, got:\n{}",
+            r#"inserted zusatzinfo should use 4-space indent, got:
+{}"#,
             result
         );
         assert!(
@@ -1875,8 +1884,13 @@ mod tests {
 
         // Inject all possible fields
         let with_all_fields = with_zi.replace(
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n  </xwas:zusatzinformationen>",
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>test comment</xwas:kommentar>\n    <!-- test comment -->\n  </xwas:zusatzinformationen>",
+            r#"<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
+  </xwas:zusatzinformationen>"#,
+            r#"<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
+    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>
+    <xwas:kommentar>test comment</xwas:kommentar>
+    <!-- test comment -->
+  </xwas:zusatzinformationen>"#,
         );
 
         // Replace the IDs
@@ -1916,8 +1930,13 @@ mod tests {
         );
 
         let with_all = with_zi.replace(
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n  </xwas:zusatzinformationen>",
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>comment1</xwas:kommentar>\n    <!-- c1 -->\n  </xwas:zusatzinformationen>",
+            r#"<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
+  </xwas:zusatzinformationen>"#,
+            r#"<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
+    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>
+    <xwas:kommentar>comment1</xwas:kommentar>
+    <!-- c1 -->
+  </xwas:zusatzinformationen>"#,
         );
 
         let result = transform_xml(
@@ -1961,8 +1980,14 @@ mod tests {
         );
 
         let with_comments = with_zi.replace(
-            "<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n  </xwas:zusatzinformationen>",
-            "<!-- before -->\n    <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    <!-- between -->\n    <xwas:wasserversorgungsgebietID>wv</xwas:wasserversorgungsgebietID>\n    <!-- after -->\n  </xwas:zusatzinformationen>",
+            r#"<xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
+  </xwas:zusatzinformationen>"#,
+            r#"<!-- before -->
+    <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
+    <!-- between -->
+    <xwas:wasserversorgungsgebietID>wv</xwas:wasserversorgungsgebietID>
+    <!-- after -->
+  </xwas:zusatzinformationen>"#,
         );
 
         let result = transform_xml(
@@ -2010,7 +2035,9 @@ mod tests {
         );
 
         // Assert the entire produced zusatzinformationen block
-        let expected_block = "  <xwas:zusatzinformationen>\n    <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n  </xwas:zusatzinformationen>";
+        let expected_block = r#"  <xwas:zusatzinformationen>
+    <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
+  </xwas:zusatzinformationen>"#;
         let actual_block = extract_zusatzinfo_block(&result);
         assert_eq!(
             actual_block, expected_block,
@@ -2048,7 +2075,9 @@ mod tests {
         );
 
         // Assert the entire produced zusatzinformationen block
-        let expected_block = "    <xwas:zusatzinformationen>\n        <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n    </xwas:zusatzinformationen>";
+        let expected_block = r#"    <xwas:zusatzinformationen>
+        <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
+    </xwas:zusatzinformationen>"#;
         let actual_block = extract_zusatzinfo_block(&result);
         assert_eq!(
             actual_block, expected_block,
@@ -2086,7 +2115,9 @@ mod tests {
         );
 
         // Assert the entire produced zusatzinformationen block
-        let expected_block = "        <xwas:zusatzinformationen>\n                <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>\n        </xwas:zusatzinformationen>";
+        let expected_block = r#"        <xwas:zusatzinformationen>
+                <xwas:zustaendigeBehoerdeID>auth-001</xwas:zustaendigeBehoerdeID>
+        </xwas:zusatzinformationen>"#;
         let actual_block = extract_zusatzinfo_block(&result);
         assert_eq!(
             actual_block, expected_block,
@@ -2128,7 +2159,11 @@ mod tests {
         );
 
         // Assert the entire produced zusatzinformationen block
-        let expected_block = "  <xwas:zusatzinformationen>\n    <xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>old comment</xwas:kommentar>\n  </xwas:zusatzinformationen>";
+        let expected_block = r#"  <xwas:zusatzinformationen>
+    <xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>
+    <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>
+    <xwas:kommentar>old comment</xwas:kommentar>
+  </xwas:zusatzinformationen>"#;
         let actual_block = extract_zusatzinfo_block(&result);
         assert_eq!(
             actual_block, expected_block,
@@ -2280,7 +2315,11 @@ mod tests {
         );
 
         // Assert the entire produced zusatzinformationen block
-        let expected_block = "    <xwas:zusatzinformationen>\n        <xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>\n        <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n        <xwas:kommentar>old comment</xwas:kommentar>\n    </xwas:zusatzinformationen>";
+        let expected_block = r#"    <xwas:zusatzinformationen>
+        <xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>
+        <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>
+        <xwas:kommentar>old comment</xwas:kommentar>
+    </xwas:zusatzinformationen>"#;
         let actual_block = extract_zusatzinfo_block(&result);
         assert_eq!(
             actual_block, expected_block,
@@ -2323,7 +2362,11 @@ mod tests {
         );
 
         // Assert the entire produced zusatzinformationen block
-        let expected_block = "        <xwas:zusatzinformationen>\n                <xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>\n                <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>\n                <xwas:kommentar>old comment</xwas:kommentar>\n        </xwas:zusatzinformationen>";
+        let expected_block = r#"        <xwas:zusatzinformationen>
+                <xwas:zustaendigeBehoerdeID>new-id</xwas:zustaendigeBehoerdeID>
+                <xwas:wasserversorgungsgebietID>wv-123</xwas:wasserversorgungsgebietID>
+                <xwas:kommentar>old comment</xwas:kommentar>
+        </xwas:zusatzinformationen>"#;
         let actual_block = extract_zusatzinfo_block(&result);
         assert_eq!(
             actual_block, expected_block,
