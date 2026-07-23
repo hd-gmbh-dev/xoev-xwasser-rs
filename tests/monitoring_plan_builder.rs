@@ -12,7 +12,9 @@ fn test_monitoring_plan_builder() -> anyhow::Result<()> {
     };
 
     let identifikation_vorgang = identifikation_vorgang(None);
-    let untersuchungsplan = untersuchungsplan_type();
+    let mut untersuchungsplan = untersuchungsplan_type();
+    let ps = untersuchungsplan.probennahmestelle.get_mut(0).unwrap();
+    ps.kategorie_probennahmestelle = "1010".into();
 
     let e = VorgangTransportieren2010::builder()
         .produkt("XWasser Test".into())
