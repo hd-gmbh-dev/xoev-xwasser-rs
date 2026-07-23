@@ -6,6 +6,7 @@ import {
   PruefberichtType,
   local_schema,
   schema,
+  sanitize_vorgang_transportieren_2010,
 } from "../pkg/xoev_xwasser";
 import quality_report_minimal from "./quality_report_minimal.json";
 import fs from "fs";
@@ -48,5 +49,16 @@ describe("minimal quality report xml generation via wasm", async () => {
       obj.vorgang.vorgang_type as { t: "Pruefbericht"; c: PruefberichtType }
     ).c;
     expect(p.id).toEqual("ID5e08e073-4e06-438d-9444-1275f6cbf061");
+  });
+
+  it("should be able to sanitize minimal quality report json", async () => {
+    const initial = JSON.parse(JSON.stringify(quality_report_minimal)) as any as VorgangTransportieren2010
+    const report = ((initial.vorgang.vorgang_type as any).c as PruefberichtType);
+    report.probennahmestelle![0]!.unterkategorie_probennahmestelle = { code: '' };
+    const next = sanitize_vorgang_transportieren_2010(
+      initial as any as VorgangTransportieren2010,
+    );
+    const nextReport = ((next.vorgang.vorgang_type as any).c as PruefberichtType);
+    expect(nextReport.probennahmestelle![0]!.unterkategorie_probennahmestelle).toBeUndefined();
   });
 });

@@ -26,6 +26,7 @@ use crate::{TNS, model::codes::CodeDokumenttypType};
 pub struct SignaturenType {
     #[xml(ns = b"xwas", name = b"signaturDokumentID", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub signatur_dokument_id: Vec<String>,
 }
 
@@ -41,20 +42,27 @@ pub struct SignaturenType {
 #[xml(tns(b"xwas", TNS))]
 pub struct DokumentRepraesentationType {
     #[xml(ns = b"xwas", name = b"referenz", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub referenz: Option<String>,
     #[xml(ns = b"xwas", name = b"mimeType", ty = "child")]
     pub mime_type: String,
     #[xml(ns = b"xwas", name = b"inhalt", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub inhalt: Option<String>,
     #[xml(ns = b"xwas", name = b"externerReferenzTyp", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub externer_referenz_typ: Option<String>,
     #[xml(ns = b"xwas", name = b"externerReferenzIndex", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub externer_referenz_index: Option<String>,
     #[xml(ns = b"xwas", name = b"dateiname", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub dateiname: Option<String>,
     #[xml(ns = b"xwas", name = b"inhaltTyp", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub inhalt_typ: Option<String>,
     #[xml(ns = b"xwas", name = b"signaturen", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub signaturen: Option<SignaturenType>,
     #[xml(name = b"dokumentRepraesentationID", ty = "attr")]
     pub dokument_repraesentation_id: String,
@@ -74,14 +82,18 @@ pub struct DokumentType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: String,
     #[xml(ns = b"xwas", name = b"aktuelleVersion", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub aktuelle_version: Option<String>,
     #[xml(ns = b"xwas", name = b"letzteVersion", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub letzte_version: Option<String>,
     #[xml(ns = b"xwas", name = b"dokumentRepraesentation", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub dokument_repraesentation: Vec<DokumentRepraesentationType>,
     #[xml(ns = b"xwas", name = b"personReferenzID", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub person_referenz_id: Vec<String>,
     #[xml(name = b"dokumentID", ty = "attr")]
     pub dokument_id: String,

@@ -81,6 +81,7 @@ pub struct CodeBehoerdenkennungType {
     #[xml(name = b"code", ty = "child")]
     pub code: String,
     #[xml(name = b"name", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub name: Option<String>,
     #[xml(name = b"listURI", ty = "attr")]
     pub list_uri: String,
@@ -105,6 +106,7 @@ pub struct CodePersonenrolleType {
     #[xml(name = b"code", ty = "child")]
     pub code: String,
     #[xml(name = b"name", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub name: Option<String>,
     #[xml(name = b"listURI", ty = "attr")]
     pub list_uri: String,

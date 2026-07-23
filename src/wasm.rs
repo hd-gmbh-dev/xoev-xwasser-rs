@@ -158,6 +158,13 @@ pub fn parse_vorgang_transportieren_2010(
 }
 
 #[wasm_bindgen]
+pub fn sanitize_vorgang_transportieren_2010(
+    data: VorgangTransportieren2010,
+) -> Result<VorgangTransportieren2010, JsValue> {
+    Ok(data)
+}
+
+#[wasm_bindgen]
 pub fn create_administration_quittung_0020(
     data: AdministrationQuittung0020,
 ) -> Result<String, JsValue> {
@@ -173,4 +180,11 @@ pub fn parse_administration_quittung_0020(
     let mut rdr = NsReader::from_str(&xml);
     rdr.config_mut().trim_text(true);
     raxb::de::deserialize_with_reader(rdr).map_err(|err| JsValue::from_str(&err.to_string()))
+}
+
+#[wasm_bindgen]
+pub fn sanitize_administration_quittung_0020(
+    data: AdministrationQuittung0020,
+) -> Result<AdministrationQuittung0020, JsValue> {
+    Ok(data)
 }

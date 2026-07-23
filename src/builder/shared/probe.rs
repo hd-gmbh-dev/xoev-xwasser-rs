@@ -6,16 +6,10 @@ use crate::{
     },
 };
 
-// use serde::{Deserialize, Serialize};
-
-// use typed_builder::TypedBuilder;
 #[cfg(feature = "wasm")]
 use wasm_bindgen::prelude::*;
 
 use super::person::natuerliche_person_type;
-
-// #[cfg(feature = "wasm")]
-// use tsify::Tsify;
 
 #[cfg_attr(feature = "wasm", wasm_bindgen)]
 pub fn probennehmer_type() -> ProbennehmerType {
@@ -38,11 +32,11 @@ pub fn probennahmestelle_type(name: String) -> ProbennahmestelleType {
         .probennahmestelle_id(new_uuid().into())
         .objekt_id(Default::default())
         .name_probennahmestelle(name)
-        .kategorie_probennahmestelle("1000".into())
-        .unterkategorie_probennahmestelle(Some("1030".into()))
-        .art_der_entnahmearmatur(Some("1010".into()))
-        .stockwerk_probennahmestelle(Some(0))
-        .medium_an_der_probennahmestelle(vec!["1010".into()])
+        .kategorie_probennahmestelle("".into())
+        .unterkategorie_probennahmestelle(None)
+        .art_der_entnahmearmatur(None)
+        .stockwerk_probennahmestelle(None)
+        .medium_an_der_probennahmestelle(vec!["".into()])
         .desinfektion_und_aufbereitung_des_wassers(Default::default())
         .angaben_alternative_id_gesundheit(Default::default())
         .angaben_alternative_id_umwelt(Default::default())
@@ -61,15 +55,15 @@ pub fn probe_type() -> ProbeType {
         .probennehmer(Default::default())
         .titel_probe(format!("probe-titel-{id}"))
         .analyseergebnis_parameter(Default::default())
-        .anlass_der_untersuchung(vec!["1010".into()])
-        .medium(Some("1010".into()))
+        .anlass_der_untersuchung(vec!["".into()])
+        .medium(None)
         .akkreditierte_durchfuehrung_der_probennahme(Default::default())
         .ergaenzung_zum_medium(Default::default())
         .zeitpunkt_probennahme(now())
-        .probennahmeverfahren(vec!["1010".into()])
-        .probenentnahmegeraet(Some("1010".into()))
-        .probengefaess(vec!["1010".into()])
-        .ergaenzende_informationen_zu_probenentnahmegeraet(Some("".into()))
+        .probennahmeverfahren(vec!["".into()])
+        .probenentnahmegeraet(None)
+        .probengefaess(vec!["".into()])
+        .ergaenzende_informationen_zu_probenentnahmegeraet(None)
         .desinfektion_probenentnahmegeraet_durchgefuehrt(Some(true))
         .konservierung_der_probe(Default::default())
         .kommentar_zur_probennahme(Default::default())
@@ -77,7 +71,7 @@ pub fn probe_type() -> ProbeType {
         .eingang_probe_bei_untersuchungsstelle(now())
         .beginn_labortaetigkeit_analytik(now())
         .abschluss_labortaetigkeit_analytik(now())
-        .konformitaetsbewertung_der_probe("1010".into())
+        .konformitaetsbewertung_der_probe("".into())
         .berichtspflichtig(Default::default())
         .von_probennehmer_vergebene_probe_id(Default::default())
         .angelieferte_probe(Default::default())
@@ -100,19 +94,19 @@ pub fn analyseergebnis_parameter_type(
         .zugelassene_untersuchungsstelle(zugelassene_untersuchungsstelle)
         .akkreditierte_durchfuehrung_analyse(Default::default())
         .zugelassene_durchfuehrung_analyse(Default::default())
-        .untersuchungsverfahren(vec!["1010".into()])
+        .untersuchungsverfahren(vec!["".into()])
         .ergaenzung_zum_untersuchungsverfahren(Default::default())
-        .untersuchter_parameter("1021".into())
+        .untersuchter_parameter("".into())
         .parameterauspraegung(Default::default())
         .parameter_durch_betreiber_untersucht(Default::default())
         .wurde_der_parameter_korrigiert(Default::default())
-        .untersuchungswert_parameter(Some(0.0))
-        .einheit_des_untersuchungswerts(Some("1400".into()))
+        .untersuchungswert_parameter(None)
+        .einheit_des_untersuchungswerts(None)
         .ergaenzung_zum_untersuchungswert_parameter(Default::default())
         .parameterwert_ergaenzung(Default::default())
         .ausgewertetes_ansatzvolumen(Default::default())
         .verknuepfte_parameter(Default::default())
-        .bewertung_untersuchungswert("1010".into())
+        .bewertung_untersuchungswert("".into())
         .parameterauffaelligkeit(Default::default())
         .messunsicherheit_untersuchungswert_absolut(Default::default())
         .messunsicherheit_untersuchungswert_relativ(Default::default())

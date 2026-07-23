@@ -42,6 +42,7 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"pruefberichtUUID", ty = "child")]
     pub pruefbericht_uuid: String,
     #[xml(ns = b"xwas", name = b"versionsnummer", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub versionsnummer: Option<i32>,
     #[xml(ns = b"xwas", name = b"auftragsnummer", ty = "child")]
     pub auftragsnummer: String,
@@ -62,6 +63,7 @@ pub struct PruefberichtType {
     #[serde(default)]
     pub pruefbericht_enthaelt_teilergebnisse: bool,
     #[xml(ns = b"xwas", name = b"korrekturvermerk", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub korrekturvermerk: Option<String>,
     #[xml(
         default,
@@ -108,6 +110,7 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"rechtlicherDisclaimer", ty = "child")]
     pub rechtlicher_disclaimer: String,
     #[xml(ns = b"xwas", name = b"zeitpunktUebermittlungAnSHAPTH", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zeitpunkt_uebermittlung_an_shapth: Option<String>,
     #[xml(ns = b"xwas", name = b"auftraggeber", ty = "child")]
     pub auftraggeber: AuftraggeberType,
@@ -140,8 +143,10 @@ pub struct PruefberichtType {
     #[serde(default)]
     pub betreiber: Vec<BetreiberType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub erweiterung: Option<ErweiterungType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,

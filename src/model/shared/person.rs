@@ -43,14 +43,18 @@ use super::{
 #[xml(tns(b"xwas", TNS))]
 pub struct AllgemeinerNameType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub name: Option<String>,
     #[xml(ns = b"xwas", name = b"nichtVorhanden", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub nicht_vorhanden: Option<bool>,
     #[xml(ns = b"xwas", name = b"namensart", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub namensart: Option<CodeNamensartType>,
     #[xml(ns = b"xwas", name = b"alternativeRepraesentation", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub alternative_repraesentation: Vec<AlternativeRepraesentationType>,
 }
 
@@ -75,8 +79,10 @@ pub struct AlternativeRepraesentationType {
     #[xml(ns = b"xwas", name = b"repraesentation", ty = "child")]
     pub repraesentation: String,
     #[xml(ns = b"xwas", name = b"algorithmus", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub algorithmus: Option<String>,
     #[xml(ns = b"xwas", name = b"hinweis", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub hinweis: Option<String>,
 }
 
@@ -91,41 +97,56 @@ pub struct AlternativeRepraesentationType {
 #[xml(tns(b"xwas", TNS))]
 pub struct NameNatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"titel", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub titel: Option<String>,
     #[xml(ns = b"xwas", name = b"anrede", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub anrede: Vec<String>,
     #[xml(ns = b"xwas", name = b"namenssuffix", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub namenssuffix: Vec<String>,
     #[xml(ns = b"xwas", name = b"familienname", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub familienname: Option<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"ehename", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ehename: Option<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"lebenspartnerschaftsname", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub lebenspartnerschaftsname: Option<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"geburtsname", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub geburtsname: Option<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"fruehererFamilienname", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub frueherer_familienname: Vec<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"vorname", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub vorname: Option<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"rufname", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub rufname: Option<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"fruehererVorname", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub frueherer_vorname: Vec<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"alternativeRepraesentation", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub alternative_repraesentation: Vec<AlternativeRepraesentationType>,
     #[xml(ns = b"xwas", name = b"ordensname", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ordensname: Option<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"kuenstlername", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kuenstlername: Vec<AllgemeinerNameType>,
     #[xml(ns = b"xwas", name = b"weitererName", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub weiterer_name: Vec<AllgemeinerNameType>,
 }
 
@@ -140,8 +161,10 @@ pub struct NameNatuerlichePersonType {
 pub struct AuskunftssperreType {
     #[xml(ns = b"xwas", name = b"grund", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub grund: Option<CodeAuskunftssperreType>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub gueltigkeit: Option<ZeitraumType>,
 }
 
@@ -155,10 +178,13 @@ pub struct AuskunftssperreType {
 #[xml(tns(b"xwas", TNS))]
 pub struct GeburtType {
     #[xml(ns = b"xwas", name = b"datum", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub datum: Option<String>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zusatz: Option<String>,
     #[xml(ns = b"xwas", name = b"geburtsort", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub geburtsort: Option<AnschriftType>,
 }
 
@@ -204,15 +230,20 @@ pub struct VertreterBevollmaechtigterType {
 pub struct FamilienstandType {
     #[xml(ns = b"xwas", name = b"familienstand", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub familienstand: Option<CodeFamilienstandType>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zusatz: Option<String>,
     #[xml(ns = b"xwas", name = b"grund", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub grund: Option<CodeFamilienstandBeendigungsgrundType>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub gueltigkeit: Option<ZeitraumType>,
     #[xml(ns = b"xwas", name = b"behoerde", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub behoerde: Option<BehoerdeType>,
 }
 
@@ -226,15 +257,20 @@ pub struct FamilienstandType {
 pub struct AusweisdokumentType {
     #[xml(ns = b"xwas", name = b"ausweisart", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ausweisart: Option<CodeAusweisdokumenteType>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub gueltigkeit: Option<ZeitraumType>,
     #[xml(ns = b"xwas", name = b"ausweisID", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ausweis_id: Option<IdentifikationType>,
     // TODO: check BehoerdeType
     #[xml(ns = b"xwas", name = b"ausstellendeBehoerde", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ausstellende_behoerde: Option<BehoerdeType>,
     #[xml(ns = b"xwas", name = b"ausstellenderStaat", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ausstellender_staat: Option<StaatType>,
 }
 
@@ -257,28 +293,38 @@ pub struct JuristischePersonType {
         name = b"bundeseinheitlicheWirtschaftsnummer",
         ty = "child"
     )]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub bundeseinheitliche_wirtschaftsnummer: Option<String>,
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"eingetragenerName", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub eingetragener_name: Option<String>,
     #[xml(ns = b"xwas", name = b"eintragung", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub eintragung: Option<String>,
     #[xml(ns = b"xwas", name = b"geschaeftsbezeichnung", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub geschaeftsbezeichnung: Option<String>,
     #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub anschrift: Vec<AnschriftType>,
     #[xml(ns = b"xwas", name = b"sitz", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub sitz: Option<String>,
     #[xml(ns = b"xwas", name = b"effektiverVerwaltungssitz", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub effektiver_verwaltungssitz: Option<String>,
     #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommunikation: Vec<KommunikationType>,
     #[xml(ns = b"xwas", name = b"vertreterBevollmaechtigter", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub vertreter_bevollmaechtigter: Vec<VertreterBevollmaechtigterType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
@@ -296,6 +342,7 @@ pub struct GeschlechtType {
     #[xml(ns = b"xwas", name = b"geschlecht", ty = "child")]
     pub geschlecht: CodeGeschlechtType,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub gueltigkeit: Option<ZeitraumType>,
 }
 
@@ -315,12 +362,15 @@ pub struct NatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"auskunftssperre", ty = "child")]
     pub auskunftssperre: Vec<AuskunftssperreType>,
     #[xml(ns = b"xwas", name = b"nameNatuerlichePerson", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub name_natuerliche_person: Option<NameNatuerlichePersonType>,
     #[xml(ns = b"xwas", name = b"familienstand", ty = "child")]
     pub familienstand: Vec<FamilienstandType>,
     #[xml(ns = b"xwas", name = b"geburt", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub geburt: Option<GeburtType>,
     #[xml(ns = b"xwas", name = b"doktorgrad", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub doktorgrad: Option<String>,
     #[xml(ns = b"xwas", name = b"staatsangehoerigkeit", ty = "child")]
     pub staatsangehoerigkeit: Vec<StaatsangehoerigkeitType>,
@@ -341,6 +391,7 @@ pub struct NatuerlichePersonType {
     #[xml(ns = b"xwas", name = b"vertreterBevollmaechtigter", ty = "child")]
     pub vertreter_bevollmaechtigter: Vec<VertreterBevollmaechtigterType>,
     #[xml(name = b"id", ty = "attr")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub id: Option<String>,
 }
 
@@ -375,9 +426,11 @@ pub struct PersonType {
     #[xml(ns = b"xwas", name = b"personRolle", ty = "child")]
     #[serde(default)]
     #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub person_rolle: Vec<CodePersonenrolleType>,
     #[xml(ns = b"xwas", name = b"dokumentReferenzID", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub dokument_referenz_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"person", ty = "child")]
     pub person: Person,

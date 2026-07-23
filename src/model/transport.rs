@@ -52,6 +52,7 @@ pub struct NachrichtenkopfG2g {
     #[xml(name = b"autor", ty = "child")]
     pub autor: BehoerdeG2GType,
     #[xml(name = b"referenzUUID", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub referenz_uuid: Option<String>,
     #[xml(default, name = b"dvdvDienstkennung", ty = "child")]
     pub dvdv_dienstkennung: String,
@@ -65,10 +66,13 @@ pub struct NachrichtenkopfG2g {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 pub struct IdentifikationNachricht {
     #[xml(name = b"nachrichtenUUID", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub nachrichten_uuid: Option<String>, //ConstStr,
     #[xml(name = b"nachrichtentyp", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub nachrichten_typ: Option<NachrichtenTyp>,
     #[xml(name = b"erstellungszeitpunkt", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub erstellungszeitpunkt: Option<String>,
 }
 
@@ -171,6 +175,7 @@ pub struct VorgangTransportieren2010 {
     _standard: ConstStr,
     #[xml(name = b"test", ty = "attr")]
     #[cfg_attr(feature = "builder", builder(default))]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub test: Option<bool>,
     #[xml(name = b"version", ty = "attr", value = VERSION)]
     #[serde(skip)]
@@ -181,7 +186,9 @@ pub struct VorgangTransportieren2010 {
     #[xml(ns = b"xwas", name = b"vorgang", ty = "child")]
     pub vorgang: Vorgang,
     #[xml(ns = b"xwas", name = b"zusatzinformationen", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zusatzinformationen: Option<ZusatzinformationenType>,
     #[xml(ns = b"ds", name = b"Signature", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub signature: Option<Signature>,
 }

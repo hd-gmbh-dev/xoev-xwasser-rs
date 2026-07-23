@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "e34840f3-ccff-47fa-b1cc-d9ba84ee37aa",
+      "nachrichten_uuid": "275766c3-2575-44db-be84-fc73c1ffedc6",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2026-07-23T09:06:02"
+      "erstellungszeitpunkt": "2026-07-23T11:08:32"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -36,14 +36,14 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "ab63ae52-bb36-4f11-990b-09f8661f086e"
+      "vorgangs_id": "57a894e5-c14e-4081-b8c9-54cd91929419"
     },
     "vorgang_type": {
       "t": "Untersuchungsplan",
       "c": {
-        "untersuchungsplan_id": "2c48c0b9-b9a5-4a6c-bfd0-3223063fe5dd",
+        "untersuchungsplan_id": "50a9e68a-d61f-48d3-acf1-4875a2c1cd16",
         "wasserversorgungsgebiet": [
-          "wvg-pLPnZAt7"
+          "wvg-B0lz4kRz"
         ],
         "titel_untersuchungsplan": "",
         "jahr": [
@@ -95,10 +95,10 @@
         },
         "terminplan": [
           {
-            "terminplan_id": "966c48a7-797a-4880-a7be-4c2c57c1cf08",
-            "probennahmestelle": "probennahmestelle-mdAcSzqk",
+            "terminplan_id": "1c55cd6e-81f2-4005-9bb8-3cd092d1abba",
+            "probennahmestelle": "probennahmestelle-ygALdGgN",
             "datum_zeitraum": [
-              "2026-07-23T09:06:02"
+              "2026-07-23T11:08:32"
             ],
             "untersuchung_durch": [
               {
@@ -127,7 +127,7 @@
             "aufnahme_berichtsplan_ga": null,
             "ersatz_fuer_terminplan_mit_der_id": null,
             "kommentar": [],
-            "id": "terminplan-nH06T1RN"
+            "id": "terminplan-zOn2zQFG"
           }
         ],
         "anlage_nach_trinkw_v": {
@@ -141,23 +141,23 @@
           "anzahl_durch_anlage_versorgte_personen": null,
           "kommentar": null,
           "wasserversorgungsgebiet_id": [
-            "wvg-pLPnZAt7"
+            "wvg-B0lz4kRz"
           ],
           "angaben_alternative_id_gesundheit": null,
           "versorgter_ortsteil": [],
           "ueberwachende_behoerde": [],
           "anlage_an_die_wasser_abgegeben_wird": [],
-          "id": "antv-qlmMmhWG"
+          "id": "antv-CECl1cyE"
         },
         "objekt": [
           {
-            "objekt_id": "e34594e5-526a-49d6-9ce1-a9987c6f99c8",
+            "objekt_id": "351641e3-073c-4afd-8b2a-18a417c1b036",
             "anlage_nach_trinkw_vid": null,
             "wasserversorgungsgebiet_id": null,
-            "betreiber_id": "betreiber-uZIKiHMZ",
+            "betreiber_id": "betreiber-GyjCQulY",
             "anschrift_objekt": [],
             "art_objekt": {
-              "code": "1010",
+              "code": "",
               "name": null
             },
             "name_objekt": "",
@@ -169,30 +169,24 @@
             "angaben_alternative_id_gesundheit": null,
             "angaben_alternative_id_umwelt": null,
             "kommentar": null,
-            "id": "obj-sBX2Butl"
+            "id": "obj-E28cJJWq"
           }
         ],
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "ca9e0147-f99b-44f3-9aa9-be3e63ed897f",
+            "probennahmestelle_id": "0e2c6914-7872-4579-ac4a-19ef778d3340",
             "objekt_id": null,
             "name_probennahmestelle": "Probennahmestelle 1",
             "kategorie_probennahmestelle": {
-              "code": "1000",
+              "code": "",
               "name": null
             },
-            "unterkategorie_probennahmestelle": {
-              "code": "1030",
-              "name": null
-            },
-            "art_der_entnahmearmatur": {
-              "code": "1010",
-              "name": null
-            },
-            "stockwerk_probennahmestelle": 0,
+            "unterkategorie_probennahmestelle": null,
+            "art_der_entnahmearmatur": null,
+            "stockwerk_probennahmestelle": null,
             "medium_an_der_probennahmestelle": [
               {
-                "code": "1010",
+                "code": "",
                 "name": null
               }
             ],
@@ -200,7 +194,7 @@
             "angaben_alternative_id_gesundheit": null,
             "angaben_alternative_id_umwelt": null,
             "kommentar": null,
-            "id": "probennahmestelle-mdAcSzqk"
+            "id": "probennahmestelle-ygALdGgN"
           }
         ],
         "auftraggeber": {
@@ -212,7 +206,7 @@
           "auftraggeber": {
             "t": "Organisation",
             "c": {
-              "id": "organisation-rX2exILb",
+              "id": "organisation-DkcHwXY6",
               "rechtsform": null,
               "branche": [],
               "zweck": [],
@@ -228,7 +222,7 @@
           "kommentar": null
         },
         "zustaendige_behoerde": {
-          "id": "behoerde-lL3myLCs",
+          "id": "behoerde-xKO1mfJY",
           "typ": {
             "code": "",
             "name": null,
@@ -275,7 +269,7 @@
         "kommentar": [],
         "aenderungshistorie": null,
         "erweiterung": null,
-        "id": "untersuchungsplan-vJHVp0sb"
+        "id": "untersuchungsplan-HmHlTUn1"
       }
     },
     "bemerkung": null,

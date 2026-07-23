@@ -93,6 +93,7 @@ pub struct UntersuchungsplanType {
     )]
     pub anzahl_untersuchungen_pro_jahr_gruppe_a: i32,
     #[xml(ns = b"xwas", name = b"abzudeckenDurchBetreiberGruppeA", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub abzudecken_durch_betreiber_gruppe_a: Option<i32>,
     #[xml(
         ns = b"xwas",
@@ -101,6 +102,7 @@ pub struct UntersuchungsplanType {
     )]
     pub anzahl_untersuchungenpro_jahr_gruppe_b: i32,
     #[xml(ns = b"xwas", name = b"abzudeckenDurchBetreiberGruppeB", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub abzudecken_durch_betreiber_gruppe_b: Option<i32>,
     #[xml(ns = b"xwas", name = b"rauDurchgefuehrt", ty = "child")]
     pub rau_durchgefuehrt: bool,
@@ -112,6 +114,7 @@ pub struct UntersuchungsplanType {
     pub anlage_nach_trinkw_v: AnlageNachTrinkwVType,
     #[xml(ns = b"xwas", name = b"objekt", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub objekt: Vec<ObjektType>,
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
     pub probennahmestelle: Vec<ProbennahmestelleType>,
@@ -124,8 +127,10 @@ pub struct UntersuchungsplanType {
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     pub kommentar: Vec<KommentarType>,
     #[xml(ns = b"xwas", name = b"aenderungshistorie", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub aenderungshistorie: Option<AenderungshistorieType>,
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub erweiterung: Option<ErweiterungType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
@@ -147,30 +152,39 @@ pub struct TerminplanType {
     pub probennahmestelle: String,
     #[xml(ns = b"xwas", name = b"datumZeitraum", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub datum_zeitraum: Vec<String>,
     #[xml(ns = b"xwas", name = b"untersuchungDurch", ty = "child")]
     #[serde(default)]
     #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub untersuchung_durch: Vec<CodeUeberwachungAufbereitungType>,
     #[xml(ns = b"xwas", name = b"untersuchungDurchErlaeuterung", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub untersuchung_durch_erlaeuterung: Option<String>,
     #[xml(ns = b"xwas", name = b"anlassDerUntersuchung", ty = "child")]
     #[serde(default)]
     #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub anlass_der_untersuchung: Vec<CodeAnlassUntersuchungType>,
     #[xml(ns = b"xwas", name = b"zuUntersuchenderParameter", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zu_untersuchender_parameter: Vec<ParameterangabenType>,
     #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
     #[serde(default)]
     #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
     #[xml(ns = b"xwas", name = b"aufnahmeBerichtsplanGA", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub aufnahme_berichtsplan_ga: Option<bool>,
     #[xml(ns = b"xwas", name = b"ersatzFuerTerminplanMitDerID", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ersatz_fuer_terminplan_mit_der_id: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Vec<KommentarType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
@@ -225,11 +239,14 @@ pub struct IncidentType {
     #[xml(ns = b"xwas", name = b"incidentEndDate", ty = "child")]
     pub incident_end_date: String,
     #[xml(ns = b"xwas", name = b"incidentCategory", ty = "child")]
+    #[serde(default)]
     #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub incident_category: Vec<CodeIncidentCategoryType>,
     #[xml(ns = b"xwas", name = b"incidentAffectedPopulation", ty = "child")]
     pub incident_affected_population: i32,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub remarks: Option<String>,
     #[xml(ns = b"xwas", name = b"incidentCauseAndRemedialAction", ty = "child")]
     pub incident_cause_and_remedial_action: Vec<IncidentCauseAndRemedialActionType>,
@@ -261,6 +278,7 @@ pub struct ParameterangabenType {
     #[xml(ns = b"xwas", name = b"reduzierbarOhneRAU", ty = "child")]
     pub reduzierbar_ohne_rau: bool,
     #[xml(ns = b"xwas", name = b"bemerkung", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub bemerkung: Option<String>,
 }
 
@@ -293,8 +311,10 @@ pub struct QualityAndMonitoringType {
     #[xml(ns = b"xwas", name = b"samplingLocationType", ty = "child")]
     #[serde(default)]
     #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub sampling_location_type: Vec<CodeArtProbennahmestelleEuType>,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub remarks: Option<String>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
@@ -329,6 +349,7 @@ pub struct DerogationRemedialActionType {
     #[xml(ns = b"xwas", name = b"derogationRemedialActionCost", ty = "child")]
     pub derogation_remedial_action_cost: f64,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub remarks: Option<String>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
@@ -349,34 +370,47 @@ pub struct DerogationType {
     #[xml(ns = b"xwas", name = b"trivialDerogation", ty = "child")]
     pub trivial_derogation: bool,
     #[xml(ns = b"xwas", name = b"trivialDerogationJustification", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub trivial_derogation_justification: Option<String>,
     #[xml(ns = b"xwas", name = b"derogationStartDate", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub derogation_start_date: Option<String>,
     #[xml(ns = b"xwas", name = b"derogationEndDate", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub derogation_end_date: Option<String>,
     #[xml(ns = b"xwas", name = b"volumeOfWaterSupplied", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub volume_of_water_supplied: Option<f64>,
     #[xml(ns = b"xwas", name = b"derogationAffectedPopulation", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub derogation_affected_population: Option<i32>,
     #[xml(ns = b"xwas", name = b"foodProductionAffected", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub food_production_affected: Option<bool>,
     #[xml(ns = b"xwas", name = b"derogationUnderRecastDWD", ty = "child")]
     pub derogation_under_recast_dwd: bool,
     #[xml(ns = b"xwas", name = b"derogationGrounds", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub derogation_grounds: Option<CodeGrundAusnahmeregelungType>,
     #[xml(ns = b"xwas", name = b"previousDerogationIdentifier", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub previous_derogation_identifier: Option<String>,
     #[xml(ns = b"xwas", name = b"previousDerogationConclusions", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub previous_derogation_conclusions: Option<String>,
     #[xml(ns = b"xwas", name = b"previousDerogationStartDate", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub previous_derogation_start_date: Option<String>,
     #[xml(ns = b"xwas", name = b"previousDerogationEndDate", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub previous_derogation_end_date: Option<String>,
     #[xml(ns = b"xwas", name = b"previousDerogationGrounds", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub previous_derogation_grounds: Option<CodeGrundAusnahmeregelungType>,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub remarks: Option<String>,
     #[xml(ns = b"xwas", name = b"derogationRemedialAction", ty = "child")]
     pub derogation_remedial_action: Vec<DerogationRemedialActionType>,
@@ -415,6 +449,7 @@ pub struct ExceedanceCauseAndRemedialActionType {
     #[xml(ns = b"xwas", name = b"exceedanceRemedialActionEndDate", ty = "child")]
     pub exceedance_remedial_action_end_date: String,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub remarks: Option<String>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
@@ -435,6 +470,7 @@ pub struct ExceedanceType {
     #[xml(ns = b"xwas", name = b"trivialExceedance", ty = "child")]
     pub trivial_exceedance: bool,
     #[xml(ns = b"xwas", name = b"trivialExceedanceJustification", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub trivial_exceedance_justification: Option<String>,
     #[xml(ns = b"xwas", name = b"parameterCode", ty = "child")]
     pub parameter_code: CodeShapthParameterType,
@@ -450,10 +486,13 @@ pub struct ExceedanceType {
     #[xml(ns = b"xwas", name = b"numberOfSamplesPerYear", ty = "child")]
     pub number_of_samples_per_year: i32,
     #[xml(ns = b"xwas", name = b"incidentIdentifier", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub incident_identifier: Option<String>,
     #[xml(ns = b"xwas", name = b"derogationIdentifier", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub derogation_identifier: Option<String>,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub remarks: Option<String>,
     #[xml(ns = b"xwas", name = b"exceedanceCauseAndRemedialAction", ty = "child")]
     pub exceedance_cause_and_remedial_action: Vec<ExceedanceCauseAndRemedialActionType>,
@@ -487,6 +526,7 @@ pub struct IncidentCauseAndRemedialActionType {
     #[xml(ns = b"xwas", name = b"incidentRemedialActionEndDate", ty = "child")]
     pub incident_remedial_action_end_date: String,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub remarks: Option<String>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
@@ -507,17 +547,21 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"nameWasserversorgungsgebiet", ty = "child")]
     pub name_wasserversorgungsgebiet: String,
     #[xml(ns = b"xwas", name = b"lau2Code", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub lau2_code: Option<i32>,
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
     pub zustaendige_behoerde: Vec<BehoerdeType>,
     #[xml(ns = b"xwas", name = b"geokoordinatenSHAPTH", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub geokoordinaten_shapth: Option<GeografischeAngabenType>,
     #[xml(ns = b"xwas", name = b"datumDerEinrichtung", ty = "child")]
     pub datum_der_einrichtung: String,
     #[xml(ns = b"xwas", name = b"datumDerSchliessung", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub datum_der_schliessung: Option<String>,
     #[xml(ns = b"xwas", name = b"grundDerSchliessung", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub grund_der_schliessung: Option<CodeGrundSchliessungWasserversorgungsgebietType>,
     #[xml(ns = b"xwas", name = b"nachfolgerWVGbeiSchliessung", ty = "child")]
     pub nachfolger_wvg_bei_schliessung: Vec<String>,
@@ -532,6 +576,7 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"artDerWasserressource", ty = "child")]
     #[serde(default)]
     #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub art_der_wasserressource: Vec<CodeArtWasserressourceType>,
     #[xml(ns = b"xwas", name = b"anteilDerWasserressource", ty = "child")]
     pub anteil_der_wasserressource: Vec<u32>,
@@ -548,6 +593,7 @@ pub struct WasserversorgungsgebietType {
     )]
     pub vorgeschriebene_untersuchungshaeufigkeit_parameter_b: i32,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"derogation", ty = "child")]
     pub derogation: Vec<DerogationType>,
@@ -557,9 +603,11 @@ pub struct WasserversorgungsgebietType {
     pub incident: Vec<IncidentType>,
     #[xml(ns = b"xwas", name = b"versorgterOrtsteil", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub versorgter_ortsteil: Vec<VersorgterOrtsteilType>,
     #[xml(ns = b"xwas", name = b"ueberwachendeBehoerde", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ueberwachende_behoerde: Vec<UeberwachendeBehoerdeType>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
@@ -575,6 +623,7 @@ pub struct WasserversorgungsgebietType {
 #[xml(tns(b"xwas", TNS))]
 pub struct AnlageNachTrinkwVType {
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub anlage_nach_trinkw_v_id: Option<String>,
     #[xml(ns = b"xwas", name = b"artAnlage", ty = "child")]
     pub art_anlage: CodeArtTrinkwasseranlageType,
@@ -585,27 +634,34 @@ pub struct AnlageNachTrinkwVType {
         name = b"abgegebeneWassermengeDerAnlageProTag",
         ty = "child"
     )]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub abgegebene_wassermenge_der_anlage_pro_tag: Option<f64>,
     #[xml(
         ns = b"xwas",
         name = b"anzahlDurchAnlageVersorgtePersonen",
         ty = "child"
     )]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub anzahl_durch_anlage_versorgte_personen: Option<i32>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Option<String>,
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
     pub wasserversorgungsgebiet_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"angabenAlternativeIDGesundheit", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub angaben_alternative_id_gesundheit: Option<AngabenAlternativeIdGesundheitType>,
     #[xml(ns = b"xwas", name = b"versorgterOrtsteil", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub versorgter_ortsteil: Vec<VersorgterOrtsteilType>,
     #[xml(ns = b"xwas", name = b"ueberwachendeBehoerde", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ueberwachende_behoerde: Vec<UeberwachendeBehoerdeType>,
     #[xml(ns = b"xwas", name = b"anlageAnDieWasserAbgegebenWird", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub anlage_an_die_wasser_abgegeben_wird: Vec<String>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,

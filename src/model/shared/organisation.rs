@@ -33,36 +33,47 @@ use super::{
 #[xml(tns(b"xwas", TNS))]
 pub struct OrganisationType {
     #[xml(name = b"id", ty = "attr")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]
     #[serde(default)]
     #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub branche: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zweck", ty = "child")]
     #[serde(default)]
     #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zweck: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub name: Option<NameOrganisationType>,
     #[xml(ns = b"xwas", name = b"unterorganisation", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub unterorganisation: Vec<OrganisationType>,
     #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommunikation: Vec<KommunikationType>,
     #[xml(ns = b"xwas", name = b"registrierung", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub registrierung: Vec<RegistrierungType>,
     #[xml(ns = b"xwas", name = b"identifikation", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub identifikation: Vec<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"existenzzeitraum", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub existenzzeitraum: Option<ZeitraumType>,
     #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub anschrift: Vec<AnschriftType>,
 }
 
@@ -76,13 +87,17 @@ pub struct OrganisationType {
 #[xml(tns(b"xwas", TNS))]
 pub struct RegistrierungType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"registertyp", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub registertyp: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"registrierendeBehoerde", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub registrierende_behoerde: Vec<BehoerdeType>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub gueltigkeit: Option<ZeitraumType>,
 }
 
@@ -94,6 +109,7 @@ pub struct RegistrierungType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 pub struct Name {
     #[xml(ty = "text")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub text: Option<String>,
 }
 
@@ -107,10 +123,13 @@ pub struct Name {
 #[xml(tns(b"xwas", TNS))]
 pub struct NameOrganisationType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub name: Option<Name>,
     #[xml(ns = b"xwas", name = b"kurzbezeichnung", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kurzbezeichnung: Option<String>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub gueltigkeit: Option<ZeitraumType>,
 }
 
@@ -128,7 +147,9 @@ pub struct OrganisationseinheitType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: String,
     #[xml(ns = b"xwas", name = b"hierarchieebene", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub hierarchieebene: Option<i32>, //Option<u8>,
     #[xml(ns = b"xwas", name = b"hierarchiename", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub hierarchiename: Option<String>, //Option<String>,
 }

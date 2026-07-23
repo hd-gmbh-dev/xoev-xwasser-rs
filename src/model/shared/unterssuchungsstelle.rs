@@ -34,36 +34,47 @@ use super::{
 #[xml(tns(b"xwas", TNS))]
 pub struct ZugelasseneUntersuchungsstelleType {
     #[xml(name = b"id", ty = "attr")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]
     #[serde(default)]
     #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub branche: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zweck", ty = "child")]
     #[serde(default)]
     #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zweck: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub name: Option<NameOrganisationType>,
     #[xml(ns = b"xwas", name = b"unterorganisation", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub unterorganisation: Vec<OrganisationType>,
     #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommunikation: Vec<KommunikationType>,
     #[xml(ns = b"xwas", name = b"registrierung", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub registrierung: Vec<RegistrierungType>,
     #[xml(ns = b"xwas", name = b"identifikation", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub identifikation: Vec<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"existenzzeitraum", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub existenzzeitraum: Option<ZeitraumType>,
     #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub anschrift: Vec<AnschriftType>,
     #[xml(ns = b"xwas", name = b"zugelasseneUntersuchungsstelleID", ty = "child")]
     pub zugelassene_untersuchungsstelle_id: String, //ConstStr,
@@ -72,28 +83,34 @@ pub struct ZugelasseneUntersuchungsstelleType {
         name = b"pruefgebieteUntersuchungenPhysChem",
         ty = "child"
     )]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub pruefgebiete_untersuchungen_phys_chem: Option<bool>,
     #[xml(
         ns = b"xwas",
         name = b"pruefgebieteUntersuchungenMikrobio",
         ty = "child"
     )]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub pruefgebiete_untersuchungen_mikrobio: Option<bool>,
     #[xml(
         ns = b"xwas",
         name = b"pruefgebieteUntersuchungenRadionuklide",
         ty = "child"
     )]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub pruefgebiete_untersuchungen_radionuklide: Option<bool>,
     #[xml(ns = b"xwas", name = b"pruefgebieteNurVorOrtParameter", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub pruefgebiete_nur_vor_ort_parameter: Option<bool>,
     #[xml(ns = b"xwas", name = b"akkreditierungsnummer", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub akkreditierungsnummer: Option<String>,
     #[xml(
         ns = b"xwas",
         name = b"kommentarZugelasseneUntersuchungsstelle",
         ty = "child"
     )]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar_zugelassene_untersuchungsstelle: Option<String>,
 }
 
@@ -108,36 +125,47 @@ pub struct ZugelasseneUntersuchungsstelleType {
 #[xml(tns(b"xwas", TNS))]
 pub struct BeauftragteUntersuchungsstelleType {
     #[xml(name = b"id", ty = "attr")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]
     #[serde(default)]
     #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub branche: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zweck", ty = "child")]
     #[serde(default)]
     #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zweck: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub name: Option<NameOrganisationType>,
     #[xml(ns = b"xwas", name = b"unterorganisation", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub unterorganisation: Vec<OrganisationType>,
     #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommunikation: Vec<KommunikationType>,
     #[xml(ns = b"xwas", name = b"registrierung", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub registrierung: Vec<RegistrierungType>,
     #[xml(ns = b"xwas", name = b"identifikation", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub identifikation: Vec<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"existenzzeitraum", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub existenzzeitraum: Option<ZeitraumType>,
     #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
     #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub anschrift: Vec<AnschriftType>,
     #[xml(ns = b"xwas", name = b"zugelasseneUntersuchungsstelleID", ty = "child")]
     pub zugelassene_untersuchungsstelle_id: String, //ConstStr,
@@ -146,33 +174,40 @@ pub struct BeauftragteUntersuchungsstelleType {
         name = b"pruefgebieteUntersuchungenPhysChem",
         ty = "child"
     )]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub pruefgebiete_untersuchungen_phys_chem: Option<bool>,
     #[xml(
         ns = b"xwas",
         name = b"pruefgebieteUntersuchungenMikrobio",
         ty = "child"
     )]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub pruefgebiete_untersuchungen_mikrobio: Option<bool>,
     #[xml(
         ns = b"xwas",
         name = b"pruefgebieteUntersuchungenRadionuklide",
         ty = "child"
     )]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub pruefgebiete_untersuchungen_radionuklide: Option<bool>,
     #[xml(ns = b"xwas", name = b"pruefgebieteNurVorOrtParameter", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub pruefgebiete_nur_vor_ort_parameter: Option<bool>,
     #[xml(ns = b"xwas", name = b"akkreditierungsnummer", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub akkreditierungsnummer: Option<String>,
     #[xml(
         ns = b"xwas",
         name = b"kommentarZugelasseneUntersuchungsstelle",
         ty = "child"
     )]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar_zugelassene_untersuchungsstelle: Option<String>,
     #[xml(
         ns = b"xwas",
         name = b"kommentarBeauftragteUntersuchungsstelle",
         ty = "child"
     )]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar_beauftragte_untersuchungsstelle: Option<String>,
 }

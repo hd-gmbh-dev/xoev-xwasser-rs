@@ -24,9 +24,12 @@ use crate::TNS;
 #[xml(tns(b"xwas", TNS))]
 pub struct ZeitraumType {
     #[xml(ns = b"xwas", name = b"beginn", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub beginn: Option<String>, // eigentlich of type xs:date
     #[xml(ns = b"xwas", name = b"ende", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ende: Option<String>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zusatz: Option<String>,
 }

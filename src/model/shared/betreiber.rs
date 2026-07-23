@@ -64,6 +64,7 @@ pub enum ArtDerPerson {
 #[xml(tns(b"xwas", TNS))]
 pub struct BetreiberType {
     #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub betreiber_id: Option<String>,
     #[xml(ns = b"xwas", name = b"artDerPerson", ty = "child")]
     pub art_der_person: ArtDerPerson,
@@ -71,8 +72,10 @@ pub struct BetreiberType {
     #[xml(ns = b"xwas", name = b"juristischerBetreiber", ty = "child")]
     pub juristischer_betreiber: bool,
     #[xml(ns = b"xwas", name = b"angabenAlternativeIDUmwelt", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub angaben_alternative_id_umwelt: Option<AngabenAlternativeIdUmweltType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,
@@ -88,12 +91,16 @@ pub struct BetreiberType {
 #[xml(tns(b"xwas", TNS))]
 pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub objekt_id: Option<String>,
     #[xml(ns = b"xwas", name = b"anlageNachTrinkwVID", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub anlage_nach_trinkw_vid: Option<String>,
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub wasserversorgungsgebiet_id: Option<String>,
     #[xml(ns = b"xwas", name = b"betreiberID", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub betreiber_id: Option<String>,
     #[xml(ns = b"xwas", name = b"anschriftObjekt", ty = "child")]
     #[serde(default)]
@@ -104,10 +111,13 @@ pub struct ObjektType {
     pub name_objekt: String,
     #[xml(ns = b"xwas", name = b"betriebszustandDesObjekts", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub betriebszustand_des_objekts: Option<CodeBetriebszustandType>,
     #[xml(ns = b"xwas", name = b"datumInBetriebnahme", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub datum_in_betriebnahme: Option<String>,
     #[xml(ns = b"xwas", name = b"datumAusserBetriebnahme", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub datum_ausser_betriebnahme: Option<String>,
     #[xml(
         ns = b"xwas",
@@ -118,12 +128,16 @@ pub struct ObjektType {
     #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub rahmen_der_trinkwasserbereitstellung: Vec<CodeRahmenTrinkwasserbereitstellungType>,
     #[xml(ns = b"xwas", name = b"geokoordinatenObjekt", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub geokoordinaten_objekt: Option<GeografischeAngabenType>,
     #[xml(ns = b"xwas", name = b"angabenAlternativeIDGesundheit", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub angaben_alternative_id_gesundheit: Option<AngabenAlternativeIdGesundheitType>,
     #[xml(ns = b"xwas", name = b"angabenAlternativeIDUmwelt", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub angaben_alternative_id_umwelt: Option<AngabenAlternativeIdUmweltType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]
     pub id: String,

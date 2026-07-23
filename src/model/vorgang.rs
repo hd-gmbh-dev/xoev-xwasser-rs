@@ -48,6 +48,7 @@ pub struct Vorgang {
     #[xml(ns = b"xwas", name = b"vorgangType", ty = "child")]
     pub vorgang_type: VorgangType,
     #[xml(ns = b"xwas", name = b"bemerkung", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub bemerkung: Option<String>,
     #[xml(ns = b"xwas", name = b"anlage", ty = "child")]
     #[serde(default)]
