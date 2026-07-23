@@ -62,18 +62,18 @@ pub struct ElementUpdate {
 // ---------------------------------------------------------------------------
 
 /// Run the XML transform in a single streaming pass with the internal options struct.
-pub fn transform_xml(xml: &str, options: &TransformOptions) -> String {
-    transform_xml_impl(xml, options)
+pub fn transform_vorgang_transportieren_2010(xml: &str, options: &TransformOptions) -> String {
+    transform_vorgang_transportieren_2010_impl(xml, options)
 }
 
 /// Convenience wrapper accepting `<zustaendigeBehoerdeID>` strings.
-pub fn transform_xml_with_ids(
+pub fn transform_vorgang_transportieren_2010_with_ids(
     xml: &str,
     leser: Option<&ElementUpdate>,
     autor: Option<&ElementUpdate>,
     zusatzinfo_ids: Option<&[String]>,
 ) -> String {
-    transform_xml_impl(
+    transform_vorgang_transportieren_2010_impl(
         xml,
         &TransformOptions {
             leser: leser.cloned(),
@@ -84,7 +84,7 @@ pub fn transform_xml_with_ids(
     )
 }
 
-pub fn transform_xml_impl(xml: &str, options: &TransformOptions) -> String {
+pub fn transform_vorgang_transportieren_2010_impl(xml: &str, options: &TransformOptions) -> String {
     let mut rdr = NsReader::from_str(xml);
     rdr.config_mut().trim_text(false);
     rdr.config_mut().allow_unmatched_ends = true;
@@ -234,7 +234,6 @@ struct TransformState {
     root_ns_prefix: Vec<u8>,
 
     // zusatzinformationen tracking
-    zi_depth: usize,
     seen_zi: bool,
     in_zi: bool,
     zi_buf: Vec<Event<'static>>,
@@ -364,7 +363,6 @@ fn handle_start(
     }
 
     if lok == b"zusatzinformationen" && ns_is_xwas(&ns) {
-        state.zi_depth = state.depth;
         state.seen_zi = true;
         if has_zusatzinfo_updates {
             // Write the preceding whitespace before we start buffering,

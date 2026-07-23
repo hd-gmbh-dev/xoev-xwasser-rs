@@ -6,7 +6,7 @@
 
     fn sample_xml_with_zi() -> String {
         let base = load_quality_report();
-        transform_xml(
+        transform_vorgang_transportieren_2010(
             base,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
@@ -86,14 +86,14 @@
     #[test]
     fn test_noop_is_byte_identical() {
         let xml = sample_xml();
-        let result = transform_xml(&xml, &TransformOptions::default());
+        let result = transform_vorgang_transportieren_2010(&xml, &TransformOptions::default());
         assert_eq!(result, xml);
     }
 
     #[test]
     fn test_leser_mutation() {
         let xml = load_quality_report();
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
@@ -113,7 +113,7 @@
     #[test]
     fn test_autor_mutation() {
         let xml = load_quality_report();
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             xml,
             &TransformOptions {
                 autor: Some(ElementUpdate {
@@ -133,7 +133,7 @@
     #[test]
     fn test_leser_and_autor_mutation() {
         let xml = load_quality_report();
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
@@ -157,7 +157,7 @@
     #[test]
     fn test_zusatzinfo_full_replacement() {
         let base = load_quality_report();
-        let with_zi = transform_xml(
+        let with_zi = transform_vorgang_transportieren_2010(
             base,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
@@ -166,7 +166,7 @@
         );
         assert!(with_zi.contains("xwas:zusatzinformationen"));
 
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &with_zi,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
@@ -184,7 +184,7 @@
     #[test]
     fn test_zusatzinfo_replace_with_multiple_entries() {
         let base = load_quality_report();
-        let with_zi = transform_xml(
+        let with_zi = transform_vorgang_transportieren_2010(
             base,
             &TransformOptions {
                 zusatzinformationen: Some(&["original".into()]),
@@ -192,7 +192,7 @@
             },
         );
         // Replace with multiple entries
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &with_zi,
             &TransformOptions {
                 zusatzinformationen: Some(&["new-1".into(), "new-2".into()]),
@@ -210,7 +210,7 @@
     #[test]
     fn test_zusatzinfo_replace_with_empty() {
         let base = load_quality_report();
-        let with_zi = transform_xml(
+        let with_zi = transform_vorgang_transportieren_2010(
             base,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth".into()]),
@@ -218,7 +218,7 @@
             },
         );
         // Replace with empty content
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &with_zi,
             &TransformOptions {
                 zusatzinformationen: Some(&[]),
@@ -239,7 +239,7 @@
         // zusatzinformationen with kommentar, wasserversorgungsgebietID, and
         // a comment, then replace the IDs — should preserve everything else.
         let base = load_quality_report();
-        let with_zi = transform_xml(
+        let with_zi = transform_vorgang_transportieren_2010(
             base,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
@@ -269,7 +269,7 @@
         assert!(with_extra.contains("<!-- important comment -->"));
 
         // Now replace the ID — should preserve kommentar, wasserversorgungsgebietID, and comment
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &with_extra,
             &TransformOptions {
                 zusatzinformationen: Some(&["new-id".into()]),
@@ -306,7 +306,7 @@
     #[test]
     fn test_insert_leser() {
         let xml = sample_xml_no_leser_no_autor();
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
@@ -330,7 +330,7 @@
     #[test]
     fn test_insert_autor() {
         let xml = sample_xml_no_leser_no_autor();
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
@@ -358,7 +358,7 @@
     #[test]
     fn test_insert_zusatzinformationen() {
         let xml = load_quality_report();
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["new-auth".into()]),
@@ -380,7 +380,7 @@
         let xml = sample_xml_custom_prefix();
         assert!(xml.contains("xw:"), "fixture must use custom xw: prefix");
 
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
@@ -428,20 +428,20 @@
 
     #[test]
     fn test_comment_preservation() {
-        let result = transform_xml(&sample_xml(), &TransformOptions::default());
+        let result = transform_vorgang_transportieren_2010(&sample_xml(), &TransformOptions::default());
         assert!(result.contains("<!-- root comment -->"));
     }
 
     #[test]
     fn test_whitespace_preservation() {
-        let result = transform_xml(&sample_xml(), &TransformOptions::default());
+        let result = transform_vorgang_transportieren_2010(&sample_xml(), &TransformOptions::default());
         assert!(result.contains("  <nachrichtenkopf.g2g>"));
         assert!(result.contains("    <identifikation.nachricht>"));
     }
 
     #[test]
     fn test_signature_roundtrip() {
-        let result = transform_xml(&sample_xml(), &TransformOptions::default());
+        let result = transform_vorgang_transportieren_2010(&sample_xml(), &TransformOptions::default());
         assert!(result.contains("ds:Signature"));
         assert!(result.contains("ds:SignedInfo"));
         assert!(result.contains("ds:DigestValue"));
@@ -452,8 +452,8 @@
     #[test]
     fn test_raxb_roundtrip_quality_report() {
         let xml = load_quality_report();
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
                     kennung: Some("psw:mutated".into()),
@@ -490,7 +490,7 @@
     </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             xml_4space,
             &TransformOptions {
                 leser: Some(ElementUpdate {
@@ -541,7 +541,7 @@
   </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result_2 = transform_xml(
+        let result_2 = transform_vorgang_transportieren_2010(
             xml_2space,
             &TransformOptions {
                 leser: Some(ElementUpdate {
@@ -583,7 +583,7 @@
         </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result_8 = transform_xml(
+        let result_8 = transform_vorgang_transportieren_2010(
             xml_8space,
             &TransformOptions {
                 leser: Some(ElementUpdate {
@@ -629,7 +629,7 @@
     </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             xml_4space,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
@@ -657,7 +657,7 @@
         // Single-line (compact) XML has no whitespace text nodes, so the
         // indent unit falls back to 2 spaces.
         let xml = r#"<?xml version="1.0" encoding="UTF-8"?><xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"><nachrichtenkopf.g2g><identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht><leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser><autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor><dvdvDienstkennung>s</dvdvDienstkennung></nachrichtenkopf.g2g><xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang></xwas:vorgang.transportieren.2010>"#;
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
@@ -695,8 +695,8 @@
         // duplicate tags (e.g. double <zusatzinformationen> or
         // duplicate <zustaendigeBehoerdeID> entries)
         let base = load_quality_report();
-        let with_zi = transform_xml(
-            &base,
+        let with_zi = transform_vorgang_transportieren_2010(
+            base,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -738,8 +738,8 @@
     fn test_no_duplicate_tags_in_leser_mutation() {
         // Verify that mutating leser doesn't produce duplicate tags
         let base = load_quality_report();
-        let result = transform_xml(
-            &base,
+        let result = transform_vorgang_transportieren_2010(
+            base,
             &TransformOptions {
                 leser: Some(ElementUpdate {
                     kennung: Some("psw:mutated".into()),
@@ -791,7 +791,7 @@
     fn test_no_duplicate_tags_in_leser_insertion() {
         // Verify that inserting leser doesn't produce duplicate tags
         let xml = sample_xml_no_leser_no_autor();
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
@@ -836,8 +836,8 @@
     fn test_no_duplicate_tags_in_autor_mutation() {
         // Verify that mutating autor doesn't produce duplicate tags
         let base = load_quality_report();
-        let result = transform_xml(
-            &base,
+        let result = transform_vorgang_transportieren_2010(
+            base,
             &TransformOptions {
                 autor: Some(ElementUpdate {
                     kennung: Some("psw:mutated_autor".into()),
@@ -888,7 +888,7 @@
     fn test_no_duplicate_tags_in_autor_insertion() {
         // Verify that inserting autor doesn't produce duplicate tags
         let xml = sample_xml_no_leser_no_autor();
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
@@ -938,8 +938,8 @@
         // Verify that replacing zusatzinformationen produces well-formed XML
         // with correct nesting and no orphaned tags
         let base = load_quality_report();
-        let with_zi = transform_xml(
-            &base,
+        let with_zi = transform_vorgang_transportieren_2010(
+            base,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -951,14 +951,9 @@
         rdr.config_mut().trim_text(false);
         let mut depth = 0;
         let mut buf = Vec::new();
-        let mut zi_depth = 0;
         loop {
             match rdr.read_event_into(&mut buf) {
-                Ok(raxb::quick_xml::events::Event::Start(e)) => {
-                    let lok = e.local_name().as_ref().to_vec();
-                    if lok == b"zusatzinformationen" {
-                        zi_depth = depth;
-                    }
+                Ok(raxb::quick_xml::events::Event::Start(_)) => {
                     depth += 1;
                 }
                 Ok(raxb::quick_xml::events::Event::End(e)) => {
@@ -983,8 +978,8 @@
         // Comprehensive test: verify that ALL fields in ZusatzinformationenType
         // are preserved when replacing zustaendigeBehoerdeID entries
         let base = load_quality_report();
-        let with_zi = transform_xml(
-            &base,
+        let with_zi = transform_vorgang_transportieren_2010(
+            base,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1003,7 +998,7 @@
         );
 
         // Replace the IDs
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &with_all_fields,
             &TransformOptions {
                 zusatzinformationen: Some(&["new-id".into()]),
@@ -1030,8 +1025,8 @@
     fn test_zusatzinfo_replacement_with_multiple_fields_and_ids() {
         // Test replacing with multiple IDs while preserving multiple fields
         let base = load_quality_report();
-        let with_zi = transform_xml(
-            &base,
+        let with_zi = transform_vorgang_transportieren_2010(
+            base,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1048,7 +1043,7 @@
   </xwas:zusatzinformationen>"#,
         );
 
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &with_all,
             &TransformOptions {
                 zusatzinformationen: Some(&["id1".into(), "id2".into(), "id3".into()]),
@@ -1080,8 +1075,8 @@
         // Test that comments before, between, and after zustaendigeBehoerdeID
         // elements are all preserved
         let base = load_quality_report();
-        let with_zi = transform_xml(
-            &base,
+        let with_zi = transform_vorgang_transportieren_2010(
+            base,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1099,7 +1094,7 @@
   </xwas:zusatzinformationen>"#,
         );
 
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &with_comments,
             &TransformOptions {
                 zusatzinformationen: Some(&["new-id".into()]),
@@ -1135,8 +1130,8 @@
   </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1175,8 +1170,8 @@
     </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1215,8 +1210,8 @@
         </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1259,8 +1254,8 @@
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["new-id".into()]),
                 ..Default::default()
@@ -1301,8 +1296,8 @@
   </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1341,8 +1336,8 @@
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["new-id".into()]),
                 ..Default::default()
@@ -1375,8 +1370,8 @@
   </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1415,8 +1410,8 @@
     </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["new-id".into()]),
                 ..Default::default()
@@ -1462,8 +1457,8 @@
         </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["new-id".into()]),
                 ..Default::default()
@@ -1509,8 +1504,8 @@
   </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1554,8 +1549,8 @@
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["new-id".into()]),
                 ..Default::default()
@@ -1593,8 +1588,8 @@
   </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1637,8 +1632,8 @@
     </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1681,8 +1676,8 @@
         </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["auth-001".into()]),
                 ..Default::default()
@@ -1728,8 +1723,8 @@
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["new-id".into()]),
                 ..Default::default()
@@ -1776,8 +1771,8 @@
     </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 zusatzinformationen: Some(&["new-id".into()]),
                 ..Default::default()
@@ -1819,8 +1814,8 @@
   </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 nachrichten_uuid: Some("new-uuid"),
                 ..Default::default()
@@ -1849,8 +1844,8 @@
   </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 nachrichten_uuid: Some("inserted-uuid"),
                 ..Default::default()
@@ -1879,8 +1874,8 @@
   </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>"#;
 
-        let result = transform_xml(
-            &xml,
+        let result = transform_vorgang_transportieren_2010(
+            xml,
             &TransformOptions {
                 ..Default::default()
             },
@@ -1914,7 +1909,7 @@
             "      <nachrichtenUUID>old-uuid</nachrichtenUUID>\n",
             "",
         );
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &xml,
             &TransformOptions {
                 nachrichten_uuid: Some("inserted-uuid"),
@@ -1938,7 +1933,7 @@
             "    <leser>\n      <verzeichnisdienst listVersionID=\"\">\n        <code></code>\n      </verzeichnisdienst>\n      <kennung>r</kennung>\n      <name>Reader</name>\n    </leser>\n",
             "",
         );
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &xml,
             &TransformOptions {
                 leser: Some(ElementUpdate {
@@ -1968,7 +1963,7 @@
         // Inserted <zusatzinformationen> (when missing) must not produce a
         // blank line before it nor a glued </zusatzinformationen></root>.
         let ids = vec!["auth-001".to_string()];
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             base_doc(),
             &TransformOptions {
                 zusatzinformationen: Some(&ids),
@@ -1995,7 +1990,7 @@
             "</xwas:vorgang>\n  <xwas:zusatzinformationen>\n    <xwas:zustaendigeBehoerdeID>old1</xwas:zustaendigeBehoerdeID>\n    <xwas:wasserversorgungsgebietID>wv1</xwas:wasserversorgungsgebietID>\n    <xwas:kommentar>keep me</xwas:kommentar>\n  </xwas:zusatzinformationen>\n</xwas:vorgang.transportieren.2010>",
         );
         let ids = vec!["new1".to_string(), "new2".to_string()];
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &xml,
             &TransformOptions {
                 zusatzinformationen: Some(&ids),
@@ -2025,7 +2020,7 @@
             "",
         );
         let crlf = lf.replace('\n', "\r\n");
-        let result = transform_xml(
+        let result = transform_vorgang_transportieren_2010(
             &crlf,
             &TransformOptions {
                 leser: Some(ElementUpdate {
@@ -2062,6 +2057,6 @@
         // A parse error must not silently produce a truncated document;
         // the original input is returned unchanged.
         let malformed = "<xwas:vorgang.transportieren.2010><leser><unclosed>";
-        let result = transform_xml(malformed, &TransformOptions::default());
+        let result = transform_vorgang_transportieren_2010(malformed, &TransformOptions::default());
         assert_eq!(malformed, result);
     }

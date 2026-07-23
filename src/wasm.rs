@@ -66,7 +66,7 @@ pub struct ElementParam {
 ///
 /// Accepts a plain JS options object:
 /// ```ts
-/// transform_xml(xml, {
+/// transform_vorgang_transportieren_2010(xml, {
 ///   leser?: { kennung?: string, name?: string },
 ///   autor?: { kennung?: string, name?: string },
 ///   zusatzinformationen?: Array<string>,
@@ -74,7 +74,7 @@ pub struct ElementParam {
 /// })
 /// ```
 #[wasm_bindgen]
-pub fn transform_xml(xml: String, opts: Option<TransformOptionsParam>) -> String {
+pub fn transform_vorgang_transportieren_2010(xml: String, opts: Option<TransformOptionsParam>) -> String {
     let TransformOptionsParam {
         leser,
         autor,
@@ -100,7 +100,7 @@ pub fn transform_xml(xml: String, opts: Option<TransformOptionsParam>) -> String
             .filter(|v| !v.is_empty()),
         nachrichten_uuid: nachrichten_uuid.as_deref(),
     };
-    transform::transform_xml_impl(&xml, &opts_struct)
+    transform::transform_vorgang_transportieren_2010_impl(&xml, &opts_struct)
 }
 
 #[wasm_bindgen]
