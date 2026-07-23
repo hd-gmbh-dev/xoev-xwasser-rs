@@ -1,4 +1,3 @@
-
 use super::*;
 
 fn sample_xml() -> String {
@@ -1949,6 +1948,52 @@ fn test_nachrichten_uuid_replacement() {
 
     assert!(result.contains("<nachrichtenUUID>new-uuid</nachrichtenUUID>"));
     assert!(!result.contains("old-uuid"));
+}
+
+#[test]
+fn test_format_uuid_replacement_preserves_surrounding_whitespace() {
+    // Replacing <nachrichtenUUID> text must preserve the surrounding
+    // whitespace: the UUID stays on its own indented line (not glued to
+    // <identifikation.nachricht>), no stray whitespace-only line appears
+    // after </nachrichtenUUID>, and the following sibling stays put.
+    let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>old-uuid</nachrichtenUUID>
+      <nachrichtentyp listURI="urn:xoev-de:xwasser:codeliste:nachrichtentyp" listVersionID="1">
+        <code>2010</code>
+      </nachrichtentyp>
+      <erstellungszeitpunkt>2026-07-23T19:59:58</erstellungszeitpunkt>
+    </identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
+</xwas:vorgang.transportieren.2010>"#;
+
+    let result = transform_vorgang_transportieren_2010(
+        xml,
+        &TransformOptions {
+            nachrichtenkopf_g2g: Some(NachrichtenkopfG2gOptions {
+                nachrichten_uuid: Some("new-uuid"),
+                ..Default::default()
+            }),
+            ..Default::default()
+        },
+    );
+
+    // The replacement must keep the exact surrounding formatting: only the
+    // UUID text changes, the indent and line structure are byte-identical.
+    let expected = "    <identifikation.nachricht>\n      <nachrichtenUUID>new-uuid</nachrichtenUUID>\n      <nachrichtentyp";
+    assert!(
+        result.contains(expected),
+        "UUID replacement broke surrounding formatting. got:\n{result}"
+    );
+    // No glued start tag ...
+    assert!(!result.contains("<identifikation.nachricht><nachrichtenUUID>"));
+    // ... and no stray whitespace-only line after </nachrichtenUUID>.
+    assert!(!result.contains("</nachrichtenUUID>\n      \n      <nachrichtentyp"));
 }
 
 #[test]

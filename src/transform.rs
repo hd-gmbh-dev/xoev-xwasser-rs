@@ -512,6 +512,10 @@ fn handle_end(
         state.in_nachrichten_uuid = false;
         state.seen_nachrichten_uuid = true;
         if let Some(uuid) = options.nachrichten_uuid {
+            // Flush the preceding whitespace (the indent before
+            // <nachrichtenUUID>) so the replacement stays on its own line
+            // instead of being glued to the previous sibling's start tag.
+            state.flush_ws(writer);
             // Re-emit the start tag with new text content
             for ev in &state.nachrichten_uuid_buf {
                 if let Event::Start(s) = ev {
