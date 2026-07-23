@@ -3,6 +3,8 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use crate::model::codes::deserialize_list_of_codes;
+use crate::model::codes::deserialize_optional_code;
 use xoev_xwasser_derive::XWasserValidate;
 
 #[cfg(feature = "wasm")]
@@ -148,17 +150,20 @@ pub struct TerminplanType {
     pub datum_zeitraum: Vec<String>,
     #[xml(ns = b"xwas", name = b"untersuchungDurch", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub untersuchung_durch: Vec<CodeUeberwachungAufbereitungType>,
     #[xml(ns = b"xwas", name = b"untersuchungDurchErlaeuterung", ty = "child")]
     pub untersuchung_durch_erlaeuterung: Option<String>,
     #[xml(ns = b"xwas", name = b"anlassDerUntersuchung", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub anlass_der_untersuchung: Vec<CodeAnlassUntersuchungType>,
     #[xml(ns = b"xwas", name = b"zuUntersuchenderParameter", ty = "child")]
     #[serde(default)]
     pub zu_untersuchender_parameter: Vec<ParameterangabenType>,
     #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
     #[xml(ns = b"xwas", name = b"aufnahmeBerichtsplanGA", ty = "child")]
     pub aufnahme_berichtsplan_ga: Option<bool>,
@@ -220,6 +225,7 @@ pub struct IncidentType {
     #[xml(ns = b"xwas", name = b"incidentEndDate", ty = "child")]
     pub incident_end_date: String,
     #[xml(ns = b"xwas", name = b"incidentCategory", ty = "child")]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub incident_category: Vec<CodeIncidentCategoryType>,
     #[xml(ns = b"xwas", name = b"incidentAffectedPopulation", ty = "child")]
     pub incident_affected_population: i32,
@@ -285,6 +291,8 @@ pub struct QualityAndMonitoringType {
     #[xml(ns = b"xwas", name = b"samplingPeriod", ty = "child")]
     pub sampling_period: CodeProbennahmezeitraumType,
     #[xml(ns = b"xwas", name = b"samplingLocationType", ty = "child")]
+    #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub sampling_location_type: Vec<CodeArtProbennahmestelleEuType>,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
     pub remarks: Option<String>,
@@ -355,6 +363,7 @@ pub struct DerogationType {
     #[xml(ns = b"xwas", name = b"derogationUnderRecastDWD", ty = "child")]
     pub derogation_under_recast_dwd: bool,
     #[xml(ns = b"xwas", name = b"derogationGrounds", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub derogation_grounds: Option<CodeGrundAusnahmeregelungType>,
     #[xml(ns = b"xwas", name = b"previousDerogationIdentifier", ty = "child")]
     pub previous_derogation_identifier: Option<String>,
@@ -365,6 +374,7 @@ pub struct DerogationType {
     #[xml(ns = b"xwas", name = b"previousDerogationEndDate", ty = "child")]
     pub previous_derogation_end_date: Option<String>,
     #[xml(ns = b"xwas", name = b"previousDerogationGrounds", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub previous_derogation_grounds: Option<CodeGrundAusnahmeregelungType>,
     #[xml(ns = b"xwas", name = b"remarks", ty = "child")]
     pub remarks: Option<String>,
@@ -435,6 +445,7 @@ pub struct ExceedanceType {
     #[xml(ns = b"xwas", name = b"exceedanceAffectedPopulation", ty = "child")]
     pub exceedance_affected_population: i32,
     #[xml(ns = b"xwas", name = b"pointOfComplianceType", ty = "child")]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub point_of_compliance_type: Vec<CodeArtProbennahmestelleEuType>,
     #[xml(ns = b"xwas", name = b"numberOfSamplesPerYear", ty = "child")]
     pub number_of_samples_per_year: i32,
@@ -506,6 +517,7 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"datumDerSchliessung", ty = "child")]
     pub datum_der_schliessung: Option<String>,
     #[xml(ns = b"xwas", name = b"grundDerSchliessung", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub grund_der_schliessung: Option<CodeGrundSchliessungWasserversorgungsgebietType>,
     #[xml(ns = b"xwas", name = b"nachfolgerWVGbeiSchliessung", ty = "child")]
     pub nachfolger_wvg_bei_schliessung: Vec<String>,
@@ -518,6 +530,8 @@ pub struct WasserversorgungsgebietType {
     #[xml(ns = b"xwas", name = b"referenzjahrAngabenWVG", ty = "child")]
     pub referenzjahr_angaben_wvg: i32,
     #[xml(ns = b"xwas", name = b"artDerWasserressource", ty = "child")]
+    #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub art_der_wasserressource: Vec<CodeArtWasserressourceType>,
     #[xml(ns = b"xwas", name = b"anteilDerWasserressource", ty = "child")]
     pub anteil_der_wasserressource: Vec<u32>,

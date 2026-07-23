@@ -23,6 +23,31 @@ impl FromStr for ConstStr {
     }
 }
 
+pub trait GenericXwasserCode {
+    fn code(&self) -> &str;
+}
+
+pub fn deserialize_optional_code<'de, D, T>(deserializer: D) -> Result<Option<T>, D::Error>
+where
+    D: serde::de::Deserializer<'de>,
+    T: serde::de::DeserializeOwned + GenericXwasserCode + Default,
+{
+    let s: T = serde::de::Deserialize::deserialize(deserializer).unwrap_or_default();
+    if s.code().is_empty() {
+        Ok(None)
+    } else {
+        Ok(Some(s))
+    }
+}
+
+pub fn deserialize_list_of_codes<'de, D, T>(deserializer: D) -> Result<Vec<T>, D::Error>
+where
+    D: serde::de::Deserializer<'de>,
+    T: serde::de::DeserializeOwned + GenericXwasserCode,
+{
+    let s: Vec<T> = serde::de::Deserialize::deserialize(deserializer)?;
+    Ok(s.into_iter().filter(|v| !v.code().is_empty()).collect())
+}
 // #[derive(Clone, Default, Debug, XmlSerialize, XmlDeserialize, Serialize, Deserialize)]
 // #[cfg_attr(feature = "wasm", derive(Tsify))]
 // #[xml(tns(
@@ -44,6 +69,7 @@ impl FromStr for ConstStr {
 //     list_version_id: String,
 // }
 
+// Codes which can be optional
 #[derive(
     Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
@@ -62,6 +88,12 @@ pub struct CodeBehoerdenkennungType {
     pub list_version_id: String,
 }
 
+impl GenericXwasserCode for CodeBehoerdenkennungType {
+    fn code(&self) -> &str {
+        &self.code
+    }
+}
+
 #[derive(
     Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
 )]
@@ -78,6 +110,12 @@ pub struct CodePersonenrolleType {
     pub list_uri: String,
     #[xml(name = b"listVersionID", ty = "attr")]
     pub list_version_id: String,
+}
+
+impl GenericXwasserCode for CodePersonenrolleType {
+    fn code(&self) -> &str {
+        &self.code
+    }
 }
 
 /// Type name: Code.Kommunikation.KanalType

@@ -3,8 +3,8 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
-use xoev_xwasser_derive::XWasserValidate;
-
+use crate::model::codes::deserialize_list_of_codes;
+use crate::model::codes::deserialize_optional_code;
 use crate::{
     TNS,
     model::codes::{
@@ -17,6 +17,7 @@ use crate::{
         CodeUntersuchungsverfahrenType,
     },
 };
+use xoev_xwasser_derive::XWasserValidate;
 
 #[cfg(feature = "wasm")]
 use tsify::Tsify;
@@ -87,19 +88,24 @@ pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"kategorieProbennahmestelle", ty = "child")]
     pub kategorie_probennahmestelle: CodeKategorieProbennahmestelleType,
     #[xml(ns = b"xwas", name = b"unterkategorieProbennahmestelle", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub unterkategorie_probennahmestelle: Option<CodeUnterkategorieProbennahmestelleType>,
     #[xml(ns = b"xwas", name = b"artDerEntnahmearmatur", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub art_der_entnahmearmatur: Option<CodeArtEntnahmearmaturType>,
     #[xml(ns = b"xwas", name = b"stockwerkProbennahmestelle", ty = "child")]
     pub stockwerk_probennahmestelle: Option<i16>,
     #[xml(ns = b"xwas", name = b"mediumAnDerProbennahmestelle", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub medium_an_der_probennahmestelle: Vec<CodeMediumType>,
     #[xml(
         ns = b"xwas",
         name = b"desinfektionUndAufbereitungDesWassers",
         ty = "child"
     )]
+    #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub desinfektion_und_aufbereitung_des_wassers:
         Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
     #[xml(ns = b"xwas", name = b"angabenAlternativeIDGesundheit", ty = "child")]
@@ -134,8 +140,10 @@ pub struct ProbeType {
     pub analyseergebnis_parameter: Vec<AnalyseergebnisParameterType>,
     #[xml(ns = b"xwas", name = b"anlassDerUntersuchung", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub anlass_der_untersuchung: Vec<CodeAnlassUntersuchungType>,
     #[xml(ns = b"xwas", name = b"medium", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub medium: Option<CodeMediumType>,
     #[xml(
         ns = b"xwas",
@@ -149,11 +157,14 @@ pub struct ProbeType {
     pub zeitpunkt_probennahme: String, // TODO: Invent xs:dateTime
     #[xml(ns = b"xwas", name = b"probennahmeverfahren", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
     #[xml(ns = b"xwas", name = b"probenentnahmegeraet", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub probenentnahmegeraet: Option<CodeProbenentnahmegeraetType>,
     #[xml(ns = b"xwas", name = b"probengefaess", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub probengefaess: Vec<CodeProbengefaessType>,
     #[xml(
         ns = b"xwas",
@@ -234,6 +245,7 @@ pub struct AnalyseergebnisParameterType {
     pub zugelassene_durchfuehrung_analyse: bool,
     #[xml(ns = b"xwas", name = b"untersuchungsverfahren", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub untersuchungsverfahren: Vec<CodeUntersuchungsverfahrenType>,
     #[xml(
         ns = b"xwas",
@@ -244,6 +256,7 @@ pub struct AnalyseergebnisParameterType {
     #[xml(default, ns = b"xwas", name = b"untersuchterParameter", ty = "child")]
     pub untersuchter_parameter: CodeShapthParameterType,
     #[xml(ns = b"xwas", name = b"parameterauspraegung", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub parameterauspraegung: Option<CodeParameterauspraegungType>,
     #[xml(
         ns = b"xwas",
@@ -256,12 +269,14 @@ pub struct AnalyseergebnisParameterType {
     #[xml(ns = b"xwas", name = b"untersuchungswertParameter", ty = "child")]
     pub untersuchungswert_parameter: Option<f64>,
     #[xml(ns = b"xwas", name = b"einheitDesUntersuchungswerts", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub einheit_des_untersuchungswerts: Option<CodeShapthParameterEinheitType>,
     #[xml(
         ns = b"xwas",
         name = b"ergaenzungZumUntersuchungswertParameter",
         ty = "child"
     )]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub ergaenzung_zum_untersuchungswert_parameter: Option<CodeMesswertergaenzungType>,
     #[xml(ns = b"xwas", name = b"parameterwertErgaenzung", ty = "child")]
     pub parameterwert_ergaenzung: Option<String>,

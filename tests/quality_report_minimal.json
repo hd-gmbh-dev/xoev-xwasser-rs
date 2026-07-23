@@ -53,10 +53,7 @@
               "code": "1000",
               "name": null
             },
-            "unterkategorie_probennahmestelle": {
-              "code": "1030",
-              "name": null
-            },
+            "unterkategorie_probennahmestelle": null,
             "art_der_entnahmearmatur": {
               "code": "1010",
               "name": null

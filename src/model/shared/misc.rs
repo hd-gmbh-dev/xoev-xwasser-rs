@@ -3,6 +3,7 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use crate::model::codes::deserialize_optional_code;
 use xoev_xwasser_derive::XWasserValidate;
 
 #[cfg(feature = "wasm")]
@@ -164,6 +165,7 @@ pub struct GeografischeAngabenType {
 #[xml(tns(b"xwas", TNS))]
 pub struct GeokodierungType {
     #[xml(ns = b"xwas", name = b"koordinatensystem", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub koordinatensystem: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"koordinate1", ty = "child")]
     pub koordinate1: Option<f64>,
@@ -189,6 +191,7 @@ pub struct AngabenAlternativeIdGesundheitType {
     #[xml(ns = b"xwas", name = b"alternativeIDGesundheit", ty = "child")]
     pub alternative_id_gesundheit: Option<String>,
     #[xml(ns = b"xwas", name = b"formatAlternativeIDGesundheit", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub format_alternative_id_gesundheit: Option<CodeFormatAlternativeIdGesundheitType>,
 }
 

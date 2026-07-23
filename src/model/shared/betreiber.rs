@@ -3,6 +3,8 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use crate::model::codes::deserialize_list_of_codes;
+use crate::model::codes::deserialize_optional_code;
 use xoev_xwasser_derive::XWasserValidate;
 
 #[cfg(feature = "wasm")]
@@ -101,6 +103,7 @@ pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"nameObjekt", ty = "child")]
     pub name_objekt: String,
     #[xml(ns = b"xwas", name = b"betriebszustandDesObjekts", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub betriebszustand_des_objekts: Option<CodeBetriebszustandType>,
     #[xml(ns = b"xwas", name = b"datumInBetriebnahme", ty = "child")]
     pub datum_in_betriebnahme: Option<String>,
@@ -112,6 +115,7 @@ pub struct ObjektType {
         ty = "child"
     )]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub rahmen_der_trinkwasserbereitstellung: Vec<CodeRahmenTrinkwasserbereitstellungType>,
     #[xml(ns = b"xwas", name = b"geokoordinatenObjekt", ty = "child")]
     pub geokoordinaten_objekt: Option<GeografischeAngabenType>,

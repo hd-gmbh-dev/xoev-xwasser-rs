@@ -3,6 +3,7 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use crate::model::codes::deserialize_optional_code;
 use xoev_xwasser_derive::XWasserValidate;
 
 #[cfg(feature = "wasm")]
@@ -36,6 +37,7 @@ use super::{
 #[xml(tns(b"xwas", TNS))]
 pub struct AnschriftType {
     #[xml(ns = b"xwas", name = b"strassenschluessel", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub strassenschluessel: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"strasse", ty = "child")]
     pub strasse: Option<String>,

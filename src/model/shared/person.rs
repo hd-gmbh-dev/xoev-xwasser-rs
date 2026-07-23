@@ -3,6 +3,8 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use crate::model::codes::deserialize_list_of_codes;
+use crate::model::codes::deserialize_optional_code;
 use xoev_xwasser_derive::XWasserValidate;
 
 #[cfg(feature = "wasm")]
@@ -45,6 +47,7 @@ pub struct AllgemeinerNameType {
     #[xml(ns = b"xwas", name = b"nichtVorhanden", ty = "child")]
     pub nicht_vorhanden: Option<bool>,
     #[xml(ns = b"xwas", name = b"namensart", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub namensart: Option<CodeNamensartType>,
     #[xml(ns = b"xwas", name = b"alternativeRepraesentation", ty = "child")]
     #[serde(default)]
@@ -136,6 +139,7 @@ pub struct NameNatuerlichePersonType {
 #[xml(tns(b"xwas", TNS))]
 pub struct AuskunftssperreType {
     #[xml(ns = b"xwas", name = b"grund", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub grund: Option<CodeAuskunftssperreType>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
     pub gueltigkeit: Option<ZeitraumType>,
@@ -199,10 +203,12 @@ pub struct VertreterBevollmaechtigterType {
 #[xml(tns(b"xwas", TNS))]
 pub struct FamilienstandType {
     #[xml(ns = b"xwas", name = b"familienstand", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub familienstand: Option<CodeFamilienstandType>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
     pub zusatz: Option<String>,
     #[xml(ns = b"xwas", name = b"grund", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub grund: Option<CodeFamilienstandBeendigungsgrundType>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
     pub gueltigkeit: Option<ZeitraumType>,
@@ -219,6 +225,7 @@ pub struct FamilienstandType {
 #[xml(tns(b"xwas", TNS))]
 pub struct AusweisdokumentType {
     #[xml(ns = b"xwas", name = b"ausweisart", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub ausweisart: Option<CodeAusweisdokumenteType>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
     pub gueltigkeit: Option<ZeitraumType>,
@@ -252,6 +259,7 @@ pub struct JuristischePersonType {
     )]
     pub bundeseinheitliche_wirtschaftsnummer: Option<String>,
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"eingetragenerName", ty = "child")]
     pub eingetragener_name: Option<String>,
@@ -366,6 +374,7 @@ pub enum Person {
 pub struct PersonType {
     #[xml(ns = b"xwas", name = b"personRolle", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub person_rolle: Vec<CodePersonenrolleType>,
     #[xml(ns = b"xwas", name = b"dokumentReferenzID", ty = "child")]
     #[serde(default)]

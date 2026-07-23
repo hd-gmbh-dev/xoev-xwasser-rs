@@ -3,6 +3,8 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use crate::model::codes::deserialize_list_of_codes;
+use crate::model::codes::deserialize_optional_code;
 use xoev_xwasser_derive::XWasserValidate;
 
 #[cfg(feature = "wasm")]
@@ -34,12 +36,15 @@ pub struct ZugelasseneUntersuchungsstelleType {
     #[xml(name = b"id", ty = "attr")]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub branche: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zweck", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub zweck: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<NameOrganisationType>,
@@ -105,12 +110,15 @@ pub struct BeauftragteUntersuchungsstelleType {
     #[xml(name = b"id", ty = "attr")]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub branche: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zweck", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub zweck: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: Option<NameOrganisationType>,

@@ -3,6 +3,7 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use crate::model::codes::deserialize_optional_code;
 use xoev_xwasser_derive::XWasserValidate;
 
 #[cfg(feature = "wasm")]
@@ -24,6 +25,7 @@ use crate::{TNS, model::codes::CodeKommunikationType};
 #[xml(tns(b"xwas", TNS))]
 pub struct KommunikationType {
     #[xml(ns = b"xwas", name = b"kanal", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub kanal: Option<CodeKommunikationType>,
     #[xml(ns = b"xwas", name = b"kennung", ty = "child")]
     pub kennung: Option<String>,

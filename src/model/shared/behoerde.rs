@@ -3,6 +3,8 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use crate::model::codes::deserialize_list_of_codes;
+use crate::model::codes::deserialize_optional_code;
 use xoev_xwasser_derive::XWasserValidate;
 
 #[cfg(feature = "wasm")]
@@ -41,6 +43,7 @@ pub struct ZustaendigeBehoerdeType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"typ", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub typ: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
     pub zusatz: Option<String>,
@@ -97,9 +100,11 @@ pub struct ZustaendigeBehoerdeType {
 pub struct BehoerdenkennungType {
     #[xml(ns = b"xwas", name = b"kennung", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub kennung: Vec<CodeBehoerdenkennungType>,
     #[xml(ns = b"xwas", name = b"praefix", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
     pub praefix: Vec<CodePraefixType>,
 }
 
@@ -118,6 +123,7 @@ pub struct BehoerdeType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"typ", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub typ: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
     pub zusatz: Option<String>,
@@ -160,14 +166,19 @@ pub struct BehoerdeType {
 #[xml(tns(b"xwas", TNS))]
 pub struct VerwaltungspolitischeKodierungType {
     #[xml(ns = b"xwas", name = b"kreis", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub kreis: Option<CodeKreisType>,
     #[xml(ns = b"xwas", name = b"bezirk", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub bezirk: Option<CodeBezirkType>,
     #[xml(ns = b"xwas", name = b"bundesland", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub bundesland: Option<CodeBundeslandType>,
     #[xml(ns = b"xwas", name = b"gemeindeschluessel", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub gemeindeschluessel: Option<CodeAgsType>,
     #[xml(ns = b"xwas", name = b"regionalschluessel", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub regionalschluessel: Option<CodeRegionalschluesselType>,
     #[xml(ns = b"xwas", name = b"nation", ty = "child")]
     pub nation: Option<StaatType>,
