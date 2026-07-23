@@ -405,6 +405,50 @@ fn test_insert_zusatzinformationen() {
 }
 
 #[test]
+fn test_insert_zusatzinformationen_before_signature() {
+    // When <zusatzinformationen> is missing but a <ds:Signature> is present,
+    // the inserted block must land BEFORE the signature (XSD sequence is
+    // vorgang, zusatzinformationen, ds:Signature), not after it at </root>.
+    let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht>
+    <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
+    <autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
+  <ds:Signature>
+    <ds:SignedInfo/>
+  </ds:Signature>
+</xwas:vorgang.transportieren.2010>"#;
+
+    let result = transform_vorgang_transportieren_2010(
+        xml,
+        &TransformOptions {
+            zusatzinformationen: Some(ZusatzinformationenOptions {
+                zustaendige_behoerde_id: Some(&["new-auth".into()]),
+            }),
+            ..Default::default()
+        },
+    );
+
+    // zusatzinformationen must appear before ds:Signature
+    let zi_pos = result
+        .find("<xwas:zusatzinformationen>")
+        .expect("zi inserted");
+    let sig_pos = result.find("<ds:Signature>").expect("signature present");
+    assert!(
+        zi_pos < sig_pos,
+        "zusatzinformationen must precede ds:Signature. got:\n{result}"
+    );
+    // And the inserted ID is present
+    assert!(result.contains("<xwas:zustaendigeBehoerdeID>new-auth</xwas:zustaendigeBehoerdeID>"));
+    // The signature block is preserved verbatim after the insert
+    assert!(result.contains("<ds:SignedInfo/>"));
+    assert!(result.contains("</ds:Signature>"));
+}
+
+#[test]
 fn test_custom_prefix_raxb_roundtrip() {
     // sample_xml_custom_prefix uses "xw:" prefix; verify transform preserves
     // raxb parseability and field values

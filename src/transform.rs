@@ -499,6 +499,38 @@ fn handle_start(
         }
     }
 
+    // Insert missing <zusatzinformationen> right before <ds:Signature> —
+    // its correct schema position is after <vorgang> and before the
+    // signature (XSD sequence: vorgang, zusatzinformationen, ds:Signature).
+    // By the time <ds:Signature> appears, seen_zi reliably tells us whether
+    // <zusatzinformationen> already preceded it, so we only insert when it
+    // is truly absent. After inserting, the rest (the signature block and
+    // </root>) is dumped verbatim via dump_tail.
+    if lok == b"Signature"
+        && state.root_depth > 0
+        && state.depth == state.root_depth + 1
+        && !state.seen_zi
+        && options.zusatzinfo_ids.is_some_and(|a| !a.is_empty())
+    {
+        let trailing = state.pending_ws.take();
+        insert_zusatzinformationen_element(
+            writer,
+            options.zusatzinfo_ids.unwrap_or(&[]),
+            if state.root_ns_prefix.is_empty() {
+                b"xwas"
+            } else {
+                &state.root_ns_prefix
+            },
+            state,
+            trailing.as_deref(),
+        );
+        // Re-emit the <ds:Signature> start tag; the main loop dumps the
+        // remainder (children, </ds:Signature>, </root>) verbatim.
+        write_event(writer, Event::Start(e.clone().into_owned()));
+        state.dump_tail = true;
+        return;
+    }
+
     state.flush_ws(writer);
     write_event(writer, Event::Start(e.clone().into_owned()));
 }
@@ -644,6 +676,10 @@ fn handle_end(
         && lok == b"vorgang.transportieren.2010"
         && state.depth == state.root_depth
     {
+        // Fallback for malformed input with no <vorgang> element: insert a
+        // missing zusatzinfo at </root> (best effort) and dump the trailing
+        // rest. Well-formed input never reaches here — the </vorgang> block
+        // above handles the insert at the correct position and returns early.
         let should_insert = options.zusatzinfo_ids.is_some_and(|a| !a.is_empty());
         if !state.seen_zi && should_insert {
             let trailing = state.pending_ws.take();
