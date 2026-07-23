@@ -109,6 +109,60 @@ let json = serde_json::to_string(&message)?;
 let parsed: VorgangTransportieren2010 = from_str(&xml)?;
 ```
 
+### Transforming XML
+
+The `transform` API performs an in-place, single-pass streaming transform of a
+`vorgang.transportieren.2010` transport message: it mutates `<leser>`, `<autor>`,
+`<zusatzinformationen>`, and `<nachrichtenUUID>` while preserving all comments,
+processing instructions, whitespace text nodes, line endings, and attribute
+order so that XML digital signatures remain valid. A no-op transform (all
+options `None`) is byte-identical to the input.
+
+The transform is namespace-prefix agnostic (matching uses the resolved
+namespace URI), so it works regardless of whether the source uses `xwas:`,
+`xw:`, or any other prefix.
+
+```rust
+use xoev_xwasser::transform::{
+    transform_vorgang_transportieren_2010, ElementUpdate, NachrichtenkopfG2gOptions,
+    TransformOptions, ZusatzinformationenOptions,
+};
+
+// Mutate leser/autor in-place
+let result = transform_vorgang_transportieren_2010(
+    &xml,
+    &TransformOptions {
+        nachrichtenkopf_g2g: Some(NachrichtenkopfG2gOptions {
+            leser: Some(ElementUpdate {
+                kennung: Some("psw:99999999".into()),
+                name: Some("New Reader".into()),
+            }),
+            autor: Some(ElementUpdate {
+                kennung: Some("psw:autor123".into()),
+                name: Some("Updated Autor".into()),
+            }),
+            ..Default::default()
+        }),
+        ..Default::default()
+    },
+);
+```
+
+`TransformOptions` mirrors the XML document layout — a header group
+(`nachrichtenkopf_g2g`) and a `zusatzinformationen` group, so each field's
+destination is explicit:
+
+| Field | Behavior |
+|-------|----------|
+| `nachrichtenkopf_g2g.leser` | Mutates `<kennung>`/`<name>` inside `<leser>` in-place; inserts a missing `<leser>` as the 2nd child of `nachrichtenkopf.g2g` (after `identifikation.nachricht`) |
+| `nachrichtenkopf_g2g.autor` | Mutates `<kennung>`/`<name>` inside `<autor>` in-place; inserts a missing `<autor>` after `<leser>` |
+| `nachrichtenkopf_g2g.nachrichten_uuid` | `None` = no change; `Some("uuid")` = replace existing `<nachrichtenUUID>` or insert if missing |
+| `zusatzinformationen.zustaendige_behoerde_id` | `None` = keep existing block; `Some(&["id1", ...])` = replace `<zustaendigeBehoerdeID>` entries (set semantics) while preserving `<kommentar>`, `<wasserversorgungsgebietID>`, comments, and whitespace; `Some(&[])` = replace with an empty block |
+
+`transform_vorgang_transportieren_2010_with_ids(xml, leser, autor,
+zusatzinfo_ids: Option<&[String]>)` is available as a convenience wrapper. On a
+parse error the original input is returned unchanged.
+
 ### Schema Validation
 
 The `schema` feature compiles XSD schemas into a binary format (`.xsdb`) and provides validation:
@@ -241,6 +295,49 @@ if (obj.vorgang.vorgang_type.t === "Pruefbericht") {
   console.log(p.id);
 }
 ```
+
+### Transforming XML
+
+`transform_vorgang_transportieren_2010` mutates a transport message in-place —
+`<leser>`, `<autor>`, `<zusatzinformationen>`, and/or `<nachrichtenUUID>` —
+while preserving all comments, whitespace, line endings, and attribute order
+so that XML digital signatures stay valid. A no-op transform is byte-identical
+to the input.
+
+```typescript
+import {
+  transform_vorgang_transportieren_2010,
+} from "xoev-xwasser";
+
+// Mutate leser/autor in-place
+const result = transform_vorgang_transportieren_2010(xml, {
+  nachrichtenkopf_g2g: {
+    leser: { kennung: "psw:99999999", name: "New Reader" },
+    autor: { kennung: "psw:autor123", name: "Updated Autor" },
+  },
+});
+
+// Replace zuständige Behörde IDs (preserves kommentar/wasserversorgungsgebietID)
+const result2 = transform_vorgang_transportieren_2010(xml, {
+  zusatzinformationen: { zustaendige_behoerde_id: ["auth-001", "auth-002"] },
+});
+
+// Replace or insert nachrichtenUUID
+const result3 = transform_vorgang_transportieren_2010(xml, {
+  nachrichtenkopf_g2g: { nachrichten_uuid: "693c64d6-456f-4d14-abe7-fe9681c74aae" },
+});
+```
+
+Options (`TransformOptionsParam`, all fields optional). The shape mirrors the
+XML document — a header group (`nachrichtenkopf_g2g`) and a
+`zusatzinformationen` group:
+
+| Field | Behavior |
+|-------|----------|
+| `nachrichtenkopf_g2g.leser` | Mutates `<kennung>`/`<name>` inside `<leser>` in-place; inserts a missing `<leser>` after `identifikation.nachricht` |
+| `nachrichtenkopf_g2g.autor` | Mutates `<kennung>`/`<name>` inside `<autor>` in-place; inserts a missing `<autor>` after `<leser>` |
+| `nachrichtenkopf_g2g.nachrichten_uuid` | `undefined` = no change; `"uuid"` = replace existing `<nachrichtenUUID>` or insert if missing |
+| `zusatzinformationen.zustaendige_behoerde_id` | `undefined` = keep existing block; `["id1", ...]` = replace `<zustaendigeBehoerdeID>` entries (set semantics) while preserving `<kommentar>`, `<wasserversorgungsgebietID>`, comments, and whitespace; `[]` = replace with an empty block |
 
 ### Utility Functions
 

@@ -31,22 +31,48 @@ const XWAS_NS: Namespace = Namespace(crate::TNS);
 // ---------------------------------------------------------------------------
 
 /// Top-level options for the XML transform.
+///
+/// The structure mirrors the XML document layout: the header group
+/// (`nachrichtenkopf.g2g`) holds fields that land inside `<nachrichtenkopf.g2g>`,
+/// and the `zusatzinformationen` group holds fields that land inside
+/// `<zusatzinformationen>`. Keeping the groups separate makes the field
+/// destination explicit and lets the `zusatzinformationen` group grow
+/// (e.g. a future `kommentar` update) without touching the header.
 #[derive(Debug, Clone, Default)]
 pub struct TransformOptions<'a> {
+    /// Updates targeting `<nachrichtenkopf.g2g>` (`leser`, `autor`,
+    /// `nachrichtenUUID`).
+    pub nachrichtenkopf_g2g: Option<NachrichtenkopfG2gOptions<'a>>,
+    /// Updates targeting `<zusatzinformationen>`.
+    pub zusatzinformationen: Option<ZusatzinformationenOptions<'a>>,
+}
+
+/// Options for the `<nachrichtenkopf.g2g>` header block.
+#[derive(Debug, Clone, Default)]
+pub struct NachrichtenkopfG2gOptions<'a> {
     /// Optional update for the `<leser>` element.
     pub leser: Option<ElementUpdate>,
     /// Optional update for the `<autor>` element.
     pub autor: Option<ElementUpdate>,
-    /// Replacement content for `<zusatzinformationen>`.
-    /// - `None`: no change / do not insert if missing.
-    /// - `Some(&[])`: replace existing with empty block.
-    /// - `Some(&["id1", "id2"])`: replace full content with given
-    ///   `<zustaendigeBehoerdeID>` entries.
-    pub zusatzinformationen: Option<&'a [String]>,
     /// Optional update for the `<nachrichtenUUID>` element.
     /// - `None`: no change / do not insert if missing.
     /// - `Some(uuid)`: replace existing or insert if missing.
     pub nachrichten_uuid: Option<&'a str>,
+}
+
+/// Options for the `<zusatzinformationen>` extra-info block.
+///
+/// Currently only the `<zustaendigeBehoerdeID>` entries are supported.
+/// The struct is laid out so further fields (e.g. `kommentar`,
+/// `wasserversorgungsgebiet_id`) can be added later without reshaping the
+/// top-level [`TransformOptions`].
+#[derive(Debug, Clone, Default)]
+pub struct ZusatzinformationenOptions<'a> {
+    /// Replacement `<zustaendigeBehoerdeID>` entries.
+    /// - `None`: no change / do not insert if missing.
+    /// - `Some(&[])`: replace existing with empty block.
+    /// - `Some(&["id1", "id2"])`: replace full content with given entries.
+    pub zustaendige_behoerde_id: Option<&'a [String]>,
 }
 
 /// Update parameters for an element inside `nachrichtenkopf.g2g`
@@ -55,6 +81,29 @@ pub struct TransformOptions<'a> {
 pub struct ElementUpdate {
     pub kennung: Option<String>,
     pub name: Option<String>,
+}
+
+/// Flattened view of [`TransformOptions`] used internally by the handlers so
+/// they stay decoupled from the public grouped struct shape. All references
+/// borrow from the original `TransformOptions`.
+struct ResolvedOptions<'a> {
+    leser: Option<&'a ElementUpdate>,
+    autor: Option<&'a ElementUpdate>,
+    nachrichten_uuid: Option<&'a str>,
+    zusatzinfo_ids: Option<&'a [String]>,
+}
+
+fn resolve_options<'a>(options: &'a TransformOptions<'a>) -> ResolvedOptions<'a> {
+    let header = options.nachrichtenkopf_g2g.as_ref();
+    ResolvedOptions {
+        leser: header.and_then(|h| h.leser.as_ref()),
+        autor: header.and_then(|h| h.autor.as_ref()),
+        nachrichten_uuid: header.and_then(|h| h.nachrichten_uuid),
+        zusatzinfo_ids: options
+            .zusatzinformationen
+            .as_ref()
+            .and_then(|z| z.zustaendige_behoerde_id),
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -76,10 +125,14 @@ pub fn transform_vorgang_transportieren_2010_with_ids(
     transform_vorgang_transportieren_2010_impl(
         xml,
         &TransformOptions {
-            leser: leser.cloned(),
-            autor: autor.cloned(),
-            zusatzinformationen: zusatzinfo_ids,
-            nachrichten_uuid: None,
+            nachrichtenkopf_g2g: Some(NachrichtenkopfG2gOptions {
+                leser: leser.cloned(),
+                autor: autor.cloned(),
+                nachrichten_uuid: None,
+            }),
+            zusatzinformationen: zusatzinfo_ids.map(|ids| ZusatzinformationenOptions {
+                zustaendige_behoerde_id: Some(ids),
+            }),
         },
     )
 }
@@ -90,9 +143,10 @@ pub fn transform_vorgang_transportieren_2010_impl(xml: &str, options: &Transform
     rdr.config_mut().allow_unmatched_ends = true;
 
     let mut writer = Writer::new(Vec::<u8>::new());
-    let has_zusatzinfo_updates = options.zusatzinformationen.is_some();
-    let has_leser = options.leser.is_some();
-    let has_autor = options.autor.is_some();
+    let resolved = resolve_options(options);
+    let has_zusatzinfo_updates = resolved.zusatzinfo_ids.is_some();
+    let has_leser = resolved.leser.is_some();
+    let has_autor = resolved.autor.is_some();
 
     let mut state = TransformState::default();
     let mut buf = Vec::new();
@@ -107,7 +161,7 @@ pub fn transform_vorgang_transportieren_2010_impl(xml: &str, options: &Transform
                     has_leser,
                     has_autor,
                     has_zusatzinfo_updates,
-                    options,
+                    &resolved,
                     &mut writer,
                     ns,
                     &lok,
@@ -122,7 +176,7 @@ pub fn transform_vorgang_transportieren_2010_impl(xml: &str, options: &Transform
                     has_leser,
                     has_autor,
                     has_zusatzinfo_updates,
-                    options,
+                    &resolved,
                     &mut writer,
                     ns,
                     &lok,
@@ -137,22 +191,22 @@ pub fn transform_vorgang_transportieren_2010_impl(xml: &str, options: &Transform
 
             Ok((_ns, Event::Text(e))) => {
                 let owned = Event::Text(e.clone().into_owned());
-                handle_generic(&mut state, &mut writer, owned, options);
+                handle_generic(&mut state, &mut writer, owned, &resolved);
             }
 
             Ok((_ns, Event::CData(e))) => {
                 let owned = Event::CData(e.clone().into_owned());
-                handle_generic(&mut state, &mut writer, owned, options);
+                handle_generic(&mut state, &mut writer, owned, &resolved);
             }
 
             Ok((_ns, Event::Comment(e))) => {
                 let owned = Event::Comment(e.clone().into_owned());
-                handle_generic(&mut state, &mut writer, owned, options);
+                handle_generic(&mut state, &mut writer, owned, &resolved);
             }
 
             Ok((_ns, Event::PI(e))) => {
                 let owned = Event::PI(e.clone().into_owned());
-                handle_generic(&mut state, &mut writer, owned, options);
+                handle_generic(&mut state, &mut writer, owned, &resolved);
             }
 
             Ok((_ns, Event::Decl(e))) => {
@@ -321,7 +375,7 @@ fn handle_start(
     has_leser: bool,
     has_autor: bool,
     has_zusatzinfo_updates: bool,
-    options: &TransformOptions,
+    options: &ResolvedOptions,
     writer: &mut Writer<Vec<u8>>,
     ns: ResolveResult,
     lok: &[u8],
@@ -343,7 +397,9 @@ fn handle_start(
     }
 
     if state.in_nachrichten_uuid {
-        state.nachrichten_uuid_buf.push(Event::Start(e.clone().into_owned()));
+        state
+            .nachrichten_uuid_buf
+            .push(Event::Start(e.clone().into_owned()));
         return;
     }
 
@@ -376,7 +432,7 @@ fn handle_start(
     }
 
     if state.should_insert_leser && lok != b"nachrichtenkopf.g2g" && lok != b"leser" {
-        if let Some(r) = &options.leser {
+        if let Some(r) = options.leser {
             let trailing = state.pending_ws.take();
             insert_g2g_element(writer, "leser", r, state, trailing.as_deref());
         }
@@ -385,8 +441,12 @@ fn handle_start(
             state.should_insert_autor = true;
         }
     }
-    if state.should_insert_autor && lok != b"nachrichtenkopf.g2g" && lok != b"leser" && lok != b"autor" {
-        if let Some(r) = &options.autor {
+    if state.should_insert_autor
+        && lok != b"nachrichtenkopf.g2g"
+        && lok != b"leser"
+        && lok != b"autor"
+    {
+        if let Some(r) = options.autor {
             let trailing = state.pending_ws.take();
             insert_g2g_element(writer, "autor", r, state, trailing.as_deref());
         }
@@ -423,7 +483,7 @@ fn handle_end(
     has_leser: bool,
     has_autor: bool,
     _has_zusatzinfo_updates: bool,
-    options: &TransformOptions,
+    options: &ResolvedOptions,
     writer: &mut Writer<Vec<u8>>,
     _ns: ResolveResult,
     lok: &[u8],
@@ -432,9 +492,9 @@ fn handle_end(
     if state.in_g2g_element && lok == state.g2g_element_name {
         state.in_g2g_element = false;
         let r = if state.g2g_element_name == b"leser" {
-            options.leser.as_ref()
+            options.leser
         } else {
-            options.autor.as_ref()
+            options.autor
         };
         if let Some(r) = r
             && !state.g2g_buf.is_empty()
@@ -471,7 +531,7 @@ fn handle_end(
             write_zusatzinfo_content(
                 writer,
                 &state.zi_buf,
-                options.zusatzinformationen,
+                options.zusatzinfo_ids,
                 &state.root_ns_prefix,
                 state,
             );
@@ -514,7 +574,7 @@ fn handle_end(
 
     if state.nk_depth > 0 && lok == b"nachrichtenkopf.g2g" {
         if state.should_insert_leser {
-            if let Some(r) = &options.leser {
+            if let Some(r) = options.leser {
                 let trailing = state.pending_ws.take();
                 insert_g2g_element(writer, "leser", r, state, trailing.as_deref());
             }
@@ -524,7 +584,7 @@ fn handle_end(
             }
         }
         if state.should_insert_autor {
-            if let Some(r) = &options.autor {
+            if let Some(r) = options.autor {
                 let trailing = state.pending_ws.take();
                 insert_g2g_element(writer, "autor", r, state, trailing.as_deref());
             }
@@ -537,12 +597,12 @@ fn handle_end(
         && lok == b"vorgang.transportieren.2010"
         && state.depth == state.root_depth
     {
-        let should_insert = options.zusatzinformationen.is_some_and(|a| !a.is_empty());
+        let should_insert = options.zusatzinfo_ids.is_some_and(|a| !a.is_empty());
         if !state.seen_zi && should_insert {
             let trailing = state.pending_ws.take();
             insert_zusatzinformationen_element(
                 writer,
-                options.zusatzinformationen.unwrap_or(&[]),
+                options.zusatzinfo_ids.unwrap_or(&[]),
                 if state.root_ns_prefix.is_empty() {
                     b"xwas"
                 } else {
@@ -576,7 +636,7 @@ fn handle_generic(
     state: &mut TransformState,
     writer: &mut Writer<Vec<u8>>,
     event: Event<'static>,
-    options: &TransformOptions,
+    options: &ResolvedOptions,
 ) {
     if state.in_g2g_element {
         state.g2g_buf.push(event);
@@ -588,7 +648,10 @@ fn handle_generic(
     }
 
     // Skip text content inside nachrichtenUUID (we'll re-emit with new value)
-    if state.in_nachrichten_uuid && options.nachrichten_uuid.is_some() && matches!(event, Event::Text(_)) {
+    if state.in_nachrichten_uuid
+        && options.nachrichten_uuid.is_some()
+        && matches!(event, Event::Text(_))
+    {
         return;
     }
 

@@ -150,7 +150,7 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
 
   it("transforms leser element in-place", () => {
     const result = transform_vorgang_transportieren_2010(sampleXml(), {
-      leser: { kennung: "psw:99999999", name: "NewReader" },
+      nachrichtenkopf_g2g: { leser: { kennung: "psw:99999999", name: "NewReader" } },
     });
     expect(result).toContain("<kennung>psw:99999999</kennung>");
     expect(result).toContain("<name>NewReader</name>");
@@ -161,7 +161,7 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
 
   it("transforms autor element in-place", () => {
     const result = transform_vorgang_transportieren_2010(sampleXml(), {
-      autor: { kennung: "psw:autor123", name: "Updated Autor" },
+      nachrichtenkopf_g2g: { autor: { kennung: "psw:autor123", name: "Updated Autor" } },
     });
     // leser unchanged
     expect(result).toContain("<kennung>psw:11113110</kennung>");
@@ -172,8 +172,10 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
 
   it("transforms both leser and autor in-place", () => {
     const result = transform_vorgang_transportieren_2010(sampleXml(), {
-      leser: { kennung: "psw:L", name: "Leser" },
-      autor: { kennung: "psw:A", name: "Autor" },
+      nachrichtenkopf_g2g: {
+        leser: { kennung: "psw:L", name: "Leser" },
+        autor: { kennung: "psw:A", name: "Autor" },
+      },
     });
     expect(result).toContain("<kennung>psw:L</kennung>");
     expect(result).toContain("<kennung>psw:A</kennung>");
@@ -181,15 +183,17 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
 
   it("transforms authorities elements in-place", () => {
     const result = transform_vorgang_transportieren_2010(sampleXmlWithZi(), {
-      zusatzinformationen: ["auth-001"],
+      zusatzinformationen: { zustaendige_behoerde_id: ["auth-001"] },
     });
     expect(result).toContain("zustaendigeBehoerdeID>auth-001");
   });
 
   it("inserts missing leser as second child of nachrichtenkopf.g2g", () => {
     const result = transform_vorgang_transportieren_2010(sampleXmlNoLeserNoAutor(), {
-      leser: { kennung: "psw:inserted", name: "Inserted Reader" },
-      autor: { kennung: "psw:newauthor", name: "New Autor" },
+      nachrichtenkopf_g2g: {
+        leser: { kennung: "psw:inserted", name: "Inserted Reader" },
+        autor: { kennung: "psw:newauthor", name: "New Autor" },
+      },
     });
     expect(result).toContain("<kennung>psw:inserted</kennung>");
     expect(result).toContain("<kennung>psw:newauthor</kennung>");
@@ -200,7 +204,7 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
 
   it("inserts missing zusatzinformationen", () => {
     const result = transform_vorgang_transportieren_2010(sampleXmlNoZi(), {
-      zusatzinformationen: ["new-auth"],
+      zusatzinformationen: { zustaendige_behoerde_id: ["new-auth"] },
     });
     expect(result).toContain("xwas:zusatzinformationen");
     expect(result).toMatch(/xwas:zusatzinformationen/);
@@ -208,7 +212,7 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
 
   it("inserts multiple authorities when zusatzinformationen missing", () => {
     const result = transform_vorgang_transportieren_2010(sampleXmlNoZi(), {
-      zusatzinformationen: ["id1", "id2"],
+      zusatzinformationen: { zustaendige_behoerde_id: ["id1", "id2"] },
     });
     expect(result).toMatch(/xwas:zusatzinformationen/);
   });
@@ -230,7 +234,7 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>`;
     const result = transform_vorgang_transportieren_2010(xml, {
-      zusatzinformationen: ["auth-1"],
+      zusatzinformationen: { zustaendige_behoerde_id: ["auth-1"] },
     });
     expect(result).toMatch(/xwas:zusatzinformationen/);
     // Old ID replaced
@@ -266,7 +270,7 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
   <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
 </xwas:vorgang.transportieren.2010>`;
     const result = transform_vorgang_transportieren_2010(xml, {
-      leser: { kennung: "psw:new", name: "New" },
+      nachrichtenkopf_g2g: { leser: { kennung: "psw:new", name: "New" } },
     });
     expect(result).toContain("<!-- inside leser -->");
     expect(result).toContain("<!-- before kennung -->");
@@ -293,7 +297,7 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
   </xwas:zusatzinformationen>
 </xwas:vorgang.transportieren.2010>`;
     const result = transform_vorgang_transportieren_2010(xml, {
-      zusatzinformationen: ["auth-001"],
+      zusatzinformationen: { zustaendige_behoerde_id: ["auth-001"] },
     });
     expect(result).toMatch(/xwas:zusatzinformationen/);
     expect(result).not.toContain("Old");
@@ -313,7 +317,7 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
   <xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang>
 </xwas:vorgang.transportieren.2010>`;
     const result = transform_vorgang_transportieren_2010(xml, {
-      leser: { kennung: "psw:l", name: "Leser" },
+      nachrichtenkopf_g2g: { leser: { kennung: "psw:l", name: "Leser" } },
     });
     expect(result).toContain("<!-- existing comment -->");
     expect(result).toContain("<!-- after ident -->");
@@ -338,7 +342,7 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
 
   it("undefined zusatzinformationen keeps existing block unchanged", () => {
     const result = transform_vorgang_transportieren_2010(sampleXmlWithZi(), {
-      leser: { kennung: "psw:new", name: "New" },
+      nachrichtenkopf_g2g: { leser: { kennung: "psw:new", name: "New" } },
     });
     expect(result).toContain("<kennung>psw:new</kennung>");
     expect(result).toContain("auth-001");
