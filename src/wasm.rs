@@ -36,21 +36,6 @@ pub fn detect_version(xml: String) -> Result<String, JsValue> {
     Ok(crate::detect_version(&xml).to_string())
 }
 
-// /// Custom TS type definitions injected into .d.ts.
-// #[wasm_bindgen(typescript_custom_section)]
-// const TS_TRANSFORM_OPTIONS: &'static str = r#"
-// export interface TransformOptions {
-//   leser?: { kennung?: string; name?: string };
-//   autor?: { kennung?: string; name?: string };
-//   zusatzinformationen?: Array<string>;
-// }
-
-// export function transform_xml(xml: string, options?: TransformOptions): string;
-// "#;
-
-/// Custom deserializer for `zusatzinformationen`: accepts an array of
-/// `<zustaendigeBehoerdeID>` strings.
-
 /// Helper struct to deserialize the options parameter.
 #[derive(Deserialize, Default, Tsify)]
 #[tsify(from_wasm_abi)]
@@ -85,6 +70,7 @@ pub struct ElementParam {
 ///   leser?: { kennung?: string, name?: string },
 ///   autor?: { kennung?: string, name?: string },
 ///   zusatzinformationen?: Array<string>,
+///   nachrichten_uuid?: string,
 /// })
 /// ```
 #[wasm_bindgen]
