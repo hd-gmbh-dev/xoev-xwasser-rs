@@ -184,11 +184,13 @@ pub fn transform_vorgang_transportieren_2010_impl(xml: &str, options: &Transform
                 );
                 state.depth = state.depth.saturating_sub(1);
 
-                // Optimization: the root-level </zusatzinformationen> is the
-                // last element this transform mutates. Once it closes, dump
-                // the remaining input verbatim instead of parsing it (skips
-                // re-parsing the trailing ds:Signature block, etc.).
-                if state.past_zi && state.root_depth > 0 && state.depth == state.root_depth {
+                // Optimization: the last mutation point in document order has
+                // been processed (</zusatzinformationen> replace,
+                // </nachrichtenkopf.g2g> when no zusatzinfo update, or </root>
+                // insert/fallback). Dump the remaining input verbatim instead
+                // of parsing it (skips re-parsing <vorgang>, the <ds:Signature>
+                // block, and trailing whitespace).
+                if state.dump_tail {
                     let pos = rdr.buffer_position() as usize;
                     // pending_ws is empty here (the close tag was just
                     // written), but flush defensively in case of odd input.
@@ -307,11 +309,14 @@ struct TransformState {
     in_zi: bool,
     zi_buf: Vec<Event<'static>>,
 
-    // Set once the root-level </zusatzinformationen> has been emitted.
-    // All mutations (header + zusatzinfo) precede it in document order, so
-    // the main loop can dump the remaining input verbatim once this is set
-    // (skips re-parsing the trailing ds:Signature block, etc.).
-    past_zi: bool,
+    // Set once the last mutation point in document order has been processed.
+    // All mutations target <nachrichtenkopf.g2g> (nachrichtenUUID, leser, autor)
+    // and/or <zusatzinformationen>, which precede the rest of the document. So
+    // once this is set, the main loop dumps the remaining input verbatim
+    // instead of parsing it (skips re-parsing <vorgang>, <ds:Signature>, etc.).
+    // Triggered at: </zusatzinformationen> (replace), </nachrichtenkopf.g2g>
+    // (no zusatzinfo update), or </root> (insert-missing / fallback).
+    dump_tail: bool,
 
     // Pending whitespace text node (held back so insertion helpers can own
     // the surrounding whitespace instead of duplicating or dropping it).
@@ -503,22 +508,22 @@ fn handle_end(
     state: &mut TransformState,
     has_leser: bool,
     has_autor: bool,
-    _has_zusatzinfo_updates: bool,
+    has_zusatzinfo_updates: bool,
     options: &ResolvedOptions,
     writer: &mut Writer<Vec<u8>>,
     ns: ResolveResult,
     lok: &[u8],
     e: &BytesEnd<'_>,
 ) {
-    // The root-level </zusatzinformationen> is the last element this transform
-    // mutates (the header mutations precede it in document order). Once it
-    // closes, the main loop dumps the remaining input verbatim.
+    // The root-level </zusatzinformationen> is the last mutation point when
+    // zusatzinfo is being replaced. Once it closes, the main loop dumps the
+    // remaining input verbatim.
     if lok == b"zusatzinformationen"
         && ns_is_xwas(&ns)
         && state.root_depth > 0
         && state.depth == state.root_depth + 1
     {
-        state.past_zi = true;
+        state.dump_tail = true;
     }
 
     if state.in_g2g_element && lok == state.g2g_element_name {
@@ -627,6 +632,12 @@ fn handle_end(
             state.should_insert_autor = false;
         }
         state.nk_depth = 0;
+        // When no zusatzinfo update is requested, every mutation is done by
+        // the time </nachrichtenkopf.g2g> closes — dump the rest (<vorgang>,
+        // <zusatzinformationen>, <ds:Signature>, </root>) verbatim.
+        if !has_zusatzinfo_updates {
+            state.dump_tail = true;
+        }
     }
 
     if state.root_depth > 0
@@ -649,6 +660,10 @@ fn handle_end(
             );
         }
         state.root_depth = 0;
+        // Last mutation point for the insert-missing path (or any case that
+        // reaches the root close): the rest is just trailing content after
+        // </root>, dump it verbatim.
+        state.dump_tail = true;
     }
 
     state.flush_ws(writer);
