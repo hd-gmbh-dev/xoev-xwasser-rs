@@ -183,6 +183,21 @@ pub fn transform_vorgang_transportieren_2010_impl(xml: &str, options: &Transform
                     &e,
                 );
                 state.depth = state.depth.saturating_sub(1);
+
+                // Optimization: the root-level </zusatzinformationen> is the
+                // last element this transform mutates. Once it closes, dump
+                // the remaining input verbatim instead of parsing it (skips
+                // re-parsing the trailing ds:Signature block, etc.).
+                if state.past_zi && state.root_depth > 0 && state.depth == state.root_depth {
+                    let pos = rdr.buffer_position() as usize;
+                    // pending_ws is empty here (the close tag was just
+                    // written), but flush defensively in case of odd input.
+                    state.flush_ws(&mut writer);
+                    writer
+                        .get_mut()
+                        .extend_from_slice(xml.as_bytes()[pos..].as_ref());
+                    break;
+                }
             }
 
             Ok((_ns, Event::Empty(e))) => {
@@ -291,6 +306,12 @@ struct TransformState {
     seen_zi: bool,
     in_zi: bool,
     zi_buf: Vec<Event<'static>>,
+
+    // Set once the root-level </zusatzinformationen> has been emitted.
+    // All mutations (header + zusatzinfo) precede it in document order, so
+    // the main loop can dump the remaining input verbatim once this is set
+    // (skips re-parsing the trailing ds:Signature block, etc.).
+    past_zi: bool,
 
     // Pending whitespace text node (held back so insertion helpers can own
     // the surrounding whitespace instead of duplicating or dropping it).
@@ -485,10 +506,21 @@ fn handle_end(
     _has_zusatzinfo_updates: bool,
     options: &ResolvedOptions,
     writer: &mut Writer<Vec<u8>>,
-    _ns: ResolveResult,
+    ns: ResolveResult,
     lok: &[u8],
     e: &BytesEnd<'_>,
 ) {
+    // The root-level </zusatzinformationen> is the last element this transform
+    // mutates (the header mutations precede it in document order). Once it
+    // closes, the main loop dumps the remaining input verbatim.
+    if lok == b"zusatzinformationen"
+        && ns_is_xwas(&ns)
+        && state.root_depth > 0
+        && state.depth == state.root_depth + 1
+    {
+        state.past_zi = true;
+    }
+
     if state.in_g2g_element && lok == state.g2g_element_name {
         state.in_g2g_element = false;
         let r = if state.g2g_element_name == b"leser" {
