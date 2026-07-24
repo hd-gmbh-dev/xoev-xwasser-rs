@@ -59,14 +59,17 @@ pub enum Probennehmer {
 #[xml(tns(b"xwas", TNS))]
 pub struct ProbennehmerType {
     #[xml(ns = b"xwas", name = b"probennehmerID", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub probennehmer_id: Option<String>, // TODO: Invent UUID
     #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
     pub probennehmer: Probennehmer,
     #[xml(ns = b"xwas", name = b"fremdsystemID_Probennehmer", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub fremdsystem_id_probennehmer: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]
@@ -83,9 +86,11 @@ pub struct ProbennehmerType {
 #[xml(tns(b"xwas", TNS))]
 pub struct ProbennahmestelleType {
     #[xml(ns = b"xwas", name = b"probennahmestelleID", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub probennahmestelle_id: Option<String>,
     #[xml(ns = b"xwas", name = b"objektID", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub objekt_id: Option<String>,
     #[xml(ns = b"xwas", name = b"nameProbennahmestelle", ty = "child")]
@@ -94,13 +99,16 @@ pub struct ProbennahmestelleType {
     pub kategorie_probennahmestelle: CodeKategorieProbennahmestelleType,
     #[xml(ns = b"xwas", name = b"unterkategorieProbennahmestelle", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub unterkategorie_probennahmestelle: Option<CodeUnterkategorieProbennahmestelleType>,
     #[xml(ns = b"xwas", name = b"artDerEntnahmearmatur", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub art_der_entnahmearmatur: Option<CodeArtEntnahmearmaturType>,
     #[xml(ns = b"xwas", name = b"stockwerkProbennahmestelle", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub stockwerk_probennahmestelle: Option<i16>,
     #[xml(ns = b"xwas", name = b"mediumAnDerProbennahmestelle", ty = "child")]
@@ -119,12 +127,15 @@ pub struct ProbennahmestelleType {
     pub desinfektion_und_aufbereitung_des_wassers:
         Vec<CodeAufbereitungsstoffDesinfektionsverfahrenType>,
     #[xml(ns = b"xwas", name = b"angabenAlternativeIDGesundheit", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub angaben_alternative_id_gesundheit: Option<AngabenAlternativeIdGesundheitType>,
     #[xml(ns = b"xwas", name = b"angabenAlternativeIDUmwelt", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub angaben_alternative_id_umwelt: Option<AngabenAlternativeIdUmweltType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]
@@ -144,9 +155,11 @@ pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"probennahmestelle", ty = "child")]
     pub probennahmestelle: String,
     #[xml(ns = b"xwas", name = b"terminplanID", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub terminplan_id: Option<String>,
     #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub probennehmer: Option<String>,
     #[xml(ns = b"xwas", name = b"titelProbe", ty = "child")]
@@ -160,6 +173,7 @@ pub struct ProbeType {
     pub anlass_der_untersuchung: Vec<CodeAnlassUntersuchungType>,
     #[xml(ns = b"xwas", name = b"medium", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub medium: Option<CodeMediumType>,
     #[xml(
@@ -169,6 +183,7 @@ pub struct ProbeType {
     )]
     pub akkreditierte_durchfuehrung_der_probennahme: bool,
     #[xml(ns = b"xwas", name = b"ergaenzungZumMedium", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ergaenzung_zum_medium: Option<String>,
     #[xml(default, ns = b"xwas", name = b"zeitpunktProbennahme", ty = "child")]
@@ -179,6 +194,7 @@ pub struct ProbeType {
     pub probennahmeverfahren: Vec<CodeProbennahmeverfahrenType>,
     #[xml(ns = b"xwas", name = b"probenentnahmegeraet", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub probenentnahmegeraet: Option<CodeProbenentnahmegeraetType>,
     #[xml(ns = b"xwas", name = b"probengefaess", ty = "child")]
@@ -191,6 +207,7 @@ pub struct ProbeType {
         name = b"ergaenzendeInformationenZuProbenentnahmegeraet",
         ty = "child"
     )]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ergaenzende_informationen_zu_probenentnahmegeraet: Option<String>,
     #[xml(
@@ -198,6 +215,7 @@ pub struct ProbeType {
         name = b"desinfektionProbenentnahmegeraetDurchgefuehrt",
         ty = "child"
     )]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub desinfektion_probenentnahmegeraet_durchgefuehrt: Option<bool>,
     #[xml(ns = b"xwas", name = b"konservierungDerProbe", ty = "child")]
@@ -205,9 +223,11 @@ pub struct ProbeType {
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub konservierung_der_probe: Vec<String>,
     #[xml(ns = b"xwas", name = b"kommentarZurProbennahme", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar_zur_probennahme: Option<String>,
     #[xml(ns = b"xwas", name = b"informationenZumProbentransport", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub informationen_zum_probentransport: Option<String>,
     #[xml(
@@ -223,12 +243,15 @@ pub struct ProbeType {
     #[xml(ns = b"xwas", name = b"konformitaetsbewertungDerProbe", ty = "child")]
     pub konformitaetsbewertung_der_probe: CodeProbenbewertungType,
     #[xml(ns = b"xwas", name = b"berichtspflichtig", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub berichtspflichtig: Option<bool>,
     #[xml(ns = b"xwas", name = b"vonProbennehmerVergebeneProbeID", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub von_probennehmer_vergebene_probe_id: Option<String>,
     #[xml(ns = b"xwas", name = b"angelieferteProbe", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub angelieferte_probe: Option<bool>,
     #[xml(
@@ -236,6 +259,7 @@ pub struct ProbeType {
         name = b"informationenZurAngeliefertenProbe",
         ty = "child"
     )]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub informationen_zur_angelieferten_probe: Option<String>,
     #[xml(ns = b"xwas", name = b"probeID_ausLabor", ty = "child")]
@@ -245,6 +269,7 @@ pub struct ProbeType {
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub anhang: Vec<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]
@@ -262,6 +287,7 @@ pub struct AnalyseergebnisParameterType {
     #[xml(ns = b"xwas", name = b"analyseergebnisParameterID", ty = "child")]
     pub analyseergebnis_parameter_id: String, // TODO: Invent UUID
     #[xml(ns = b"xwas", name = b"anschriftID", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub anschrift_id: Option<String>,
     #[xml(ns = b"xwas", name = b"zugelasseneUntersuchungsstelle", ty = "child")]
@@ -285,12 +311,14 @@ pub struct AnalyseergebnisParameterType {
         name = b"ergaenzungZumUntersuchungsverfahren",
         ty = "child"
     )]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ergaenzung_zum_untersuchungsverfahren: Option<String>,
     #[xml(default, ns = b"xwas", name = b"untersuchterParameter", ty = "child")]
     pub untersuchter_parameter: CodeShapthParameterType,
     #[xml(ns = b"xwas", name = b"parameterauspraegung", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub parameterauspraegung: Option<CodeParameterauspraegungType>,
     #[xml(
@@ -300,13 +328,16 @@ pub struct AnalyseergebnisParameterType {
     )]
     pub parameter_durch_betreiber_untersucht: bool,
     #[xml(ns = b"xwas", name = b"wurdeDerParameterKorrigiert", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub wurde_der_parameter_korrigiert: Option<bool>,
     #[xml(ns = b"xwas", name = b"untersuchungswertParameter", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub untersuchungswert_parameter: Option<f64>,
     #[xml(ns = b"xwas", name = b"einheitDesUntersuchungswerts", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub einheit_des_untersuchungswerts: Option<CodeShapthParameterEinheitType>,
     #[xml(
@@ -314,13 +345,16 @@ pub struct AnalyseergebnisParameterType {
         name = b"ergaenzungZumUntersuchungswertParameter",
         ty = "child"
     )]
+    #[serde(default)]
     #[serde(deserialize_with = "deserialize_optional_code")]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ergaenzung_zum_untersuchungswert_parameter: Option<CodeMesswertergaenzungType>,
     #[xml(ns = b"xwas", name = b"parameterwertErgaenzung", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub parameterwert_ergaenzung: Option<String>,
     #[xml(ns = b"xwas", name = b"ausgewertetesAnsatzvolumen", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ausgewertetes_ansatzvolumen: Option<f64>,
     #[xml(ns = b"xwas", name = b"verknuepfteParameter", ty = "child")]
@@ -335,6 +369,7 @@ pub struct AnalyseergebnisParameterType {
     )]
     pub bewertung_untersuchungswert: CodeBewertungUntersuchungswertType,
     #[xml(ns = b"xwas", name = b"parameterauffaelligkeit", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub parameterauffaelligkeit: Option<String>,
     #[xml(
@@ -342,6 +377,7 @@ pub struct AnalyseergebnisParameterType {
         name = b"messunsicherheitUntersuchungswertAbsolut",
         ty = "child"
     )]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub messunsicherheit_untersuchungswert_absolut: Option<f64>,
     #[xml(
@@ -349,12 +385,15 @@ pub struct AnalyseergebnisParameterType {
         name = b"messunsicherheitUntersuchungswertRelativ",
         ty = "child"
     )]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub messunsicherheit_untersuchungswert_relativ: Option<f64>,
     #[xml(ns = b"xwas", name = b"bestimmungsgrenzeLoQ", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub bestimmungsgrenze_lo_q: Option<f64>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Option<String>,
     #[xml(name = b"id", ty = "attr")]

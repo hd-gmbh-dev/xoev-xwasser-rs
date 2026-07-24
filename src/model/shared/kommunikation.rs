@@ -26,15 +26,19 @@ use crate::{TNS, model::codes::CodeKommunikationType};
 pub struct KommunikationType {
     #[xml(ns = b"xwas", name = b"kanal", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kanal: Option<CodeKommunikationType>,
     #[xml(ns = b"xwas", name = b"kennung", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kennung: Option<String>,
     #[xml(ns = b"xwas", name = b"istDienstlich", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ist_dienstlich: Option<bool>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zusatz: Option<String>,
 }

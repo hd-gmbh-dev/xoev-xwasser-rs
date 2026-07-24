@@ -29,12 +29,15 @@ pub struct FreieNachrichtType {
     #[xml(ns = b"xwas", name = b"rcvrPartnerID", ty = "child")]
     pub rcvr_partner_id: String,
     #[xml(ns = b"xwas", name = b"sendPartnerID", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub send_partner_id: Option<String>,
     #[xml(ns = b"xwas", name = b"inhalt", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub inhalt: Option<String>,
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub erweiterung: Option<ErweiterungType>,
 }
@@ -52,6 +55,7 @@ pub struct BetragType {
     pub betrag: f64,
     #[xml(ns = b"xwas", name = b"waehrung", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub waehrung: Option<CodeWaehrungType>,
 }
@@ -92,6 +96,7 @@ pub struct IndexanfrageType {
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub bereich: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zeitraum", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zeitraum: Option<ZeitraumType>,
 }

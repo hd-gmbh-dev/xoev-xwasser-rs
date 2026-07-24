@@ -32,12 +32,15 @@ use super::{xoev::XWasserXoevCode, zeitraum::ZeitraumType};
 #[xml(tns(b"xwas", TNS))]
 pub struct IdentifikationType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"beschreibung", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub beschreibung: Option<String>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub gueltigkeit: Option<ZeitraumType>,
 }
@@ -76,6 +79,7 @@ pub struct ErweiterungFeldType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: String,
     #[xml(ns = b"xwas", name = b"beschreibung", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub beschreibung: Option<String>,
     #[xml(ns = b"xwas", name = b"datentyp", ty = "child")]
@@ -131,6 +135,7 @@ pub struct ErweiterungType {
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub gruppe: Vec<ErweiterungGruppeType>,
     #[xml(ns = b"xwas", name = b"xml", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub xml: Option<ErweiterungXmlType>,
 }
@@ -149,24 +154,31 @@ pub struct GeografischeAngabenType {
         name = b"geografischePositionUndAusdehnung",
         ty = "child"
     )]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub geografische_position_und_ausdehnung: Option<String>,
     #[xml(ns = b"xwas", name = b"nameShapefile", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub name_shapefile: Option<String>,
     #[xml(ns = b"xwas", name = b"geokoordinatenZone", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub geokoordinaten_zone: Option<String>,
     #[xml(ns = b"xwas", name = b"geokoordinatenOstwert", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub geokoordinaten_ostwert: Option<f64>,
     #[xml(ns = b"xwas", name = b"geokoordinatenNordwert", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub geokoordinaten_nordwert: Option<f64>,
     #[xml(ns = b"xwas", name = b"geokoordinatenBreitengrad", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub geokoordinaten_breitengrad: Option<f64>,
     #[xml(ns = b"xwas", name = b"geokoordinatenLaengengrad", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub geokoordinaten_laengengrad: Option<f64>,
 }
@@ -182,21 +194,27 @@ pub struct GeografischeAngabenType {
 pub struct GeokodierungType {
     #[xml(ns = b"xwas", name = b"koordinatensystem", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub koordinatensystem: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"koordinate1", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub koordinate1: Option<f64>,
     #[xml(ns = b"xwas", name = b"koordinate2", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub koordinate2: Option<f64>,
     #[xml(ns = b"xwas", name = b"flurnummer", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub flurnummer: Option<String>,
     #[xml(ns = b"xwas", name = b"flurstueck", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub flurstueck: Option<String>,
     #[xml(ns = b"xwas", name = b"gemarkung", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub gemarkung: Option<String>,
 }
@@ -211,10 +229,12 @@ pub struct GeokodierungType {
 #[xml(tns(b"xwas", TNS))]
 pub struct AngabenAlternativeIdGesundheitType {
     #[xml(ns = b"xwas", name = b"alternativeIDGesundheit", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub alternative_id_gesundheit: Option<String>,
     #[xml(ns = b"xwas", name = b"formatAlternativeIDGesundheit", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub format_alternative_id_gesundheit: Option<CodeFormatAlternativeIdGesundheitType>,
 }
@@ -248,9 +268,11 @@ pub struct UeberwachendeBehoerdeType {
     #[xml(ns = b"xwas", name = b"zustaendigeBehoerde", ty = "child")]
     pub zustaendige_behoerde: String,
     #[xml(ns = b"xwas", name = b"untersuchungenGruppeA", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub untersuchungen_gruppe_a: Option<i32>,
     #[xml(ns = b"xwas", name = b"untersuchungenGruppeB", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub untersuchungen_gruppe_b: Option<i32>,
 }
@@ -287,9 +309,11 @@ pub struct ZusatzinformationenType {
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zustaendige_behoerde_id: Vec<String>,
     #[xml(ns = b"xwas", name = b"wasserversorgungsgebietID", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub wasserversorgungsgebiet_id: Option<String>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Option<String>,
 }

@@ -23,6 +23,7 @@ pub struct SpracheType {
     #[xml(ns = b"xwas", name = b"sprache", ty = "child")]
     pub sprache: CodeSpracheType,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zusatz: Option<String>,
 }

@@ -55,6 +55,8 @@ describe("minimal quality report xml generation via wasm", async () => {
     const initial = JSON.parse(JSON.stringify(quality_report_minimal)) as any as VorgangTransportieren2010
     const report = ((initial.vorgang.vorgang_type as any).c as PruefberichtType);
     report.probennahmestelle![0]!.unterkategorie_probennahmestelle = { code: '' };
+    report.probe![0]!.analyseergebnis_parameter![0]!.ergaenzung_zum_untersuchungswert_parameter = {};
+    delete report.probe![0]!.analyseergebnis_parameter![0]!.ergaenzung_zum_untersuchungswert_parameter
     const next = sanitize_vorgang_transportieren_2010(
       initial as any as VorgangTransportieren2010,
     );

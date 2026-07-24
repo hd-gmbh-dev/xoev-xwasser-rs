@@ -49,7 +49,8 @@ fn xoev_xwasser_code2(
             #[serde(default)]
             pub code: String,
             #[xml(name = b"name", ty = "child")]
-            #[cfg_attr(feature = "wasm", tsify(optional))]
+            #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
             pub name: Option<String>,
             #[serde(skip)]
             #[xml(

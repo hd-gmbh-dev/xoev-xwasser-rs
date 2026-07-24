@@ -25,14 +25,17 @@ pub struct XWasserXoevCode {
     pub code: String,
     #[xml(name = b"name", ty = "child")]
     #[cfg_attr(feature = "builder", builder(default))]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub name: Option<String>,
     #[xml(name = b"listURI", ty = "attr")]
     #[cfg_attr(feature = "builder", builder(default))]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub list_uri: Option<String>,
     #[xml(name = b"listVersionID", ty = "attr")]
     #[cfg_attr(feature = "builder", builder(default))]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub list_version_id: Option<String>,
 }

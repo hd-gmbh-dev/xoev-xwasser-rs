@@ -38,33 +38,43 @@ use super::{
 pub struct AnschriftType {
     #[xml(ns = b"xwas", name = b"strassenschluessel", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub strassenschluessel: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"strasse", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub strasse: Option<String>,
     #[xml(ns = b"xwas", name = b"hausnummer", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub hausnummer: Option<String>,
     #[xml(ns = b"xwas", name = b"postfach", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub postfach: Option<String>,
     #[xml(ns = b"xwas", name = b"postleitzahl", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub postleitzahl: Option<String>,
     #[xml(ns = b"xwas", name = b"ort", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ort: Option<String>,
     #[xml(ns = b"xwas", name = b"ortsteil", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ortsteil: Option<String>,
     #[xml(ns = b"xwas", name = b"ortFruehererGemeindename", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub ort_frueherer_gemeindename: Option<String>,
     #[xml(ns = b"xwas", name = b"wohnungsgeber", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub wohnungsgeber: Option<String>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zusatz: Option<String>,
     #[xml(ns = b"xwas", name = b"typ", ty = "child")]
@@ -72,9 +82,11 @@ pub struct AnschriftType {
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub typ: Vec<CodeAnschrifttypType>,
     #[xml(ns = b"xwas", name = b"staat", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub staat: Option<StaatType>,
     #[xml(ns = b"xwas", name = b"verwaltungspolitischeKodierung", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub verwaltungspolitische_kodierung: Option<VerwaltungspolitischeKodierungType>,
     #[xml(name = b"id", ty = "attr")]

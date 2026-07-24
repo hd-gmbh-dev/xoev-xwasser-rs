@@ -33,10 +33,12 @@ use super::{
 #[xml(tns(b"xwas", TNS))]
 pub struct OrganisationType {
     #[xml(name = b"id", ty = "attr")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"rechtsform", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub rechtsform: Option<CodeRechtsformenType>,
     #[xml(ns = b"xwas", name = b"branche", ty = "child")]
@@ -50,6 +52,7 @@ pub struct OrganisationType {
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zweck: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub name: Option<NameOrganisationType>,
     #[xml(ns = b"xwas", name = b"unterorganisation", ty = "child")]
@@ -69,6 +72,7 @@ pub struct OrganisationType {
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub identifikation: Vec<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"existenzzeitraum", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub existenzzeitraum: Option<ZeitraumType>,
     #[xml(ns = b"xwas", name = b"anschrift", ty = "child")]
@@ -87,16 +91,20 @@ pub struct OrganisationType {
 #[xml(tns(b"xwas", TNS))]
 pub struct RegistrierungType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"registertyp", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub registertyp: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"registrierendeBehoerde", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub registrierende_behoerde: Vec<BehoerdeType>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub gueltigkeit: Option<ZeitraumType>,
 }
@@ -109,6 +117,7 @@ pub struct RegistrierungType {
 #[cfg_attr(feature = "builder", derive(TypedBuilder))]
 pub struct Name {
     #[xml(ty = "text")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub text: Option<String>,
 }
@@ -123,12 +132,15 @@ pub struct Name {
 #[xml(tns(b"xwas", TNS))]
 pub struct NameOrganisationType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub name: Option<Name>,
     #[xml(ns = b"xwas", name = b"kurzbezeichnung", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kurzbezeichnung: Option<String>,
     #[xml(ns = b"xwas", name = b"gueltigkeit", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub gueltigkeit: Option<ZeitraumType>,
 }
@@ -147,9 +159,11 @@ pub struct OrganisationseinheitType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: String,
     #[xml(ns = b"xwas", name = b"hierarchieebene", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub hierarchieebene: Option<i32>, //Option<u8>,
     #[xml(ns = b"xwas", name = b"hierarchiename", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub hierarchiename: Option<String>, //Option<String>,
 }

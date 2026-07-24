@@ -29,6 +29,7 @@ use super::{
 #[xml(tns(b"xwas", TNS))]
 pub struct AuftraggeberType {
     #[xml(ns = b"xwas", name = b"auftraggeberID", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub auftraggeber_id: Option<String>,
     #[xml(ns = b"xwas", name = b"auftraggeberart", ty = "child")]
@@ -36,6 +37,7 @@ pub struct AuftraggeberType {
     #[xml(ns = b"xwas", name = b"auftraggeber", ty = "child")]
     pub auftraggeber: Auftraggeber,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Option<String>,
 }
