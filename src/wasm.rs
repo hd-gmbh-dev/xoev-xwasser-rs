@@ -47,32 +47,39 @@ pub fn detect_version(xml: String) -> Result<String, JsValue> {
     Ok(crate::detect_version(&xml).to_string())
 }
 
-// /// Custom TS type definitions injected into .d.ts.
-// #[wasm_bindgen(typescript_custom_section)]
-// const TS_TRANSFORM_OPTIONS: &'static str = r#"
-// export interface TransformOptions {
-//   leser?: { kennung?: string; name?: string };
-//   autor?: { kennung?: string; name?: string };
-//   zusatzinformationen?: Array<string>;
-// }
-
-// export function transform_xml(xml: string, options?: TransformOptions): string;
-// "#;
-
-/// Custom deserializer for `zusatzinformationen`: accepts an array of
-/// `<zustaendigeBehoerdeID>` strings.
-
-/// Helper struct to deserialize the options parameter.
+/// Options targeting the `<nachrichtenkopf.g2g>` header block.
 #[derive(Deserialize, Default, Tsify)]
 #[tsify(from_wasm_abi)]
-pub struct TransformOptionsParam {
+pub struct NachrichtenkopfG2gOptionsParam {
     #[tsify(optional)]
     pub leser: Option<ElementParam>,
     #[tsify(optional)]
     pub autor: Option<ElementParam>,
     #[tsify(optional)]
-    #[serde(rename = "zusatzinformationen")]
-    pub authorities: Option<Vec<String>>,
+    pub nachrichten_uuid: Option<String>,
+}
+
+/// Options targeting the `<zusatzinformationen>` extra-info block.
+#[derive(Deserialize, Default, Tsify)]
+#[tsify(from_wasm_abi)]
+pub struct ZusatzinformationenOptionsParam {
+    #[tsify(optional)]
+    pub zustaendige_behoerde_id: Option<Vec<String>>,
+}
+
+/// Helper struct to deserialize the options parameter.
+///
+/// The structure mirrors the XML document: a header group
+/// (`nachrichtenkopf_g2g`) and a `zusatzinformationen` group, so each field's
+/// destination is explicit and the `zusatzinformationen` group can grow later
+/// (e.g. a `kommentar` update) without reshaping the top-level shape.
+#[derive(Deserialize, Default, Tsify)]
+#[tsify(from_wasm_abi)]
+pub struct TransformOptionsParam {
+    #[tsify(optional)]
+    pub nachrichtenkopf_g2g: Option<NachrichtenkopfG2gOptionsParam>,
+    #[tsify(optional)]
+    pub zusatzinformationen: Option<ZusatzinformationenOptionsParam>,
 }
 
 #[derive(Deserialize, Default, Tsify)]
@@ -84,49 +91,72 @@ pub struct ElementParam {
     pub name: Option<String>,
 }
 
-/// Transforms an XML string by mutating `<leser>`, `<autor>`, and/or
-/// `<zusatzinformationen>` elements in-place, preserving all comments,
-/// whitespace, and attribute order.
+/// Transforms an XML string by mutating `<leser>`, `<autor>`,
+/// `<nachrichtenUUID>`, and/or `<zusatzinformationen>` elements in-place,
+/// preserving all comments, whitespace, and attribute order.
 ///
-/// Accepts a plain JS options object:
+/// Accepts a plain JS options object whose shape mirrors the XML document:
 /// ```ts
-/// transform_xml(xml, {
-///   leser?: { kennung?: string, name?: string },
-///   autor?: { kennung?: string, name?: string },
-///   zusatzinformationen?: Array<string>,
+/// transform_vorgang_transportieren_2010(xml, {
+///   nachrichtenkopf_g2g?: {
+///     leser?: { kennung?: string, name?: string },
+///     autor?: { kennung?: string, name?: string },
+///     nachrichten_uuid?: string,
+///   },
+///   zusatzinformationen?: {
+///     zustaendige_behoerde_id?: Array<string>,
+///   },
 /// })
 /// ```
 #[wasm_bindgen]
-pub fn transform_xml(xml: String, opts: Option<TransformOptionsParam>) -> String {
+pub fn transform_vorgang_transportieren_2010(
+    xml: String,
+    opts: Option<TransformOptionsParam>,
+) -> String {
     let opts = opts.unwrap_or_default();
-    let leser = opts.leser.as_ref().map(|p| transform::ElementUpdate {
-        kennung: p.kennung.clone(),
-        name: p.name.clone(),
-    });
-    let autor = opts.autor.as_ref().map(|p| transform::ElementUpdate {
-        kennung: p.kennung.clone(),
-        name: p.name.clone(),
-    });
 
-    // Only call with_ids when there are actual IDs; empty array means replace w/ empty block
-    let has_ids = opts
-        .authorities
-        .as_ref()
-        .map(|v| !v.is_empty())
-        .unwrap_or(false);
-    if has_ids {
-        let ids = opts.authorities.unwrap();
-        transform::transform_xml_with_ids(&xml, leser.as_ref(), autor.as_ref(), Some(&ids))
-    } else {
-        transform::transform_xml(
-            &xml,
-            &transform::TransformOptions {
+    // Destructure so the owned `nachrichten_uuid` / `zustaendige_behoerde_id`
+    // live as locals that the borrowed `TransformOptions` can reference.
+    let (leser, autor, nachrichten_uuid) = match opts.nachrichtenkopf_g2g {
+        Some(h) => {
+            let NachrichtenkopfG2gOptionsParam {
                 leser,
                 autor,
-                zusatzinformationen: None,
-            },
-        )
-    }
+                nachrichten_uuid,
+            } = h;
+            (
+                leser.map(|p| transform::ElementUpdate {
+                    kennung: p.kennung,
+                    name: p.name,
+                }),
+                autor.map(|p| transform::ElementUpdate {
+                    kennung: p.kennung,
+                    name: p.name,
+                }),
+                nachrichten_uuid,
+            )
+        }
+        None => (None, None, None),
+    };
+
+    let zustaendige_behoerde_ids = opts
+        .zusatzinformationen
+        .and_then(|z| z.zustaendige_behoerde_id);
+
+    let opts_struct = transform::TransformOptions {
+        nachrichtenkopf_g2g: Some(transform::NachrichtenkopfG2gOptions {
+            leser,
+            autor,
+            nachrichten_uuid: nachrichten_uuid.as_deref(),
+        }),
+        zusatzinformationen: zustaendige_behoerde_ids
+            .as_deref()
+            .filter(|v| !v.is_empty())
+            .map(|ids| transform::ZusatzinformationenOptions {
+                zustaendige_behoerde_id: Some(ids),
+            }),
+    };
+    transform::transform_vorgang_transportieren_2010_impl(&xml, &opts_struct)
 }
 
 #[wasm_bindgen]

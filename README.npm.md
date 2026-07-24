@@ -10,6 +10,7 @@ The XWasser standard is part of the project "Nationwide standardized digital dat
 - [Quick Start](#quick-start)
 - [Creating XML Messages](#creating-xml-messages)
 - [Parsing XML](#parsing-xml)
+- [Transforming XML](#transforming-xml)
 - [Builder Functions](#builder-functions)
 - [Utility Functions](#utility-functions)
 - [Schema Validation (Node.js)](#schema-validation-nodejs)
@@ -120,6 +121,69 @@ import { parse_administration_quittung_0020 } from "xoev-xwasser";
 
 const receipt = parse_administration_quittung_0020(xmlSource);
 ```
+
+## Transforming XML
+
+`transform_vorgang_transportieren_2010` mutates a transport message
+(`vorgang.transportieren.2010`) in-place — `<leser>`, `<autor>`,
+`<zusatzinformationen>`, and/or `<nachrichtenUUID>` — while preserving all
+comments, processing instructions, whitespace text nodes, line endings, and
+attribute order so that XML digital signatures stay valid. A no-op transform
+(all options `undefined`) is byte-identical to the input.
+
+The transform is namespace-prefix agnostic (matching uses the resolved
+namespace URI), so it works whether the source uses `xwas:`, `xw:`, or any
+other prefix for the XWasser namespace.
+
+```typescript
+import { transform_vorgang_transportieren_2010 } from "xoev-xwasser";
+
+// Mutate leser/autor in-place
+const result = transform_vorgang_transportieren_2010(xml, {
+  nachrichtenkopf_g2g: {
+    leser: { kennung: "psw:99999999", name: "New Reader" },
+    autor: { kennung: "psw:autor123", name: "Updated Autor" },
+  },
+});
+
+// Replace zuständige Behörde IDs (preserves kommentar / wasserversorgungsgebietID)
+const result2 = transform_vorgang_transportieren_2010(xml, {
+  zusatzinformationen: { zustaendige_behoerde_id: ["auth-001", "auth-002"] },
+});
+
+// Replace or insert nachrichtenUUID
+const result3 = transform_vorgang_transportieren_2010(xml, {
+  nachrichtenkopf_g2g: { nachrichten_uuid: "693c64d6-456f-4d14-abe7-fe9681c74aae" },
+});
+```
+
+The second argument is a `TransformOptionsParam` (all fields optional). Its
+shape mirrors the XML document — a header group (`nachrichtenkopf_g2g`) and a
+`zusatzinformationen` group, so each field's destination is explicit and the
+`zusatzinformationen` group can grow later (e.g. a `kommentar` update) without
+reshaping the top-level shape:
+
+```typescript
+export interface TransformOptionsParam {
+  nachrichtenkopf_g2g?: {
+    leser?: { kennung?: string; name?: string };
+    autor?: { kennung?: string; name?: string };
+    nachrichten_uuid?: string;
+  };
+  zusatzinformationen?: {
+    zustaendige_behoerde_id?: string[];
+  };
+}
+```
+
+| Field | Behavior |
+|-------|----------|
+| `nachrichtenkopf_g2g.leser` | Mutates `<kennung>`/`<name>` inside `<leser>` in-place; inserts a missing `<leser>` as the 2nd child of `nachrichtenkopf.g2g` (after `identifikation.nachricht`) |
+| `nachrichtenkopf_g2g.autor` | Mutates `<kennung>`/`<name>` inside `<autor>` in-place; inserts a missing `<autor>` after `<leser>` |
+| `nachrichtenkopf_g2g.nachrichten_uuid` | `undefined` = no change; `"uuid"` = replace existing `<nachrichtenUUID>` or insert if missing |
+| `zusatzinformationen.zustaendige_behoerde_id` | `undefined` = keep existing block; `["id1", ...]` = replace `<zustaendigeBehoerdeID>` entries (set semantics) while preserving `<kommentar>`, `<wasserversorgungsgebietID>`, comments, and whitespace; `[]` = replace with an empty block |
+
+On malformed input, the original XML is returned unchanged (no partial/truncated output). The Rust crate also exposes `transform_vorgang_transportieren_2010_with_ids(xml, leser, autor, zusatzinfo_ids: Option<&[String]>)` as a convenience wrapper.
 
 ## Builder Functions
 

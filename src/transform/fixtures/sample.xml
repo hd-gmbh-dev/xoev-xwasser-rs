@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- root comment -->
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
+  <nachrichtenkopf.g2g>
+    <identifikation.nachricht>
+      <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
+    </identifikation.nachricht>
+    <leser>
+      <verzeichnisdienst listVersionID="">
+        <code></code>
+      </verzeichnisdienst>
+      <kennung>psw:11113110</kennung>
+      <name>Reader</name>
+    </leser>
+    <autor>
+      <verzeichnisdienst listVersionID="">
+        <code></code>
+      </verzeichnisdienst>
+      <kennung>psw:01003110</kennung>
+      <name>Author</name>
+    </autor>
+  </nachrichtenkopf.g2g>
+  <xwas:vorgang>
+    <xwas:identifikationVorgang>
+      <xwas:vorgangsID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:vorgangsID>
+    </xwas:identifikationVorgang>
+    <xwas:vorgangType>
+      <xwas:pruefbericht>
+        <xwas:pruefberichtUUID>id</xwas:pruefberichtUUID>
+        <xwas:versionsnummer>1</xwas:versionsnummer>
+        <xwas:auftragsnummer>order</xwas:auftragsnummer>
+      </xwas:pruefbericht>
+    </xwas:vorgangType>
+  </xwas:vorgang>
+  <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:SignedInfo>
+      <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+      <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <ds:Reference>
+        <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+        <ds:DigestValue/>
+      </ds:Reference>
+    </ds:SignedInfo>
+    <ds:SignatureValue/>
+    <ds:KeyInfo>
+      <ds:KeyName/>
+      <ds:X509Data>
+        <ds:X509Certificate/>
+      </ds:X509Data>
+    </ds:KeyInfo>
+  </ds:Signature>
+</xwas:vorgang.transportieren.2010>
