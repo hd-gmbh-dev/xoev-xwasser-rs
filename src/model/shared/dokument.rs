@@ -42,26 +42,33 @@ pub struct SignaturenType {
 #[xml(tns(b"xwas", TNS))]
 pub struct DokumentRepraesentationType {
     #[xml(ns = b"xwas", name = b"referenz", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub referenz: Option<String>,
     #[xml(ns = b"xwas", name = b"mimeType", ty = "child")]
     pub mime_type: String,
     #[xml(ns = b"xwas", name = b"inhalt", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub inhalt: Option<String>,
     #[xml(ns = b"xwas", name = b"externerReferenzTyp", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub externer_referenz_typ: Option<String>,
     #[xml(ns = b"xwas", name = b"externerReferenzIndex", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub externer_referenz_index: Option<String>,
     #[xml(ns = b"xwas", name = b"dateiname", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub dateiname: Option<String>,
     #[xml(ns = b"xwas", name = b"inhaltTyp", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub inhalt_typ: Option<String>,
     #[xml(ns = b"xwas", name = b"signaturen", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub signaturen: Option<SignaturenType>,
     #[xml(name = b"dokumentRepraesentationID", ty = "attr")]
@@ -82,9 +89,11 @@ pub struct DokumentType {
     #[xml(ns = b"xwas", name = b"name", ty = "child")]
     pub name: String,
     #[xml(ns = b"xwas", name = b"aktuelleVersion", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub aktuelle_version: Option<String>,
     #[xml(ns = b"xwas", name = b"letzteVersion", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub letzte_version: Option<String>,
     #[xml(ns = b"xwas", name = b"dokumentRepraesentation", ty = "child")]

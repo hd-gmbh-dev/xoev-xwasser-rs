@@ -41,16 +41,20 @@ use super::{
 #[xml(tns(b"xwas", TNS))]
 pub struct ZustaendigeBehoerdeType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"typ", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub typ: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zusatz: Option<String>,
     #[xml(ns = b"xwas", name = b"behoerdenkennung", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub behoerdenkennung: Option<BehoerdenkennungType>,
     #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
@@ -58,6 +62,7 @@ pub struct ZustaendigeBehoerdeType {
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommunikation: Vec<KommunikationType>,
     #[xml(ns = b"xwas", name = b"behoerdenidentifikation", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub behoerdenidentifikation: Option<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"behoerdenname", ty = "child")]
@@ -87,6 +92,7 @@ pub struct ZustaendigeBehoerdeType {
     #[xml(ns = b"xwas", name = b"laenderkuerzel", ty = "child")]
     pub laenderkuerzel: CodeLaenderkennzeichenType,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Option<String>,
 }
@@ -135,16 +141,20 @@ pub struct BehoerdenkennungType {
 #[xml(tns(b"xwas", TNS))]
 pub struct BehoerdeType {
     #[xml(ns = b"xwas", name = b"id", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub id: Option<String>,
     #[xml(ns = b"xwas", name = b"typ", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub typ: Option<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zusatz", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zusatz: Option<String>,
     #[xml(ns = b"xwas", name = b"behoerdenkennung", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub behoerdenkennung: Option<BehoerdenkennungType>,
     #[xml(ns = b"xwas", name = b"kommunikation", ty = "child")]
@@ -152,6 +162,7 @@ pub struct BehoerdeType {
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommunikation: Vec<KommunikationType>,
     #[xml(ns = b"xwas", name = b"behoerdenidentifikation", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub behoerdenidentifikation: Option<IdentifikationType>,
     #[xml(ns = b"xwas", name = b"behoerdenname", ty = "child")]
@@ -192,25 +203,31 @@ pub struct BehoerdeType {
 pub struct VerwaltungspolitischeKodierungType {
     #[xml(ns = b"xwas", name = b"kreis", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kreis: Option<CodeKreisType>,
     #[xml(ns = b"xwas", name = b"bezirk", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub bezirk: Option<CodeBezirkType>,
     #[xml(ns = b"xwas", name = b"bundesland", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub bundesland: Option<CodeBundeslandType>,
     #[xml(ns = b"xwas", name = b"gemeindeschluessel", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub gemeindeschluessel: Option<CodeAgsType>,
     #[xml(ns = b"xwas", name = b"regionalschluessel", ty = "child")]
     #[serde(deserialize_with = "deserialize_optional_code")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub regionalschluessel: Option<CodeRegionalschluesselType>,
     #[xml(ns = b"xwas", name = b"nation", ty = "child")]
+    #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub nation: Option<StaatType>,
 }
