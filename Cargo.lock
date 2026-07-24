@@ -1789,9 +1789,9 @@ dependencies = [
 
 [[package]]
 name = "rustls-pki-types"
-version = "1.15.0"
+version = "1.15.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "764899a24af3980067ee14bc143654f297b22eaebfe3c7b6b211920a5a59b046"
+checksum = "2f4925028c7eb5d1fcdaf196971378ed9d2c1c4efc7dc5d011256f76c99c0a96"
 dependencies = [
  "zeroize",
 ]
@@ -2933,7 +2933,7 @@ checksum = "672423d4fea7ffa2f6c25ba60031ea13dc6258070556f125cc4d790007d4a155"
 
 [[package]]
 name = "xoev-xwasser"
-version = "1.0.2+1.0.0"
+version = "1.0.3+1.0.0"
 dependencies = [
  "anyhow",
  "chrono",
@@ -2964,7 +2964,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser-codelists"
-version = "1.0.2+1.0.0"
+version = "1.0.3+1.0.0"
 dependencies = [
  "anyhow",
  "bson",
@@ -2978,7 +2978,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser-derive"
-version = "1.0.2+1.0.0"
+version = "1.0.3+1.0.0"
 dependencies = [
  "darling",
  "heck",
@@ -2989,7 +2989,7 @@ dependencies = [
 
 [[package]]
 name = "xtask"
-version = "1.0.2+1.0.0"
+version = "1.0.3+1.0.0"
 dependencies = [
  "encoding_rs",
  "json-spanned-value",
