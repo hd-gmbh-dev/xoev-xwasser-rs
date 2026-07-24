@@ -12,6 +12,7 @@ mod flags {
         cmd x-task {
             default cmd set-version {
                 required --version version: String
+                optional --no-codelists
             }
             cmd get-version {}
             cmd patch {}
@@ -26,9 +27,14 @@ mod flags {
 impl flags::XTask {
     fn process(self) -> Result<(), Box<dyn std::error::Error>> {
         match self.subcommand {
-            flags::XTaskCmd::SetVersion(flags::SetVersion { version }) => {
+            flags::XTaskCmd::SetVersion(flags::SetVersion {
+                version,
+                no_codelists,
+            }) => {
                 set_version(&version)?;
-                fetch_codelists(&version)?;
+                if !no_codelists {
+                    fetch_codelists(&version)?;
+                }
             }
             flags::XTaskCmd::GetVersion(_) => {
                 print!("{}", current_version()?);
