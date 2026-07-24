@@ -7,6 +7,17 @@ use crate::model::{
 };
 use crate::transform;
 
+#[cfg(feature = "wasm-debug")]
+#[wasm_bindgen(start)]
+pub fn start() -> Result<(), JsValue> {
+    use wasm_tracing::WasmLayerConfig;
+
+    console_error_panic_hook::set_once();
+    let config = WasmLayerConfig::default();
+    wasm_tracing::set_as_global_default_with_config(config).unwrap();
+    Ok(())
+}
+
 /// Returns the XML namespace used in the XML documents.
 #[wasm_bindgen]
 pub fn xmlns() -> String {
@@ -122,6 +133,10 @@ pub fn transform_xml(xml: String, opts: Option<TransformOptionsParam>) -> String
 pub fn create_vorgang_transportieren_2010(
     data: VorgangTransportieren2010,
 ) -> Result<String, JsValue> {
+    // #[cfg(feature = "wasm-debug")]
+    // {
+    //     tracing::debug!("create data: {:#?}", data);
+    // }
     raxb::ser::to_string_pretty_with_decl(&data).map_err(|err| JsValue::from_str(&err.to_string()))
 }
 
@@ -133,7 +148,20 @@ pub fn parse_vorgang_transportieren_2010(
 
     let mut rdr = NsReader::from_str(&xml);
     rdr.config_mut().trim_text(true);
-    raxb::de::deserialize_with_reader(rdr).map_err(|err| JsValue::from_str(&err.to_string()))
+    let result =
+        raxb::de::deserialize_with_reader(rdr).map_err(|err| JsValue::from_str(&err.to_string()));
+    // #[cfg(feature = "wasm-debug")]
+    // {
+    //     tracing::debug!("parsed data: {:#?}", result);
+    // }
+    result
+}
+
+#[wasm_bindgen]
+pub fn sanitize_vorgang_transportieren_2010(
+    data: VorgangTransportieren2010,
+) -> Result<VorgangTransportieren2010, JsValue> {
+    Ok(data)
 }
 
 #[wasm_bindgen]
@@ -152,4 +180,11 @@ pub fn parse_administration_quittung_0020(
     let mut rdr = NsReader::from_str(&xml);
     rdr.config_mut().trim_text(true);
     raxb::de::deserialize_with_reader(rdr).map_err(|err| JsValue::from_str(&err.to_string()))
+}
+
+#[wasm_bindgen]
+pub fn sanitize_administration_quittung_0020(
+    data: AdministrationQuittung0020,
+) -> Result<AdministrationQuittung0020, JsValue> {
+    Ok(data)
 }

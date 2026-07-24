@@ -132,9 +132,6 @@
         </xwas:auftraggeber>
         <xwas:zustaendigeBehoerde>
           <xwas:id>behoerde-fHOxKIbh</xwas:id>
-          <xwas:typ>
-            <code></code>
-          </xwas:typ>
           <xwas:behoerdenkennung>
           </xwas:behoerdenkennung>
           <xwas:behoerdenidentifikation>

@@ -1,5 +1,5 @@
 {
-  "rust-analyzer.cargo.features": ["wasm"],
+  "rust-analyzer.cargo.features": ["wasm", "wasm-debug"],
   "rust-analyzer.runnables.extraEnv": {
     "RUST_LOG": "debug"
   },

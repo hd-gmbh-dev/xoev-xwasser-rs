@@ -3,6 +3,7 @@
 use raxb::{XmlDeserialize, XmlSerialize, value::ConstStr};
 use serde::{Deserialize, Serialize};
 
+use crate::model::codes::deserialize_optional_code;
 use xoev_xwasser_derive::XWasserValidate;
 
 #[cfg(feature = "wasm")]
@@ -57,6 +58,7 @@ pub struct AdministrationQuittung0020 {
     _standard: ConstStr,
     #[xml(name = b"test", ty = "attr")]
     #[cfg_attr(feature = "builder", builder(default))]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub test: Option<bool>,
     #[xml(name = b"version", ty = "attr", value = VERSION)]
     #[serde(skip)]
@@ -88,8 +90,11 @@ pub struct QuittungType {
     pub aktueller_status_technisch: CodeStatusTechnischType,
     /// Alter (vorhergehender) technischer Prozess-Status, nur informativ.
     #[xml(ns = b"xwas", name = b"vorherigerStatusTechnisch", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub vorheriger_status_technisch: Option<CodeStatusTechnischType>,
     /// Grund des Status. Freie Textbeschreibung. Wird nicht maschinell ausgewertet.
     #[xml(ns = b"xwas", name = b"grund", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub grund: Option<String>,
 }

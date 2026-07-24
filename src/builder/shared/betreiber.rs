@@ -22,7 +22,7 @@ pub fn objekt_type() -> ObjektType {
         .objekt_id(new_uuid().into())
         .anlage_nach_trinkw_vid(Default::default())
         .anschrift_objekt(Default::default())
-        .art_objekt("1010".into())
+        .art_objekt("".into())
         .name_objekt(Default::default())
         .betriebszustand_des_objekts(Default::default())
         .datum_in_betriebnahme(Default::default())

@@ -46,8 +46,10 @@ fn xoev_xwasser_code2(
         #[xml(tns(b"xwas", crate::TNS))]
         pub struct #name {
             #[xml(name = b"code", ty = "child")]
+            #[serde(default)]
             pub code: String,
             #[xml(name = b"name", ty = "child")]
+            #[cfg_attr(feature = "wasm", tsify(optional))]
             pub name: Option<String>,
             #[serde(skip)]
             #[xml(
@@ -76,6 +78,12 @@ fn xoev_xwasser_code2(
                     code: val.into(),
                     ..Default::default()
                 }
+            }
+        }
+
+        impl GenericXwasserCode for #name {
+            fn code(&self) -> &str {
+                &self.code
             }
         }
 

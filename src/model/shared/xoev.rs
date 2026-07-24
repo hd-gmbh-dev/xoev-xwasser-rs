@@ -11,7 +11,7 @@ use tsify::Tsify;
 #[cfg(feature = "builder")]
 use typed_builder::TypedBuilder;
 
-use crate::TNS;
+use crate::{TNS, model::codes::GenericXwasserCode};
 
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
@@ -25,11 +25,20 @@ pub struct XWasserXoevCode {
     pub code: String,
     #[xml(name = b"name", ty = "child")]
     #[cfg_attr(feature = "builder", builder(default))]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub name: Option<String>,
     #[xml(name = b"listURI", ty = "attr")]
     #[cfg_attr(feature = "builder", builder(default))]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub list_uri: Option<String>,
     #[xml(name = b"listVersionID", ty = "attr")]
     #[cfg_attr(feature = "builder", builder(default))]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub list_version_id: Option<String>,
+}
+
+impl GenericXwasserCode for XWasserXoevCode {
+    fn code(&self) -> &str {
+        &self.code
+    }
 }

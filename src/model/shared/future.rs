@@ -3,6 +3,8 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
+use crate::model::codes::deserialize_list_of_codes;
+use crate::model::codes::deserialize_optional_code;
 use xoev_xwasser_derive::XWasserValidate;
 
 #[cfg(feature = "wasm")]
@@ -27,10 +29,13 @@ pub struct FreieNachrichtType {
     #[xml(ns = b"xwas", name = b"rcvrPartnerID", ty = "child")]
     pub rcvr_partner_id: String,
     #[xml(ns = b"xwas", name = b"sendPartnerID", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub send_partner_id: Option<String>,
     #[xml(ns = b"xwas", name = b"inhalt", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub inhalt: Option<String>,
     #[xml(ns = b"xwas", name = b"erweiterung", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub erweiterung: Option<ErweiterungType>,
 }
 
@@ -46,6 +51,8 @@ pub struct BetragType {
     #[xml(ns = b"xwas", name = b"betrag", ty = "child")]
     pub betrag: f64,
     #[xml(ns = b"xwas", name = b"waehrung", ty = "child")]
+    #[serde(deserialize_with = "deserialize_optional_code")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub waehrung: Option<CodeWaehrungType>,
 }
 
@@ -81,7 +88,10 @@ pub struct IndexanfrageType {
     pub kriterium: String,
     #[xml(ns = b"xwas", name = b"bereich", ty = "child")]
     #[serde(default)]
+    #[serde(deserialize_with = "deserialize_list_of_codes")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub bereich: Vec<XWasserXoevCode>,
     #[xml(ns = b"xwas", name = b"zeitraum", ty = "child")]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zeitraum: Option<ZeitraumType>,
 }
