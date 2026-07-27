@@ -56,13 +56,13 @@ pub struct PruefberichtType {
     #[xml(ns = b"xwas", name = b"probennehmer", ty = "child")]
     pub probennehmer: Vec<ProbennehmerType>,
     #[xml(
-        default,
         ns = b"xwas",
         name = b"pruefberichtEnthaeltTeilergebnisse",
         ty = "child"
     )]
     #[serde(default)]
-    pub pruefbericht_enthaelt_teilergebnisse: bool,
+    #[cfg_attr(feature = "wasm", tsify(optional))]
+    pub pruefbericht_enthaelt_teilergebnisse: Option<bool>,
     #[xml(ns = b"xwas", name = b"korrekturvermerk", ty = "child")]
     #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
