@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "a38c84b2-306c-46a3-9fec-05d49570497e",
+      "nachrichten_uuid": "a1524373-c40a-49f0-91ab-aab82b182db5",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2026-07-27T15:01:40"
+      "erstellungszeitpunkt": "2026-08-19T17:03:23"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -36,7 +36,7 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "5ba1b8d5-41a3-43a5-b3ac-be10533cc4fe"
+      "vorgangs_id": "53b17661-1ed6-4e8c-94f3-db8e83c993ca"
     },
     "vorgang_type": {
       "t": "OlbBericht",

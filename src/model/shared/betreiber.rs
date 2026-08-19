@@ -75,6 +75,7 @@ pub struct BetreiberType {
     #[xml(ns = b"xwas", name = b"angabenAlternativeIDUmwelt", ty = "child")]
     #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub angaben_alternative_id_umwelt: Option<AngabenAlternativeIdUmweltType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     #[serde(default)]
@@ -148,6 +149,7 @@ pub struct ObjektType {
     #[xml(ns = b"xwas", name = b"angabenAlternativeIDUmwelt", ty = "child")]
     #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
+    #[serde(deserialize_with = "deserialize_optional_code")]
     pub angaben_alternative_id_umwelt: Option<AngabenAlternativeIdUmweltType>,
     #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
     #[serde(default)]

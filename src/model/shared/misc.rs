@@ -3,7 +3,7 @@
 use raxb::{XmlDeserialize, XmlSerialize};
 use serde::{Deserialize, Serialize};
 
-use crate::model::codes::deserialize_optional_code;
+use crate::model::codes::{GenericXwasserCode, deserialize_optional_code};
 use xoev_xwasser_derive::XWasserValidate;
 
 #[cfg(feature = "wasm")]
@@ -316,4 +316,10 @@ pub struct ZusatzinformationenType {
     #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub kommentar: Option<String>,
+}
+
+impl GenericXwasserCode for AngabenAlternativeIdUmweltType {
+    fn code(&self) -> &str {
+        &self.format_alternative_id_umwelt.code
+    }
 }
