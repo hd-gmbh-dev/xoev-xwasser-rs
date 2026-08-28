@@ -532,7 +532,7 @@ Schema validation requires the separate `@raxb/validate-wasm` package:
 npm install @raxb/validate-wasm
 ```
 
-The `.xsdb.bin` file is included in the npm package and contains the compiled XWasser XSD schema for version 1.0.0.
+The `.xsdb.bin` file is included in the npm package and contains the compiled XWasser XSD schema for version 1.0.1.
 
 ### Node.js
 
@@ -586,7 +586,7 @@ Automatically detect the XWasser schema version from an XML document:
 import { detect_version } from "xoev-xwasser";
 
 const version = detect_version(xmlString.slice(0, 1024));
-console.log(version); // e.g. "100"
+console.log(version); // e.g. "101"
 ```
 
 The function only needs the first ~1KB of the XML to detect the version from the namespace declaration.

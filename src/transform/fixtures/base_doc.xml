@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>old-uuid</nachrichtenUUID>

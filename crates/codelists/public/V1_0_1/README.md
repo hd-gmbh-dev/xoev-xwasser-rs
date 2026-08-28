@@ -1,4 +1,4 @@
-# XWasser codelists - version `V1_0_0`
+# XWasser codelists - version `V1_0_1`
 
 ## Art der Wasserressource
 
@@ -30,6 +30,22 @@ Diese Codeliste definiert im Kontext von XWasser den Rahmen der Trinkwasserberei
 | -- | -- | -- | -- |
 | type | RecommendedKey | Value | Value |
 | Usage | Required | Optional | Required |
+| Lang | None | None | None |
+
+## Medium
+
+Diese Codeliste dient im Kontext von XWasser der Angabe des Mediums einer Probennahme.
+
+| | |
+| -- | -- |
+| short name | medium |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:medium` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:medium_3 |
+
+| Field | `Key` (0) | `Medium` (1) | `Wasserart` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
 ## Namensart
@@ -144,21 +160,37 @@ Mit dieser Codeliste wird im Kontext von XWasser definiert, auf welche Art eine 
 | Usage | Required | Required |
 | Lang | None | None |
 
-## Medium
+## Gemeinden, dargestellt durch den Amtlichen Gemeindeschlüssel (AGS) des Statistischen Bundesamtes
 
-Diese Codeliste dient im Kontext von XWasser der Angabe des Mediums einer Probennahme.
+Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
 
 | | |
 | -- | -- |
-| short name | medium |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:medium` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:medium_2 |
+| short name | AGS |
+| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags` |
+| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2026-08-31 |
 
-| Field | `Key` (0) | `Medium` (1) |
-| -- | -- | -- |
-| type | RecommendedKey | Value |
-| Usage | Required | Required |
-| Lang | None | None |
+| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Optional |
+| Lang | None | None | None |
+
+## Codeliste Staat aus der Staats- und Gebietssystematik des Statistischen Bundesamtes
+
+Die Codeliste Staat (eigenständige, von Deutschland diplomatisch anerkannte derzeitige Staaten). Tabelle von Staaten und Staatsangehörigkeiten. Enthalten sind alle Staaten im vollen politischen Sinne. Entspricht inhaltlich dem "Verzeichnis der Staatennamen für den amtlichen Gebrauch" des Auswärtigen Amtes. Enthalten sind z.B. Einträge für: Frankreich, Italien, Vereinigtes Königreich; nicht aber für: Französisch-Guayana, die britischen Jungferninseln oder Jersey. Neben den amtlichen Bezeichnungen (Kurzform und Vollform) und der Staatsangehörigkeit als Adjektiv/Adverb ist auch der jeweilige Suchbegriff aus dem Länderverzeichnis des Auswärtigen Amtes aufgeführt (der Suchbegriff ist eine griffige Bezeichnung des Staates). Die Angaben umfassen zudem den numerischen Destatis-Code, den 2- und 3-stelligen alphabetischen ISO 3166-1 Code sowie ggf. das Datum der Selbständigkeit bzw. Gründung nach den Angaben des Auswärtigen Amtes.
+
+| | |
+| -- | -- |
+| short name | Staat |
+| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat` |
+| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat_2026-08-05 |
+
+| Field | `existenz-ab` (0) | `hinweis` (1) | `iso-2` (2) | `iso-3` (3) | `schluessel-staat` (4) | `staatenname-kurz` (5) | `staatsangehoerigkeit` (6) | `staatsname-voll` (7) | `suchbegriff` (8) |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| type | Value | Value | Value | Value | Key | Value | Value | Value | Value |
+| Usage | Optional | Optional | Optional | Optional | Required | Optional | Optional | Optional | Optional |
+| Lang | None | None | None | None | None | None | None | None | None |
 
 ## Status Untersuchungsplan
 
@@ -191,22 +223,6 @@ Mit dieser Codeliste wird im Kontext von XWasser die Einheit eines SHAPTH Parame
 | type | RecommendedKey | Value |
 | Usage | Required | Required |
 | Lang | None | None |
-
-## Gemeinden, dargestellt durch den Amtlichen Gemeindeschlüssel (AGS) des Statistischen Bundesamtes
-
-Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
-
-| | |
-| -- | -- |
-| short name | AGS |
-| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags` |
-| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2026-04-30 |
-
-| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Required | Optional |
-| Lang | None | None | None |
 
 ## DSMeld Familienstand Beendigungsgrund (DSMeld-Blatt 1405)
 
@@ -336,6 +352,22 @@ Die Liste von eindeutigen Bezeichnern für Nachrichtentypen von XWasser.
 | Usage | Required | Required |
 | Lang | None | None |
 
+## Art des Objekts
+
+Diese Codeliste definiert im Kontext von XWasser die Art eines Objekts.
+
+| | |
+| -- | -- |
+| short name | art-objekt |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:art-objekt` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:art-objekt_3 |
+
+| Field | `Key` (0) | `Art-Objekt` (1) | `Beschreibung` (2) | `Wasserart` (3) |
+| -- | -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value | Value |
+| Usage | Required | Required | Optional | Optional |
+| Lang | None | None | None | None |
+
 ## Currency Codes
 
 
@@ -400,22 +432,6 @@ Mit dieser Codeliste wird im Kontext von XWasser die Art des Auftraggebers defin
 | Usage | Required | Required | Optional |
 | Lang | None | None | None |
 
-## Art des Objekts
-
-Diese Codeliste definiert, welcher Art ein Objekt ist.
-
-| | |
-| -- | -- |
-| short name | art-objekt |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:art-objekt` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:art-objekt_2 |
-
-| Field | `Key` (0) | `Art-Objekt` (1) | `Beschreibung` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Required | Optional |
-| Lang | None | None | None |
-
 ## Format Alternative ID_Umwelt
 
 Diese Codeliste beinhaltet im Kontext von XWasser die Herkunft des Schemas der Alternativen ID_Umwelt.
@@ -431,22 +447,6 @@ Diese Codeliste beinhaltet im Kontext von XWasser die Herkunft des Schemas der A
 | type | RecommendedKey | Value |
 | Usage | Required | Required |
 | Lang | None | None |
-
-## Bewertung des Untersuchungswerts
-
-Diese Codeliste dient im Kontext von XWasser zur Bewertung des Untersuchungswerts eines Parameters.
-
-| | |
-| -- | -- |
-| short name | bewertung-untersuchungswert |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert_1 |
-
-| Field | `Key` (0) | `Beschreibung` (1) | `Bewertung-Untersuchungswert` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Optional | Required |
-| Lang | None | None | None |
 
 ## Art der Probennahmestelle
 
@@ -496,22 +496,6 @@ Mit dieser Codeliste wird im Kontext von XWasser der Anlass einer Wasseruntersuc
 | Usage | Required | Optional | Required | Optional |
 | Lang | None | None | None | None |
 
-## Ergänzung von Messwerten
-
-Diese Codeliste wird im Rahmen von XWasser für die Ergänzung von Messwertangaben verwendet.
-
-| | |
-| -- | -- |
-| short name | messwertergaenzung |
-| canonical uri | `urn:xoev-de:xwasser:codeliste:messwertergaenzung` |
-| canonical version uri | urn:xoev-de:xwasser:codeliste:messwertergaenzung_2 |
-
-| Field | `Key` (0) | `Beschreibung` (1) | `Messwertergaenzung` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Optional | Required |
-| Lang | None | None | None |
-
 ## Incident Category
 
 Diese Codeliste definiert die Kategorien eines Vorfalls gem. den Vorgaben für das EU-Berichtsformat.
@@ -560,21 +544,53 @@ Mit dieser Codeliste wird im Kontext von XWasser die Kategorie eines Vorfalls de
 | Usage | Required | Optional | Required | Required |
 | Lang | None | Some("de-DE") | Some("en-GB") | Some("de-DE") |
 
-## Codeliste Staatsangehörigkeit aus der Staats- und Gebietssystematik des Statistischen Bundesamtes
+## Gemeinden, dargestellt durch den Amtlichen Regionalschlüssel (ARS) des Statistischen Bundesamtes
 
-Codeliste Staatsangehörigkeit. Tabelle von Staaten und Staatsangehörigkeiten. Enthält alle Einträge der Codeliste Staat (eigenständige, von Deutschland diplomatisch anerkannte derzeitige Staaten) und zusätzlich Einträge für ehemalige Staaten sowie Ersatzwerte. Die Liste enthält auch einen Eintrag für die Palästinensischen Gebiete. Enthalten sind alle Staaten im vollen politischen Sinne, z.B. Frankreich, Italien, Vereinigtes Königreich, nicht aber: britische Jungferninseln, Jersey sowie alle früheren Staaten seit 1970, z.B. Sowjetunion. Neben den amtlichen Bezeichnungen (Kurzform und Vollform) und der Staatsangehörigkeit als Adjektiv/Adverb ist auch der jeweilige ist auch der jeweilige Suchbegriff aus dem Länderverzeichnis des Auswärtigen Amtes aufgeführt (der Suchbegriff ist eine griffige Bezeichnung des Staates). Die Angaben umfassen zudem den numerische Destatis-Code für Staatsangehörigkeit und Staat den 2- und 3-stelligen alphabetischen ISO 3166-1 Code sowie ggf. das Datum der Selbständigkeit bzw. Gründungsdatum nach den Angaben des Auswärtigen Amtes und das Auflösungs- bzw. Enddatum als berechnete Angabe aus dem Gründungsdatum des/der Nachfolgestaaten.
+Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Regionalschlüssel (ARS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
 
 | | |
 | -- | -- |
-| short name | Staatsangehoerigkeit |
-| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit` |
-| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit_2024-08-01 |
+| short name | Regionalschluessel |
+| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs` |
+| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2026-08-31 |
 
-| Field | `DESTATIS-Schluessel-Staatsangehoerigkeit` (0) | `Existenz-ab` (1) | `Existenz-bis` (2) | `Hinweis` (3) | `ISO-2` (4) | `ISO-3` (5) | `Kontinent-kurz` (6) | `Staatsangehoerigkeit` (7) | `Staatsname-kurz` (8) | `Staatsname-voll` (9) | `Suchbegriff` (10) |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| type | Key | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value |
-| Usage | Required | Optional | Optional | Optional | Optional | Optional | Optional | Optional | Optional | Optional | Required |
-| Lang | None | None | None | None | None | None | None | None | None | None | None |
+| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Optional |
+| Lang | None | None | None |
+
+## Bewertung des Untersuchungswerts
+
+Diese Codeliste dient im Kontext von XWasser zur Bewertung des Untersuchungswerts eines Parameters.
+
+| | |
+| -- | -- |
+| short name | bewertung-untersuchungswert |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert_2 |
+
+| Field | `Key` (0) | `Beschreibung` (1) | `Bewertung-Untersuchungswert` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
+| Lang | None | None | None |
+
+## Ergänzung von Messwerten
+
+Diese Codeliste wird im Rahmen von XWasser für die Ergänzung von Messwertangaben verwendet.
+
+| | |
+| -- | -- |
+| short name | messwertergaenzung |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:messwertergaenzung` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:messwertergaenzung_3 |
+
+| Field | `Key` (0) | `Beschreibung` (1) | `Messwertergaenzung` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
+| Lang | None | None | None |
 
 ## Unterkategorie Probennahmestelle
 
@@ -592,22 +608,6 @@ In dieser Codeliste werden Unterkategorien von Probennahmestellen definiert.
 | Usage | Required | Optional | Required | Required |
 | Lang | None | None | None | None |
 
-## Gemeinden, dargestellt durch den Amtlichen Regionalschlüssel (ARS) des Statistischen Bundesamtes
-
-Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Regionalschlüssel (ARS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
-
-| | |
-| -- | -- |
-| short name | Regionalschluessel |
-| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs` |
-| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2026-04-30 |
-
-| Field | `SCHLUESSEL` (0) | `Bezeichnung` (1) | `Hinweis` (2) |
-| -- | -- | -- | -- |
-| type | RecommendedKey | Value | Value |
-| Usage | Required | Required | Optional |
-| Lang | None | None | None |
-
 ## Probennahmeverfahren
 
 Diese Codeliste dient im Kontext von XWasser zur Angabe des Verfahrens, mit dem eine Probe entnommen wird
@@ -624,6 +624,22 @@ Diese Codeliste dient im Kontext von XWasser zur Angabe des Verfahrens, mit dem 
 | Usage | Required | Optional | Required | Optional |
 | Lang | None | None | None | None |
 
+## Übermittlungsart
+
+Im Kontext von XWasser wird mit dieser Codeliste die Übermittlungsart für einen Jahresbericht definiert.
+
+| | |
+| -- | -- |
+| short name | uebermittlungsart |
+| canonical uri | `urn:xoev-de:xwasser:codeliste:uebermittlungsart` |
+| canonical version uri | urn:xoev-de:xwasser:codeliste:uebermittlungsart_1 |
+
+| Field | `Key` (0) | `Bemerkung` (1) | `Uebermittlungsart` (2) |
+| -- | -- | -- | -- |
+| type | RecommendedKey | Value | Value |
+| Usage | Required | Optional | Required |
+| Lang | None | None | None |
+
 ## Probennahmezeitraum
 
 Mit dieser Codeliste wird der Probennahmezeitraum definiert.
@@ -639,22 +655,6 @@ Mit dieser Codeliste wird der Probennahmezeitraum definiert.
 | type | RecommendedKey | Value | Key |
 | Usage | Required | Required | Required |
 | Lang | None | Some("de-DE") | Some("en-GB") |
-
-## Codeliste Staat aus der Staats- und Gebietssystematik des Statistischen Bundesamtes
-
-Die Codeliste Staat (eigenständige, von Deutschland diplomatisch anerkannte derzeitige Staaten). Tabelle von Staaten und Staatsangehörigkeiten. Enthalten sind alle Staaten im vollen politischen Sinne. Entspricht inhaltlich dem "Verzeichnis der Staatennamen für den amtlichen Gebrauch" des Auswärtigen Amtes. Enthalten sind z.B. Einträge für: Frankreich, Italien, Vereinigtes Königreich; nicht aber für: Französisch-Guayana, die britischen Jungferninseln oder Jersey. Neben den amtlichen Bezeichnungen (Kurzform und Vollform) und der Staatsangehörigkeit als Adjektiv/Adverb ist auch der jeweilige Suchbegriff aus dem Länderverzeichnis des Auswärtigen Amtes aufgeführt (der Suchbegriff ist eine griffige Bezeichnung des Staates). Die Angaben umfassen zudem den numerischen Destatis-Code, den 2- und 3-stelligen alphabetischen ISO 3166-1 Code sowie ggf. das Datum der Selbständigkeit bzw. Gründung nach den Angaben des Auswärtigen Amtes.
-
-| | |
-| -- | -- |
-| short name | Staat |
-| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat` |
-| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat_2024-08-01 |
-
-| Field | `existenz-ab` (0) | `hinweis` (1) | `iso-2` (2) | `iso-3` (3) | `schluessel-staat` (4) | `staatenname-kurz` (5) | `staatsangehoerigkeit` (6) | `staatsname-voll` (7) | `suchbegriff` (8) |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| type | Value | Value | Value | Value | Key | Value | Value | Value | Value |
-| Usage | Optional | Optional | Optional | Optional | Required | Optional | Optional | Optional | Optional |
-| Lang | None | None | None | None | None | None | None | None | None |
 
 ## Grund für Schließung des Wasserversorgungsgebiets
 
@@ -847,6 +847,22 @@ Beschreibung der Codeliste.
 | type | RecommendedKey | Value | Value | Key | Value | Value |
 | Usage | Required | Optional | Optional | Required | Required | Optional |
 | Lang | None | Some("de-DE") | Some("en-GB") | Some("en-GB") | Some("de-DE") | None |
+
+## Codeliste Staatsangehörigkeit aus der Staats- und Gebietssystematik des Statistischen Bundesamtes
+
+Codeliste Staatsangehörigkeit. Tabelle von Staaten und Staatsangehörigkeiten. Enthält alle Einträge der Codeliste Staat (eigenständige, von Deutschland diplomatisch anerkannte derzeitige Staaten) und zusätzlich Einträge für ehemalige Staaten sowie Ersatzwerte. Die Liste enthält auch einen Eintrag für die Palästinensischen Gebiete. Enthalten sind alle Staaten im vollen politischen Sinne, z.B. Frankreich, Italien, Vereinigtes Königreich, nicht aber: britische Jungferninseln, Jersey sowie alle früheren Staaten seit 1970, z.B. Sowjetunion. Neben den amtlichen Bezeichnungen (Kurzform und Vollform) und der Staatsangehörigkeit als Adjektiv/Adverb ist auch der jeweilige ist auch der jeweilige Suchbegriff aus dem Länderverzeichnis des Auswärtigen Amtes aufgeführt (der Suchbegriff ist eine griffige Bezeichnung des Staates). Die Angaben umfassen zudem den numerische Destatis-Code für Staatsangehörigkeit und Staat den 2- und 3-stelligen alphabetischen ISO 3166-1 Code sowie ggf. das Datum der Selbständigkeit bzw. Gründungsdatum nach den Angaben des Auswärtigen Amtes und das Auflösungs- bzw. Enddatum als berechnete Angabe aus dem Gründungsdatum des/der Nachfolgestaaten.
+
+| | |
+| -- | -- |
+| short name | Staatsangehoerigkeit |
+| canonical uri | `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit` |
+| canonical version uri | urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit_2026-08-05 |
+
+| Field | `DESTATIS-Schluessel-Staatsangehoerigkeit` (0) | `Existenz-ab` (1) | `Existenz-bis` (2) | `Hinweis` (3) | `ISO-2` (4) | `ISO-3` (5) | `Kontinent-kurz` (6) | `Staatsangehoerigkeit` (7) | `Staatsname-kurz` (8) | `Staatsname-voll` (9) | `Suchbegriff` (10) |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| type | Key | Value | Value | Value | Value | Value | Value | Value | Value | Value | Value |
+| Usage | Required | Optional | Optional | Optional | Optional | Optional | Optional | Optional | Optional | Optional | Required |
+| Lang | None | None | None | None | None | None | None | None | None | None | None |
 
 ## Art des Nachweises
 

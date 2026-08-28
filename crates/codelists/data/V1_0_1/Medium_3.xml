@@ -7,17 +7,17 @@
          <xoev-cl-4:shortName>Medium</xoev-cl-4:shortName>
          <xoev-cl-4:codelistDescription>Diese Codeliste dient im Kontext von XWasser der Angabe des Mediums einer Probennahme.</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
-         <xoev-cl-4:validFrom>2025-09-22</xoev-cl-4:validFrom>
+         <xoev-cl-4:validFrom>2026-05-01</xoev-cl-4:validFrom>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
-         <xoev-cl-4:changes>Wert 2010 = "keine Probennahme erfolgt" hinzugefügt</xoev-cl-4:changes>
+         <xoev-cl-4:changes>Neue optionale Spalte "Wasserart" hinzugefügt.</xoev-cl-4:changes>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>medium</ShortName>
       <LongName>Medium</LongName>
-      <Version>2</Version>
+      <Version>3</Version>
       <CanonicalUri>urn:xoev-de:xwasser:codeliste:medium</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:medium_2</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:medium_3</CanonicalVersionUri>
       <Agency>
          <LongName>XWasser</LongName>
       </Agency>
@@ -30,6 +30,10 @@
       <Column Id="Medium" Use="required">
          <ShortName>Medium</ShortName>
          <Data Type="string"/>
+      </Column>
+      <Column Id="Wasserart" Use="optional">
+         <ShortName>Wasserart</ShortName>
+         <Data Type="integer"/>
       </Column>
       <Key Id="KeyKey">
          <Annotation>
@@ -49,6 +53,9 @@
          <Value ColumnRef="Medium">
             <SimpleValue>Grundwasser</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -56,6 +63,9 @@
          </Value>
          <Value ColumnRef="Medium">
             <SimpleValue>Mischwasser kalt/warm</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -65,6 +75,9 @@
          <Value ColumnRef="Medium">
             <SimpleValue>Nicht-Trinkwasser: Betriebswasser/Brauchwasser</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -72,6 +85,9 @@
          </Value>
          <Value ColumnRef="Medium">
             <SimpleValue>Oberflächenwasser</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -81,6 +97,9 @@
          <Value ColumnRef="Medium">
             <SimpleValue>Reinwasser (unmittelbar nach Aufbereitung)</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -88,6 +107,9 @@
          </Value>
          <Value ColumnRef="Medium">
             <SimpleValue>Rohwasser</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -97,6 +119,9 @@
          <Value ColumnRef="Medium">
             <SimpleValue>Teilaufbereitetes Wasser</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -104,6 +129,9 @@
          </Value>
          <Value ColumnRef="Medium">
             <SimpleValue>Trinkwasser kalt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -113,6 +141,9 @@
          <Value ColumnRef="Medium">
             <SimpleValue>Trinkwasser warm</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -121,6 +152,9 @@
          <Value ColumnRef="Medium">
             <SimpleValue>keine Probennahme erfolgt</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -128,6 +162,9 @@
          </Value>
          <Value ColumnRef="Medium">
             <SimpleValue>Sonstiges</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
    </SimpleCodeList>

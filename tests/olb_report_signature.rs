@@ -8,13 +8,14 @@ fn test_olb_report_signature_builder() -> anyhow::Result<()> {
             vorgang::identifikation_vorgang,
         },
         model::{
-            codes::CodeDokumenttypType, shared::dokument::DokumentType, signature::Signature,
-            transport::VorgangTransportieren2010, vorgang::Vorgang,
+            codes::{CodeDokumenttypType, CodeUebermittlungsartType}, shared::dokument::DokumentType,
+            signature::Signature, transport::VorgangTransportieren2010, vorgang::JahresberichtType,
+            vorgang::Vorgang,
         },
     };
 
     let identifikation_vorgang = identifikation_vorgang(None);
-    let olb_bericht = DokumentType::builder()
+    let dokument = DokumentType::builder()
         .dokument_typ(
             CodeDokumenttypType::builder()
                 .code("1010".to_string())
@@ -28,6 +29,14 @@ fn test_olb_report_signature_builder() -> anyhow::Result<()> {
         .name("name".to_string())
         .person_referenz_id(vec![])
         .build();
+    let jahresbericht = JahresberichtType::builder()
+        .jahresbericht_id("id12345".to_string())
+        .titel("Jahresbericht 2025".to_string())
+        .uebermittlungsart(CodeUebermittlungsartType::from("1010"))
+        .dokumentreferenz(vec!["id12345".to_string()])
+        .kommentar(None)
+        .id("id12345".to_string())
+        .build();
 
     let e = VorgangTransportieren2010::builder()
         .produkt("XWasser Test".into())
@@ -39,11 +48,11 @@ fn test_olb_report_signature_builder() -> anyhow::Result<()> {
         ))
         .vorgang(
             Vorgang::builder()
-                .anlage(Default::default())
+                .anlage(Vec::from([dokument]))
                 .bemerkung(None)
                 .identifikation_vorgang(identifikation_vorgang)
-                .vorgang_type(xoev_xwasser::model::vorgang::VorgangType::OlbBericht(
-                    olb_bericht,
+                .vorgang_type(xoev_xwasser::model::vorgang::VorgangType::Jahresbericht(
+                    jahresbericht,
                 ))
                 .build(),
         )

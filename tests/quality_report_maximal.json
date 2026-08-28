@@ -34,6 +34,7 @@
     "referenz_uuid": null,
     "dvdv_dienstkennung": "1"
   },
+  "zusatzinformationen": null,
   "vorgang": {
     "identifikation_vorgang": {
       "vorgangs_id": "7577c2ac-a329-4532-8175-2107b867e83d"
@@ -318,6 +319,5 @@
     "bemerkung": null,
     "anlage": []
   },
-  "zusatzinformationen": null,
   "signature": null
 }

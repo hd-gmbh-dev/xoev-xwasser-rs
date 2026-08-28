@@ -410,7 +410,7 @@ fn test_insert_zusatzinformationen_before_signature() {
     // the inserted block must land BEFORE the signature (XSD sequence is
     // vorgang, zusatzinformationen, ds:Signature), not after it at </root>.
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht>
     <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
@@ -558,7 +558,7 @@ fn test_raxb_roundtrip_quality_report() {
 fn test_insert_leser_preserves_indentation_unit() {
     // Test with 4-space indentation
     let xml_4space = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
     <nachrichtenkopf.g2g>
         <identifikation.nachricht>
             <nachrichtenUUID>id</nachrichtenUUID>
@@ -612,7 +612,7 @@ fn test_insert_leser_preserves_indentation_unit() {
 
     // Also verify with 2-space indentation (the default)
     let xml_2space = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>id</nachrichtenUUID>
@@ -657,7 +657,7 @@ fn test_insert_leser_preserves_indentation_unit() {
 
     // Also verify with 8-space indentation
     let xml_8space = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
         <nachrichtenkopf.g2g>
             <identifikation.nachricht>
                 <nachrichtenUUID>id</nachrichtenUUID>
@@ -705,7 +705,7 @@ fn test_insert_leser_preserves_indentation_unit() {
 fn test_insert_zusatzinformationen_preserves_indentation_unit() {
     // Test with 4-space indentation
     let xml_4space = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
     <nachrichtenkopf.g2g>
         <identifikation.nachricht>
             <nachrichtenUUID>id</nachrichtenUUID>
@@ -748,7 +748,7 @@ fn test_insert_zusatzinformationen_preserves_indentation_unit() {
 fn test_insert_leser_single_line_xml() {
     // Single-line (compact) XML has no whitespace text nodes, so the
     // indent unit falls back to 2 spaces.
-    let xml = r#"<?xml version="1.0" encoding="UTF-8"?><xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"><nachrichtenkopf.g2g><identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht><leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser><autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor><dvdvDienstkennung>s</dvdvDienstkennung></nachrichtenkopf.g2g><xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang></xwas:vorgang.transportieren.2010>"#;
+    let xml = r#"<?xml version="1.0" encoding="UTF-8"?><xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1"><nachrichtenkopf.g2g><identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht><leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser><autor><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>a</kennung><name>A</name></autor><dvdvDienstkennung>s</dvdvDienstkennung></nachrichtenkopf.g2g><xwas:vorgang><xwas:identifikationVorgang><xwas:vorgangsID>id</xwas:vorgangsID></xwas:identifikationVorgang></xwas:vorgang></xwas:vorgang.transportieren.2010>"#;
     let result = transform_vorgang_transportieren_2010(
         xml,
         &TransformOptions {
@@ -1248,7 +1248,7 @@ fn test_zusatzinfo_insertion_indentation_2space() {
     // into a 2-space-indented XML document
     // Indent unit is 2, so: root child = 2, zusatzinfo children = 4
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>id</nachrichtenUUID>
@@ -1290,7 +1290,7 @@ fn test_zusatzinfo_insertion_indentation_4space() {
     // into a 4-space-indented XML document
     // Indent unit is 4, so: root child = 4, zusatzinfo children = 8
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
     <nachrichtenkopf.g2g>
         <identifikation.nachricht>
             <nachrichtenUUID>id</nachrichtenUUID>
@@ -1332,7 +1332,7 @@ fn test_zusatzinfo_insertion_indentation_8space() {
     // into an 8-space-indented XML document
     // Indent unit is 8, so: root child = 8, zusatzinfo children = 16
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
         <nachrichtenkopf.g2g>
             <identifikation.nachricht>
                 <nachrichtenUUID>id</nachrichtenUUID>
@@ -1373,7 +1373,7 @@ fn test_zusatzinfo_replacement_indentation_2space() {
     // Verify exact indentation when REPLACING zusatzinformationen
     // in a 2-space-indented XML document
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>id</nachrichtenUUID>
@@ -1422,7 +1422,7 @@ fn test_header_preserved_with_zusatzinfo_insertion() {
     // Verify that the XML declaration (header) is preserved when
     // inserting zusatzinformationen
     let xml = r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>id</nachrichtenUUID>
@@ -1459,7 +1459,7 @@ fn test_header_preserved_with_zusatzinfo_replacement() {
     // Verify that the XML declaration (header) is preserved when
     // replacing zusatzinformationen
     let xml = r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>id</nachrichtenUUID>
@@ -1500,7 +1500,7 @@ fn test_header_preserved_with_zusatzinfo_replacement() {
 fn test_header_no_standalone_preserved() {
     // Verify that header without standalone is also preserved
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>id</nachrichtenUUID>
@@ -1537,7 +1537,7 @@ fn test_zusatzinfo_replacement_indentation_4space() {
     // Verify exact indentation when REPLACING zusatzinformationen
     // in a 4-space-indented XML document
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
     <nachrichtenkopf.g2g>
         <identifikation.nachricht>
             <nachrichtenUUID>id</nachrichtenUUID>
@@ -1586,7 +1586,7 @@ fn test_zusatzinfo_replacement_indentation_8space() {
     // Verify exact indentation when REPLACING zusatzinformationen
     // in an 8-space-indented XML document
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
         <nachrichtenkopf.g2g>
             <identifikation.nachricht>
                 <nachrichtenUUID>id</nachrichtenUUID>
@@ -1635,7 +1635,7 @@ fn test_nachrichtenkopf_preserved_with_zusatzinfo_insertion() {
     // Verify that nachrichtenkopf.g2g content is preserved when
     // inserting zusatzinformationen
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>uuid-1234</nachrichtenUUID>
@@ -1679,7 +1679,7 @@ fn test_nachrichtenkopf_preserved_with_zusatzinfo_replacement() {
     // Verify that nachrichtenkopf.g2g content is preserved when
     // replacing zusatzinformationen
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>uuid-1234</nachrichtenUUID>
@@ -1727,7 +1727,7 @@ fn test_nachrichtenkopf_formatting_preserved_2space() {
     // Verify that nachrichtenkopf.g2g formatting (indentation) is
     // preserved exactly when inserting zusatzinformationen
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>id</nachrichtenUUID>
@@ -1773,7 +1773,7 @@ fn test_nachrichtenkopf_formatting_preserved_4space() {
     // Verify that nachrichtenkopf.g2g formatting (indentation) is
     // preserved exactly when inserting zusatzinformationen
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
     <nachrichtenkopf.g2g>
         <identifikation.nachricht>
             <nachrichtenUUID>id</nachrichtenUUID>
@@ -1819,7 +1819,7 @@ fn test_nachrichtenkopf_formatting_preserved_8space() {
     // Verify that nachrichtenkopf.g2g formatting (indentation) is
     // preserved exactly when inserting zusatzinformationen
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
         <nachrichtenkopf.g2g>
             <identifikation.nachricht>
                 <nachrichtenUUID>id</nachrichtenUUID>
@@ -1865,7 +1865,7 @@ fn test_nachrichtenkopf_formatting_preserved_with_replacement_2space() {
     // Verify that nachrichtenkopf.g2g formatting is preserved exactly
     // when REPLACING zusatzinformationen
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>id</nachrichtenUUID>
@@ -1915,7 +1915,7 @@ fn test_nachrichtenkopf_formatting_preserved_with_replacement_4space() {
     // Verify that nachrichtenkopf.g2g formatting is preserved exactly
     // when REPLACING zusatzinformationen in 4-space XML
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
     <nachrichtenkopf.g2g>
         <identifikation.nachricht>
             <nachrichtenUUID>id</nachrichtenUUID>
@@ -1964,7 +1964,7 @@ fn test_nachrichtenkopf_formatting_preserved_with_replacement_4space() {
 fn test_nachrichten_uuid_replacement() {
     // Verify that nachrichtenUUID is replaced when option is provided
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>old-uuid</nachrichtenUUID>
@@ -2001,7 +2001,7 @@ fn test_format_uuid_replacement_preserves_surrounding_whitespace() {
     // <identifikation.nachricht>), no stray whitespace-only line appears
     // after </nachrichtenUUID>, and the following sibling stays put.
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>old-uuid</nachrichtenUUID>
@@ -2044,7 +2044,7 @@ fn test_format_uuid_replacement_preserves_surrounding_whitespace() {
 fn test_nachrichten_uuid_insertion() {
     // Verify that nachrichtenUUID is inserted when missing
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
     </identifikation.nachricht>
@@ -2076,7 +2076,7 @@ fn test_nachrichten_uuid_insertion() {
 fn test_nachrichten_uuid_preserved_when_not_set() {
     // Verify that nachrichtenUUID is preserved when option is not set
     let xml = r#"<?xml version="1.0" encoding="UTF-8"?>
-<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0">
+<xwas:vorgang.transportieren.2010 xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>preserved-uuid</nachrichtenUUID>

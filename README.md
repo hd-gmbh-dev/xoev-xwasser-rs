@@ -41,7 +41,7 @@ This crate provides several features that can be enabled:
 By default, no features are enabled. To use the crate with builders and schema validation:
 
 ```toml
-xoev-xwasser = { version = "1.0.0", features = ["builder", "schema"] }
+xoev-xwasser = { version = "1.1", features = ["builder", "schema"] }
 ```
 
 ### Builder Pattern
@@ -175,7 +175,7 @@ validation.validate(xml_bytes)?;
 ```
 
 **How it works:**
-1. During build/test, `raxb_xmlschema_build` compiles `schemas/V1_0_0/xwasser.xsd` to `.xsdb` format
+1. During build/test, `raxb_xmlschema_build` compiles `schemas/V1_0_1/xwasser.xsd` to `.xsdb` format
 2. The compiled schemas are embedded via `rust_embed`
 3. At runtime, XML is validated against the compiled schemas using `raxb_validate`
 

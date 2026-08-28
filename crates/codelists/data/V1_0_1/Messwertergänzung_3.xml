@@ -7,16 +7,16 @@
          <xoev-cl-4:shortName>Messwertergänzung</xoev-cl-4:shortName>
          <xoev-cl-4:codelistDescription>Diese Codeliste wird im Rahmen von XWasser für die Ergänzung von Messwertangaben verwendet.</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
-         <xoev-cl-4:validFrom>2025-04-01</xoev-cl-4:validFrom>
+         <xoev-cl-4:validFrom>2026-11-01</xoev-cl-4:validFrom>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>messwertergaenzung</ShortName>
       <LongName>Ergänzung von Messwerten</LongName>
-      <Version>2</Version>
+      <Version>3</Version>
       <CanonicalUri>urn:xoev-de:xwasser:codeliste:messwertergaenzung</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:messwertergaenzung_2</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:messwertergaenzung_3</CanonicalVersionUri>
       <Agency>
          <LongName>XWasser</LongName>
       </Agency>
@@ -54,7 +54,7 @@
             <SimpleValue>&lt; Bestimmungsgrenze</SimpleValue>
          </Value>
          <Value ColumnRef="Beschreibung">
-            <SimpleValue>Der Untersuchungswert liegt unterhalb der Bestimmungsgrenze</SimpleValue>
+            <SimpleValue>Der Untersuchungswert liegt unterhalb der Bestimmungsgrenze.</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -65,7 +65,7 @@
             <SimpleValue>&lt; Nachweisgrenze</SimpleValue>
          </Value>
          <Value ColumnRef="Beschreibung">
-            <SimpleValue>Der Untersuchungswert liegt unterhalb der Nachweisgrenze</SimpleValue>
+            <SimpleValue>Der Untersuchungswert liegt unterhalb der Nachweisgrenze.</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -76,7 +76,7 @@
             <SimpleValue>&lt; Summe der Einzelwerte (bei Summenparametern)</SimpleValue>
          </Value>
          <Value ColumnRef="Beschreibung">
-            <SimpleValue>Der Untersuchungswert liegt unterhalb der Summe der Einzelwerte (bei Summenparametern)</SimpleValue>
+            <SimpleValue>Der Untersuchungswert liegt unterhalb der Summe der Einzelwerte (bei Summenparametern).</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -87,7 +87,29 @@
             <SimpleValue>&gt; Obergrenze</SimpleValue>
          </Value>
          <Value ColumnRef="Beschreibung">
-            <SimpleValue>Der Untersuchungswert liegt oberhalb der analytischen Obergrenze (bzw. "obere Arbeitsbereichsgrenze" gem. UBA)</SimpleValue>
+            <SimpleValue>Der Untersuchungswert liegt oberhalb der analytischen Obergrenze (bzw. "obere Arbeitsbereichsgrenze" gem. UBA).</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1045</SimpleValue>
+         </Value>
+         <Value ColumnRef="Messwertergaenzung">
+            <SimpleValue>&lt; angegebener Wert</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Der Untersuchungswert liegt unterhalb des angegebenen Werts (bes. mikrobiologische Parameter).</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Key">
+            <SimpleValue>1046</SimpleValue>
+         </Value>
+         <Value ColumnRef="Messwertergaenzung">
+            <SimpleValue>&gt; angegebener Wert</SimpleValue>
+         </Value>
+         <Value ColumnRef="Beschreibung">
+            <SimpleValue>Der Untersuchungswert liegt oberhalb des angegebenen Werts (bes. mikrobiologische Parameter).</SimpleValue>
          </Value>
       </Row>
       <Row>

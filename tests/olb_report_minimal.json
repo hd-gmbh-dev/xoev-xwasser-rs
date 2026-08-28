@@ -34,13 +34,30 @@
     "referenz_uuid": null,
     "dvdv_dienstkennung": "s"
   },
+  "zusatzinformationen": null,
   "vorgang": {
     "identifikation_vorgang": {
       "vorgangs_id": "5e08e073-4e06-438d-9444-1275f6cbf061"
     },
     "vorgang_type": {
-      "t": "OlbBericht",
+      "t": "Jahresbericht",
       "c": {
+        "jahresbericht_id": "anhang1",
+        "titel": "Jahresbericht 2025",
+        "uebermittlungsart": {
+          "code": "1010",
+          "name": null
+        },
+        "dokumentreferenz": [
+          "doc1"
+        ],
+        "kommentar": null,
+        "id": "anhang1"
+      }
+    },
+    "bemerkung": "Bemerkung",
+    "anlage": [
+      {
         "dokument_typ": {
           "code": "1010",
           "name": null
@@ -62,12 +79,9 @@
           }
         ],
         "person_referenz_id": [],
-        "dokument_id": "anhang1"
+        "dokument_id": "doc1"
       }
-    },
-    "bemerkung": "Bemerkung",
-    "anlage": []
+    ]
   },
-  "zusatzinformationen": null,
   "signature": null
 }

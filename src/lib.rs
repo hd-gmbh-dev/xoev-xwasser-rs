@@ -19,17 +19,17 @@ pub use xoev_xwasser_codelists::{self as codelists, CodeListValue, CodeLists, Co
 pub use validate::{XWasserValidate, XWasserValidateError, XWasserValidateMarker};
 
 /// The XML namespace of the XWasser specification.
-pub static XMLNS: &str = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0";
+pub static XMLNS: &str = "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1";
 /// The schema URL of the XWasser specification.
 pub static SCHEMA: &str =
-    "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 xwasser.xsd";
+    "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1 xwasser.xsd";
 /// The schema URL of the XWasser specification.
 pub static LOCAL_SCHEMA: &str =
-    "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd";
+    "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1 ../schemas/V1_0_1/xwasser.xsd";
 /// The namespace of the XWasser specification as bytes.
 pub static TNS: &[u8] = XMLNS.as_bytes();
 /// The version of the XWasser specification.
-pub static VERSION: &str = "1.0.0";
+pub static VERSION: &str = "1.0.1";
 
 #[derive(Debug, Default, PartialEq, Eq)]
 pub enum Version {
@@ -43,8 +43,9 @@ pub enum Version {
     V0_9_1,
     V0_9_2,
     V0_9_5,
-    #[default]
     V1_0_0,
+    #[default]
+    V1_0_1,
     Unknown,
 }
 
@@ -62,6 +63,7 @@ impl std::fmt::Display for Version {
             Version::V0_9_2 => write!(f, "092"),
             Version::V0_9_5 => write!(f, "095"),
             Version::V1_0_0 => write!(f, "100"),
+            Version::V1_0_1 => write!(f, "101"),
             Version::Unknown => write!(f, ""),
         }
     }
@@ -112,6 +114,9 @@ pub fn detect_version(xml: &str) -> Version {
                                 }
                                 b"1.0.0" => {
                                     return Version::V1_0_0;
+                                }
+                                b"1.0.1" => {
+                                    return Version::V1_0_1;
                                 }
                                 _ => {
                                     return Version::Unknown;
