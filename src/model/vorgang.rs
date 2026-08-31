@@ -15,10 +15,35 @@ use typed_builder::TypedBuilder;
 
 use crate::TNS;
 
-use super::{
-    pruefbericht::PruefberichtType,
-    shared::{dokument::DokumentType, untersuchungsplan::UntersuchungsplanType},
-};
+use super::pruefbericht::PruefberichtType;
+use super::shared::{dokument::DokumentType, untersuchungsplan::UntersuchungsplanType};
+use super::codes::CodeUebermittlungsartType;
+
+/// Type name: JahresberichtType
+/// Klasse für den Transport von Informationen zu einem Jahresbericht.
+#[derive(
+    Clone, Default, Debug, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
+)]
+#[cfg_attr(feature = "wasm", derive(Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "builder", derive(TypedBuilder))]
+#[xml(tns(b"xwas", TNS))]
+pub struct JahresberichtType {
+    #[xml(ns = b"xwas", name = b"jahresberichtID", ty = "child")]
+    pub jahresbericht_id: String,
+    #[xml(ns = b"xwas", name = b"titel", ty = "child")]
+    pub titel: String,
+    #[xml(ns = b"xwas", name = b"uebermittlungsart", ty = "child")]
+    pub uebermittlungsart: CodeUebermittlungsartType,
+    #[xml(ns = b"xwas", name = b"dokumentreferenz", ty = "child")]
+    pub dokumentreferenz: Vec<String>,
+    #[xml(ns = b"xwas", name = b"kommentar", ty = "child")]
+    #[serde(default)]
+    #[cfg_attr(feature = "wasm", tsify(optional))]
+    pub kommentar: Option<String>,
+    #[xml(name = b"id", ty = "attr")]
+    pub id: String,
+}
 
 #[derive(
     Clone, Debug, Default, XmlSerialize, XmlDeserialize, XWasserValidate, Serialize, Deserialize,
@@ -70,8 +95,8 @@ pub enum VorgangType {
     Pruefbericht(PruefberichtType),
     #[xml(ns = b"xwas", name = b"untersuchungsplan")]
     Untersuchungsplan(UntersuchungsplanType),
-    #[xml(ns = b"xwas", name = b"olb_bericht")]
-    OlbBericht(DokumentType),
+    #[xml(ns = b"xwas", name = b"jahresbericht")]
+    Jahresbericht(JahresberichtType),
     #[default]
     #[xml(ns = b"xwas", name = b"unknown")]
     None,

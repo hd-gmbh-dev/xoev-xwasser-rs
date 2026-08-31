@@ -232,7 +232,7 @@ pub struct CodeBetriebszustandType;
 
 /// Type name: Code.BewertungUntersuchungswertType
 /// Diese Codeliste dient im Kontext von XWasser zur Bewertung des Untersuchungswerts eines Parameters.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:bewertung-untersuchungswert", "2")]
 pub struct CodeBewertungUntersuchungswertType;
 
 /// Type name: Code.BezirkType
@@ -343,7 +343,7 @@ pub struct CodeMediumType;
 
 /// Type name: Code.MesswertergaenzungType
 /// Diese Codeliste wird im Rahmen von XWasser für die Ergänzung von Messwertangaben verwendet.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:messwertergaenzung", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:messwertergaenzung", "3")]
 pub struct CodeMesswertergaenzungType;
 
 /// Type name: Code.NachweisartType
@@ -448,6 +448,11 @@ pub struct CodeStatusTechnischType;
 /// Mit dieser Codeliste wird im Kontext von XWasser der Status des Untersuchungsplans definiert.
 #[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:status-untersuchungsplan", "2")]
 pub struct CodeStatusUntersuchungsplanType;
+
+/// Type name: Code.UebermittlungsartType
+/// Im Kontext von XWasser wird mit dieser Codeliste die Übermittlungsart für einen Jahresbericht definiert.
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:uebermittlungsart", "1")]
+pub struct CodeUebermittlungsartType;
 
 /// Type name: Code.UeberschreitungsursacheType
 /// Beschreibung der Codeliste.

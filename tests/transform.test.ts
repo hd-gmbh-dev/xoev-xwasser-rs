@@ -4,7 +4,7 @@ import { transform_vorgang_transportieren_2010 } from "../pkg/xoev_xwasser";
 function sampleXml(): string {
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!-- root comment -->
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1 ../schemas/V1_0_1/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
@@ -61,7 +61,7 @@ function sampleXml(): string {
 
 function sampleXmlNoLeserNoAutor(): string {
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1 ../schemas/V1_0_1/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
@@ -78,7 +78,7 @@ function sampleXmlNoLeserNoAutor(): string {
 
 function sampleXmlNoZi(): string {
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1 ../schemas/V1_0_1/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
@@ -108,7 +108,7 @@ function sampleXmlNoZi(): string {
 
 function sampleXmlWithZi(): string {
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1 ../schemas/V1_0_1/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1" produkt="SHAPTH CLI" produkthersteller="H &amp; D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
@@ -219,7 +219,7 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
 
   it("replaces zustaendigeBehoerdeID while preserving other fields", () => {
     const ns =
-      'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
+      'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1"';
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <xwas:vorgang.transportieren.2010 ${ns}>
   <nachrichtenkopf.g2g>
@@ -252,7 +252,7 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
 
   it("preserves comments through leser mutation", () => {
     const ns =
-      'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
+      'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1"';
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <xwas:vorgang.transportieren.2010 ${ns}>
   <nachrichtenkopf.g2g>
@@ -280,9 +280,9 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
 
   it("preserves comments outside replaced authority element", () => {
     const ns =
-      'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
+      'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1"';
     const xml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" ${ns} produkt="t" produkthersteller="t" produktversion="t" standard="XWasser" test="false" version="1.0.0">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1 ../schemas/V1_0_1/xwasser.xsd" ${ns} produkt="t" produkthersteller="t" produktversion="t" standard="XWasser" test="false" version="1.0.1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht><nachrichtenUUID>id</nachrichtenUUID></identifikation.nachricht>
     <leser><verzeichnisdienst listVersionID=""><code></code></verzeichnisdienst><kennung>r</kennung><name>R</name></leser>
@@ -305,7 +305,7 @@ describe("transform_vorgang_transportieren_2010 via wasm", () => {
 
   it("preserves comments when inserting missing leser", () => {
     const ns =
-      'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0"';
+      'xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1"';
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <xwas:vorgang.transportieren.2010 ${ns}>
   <nachrichtenkopf.g2g>

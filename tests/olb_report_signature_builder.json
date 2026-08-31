@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "a1524373-c40a-49f0-91ab-aab82b182db5",
+      "nachrichten_uuid": "2feed11e-69eb-4a81-9c29-1ca33423db4d",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2026-08-19T17:03:23"
+      "erstellungszeitpunkt": "2026-08-28T14:01:55"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -34,13 +34,30 @@
     "referenz_uuid": null,
     "dvdv_dienstkennung": ""
   },
+  "zusatzinformationen": null,
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "53b17661-1ed6-4e8c-94f3-db8e83c993ca"
+      "vorgangs_id": "1b1abaab-1857-49d4-8b2a-e74d23e64202"
     },
     "vorgang_type": {
-      "t": "OlbBericht",
+      "t": "Jahresbericht",
       "c": {
+        "jahresbericht_id": "id12345",
+        "titel": "Jahresbericht 2025",
+        "uebermittlungsart": {
+          "code": "1010",
+          "name": null
+        },
+        "dokumentreferenz": [
+          "id12345"
+        ],
+        "kommentar": null,
+        "id": "id12345"
+      }
+    },
+    "bemerkung": null,
+    "anlage": [
+      {
         "dokument_typ": {
           "code": "1010",
           "name": null
@@ -52,11 +69,8 @@
         "person_referenz_id": [],
         "dokument_id": "id12345"
       }
-    },
-    "bemerkung": null,
-    "anlage": []
+    ]
   },
-  "zusatzinformationen": null,
   "signature": {
     "exists": true
   }

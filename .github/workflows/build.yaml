@@ -38,8 +38,8 @@ jobs:
       - name: Build WASM
         run: |
           wasm-pack build --release --target nodejs --reference-types --features wasm,builder --no-default-features
-          cp target/schemas/out/*.xsdb pkg/xwasser-v100.xsdb.bin
-          cp crates/codelists/public/V1_0_0/codelist.json pkg/codelist.json
+          cp target/schemas/out/*.xsdb pkg/xwasser-v101.xsdb.bin
+          cp crates/codelists/public/V1_0_1/codelist.json pkg/codelist.json
           cp package.tmp.json pkg/package.json
           cp README.npm.md pkg/README.md
           pnpm tsup --format esm,cjs
@@ -53,8 +53,8 @@ jobs:
       - name: Build WASM Web
         run: |
           wasm-pack build --release --target web --reference-types --features wasm,builder --no-default-features
-          cp target/schemas/out/*.xsdb pkg/xwasser-v100.xsdb.bin
-          cp crates/codelists/public/V1_0_0/codelist.json pkg/codelist.json
+          cp target/schemas/out/*.xsdb pkg/xwasser-v101.xsdb.bin
+          cp crates/codelists/public/V1_0_1/codelist.json pkg/codelist.json
           cp package.tmp.web.json pkg/package.json
           cp README.npm.md pkg/README.md
       - name: Build utils web package

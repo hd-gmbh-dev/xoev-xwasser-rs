@@ -386,7 +386,7 @@ describe("Utility Functions", () => {
 
 describe("Schema Validation", () => {
   it("should have the .xsdb.bin file in the package", () => {
-    const xsdbPath = path.resolve(__dirname, "../pkg/xwasser-v100.xsdb.bin");
+    const xsdbPath = path.resolve(__dirname, "../pkg/xwasser-v101.xsdb.bin");
     expect(fs.existsSync(xsdbPath)).toBe(true);
     const stat = fs.statSync(xsdbPath);
     expect(stat.size).toBeGreaterThan(1000);
@@ -400,7 +400,7 @@ describe("Version Detection", () => {
       "utf-8"
     );
     const detectedVersion = detect_version(source.slice(0, 1024));
-    expect(detectedVersion).toBe("100");
+    expect(detectedVersion).toBe("101");
   });
 });
 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="XWasser Test" produkthersteller="H&amp;D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.0">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1 ../schemas/V1_0_1/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1" produkt="XWasser Test" produkthersteller="H&amp;D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
-      <nachrichtenUUID>a1524373-c40a-49f0-91ab-aab82b182db5</nachrichtenUUID>
+      <nachrichtenUUID>2feed11e-69eb-4a81-9c29-1ca33423db4d</nachrichtenUUID>
       <nachrichtentyp listURI="urn:xoev-de:xwasser:codeliste:nachrichtentyp" listVersionID="1">
         <code>2010</code>
       </nachrichtentyp>
-      <erstellungszeitpunkt>2026-08-19T17:03:23</erstellungszeitpunkt>
+      <erstellungszeitpunkt>2026-08-28T14:01:55</erstellungszeitpunkt>
     </identifikation.nachricht>
     <leser>
       <verzeichnisdienst listVersionID="">
@@ -26,16 +26,24 @@
   </nachrichtenkopf.g2g>
   <xwas:vorgang>
     <xwas:identifikationVorgang>
-      <xwas:vorgangsID>53b17661-1ed6-4e8c-94f3-db8e83c993ca</xwas:vorgangsID>
+      <xwas:vorgangsID>1b1abaab-1857-49d4-8b2a-e74d23e64202</xwas:vorgangsID>
     </xwas:identifikationVorgang>
     <xwas:vorgangType>
-      <xwas:olb_bericht dokumentID="id12345">
-        <xwas:dokumentTyp listURI="urn:xoev-de:xwasser:codeliste:dokumenttyp" listVersionID="1">
+      <xwas:jahresbericht id="id12345">
+        <xwas:jahresberichtID>id12345</xwas:jahresberichtID>
+        <xwas:titel>Jahresbericht 2025</xwas:titel>
+        <xwas:uebermittlungsart listURI="urn:xoev-de:xwasser:codeliste:uebermittlungsart" listVersionID="1">
           <code>1010</code>
-        </xwas:dokumentTyp>
-        <xwas:name>name</xwas:name>
-      </xwas:olb_bericht>
+        </xwas:uebermittlungsart>
+        <xwas:dokumentreferenz>id12345</xwas:dokumentreferenz>
+      </xwas:jahresbericht>
     </xwas:vorgangType>
+    <xwas:anlage dokumentID="id12345">
+      <xwas:dokumentTyp listURI="urn:xoev-de:xwasser:codeliste:dokumenttyp" listVersionID="1">
+        <code>1010</code>
+      </xwas:dokumentTyp>
+      <xwas:name>name</xwas:name>
+    </xwas:anlage>
   </xwas:vorgang><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
     <ds:SignedInfo>
         <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>

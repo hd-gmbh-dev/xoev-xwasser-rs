@@ -8,16 +8,16 @@
          <xoev-cl-4:codelistDescription>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>Destatis</xoev-cl-4:agencyShortName>
          <xoev-cl-4:versionDescription>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.</xoev-cl-4:versionDescription>
-         <xoev-cl-4:validFrom>2026-04-01</xoev-cl-4:validFrom>
-         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+         <xoev-cl-4:validFrom>2026-08-01</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.1</xoev-cl-4:versionHandbook>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>AGS</ShortName>
       <LongName>Gemeinden, dargestellt durch den Amtlichen Gemeindeschlüssel (AGS) des Statistischen Bundesamtes</LongName>
-      <Version>2026-04-30</Version>
+      <Version>2026-08-31</Version>
       <CanonicalUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags</CanonicalUri>
-      <CanonicalVersionUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2026-04-30</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2026-08-31</CanonicalVersionUri>
       <Agency>
          <LongName>Statistisches Bundesamt, Wiesbaden</LongName>
       </Agency>
@@ -28,7 +28,7 @@
          <LongName>SCHLUESSEL</LongName>
          <Data Type="string"/>
       </Column>
-      <Column Id="Bezeichnung" Use="required">
+      <Column Id="Bezeichnung" Use="optional">
          <ShortName>Bezeichnung</ShortName>
          <LongName>Bezeichnung</LongName>
          <Data Type="string"/>
@@ -25832,7 +25832,7 @@
             <SimpleValue>06434001</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bad Homburg v. d. Höhe, Stadt</SimpleValue>
+            <SimpleValue>Bad Homburg v. d. Höhe, Stadt, Kurstadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -25868,7 +25868,7 @@
             <SimpleValue>06434005</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Königstein im Taunus, Stadt</SimpleValue>
+            <SimpleValue>Königstein im Taunus, Stadt, Kurort</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -25949,7 +25949,7 @@
             <SimpleValue>06435001</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bad Orb, Stadt</SimpleValue>
+            <SimpleValue>Bad Orb, Stadt, Heilbad</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -25958,7 +25958,7 @@
             <SimpleValue>06435002</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bad Soden-Salmünster, Stadt</SimpleValue>
+            <SimpleValue>Bad Soden-Salmünster, Stadt, Kurstadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -26318,7 +26318,7 @@
             <SimpleValue>06437001</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bad König, Stadt</SimpleValue>
+            <SimpleValue>Bad König, Stadt, Heilbad</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -26552,7 +26552,7 @@
             <SimpleValue>06439002</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bad Schwalbach, Kreisstadt</SimpleValue>
+            <SimpleValue>Bad Schwalbach, Kreisstadt, Heilbad</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -26642,7 +26642,7 @@
             <SimpleValue>06439012</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Oestrich-Winkel, Stadt</SimpleValue>
+            <SimpleValue>Oestrich-Winkel, Hochschulstadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -26705,7 +26705,7 @@
             <SimpleValue>06440002</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bad Nauheim, Stadt</SimpleValue>
+            <SimpleValue>Bad Nauheim, Stadt, Kurstadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -26831,7 +26831,7 @@
             <SimpleValue>06440016</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Nidda, Stadt</SimpleValue>
+            <SimpleValue>Nidda, Johannes-Pistorius-Stadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -27119,7 +27119,7 @@
             <SimpleValue>06532005</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Dietzhölztal</SimpleValue>
+            <SimpleValue>Dietzhölztal, Hochschulgemeinde</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -27308,7 +27308,7 @@
             <SimpleValue>06533003</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bad Camberg, Stadt</SimpleValue>
+            <SimpleValue>Bad Camberg, Stadt, Kurstadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -27722,7 +27722,7 @@
             <SimpleValue>06535008</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Herbstein, Stadt</SimpleValue>
+            <SimpleValue>Herbstein, Stadt, Heilbad</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -27839,7 +27839,7 @@
             <SimpleValue>06631001</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bad Salzschlirf</SimpleValue>
+            <SimpleValue>Bad Salzschlirf, Heilbad</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -28055,7 +28055,7 @@
             <SimpleValue>06632002</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bad Hersfeld, Kreisstadt</SimpleValue>
+            <SimpleValue>Bad Hersfeld, Kreisstadt, Kurstadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -28109,7 +28109,7 @@
             <SimpleValue>06632008</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Haunetal</SimpleValue>
+            <SimpleValue>Haunetal, Marktgemeinde</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -28271,7 +28271,7 @@
             <SimpleValue>06633006</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bad Emstal</SimpleValue>
+            <SimpleValue>Bad Emstal, Kurort</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -28631,7 +28631,7 @@
             <SimpleValue>06634017</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Neukirchen, Stadt</SimpleValue>
+            <SimpleValue>Neukirchen, Stadt, Kurort</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -28721,7 +28721,7 @@
             <SimpleValue>06634027</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bad Zwesten</SimpleValue>
+            <SimpleValue>Bad Zwesten, Kurort</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -28739,7 +28739,7 @@
             <SimpleValue>06635002</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bad Arolsen, Stadt</SimpleValue>
+            <SimpleValue>Bad Arolsen, Stadt, Heilbad</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -28919,7 +28919,7 @@
             <SimpleValue>06636001</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Bad Sooden-Allendorf, Stadt</SimpleValue>
+            <SimpleValue>Bad Sooden-Allendorf, Stadt, Heilbad</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -91691,7 +91691,7 @@
             <SimpleValue>14523245</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Muldenhammer</SimpleValue>
+            <SimpleValue>Muldenhammer, Erholungsort</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>
@@ -93338,7 +93338,7 @@
             <SimpleValue>14627230</SimpleValue>
          </Value>
          <Value ColumnRef="Bezeichnung">
-            <SimpleValue>Riesa, Stadt</SimpleValue>
+            <SimpleValue>Riesa, Stadt, Hochschulstadt</SimpleValue>
          </Value>
          <Value ColumnRef="Hinweis"/>
       </Row>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0 ../schemas/V1_0_0/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_0" produkt="SHAPTH CLI" produkthersteller="H &amp;amp; D GmbH" produktversion="H &amp;amp; D GmbH" standard="XWasser" test="true" version="1.0.0">
+<xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1 ../schemas/V1_0_1/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1" produkt="SHAPTH CLI" produkthersteller="H &amp;amp; D GmbH" produktversion="H &amp;amp; D GmbH" standard="XWasser" test="true" version="1.0.1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
       <nachrichtenUUID>693c64d6-456f-4d14-abe7-fe9681c74aae</nachrichtenUUID>
@@ -29,19 +29,27 @@
       <xwas:vorgangsID>5e08e073-4e06-438d-9444-1275f6cbf061</xwas:vorgangsID>
     </xwas:identifikationVorgang>
     <xwas:vorgangType>
-      <xwas:olb_bericht dokumentID="anhang1">
-        <xwas:dokumentTyp listURI="urn:xoev-de:xwasser:codeliste:dokumenttyp" listVersionID="1">
+      <xwas:jahresbericht id="anhang1">
+        <xwas:jahresberichtID>anhang1</xwas:jahresberichtID>
+        <xwas:titel>Jahresbericht 2025</xwas:titel>
+        <xwas:uebermittlungsart listURI="urn:xoev-de:xwasser:codeliste:uebermittlungsart" listVersionID="1">
           <code>1010</code>
-        </xwas:dokumentTyp>
-        <xwas:name>Anlage 1</xwas:name>
-        <xwas:dokumentRepraesentation dokumentRepraesentationID="doc1">
-          <xwas:mimeType>application/pdf</xwas:mimeType>
-          <xwas:inhalt>PERVTU1ZIC8+</xwas:inhalt>
-          <xwas:dateiname>Test.pdf</xwas:dateiname>
-          <xwas:inhaltTyp>pdf</xwas:inhaltTyp>
-        </xwas:dokumentRepraesentation>
-      </xwas:olb_bericht>
+        </xwas:uebermittlungsart>
+        <xwas:dokumentreferenz>doc1</xwas:dokumentreferenz>
+      </xwas:jahresbericht>
     </xwas:vorgangType>
     <xwas:bemerkung>Bemerkung</xwas:bemerkung>
+    <xwas:anlage dokumentID="doc1">
+      <xwas:dokumentTyp listURI="urn:xoev-de:xwasser:codeliste:dokumenttyp" listVersionID="1">
+        <code>1010</code>
+      </xwas:dokumentTyp>
+      <xwas:name>Anlage 1</xwas:name>
+      <xwas:dokumentRepraesentation dokumentRepraesentationID="doc1">
+        <xwas:mimeType>application/pdf</xwas:mimeType>
+        <xwas:inhalt>PERVTU1ZIC8+</xwas:inhalt>
+        <xwas:dateiname>Test.pdf</xwas:dateiname>
+        <xwas:inhaltTyp>pdf</xwas:inhaltTyp>
+      </xwas:dokumentRepraesentation>
+    </xwas:anlage>
   </xwas:vorgang>
 </xwas:vorgang.transportieren.2010>

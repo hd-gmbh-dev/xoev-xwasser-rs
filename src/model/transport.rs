@@ -188,12 +188,12 @@ pub struct VorgangTransportieren2010 {
     _version: ConstStr,
     #[xml(name = b"nachrichtenkopf.g2g", ty = "child")]
     pub nachrichtenkopf_g2g: NachrichtenkopfG2g,
-    #[xml(ns = b"xwas", name = b"vorgang", ty = "child")]
-    pub vorgang: Vorgang,
     #[xml(ns = b"xwas", name = b"zusatzinformationen", ty = "child")]
     #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]
     pub zusatzinformationen: Option<ZusatzinformationenType>,
+    #[xml(ns = b"xwas", name = b"vorgang", ty = "child")]
+    pub vorgang: Vorgang,
     #[xml(ns = b"ds", name = b"Signature", ty = "child")]
     #[serde(default)]
     #[cfg_attr(feature = "wasm", tsify(optional))]

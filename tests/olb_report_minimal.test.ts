@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import {
-  DokumentType,
+  JahresberichtType,
   VorgangTransportieren2010,
   create_vorgang_transportieren_2010,
   local_schema,
@@ -13,7 +13,7 @@ import path from "path";
 const __dirname = import.meta.dirname;
 import xmlvalidate, { XmlValidatorError } from "@raxb/validate-wasm";
 const xsdBundle = fs.readFileSync(
-  path.resolve(__dirname, "../pkg/xwasser-v100.xsdb.bin"),
+  path.resolve(__dirname, "../pkg/xwasser-v101.xsdb.bin"),
 ).buffer;
 
 describe("minimal olb report xml generation via wasm", async () => {
@@ -43,9 +43,9 @@ describe("minimal olb report xml generation via wasm", async () => {
       "utf-8",
     );
     const obj = parse_vorgang_transportieren_2010(source);
-    expect(obj.vorgang.vorgang_type.t).to.equal("OlbBericht");
-    const p = (obj.vorgang.vorgang_type as { t: "OlbBericht"; c: DokumentType })
+    expect(obj.vorgang.vorgang_type.t).to.equal("Jahresbericht");
+    const p = (obj.vorgang.vorgang_type as { t: "Jahresbericht"; c: JahresberichtType })
       .c;
-    expect(p.dokument_id).toEqual("anhang1");
+    expect(p.jahresbericht_id).toEqual("anhang1");
   });
 });

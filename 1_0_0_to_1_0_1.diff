@@ -1,0 +1,589 @@
+--- schemas/V1_0_0/xwasser-basisnachricht.xsd
++++ schemas/V1_0_1/xwasser-basisnachricht.xsd
+@@ -40,6 +40,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -138,7 +139,7 @@
+         <xs:documentation>Ist dieses Attribut vorhanden, handelt es sich aus Sicht des Autors um eine Testnachricht, die nicht im normalen Produktivbetrieb verarbeitet werden darf. Autor und Leser können bilateral weitere Absprachen über den konkreten Inhalt des Attributs treffen.</xs:documentation>
+       </xs:annotation>
+     </xs:attribute>
+-    <xs:attribute name="version" type="din91379:datatypeC" use="required" fixed="1.0.0">
++    <xs:attribute name="version" type="din91379:datatypeC" use="required" fixed="1.0.1">
+       <xs:annotation>
+         <xs:documentation>In diesem Attribut wird die Version des XÖV-Standards eingetragen, aus dem die Nachricht stammt.</xs:documentation>
+       </xs:annotation>
+@@ -190,6 +191,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+--- schemas/V1_0_0/xwasser-baukasten.xsd
++++ schemas/V1_0_1/xwasser-baukasten.xsd
+@@ -1365,6 +1365,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -1513,6 +1514,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -1571,7 +1573,9 @@
+           <herausgebernameKurz>XWasser</herausgebernameKurz>
+         </codeliste>
+         <versionCodeliste>
+-          <version>1</version>
++          <version>2</version>
++          <beschreibung>Die Beschreibung zum Code 1010 wurde aktualisiert.</beschreibung>
++          <datumGueltigkeitAb>2026-11-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -1616,7 +1620,7 @@
+         <xs:attribute name="listVersionID"
+                           type="xs:normalizedString"
+                           use="optional"
+-                          fixed="1"/>
++                          fixed="2"/>
+       </xs:restriction>
+     </xs:complexContent>
+   </xs:complexType>
+@@ -1736,6 +1740,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -1795,6 +1800,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -1936,6 +1942,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -2229,6 +2236,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -2306,6 +2314,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -2662,6 +2671,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -2783,8 +2793,8 @@
+           <herausgebernameKurz>XWasser</herausgebernameKurz>
+         </codeliste>
+         <versionCodeliste>
+-          <version>2</version>
+-          <datumGueltigkeitAb>2025-04-01</datumGueltigkeitAb>
++          <version>3</version>
++          <datumGueltigkeitAb>2026-11-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -2827,7 +2837,7 @@
+         <xs:attribute name="listVersionID"
+                           type="xs:normalizedString"
+                           use="optional"
+-                          fixed="2"/>
++                          fixed="3"/>
+       </xs:restriction>
+     </xs:complexContent>
+   </xs:complexType>
+@@ -2845,6 +2855,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -3018,6 +3029,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -3170,6 +3182,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -3682,6 +3695,67 @@
+       </xs:restriction>
+     </xs:complexContent>
+   </xs:complexType>
++  <xs:complexType name="Code.UebermittlungsartType">
++    <xs:annotation>
++      <xs:appinfo>
++        <codeliste>
++          <nameLang>Übermittlungsart</nameLang>
++          <nameKurz>Übermittlungsart</nameKurz>
++          <nameTechnisch>uebermittlungsart</nameTechnisch>
++          <kennung>urn:xoev-de:xwasser:codeliste:uebermittlungsart</kennung>
++          <beschreibung>Im Kontext von XWasser wird mit dieser Codeliste die Übermittlungsart für einen Jahresbericht definiert.</beschreibung>
++          <herausgebernameLang>XWasser</herausgebernameLang>
++          <herausgebernameKurz>XWasser</herausgebernameKurz>
++        </codeliste>
++        <versionCodeliste>
++          <version>1</version>
++          <datumGueltigkeitAb>2026-11-01</datumGueltigkeitAb>
++          <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
++        </versionCodeliste>
++        <codelistenspalten>
++          <Key>
++            <datentyp>string</datentyp>
++            <codeSpalte>true</codeSpalte>
++            <verwendung>required</verwendung>
++            <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
++          </Key>
++          <Uebermittlungsart>
++            <spaltennameLang>Übermittlungsart</spaltennameLang>
++            <datentyp>string</datentyp>
++            <codeSpalte>false</codeSpalte>
++            <verwendung>required</verwendung>
++            <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
++          </Uebermittlungsart>
++          <Bemerkung>
++            <datentyp>string</datentyp>
++            <codeSpalte>false</codeSpalte>
++            <verwendung>optional</verwendung>
++            <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
++          </Bemerkung>
++        </codelistenspalten>
++        <genutzteCodeSpalte>Key</genutzteCodeSpalte>
++      </xs:appinfo>
++    </xs:annotation>
++    <xs:complexContent>
++      <xs:restriction base="xoev-code:Code">
++        <xs:sequence>
++          <xs:element name="code" form="unqualified" type="xwas:uebermittlungsart"/>
++          <xs:element name="name"
++                           type="xs:normalizedString"
++                           form="unqualified"
++                           minOccurs="0"/>
++        </xs:sequence>
++        <xs:attribute name="listURI"
++                          type="xs:anyURI"
++                          use="optional"
++                          fixed="urn:xoev-de:xwasser:codeliste:uebermittlungsart"/>
++        <xs:attribute name="listVersionID"
++                          type="xs:normalizedString"
++                          use="optional"
++                          fixed="1"/>
++      </xs:restriction>
++    </xs:complexContent>
++  </xs:complexType>
+   <xs:complexType name="Code.UeberschreitungsursacheType">
+     <xs:annotation>
+       <xs:appinfo>
+@@ -3958,6 +4032,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -4028,6 +4103,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -4924,6 +5000,52 @@
+       </xs:element>
+     </xs:sequence>
+   </xs:complexType>
++  <xs:complexType name="JahresberichtType">
++    <xs:annotation>
++      <xs:appinfo>
++        <title>Jahresbericht</title>
++      </xs:appinfo>
++      <xs:documentation>Klasse für den Transport von Informationen zu einem Jahresbericht.</xs:documentation>
++    </xs:annotation>
++    <xs:sequence>
++      <xs:element name="jahresberichtID" type="din91379:datatypeC">
++        <xs:annotation>
++          <xs:documentation>Eindeutige fachliche ID des Jahresberichts.</xs:documentation>
++        </xs:annotation>
++      </xs:element>
++      <xs:element name="titel" type="din91379:datatypeC">
++        <xs:annotation>
++          <xs:documentation>Titel des Jahresberichts, beispielsweise Jahresbericht 2025 Wasserversorgungsgebiet München Nord.</xs:documentation>
++        </xs:annotation>
++      </xs:element>
++      <xs:element name="uebermittlungsart" type="xwas:Code.UebermittlungsartType">
++        <xs:annotation>
++          <xs:documentation>Hier ist die Übermittlungsart des Jahresberichts anzugebeben.</xs:documentation>
++        </xs:annotation>
++      </xs:element>
++      <xs:element name="dokumentreferenz" maxOccurs="unbounded" type="xs:IDREF">
++        <xs:annotation>
++          <xs:appinfo>
++            <implementationHint>Um auf ein Dokument referenzieren zu können, muss mindestens ein Dokument der Nachricht beigefügt werden.</implementationHint>
++          </xs:appinfo>
++          <xs:documentation>Hier wird auf die Dokumente innerhalb des Vorgangs referenziert, die zum Jahresbericht gehören.</xs:documentation>
++        </xs:annotation>
++      </xs:element>
++      <xs:element name="kommentar" minOccurs="0" type="din91379:datatypeC">
++        <xs:annotation>
++          <xs:documentation>Kommentar</xs:documentation>
++        </xs:annotation>
++      </xs:element>
++    </xs:sequence>
++    <xs:attribute name="id" type="xs:ID" use="required">
++      <xs:annotation>
++        <xs:appinfo>
++          <implementationHint>Die fachliche ID wird im Kindelement jahresberichtID angegeben.</implementationHint>
++        </xs:appinfo>
++        <xs:documentation>Die id wird verwendet, um eine Instanz eines Jahresberichts innerhalb einer Nachricht eindeutig zu identifizieren. Hierbei handelt es sich um eine technische ID und keine fachliche ID.</xs:documentation>
++      </xs:annotation>
++    </xs:attribute>
++  </xs:complexType>
+   <xs:complexType name="JuristischePersonType">
+     <xs:annotation>
+       <xs:appinfo>
+@@ -6570,9 +6692,9 @@
+                 <xs:documentation>Untersuchungsplan</xs:documentation>
+               </xs:annotation>
+             </xs:element>
+-            <xs:element name="olb_bericht" type="xwas:DokumentType">
++            <xs:element name="jahresbericht" type="xwas:JahresberichtType">
+               <xs:annotation>
+-                <xs:documentation>OLB-Bericht</xs:documentation>
++                <xs:documentation>Jahresbericht</xs:documentation>
+               </xs:annotation>
+             </xs:element>
+           </xs:choice>
+@@ -7439,6 +7561,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -7504,6 +7627,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -7584,7 +7708,9 @@
+           <herausgebernameKurz>XWasser</herausgebernameKurz>
+         </codeliste>
+         <versionCodeliste>
+-          <version>1</version>
++          <version>2</version>
++          <beschreibung>Die Beschreibung zum Code 1010 wurde aktualisiert.</beschreibung>
++          <datumGueltigkeitAb>2026-11-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -7615,7 +7741,7 @@
+         <xs:annotation>
+           <xs:appinfo>
+             <Bewertung-Untersuchungswert>Untersuchungswert in Ordnung und annehmbar</Bewertung-Untersuchungswert>
+-            <Beschreibung>Untersuchungswert in Ordnung und keine Überschreitung von Grenzwert, Referenzwert, Maßnahmenwert vorhanden; Hinweis: Parameter ohne Grenzwert sind hier anzugeben, sofern der Untersuchungswert keine Abweichung von für die Probe annehmbaren Werte aufweist.</Beschreibung>
++            <Beschreibung>Untersuchungswert in Ordnung und keine Überschreitung von Grenzwert, Referenzwert, Maßnahmenwert, Parameterwert vorhanden; Hinweis: Parameter ohne Grenzwert sind hier anzugeben, sofern der Untersuchungswert keine Abweichung von für die Probe annehmbaren Werte aufweist.</Beschreibung>
+           </xs:appinfo>
+         </xs:annotation>
+       </xs:enumeration>
+@@ -7691,6 +7817,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -7760,6 +7887,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -7825,6 +7953,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -8297,6 +8426,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -8396,6 +8526,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -8842,6 +8973,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -9025,8 +9157,8 @@
+           <herausgebernameKurz>XWasser</herausgebernameKurz>
+         </codeliste>
+         <versionCodeliste>
+-          <version>2</version>
+-          <datumGueltigkeitAb>2025-04-01</datumGueltigkeitAb>
++          <version>3</version>
++          <datumGueltigkeitAb>2026-11-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -9057,7 +9189,7 @@
+         <xs:annotation>
+           <xs:appinfo>
+             <Messwertergaenzung>&lt; Bestimmungsgrenze</Messwertergaenzung>
+-            <Beschreibung>Der Untersuchungswert liegt unterhalb der Bestimmungsgrenze</Beschreibung>
++            <Beschreibung>Der Untersuchungswert liegt unterhalb der Bestimmungsgrenze.</Beschreibung>
+           </xs:appinfo>
+         </xs:annotation>
+       </xs:enumeration>
+@@ -9065,7 +9197,7 @@
+         <xs:annotation>
+           <xs:appinfo>
+             <Messwertergaenzung>&lt; Nachweisgrenze</Messwertergaenzung>
+-            <Beschreibung>Der Untersuchungswert liegt unterhalb der Nachweisgrenze</Beschreibung>
++            <Beschreibung>Der Untersuchungswert liegt unterhalb der Nachweisgrenze.</Beschreibung>
+           </xs:appinfo>
+         </xs:annotation>
+       </xs:enumeration>
+@@ -9073,7 +9205,7 @@
+         <xs:annotation>
+           <xs:appinfo>
+             <Messwertergaenzung>&lt; Summe der Einzelwerte (bei Summenparametern)</Messwertergaenzung>
+-            <Beschreibung>Der Untersuchungswert liegt unterhalb der Summe der Einzelwerte (bei Summenparametern)</Beschreibung>
++            <Beschreibung>Der Untersuchungswert liegt unterhalb der Summe der Einzelwerte (bei Summenparametern).</Beschreibung>
+           </xs:appinfo>
+         </xs:annotation>
+       </xs:enumeration>
+@@ -9081,10 +9213,26 @@
+         <xs:annotation>
+           <xs:appinfo>
+             <Messwertergaenzung>&gt; Obergrenze</Messwertergaenzung>
+-            <Beschreibung>Der Untersuchungswert liegt oberhalb der analytischen Obergrenze (bzw. "obere Arbeitsbereichsgrenze" gem. UBA)</Beschreibung>
++            <Beschreibung>Der Untersuchungswert liegt oberhalb der analytischen Obergrenze (bzw. "obere Arbeitsbereichsgrenze" gem. UBA).</Beschreibung>
++          </xs:appinfo>
++        </xs:annotation>
++      </xs:enumeration>
++      <xs:enumeration value="1045">
++        <xs:annotation>
++          <xs:appinfo>
++            <Messwertergaenzung>&lt; angegebener Wert</Messwertergaenzung>
++            <Beschreibung>Der Untersuchungswert liegt unterhalb des angegebenen Werts (bes. mikrobiologische Parameter).</Beschreibung>
+           </xs:appinfo>
+         </xs:annotation>
+       </xs:enumeration>
++      <xs:enumeration value="1046">
++        <xs:annotation>
++          <xs:appinfo>
++            <Messwertergaenzung>&gt; angegebener Wert</Messwertergaenzung>
++            <Beschreibung>Der Untersuchungswert liegt oberhalb des angegebenen Werts (bes. mikrobiologische Parameter).</Beschreibung>
++          </xs:appinfo>
++        </xs:annotation>
++      </xs:enumeration>
+       <xs:enumeration value="1050">
+         <xs:annotation>
+           <xs:appinfo>
+@@ -9125,6 +9273,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -9182,6 +9331,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -9247,6 +9397,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -9475,6 +9626,71 @@
+       </xs:enumeration>
+     </xs:restriction>
+   </xs:simpleType>
++  <xs:simpleType name="uebermittlungsart">
++    <xs:annotation>
++      <xs:appinfo>
++        <codeliste>
++          <nameLang>Übermittlungsart</nameLang>
++          <nameKurz>Übermittlungsart</nameKurz>
++          <nameTechnisch>uebermittlungsart</nameTechnisch>
++          <kennung>urn:xoev-de:xwasser:codeliste:uebermittlungsart</kennung>
++          <beschreibung>Im Kontext von XWasser wird mit dieser Codeliste die Übermittlungsart für einen Jahresbericht definiert.</beschreibung>
++          <herausgebernameLang>XWasser</herausgebernameLang>
++          <herausgebernameKurz>XWasser</herausgebernameKurz>
++        </codeliste>
++        <versionCodeliste>
++          <version>1</version>
++          <datumGueltigkeitAb>2026-11-01</datumGueltigkeitAb>
++          <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
++        </versionCodeliste>
++        <codelistenspalten>
++          <Key>
++            <datentyp>string</datentyp>
++            <codeSpalte>true</codeSpalte>
++            <verwendung>required</verwendung>
++            <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
++          </Key>
++          <Uebermittlungsart>
++            <spaltennameLang>Übermittlungsart</spaltennameLang>
++            <datentyp>string</datentyp>
++            <codeSpalte>false</codeSpalte>
++            <verwendung>required</verwendung>
++            <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
++          </Uebermittlungsart>
++          <Bemerkung>
++            <datentyp>string</datentyp>
++            <codeSpalte>false</codeSpalte>
++            <verwendung>optional</verwendung>
++            <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
++          </Bemerkung>
++        </codelistenspalten>
++      </xs:appinfo>
++    </xs:annotation>
++    <xs:restriction base="xs:token">
++      <xs:enumeration value="1010">
++        <xs:annotation>
++          <xs:appinfo>
++            <Uebermittlungsart>UBA-Jahresbericht im BfG-Format</Uebermittlungsart>
++          </xs:appinfo>
++        </xs:annotation>
++      </xs:enumeration>
++      <xs:enumeration value="1020">
++        <xs:annotation>
++          <xs:appinfo>
++            <Uebermittlungsart>Ländereigenes Format</Uebermittlungsart>
++            <Bemerkung>Ländereigenes Format (§ 69 Abs. 1 Satz 2b TrinkwV)</Bemerkung>
++          </xs:appinfo>
++        </xs:annotation>
++      </xs:enumeration>
++      <xs:enumeration value="1030">
++        <xs:annotation>
++          <xs:appinfo>
++            <Uebermittlungsart>Prüfberichtsversand im Batch</Uebermittlungsart>
++          </xs:appinfo>
++        </xs:annotation>
++      </xs:enumeration>
++    </xs:restriction>
++  </xs:simpleType>
+   <xs:simpleType name="ueberschreitungsursache">
+     <xs:annotation>
+       <xs:appinfo>
+@@ -9784,6 +10000,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+@@ -9890,6 +10107,7 @@
+         </codeliste>
+         <versionCodeliste>
+           <version>1</version>
++          <datumGueltigkeitAb>2026-05-01</datumGueltigkeitAb>
+           <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+         </versionCodeliste>
+         <codelistenspalten>
+--- schemas/V1_0_0/xwasser-vorgang.xsd
++++ schemas/V1_0_1/xwasser-vorgang.xsd
+@@ -38,14 +38,14 @@
+       <xs:complexContent>
+         <xs:extension base="xwas:Nachricht.G2GType">
+           <xs:sequence>
+-            <xs:element name="vorgang" type="xwas:VorgangType">
++            <xs:element name="zusatzinformationen" minOccurs="0" type="xwas:ZusatzinformationenType">
+               <xs:annotation>
+-                <xs:documentation>Hier werden Daten zum Vorgang übermittelt.</xs:documentation>
++                <xs:documentation>Hier können zusätzliche fachliche Informationen transportiert werden. Da die Klasse Zusatzinformationen parallel zur Klasse Vorgang mit der Nachricht vorgang.transportieren.2010 durch eine gerichtete Komposition verknüpft ist, können Informationen unterhalb des Elements zusatzinformationen noch nachträglich geändert werden, ohne dass die Signatur ungültig wird, wenn zuvor alle Inhalte ab dem Element vorgang und darunter signiert wurden.</xs:documentation>
+               </xs:annotation>
+             </xs:element>
+-            <xs:element name="zusatzinformationen" minOccurs="0" type="xwas:ZusatzinformationenType">
++            <xs:element name="vorgang" type="xwas:VorgangType">
+               <xs:annotation>
+-                <xs:documentation>Hier können zusätzliche fachliche Informationen transportiert werden. Da die Klasse Zusatzinformationen parallel zur Klasse Vorgang mit der Nachricht vorgang.transportieren.2010 durch eine gerichtete Komposition verknüpft ist, können Informationen unterhalb des Elements zusatzinformationen noch nachträglich geändert werden, ohne dass die Signatur ungültig wird, wenn zuvor alle Inhalte ab dem Element vorgang und darunter signiert wurden.</xs:documentation>
++                <xs:documentation>Hier werden Daten zum Vorgang übermittelt.</xs:documentation>
+               </xs:annotation>
+             </xs:element>
+             <xs:element ref="ds:Signature" minOccurs="0">

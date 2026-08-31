@@ -5,19 +5,19 @@
    <Annotation>
       <Description>
          <xoev-cl-4:shortName>Art des Objekts</xoev-cl-4:shortName>
-         <xoev-cl-4:codelistDescription>Diese Codeliste definiert, welcher Art ein Objekt ist.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:codelistDescription>Diese Codeliste definiert im Kontext von XWasser die Art eines Objekts.</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>XWasser</xoev-cl-4:agencyShortName>
-         <xoev-cl-4:validFrom>2025-09-22</xoev-cl-4:validFrom>
+         <xoev-cl-4:validFrom>2026-05-01</xoev-cl-4:validFrom>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
-         <xoev-cl-4:changes>Codes 1550 bis 1610 hinzugefügt.</xoev-cl-4:changes>
+         <xoev-cl-4:changes>Bezeichnung des Codes 1140 geändert und neue optionale Spalte "Wasserart" hinzugefügt.</xoev-cl-4:changes>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>art-objekt</ShortName>
       <LongName>Art des Objekts</LongName>
-      <Version>2</Version>
+      <Version>3</Version>
       <CanonicalUri>urn:xoev-de:xwasser:codeliste:art-objekt</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:art-objekt_2</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xwasser:codeliste:art-objekt_3</CanonicalVersionUri>
       <Agency>
          <LongName>XWasser</LongName>
       </Agency>
@@ -35,6 +35,10 @@
       <Column Id="Beschreibung" Use="optional">
          <ShortName>Beschreibung</ShortName>
          <Data Type="string"/>
+      </Column>
+      <Column Id="Wasserart" Use="optional">
+         <ShortName>Wasserart</ShortName>
+         <Data Type="integer"/>
       </Column>
       <Key Id="KeyKey">
          <Annotation>
@@ -57,6 +61,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Apotheke</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -67,6 +74,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Arztpraxis</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -79,6 +89,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Autowaschanlage</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -89,6 +102,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Befüllungsanlagen von Eisenbahnverkehrsunternehmen (EVU)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -101,6 +117,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Bürogebäude</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -111,6 +130,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Campingplatz / Heim / Ferienlager o. ä.</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -123,6 +145,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Einrichtung für ambulantes Operieren, Dialyseeinrichtung, Entbindungseinrichtung, Tagesklinik, Rehabilitation</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -133,6 +158,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Einrichtungen des Leichen- und Bestattungswesens</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -145,6 +173,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Einrichtungen zur Entsorgung von Abwasser und Abfällen</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -155,6 +186,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Fabrik</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -167,6 +201,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Feuerwehr</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -177,6 +214,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Flughafen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -189,16 +229,22 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Gastronomischer Betrieb</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
             <SimpleValue>1140</SimpleValue>
          </Value>
          <Value ColumnRef="Art-Objekt">
-            <SimpleValue>Gemeinschaftsunterkunft gem. §36 IfSG; (Obdachlosenunterkünfte; Einrichtungen zur gemeinschaftlichen Unterbringung von Asylbewerbern, vollziehbar Ausreisepflichtigen, Flüchtlingen und Spätaussiedlern; sonstige Massenunterkünfte; Justizvollzugsanstalten)</SimpleValue>
+            <SimpleValue>Gemeinschaftsunterkunft gem. §36 IfSG</SimpleValue>
          </Value>
          <Value ColumnRef="Beschreibung">
-            <SimpleValue>Gemeinschaftsunterkunft die unter die Verordnungsermächtigung zum Infektionsschutz bei bestimmten Einrichtungen, Unternehmen und Personen gem. §36 IfSG fallen und nicht anderweitig aufgelistet sind. (Obdachlosenunterkünfte; Einrichtungen zur gemeinschaftlichen Unterbringung von Asylbewerbern, vollziehbar Ausreisepflichtigen, Flüchtlingen und Spätaussiedlern; sonstige Massenunterkünfte; Justizvollzugsanstalten)</SimpleValue>
+            <SimpleValue>Gemeinschaftsunterkunft, die unter die Verordnungsermächtigung zum Infektionsschutz bei bestimmten Einrichtungen, Unternehmen und Personen gem. §36 IfSG fallen und nicht anderweitig aufgelistet sind (Obdachlosenunterkünfte; Einrichtungen zur gemeinschaftlichen Unterbringung von Asylbewerbern, vollziehbar Ausreisepflichtigen, Flüchtlingen und Spätaussiedlern; sonstige Massenunterkünfte; Justizvollzugsanstalten).</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -211,6 +257,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Gotteshaus (Kirche, Moschee, Synagoge, …)</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -221,6 +270,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Hafen / Bootsanlegestelle</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -233,6 +285,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Hochbehälter, Druckerhöhungsanlage o. ä.</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -243,6 +298,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Hotel / Gaststätte / Jugendherberge o. ä.</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -255,6 +313,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Hydrant</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -265,6 +326,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Kindertagesstätte, Kinderhort, o. ä.</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -277,6 +341,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Kloster/Ordenshaus</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -287,6 +354,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Krankenhaus</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -299,6 +369,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Landwirtschaftlicher Betrieb / Bauernhof</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -309,6 +382,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Lebensmittelunternehmen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -321,6 +397,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Meeresbauwerk</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -331,6 +410,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Mietobjekt (&lt; 5 Wohneinheiten)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -343,6 +425,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Mietobjekt (&gt;= 5 Wohneinheiten)</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -353,6 +438,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Militärbasis/-stützpunkt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -365,6 +453,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Mobile medizinische Einrichtung (bspw. Rettungswagen/Rettungshelikopter)</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -375,6 +466,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Mobiles Objekt (Landfahrzeug außer Zug und mobile medizinische Einrichtungen)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -387,6 +481,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Mobiles Objekt (Luftfahrzeug)</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -397,6 +494,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Sonstiges Mobiles Objekt (Ist in der Beschreibung genau zu bezeichnen)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -409,6 +509,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Mobiles Objekt (Wasserfahrzeug/Schiff)</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -419,6 +522,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Mobiles Objekt (Zug)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -431,6 +537,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Museum / Ausstellung</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -441,6 +550,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>oberirdische Brunnenstube/Brunnenhaus</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -453,6 +565,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Objekt in öffentlicher Hand (z. B. Behörden)</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -463,6 +578,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>(Öffentlicher) Trinkwasserbrunnen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -475,6 +593,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>(Öffentliches) Verteilungsnetz</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -485,6 +606,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Pensionen und Ferienwohnungen mit wechselndem Personenkreis</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -497,6 +621,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Pflege-/Altenheim oder -einrichtung</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -507,6 +634,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Privater Haushalt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -519,6 +649,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Pumpenhaus</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -529,6 +662,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Quelle</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -541,6 +677,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Schule oder sonstige Bildungseinrichtung</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -551,6 +690,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Sport-/Freizeiteinrichtung</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -563,6 +705,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Stadion / Konzerthalle / Messegelände</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -573,6 +718,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Studentenwohnheim</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -585,6 +733,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Talsperre</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -595,6 +746,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Tankstelle / (Autobahn-)Raststätte</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -607,6 +761,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Universität</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -617,6 +774,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>unterirdische Brunnenstube</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -629,6 +789,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Wassertransport-Fahrzeug</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -639,6 +802,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Wasserwerk</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -651,6 +817,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Volksfeste, Märkte und ähnliche Veranstaltungen</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -661,6 +830,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Tiefbehälter</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -673,6 +845,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Überpumpwerk</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -683,6 +858,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Zwischenpumpwerk</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -695,6 +873,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Tiefspiegelbrunnen</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -705,6 +886,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Berghütte</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -717,6 +901,9 @@
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Seilbahnstation</SimpleValue>
          </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
+         </Value>
       </Row>
       <Row>
          <Value ColumnRef="Key">
@@ -727,6 +914,9 @@
          </Value>
          <Value ColumnRef="Beschreibung">
             <SimpleValue>Sonstiges (Ist in der Beschreibung genau zu bezeichnen)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Wasserart">
+            <SimpleValue>1</SimpleValue>
          </Value>
       </Row>
    </SimpleCodeList>

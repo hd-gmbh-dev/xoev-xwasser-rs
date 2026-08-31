@@ -2934,7 +2934,7 @@ checksum = "672423d4fea7ffa2f6c25ba60031ea13dc6258070556f125cc4d790007d4a155"
 
 [[package]]
 name = "xoev-xwasser"
-version = "1.0.6+1.0.0"
+version = "1.1.0+1.0.1"
 dependencies = [
  "anyhow",
  "chrono",
@@ -2965,7 +2965,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser-codelists"
-version = "1.0.6+1.0.0"
+version = "1.1.0+1.0.1"
 dependencies = [
  "anyhow",
  "bson",
@@ -2979,7 +2979,7 @@ dependencies = [
 
 [[package]]
 name = "xoev-xwasser-derive"
-version = "1.0.6+1.0.0"
+version = "1.1.0+1.0.1"
 dependencies = [
  "darling",
  "heck",
@@ -2990,7 +2990,7 @@ dependencies = [
 
 [[package]]
 name = "xtask"
-version = "1.0.6+1.0.0"
+version = "1.1.0+1.0.1"
 dependencies = [
  "encoding_rs",
  "json-spanned-value",
