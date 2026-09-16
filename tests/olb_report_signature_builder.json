@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "2feed11e-69eb-4a81-9c29-1ca33423db4d",
+      "nachrichten_uuid": "125f5a70-6fc6-4dfe-99b6-2c7a71880246",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2026-08-28T14:01:55"
+      "erstellungszeitpunkt": "2026-09-16T22:26:11"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -37,7 +37,7 @@
   "zusatzinformationen": null,
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "1b1abaab-1857-49d4-8b2a-e74d23e64202"
+      "vorgangs_id": "ffc24410-26bc-4665-97f0-ce21696fc7f7"
     },
     "vorgang_type": {
       "t": "Jahresbericht",

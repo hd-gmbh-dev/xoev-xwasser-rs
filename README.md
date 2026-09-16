@@ -15,13 +15,17 @@ This crate follows the latest minor and patch versions for each maintained major
 
 The crate versions follow the `X.Y.Z+A.B.C` pattern:
 
-- The major version `X` is the upstream XÖV XWasser API compatibility version:
-  - `300` for 3.Y.Z
-- The patch `Y` version is incremented when making XÖV XWasser update. It is
-  equal to `B*100 + C`.
+- The major version `X` is the upstream XÖV XWasser wire version packed into
+  digits (`A*100 + B*10 + C`), so every upstream version maps to its own
+  semver-incompatible major and multiple wire versions can coexist in one
+  dependency graph:
+  - `100` for upstream 1.0.0, `101` for upstream 1.0.1,
+  - `200` for upstream 2.0.0, `300` for 3.Y.Z
+- The patch `Y` version is incremented when making XÖV XWasser update within
+  the same wire version.
 - The patch `Z` version is incremented when making internal changes
   to the crate.
-- `A.B.C` contains the full upstream XÖV XWasser version, like `0.2.1` or `0.5.0`.
+- `A.B.C` contains the full upstream XÖV XWasser version, like `0.2.1` or `1.0.1`.
   Note that this field is actually ignored in comparisons and only there for
   documentation.
 
