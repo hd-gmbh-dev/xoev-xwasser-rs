@@ -2,11 +2,11 @@
 <xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1 ../schemas/V1_0_1/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V1_0_1" produkt="XWasser Test" produkthersteller="H&amp;D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="1.0.1">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
-      <nachrichtenUUID>2feed11e-69eb-4a81-9c29-1ca33423db4d</nachrichtenUUID>
+      <nachrichtenUUID>125f5a70-6fc6-4dfe-99b6-2c7a71880246</nachrichtenUUID>
       <nachrichtentyp listURI="urn:xoev-de:xwasser:codeliste:nachrichtentyp" listVersionID="1">
         <code>2010</code>
       </nachrichtentyp>
-      <erstellungszeitpunkt>2026-08-28T14:01:55</erstellungszeitpunkt>
+      <erstellungszeitpunkt>2026-09-16T22:26:11</erstellungszeitpunkt>
     </identifikation.nachricht>
     <leser>
       <verzeichnisdienst listVersionID="">
@@ -26,7 +26,7 @@
   </nachrichtenkopf.g2g>
   <xwas:vorgang>
     <xwas:identifikationVorgang>
-      <xwas:vorgangsID>1b1abaab-1857-49d4-8b2a-e74d23e64202</xwas:vorgangsID>
+      <xwas:vorgangsID>ffc24410-26bc-4665-97f0-ce21696fc7f7</xwas:vorgangsID>
     </xwas:identifikationVorgang>
     <xwas:vorgangType>
       <xwas:jahresbericht id="id12345">
