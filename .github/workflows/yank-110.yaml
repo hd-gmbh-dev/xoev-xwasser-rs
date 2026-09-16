@@ -1,0 +1,32 @@
+name: Yank and deprecate 1.1.0+1.0.1
+
+on:
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  yank:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Yank crates.io versions
+        run: |
+          for crate in xoev-xwasser xoev-xwasser-codelists xoev-xwasser-derive; do
+            cargo yank --version 1.1.0+1.0.1 "$crate" --token ${CRATES_TOKEN}
+          done
+        env:
+          CRATES_TOKEN: ${{ secrets.CRATES_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Deprecate npm versions
+        run: |
+          for pkg in xoev-xwasser xoev-xwasser-web xoev-xwasser-utils; do
+            npm deprecate "$pkg@1.1.0" "superseded by 101.0.0 — version scheme: packed upstream wire version as major"
+          done
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
