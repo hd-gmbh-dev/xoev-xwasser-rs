@@ -46,7 +46,7 @@ fn xoev_xwasser_code2(
     } else {
         quote! {
             #[xml(name = b"listVersionID", ty = "attr")]
-            #[serde(default)]
+            #[serde(rename = "listVersionID", default)]
             #[cfg_attr(feature = "builder", builder(default))]
             pub list_version_id: String,
         }
@@ -61,8 +61,42 @@ fn xoev_xwasser_code2(
             }
         })
     };
+
+    // code type 1/2: the version is fixed by the standard
+    // code type 3 : the version is transmitted and therefore stored in the field
+    let version_accessor = match version.as_deref() {
+        Some(version) => quote! { fn version(&self) -> &str { #version } },
+        None => quote! { fn version(&self) -> &str { &self.list_version_id } },
+    };
+    let default_derive = if version.is_some() {
+        quote! { #[derive(Default)] }
+    } else {
+        quote! {}
+    };
+
+    // code type 3 needs a hand-written Default: the version starts at the
+    // currently published one instead of an empty string
+    let default_impl = if version.is_some() {
+        quote! {}
+    } else {
+        quote! {
+            impl Default for #name {
+                fn default() -> Self {
+                    Self {
+                        code: String::new(),
+                        name: None,
+                        list_version_id: crate::model::codelist_versions::current_version(#uri)
+                            .to_string(),
+                        _list_uri: ConstStr,
+                    }
+                }
+            }
+        }
+    };
+
     Ok(quote! {
-        #[derive(Clone, Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
+        #[derive(Clone, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
+        #default_derive
         #[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
         #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
         #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -87,6 +121,8 @@ fn xoev_xwasser_code2(
             #list_version_field
         }
 
+        #default_impl
+
 
         impl <S> From<S> for #name where S: Into<String> {
             fn from(val: S) -> Self {
@@ -106,6 +142,7 @@ fn xoev_xwasser_code2(
         #[cfg(feature = "validate")]
         impl crate::CodeListValue for #name {
             const CODELIST: &str = #uri;
+            #version_accessor
             #validation
             fn as_value(&self) -> &str {
                 &self.code

@@ -491,7 +491,7 @@ pub struct CodeVorfallkategorieType;
 
 /// Type name: Code.WVAType
 /// Mit dieser Codeliste wird im Kontext von XWasser die Art der Wassserversorgungsanlage definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:wva", true)]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:wva", "1")]
 pub struct CodeWvaType;
 
 /// Type name: Code.WaehrungType
