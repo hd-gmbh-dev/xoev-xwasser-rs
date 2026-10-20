@@ -1,23 +1,65 @@
 //! Guards the convention behind `listVersionID`:
 //!
 //! * XWasser code type 1/2 fixes the version in the XML schema → the model keeps
-//!   a constant and the version never comes from `CURRENT_VERSIONS`;
+//!   a compile-time constant (`#[xoev_xwasser_code(urn, "1")]`);
 //! * code type 3 leaves the version to the sender → the model has a runtime
-//!   field and `CURRENT_VERSIONS` must know the codelist.
+//!   field whose default is the currently published version
+//!   (`#[xoev_xwasser_code(urn, current = "5")]`).
 //!
-//! The check compares the model's table with the schema instead of trusting a
-//! hand-maintained list (a wrong entry here silently produces documents that
-//! fail schema validation).
-
-use std::collections::BTreeSet;
+//! The check reads the schema and `codes.rs` instead of trusting a
+//! hand-maintained list: a wrong entry silently produces documents that fail
+//! schema validation (that is how `untersuchungsverfahren` ended up declaring
+//! version 2 while the data was at 3).
 
 use raxb::quick_xml::{Reader, events::Event};
-use xoev_xwasser::model::codelist_versions::CURRENT_VERSIONS;
 
 const SCHEMA: &str = concat!(
     env!("CARGO_MANIFEST_DIR"),
     "/schemas/V1_0_1/xwasser-baukasten.xsd"
 );
+
+const CODES: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/src/model/codes.rs");
+
+/// One `#[xoev_xwasser_code(…)]` declaration of the model.
+struct ModelDeclaration {
+    urn: String,
+    fixed: Option<String>,
+    current: Option<String>,
+}
+
+fn model_declarations() -> Vec<ModelDeclaration> {
+    let source = std::fs::read_to_string(CODES).expect("codes.rs");
+    let marker = "#[xoev_xwasser_code(";
+    let mut declarations = Vec::new();
+    let mut rest = source.as_str();
+    while let Some(start) = rest.find(marker) {
+        let after = &rest[start + marker.len()..];
+        let Some(end) = after.find(")]") else {
+            break;
+        };
+        let body = &after[..end];
+        rest = &after[end + 2..];
+        let Some(urn) = body.split('"').nth(1) else {
+            continue;
+        };
+        let current = body
+            .split("current = \"")
+            .nth(1)
+            .and_then(|rest| rest.split('"').next())
+            .map(str::to_string);
+        let fixed = if current.is_some() {
+            None
+        } else {
+            body.split(',').skip(1).collect::<Vec<_>>().join(",").split('"').nth(1).map(str::to_string)
+        };
+        declarations.push(ModelDeclaration {
+            urn: urn.to_string(),
+            fixed,
+            current,
+        });
+    }
+    declarations
+}
 
 /// `Code.*Type` with a `listVersionID` attribute → (codelist urn, fixed version)
 fn codelists_from_schema() -> Vec<(String, Option<String>)> {
@@ -116,39 +158,55 @@ fn read_version_attribute<'a>(
     }
 }
 
+/// The model must mirror the schema: a version fixed by the schema is a
+/// compile-time constant, a sender-chosen codelist has a runtime field whose
+/// default is the currently published version.
 #[test]
-fn runtime_version_table_matches_the_schema() {
-    let codelists = codelists_from_schema();
+fn model_declares_the_versions_the_schema_expects() {
+    let schema = codelists_from_schema();
+    assert!(schema.len() > 60, "schema not parsed: {}", schema.len());
+    let declarations = model_declarations();
     assert!(
-        codelists.len() > 60,
-        "schema not parsed: {}",
-        codelists.len()
+        declarations.len() > 60,
+        "codes.rs not parsed: {}",
+        declarations.len()
     );
 
-    let sender: BTreeSet<String> = codelists
-        .iter()
-        .filter(|(_, fixed)| fixed.is_none())
-        .map(|(urn, _)| urn.clone())
-        .collect();
-    let fixed: BTreeSet<String> = codelists
-        .iter()
-        .filter(|(_, fixed)| fixed.is_some())
-        .map(|(urn, _)| urn.clone())
-        .collect();
-
-    let table: BTreeSet<String> = CURRENT_VERSIONS
-        .iter()
-        .map(|(urn, _)| urn.to_string())
-        .collect();
-
-    assert_eq!(
-        table, sender,
-        "CURRENT_VERSIONS must list exactly the sender-chosen codelists"
-    );
-    for urn in &fixed {
-        assert!(
-            !table.contains(urn),
-            "{urn} has a version fixed by the schema and must not be in CURRENT_VERSIONS"
-        );
+    let mut problems = Vec::new();
+    for (urn, fixed) in &schema {
+        let Some(declaration) = declarations.iter().find(|d| &d.urn == urn) else {
+            problems.push(format!("{urn}: no declaration in codes.rs"));
+            continue;
+        };
+        match fixed {
+            Some(version) => {
+                if declaration.fixed.as_deref() != Some(version.as_str()) {
+                    problems.push(format!(
+                        "{urn}: schema fixes version {version}, model has {:?}",
+                        declaration.fixed
+                    ));
+                }
+                if declaration.current.is_some() {
+                    problems.push(format!(
+                        "{urn}: schema fixes the version, the model must not default it"
+                    ));
+                }
+            }
+            None => {
+                if declaration.fixed.is_some() {
+                    problems.push(format!(
+                        "{urn}: the sender chooses the version, the model must not fix it to {:?}",
+                        declaration.fixed
+                    ));
+                }
+                if declaration.current.is_none() {
+                    problems.push(format!(
+                        "{urn}: sender-chosen codelist without a current version"
+                    ));
+                }
+            }
+        }
     }
+
+    assert!(problems.is_empty(), "{}", problems.join("\n"));
 }

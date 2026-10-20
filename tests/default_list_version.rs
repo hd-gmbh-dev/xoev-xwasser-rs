@@ -1,20 +1,15 @@
 use xoev_xwasser::CodeListValue;
-use xoev_xwasser::model::codelist_versions::current_version;
 use xoev_xwasser::model::codes::{CodeMediumType, CodeUntersuchungsverfahrenType};
 
-/// A newly created code carries the currently published codelist version, so
-/// serialised documents are schema valid without every call site setting it.
+/// A newly created code starts with the *currently published* codelist version,
+/// which the model declares per type (code type 3 has no version in the schema).
 #[test]
 fn default_uses_the_current_codelist_version() {
-    let medium = CodeMediumType::default();
+    assert_eq!(CodeMediumType::default().list_version_id, "3");
     assert_eq!(
-        medium.list_version_id,
-        current_version(CodeMediumType::CODELIST)
+        CodeUntersuchungsverfahrenType::default().list_version_id,
+        "3"
     );
-    assert_eq!(medium.list_version_id, "3");
-
-    let verfahren = CodeUntersuchungsverfahrenType::default();
-    assert_eq!(verfahren.list_version_id, "3");
 
     // a code type whose version is fixed by the standard stays constant
     let fixed = xoev_xwasser::model::codes::CodeBetriebszustandType::default();

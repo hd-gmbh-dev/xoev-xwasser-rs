@@ -1,5 +1,4 @@
 pub mod administration;
-pub mod codelist_versions;
 pub mod codes;
 pub mod pruefbericht;
 pub mod shared;

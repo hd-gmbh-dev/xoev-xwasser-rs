@@ -124,7 +124,7 @@ impl GenericXwasserCode for CodePersonenrolleType {
 
 /// Type name: Code.Kommunikation.KanalType
 /// Eine Liste der Kommunikationsmedien und -kanäle, über die man eine Person oder Institution erreichen kann.
-#[xoev_xwasser_code("urn:de:xoev:codeliste:erreichbarkeit")]
+#[xoev_xwasser_code("urn:de:xoev:codeliste:erreichbarkeit", "3")]
 pub struct CodeKommunikationKanalType;
 
 /// Type name: Code.VerzeichnisdienstType
@@ -144,7 +144,11 @@ pub struct CodeDatentypType;
 
 /// Type name: Code.AGSType
 /// Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
-#[xoev_xwasser_code("urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags", true)]
+#[xoev_xwasser_code(
+    "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags",
+    current = "2026-09-30",
+    true
+)]
 pub struct CodeAgsType;
 
 /// Type name: Code.AbhilfemassnahmeType
@@ -159,7 +163,11 @@ pub struct CodeAmtsspracheEuType;
 
 /// Type name: Code.AnlassUntersuchungType
 /// Mit dieser Codeliste wird im Kontext von XWasser der Anlasses einer Wasseruntersuchung definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:untersuchung-anlass", true)]
+#[xoev_xwasser_code(
+    "urn:xoev-de:xwasser:codeliste:untersuchung-anlass",
+    current = "3",
+    true
+)]
 pub struct CodeAnlassUntersuchungType;
 
 /// Type name: Code.AnschrifttypType
@@ -169,17 +177,25 @@ pub struct CodeAnschrifttypType;
 
 /// Type name: Code.ArtEntnahmearmaturType
 /// In dieser Codeliste werden Arten von Entnahmearmaturen definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-entnahmearmatur", true)]
+#[xoev_xwasser_code(
+    "urn:xoev-de:xwasser:codeliste:art-entnahmearmatur",
+    current = "1",
+    true
+)]
 pub struct CodeArtEntnahmearmaturType;
 
 /// Type name: Code.ArtGesetzlicherVertreterType
 /// Diese Codeliste definiert Arten der gesetzlichen Vertreter.
-#[xoev_xwasser_code("urn:xoev-de:xunternehmen:codeliste:artgesetzlichervertreter", true)]
+#[xoev_xwasser_code(
+    "urn:xoev-de:xunternehmen:codeliste:artgesetzlichervertreter",
+    current = "1",
+    true
+)]
 pub struct CodeArtGesetzlicherVertreterType;
 
 /// Type name: Code.ArtObjektType
 /// Diese Codeliste definiert, welcher Art ein Objekt ist.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-objekt", true)]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-objekt", current = "3", true)]
 pub struct CodeArtObjektType;
 
 /// Type name: Code.ArtProbennahmestelleEUType
@@ -189,7 +205,11 @@ pub struct CodeArtProbennahmestelleEuType;
 
 /// Type name: Code.ArtProbennahmestelleType
 /// Mit dieser Codeliste wird im Kontext von XWasser die Art einer Probennahmestelle definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-probennahmestelle", true)]
+#[xoev_xwasser_code(
+    "urn:xoev-de:xwasser:codeliste:art-probennahmestelle",
+    current = "2",
+    true
+)]
 pub struct CodeArtProbennahmestelleType;
 
 /// Type name: Code.ArtTrinkwasseranlageType
@@ -206,6 +226,7 @@ pub struct CodeArtWasserressourceType;
 /// Diese Codeliste dient im Kontext von XWasser zur Definition der Aufbereitungsstoffe und der Desinfektionsverfahren.
 #[xoev_xwasser_code(
     "urn:xoev-de:xwasser:codeliste:aufbereitungsstoffe-desinfektionsverfahren",
+    current = "3",
     true
 )]
 pub struct CodeAufbereitungsstoffDesinfektionsverfahrenType;
@@ -222,7 +243,11 @@ pub struct CodeAuskunftssperreType;
 
 /// Type name: Code.AusweisdokumenteType
 /// Mit dieser Schlüsseltabelle werden die Schlüssel für die Art eines Ausweisdokumentes abgebildet (siehe Anlage 3 des DSMeld).
-#[xoev_xwasser_code("urn:de:dsmeld:schluesseltabelle:pass.und.ausweisdokumente", true)]
+#[xoev_xwasser_code(
+    "urn:de:dsmeld:schluesseltabelle:pass.und.ausweisdokumente",
+    current = "5",
+    true
+)]
 pub struct CodeAusweisdokumenteType;
 
 /// Type name: Code.BetriebszustandType
@@ -237,7 +262,11 @@ pub struct CodeBewertungUntersuchungswertType;
 
 /// Type name: Code.BezirkType
 /// Die Bundesrepublik Deutschland ist ein Zusammenschluss von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke bzw. Regierungsbezirke. Diese Codeliste stellt alle Bezirke nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).
-#[xoev_xwasser_code("urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk", true)]
+#[xoev_xwasser_code(
+    "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk",
+    current = "2019-07-31",
+    true
+)]
 pub struct CodeBezirkType;
 
 /// Type name: Code.BundeslandType
@@ -250,7 +279,7 @@ pub struct CodeBundeslandType;
 
 /// Type name: Code.DesinfektionsartType
 /// Mit dieser Codeliste wird im Kontext von XWasser definiert, auf welche Art eine dauerhafte Desinfektion durchgeführt wird.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:desinfektionsart", true)]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:desinfektionsart", current = "2", true)]
 pub struct CodeDesinfektionsartType;
 
 /// Type name: Code.DokumenttypType
@@ -323,7 +352,11 @@ pub struct CodeKommunikationType;
 
 /// Type name: Code.KreisType
 /// Die Bundesrepublik Deutschland ist ein Zusammenschluss von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke.Diese Codeliste stellt die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).
-#[xoev_xwasser_code("urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis", true)]
+#[xoev_xwasser_code(
+    "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis",
+    current = "2026-01-31",
+    true
+)]
 pub struct CodeKreisType;
 
 /// Type name: Code.LaenderkennzeichenType
@@ -333,12 +366,12 @@ pub struct CodeLaenderkennzeichenType;
 
 /// Type name: Code.MassnahmeType
 /// Mit dieser Codeliste werden im Kontext von XWasser die Maßnahmen definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:massnahmen", true)]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:massnahmen", current = "2", true)]
 pub struct CodeMassnahmeType;
 
 /// Type name: Code.MediumType
 /// Diese Codeliste dient im Kontext von XWasser der Angabe des Mediums einer Probennahme.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:medium", true)]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:medium", current = "3", true)]
 pub struct CodeMediumType;
 
 /// Type name: Code.MesswertergaenzungType
@@ -358,12 +391,20 @@ pub struct CodeNamensartType;
 
 /// Type name: Code.ParameterauspraegungType
 /// Diese Codeliste definiert im Rahmen von XWasser die speziellen Ausprägungen von qualitativen Parametern.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:parameterauspraegung", true)]
+#[xoev_xwasser_code(
+    "urn:xoev-de:xwasser:codeliste:parameterauspraegung",
+    current = "5",
+    true
+)]
 pub struct CodeParameterauspraegungType;
 
 /// Type name: Code.PraefixType
 /// Diese Codeliste enthält alle Präfixe, welche im DVDV zum Einsatz kommen.
-#[xoev_xwasser_code("urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix", true)]
+#[xoev_xwasser_code(
+    "urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix",
+    current = "51",
+    true
+)]
 pub struct CodePraefixType;
 
 /// Type name: Code.ProbenbewertungType
@@ -373,17 +414,25 @@ pub struct CodeProbenbewertungType;
 
 /// Type name: Code.ProbenentnahmegeraetType
 /// Mit dieser Codeliste wird im Kontext von XWasser das Gerät definiert, mit dem eine Wasserprobe entnommen wird.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:probenentnahmegeraet", true)]
+#[xoev_xwasser_code(
+    "urn:xoev-de:xwasser:codeliste:probenentnahmegeraet",
+    current = "1",
+    true
+)]
 pub struct CodeProbenentnahmegeraetType;
 
 /// Type name: Code.ProbengefaessType
 /// Mit dieser Codeliste wird im Kontext von XWasser das Gerät angegeben, mit dem eine Wasserprobe transportiert/gelagert wird.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:probengefaess", true)]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:probengefaess", current = "1", true)]
 pub struct CodeProbengefaessType;
 
 /// Type name: Code.ProbennahmeverfahrenType
 /// Diese Codeliste dient im Kontext von XWasser zur Angabe des Verfahrens mit dem eine Probe entnommen wird
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:probennahmeverfahren", true)]
+#[xoev_xwasser_code(
+    "urn:xoev-de:xwasser:codeliste:probennahmeverfahren",
+    current = "4",
+    true
+)]
 pub struct CodeProbennahmeverfahrenType;
 
 /// Type name: Code.ProbennahmezeitraumType
@@ -398,38 +447,59 @@ pub struct CodeRahmenTrinkwasserbereitstellungType;
 
 /// Type name: Code.RechtsformenType
 /// Die Codeliste urn:xoev-de:xunternehmen:codeliste:rechtsformen bildet ab Version 2 fachbereichsübergreifend Anforderungen an die Codierung von Rechtsforminformationen ab und ermöglicht deren bereichsübergreifend einheitliche Codierung und Übermittlung. Aktuell werden die Anforderungen aus dem Grundinformationsdienst GINSTER der Steuerverwaltung und damit auch der Codierung im ELSTER-Unternehmenskonto, aus dem Registerportal der Handels-, Genossenschafts-, Partnerschafts- und Vereinsregister, dem Standard XGewerbeanzeige / XGewerbeordnung und damit auch dem Unternehmerverzeichnis der gesetzlichen Unfallversicherung umgesetzt. Auf diese Weise können beispielweise Rechtsforminformationen ohne semantische Brüche aus dem ELSTER-Unternehmenskonto über einen Online-Dienst zur Gewerbeanmeldung an die zuständige Gewerbebehörde übermittelt werden und dort mit Daten aus dem Registerportal der Justiz und (perspektivisch) mit dem Basisregister gemäß UBRegG zusammengeführt werden. Seit Version 2 sind die Codes sechsstellig und hierarchisch gegliedert, um unterschiedliche Granularitäten der Rechtsformdifferenzierung zu unterstützen und Codes einfacher zueinander in Bezug setzen zu können. Die Version 2 der Rechtsformcodierung ist vollständig rückwärtskompatibel zur Version 1 in dem Sinne, dass eine Eins-zu-eins-Umschlüsselung der bisherigen Codes erfolgen kann.
-#[xoev_xwasser_code("urn:xoev-de:xunternehmen:codeliste:rechtsformen", true)]
+#[xoev_xwasser_code(
+    "urn:xoev-de:xunternehmen:codeliste:rechtsformen",
+    current = "2.4",
+    true
+)]
 pub struct CodeRechtsformenType;
 
 /// Type name: Code.RegionalschluesselType
 /// Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Regionalschlüssel (ARS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.
-#[xoev_xwasser_code("urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs", true)]
+#[xoev_xwasser_code(
+    "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs",
+    current = "2026-09-30",
+    true
+)]
 pub struct CodeRegionalschluesselType;
 
 /// Type name: Code.SHAPTH-Parameter-EinheitType
 /// Mit dieser Codeliste wird im Kontext von XWassser die Einheit eines SHAPTH Parameters angegeben,
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit", true)]
+#[xoev_xwasser_code(
+    "urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit",
+    current = "2",
+    true
+)]
 pub struct CodeShapthParameterEinheitType;
 
 /// Type name: Code.SHAPTH-ParameterType
 /// Mit dieser Codeliste werden die Parameter definiert, die via SHAPTH übermittelt werden können.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:shapth-parameter", true)]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:shapth-parameter", current = "5", true)]
 pub struct CodeShapthParameterType;
 
 /// Type name: Code.SpracheType
 /// Der Sprachenkatalog basiert auf der Norm ISO 639 und enthält sowohl Werte der Teilnorm 2 als auch der Teilnorm 3. Er dient unterschiedlichen Verwendungszwecken und wird daher bedarfsgereicht angepasst /erweitert. Es ist die jeweils aktuelle Version zu verwenden, die im XRepository veröffentlicht ist.
-#[xoev_xwasser_code("urn:xoev-de:xauslaender:codeliste:sprachenkatalog", true)]
+#[xoev_xwasser_code(
+    "urn:xoev-de:xauslaender:codeliste:sprachenkatalog",
+    current = "11",
+    true
+)]
 pub struct CodeSpracheType;
 
 /// Type name: Code.StaatType
 /// Die Codeliste Staat (eigenständige, von Deutschland diplomatisch anerkannte derzeitige Staaten). Tabelle von Staaten und Staatsangehörigkeiten. Enthalten sind alle Staaten im vollen politischen Sinne. Entspricht inhaltlich dem "Verzeichnis der Staatennamen für den amtlichen Gebrauch" des Auswärtigen Amtes. Enthalten sind z.B. Einträge für: Frankreich, Italien, Vereinigtes Königreich; nicht aber für: Französisch-Guayana, die britischen Jungferninseln oder Jersey. Neben den amtlichen Bezeichnungen (Kurzform und Vollform) und der Staatsangehörigkeit als Adjektiv/Adverb ist auch der jeweilige Suchbegriff aus dem Länderverzeichnis des Auswärtigen Amtes aufgeführt (der Suchbegriff ist eine griffige Bezeichnung des Staates). Die Angaben umfassen zudem den numerischen Destatis-Code, den 2- und 3-stelligen alphabetischen ISO 3166-1 Code sowie ggf. das Datum der Selbständigkeit bzw. Gründung nach den Angaben des Auswärtigen Amtes.
-#[xoev_xwasser_code("urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat", true)]
+#[xoev_xwasser_code(
+    "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat",
+    current = "2026-08-05",
+    true
+)]
 pub struct CodeStaatType;
 
 /// Type name: Code.StaatsangehoerigkeitType
 /// Codeliste Staatsangehörigkeit. Tabelle von Staaten und Staatsangehörigkeiten. Enthält alle Einträge der Codeliste Staat (eigenständige, von Deutschland diplomatisch anerkannte derzeitige Staaten) und zusätzlich Einträge für ehemalige Staaten sowie Ersatzwerte. Die Liste enthält auch einen Eintrag für die Palästinensischen Gebiete. Enthalten sind alle Staaten im vollen politischen Sinne, z.B. Frankreich, Italien, Vereinigtes Königreich, nicht aber: britische Jungferninseln, Jersey sowie alle früheren Staaten seit 1970, z.B. Sowjetunion. Neben den amtlichen Bezeichnungen (Kurzform und Vollform) und der Staatsangehörigkeit als Adjektiv/Adverb ist auch der jeweilige ist auch der jeweilige Suchbegriff aus dem Länderverzeichnis des Auswärtigen Amtes aufgeführt (der Suchbegriff ist eine griffige Bezeichnung des Staates). Die Angaben umfassen zudem den numerische Destatis-Code für Staatsangehörigkeit und Staat den 2- und 3-stelligen alphabetischen ISO 3166-1 Code sowie ggf. das Datum der Selbständigkeit bzw. Gründungsdatum nach den Angaben des Auswärtigen Amtes und das Auflösungs- bzw. Enddatum als berechnete Angabe aus dem Gründungsdatum des/der Nachfolgestaaten.
 #[xoev_xwasser_code(
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit",
+    current = "2026-08-05",
     true
 )]
 pub struct CodeStaatsangehoerigkeitType;
@@ -466,7 +536,11 @@ pub struct CodeUeberwachungAufbereitungType;
 
 /// Type name: Code.UnterkategorieProbennahmestelleType
 /// In dieser Codeliste werden Unterkategorien von Probennahmestellen definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle", true)]
+#[xoev_xwasser_code(
+    "urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle",
+    current = "1",
+    true
+)]
 pub struct CodeUnterkategorieProbennahmestelleType;
 
 /// Type name: Code.UntersuchungsstelleType
@@ -476,7 +550,11 @@ pub struct CodeUntersuchungsstelleType;
 
 /// Type name: Code.UntersuchungsverfahrenType
 /// Mit dieser Codeliste wird im Kontext von XWasser das Untersuchungsverfahren von Parametern im Labor festgelegt.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:untersuchungsverfahren", true)]
+#[xoev_xwasser_code(
+    "urn:xoev-de:xwasser:codeliste:untersuchungsverfahren",
+    current = "3",
+    true
+)]
 pub struct CodeUntersuchungsverfahrenType;
 
 /// Type name: Code.VertretungsartType

@@ -24,11 +24,12 @@ fn xoev_xwasser_code2(
     let XoevXWasserCodeArgs {
         uri,
         version,
+        current,
         validate,
     }: XoevXWasserCodeArgs = xoev_xwasser_code_args(attr)?;
     let ast: syn::DeriveInput = syn::parse2(item)?;
     let name = ast.ident;
-    let _ = (&uri, &version);
+
     // Code-Typ 3 (no version argument) transmits the version chosen by the
     // sender, so it has to be a real field; Code-Typ 1/2 keep the constant.
     let list_version_field = if let Some(version) = version.as_deref() {
@@ -79,14 +80,14 @@ fn xoev_xwasser_code2(
     let default_impl = if version.is_some() {
         quote! {}
     } else {
+        let default_version = current.clone().unwrap_or_default();
         quote! {
             impl Default for #name {
                 fn default() -> Self {
                     Self {
                         code: String::new(),
                         name: None,
-                        list_version_id: crate::model::codelist_versions::current_version(#uri)
-                            .to_string(),
+                        list_version_id: #default_version.to_string(),
                         _list_uri: ConstStr,
                     }
                 }
@@ -162,7 +163,12 @@ fn xoev_xwasser_code_args(attr: proc_macro2::TokenStream) -> syn::Result<XoevXWa
 #[cfg_attr(test, derive(Debug, PartialEq, Eq))]
 struct XoevXWasserCodeArgs {
     uri: String,
+    /// Version fixed by the standard (code type 1/2): part of the schema, not
+    /// of the document.
     version: Option<String>,
+    /// Currently published version of a sender-chosen codelist (code type 3):
+    /// the default a freshly created value starts with.
+    current: Option<String>,
     validate: bool,
 }
 
@@ -173,9 +179,34 @@ impl syn::parse::Parse for XoevXWasserCodeArgs {
             let _: syn::token::Comma = input.parse()?;
         }
         let mut version = None;
+        let mut current = None;
         let mut validate = false;
         if !input.is_empty() {
             let head = input.fork();
+            if input.peek(syn::Ident) {
+                // named form: current = "..."
+                let meta: syn::Meta = input.parse()?;
+                if let syn::Meta::NameValue(named) = meta
+                    && named.path.is_ident("current")
+                        && let syn::Expr::Lit(expr) = &named.value
+                        && let syn::Lit::Str(lit) = &expr.lit
+                    {
+                        current = Some(lit.value());
+                    }
+                if !input.is_empty() {
+                    let _: syn::token::Comma = input.parse()?;
+                }
+                if !input.is_empty() {
+                    let lit_bool: syn::LitBool = input.parse()?;
+                    validate = lit_bool.value();
+                }
+                return Ok(Self {
+                    uri,
+                    version,
+                    current,
+                    validate,
+                });
+            }
             let lit: syn::Lit = input.parse()?;
             match lit {
                 syn::Lit::Str(lit_str) => version = Some(lit_str.value()),
@@ -197,6 +228,7 @@ impl syn::parse::Parse for XoevXWasserCodeArgs {
         Ok(Self {
             uri,
             version,
+            current,
             validate,
         })
     }
