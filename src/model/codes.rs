@@ -159,7 +159,7 @@ pub struct CodeAmtsspracheEuType;
 
 /// Type name: Code.AnlassUntersuchungType
 /// Mit dieser Codeliste wird im Kontext von XWasser der Anlasses einer Wasseruntersuchung definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:untersuchung-anlass", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:untersuchung-anlass", true)]
 pub struct CodeAnlassUntersuchungType;
 
 /// Type name: Code.AnschrifttypType
@@ -169,7 +169,7 @@ pub struct CodeAnschrifttypType;
 
 /// Type name: Code.ArtEntnahmearmaturType
 /// In dieser Codeliste werden Arten von Entnahmearmaturen definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-entnahmearmatur", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-entnahmearmatur", true)]
 pub struct CodeArtEntnahmearmaturType;
 
 /// Type name: Code.ArtGesetzlicherVertreterType
@@ -179,7 +179,7 @@ pub struct CodeArtGesetzlicherVertreterType;
 
 /// Type name: Code.ArtObjektType
 /// Diese Codeliste definiert, welcher Art ein Objekt ist.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-objekt", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-objekt", true)]
 pub struct CodeArtObjektType;
 
 /// Type name: Code.ArtProbennahmestelleEUType
@@ -189,7 +189,7 @@ pub struct CodeArtProbennahmestelleEuType;
 
 /// Type name: Code.ArtProbennahmestelleType
 /// Mit dieser Codeliste wird im Kontext von XWasser die Art einer Probennahmestelle definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-probennahmestelle", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:art-probennahmestelle", true)]
 pub struct CodeArtProbennahmestelleType;
 
 /// Type name: Code.ArtTrinkwasseranlageType
@@ -250,7 +250,7 @@ pub struct CodeBundeslandType;
 
 /// Type name: Code.DesinfektionsartType
 /// Mit dieser Codeliste wird im Kontext von XWasser definiert, auf welche Art eine dauerhafte Desinfektion durchgeführt wird.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:desinfektionsart", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:desinfektionsart", true)]
 pub struct CodeDesinfektionsartType;
 
 /// Type name: Code.DokumenttypType
@@ -338,7 +338,7 @@ pub struct CodeMassnahmeType;
 
 /// Type name: Code.MediumType
 /// Diese Codeliste dient im Kontext von XWasser der Angabe des Mediums einer Probennahme.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:medium", "3")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:medium", true)]
 pub struct CodeMediumType;
 
 /// Type name: Code.MesswertergaenzungType
@@ -358,7 +358,7 @@ pub struct CodeNamensartType;
 
 /// Type name: Code.ParameterauspraegungType
 /// Diese Codeliste definiert im Rahmen von XWasser die speziellen Ausprägungen von qualitativen Parametern.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:parameterauspraegung", "3")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:parameterauspraegung", true)]
 pub struct CodeParameterauspraegungType;
 
 /// Type name: Code.PraefixType
@@ -373,17 +373,17 @@ pub struct CodeProbenbewertungType;
 
 /// Type name: Code.ProbenentnahmegeraetType
 /// Mit dieser Codeliste wird im Kontext von XWasser das Gerät definiert, mit dem eine Wasserprobe entnommen wird.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:probenentnahmegeraet", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:probenentnahmegeraet", true)]
 pub struct CodeProbenentnahmegeraetType;
 
 /// Type name: Code.ProbengefaessType
 /// Mit dieser Codeliste wird im Kontext von XWasser das Gerät angegeben, mit dem eine Wasserprobe transportiert/gelagert wird.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:probengefaess", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:probengefaess", true)]
 pub struct CodeProbengefaessType;
 
 /// Type name: Code.ProbennahmeverfahrenType
 /// Diese Codeliste dient im Kontext von XWasser zur Angabe des Verfahrens mit dem eine Probe entnommen wird
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:probennahmeverfahren", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:probennahmeverfahren", true)]
 pub struct CodeProbennahmeverfahrenType;
 
 /// Type name: Code.ProbennahmezeitraumType
@@ -408,7 +408,7 @@ pub struct CodeRegionalschluesselType;
 
 /// Type name: Code.SHAPTH-Parameter-EinheitType
 /// Mit dieser Codeliste wird im Kontext von XWassser die Einheit eines SHAPTH Parameters angegeben,
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:shapth-parameter-einheit", true)]
 pub struct CodeShapthParameterEinheitType;
 
 /// Type name: Code.SHAPTH-ParameterType
@@ -466,7 +466,7 @@ pub struct CodeUeberwachungAufbereitungType;
 
 /// Type name: Code.UnterkategorieProbennahmestelleType
 /// In dieser Codeliste werden Unterkategorien von Probennahmestellen definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:unterkategorie-probennahmestelle", true)]
 pub struct CodeUnterkategorieProbennahmestelleType;
 
 /// Type name: Code.UntersuchungsstelleType
@@ -476,7 +476,7 @@ pub struct CodeUntersuchungsstelleType;
 
 /// Type name: Code.UntersuchungsverfahrenType
 /// Mit dieser Codeliste wird im Kontext von XWasser das Untersuchungsverfahren von Parametern im Labor festgelegt.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:untersuchungsverfahren", "2")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:untersuchungsverfahren", true)]
 pub struct CodeUntersuchungsverfahrenType;
 
 /// Type name: Code.VertretungsartType
@@ -491,7 +491,7 @@ pub struct CodeVorfallkategorieType;
 
 /// Type name: Code.WVAType
 /// Mit dieser Codeliste wird im Kontext von XWasser die Art der Wassserversorgungsanlage definiert.
-#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:wva", "1")]
+#[xoev_xwasser_code("urn:xoev-de:xwasser:codeliste:wva", true)]
 pub struct CodeWvaType;
 
 /// Type name: Code.WaehrungType

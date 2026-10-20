@@ -28,7 +28,30 @@ fn xoev_xwasser_code2(
     }: XoevXWasserCodeArgs = xoev_xwasser_code_args(attr)?;
     let ast: syn::DeriveInput = syn::parse2(item)?;
     let name = ast.ident;
-    let version = version.unwrap_or_default();
+    let _ = (&uri, &version);
+    // Code-Typ 3 (no version argument) transmits the version chosen by the
+    // sender, so it has to be a real field; Code-Typ 1/2 keep the constant.
+    let list_version_field = if let Some(version) = version.as_deref() {
+        quote! {
+            #[serde(skip)]
+            #[xml(
+                default,
+                name = b"listVersionID",
+                ty = "attr",
+                value = #version
+            )]
+            #[cfg_attr(feature = "builder", builder(default))]
+            _list_version_id: ConstStr,
+        }
+    } else {
+        quote! {
+            #[xml(name = b"listVersionID", ty = "attr")]
+            #[serde(default)]
+            #[cfg_attr(feature = "builder", builder(default))]
+            pub list_version_id: String,
+        }
+    };
+
     let validation = if validate {
         None
     } else {
@@ -61,15 +84,7 @@ fn xoev_xwasser_code2(
             )]
             #[cfg_attr(feature = "builder", builder(default))]
             _list_uri: ConstStr,
-            #[serde(skip)]
-            #[xml(
-                default,
-                name = b"listVersionID",
-                ty = "attr",
-                value = #version
-            )]
-            #[cfg_attr(feature = "builder", builder(default))]
-            _list_version_id: ConstStr,
+            #list_version_field
         }
 
 
