@@ -46,7 +46,7 @@
           <code>1010</code>
         </xwas:flockung>
         <xwas:oberflaechenwassereinfluss>false</xwas:oberflaechenwassereinfluss>
-        <xwas:desinfektionDurchgefuehrtMit listURI="urn:xoev-de:xwasser:codeliste:desinfektionsart" listVersionID="1">
+        <xwas:desinfektionDurchgefuehrtMit listURI="urn:xoev-de:xwasser:codeliste:desinfektionsart" listVersionID="2">
           <code>1010</code>
         </xwas:desinfektionDurchgefuehrtMit>
         <xwas:abfuellungZurAbgabeInVerschlossenenBehaeltnissen>false</xwas:abfuellungZurAbgabeInVerschlossenenBehaeltnissen>
@@ -76,7 +76,7 @@
             <code>1010</code>
           </xwas:untersuchungDurch>
           <xwas:zuUntersuchenderParameter>
-            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="">
+            <xwas:parameter listURI="urn:xoev-de:xwasser:codeliste:shapth-parameter" listVersionID="5">
               <code></code>
             </xwas:parameter>
             <xwas:messprogramm></xwas:messprogramm>
@@ -97,7 +97,7 @@
         <xwas:objekt id="obj-fixture00000013">
           <xwas:objektID>00000000-0000-4000-8000-000000000017</xwas:objektID>
           <xwas:betreiberID>betreiber-fixture00000016</xwas:betreiberID>
-          <xwas:artObjekt listURI="urn:xoev-de:xwasser:codeliste:art-objekt" listVersionID="2">
+          <xwas:artObjekt listURI="urn:xoev-de:xwasser:codeliste:art-objekt" listVersionID="3">
             <code></code>
           </xwas:artObjekt>
           <xwas:nameObjekt></xwas:nameObjekt>
