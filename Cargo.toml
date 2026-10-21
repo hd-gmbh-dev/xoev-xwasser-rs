@@ -44,6 +44,9 @@ crate-type = ["cdylib", "rlib"]
 [features]
 default = ["builder", "validate"]
 trace = ["raxb/trace", "xoev-xwasser-codelists?/trace", "dep:tracing"]
+# Deterministic uuid/id/clock values for the golden-file tests. Off by default:
+# production keeps random ids and the real clock.
+test-fixtures = []
 builder = [
     "dep:typed-builder",
     "dep:uuid",
@@ -108,6 +111,8 @@ raxb-xmlschema-build.workspace = true
 
 [dev-dependencies]
 anyhow.workspace = true
+# enables `test-fixtures` for the crate's own tests only, never for consumers
+xoev-xwasser = { path = ".", features = ["test-fixtures"] }
 raxb-xmlschema-build.workspace = true
 serde_json = "1.0.145"
 test-log = { version = "0.2.18", features = ["trace", "color"] }
