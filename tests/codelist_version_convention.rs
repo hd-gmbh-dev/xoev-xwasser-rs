@@ -50,7 +50,13 @@ fn model_declarations() -> Vec<ModelDeclaration> {
         let fixed = if current.is_some() {
             None
         } else {
-            body.split(',').skip(1).collect::<Vec<_>>().join(",").split('"').nth(1).map(str::to_string)
+            body.split(',')
+                .skip(1)
+                .collect::<Vec<_>>()
+                .join(",")
+                .split('"')
+                .nth(1)
+                .map(str::to_string)
         };
         declarations.push(ModelDeclaration {
             urn: urn.to_string(),
