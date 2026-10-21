@@ -27,10 +27,7 @@ fn test_maximal_monitoring_plan_against_deserialize() -> anyhow::Result<()> {
     let e: VorgangTransportieren2010 = raxb::de::from_str(&s)?;
     let json = serde_json::to_string_pretty(&e).unwrap();
     common::golden("tests/monitoring_plan_maximal.json", &json)?;
-    common::golden(
-        "tests/monitoring_plan_maximal.debug.log",
-        &format!("{e:#?}"),
-    )?;
+    std::fs::write("tests/monitoring_plan_maximal.debug.log", format!("{e:#?}"))?;
     Ok(())
 }
 

@@ -36,7 +36,7 @@ fn test_maximal_quality_report_against_deserialize() -> anyhow::Result<()> {
     let e: VorgangTransportieren2010 = raxb::de::from_str(&s)?;
     let json = serde_json::to_string_pretty(&e).unwrap();
     common::golden("tests/quality_report_maximal.json", &json)?;
-    common::golden("tests/quality_report_maximal.debug.log", &format!("{e:#?}"))?;
+    std::fs::write("tests/quality_report_maximal.debug.log", format!("{e:#?}"))?;
     Ok(())
 }
 

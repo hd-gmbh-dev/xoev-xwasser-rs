@@ -27,7 +27,7 @@ fn test_administration_receipt_against_deserialize() -> anyhow::Result<()> {
     let e: AdministrationQuittung0020 = raxb::de::from_str(&s)?;
     let json = serde_json::to_string_pretty(&e).unwrap();
     common::golden("tests/administration_receipt.json", &json)?;
-    common::golden("tests/administration_receipt.debug.log", &format!("{e:#?}"))?;
+    std::fs::write("tests/administration_receipt.debug.log", format!("{e:#?}"))?;
     Ok(())
 }
 

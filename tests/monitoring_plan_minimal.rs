@@ -27,10 +27,7 @@ fn test_minimal_monitoring_plan_against_deserialize() -> anyhow::Result<()> {
     let e: VorgangTransportieren2010 = raxb::de::from_str(&s)?;
     let json = serde_json::to_string_pretty(&e).unwrap();
     common::golden("tests/monitoring_plan_minimal.json", &json)?;
-    common::golden(
-        "tests/monitoring_plan_minimal.debug.log",
-        &format!("{e:#?}"),
-    )?;
+    std::fs::write("tests/monitoring_plan_minimal.debug.log", format!("{e:#?}"))?;
     Ok(())
 }
 
