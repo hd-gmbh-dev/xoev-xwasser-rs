@@ -15,9 +15,9 @@ use typed_builder::TypedBuilder;
 
 use crate::TNS;
 
+use super::codes::CodeUebermittlungsartType;
 use super::pruefbericht::PruefberichtType;
 use super::shared::{dokument::DokumentType, untersuchungsplan::UntersuchungsplanType};
-use super::codes::CodeUebermittlungsartType;
 
 /// Type name: JahresberichtType
 /// Klasse für den Transport von Informationen zu einem Jahresbericht.
