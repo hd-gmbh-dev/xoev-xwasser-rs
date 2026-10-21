@@ -2983,6 +2983,7 @@ dependencies = [
  "uuid",
  "wasm-bindgen",
  "wasm-tracing",
+ "xoev-xwasser",
  "xoev-xwasser-codelists",
  "xoev-xwasser-derive",
 ]
