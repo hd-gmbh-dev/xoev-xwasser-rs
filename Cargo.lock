@@ -2807,6 +2807,7 @@ dependencies = [
  "typed-builder",
  "uuid",
  "wasm-bindgen",
+ "xoev-xwasser",
  "xoev-xwasser-codelists",
  "xoev-xwasser-derive",
 ]

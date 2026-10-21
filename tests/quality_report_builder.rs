@@ -1,6 +1,9 @@
+mod common;
+
 #[cfg(feature = "builder")]
 #[test]
 fn test_quality_report_builder() -> anyhow::Result<()> {
+    xoev_xwasser::builder::utils::use_fixed_fixtures();
     use xoev_xwasser::{
         builder::{
             shared::anschrift::anschrift_type,
@@ -299,9 +302,9 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .build();
 
     let json = serde_json::to_string_pretty(&e).unwrap();
-    std::fs::write("tests/quality_report_builder.json", json)?;
+    common::golden("tests/quality_report_builder.json", &json)?;
     let xml = raxb::ser::to_string_pretty_with_decl(&e)?;
-    std::fs::write("tests/quality_report_builder_test_result.xml", xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/ xwasser.xsd""#,
+    common::golden("tests/quality_report_builder_test_result.xml", &xml.replace(r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/ xwasser.xsd""#,
     r#"xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/ ../schemas/V0_9_2/xwasser.xsd""#))?;
     Ok(())
 }

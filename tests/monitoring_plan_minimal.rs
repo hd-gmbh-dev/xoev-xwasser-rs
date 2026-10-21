@@ -1,3 +1,5 @@
+mod common;
+
 use xoev_xwasser::model::transport::VorgangTransportieren2010;
 
 fn minimal_monitoring_plan() -> String {
@@ -24,7 +26,7 @@ fn test_minimal_monitoring_plan_against_deserialize() -> anyhow::Result<()> {
     let s = minimal_monitoring_plan();
     let e: VorgangTransportieren2010 = raxb::de::from_str(&s)?;
     let json = serde_json::to_string_pretty(&e).unwrap();
-    std::fs::write("tests/monitoring_plan_minimal.json", json)?;
+    common::golden("tests/monitoring_plan_minimal.json", &json)?;
     std::fs::write("tests/monitoring_plan_minimal.debug.log", format!("{e:#?}"))?;
     Ok(())
 }
@@ -40,6 +42,6 @@ fn test_minimal_monitoring_plan_against_serialize() -> anyhow::Result<()> {
         eprintln!("{e}");
     }
     dbg!(&xml);
-    std::fs::write("tests/monitoring_plan_minimal_test_result.xml", xml.replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/ ../schemas/V0_9_2/xwasser.xsd"))?;
+    common::golden("tests/monitoring_plan_minimal_test_result.xml", &xml.replace("https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/ xwasser.xsd", "https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/ ../schemas/V0_9_2/xwasser.xsd"))?;
     Ok(())
 }
