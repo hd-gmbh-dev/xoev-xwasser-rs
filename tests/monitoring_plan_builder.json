@@ -5,13 +5,13 @@
   "test": true,
   "nachrichtenkopf_g2g": {
     "identifikation_nachricht": {
-      "nachrichten_uuid": "fc7ac92e-475f-4d6e-a2da-e20765444dd3",
+      "nachrichten_uuid": "00000000-0000-4000-8000-000000000019",
       "nachrichten_typ": {
         "code": {
           "code": "2010"
         }
       },
-      "erstellungszeitpunkt": "2025-10-23T18:52:31"
+      "erstellungszeitpunkt": "2024-05-28T09:00:00"
     },
     "leser": {
       "verzeichnisdienst": {
@@ -38,14 +38,14 @@
   },
   "vorgang": {
     "identifikation_vorgang": {
-      "vorgangs_id": "4ecb65cc-508b-4908-958c-a83f5cdc200f"
+      "vorgangs_id": "00000000-0000-4000-8000-000000000001"
     },
     "vorgang_type": {
       "t": "Untersuchungsplan",
       "c": {
-        "untersuchungsplan_id": "064a5682-9364-45ec-a02a-534b70fe37a0",
+        "untersuchungsplan_id": "00000000-0000-4000-8000-000000000005",
         "wasserversorgungsgebiet": [
-          "wvg-9CbdlAKn"
+          "wvg-fixture00000010"
         ],
         "titel_untersuchungsplan": "",
         "jahr": [
@@ -96,10 +96,10 @@
         },
         "terminplan": [
           {
-            "terminplan_id": "a128ad43-7622-4a3f-8b40-ede998d770bf",
-            "probennahmestelle": "probennahmestelle-6kCpYJUO",
+            "terminplan_id": "00000000-0000-4000-8000-000000000006",
+            "probennahmestelle": "probennahmestelle-fixture00000003",
             "datum_zeitraum": [
-              "2025-10-23T18:52:31"
+              "2024-05-28T09:00:00"
             ],
             "probennahmestelle_kategorie": {
               "code": "1000",
@@ -132,7 +132,7 @@
             "probennahmeverfahren": [],
             "ersatz_fuer_terminplan_mit_der_id": null,
             "kommentar": null,
-            "id": "terminplan-7oZvonmB"
+            "id": "terminplan-fixture00000007"
           }
         ],
         "anlage_nach_trinkw_v": {
@@ -146,14 +146,14 @@
           "anzahl_durch_anlage_versorgte_personen": null,
           "kommentar": null,
           "wasserversorgungsgebiet_id": [
-            "wvg-9CbdlAKn"
+            "wvg-fixture00000010"
           ],
           "angaben_alternative_id": null,
-          "id": "antv-aM8smXSP"
+          "id": "antv-fixture00000011"
         },
         "objekt": [
           {
-            "objekt_id": "30fbbd67-c111-4ac7-902a-15cd1fcd5c03",
+            "objekt_id": "00000000-0000-4000-8000-000000000017",
             "anlage_nach_trinkw_vid": null,
             "wasserversorgungsgebiet_id": null,
             "anschrift_objekt": [],
@@ -169,13 +169,13 @@
             "geokoordinaten_objekt": null,
             "angaben_alternative_id": null,
             "kommentar": null,
-            "betreiber_id": "betreiber-eKPB9fzR",
-            "id": "obj-cc5jFMs2"
+            "betreiber_id": "betreiber-fixture00000016",
+            "id": "obj-fixture00000013"
           }
         ],
         "probennahmestelle": [
           {
-            "probennahmestelle_id": "6bc5919b-7156-49ff-aea2-a3cb99494e36",
+            "probennahmestelle_id": "00000000-0000-4000-8000-000000000004",
             "objekt_id": null,
             "probe": [],
             "terminplan_id": [],
@@ -202,7 +202,7 @@
             "desinfektion_und_aufbereitung_des_wassers": [],
             "angaben_alternative_id": null,
             "kommentar": null,
-            "id": "probennahmestelle-6kCpYJUO"
+            "id": "probennahmestelle-fixture00000003"
           }
         ],
         "auftraggeber": {
@@ -214,7 +214,7 @@
           "auftraggeber": {
             "t": "Organisation",
             "c": {
-              "id": "organisation-bYpBRmLy",
+              "id": "organisation-fixture00000012",
               "rechtsform": null,
               "branche": [],
               "zweck": [],
@@ -229,7 +229,7 @@
           }
         },
         "zustaendige_behoerde": {
-          "id": "behoerde-5ijVwZXV",
+          "id": "behoerde-fixture00000002",
           "typ": {
             "code": "",
             "name": null,
@@ -276,7 +276,7 @@
         "kommentar": [],
         "aenderungshistorie": null,
         "erweiterung": null,
-        "id": "untersuchungsplan-f439Ye1X"
+        "id": "untersuchungsplan-fixture00000018"
       }
     },
     "bemerkung": null,
