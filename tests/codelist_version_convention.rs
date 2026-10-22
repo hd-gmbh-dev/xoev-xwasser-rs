@@ -142,8 +142,8 @@ fn codelists_from_schema() -> Vec<(String, Option<String>)> {
 }
 
 /// `xs:attribute` is self-closing, so it arrives as `Event::Empty`.
-fn read_version_attribute<'a>(
-    attributes: raxb::quick_xml::events::attributes::Attributes<'a>,
+fn read_version_attribute(
+    attributes: raxb::quick_xml::events::attributes::Attributes<'_>,
     has_version_attribute: &mut bool,
     fixed: &mut Option<String>,
 ) {
