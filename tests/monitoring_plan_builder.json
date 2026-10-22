@@ -66,7 +66,8 @@
         "oberflaechenwassereinfluss": false,
         "desinfektion_durchgefuehrt_mit": {
           "code": "1010",
-          "name": null
+          "name": null,
+          "listVersionID": "2"
         },
         "abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen": false,
         "acrylamid": {
@@ -112,7 +113,8 @@
               {
                 "parameter": {
                   "code": "",
-                  "name": null
+                  "name": null,
+                  "listVersionID": "5"
                 },
                 "messprogramm": "",
                 "parameter_gruppe": "",
@@ -158,7 +160,8 @@
             "anschrift_objekt": [],
             "art_objekt": {
               "code": "",
-              "name": null
+              "name": null,
+              "listVersionID": "3"
             },
             "name_objekt": "",
             "betriebszustand_des_objekts": null,
@@ -187,7 +190,8 @@
             "medium_an_der_probennahmestelle": [
               {
                 "code": "",
-                "name": null
+                "name": null,
+                "listVersionID": "3"
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],

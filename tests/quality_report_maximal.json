@@ -55,17 +55,20 @@
             },
             "unterkategorie_probennahmestelle": {
               "code": "1030",
-              "name": null
+              "name": null,
+              "listVersionID": "1"
             },
             "art_der_entnahmearmatur": {
               "code": "1010",
-              "name": null
+              "name": null,
+              "listVersionID": "1"
             },
             "stockwerk_probennahmestelle": 0,
             "medium_an_der_probennahmestelle": [
               {
                 "code": "1010",
-                "name": null
+                "name": null,
+                "listVersionID": "1"
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
@@ -92,24 +95,28 @@
                 "untersuchungsverfahren": [
                   {
                     "code": "1010",
-                    "name": null
+                    "name": null,
+                    "listVersionID": "3"
                   }
                 ],
                 "ergaenzung_zum_untersuchungsverfahren": null,
                 "untersuchter_parameter": {
                   "code": "1021",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "parameterauspraegung": {
                   "code": "10001-1",
-                  "name": null
+                  "name": null,
+                  "listVersionID": "3"
                 },
                 "parameter_durch_betreiber_untersucht": false,
                 "wurde_der_parameter_korrigiert": null,
                 "untersuchungswert_parameter": 0.0,
                 "einheit_des_untersuchungswerts": {
                   "code": "1400",
-                  "name": null
+                  "name": null,
+                  "listVersionID": "3"
                 },
                 "ergaenzung_zum_untersuchungswert_parameter": null,
                 "parameterwert_ergaenzung": null,
@@ -130,12 +137,14 @@
             "anlass_der_untersuchung": [
               {
                 "code": "1010",
-                "name": null
+                "name": null,
+                "listVersionID": "3"
               }
             ],
             "medium": {
               "code": "1010",
-              "name": null
+              "name": null,
+              "listVersionID": "1"
             },
             "akkreditierte_durchfuehrung_der_probennahme": false,
             "ergaenzung_zum_medium": null,
@@ -143,12 +152,14 @@
             "probennahmeverfahren": [
               {
                 "code": "1010",
-                "name": null
+                "name": null,
+                "listVersionID": "1"
               }
             ],
             "probenentnahmegeraet": {
               "code": "9020",
-              "name": null
+              "name": null,
+              "listVersionID": "1"
             },
             "probengefaess": [],
             "ergaenzende_informationen_zu_probenentnahmegeraet": null,
