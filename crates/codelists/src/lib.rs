@@ -34,13 +34,19 @@ where
 pub type CodeLists = HashMap<Arc<str>, CodeList>;
 pub type CodeListMap = Arc<CodeLists>;
 
+/// Answers "is this code part of codelist `codelist` in version `version`".
+///
+/// The version is part of the question on purpose: for XÖV code type 3 the
+/// sender chooses the version (`listVersionID`), so a value that is valid in one
+/// version may be unknown in another.
 pub trait CodeListsProvider {
-    fn contains(&self, codelist: &str, value: &str) -> bool;
+    fn contains(&self, codelist: &str, version: &str, value: &str) -> bool;
 }
 
 impl CodeListsProvider for CodeLists {
-    fn contains(&self, codelist: &str, value: &str) -> bool {
+    fn contains(&self, codelist: &str, version: &str, value: &str) -> bool {
         self.get(codelist)
+            .filter(|codelist| codelist.header.identification.version.as_ref() == version)
             .map(|codelist| codelist.validate(value))
             .unwrap_or_default()
     }
@@ -50,16 +56,20 @@ impl<T> CodeListsProvider for Arc<T>
 where
     T: CodeListsProvider,
 {
-    fn contains(&self, codelist: &str, value: &str) -> bool {
-        T::contains(self, codelist, value)
+    fn contains(&self, codelist: &str, version: &str, value: &str) -> bool {
+        T::contains(self, codelist, version, value)
     }
 }
 
 pub trait CodeListValue {
     const CODELIST: &str;
 
+    /// Version the value belongs to: the constant for code type 1/2, the
+    /// transmitted `listVersionID` for code type 3.
+    fn version(&self) -> &str;
+
     fn validate(&self, codelists: &impl CodeListsProvider) -> bool {
-        codelists.contains(Self::CODELIST, self.as_value())
+        codelists.contains(Self::CODELIST, self.version(), self.as_value())
     }
 
     fn as_value(&self) -> &str;
@@ -74,6 +84,10 @@ mod tests {
         T: AsRef<str>,
     {
         const CODELIST: &str = "urn:xoev-de:xwasser:codeliste:parameterauspraegung";
+
+        fn version(&self) -> &str {
+            "5"
+        }
 
         fn as_value(&self) -> &str {
             self.as_ref()
