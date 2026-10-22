@@ -40,11 +40,11 @@
           <xwas:kategorieProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="3">
             <code>1000</code>
           </xwas:kategorieProbennahmestelle>
-          <xwas:artDerEntnahmearmatur listURI="urn:xoev-de:xwasser:codeliste:art-entnahmearmatur" listVersionID="2">
+          <xwas:artDerEntnahmearmatur listURI="urn:xoev-de:xwasser:codeliste:art-entnahmearmatur" listVersionID="1">
             <code>1010</code>
           </xwas:artDerEntnahmearmatur>
           <xwas:stockwerkProbennahmestelle>1</xwas:stockwerkProbennahmestelle>
-          <xwas:mediumAnDerProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:medium" listVersionID="3">
+          <xwas:mediumAnDerProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:medium" listVersionID="1">
             <code>1010</code>
             <name>medium probennahmestelle</name>
           </xwas:mediumAnDerProbennahmestelle>
@@ -90,7 +90,7 @@
             <code>1010</code>
             <name>name</name>
           </xwas:anlassDerUntersuchung>
-          <xwas:medium listURI="urn:xoev-de:xwasser:codeliste:medium" listVersionID="3">
+          <xwas:medium listURI="urn:xoev-de:xwasser:codeliste:medium" listVersionID="1">
             <code>1010</code>
             <name>medium</name>
           </xwas:medium>

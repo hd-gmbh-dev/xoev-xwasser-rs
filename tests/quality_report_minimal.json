@@ -57,19 +57,22 @@
             "unterkategorie_probennahmestelle": null,
             "art_der_entnahmearmatur": {
               "code": "1010",
-              "name": null
+              "name": null,
+              "listVersionID": "1"
             },
             "stockwerk_probennahmestelle": 1,
             "medium_an_der_probennahmestelle": [
               {
                 "code": "1010",
-                "name": "medium probennahmestelle"
+                "name": "medium probennahmestelle",
+                "listVersionID": "1"
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [
               {
                 "code": "1234",
-                "name": "desinfektionAufbereitungDesWassers"
+                "name": "desinfektionAufbereitungDesWassers",
+                "listVersionID": ""
               }
             ],
             "angaben_alternative_id_gesundheit": null,
@@ -95,17 +98,20 @@
                 "untersuchungsverfahren": [
                   {
                     "code": "1010",
-                    "name": "untersuchungsverfahren"
+                    "name": "untersuchungsverfahren",
+                    "listVersionID": "2"
                   }
                 ],
                 "ergaenzung_zum_untersuchungsverfahren": "ergaenzung_zum_untersuchungsverfahren",
                 "untersuchter_parameter": {
                   "code": "1000",
-                  "name": "untersuchter_parameter"
+                  "name": "untersuchter_parameter",
+                  "listVersionID": ""
                 },
                 "parameterauspraegung": {
                   "code": "10002-3",
-                  "name": "parameterauspraegung"
+                  "name": "parameterauspraegung",
+                  "listVersionID": "3"
                 },
                 "parameter_durch_betreiber_untersucht": true,
                 "wurde_der_parameter_korrigiert": null,
@@ -130,12 +136,14 @@
             "anlass_der_untersuchung": [
               {
                 "code": "1010",
-                "name": "name"
+                "name": "name",
+                "listVersionID": "2"
               }
             ],
             "medium": {
               "code": "1010",
-              "name": "medium"
+              "name": "medium",
+              "listVersionID": "1"
             },
             "akkreditierte_durchfuehrung_der_probennahme": true,
             "ergaenzung_zum_medium": "Wasser",
@@ -143,17 +151,20 @@
             "probennahmeverfahren": [
               {
                 "code": "1010",
-                "name": "probennahmeverfahren"
+                "name": "probennahmeverfahren",
+                "listVersionID": "1"
               }
             ],
             "probenentnahmegeraet": {
               "code": "1010",
-              "name": "probenentnahmegeraet"
+              "name": "probenentnahmegeraet",
+              "listVersionID": "1"
             },
             "probengefaess": [
               {
                 "code": "1010",
-                "name": "probengefaess"
+                "name": "probengefaess",
+                "listVersionID": "1"
               }
             ],
             "ergaenzende_informationen_zu_probenentnahmegeraet": "",
@@ -235,7 +246,8 @@
                     "staat": {
                       "staat": {
                         "code": "1234",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       }
                     },
                     "verwaltungspolitische_kodierung": {
@@ -406,7 +418,8 @@
               "staat": {
                 "staat": {
                   "code": "34323",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 }
               },
               "verwaltungspolitische_kodierung": {
@@ -482,7 +495,8 @@
             "staat": {
               "staat": {
                 "code": "34323",
-                "name": null
+                "name": null,
+                "listVersionID": ""
               }
             },
             "verwaltungspolitische_kodierung": {
