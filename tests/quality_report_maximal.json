@@ -67,7 +67,8 @@
               "praefix": [
                 {
                   "code": "1234",
-                  "name": "von"
+                  "name": "von",
+                  "listVersionID": ""
                 }
               ]
             },
@@ -108,7 +109,8 @@
                 "kreis": null,
                 "bezirk": {
                   "code": "9999",
-                  "name": "Reg.-Bez. Hotzingmussen"
+                  "name": "Reg.-Bez. Hotzingmussen",
+                  "listVersionID": ""
                 },
                 "bundesland": {
                   "code": "1",
@@ -116,13 +118,15 @@
                 },
                 "gemeindeschluessel": {
                   "code": "6667",
-                  "name": "Gemeine Hotzingen"
+                  "name": "Gemeine Hotzingen",
+                  "listVersionID": ""
                 },
                 "regionalschluessel": null,
                 "nation": {
                   "staat": {
                     "code": "2",
-                    "name": "LandLand"
+                    "name": "LandLand",
+                    "listVersionID": ""
                   }
                 }
               }
@@ -153,17 +157,20 @@
                 "staat": {
                   "staat": {
                     "code": "1234",
-                    "name": ""
+                    "name": "",
+                    "listVersionID": ""
                   }
                 },
                 "verwaltungspolitische_kodierung": {
                   "kreis": {
                     "code": "1111",
-                    "name": ""
+                    "name": "",
+                    "listVersionID": ""
                   },
                   "bezirk": {
                     "code": "1231",
-                    "name": ""
+                    "name": "",
+                    "listVersionID": ""
                   },
                   "bundesland": {
                     "code": "1",
@@ -171,16 +178,19 @@
                   },
                   "gemeindeschluessel": {
                     "code": "9090",
-                    "name": ""
+                    "name": "",
+                    "listVersionID": ""
                   },
                   "regionalschluessel": {
                     "code": "9897",
-                    "name": ""
+                    "name": "",
+                    "listVersionID": ""
                   },
                   "nation": {
                     "staat": {
                       "code": "123456",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     }
                   }
                 },
@@ -219,23 +229,27 @@
             },
             "unterkategorie_probennahmestelle": {
               "code": "1030",
-              "name": null
+              "name": null,
+              "listVersionID": "1"
             },
             "art_der_entnahmearmatur": {
               "code": "1010",
-              "name": null
+              "name": null,
+              "listVersionID": "1"
             },
             "stockwerk_probennahmestelle": 1,
             "medium_an_der_probennahmestelle": [
               {
                 "code": "1010",
-                "name": "Schöpfkelle"
+                "name": "Schöpfkelle",
+                "listVersionID": "1"
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [
               {
                 "code": "1234",
-                "name": "Adsorption, Entfernung von Chlor und Ozon, biol. Filtration, Entfernung von Partikeln"
+                "name": "Adsorption, Entfernung von Chlor und Ozon, biol. Filtration, Entfernung von Partikeln",
+                "listVersionID": ""
               }
             ],
             "angaben_alternative_id": null,
@@ -261,17 +275,20 @@
                 "untersuchungsverfahren": [
                   {
                     "code": "1010",
-                    "name": "Nontarget-Screening"
+                    "name": "Nontarget-Screening",
+                    "listVersionID": "2"
                   }
                 ],
                 "ergaenzung_zum_untersuchungsverfahren": "Nontarget-Screening",
                 "untersuchter_parameter": {
                   "code": "1000",
-                  "name": "Kalk"
+                  "name": "Kalk",
+                  "listVersionID": ""
                 },
                 "parameterauspraegung": {
                   "code": "10001-1",
-                  "name": "Sehr Hoch"
+                  "name": "Sehr Hoch",
+                  "listVersionID": "3"
                 },
                 "parameter_durch_betreiber_untersucht": true,
                 "wurde_der_parameter_korrigiert": null,
@@ -296,12 +313,14 @@
             "anlass_der_untersuchung": [
               {
                 "code": "1010",
-                "name": "Teil einer Routineuntersuchung"
+                "name": "Teil einer Routineuntersuchung",
+                "listVersionID": "2"
               }
             ],
             "medium": {
               "code": "1010",
-              "name": "Flaschenwasser"
+              "name": "Flaschenwasser",
+              "listVersionID": "1"
             },
             "akkreditierte_durchfuehrung_der_probennahme": true,
             "ergaenzung_zum_medium": "Grünglas",
@@ -309,16 +328,19 @@
             "probennahmeverfahren": [
               {
                 "code": "1010",
-                "name": "Beprobung \"Wie vom Verbraucher verwendet\" incl. Entnahmearmatur (Zweck C)"
+                "name": "Beprobung \"Wie vom Verbraucher verwendet\" incl. Entnahmearmatur (Zweck C)",
+                "listVersionID": "1"
               }
             ],
             "probenentnahmegeraet": {
               "code": "1010",
-              "name": "Glasschöpfer"
+              "name": "Glasschöpfer",
+              "listVersionID": "1"
             },
             "probengefaess": {
               "code": "1010",
-              "name": "Glasgefäß"
+              "name": "Glasgefäß",
+              "listVersionID": "1"
             },
             "ergaenzende_informationen_zu_probenentnahmegeraet": "",
             "desinfektion_probenentnahmegeraet_durchgefuehrt": true,
@@ -359,17 +381,20 @@
                 "untersuchungsverfahren": [
                   {
                     "code": "2020",
-                    "name": "Spektrometrie"
+                    "name": "Spektrometrie",
+                    "listVersionID": "2"
                   }
                 ],
                 "ergaenzung_zum_untersuchungsverfahren": "Spektrometrie mit Erweiterungen",
                 "untersuchter_parameter": {
                   "code": "2000",
-                  "name": "Chlor"
+                  "name": "Chlor",
+                  "listVersionID": ""
                 },
                 "parameterauspraegung": {
                   "code": "10002-2",
-                  "name": "Mäßig"
+                  "name": "Mäßig",
+                  "listVersionID": "3"
                 },
                 "parameter_durch_betreiber_untersucht": false,
                 "wurde_der_parameter_korrigiert": null,
@@ -394,12 +419,14 @@
             "anlass_der_untersuchung": [
               {
                 "code": "1010",
-                "name": "Regelmäßige Kontrolle"
+                "name": "Regelmäßige Kontrolle",
+                "listVersionID": "2"
               }
             ],
             "medium": {
               "code": "1010",
-              "name": "Leitungswasser"
+              "name": "Leitungswasser",
+              "listVersionID": "1"
             },
             "akkreditierte_durchfuehrung_der_probennahme": false,
             "ergaenzung_zum_medium": "Kunststoffflasche",
@@ -407,16 +434,19 @@
             "probennahmeverfahren": [
               {
                 "code": "1010",
-                "name": "Direkte Entnahme am Wasserhahn"
+                "name": "Direkte Entnahme am Wasserhahn",
+                "listVersionID": "1"
               }
             ],
             "probenentnahmegeraet": {
               "code": "1010",
-              "name": "Plastikbecher"
+              "name": "Plastikbecher",
+              "listVersionID": "1"
             },
             "probengefaess": {
               "code": "1010",
-              "name": "Kunststoffbehälter"
+              "name": "Kunststoffbehälter",
+              "listVersionID": "1"
             },
             "ergaenzende_informationen_zu_probenentnahmegeraet": "Vor Gebrauch gereinigt",
             "desinfektion_probenentnahmegeraet_durchgefuehrt": false,
@@ -673,7 +703,8 @@
                         "praefix": [
                           {
                             "code": "1234",
-                            "name": "von"
+                            "name": "von",
+                            "listVersionID": ""
                           }
                         ]
                       },
@@ -714,7 +745,8 @@
                           "kreis": null,
                           "bezirk": {
                             "code": "9999",
-                            "name": "Reg.-Bez. Hotzingmussen"
+                            "name": "Reg.-Bez. Hotzingmussen",
+                            "listVersionID": ""
                           },
                           "bundesland": {
                             "code": "1",
@@ -722,13 +754,15 @@
                           },
                           "gemeindeschluessel": {
                             "code": "6667",
-                            "name": "Gemeine Hotzingen"
+                            "name": "Gemeine Hotzingen",
+                            "listVersionID": ""
                           },
                           "regionalschluessel": null,
                           "nation": {
                             "staat": {
                               "code": "2",
-                              "name": "LandLand"
+                              "name": "LandLand",
+                              "listVersionID": ""
                             }
                           }
                         }
@@ -759,17 +793,20 @@
                           "staat": {
                             "staat": {
                               "code": "2342",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             }
                           },
                           "verwaltungspolitische_kodierung": {
                             "kreis": {
                               "code": "6666",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "bezirk": {
                               "code": "2342",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "bundesland": {
                               "code": "3",
@@ -777,16 +814,19 @@
                             },
                             "gemeindeschluessel": {
                               "code": "4444",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "regionalschluessel": {
                               "code": "2222",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "nation": {
                               "staat": {
                                 "code": "12345",
-                                "name": ""
+                                "name": "",
+                                "listVersionID": ""
                               }
                             }
                           },
@@ -831,17 +871,20 @@
                     "staat": {
                       "staat": {
                         "code": "1234",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       }
                     },
                     "verwaltungspolitische_kodierung": {
                       "kreis": {
                         "code": "1111",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "bezirk": {
                         "code": "1231",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "bundesland": {
                         "code": "1",
@@ -849,16 +892,19 @@
                       },
                       "gemeindeschluessel": {
                         "code": "9090",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "regionalschluessel": {
                         "code": "9897",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "nation": {
                         "staat": {
                           "code": "123456",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         }
                       }
                     },
@@ -870,7 +916,8 @@
                   {
                     "staatsangehoerigkeit": {
                       "code": "6543",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     }
                   }
                 ],
@@ -878,7 +925,8 @@
                   {
                     "ausweisart": {
                       "code": "5432",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     },
                     "gueltigkeit": {
                       "beginn": "2024-07-26+05:00",
@@ -915,7 +963,8 @@
                         "praefix": [
                           {
                             "code": "8765",
-                            "name": "Landgericht"
+                            "name": "Landgericht",
+                            "listVersionID": ""
                           }
                         ]
                       },
@@ -956,7 +1005,8 @@
                           "kreis": null,
                           "bezirk": {
                             "code": "5678",
-                            "name": "Bezirk Neustadt"
+                            "name": "Bezirk Neustadt",
+                            "listVersionID": ""
                           },
                           "bundesland": {
                             "code": "4",
@@ -964,16 +1014,19 @@
                           },
                           "gemeindeschluessel": {
                             "code": "1234",
-                            "name": "Neustadt"
+                            "name": "Neustadt",
+                            "listVersionID": ""
                           },
                           "regionalschluessel": {
                             "code": "9876",
-                            "name": "Region Neustadt"
+                            "name": "Region Neustadt",
+                            "listVersionID": ""
                           },
                           "nation": {
                             "staat": {
                               "code": "DE",
-                              "name": "Deutschland"
+                              "name": "Deutschland",
+                              "listVersionID": ""
                             }
                           }
                         }
@@ -1004,17 +1057,20 @@
                           "staat": {
                             "staat": {
                               "code": "DE",
-                              "name": "Deutschland"
+                              "name": "Deutschland",
+                              "listVersionID": ""
                             }
                           },
                           "verwaltungspolitische_kodierung": {
                             "kreis": {
                               "code": "3456",
-                              "name": "Kreis Neustadt"
+                              "name": "Kreis Neustadt",
+                              "listVersionID": ""
                             },
                             "bezirk": {
                               "code": "4321",
-                              "name": "Bezirk Nord"
+                              "name": "Bezirk Nord",
+                              "listVersionID": ""
                             },
                             "bundesland": {
                               "code": "4",
@@ -1022,16 +1078,19 @@
                             },
                             "gemeindeschluessel": {
                               "code": "6789",
-                              "name": "Neustadt"
+                              "name": "Neustadt",
+                              "listVersionID": ""
                             },
                             "regionalschluessel": {
                               "code": "5432",
-                              "name": "Region Nord"
+                              "name": "Region Nord",
+                              "listVersionID": ""
                             },
                             "nation": {
                               "staat": {
                                 "code": "DE",
-                                "name": "Deutschland"
+                                "name": "Deutschland",
+                                "listVersionID": ""
                               }
                             }
                           },
@@ -1043,7 +1102,8 @@
                     "ausstellender_staat": {
                       "staat": {
                         "code": "1",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       }
                     }
                   }
@@ -1074,17 +1134,20 @@
                     "staat": {
                       "staat": {
                         "code": "1234",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       }
                     },
                     "verwaltungspolitische_kodierung": {
                       "kreis": {
                         "code": "1111",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "bezirk": {
                         "code": "1231",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "bundesland": {
                         "code": "1",
@@ -1092,16 +1155,19 @@
                       },
                       "gemeindeschluessel": {
                         "code": "9090",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "regionalschluessel": {
                         "code": "9897",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "nation": {
                         "staat": {
                           "code": "123456",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         }
                       }
                     },
@@ -1143,7 +1209,8 @@
                   {
                     "sprache": {
                       "code": "1234",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     },
                     "zusatz": null
                   }
@@ -1152,7 +1219,8 @@
                   {
                     "sprache": {
                       "code": "2",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     },
                     "zusatz": null
                   }
@@ -1403,7 +1471,8 @@
                         "praefix": [
                           {
                             "code": "1234",
-                            "name": "von"
+                            "name": "von",
+                            "listVersionID": ""
                           }
                         ]
                       },
@@ -1444,7 +1513,8 @@
                           "kreis": null,
                           "bezirk": {
                             "code": "9999",
-                            "name": "Reg.-Bez. Hotzingmussen"
+                            "name": "Reg.-Bez. Hotzingmussen",
+                            "listVersionID": ""
                           },
                           "bundesland": {
                             "code": "1",
@@ -1452,13 +1522,15 @@
                           },
                           "gemeindeschluessel": {
                             "code": "6667",
-                            "name": "Gemeine Hotzingen"
+                            "name": "Gemeine Hotzingen",
+                            "listVersionID": ""
                           },
                           "regionalschluessel": null,
                           "nation": {
                             "staat": {
                               "code": "2",
-                              "name": "LandLand"
+                              "name": "LandLand",
+                              "listVersionID": ""
                             }
                           }
                         }
@@ -1489,17 +1561,20 @@
                           "staat": {
                             "staat": {
                               "code": "6789",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             }
                           },
                           "verwaltungspolitische_kodierung": {
                             "kreis": {
                               "code": "8888",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "bezirk": {
                               "code": "6789",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "bundesland": {
                               "code": "5",
@@ -1507,16 +1582,19 @@
                             },
                             "gemeindeschluessel": {
                               "code": "5555",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "regionalschluessel": {
                               "code": "3333",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "nation": {
                               "staat": {
                                 "code": "54321",
-                                "name": ""
+                                "name": "",
+                                "listVersionID": ""
                               }
                             }
                           },
@@ -1561,17 +1639,20 @@
                     "staat": {
                       "staat": {
                         "code": "5678",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       }
                     },
                     "verwaltungspolitische_kodierung": {
                       "kreis": {
                         "code": "2222",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "bezirk": {
                         "code": "5678",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "bundesland": {
                         "code": "2",
@@ -1579,16 +1660,19 @@
                       },
                       "gemeindeschluessel": {
                         "code": "8080",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "regionalschluessel": {
                         "code": "7979",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "nation": {
                         "staat": {
                           "code": "654321",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         }
                       }
                     },
@@ -1600,7 +1684,8 @@
                   {
                     "staatsangehoerigkeit": {
                       "code": "6543",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     }
                   }
                 ],
@@ -1608,7 +1693,8 @@
                   {
                     "ausweisart": {
                       "code": "5432",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     },
                     "gueltigkeit": {
                       "beginn": "2024-07-26+05:00",
@@ -1654,17 +1740,20 @@
                     "staat": {
                       "staat": {
                         "code": "5678",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       }
                     },
                     "verwaltungspolitische_kodierung": {
                       "kreis": {
                         "code": "2222",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "bezirk": {
                         "code": "5678",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "bundesland": {
                         "code": "2",
@@ -1672,16 +1761,19 @@
                       },
                       "gemeindeschluessel": {
                         "code": "2020",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "regionalschluessel": {
                         "code": "7878",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       },
                       "nation": {
                         "staat": {
                           "code": "654321",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         }
                       }
                     },
@@ -1723,7 +1815,8 @@
                   {
                     "sprache": {
                       "code": "1234",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     },
                     "zusatz": null
                   }
@@ -1732,7 +1825,8 @@
                   {
                     "sprache": {
                       "code": "2",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     },
                     "zusatz": null
                   }
@@ -1983,7 +2077,8 @@
                         "praefix": [
                           {
                             "code": "5678",
-                            "name": "von"
+                            "name": "von",
+                            "listVersionID": ""
                           }
                         ]
                       },
@@ -2024,7 +2119,8 @@
                           "kreis": null,
                           "bezirk": {
                             "code": "8888",
-                            "name": "Reg.-Bez. Mitteldorf"
+                            "name": "Reg.-Bez. Mitteldorf",
+                            "listVersionID": ""
                           },
                           "bundesland": {
                             "code": "2",
@@ -2032,13 +2128,15 @@
                           },
                           "gemeindeschluessel": {
                             "code": "7778",
-                            "name": "Gemeinde Mitteldorf"
+                            "name": "Gemeinde Mitteldorf",
+                            "listVersionID": ""
                           },
                           "regionalschluessel": null,
                           "nation": {
                             "staat": {
                               "code": "3",
-                              "name": "Landlandia"
+                              "name": "Landlandia",
+                              "listVersionID": ""
                             }
                           }
                         }
@@ -2069,17 +2167,20 @@
                           "staat": {
                             "staat": {
                               "code": "3456",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             }
                           },
                           "verwaltungspolitische_kodierung": {
                             "kreis": {
                               "code": "7777",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "bezirk": {
                               "code": "3456",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "bundesland": {
                               "code": "4",
@@ -2087,16 +2188,19 @@
                             },
                             "gemeindeschluessel": {
                               "code": "5555",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "regionalschluessel": {
                               "code": "3333",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "nation": {
                               "staat": {
                                 "code": "67890",
-                                "name": ""
+                                "name": "",
+                                "listVersionID": ""
                               }
                             }
                           },
@@ -2141,17 +2245,20 @@
                     "staat": {
                       "staat": {
                         "code": "5678",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       }
                     },
                     "verwaltungspolitische_kodierung": {
                       "kreis": {
                         "code": "2222",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       },
                       "bezirk": {
                         "code": "2342",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       },
                       "bundesland": {
                         "code": "2",
@@ -2159,16 +2266,19 @@
                       },
                       "gemeindeschluessel": {
                         "code": "6789",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       },
                       "regionalschluessel": {
                         "code": "7878",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       },
                       "nation": {
                         "staat": {
                           "code": "654321",
-                          "name": null
+                          "name": null,
+                          "listVersionID": ""
                         }
                       }
                     },
@@ -2180,7 +2290,8 @@
                   {
                     "staatsangehoerigkeit": {
                       "code": "6543",
-                      "name": null
+                      "name": null,
+                      "listVersionID": ""
                     }
                   }
                 ],
@@ -2188,7 +2299,8 @@
                   {
                     "ausweisart": {
                       "code": "6789",
-                      "name": null
+                      "name": null,
+                      "listVersionID": ""
                     },
                     "gueltigkeit": {
                       "beginn": "2024-08-01+05:00",
@@ -2225,7 +2337,8 @@
                         "praefix": [
                           {
                             "code": "6789",
-                            "name": null
+                            "name": null,
+                            "listVersionID": ""
                           }
                         ]
                       },
@@ -2282,7 +2395,8 @@
                             "praefix": [
                               {
                                 "code": "7890",
-                                "name": "von"
+                                "name": "von",
+                                "listVersionID": ""
                               }
                             ]
                           },
@@ -2323,7 +2437,8 @@
                               "kreis": null,
                               "bezirk": {
                                 "code": "7777",
-                                "name": "Reg.-Bez. Oberstadt"
+                                "name": "Reg.-Bez. Oberstadt",
+                                "listVersionID": ""
                               },
                               "bundesland": {
                                 "code": "1",
@@ -2331,13 +2446,15 @@
                               },
                               "gemeindeschluessel": {
                                 "code": "5555",
-                                "name": "Gemeinde Oberstadt"
+                                "name": "Gemeinde Oberstadt",
+                                "listVersionID": ""
                               },
                               "regionalschluessel": null,
                               "nation": {
                                 "staat": {
                                   "code": "2",
-                                  "name": "LandD"
+                                  "name": "LandD",
+                                  "listVersionID": ""
                                 }
                               }
                             }
@@ -2368,17 +2485,20 @@
                               "staat": {
                                 "staat": {
                                   "code": "4567",
-                                  "name": "LandC"
+                                  "name": "LandC",
+                                  "listVersionID": ""
                                 }
                               },
                               "verwaltungspolitische_kodierung": {
                                 "kreis": {
                                   "code": "1234",
-                                  "name": "Kreis Oberstadt"
+                                  "name": "Kreis Oberstadt",
+                                  "listVersionID": ""
                                 },
                                 "bezirk": {
                                   "code": "5678",
-                                  "name": "Bezirk Süd"
+                                  "name": "Bezirk Süd",
+                                  "listVersionID": ""
                                 },
                                 "bundesland": {
                                   "code": "5",
@@ -2386,16 +2506,19 @@
                                 },
                                 "gemeindeschluessel": {
                                   "code": "2345",
-                                  "name": "Oberstadt"
+                                  "name": "Oberstadt",
+                                  "listVersionID": ""
                                 },
                                 "regionalschluessel": {
                                   "code": "4567",
-                                  "name": "Region Süd"
+                                  "name": "Region Süd",
+                                  "listVersionID": ""
                                 },
                                 "nation": {
                                   "staat": {
                                     "code": "6789",
-                                    "name": "LandC"
+                                    "name": "LandC",
+                                    "listVersionID": ""
                                   }
                                 }
                               },
@@ -2412,7 +2535,8 @@
                     "ausstellender_staat": {
                       "staat": {
                         "code": "1234",
-                        "name": "StaatX"
+                        "name": "StaatX",
+                        "listVersionID": ""
                       }
                     }
                   }
@@ -2443,17 +2567,20 @@
                     "staat": {
                       "staat": {
                         "code": "8765",
-                        "name": "LandGrün"
+                        "name": "LandGrün",
+                        "listVersionID": ""
                       }
                     },
                     "verwaltungspolitische_kodierung": {
                       "kreis": {
                         "code": "3333",
-                        "name": "Kreis Grünfeld"
+                        "name": "Kreis Grünfeld",
+                        "listVersionID": ""
                       },
                       "bezirk": {
                         "code": "4444",
-                        "name": "Bezirk Grünstadt"
+                        "name": "Bezirk Grünstadt",
+                        "listVersionID": ""
                       },
                       "bundesland": {
                         "code": "4",
@@ -2461,16 +2588,19 @@
                       },
                       "gemeindeschluessel": {
                         "code": "5555",
-                        "name": "Gemeinde Grünstadt"
+                        "name": "Gemeinde Grünstadt",
+                        "listVersionID": ""
                       },
                       "regionalschluessel": {
                         "code": "6666",
-                        "name": "Region Grün"
+                        "name": "Region Grün",
+                        "listVersionID": ""
                       },
                       "nation": {
                         "staat": {
                           "code": "987654",
-                          "name": "Republik Grünland"
+                          "name": "Republik Grünland",
+                          "listVersionID": ""
                         }
                       }
                     },
@@ -2512,7 +2642,8 @@
                   {
                     "sprache": {
                       "code": "es",
-                      "name": null
+                      "name": null,
+                      "listVersionID": ""
                     },
                     "zusatz": null
                   }
@@ -2521,14 +2652,16 @@
                   {
                     "sprache": {
                       "code": "fr",
-                      "name": null
+                      "name": null,
+                      "listVersionID": ""
                     },
                     "zusatz": null
                   },
                   {
                     "sprache": {
                       "code": "en",
-                      "name": null
+                      "name": null,
+                      "listVersionID": ""
                     },
                     "zusatz": null
                   }
@@ -2819,7 +2952,8 @@
                     "praefix": [
                       {
                         "code": "1234",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       }
                     ]
                   },
@@ -2876,7 +3010,8 @@
                         "praefix": [
                           {
                             "code": "5678",
-                            "name": "von"
+                            "name": "von",
+                            "listVersionID": ""
                           }
                         ]
                       },
@@ -2917,7 +3052,8 @@
                           "kreis": null,
                           "bezirk": {
                             "code": "8888",
-                            "name": "Reg.-Bez. Neustadt"
+                            "name": "Reg.-Bez. Neustadt",
+                            "listVersionID": ""
                           },
                           "bundesland": {
                             "code": "2",
@@ -2925,13 +3061,15 @@
                           },
                           "gemeindeschluessel": {
                             "code": "3333",
-                            "name": "Gemeine Neustadt"
+                            "name": "Gemeine Neustadt",
+                            "listVersionID": ""
                           },
                           "regionalschluessel": null,
                           "nation": {
                             "staat": {
                               "code": "3",
-                              "name": "LandB"
+                              "name": "LandB",
+                              "listVersionID": ""
                             }
                           }
                         }
@@ -2962,17 +3100,20 @@
                           "staat": {
                             "staat": {
                               "code": "3456",
-                              "name": "LandB"
+                              "name": "LandB",
+                              "listVersionID": ""
                             }
                           },
                           "verwaltungspolitische_kodierung": {
                             "kreis": {
                               "code": "7890",
-                              "name": "Kreis Neustadt"
+                              "name": "Kreis Neustadt",
+                              "listVersionID": ""
                             },
                             "bezirk": {
                               "code": "4567",
-                              "name": "Bezirk Nord"
+                              "name": "Bezirk Nord",
+                              "listVersionID": ""
                             },
                             "bundesland": {
                               "code": "4",
@@ -2980,16 +3121,19 @@
                             },
                             "gemeindeschluessel": {
                               "code": "8901",
-                              "name": "Neustadt"
+                              "name": "Neustadt",
+                              "listVersionID": ""
                             },
                             "regionalschluessel": {
                               "code": "3456",
-                              "name": "Region Nord"
+                              "name": "Region Nord",
+                              "listVersionID": ""
                             },
                             "nation": {
                               "staat": {
                                 "code": "12346",
-                                "name": "LandB"
+                                "name": "LandB",
+                                "listVersionID": ""
                               }
                             }
                           },
@@ -3025,7 +3169,8 @@
                         "praefix": [
                           {
                             "code": "9101",
-                            "name": "von"
+                            "name": "von",
+                            "listVersionID": ""
                           }
                         ]
                       },
@@ -3066,7 +3211,8 @@
                           "kreis": null,
                           "bezirk": {
                             "code": "7777",
-                            "name": "Reg.-Bez. Dorfheim"
+                            "name": "Reg.-Bez. Dorfheim",
+                            "listVersionID": ""
                           },
                           "bundesland": {
                             "code": "3",
@@ -3074,13 +3220,15 @@
                           },
                           "gemeindeschluessel": {
                             "code": "4444",
-                            "name": "Gemeinde Dorfheim"
+                            "name": "Gemeinde Dorfheim",
+                            "listVersionID": ""
                           },
                           "regionalschluessel": null,
                           "nation": {
                             "staat": {
                               "code": "4",
-                              "name": "LandC"
+                              "name": "LandC",
+                              "listVersionID": ""
                             }
                           }
                         }
@@ -3111,17 +3259,20 @@
                           "staat": {
                             "staat": {
                               "code": "4567",
-                              "name": "LandC"
+                              "name": "LandC",
+                              "listVersionID": ""
                             }
                           },
                           "verwaltungspolitische_kodierung": {
                             "kreis": {
                               "code": "8901",
-                              "name": "Kreis Dorfheim"
+                              "name": "Kreis Dorfheim",
+                              "listVersionID": ""
                             },
                             "bezirk": {
                               "code": "5678",
-                              "name": "Bezirk Süd"
+                              "name": "Bezirk Süd",
+                              "listVersionID": ""
                             },
                             "bundesland": {
                               "code": "5",
@@ -3129,16 +3280,19 @@
                             },
                             "gemeindeschluessel": {
                               "code": "9012",
-                              "name": "Dorfheim"
+                              "name": "Dorfheim",
+                              "listVersionID": ""
                             },
                             "regionalschluessel": {
                               "code": "4567",
-                              "name": "Region Süd"
+                              "name": "Region Süd",
+                              "listVersionID": ""
                             },
                             "nation": {
                               "staat": {
                                 "code": "23456",
-                                "name": "LandC"
+                                "name": "LandC",
+                                "listVersionID": ""
                               }
                             }
                           },
@@ -3159,7 +3313,8 @@
                       "kreis": null,
                       "bezirk": {
                         "code": "12345",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       },
                       "bundesland": {
                         "code": "1",
@@ -3167,13 +3322,15 @@
                       },
                       "gemeindeschluessel": {
                         "code": "6667",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       },
                       "regionalschluessel": null,
                       "nation": {
                         "staat": {
                           "code": "2",
-                          "name": null
+                          "name": null,
+                          "listVersionID": ""
                         }
                       }
                     }
@@ -3204,17 +3361,20 @@
                       "staat": {
                         "staat": {
                           "code": "1234",
-                          "name": null
+                          "name": null,
+                          "listVersionID": ""
                         }
                       },
                       "verwaltungspolitische_kodierung": {
                         "kreis": {
                           "code": "1111",
-                          "name": null
+                          "name": null,
+                          "listVersionID": ""
                         },
                         "bezirk": {
                           "code": "1231",
-                          "name": null
+                          "name": null,
+                          "listVersionID": ""
                         },
                         "bundesland": {
                           "code": "1",
@@ -3222,16 +3382,19 @@
                         },
                         "gemeindeschluessel": {
                           "code": "9090",
-                          "name": null
+                          "name": null,
+                          "listVersionID": ""
                         },
                         "regionalschluessel": {
                           "code": "9897",
-                          "name": null
+                          "name": null,
+                          "listVersionID": ""
                         },
                         "nation": {
                           "staat": {
                             "code": "123456",
-                            "name": null
+                            "name": null,
+                            "listVersionID": ""
                           }
                         }
                       },
@@ -3276,17 +3439,20 @@
                 "staat": {
                   "staat": {
                     "code": "1234",
-                    "name": null
+                    "name": null,
+                    "listVersionID": ""
                   }
                 },
                 "verwaltungspolitische_kodierung": {
                   "kreis": {
                     "code": "1111",
-                    "name": null
+                    "name": null,
+                    "listVersionID": ""
                   },
                   "bezirk": {
                     "code": "1231",
-                    "name": null
+                    "name": null,
+                    "listVersionID": ""
                   },
                   "bundesland": {
                     "code": "1",
@@ -3294,16 +3460,19 @@
                   },
                   "gemeindeschluessel": {
                     "code": "9090",
-                    "name": null
+                    "name": null,
+                    "listVersionID": ""
                   },
                   "regionalschluessel": {
                     "code": "9897",
-                    "name": null
+                    "name": null,
+                    "listVersionID": ""
                   },
                   "nation": {
                     "staat": {
                       "code": "123456",
-                      "name": null
+                      "name": null,
+                      "listVersionID": ""
                     }
                   }
                 },
@@ -3315,7 +3484,8 @@
               {
                 "staatsangehoerigkeit": {
                   "code": "6543",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 }
               }
             ],
@@ -3323,7 +3493,8 @@
               {
                 "ausweisart": {
                   "code": "5432",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "gueltigkeit": {
                   "beginn": "2024-07-26+05:00",
@@ -3360,7 +3531,8 @@
                     "praefix": [
                       {
                         "code": "1234",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       }
                     ]
                   },
@@ -3417,7 +3589,8 @@
                         "praefix": [
                           {
                             "code": "5678",
-                            "name": "von"
+                            "name": "von",
+                            "listVersionID": ""
                           }
                         ]
                       },
@@ -3458,7 +3631,8 @@
                           "kreis": null,
                           "bezirk": {
                             "code": "8888",
-                            "name": "Reg.-Bez. Neustadt"
+                            "name": "Reg.-Bez. Neustadt",
+                            "listVersionID": ""
                           },
                           "bundesland": {
                             "code": "2",
@@ -3466,13 +3640,15 @@
                           },
                           "gemeindeschluessel": {
                             "code": "3333",
-                            "name": "Gemeine Neustadt"
+                            "name": "Gemeine Neustadt",
+                            "listVersionID": ""
                           },
                           "regionalschluessel": null,
                           "nation": {
                             "staat": {
                               "code": "3",
-                              "name": "LandB"
+                              "name": "LandB",
+                              "listVersionID": ""
                             }
                           }
                         }
@@ -3503,17 +3679,20 @@
                           "staat": {
                             "staat": {
                               "code": "3456",
-                              "name": "LandB"
+                              "name": "LandB",
+                              "listVersionID": ""
                             }
                           },
                           "verwaltungspolitische_kodierung": {
                             "kreis": {
                               "code": "7890",
-                              "name": "Kreis Neustadt"
+                              "name": "Kreis Neustadt",
+                              "listVersionID": ""
                             },
                             "bezirk": {
                               "code": "4567",
-                              "name": "Bezirk Nord"
+                              "name": "Bezirk Nord",
+                              "listVersionID": ""
                             },
                             "bundesland": {
                               "code": "4",
@@ -3521,16 +3700,19 @@
                             },
                             "gemeindeschluessel": {
                               "code": "8901",
-                              "name": "Neustadt"
+                              "name": "Neustadt",
+                              "listVersionID": ""
                             },
                             "regionalschluessel": {
                               "code": "3456",
-                              "name": "Region Nord"
+                              "name": "Region Nord",
+                              "listVersionID": ""
                             },
                             "nation": {
                               "staat": {
                                 "code": "12346",
-                                "name": "LandB"
+                                "name": "LandB",
+                                "listVersionID": ""
                               }
                             }
                           },
@@ -3566,7 +3748,8 @@
                         "praefix": [
                           {
                             "code": "5678",
-                            "name": null
+                            "name": null,
+                            "listVersionID": ""
                           }
                         ]
                       },
@@ -3623,7 +3806,8 @@
                             "praefix": [
                               {
                                 "code": "6789",
-                                "name": "von"
+                                "name": "von",
+                                "listVersionID": ""
                               }
                             ]
                           },
@@ -3664,7 +3848,8 @@
                               "kreis": null,
                               "bezirk": {
                                 "code": "9999",
-                                "name": "Reg.-Bez. Oberstadt"
+                                "name": "Reg.-Bez. Oberstadt",
+                                "listVersionID": ""
                               },
                               "bundesland": {
                                 "code": "2",
@@ -3672,13 +3857,15 @@
                               },
                               "gemeindeschluessel": {
                                 "code": "4444",
-                                "name": "Gemeinde Oberstadt"
+                                "name": "Gemeinde Oberstadt",
+                                "listVersionID": ""
                               },
                               "regionalschluessel": null,
                               "nation": {
                                 "staat": {
                                   "code": "4",
-                                  "name": "LandC"
+                                  "name": "LandC",
+                                  "listVersionID": ""
                                 }
                               }
                             }
@@ -3709,17 +3896,20 @@
                               "staat": {
                                 "staat": {
                                   "code": "4567",
-                                  "name": "LandC"
+                                  "name": "LandC",
+                                  "listVersionID": ""
                                 }
                               },
                               "verwaltungspolitische_kodierung": {
                                 "kreis": {
                                   "code": "8901",
-                                  "name": "Kreis Oberstadt"
+                                  "name": "Kreis Oberstadt",
+                                  "listVersionID": ""
                                 },
                                 "bezirk": {
                                   "code": "5678",
-                                  "name": "Bezirk Süd"
+                                  "name": "Bezirk Süd",
+                                  "listVersionID": ""
                                 },
                                 "bundesland": {
                                   "code": "5",
@@ -3727,16 +3917,19 @@
                                 },
                                 "gemeindeschluessel": {
                                   "code": "6789",
-                                  "name": "Oberstadt"
+                                  "name": "Oberstadt",
+                                  "listVersionID": ""
                                 },
                                 "regionalschluessel": {
                                   "code": "4567",
-                                  "name": "Region Süd"
+                                  "name": "Region Süd",
+                                  "listVersionID": ""
                                 },
                                 "nation": {
                                   "staat": {
                                     "code": "56789",
-                                    "name": "LandC"
+                                    "name": "LandC",
+                                    "listVersionID": ""
                                   }
                                 }
                               },
@@ -3784,17 +3977,20 @@
                       "staat": {
                         "staat": {
                           "code": "5678",
-                          "name": "LandX"
+                          "name": "LandX",
+                          "listVersionID": ""
                         }
                       },
                       "verwaltungspolitische_kodierung": {
                         "kreis": {
                           "code": "2222",
-                          "name": "Kreis Neustadt"
+                          "name": "Kreis Neustadt",
+                          "listVersionID": ""
                         },
                         "bezirk": {
                           "code": "2345",
-                          "name": "Bezirk Mitte"
+                          "name": "Bezirk Mitte",
+                          "listVersionID": ""
                         },
                         "bundesland": {
                           "code": "3",
@@ -3802,16 +3998,19 @@
                         },
                         "gemeindeschluessel": {
                           "code": "5678",
-                          "name": "Neustadt"
+                          "name": "Neustadt",
+                          "listVersionID": ""
                         },
                         "regionalschluessel": {
                           "code": "3456",
-                          "name": "Region Mitte"
+                          "name": "Region Mitte",
+                          "listVersionID": ""
                         },
                         "nation": {
                           "staat": {
                             "code": "7890",
-                            "name": "LandX"
+                            "name": "LandX",
+                            "listVersionID": ""
                           }
                         }
                       },
@@ -3855,17 +4054,20 @@
                 "staat": {
                   "staat": {
                     "code": "1234",
-                    "name": null
+                    "name": null,
+                    "listVersionID": ""
                   }
                 },
                 "verwaltungspolitische_kodierung": {
                   "kreis": {
                     "code": "1111",
-                    "name": null
+                    "name": null,
+                    "listVersionID": ""
                   },
                   "bezirk": {
                     "code": "1231",
-                    "name": null
+                    "name": null,
+                    "listVersionID": ""
                   },
                   "bundesland": {
                     "code": "1",
@@ -3873,16 +4075,19 @@
                   },
                   "gemeindeschluessel": {
                     "code": "9090",
-                    "name": null
+                    "name": null,
+                    "listVersionID": ""
                   },
                   "regionalschluessel": {
                     "code": "9897",
-                    "name": null
+                    "name": null,
+                    "listVersionID": ""
                   },
                   "nation": {
                     "staat": {
                       "code": "123456",
-                      "name": null
+                      "name": null,
+                      "listVersionID": ""
                     }
                   }
                 },
@@ -3924,7 +4129,8 @@
               {
                 "sprache": {
                   "code": "1234",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "zusatz": null
               }
@@ -3933,7 +4139,8 @@
               {
                 "sprache": {
                   "code": "2",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "zusatz": null
               }
@@ -3972,7 +4179,8 @@
               "id": "organisation1",
               "rechtsform": {
                 "code": "PHG",
-                "name": "Personenhandelsgesellschaft (PHG)"
+                "name": "Personenhandelsgesellschaft (PHG)",
+                "listVersionID": ""
               },
               "branche": [
                 {
@@ -3996,7 +4204,8 @@
                   "id": null,
                   "rechtsform": {
                     "code": "GmbH",
-                    "name": "Gesellschaft mit beschränkter Haftung (GmbH)"
+                    "name": "Gesellschaft mit beschränkter Haftung (GmbH)",
+                    "listVersionID": ""
                   },
                   "branche": [
                     {
@@ -4020,7 +4229,8 @@
                       "id": null,
                       "rechtsform": {
                         "code": "AG",
-                        "name": "Aktiengesellschaft (AG)"
+                        "name": "Aktiengesellschaft (AG)",
+                        "listVersionID": ""
                       },
                       "branche": [
                         {
@@ -4044,7 +4254,8 @@
                           "id": null,
                           "rechtsform": {
                             "code": "GmbH",
-                            "name": "Gesellschaft mit beschränkter Haftung (GmbH)"
+                            "name": "Gesellschaft mit beschränkter Haftung (GmbH)",
+                            "listVersionID": ""
                           },
                           "branche": [
                             {
@@ -4115,7 +4326,8 @@
                                     "praefix": [
                                       {
                                         "code": "5678",
-                                        "name": "Dr."
+                                        "name": "Dr.",
+                                        "listVersionID": ""
                                       }
                                     ]
                                   },
@@ -4156,7 +4368,8 @@
                                       "kreis": null,
                                       "bezirk": {
                                         "code": "7777",
-                                        "name": "Reg.-Bez. F"
+                                        "name": "Reg.-Bez. F",
+                                        "listVersionID": ""
                                       },
                                       "bundesland": {
                                         "code": "6",
@@ -4164,13 +4377,15 @@
                                       },
                                       "gemeindeschluessel": {
                                         "code": "2222",
-                                        "name": "Stadt F"
+                                        "name": "Stadt F",
+                                        "listVersionID": ""
                                       },
                                       "regionalschluessel": null,
                                       "nation": {
                                         "staat": {
                                           "code": "1234",
-                                          "name": "Land F"
+                                          "name": "Land F",
+                                          "listVersionID": ""
                                         }
                                       }
                                     }
@@ -4201,17 +4416,20 @@
                                       "staat": {
                                         "staat": {
                                           "code": "5678",
-                                          "name": "Land F"
+                                          "name": "Land F",
+                                          "listVersionID": ""
                                         }
                                       },
                                       "verwaltungspolitische_kodierung": {
                                         "kreis": {
                                           "code": "4444",
-                                          "name": "Kreis Stadt F"
+                                          "name": "Kreis Stadt F",
+                                          "listVersionID": ""
                                         },
                                         "bezirk": {
                                           "code": "5555",
-                                          "name": "Bezirk Mitte"
+                                          "name": "Bezirk Mitte",
+                                          "listVersionID": ""
                                         },
                                         "bundesland": {
                                           "code": "6",
@@ -4219,16 +4437,19 @@
                                         },
                                         "gemeindeschluessel": {
                                           "code": "6666",
-                                          "name": "Stadt F"
+                                          "name": "Stadt F",
+                                          "listVersionID": ""
                                         },
                                         "regionalschluessel": {
                                           "code": "7777",
-                                          "name": "Region Mitte"
+                                          "name": "Region Mitte",
+                                          "listVersionID": ""
                                         },
                                         "nation": {
                                           "staat": {
                                             "code": "8888",
-                                            "name": "Land F"
+                                            "name": "Land F",
+                                            "listVersionID": ""
                                           }
                                         }
                                       },
@@ -4287,17 +4508,20 @@
                               "staat": {
                                 "staat": {
                                   "code": "DE",
-                                  "name": "Deutschland"
+                                  "name": "Deutschland",
+                                  "listVersionID": ""
                                 }
                               },
                               "verwaltungspolitische_kodierung": {
                                 "kreis": {
                                   "code": "0123",
-                                  "name": "Kreis Musterstadt"
+                                  "name": "Kreis Musterstadt",
+                                  "listVersionID": ""
                                 },
                                 "bezirk": {
                                   "code": "0456",
-                                  "name": "Bezirk Süd"
+                                  "name": "Bezirk Süd",
+                                  "listVersionID": ""
                                 },
                                 "bundesland": {
                                   "code": "03",
@@ -4305,16 +4529,19 @@
                                 },
                                 "gemeindeschluessel": {
                                   "code": "0789",
-                                  "name": "Gemeinde Musterdorf"
+                                  "name": "Gemeinde Musterdorf",
+                                  "listVersionID": ""
                                 },
                                 "regionalschluessel": {
                                   "code": "0345",
-                                  "name": "Region West"
+                                  "name": "Region West",
+                                  "listVersionID": ""
                                 },
                                 "nation": {
                                   "staat": {
                                     "code": "DE",
-                                    "name": "Deutschland"
+                                    "name": "Deutschland",
+                                    "listVersionID": ""
                                   }
                                 }
                               },
@@ -4360,7 +4587,8 @@
                                 "praefix": [
                                   {
                                     "code": "1234",
-                                    "name": "Nr."
+                                    "name": "Nr.",
+                                    "listVersionID": ""
                                   }
                                 ]
                               },
@@ -4401,7 +4629,8 @@
                                   "kreis": null,
                                   "bezirk": {
                                     "code": "8888",
-                                    "name": "Reg.-Bez. Techstadt"
+                                    "name": "Reg.-Bez. Techstadt",
+                                    "listVersionID": ""
                                   },
                                   "bundesland": {
                                     "code": "4",
@@ -4409,13 +4638,15 @@
                                   },
                                   "gemeindeschluessel": {
                                     "code": "9999",
-                                    "name": "Gemeinde Techstadt"
+                                    "name": "Gemeinde Techstadt",
+                                    "listVersionID": ""
                                   },
                                   "regionalschluessel": null,
                                   "nation": {
                                     "staat": {
                                       "code": "4",
-                                      "name": "Technoland"
+                                      "name": "Technoland",
+                                      "listVersionID": ""
                                     }
                                   }
                                 }
@@ -4446,17 +4677,20 @@
                                   "staat": {
                                     "staat": {
                                       "code": "1234",
-                                      "name": "Technoland"
+                                      "name": "Technoland",
+                                      "listVersionID": ""
                                     }
                                   },
                                   "verwaltungspolitische_kodierung": {
                                     "kreis": {
                                       "code": "3333",
-                                      "name": "Kreis Techstadt"
+                                      "name": "Kreis Techstadt",
+                                      "listVersionID": ""
                                     },
                                     "bezirk": {
                                       "code": "4567",
-                                      "name": "Bezirk Nord"
+                                      "name": "Bezirk Nord",
+                                      "listVersionID": ""
                                     },
                                     "bundesland": {
                                       "code": "4",
@@ -4464,16 +4698,19 @@
                                     },
                                     "gemeindeschluessel": {
                                       "code": "1234",
-                                      "name": "Techstadt"
+                                      "name": "Techstadt",
+                                      "listVersionID": ""
                                     },
                                     "regionalschluessel": {
                                       "code": "5678",
-                                      "name": "Region Nord"
+                                      "name": "Region Nord",
+                                      "listVersionID": ""
                                     },
                                     "nation": {
                                       "staat": {
                                         "code": "1234",
-                                        "name": "Technoland"
+                                        "name": "Technoland",
+                                        "listVersionID": ""
                                       }
                                     }
                                   },
@@ -4532,17 +4769,20 @@
                           "staat": {
                             "staat": {
                               "code": "9876",
-                              "name": "Grünland"
+                              "name": "Grünland",
+                              "listVersionID": ""
                             }
                           },
                           "verwaltungspolitische_kodierung": {
                             "kreis": {
                               "code": "3333",
-                              "name": "Kreis Grünstadt"
+                              "name": "Kreis Grünstadt",
+                              "listVersionID": ""
                             },
                             "bezirk": {
                               "code": "4567",
-                              "name": "Bezirk West"
+                              "name": "Bezirk West",
+                              "listVersionID": ""
                             },
                             "bundesland": {
                               "code": "4",
@@ -4550,16 +4790,19 @@
                             },
                             "gemeindeschluessel": {
                               "code": "8765",
-                              "name": "Grünstadt"
+                              "name": "Grünstadt",
+                              "listVersionID": ""
                             },
                             "regionalschluessel": {
                               "code": "5678",
-                              "name": "Region West"
+                              "name": "Region West",
+                              "listVersionID": ""
                             },
                             "nation": {
                               "staat": {
                                 "code": "8901",
-                                "name": "Grünland"
+                                "name": "Grünland",
+                                "listVersionID": ""
                               }
                             }
                           },
@@ -4605,7 +4848,8 @@
                             "praefix": [
                               {
                                 "code": "5678",
-                                "name": "zu"
+                                "name": "zu",
+                                "listVersionID": ""
                               }
                             ]
                           },
@@ -4646,7 +4890,8 @@
                               "kreis": null,
                               "bezirk": {
                                 "code": "7777",
-                                "name": "Reg.-Bez. Altdorf"
+                                "name": "Reg.-Bez. Altdorf",
+                                "listVersionID": ""
                               },
                               "bundesland": {
                                 "code": "2",
@@ -4654,13 +4899,15 @@
                               },
                               "gemeindeschluessel": {
                                 "code": "8888",
-                                "name": "Gemeine Altdorf"
+                                "name": "Gemeine Altdorf",
+                                "listVersionID": ""
                               },
                               "regionalschluessel": null,
                               "nation": {
                                 "staat": {
                                   "code": "3",
-                                  "name": "Bundland"
+                                  "name": "Bundland",
+                                  "listVersionID": ""
                                 }
                               }
                             }
@@ -4691,17 +4938,20 @@
                               "staat": {
                                 "staat": {
                                   "code": "5678",
-                                  "name": "Bundland"
+                                  "name": "Bundland",
+                                  "listVersionID": ""
                                 }
                               },
                               "verwaltungspolitische_kodierung": {
                                 "kreis": {
                                   "code": "2222",
-                                  "name": "Kreis Altdorf"
+                                  "name": "Kreis Altdorf",
+                                  "listVersionID": ""
                                 },
                                 "bezirk": {
                                   "code": "2345",
-                                  "name": "Bezirk Süd"
+                                  "name": "Bezirk Süd",
+                                  "listVersionID": ""
                                 },
                                 "bundesland": {
                                   "code": "3",
@@ -4709,16 +4959,19 @@
                                 },
                                 "gemeindeschluessel": {
                                   "code": "5678",
-                                  "name": "Altdorf"
+                                  "name": "Altdorf",
+                                  "listVersionID": ""
                                 },
                                 "regionalschluessel": {
                                   "code": "3456",
-                                  "name": "Region Süd"
+                                  "name": "Region Süd",
+                                  "listVersionID": ""
                                 },
                                 "nation": {
                                   "staat": {
                                     "code": "7890",
-                                    "name": "Bundland"
+                                    "name": "Bundland",
+                                    "listVersionID": ""
                                   }
                                 }
                               },
@@ -4783,17 +5036,20 @@
                       "staat": {
                         "staat": {
                           "code": "5678",
-                          "name": "Deutschland"
+                          "name": "Deutschland",
+                          "listVersionID": ""
                         }
                       },
                       "verwaltungspolitische_kodierung": {
                         "kreis": {
                           "code": "2222",
-                          "name": "Kreis Berlin"
+                          "name": "Kreis Berlin",
+                          "listVersionID": ""
                         },
                         "bezirk": {
                           "code": "3456",
-                          "name": "Bezirk Mitte"
+                          "name": "Bezirk Mitte",
+                          "listVersionID": ""
                         },
                         "bundesland": {
                           "code": "2",
@@ -4801,16 +5057,19 @@
                         },
                         "gemeindeschluessel": {
                           "code": "5678",
-                          "name": "Berlin"
+                          "name": "Berlin",
+                          "listVersionID": ""
                         },
                         "regionalschluessel": {
                           "code": "6789",
-                          "name": "Region Nord"
+                          "name": "Region Nord",
+                          "listVersionID": ""
                         },
                         "nation": {
                           "staat": {
                             "code": "7890",
-                            "name": "Deutschland"
+                            "name": "Deutschland",
+                            "listVersionID": ""
                           }
                         }
                       },
@@ -4856,7 +5115,8 @@
                         "praefix": [
                           {
                             "code": "1234",
-                            "name": "von"
+                            "name": "von",
+                            "listVersionID": ""
                           }
                         ]
                       },
@@ -4897,7 +5157,8 @@
                           "kreis": null,
                           "bezirk": {
                             "code": "9999",
-                            "name": "Reg.-Bez. Hotzingmussen"
+                            "name": "Reg.-Bez. Hotzingmussen",
+                            "listVersionID": ""
                           },
                           "bundesland": {
                             "code": "1",
@@ -4905,13 +5166,15 @@
                           },
                           "gemeindeschluessel": {
                             "code": "6667",
-                            "name": "Gemeine Hotzingen"
+                            "name": "Gemeine Hotzingen",
+                            "listVersionID": ""
                           },
                           "regionalschluessel": null,
                           "nation": {
                             "staat": {
                               "code": "2",
-                              "name": "LandLand"
+                              "name": "LandLand",
+                              "listVersionID": ""
                             }
                           }
                         }
@@ -4942,17 +5205,20 @@
                           "staat": {
                             "staat": {
                               "code": "1234",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             }
                           },
                           "verwaltungspolitische_kodierung": {
                             "kreis": {
                               "code": "1111",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "bezirk": {
                               "code": "1231",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "bundesland": {
                               "code": "1",
@@ -4960,16 +5226,19 @@
                             },
                             "gemeindeschluessel": {
                               "code": "9090",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "regionalschluessel": {
                               "code": "9897",
-                              "name": ""
+                              "name": "",
+                              "listVersionID": ""
                             },
                             "nation": {
                               "staat": {
                                 "code": "123456",
-                                "name": ""
+                                "name": "",
+                                "listVersionID": ""
                               }
                             }
                           },
@@ -5030,17 +5299,20 @@
                   "staat": {
                     "staat": {
                       "code": "1234",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     }
                   },
                   "verwaltungspolitische_kodierung": {
                     "kreis": {
                       "code": "1111",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     },
                     "bezirk": {
                       "code": "1231",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     },
                     "bundesland": {
                       "code": "1",
@@ -5048,16 +5320,19 @@
                     },
                     "gemeindeschluessel": {
                       "code": "9090",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     },
                     "regionalschluessel": {
                       "code": "9897",
-                      "name": ""
+                      "name": "",
+                      "listVersionID": ""
                     },
                     "nation": {
                       "staat": {
                         "code": "123456",
-                        "name": ""
+                        "name": "",
+                        "listVersionID": ""
                       }
                     }
                   },
@@ -5071,7 +5346,8 @@
           "id": null,
           "rechtsform": {
             "code": "PHG",
-            "name": "Personenhandelsgesellschaft (PHG)"
+            "name": "Personenhandelsgesellschaft (PHG)",
+            "listVersionID": ""
           },
           "branche": [
             {
@@ -5095,7 +5371,8 @@
               "id": null,
               "rechtsform": {
                 "code": "AG",
-                "name": "Aktiengesellschaft (AG)"
+                "name": "Aktiengesellschaft (AG)",
+                "listVersionID": ""
               },
               "branche": [
                 {
@@ -5119,7 +5396,8 @@
                   "id": null,
                   "rechtsform": {
                     "code": "AG",
-                    "name": "Aktiengesellschaft (AG)"
+                    "name": "Aktiengesellschaft (AG)",
+                    "listVersionID": ""
                   },
                   "branche": [
                     {
@@ -5190,7 +5468,8 @@
                             "praefix": [
                               {
                                 "code": "9101",
-                                "name": "Dr."
+                                "name": "Dr.",
+                                "listVersionID": ""
                               }
                             ]
                           },
@@ -5231,7 +5510,8 @@
                               "kreis": null,
                               "bezirk": {
                                 "code": "6789",
-                                "name": "Bezirk Nord"
+                                "name": "Bezirk Nord",
+                                "listVersionID": ""
                               },
                               "bundesland": {
                                 "code": "04",
@@ -5239,13 +5519,15 @@
                               },
                               "gemeindeschluessel": {
                                 "code": "1234",
-                                "name": "Neumarkt"
+                                "name": "Neumarkt",
+                                "listVersionID": ""
                               },
                               "regionalschluessel": null,
                               "nation": {
                                 "staat": {
                                   "code": "DE",
-                                  "name": "Deutschland"
+                                  "name": "Deutschland",
+                                  "listVersionID": ""
                                 }
                               }
                             }
@@ -5276,17 +5558,20 @@
                               "staat": {
                                 "staat": {
                                   "code": "DE",
-                                  "name": "Deutschland"
+                                  "name": "Deutschland",
+                                  "listVersionID": ""
                                 }
                               },
                               "verwaltungspolitische_kodierung": {
                                 "kreis": {
                                   "code": "3456",
-                                  "name": "Kreis Neumarkt"
+                                  "name": "Kreis Neumarkt",
+                                  "listVersionID": ""
                                 },
                                 "bezirk": {
                                   "code": "7890",
-                                  "name": "Bezirk Ost"
+                                  "name": "Bezirk Ost",
+                                  "listVersionID": ""
                                 },
                                 "bundesland": {
                                   "code": "04",
@@ -5294,16 +5579,19 @@
                                 },
                                 "gemeindeschluessel": {
                                   "code": "9101",
-                                  "name": "Neumarkt"
+                                  "name": "Neumarkt",
+                                  "listVersionID": ""
                                 },
                                 "regionalschluessel": {
                                   "code": "4567",
-                                  "name": "Region Nord"
+                                  "name": "Region Nord",
+                                  "listVersionID": ""
                                 },
                                 "nation": {
                                   "staat": {
                                     "code": "DE",
-                                    "name": "Deutschland"
+                                    "name": "Deutschland",
+                                    "listVersionID": ""
                                   }
                                 }
                               },
@@ -5368,17 +5656,20 @@
                       "staat": {
                         "staat": {
                           "code": "DE",
-                          "name": "Deutschland"
+                          "name": "Deutschland",
+                          "listVersionID": ""
                         }
                       },
                       "verwaltungspolitische_kodierung": {
                         "kreis": {
                           "code": "4567",
-                          "name": "Kreis Berlin-Mitte"
+                          "name": "Kreis Berlin-Mitte",
+                          "listVersionID": ""
                         },
                         "bezirk": {
                           "code": "8901",
-                          "name": "Bezirk Mitte"
+                          "name": "Bezirk Mitte",
+                          "listVersionID": ""
                         },
                         "bundesland": {
                           "code": "11",
@@ -5386,16 +5677,19 @@
                         },
                         "gemeindeschluessel": {
                           "code": "2345",
-                          "name": "Berlin"
+                          "name": "Berlin",
+                          "listVersionID": ""
                         },
                         "regionalschluessel": {
                           "code": "6789",
-                          "name": "Region Berlin"
+                          "name": "Region Berlin",
+                          "listVersionID": ""
                         },
                         "nation": {
                           "staat": {
                             "code": "DE",
-                            "name": "Deutschland"
+                            "name": "Deutschland",
+                            "listVersionID": ""
                           }
                         }
                       },
@@ -5441,7 +5735,8 @@
                         "praefix": [
                           {
                             "code": "1234",
-                            "name": "von"
+                            "name": "von",
+                            "listVersionID": ""
                           }
                         ]
                       },
@@ -5482,7 +5777,8 @@
                           "kreis": null,
                           "bezirk": {
                             "code": "8888",
-                            "name": "Reg.-Bez. Neumünster"
+                            "name": "Reg.-Bez. Neumünster",
+                            "listVersionID": ""
                           },
                           "bundesland": {
                             "code": "4",
@@ -5490,13 +5786,15 @@
                           },
                           "gemeindeschluessel": {
                             "code": "9999",
-                            "name": "Neumünster"
+                            "name": "Neumünster",
+                            "listVersionID": ""
                           },
                           "regionalschluessel": null,
                           "nation": {
                             "staat": {
                               "code": "4567",
-                              "name": "Neumünsterland"
+                              "name": "Neumünsterland",
+                              "listVersionID": ""
                             }
                           }
                         }
@@ -5527,17 +5825,20 @@
                           "staat": {
                             "staat": {
                               "code": "1234",
-                              "name": "Neumünsterland"
+                              "name": "Neumünsterland",
+                              "listVersionID": ""
                             }
                           },
                           "verwaltungspolitische_kodierung": {
                             "kreis": {
                               "code": "3333",
-                              "name": "Kreis Neumünster"
+                              "name": "Kreis Neumünster",
+                              "listVersionID": ""
                             },
                             "bezirk": {
                               "code": "4567",
-                              "name": "Bezirk Nord"
+                              "name": "Bezirk Nord",
+                              "listVersionID": ""
                             },
                             "bundesland": {
                               "code": "4",
@@ -5545,16 +5846,19 @@
                             },
                             "gemeindeschluessel": {
                               "code": "6789",
-                              "name": "Neumünster"
+                              "name": "Neumünster",
+                              "listVersionID": ""
                             },
                             "regionalschluessel": {
                               "code": "8901",
-                              "name": "Region Nord"
+                              "name": "Region Nord",
+                              "listVersionID": ""
                             },
                             "nation": {
                               "staat": {
                                 "code": "2345",
-                                "name": "Neumünsterland"
+                                "name": "Neumünsterland",
+                                "listVersionID": ""
                               }
                             }
                           },
@@ -5613,17 +5917,20 @@
                   "staat": {
                     "staat": {
                       "code": "4321",
-                      "name": "Rosien"
+                      "name": "Rosien",
+                      "listVersionID": ""
                     }
                   },
                   "verwaltungspolitische_kodierung": {
                     "kreis": {
                       "code": "4444",
-                      "name": "Kreis Rosenstadt"
+                      "name": "Kreis Rosenstadt",
+                      "listVersionID": ""
                     },
                     "bezirk": {
                       "code": "5678",
-                      "name": "Bezirk Ost"
+                      "name": "Bezirk Ost",
+                      "listVersionID": ""
                     },
                     "bundesland": {
                       "code": "5",
@@ -5631,16 +5938,19 @@
                     },
                     "gemeindeschluessel": {
                       "code": "6789",
-                      "name": "Rosenstadt"
+                      "name": "Rosenstadt",
+                      "listVersionID": ""
                     },
                     "regionalschluessel": {
                       "code": "7890",
-                      "name": "Region Ost"
+                      "name": "Region Ost",
+                      "listVersionID": ""
                     },
                     "nation": {
                       "staat": {
                         "code": "9012",
-                        "name": "Rosien"
+                        "name": "Rosien",
+                        "listVersionID": ""
                       }
                     }
                   },
@@ -5686,7 +5996,8 @@
                     "praefix": [
                       {
                         "code": "1234",
-                        "name": "von"
+                        "name": "von",
+                        "listVersionID": ""
                       }
                     ]
                   },
@@ -5727,7 +6038,8 @@
                       "kreis": null,
                       "bezirk": {
                         "code": "9999",
-                        "name": "Reg.-Bez. Hotzingmussen"
+                        "name": "Reg.-Bez. Hotzingmussen",
+                        "listVersionID": ""
                       },
                       "bundesland": {
                         "code": "1",
@@ -5735,13 +6047,15 @@
                       },
                       "gemeindeschluessel": {
                         "code": "6667",
-                        "name": "Gemeine Hotzingen"
+                        "name": "Gemeine Hotzingen",
+                        "listVersionID": ""
                       },
                       "regionalschluessel": null,
                       "nation": {
                         "staat": {
                           "code": "2",
-                          "name": "LandLand"
+                          "name": "LandLand",
+                          "listVersionID": ""
                         }
                       }
                     }
@@ -5772,17 +6086,20 @@
                       "staat": {
                         "staat": {
                           "code": "1234",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         }
                       },
                       "verwaltungspolitische_kodierung": {
                         "kreis": {
                           "code": "1111",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         },
                         "bezirk": {
                           "code": "1231",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         },
                         "bundesland": {
                           "code": "1",
@@ -5790,16 +6107,19 @@
                         },
                         "gemeindeschluessel": {
                           "code": "9090",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         },
                         "regionalschluessel": {
                           "code": "9897",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         },
                         "nation": {
                           "staat": {
                             "code": "123456",
-                            "name": ""
+                            "name": "",
+                            "listVersionID": ""
                           }
                         }
                       },
@@ -5860,17 +6180,20 @@
               "staat": {
                 "staat": {
                   "code": "1234",
-                  "name": ""
+                  "name": "",
+                  "listVersionID": ""
                 }
               },
               "verwaltungspolitische_kodierung": {
                 "kreis": {
                   "code": "1111",
-                  "name": ""
+                  "name": "",
+                  "listVersionID": ""
                 },
                 "bezirk": {
                   "code": "1231",
-                  "name": ""
+                  "name": "",
+                  "listVersionID": ""
                 },
                 "bundesland": {
                   "code": "1",
@@ -5878,16 +6201,19 @@
                 },
                 "gemeindeschluessel": {
                   "code": "9090",
-                  "name": ""
+                  "name": "",
+                  "listVersionID": ""
                 },
                 "regionalschluessel": {
                   "code": "9897",
-                  "name": ""
+                  "name": "",
+                  "listVersionID": ""
                 },
                 "nation": {
                   "staat": {
                     "code": "123456",
-                    "name": ""
+                    "name": "",
+                    "listVersionID": ""
                   }
                 }
               },
@@ -5971,17 +6297,20 @@
             "staat": {
               "staat": {
                 "code": "1234",
-                "name": ""
+                "name": "",
+                "listVersionID": ""
               }
             },
             "verwaltungspolitische_kodierung": {
               "kreis": {
                 "code": "1111",
-                "name": ""
+                "name": "",
+                "listVersionID": ""
               },
               "bezirk": {
                 "code": "1231",
-                "name": ""
+                "name": "",
+                "listVersionID": ""
               },
               "bundesland": {
                 "code": "1",
@@ -5989,16 +6318,19 @@
               },
               "gemeindeschluessel": {
                 "code": "9090",
-                "name": ""
+                "name": "",
+                "listVersionID": ""
               },
               "regionalschluessel": {
                 "code": "9897",
-                "name": ""
+                "name": "",
+                "listVersionID": ""
               },
               "nation": {
                 "staat": {
                   "code": "123456",
-                  "name": ""
+                  "name": "",
+                  "listVersionID": ""
                 }
               }
             },

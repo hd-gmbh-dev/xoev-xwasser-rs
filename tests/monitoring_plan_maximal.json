@@ -66,7 +66,8 @@
         "oberflaechenwassereinfluss": true,
         "desinfektion_durchgefuehrt_mit": {
           "code": "1010",
-          "name": null
+          "name": null,
+          "listVersionID": "1"
         },
         "abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen": true,
         "acrylamid": {
@@ -118,26 +119,31 @@
             "anlass_der_untersuchung": [
               {
                 "code": "1010",
-                "name": null
+                "name": null,
+                "listVersionID": "2"
               },
               {
                 "code": "1040",
-                "name": null
+                "name": null,
+                "listVersionID": "2"
               },
               {
                 "code": "1050",
-                "name": null
+                "name": null,
+                "listVersionID": "2"
               },
               {
                 "code": "1060",
-                "name": null
+                "name": null,
+                "listVersionID": "2"
               }
             ],
             "zu_untersuchender_parameter": [
               {
                 "parameter": {
                   "code": "1010",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -150,7 +156,8 @@
               {
                 "parameter": {
                   "code": "1011",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -163,7 +170,8 @@
               {
                 "parameter": {
                   "code": "1012",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -176,7 +184,8 @@
               {
                 "parameter": {
                   "code": "1013",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -189,7 +198,8 @@
               {
                 "parameter": {
                   "code": "1014",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -203,15 +213,18 @@
             "probennahmeverfahren": [
               {
                 "code": "1010",
-                "name": null
+                "name": null,
+                "listVersionID": "1"
               },
               {
                 "code": "1020",
-                "name": null
+                "name": null,
+                "listVersionID": "1"
               },
               {
                 "code": "1030",
-                "name": null
+                "name": null,
+                "listVersionID": "1"
               }
             ],
             "ersatz_fuer_terminplan_mit_der_id": "123",
@@ -248,22 +261,26 @@
             "anlass_der_untersuchung": [
               {
                 "code": "1020",
-                "name": null
+                "name": null,
+                "listVersionID": "2"
               },
               {
                 "code": "1070",
-                "name": null
+                "name": null,
+                "listVersionID": "2"
               },
               {
                 "code": "1080",
-                "name": null
+                "name": null,
+                "listVersionID": "2"
               }
             ],
             "zu_untersuchender_parameter": [
               {
                 "parameter": {
                   "code": "1010",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -276,7 +293,8 @@
               {
                 "parameter": {
                   "code": "1011",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -289,7 +307,8 @@
               {
                 "parameter": {
                   "code": "1012",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -302,7 +321,8 @@
               {
                 "parameter": {
                   "code": "1013",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -315,7 +335,8 @@
               {
                 "parameter": {
                   "code": "1014",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -329,11 +350,13 @@
             "probennahmeverfahren": [
               {
                 "code": "1040",
-                "name": null
+                "name": null,
+                "listVersionID": "1"
               },
               {
                 "code": "1050",
-                "name": null
+                "name": null,
+                "listVersionID": "1"
               }
             ],
             "ersatz_fuer_terminplan_mit_der_id": "124",
@@ -370,18 +393,21 @@
             "anlass_der_untersuchung": [
               {
                 "code": "1030",
-                "name": null
+                "name": null,
+                "listVersionID": "2"
               },
               {
                 "code": "1090",
-                "name": null
+                "name": null,
+                "listVersionID": "2"
               }
             ],
             "zu_untersuchender_parameter": [
               {
                 "parameter": {
                   "code": "1010",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -394,7 +420,8 @@
               {
                 "parameter": {
                   "code": "1011",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -407,7 +434,8 @@
               {
                 "parameter": {
                   "code": "1012",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -420,7 +448,8 @@
               {
                 "parameter": {
                   "code": "1013",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -433,7 +462,8 @@
               {
                 "parameter": {
                   "code": "1014",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "1",
                 "parameter_gruppe": "g1",
@@ -447,11 +477,13 @@
             "probennahmeverfahren": [
               {
                 "code": "1080",
-                "name": null
+                "name": null,
+                "listVersionID": "1"
               },
               {
                 "code": "1090",
-                "name": null
+                "name": null,
+                "listVersionID": "1"
               }
             ],
             "ersatz_fuer_terminplan_mit_der_id": "125",
@@ -504,7 +536,8 @@
                     "praefix": [
                       {
                         "code": "1234",
-                        "name": "von"
+                        "name": "von",
+                        "listVersionID": ""
                       }
                     ]
                   },
@@ -545,7 +578,8 @@
                       "kreis": null,
                       "bezirk": {
                         "code": "9999",
-                        "name": "Reg.-Bez. Hotzingmussen"
+                        "name": "Reg.-Bez. Hotzingmussen",
+                        "listVersionID": ""
                       },
                       "bundesland": {
                         "code": "1",
@@ -553,13 +587,15 @@
                       },
                       "gemeindeschluessel": {
                         "code": "6667",
-                        "name": "Gemeine Hotzingen"
+                        "name": "Gemeine Hotzingen",
+                        "listVersionID": ""
                       },
                       "regionalschluessel": null,
                       "nation": {
                         "staat": {
                           "code": "2",
-                          "name": "LandLand"
+                          "name": "LandLand",
+                          "listVersionID": ""
                         }
                       }
                     }
@@ -590,17 +626,20 @@
                       "staat": {
                         "staat": {
                           "code": "1234",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         }
                       },
                       "verwaltungspolitische_kodierung": {
                         "kreis": {
                           "code": "1111",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         },
                         "bezirk": {
                           "code": "1231",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         },
                         "bundesland": {
                           "code": "1",
@@ -608,16 +647,19 @@
                         },
                         "gemeindeschluessel": {
                           "code": "9090",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         },
                         "regionalschluessel": {
                           "code": "9897",
-                          "name": ""
+                          "name": "",
+                          "listVersionID": ""
                         },
                         "nation": {
                           "staat": {
                             "code": "123456",
-                            "name": ""
+                            "name": "",
+                            "listVersionID": ""
                           }
                         }
                       },
@@ -749,12 +791,14 @@
                       "quality_and_monitoring_requirement_identifier": "554e8400-e29b-41d4-a716-446655440000",
                       "parameter_code": {
                         "code": "1711",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       },
                       "parameter_threshold_value": 1.11,
                       "parameter_threshold_value_unit": {
                         "code": "1010",
-                        "name": null
+                        "name": null,
+                        "listVersionID": "2"
                       },
                       "sampling_frequency": 2,
                       "sampling_period": {
@@ -786,12 +830,14 @@
                       "quality_and_monitoring_requirement_identifier": "664e8400-e29b-41d4-a716-446655440001",
                       "parameter_code": {
                         "code": "1722",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       },
                       "parameter_threshold_value": 2.22,
                       "parameter_threshold_value_unit": {
                         "code": "1020",
-                        "name": null
+                        "name": null,
+                        "listVersionID": "2"
                       },
                       "sampling_frequency": 3,
                       "sampling_period": {
@@ -819,12 +865,14 @@
                       "quality_and_monitoring_requirement_identifier": "774e8400-e29b-41d4-a716-446655440002",
                       "parameter_code": {
                         "code": "1733",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       },
                       "parameter_threshold_value": 3.33,
                       "parameter_threshold_value_unit": {
                         "code": "1030",
-                        "name": null
+                        "name": null,
+                        "listVersionID": "2"
                       },
                       "sampling_frequency": 4,
                       "sampling_period": {
@@ -844,12 +892,14 @@
                       "quality_and_monitoring_requirement_identifier": "884e8400-e29b-41d4-a716-446655440003",
                       "parameter_code": {
                         "code": "1744",
-                        "name": null
+                        "name": null,
+                        "listVersionID": ""
                       },
                       "parameter_threshold_value": 4.44,
                       "parameter_threshold_value_unit": {
                         "code": "1040",
-                        "name": null
+                        "name": null,
+                        "listVersionID": "2"
                       },
                       "sampling_frequency": 5,
                       "sampling_period": {
@@ -880,7 +930,8 @@
                   "trivial_exceedance_justification": "justification",
                   "parameter_code": {
                     "code": "1711",
-                    "name": null
+                    "name": null,
+                    "listVersionID": ""
                   },
                   "exceedance_start_date": "2024-09-15",
                   "exceedance_end_date": "2024-09-15",
@@ -993,7 +1044,8 @@
             "anschrift_objekt": [],
             "art_objekt": {
               "code": "1010",
-              "name": null
+              "name": null,
+              "listVersionID": "1"
             },
             "name_objekt": "",
             "betriebszustand_des_objekts": null,
@@ -1053,17 +1105,20 @@
             },
             "unterkategorie_probennahmestelle": {
               "code": "1030",
-              "name": null
+              "name": null,
+              "listVersionID": "1"
             },
             "art_der_entnahmearmatur": {
               "code": "1010",
-              "name": null
+              "name": null,
+              "listVersionID": "1"
             },
             "stockwerk_probennahmestelle": 0,
             "medium_an_der_probennahmestelle": [
               {
                 "code": "1010",
-                "name": null
+                "name": null,
+                "listVersionID": "1"
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],

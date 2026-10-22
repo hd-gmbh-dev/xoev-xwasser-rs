@@ -24,11 +24,35 @@ fn xoev_xwasser_code2(
     let XoevXWasserCodeArgs {
         uri,
         version,
+        current,
         validate,
     }: XoevXWasserCodeArgs = xoev_xwasser_code_args(attr)?;
     let ast: syn::DeriveInput = syn::parse2(item)?;
     let name = ast.ident;
-    let version = version.unwrap_or_default();
+
+    // Code-Typ 3 (no version argument) transmits the version chosen by the
+    // sender, so it has to be a real field; Code-Typ 1/2 keep the constant.
+    let list_version_field = if let Some(version) = version.as_deref() {
+        quote! {
+            #[serde(skip)]
+            #[xml(
+                default,
+                name = b"listVersionID",
+                ty = "attr",
+                value = #version
+            )]
+            #[cfg_attr(feature = "builder", builder(default))]
+            _list_version_id: ConstStr,
+        }
+    } else {
+        quote! {
+            #[xml(name = b"listVersionID", ty = "attr")]
+            #[serde(rename = "listVersionID", default)]
+            #[cfg_attr(feature = "builder", builder(default))]
+            pub list_version_id: String,
+        }
+    };
+
     let validation = if validate {
         None
     } else {
@@ -38,8 +62,42 @@ fn xoev_xwasser_code2(
             }
         })
     };
+
+    // code type 1/2: the version is fixed by the standard
+    // code type 3 : the version is transmitted and therefore stored in the field
+    let version_accessor = match version.as_deref() {
+        Some(version) => quote! { fn version(&self) -> &str { #version } },
+        None => quote! { fn version(&self) -> &str { &self.list_version_id } },
+    };
+    let default_derive = if version.is_some() {
+        quote! { #[derive(Default)] }
+    } else {
+        quote! {}
+    };
+
+    // code type 3 needs a hand-written Default: the version starts at the
+    // currently published one instead of an empty string
+    let default_impl = if version.is_some() {
+        quote! {}
+    } else {
+        let default_version = current.clone().unwrap_or_default();
+        quote! {
+            impl Default for #name {
+                fn default() -> Self {
+                    Self {
+                        code: String::new(),
+                        name: None,
+                        list_version_id: #default_version.to_string(),
+                        _list_uri: ConstStr,
+                    }
+                }
+            }
+        }
+    };
+
     Ok(quote! {
-        #[derive(Clone, Default, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
+        #[derive(Clone, Debug, raxb::XmlSerialize, raxb::XmlDeserialize, serde::Serialize, serde::Deserialize)]
+        #default_derive
         #[cfg_attr(feature = "wasm", derive(tsify_next::Tsify))]
         #[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
         #[cfg_attr(feature = "builder", derive(TypedBuilder))]
@@ -61,16 +119,10 @@ fn xoev_xwasser_code2(
             )]
             #[cfg_attr(feature = "builder", builder(default))]
             _list_uri: ConstStr,
-            #[serde(skip)]
-            #[xml(
-                default,
-                name = b"listVersionID",
-                ty = "attr",
-                value = #version
-            )]
-            #[cfg_attr(feature = "builder", builder(default))]
-            _list_version_id: ConstStr,
+            #list_version_field
         }
+
+        #default_impl
 
 
         impl <S> From<S> for #name where S: Into<String> {
@@ -85,6 +137,7 @@ fn xoev_xwasser_code2(
         #[cfg(feature = "validate")]
         impl crate::CodeListValue for #name {
             const CODELIST: &str = #uri;
+            #version_accessor
             #validation
             fn as_value(&self) -> &str {
                 &self.code
@@ -104,41 +157,85 @@ fn xoev_xwasser_code_args(attr: proc_macro2::TokenStream) -> syn::Result<XoevXWa
 #[cfg_attr(test, derive(Debug, PartialEq, Eq))]
 struct XoevXWasserCodeArgs {
     uri: String,
+    /// Version fixed by the standard (code type 1/2): part of the schema, not
+    /// of the document.
     version: Option<String>,
+    /// Currently published version of a sender-chosen codelist (code type 3):
+    /// the default a freshly created value starts with.
+    current: Option<String>,
     validate: bool,
 }
 
 impl syn::parse::Parse for XoevXWasserCodeArgs {
+    /// `#[xoev_xwasser_code("<urn>", fixed = "3", validate)]`
+    /// `#[xoev_xwasser_code("<urn>", current = "5")]`
+    ///
+    /// The codelist URI is the only positional argument; everything else is
+    /// named so a declaration says what it means.
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let uri = input.parse().map(|litstr: syn::LitStr| litstr.value())?;
-        if !input.is_empty() {
-            let _: syn::token::Comma = input.parse()?;
-        }
-        let mut version = None;
+
+        let mut fixed = None;
+        let mut current = None;
         let mut validate = false;
-        if !input.is_empty() {
-            let head = input.fork();
-            let lit: syn::Lit = input.parse()?;
-            match lit {
-                syn::Lit::Str(lit_str) => version = Some(lit_str.value()),
-                syn::Lit::Bool(lit_bool) => validate = lit_bool.value(),
-                _ => return Err(head.error("expected either string or bool")),
+
+        while !input.is_empty() {
+            let _: syn::token::Comma = input.parse()?;
+            if input.is_empty() {
+                break; // trailing comma
             }
-            if !input.is_empty() {
-                let _: syn::token::Comma = input.parse()?;
+            let meta: syn::Meta = input.parse()?;
+            match &meta {
+                syn::Meta::Path(path) if path.is_ident("validate") => validate = true,
+                syn::Meta::NameValue(named) => {
+                    let value = match &named.value {
+                        syn::Expr::Lit(expr) => match &expr.lit {
+                            syn::Lit::Str(lit) => lit.value(),
+                            _ => {
+                                return Err(syn::Error::new_spanned(
+                                    &named.value,
+                                    "expected a string, e.g. fixed = \"3\"",
+                                ));
+                            }
+                        },
+                        _ => {
+                            return Err(syn::Error::new_spanned(
+                                &named.value,
+                                "expected a string, e.g. current = \"5\"",
+                            ));
+                        }
+                    };
+                    if named.path.is_ident("fixed") {
+                        fixed = Some(value);
+                    } else if named.path.is_ident("current") {
+                        current = Some(value);
+                    } else {
+                        return Err(syn::Error::new_spanned(
+                            &named.path,
+                            "unknown argument, expected `fixed`, `current` or `validate`",
+                        ));
+                    }
+                }
+                _ => {
+                    return Err(syn::Error::new_spanned(
+                        meta,
+                        "unexpected argument, expected `fixed = \"..\"`, `current = \"..\"` or `validate`",
+                    ));
+                }
             }
         }
-        if !input.is_empty() {
-            let lit_bool: syn::LitBool = input.parse()?;
-            validate = lit_bool.value();
-            if !input.is_empty() {
-                let _: syn::token::Comma = input.parse()?;
-            }
+
+        if fixed.is_some() && current.is_some() {
+            return Err(syn::Error::new(
+                proc_macro2::Span::call_site(),
+                "`fixed` (version set by the standard) and `current` (version chosen by the sender) are mutually exclusive",
+            ));
         }
 
         Ok(Self {
             uri,
-            version,
+            version: fixed,
+            current,
             validate,
         })
     }
@@ -148,79 +245,96 @@ impl syn::parse::Parse for XoevXWasserCodeArgs {
 mod tests {
     use super::*;
 
-    fn xoev_xwasser_validate_case(attr: proc_macro2::TokenStream) -> XoevXWasserCodeArgs {
-        xoev_xwasser_code_args(attr).expect("XoevXWasserValidateArgs")
+    fn parse(attr: proc_macro2::TokenStream) -> XoevXWasserCodeArgs {
+        xoev_xwasser_code_args(attr).expect("valid attribute")
     }
 
     #[test]
-    fn xoev_xwasser_validate_should_parse_valid_attr() {
+    fn parses_named_arguments() {
         for (case, expected) in [
             (
-                quote! { "abc" },
+                quote! { "urn" },
                 XoevXWasserCodeArgs {
-                    uri: "abc".into(),
+                    uri: "urn".into(),
                     version: None,
+                    current: None,
                     validate: false,
                 },
             ),
             (
-                quote! { "abc", },
+                quote! { "urn", },
                 XoevXWasserCodeArgs {
-                    uri: "abc".into(),
+                    uri: "urn".into(),
                     version: None,
+                    current: None,
                     validate: false,
                 },
             ),
             (
-                quote! { "abc", "def" },
+                quote! { "urn", fixed = "3" },
                 XoevXWasserCodeArgs {
-                    uri: "abc".into(),
-                    version: Some("def".into()),
+                    uri: "urn".into(),
+                    version: Some("3".into()),
+                    current: None,
                     validate: false,
                 },
             ),
             (
-                quote! { "abc", "def", },
+                quote! { "urn", fixed = "3", validate },
                 XoevXWasserCodeArgs {
-                    uri: "abc".into(),
-                    version: Some("def".into()),
-                    validate: false,
-                },
-            ),
-            (
-                quote! { "abc", true },
-                XoevXWasserCodeArgs {
-                    uri: "abc".into(),
-                    version: None,
+                    uri: "urn".into(),
+                    version: Some("3".into()),
+                    current: None,
                     validate: true,
                 },
             ),
             (
-                quote! { "abc", false, },
+                quote! { "urn", current = "5" },
                 XoevXWasserCodeArgs {
-                    uri: "abc".into(),
+                    uri: "urn".into(),
                     version: None,
+                    current: Some("5".into()),
                     validate: false,
                 },
             ),
             (
-                quote! { "abc", "def", true },
+                quote! { "urn", current = "5", validate },
                 XoevXWasserCodeArgs {
-                    uri: "abc".into(),
-                    version: Some("def".into()),
+                    uri: "urn".into(),
+                    version: None,
+                    current: Some("5".into()),
                     validate: true,
                 },
             ),
             (
-                quote! { "abc", "def", false, },
+                quote! { "urn", validate },
                 XoevXWasserCodeArgs {
-                    uri: "abc".into(),
-                    version: Some("def".into()),
-                    validate: false,
+                    uri: "urn".into(),
+                    version: None,
+                    current: None,
+                    validate: true,
                 },
             ),
         ] {
-            assert_eq!(xoev_xwasser_validate_case(case), expected);
+            assert_eq!(parse(case), expected);
         }
+    }
+
+    #[test]
+    fn rejects_positional_and_unknown_arguments() {
+        for case in [
+            quote! { "urn", "3" },
+            quote! { "urn", true },
+            quote! { "urn", version = "3" },
+        ] {
+            assert!(xoev_xwasser_code_args(case).is_err());
+        }
+    }
+
+    #[test]
+    fn rejects_fixed_together_with_current() {
+        let err = xoev_xwasser_code_args(quote! { "urn", fixed = "3", current = "5" })
+            .expect_err("must not accept both");
+        assert!(err.to_string().contains("mutually exclusive"));
     }
 }
