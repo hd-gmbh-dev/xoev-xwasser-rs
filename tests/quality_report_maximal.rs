@@ -1,5 +1,7 @@
 use xoev_xwasser::model::transport::VorgangTransportieren2010;
 
+mod common;
+
 fn maximal_quality_report() -> String {
     std::fs::read_to_string(
         std::env::current_dir()
@@ -33,7 +35,7 @@ fn test_maximal_quality_report_against_deserialize() -> anyhow::Result<()> {
     let s = maximal_quality_report();
     let e: VorgangTransportieren2010 = raxb::de::from_str(&s)?;
     let json = serde_json::to_string_pretty(&e).unwrap();
-    std::fs::write("tests/quality_report_maximal.json", json)?;
+    common::golden("tests/quality_report_maximal.json", &json)?;
     std::fs::write("tests/quality_report_maximal.debug.log", format!("{e:#?}"))?;
     Ok(())
 }
@@ -49,9 +51,9 @@ fn test_maximal_quality_report_against_serialize() -> anyhow::Result<()> {
     if let Err(e) = result {
         eprintln!("{e}");
     }
-    std::fs::write(
+    common::golden(
         "tests/quality_report_maximal_test_result.xml",
-        xml.replace(SCHEMA, LOCAL_SCHEMA),
+        &(xml.replace(SCHEMA, LOCAL_SCHEMA)),
     )?;
     Ok(())
 }

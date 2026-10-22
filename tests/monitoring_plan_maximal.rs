@@ -1,5 +1,7 @@
 use xoev_xwasser::model::transport::VorgangTransportieren2010;
 
+mod common;
+
 fn maximal_monitoring_plan() -> String {
     std::fs::read_to_string(
         std::env::current_dir()
@@ -24,7 +26,7 @@ fn test_maximal_monitoring_plan_against_deserialize() -> anyhow::Result<()> {
     let s = maximal_monitoring_plan();
     let e: VorgangTransportieren2010 = raxb::de::from_str(&s)?;
     let json = serde_json::to_string_pretty(&e).unwrap();
-    std::fs::write("tests/monitoring_plan_maximal.json", json)?;
+    common::golden("tests/monitoring_plan_maximal.json", &json)?;
     std::fs::write("tests/monitoring_plan_maximal.debug.log", format!("{e:#?}"))?;
     Ok(())
 }
@@ -41,9 +43,9 @@ fn test_maximal_monitoring_plan_against_serialize() -> anyhow::Result<()> {
         eprintln!("{e}");
     }
     dbg!(&xml);
-    std::fs::write(
+    common::golden(
         "tests/monitoring_plan_maximal_test_result.xml",
-        xml.replace(SCHEMA, LOCAL_SCHEMA),
+        &(xml.replace(SCHEMA, LOCAL_SCHEMA)),
     )?;
     Ok(())
 }

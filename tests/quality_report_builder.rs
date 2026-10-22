@@ -1,6 +1,9 @@
+mod common;
+
 #[cfg(feature = "builder")]
 #[test]
 fn test_quality_report_builder() -> anyhow::Result<()> {
+    xoev_xwasser::builder::utils::use_fixed_fixtures();
     use xoev_xwasser::{
         LOCAL_SCHEMA, SCHEMA,
         builder::{
@@ -280,11 +283,11 @@ fn test_quality_report_builder() -> anyhow::Result<()> {
         .build();
 
     let json = serde_json::to_string_pretty(&e).unwrap();
-    std::fs::write("tests/quality_report_builder.json", json)?;
+    common::golden("tests/quality_report_builder.json", &json)?;
     let xml = raxb::ser::to_string_pretty_with_decl(&e)?;
-    std::fs::write(
+    common::golden(
         "tests/quality_report_builder_test_result.xml",
-        xml.replace(SCHEMA, LOCAL_SCHEMA),
+        &(xml.replace(SCHEMA, LOCAL_SCHEMA)),
     )?;
     Ok(())
 }
