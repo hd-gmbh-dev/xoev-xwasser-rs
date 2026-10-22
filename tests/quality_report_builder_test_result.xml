@@ -2,11 +2,11 @@
 <xwas:vorgang.transportieren.2010 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/ ../schemas/V0_9_2/xwasser.xsd" xmlns:xwas="https://gitlab.opencode.de/akdb/xoev/xwasser/-/raw/main/V0_9_2/" produkt="XWasser Test" produkthersteller="H&amp;D GmbH" produktversion="0.800.0" standard="XWasser" test="true" version="0.9.2">
   <nachrichtenkopf.g2g>
     <identifikation.nachricht>
-      <nachrichtenUUID>4b801e47-f7cd-4d4a-bbc4-500987520c00</nachrichtenUUID>
+      <nachrichtenUUID>00000000-0000-4000-8000-000000000001</nachrichtenUUID>
       <nachrichtentyp listURI="urn:xoev-de:xwasser:codeliste:nachrichtentyp" listVersionID="1">
         <code>2010</code>
       </nachrichtentyp>
-      <erstellungszeitpunkt>2026-04-15T23:16:43</erstellungszeitpunkt>
+      <erstellungszeitpunkt>2024-05-28T09:00:00</erstellungszeitpunkt>
     </identifikation.nachricht>
     <leser>
       <verzeichnisdienst listVersionID="">
@@ -26,20 +26,20 @@
   </nachrichtenkopf.g2g>
   <xwas:vorgang>
     <xwas:identifikationVorgang>
-      <xwas:vorgangsID>d224d5cf-efb2-4b55-b31b-5790cc6bc8c7</xwas:vorgangsID>
+      <xwas:vorgangsID>00000000-0000-4000-8000-000000000003</xwas:vorgangsID>
     </xwas:identifikationVorgang>
     <xwas:vorgangType>
       <xwas:pruefbericht id="pruefbericht-1">
-        <xwas:pruefberichtUUID>143b695e-5128-47cc-9c28-807501f1325f</xwas:pruefberichtUUID>
+        <xwas:pruefberichtUUID>00000000-0000-4000-8000-000000000008</xwas:pruefberichtUUID>
         <xwas:versionsnummer>1</xwas:versionsnummer>
-        <xwas:auftragsnummer>6b56528d-e1ab-4e3d-bd1d-c574db173093</xwas:auftragsnummer>
+        <xwas:auftragsnummer>00000000-0000-4000-8000-000000000009</xwas:auftragsnummer>
         <xwas:zustaendigeBehoerde>
           <xwas:laenderkuerzel listURI="urn:xoev-de:xwasser:codeliste:laenderkennzeichen" listVersionID="1">
             <code>DEBY</code>
           </xwas:laenderkuerzel>
         </xwas:zustaendigeBehoerde>
-        <xwas:probennahmestelle id="id-e4b809f0-1d1c-4994-90f5-aff5b897cb28">
-          <xwas:probennahmestelleID>id-e4b809f0-1d1c-4994-90f5-aff5b897cb28</xwas:probennahmestelleID>
+        <xwas:probennahmestelle id="id-00000000-0000-4000-8000-000000000006">
+          <xwas:probennahmestelleID>id-00000000-0000-4000-8000-000000000006</xwas:probennahmestelleID>
           <xwas:objektID>none</xwas:objektID>
           <xwas:nameProbennahmestelle></xwas:nameProbennahmestelle>
           <xwas:kategorieProbennahmestelle listURI="urn:xoev-de:xwasser:codeliste:kategorie-probennahmestelle" listVersionID="1">
@@ -57,11 +57,11 @@
           </xwas:mediumAnDerProbennahmestelle>
         </xwas:probennahmestelle>
         <xwas:probe id="probe-1">
-          <xwas:probeID>e66a6e32-ddf9-4623-89e1-ab5cdc176970</xwas:probeID>
-          <xwas:probennahmestelle>id-e4b809f0-1d1c-4994-90f5-aff5b897cb28</xwas:probennahmestelle>
+          <xwas:probeID>00000000-0000-4000-8000-000000000007</xwas:probeID>
+          <xwas:probennahmestelle>id-00000000-0000-4000-8000-000000000006</xwas:probennahmestelle>
           <xwas:analyseergebnisParameter id="param-1">
-            <xwas:analyseergebnisParameterID>d3d0d490-3af4-4d1b-b5ed-e26777706e00</xwas:analyseergebnisParameterID>
-            <xwas:anschriftID>anschrift-fvkb1hPG</xwas:anschriftID>
+            <xwas:analyseergebnisParameterID>00000000-0000-4000-8000-000000000005</xwas:analyseergebnisParameterID>
+            <xwas:anschriftID>anschrift-fixture00000004</xwas:anschriftID>
             <xwas:zugelasseneUntersuchungsstelle>wsu-1</xwas:zugelasseneUntersuchungsstelle>
             <xwas:akkreditierteDurchfuehrungAnalyse>false</xwas:akkreditierteDurchfuehrungAnalyse>
             <xwas:zugelasseneDurchfuehrungAnalyse>true</xwas:zugelasseneDurchfuehrungAnalyse>
@@ -92,7 +92,7 @@
             <code>1010</code>
           </xwas:medium>
           <xwas:akkreditierteDurchfuehrungDerProbennahme>false</xwas:akkreditierteDurchfuehrungDerProbennahme>
-          <xwas:zeitpunktProbennahme>2026-04-15T23:16:43</xwas:zeitpunktProbennahme>
+          <xwas:zeitpunktProbennahme>2024-05-28T09:00:00</xwas:zeitpunktProbennahme>
           <xwas:probennahmeverfahren listURI="urn:xoev-de:xwasser:codeliste:probennahmeverfahren" listVersionID="1">
             <code>1010</code>
           </xwas:probennahmeverfahren>
@@ -100,16 +100,16 @@
             <code>9020</code>
           </xwas:probenentnahmegeraet>
           <xwas:konservierungDerProbe>1020</xwas:konservierungDerProbe>
-          <xwas:eingangProbeBeiUntersuchungsstelle>2026-04-15T23:16:43</xwas:eingangProbeBeiUntersuchungsstelle>
-          <xwas:beginnLabortaetigkeitAnalytik>2026-04-15T23:16:43</xwas:beginnLabortaetigkeitAnalytik>
-          <xwas:abschlussLabortaetigkeitAnalytik>2026-04-15T23:16:43</xwas:abschlussLabortaetigkeitAnalytik>
+          <xwas:eingangProbeBeiUntersuchungsstelle>2024-05-28T09:00:00</xwas:eingangProbeBeiUntersuchungsstelle>
+          <xwas:beginnLabortaetigkeitAnalytik>2024-05-28T09:00:00</xwas:beginnLabortaetigkeitAnalytik>
+          <xwas:abschlussLabortaetigkeitAnalytik>2024-05-28T09:00:00</xwas:abschlussLabortaetigkeitAnalytik>
           <xwas:konformitaetsbewertungDerProbe listURI="urn:xoev-de:xwasser:codeliste:probenbewertung" listVersionID="1">
             <code>1010</code>
           </xwas:konformitaetsbewertungDerProbe>
           <xwas:probeID_ausLabor></xwas:probeID_ausLabor>
         </xwas:probe>
         <xwas:probennehmer id="probennehmer-1">
-          <xwas:probennehmerID>0ccecc96-5ddc-4ac9-a6ea-21a60f9c0cfe</xwas:probennehmerID>
+          <xwas:probennehmerID>00000000-0000-4000-8000-000000000002</xwas:probennehmerID>
           <xwas:probennehmer>
             <xwas:natuerlichePerson>
             </xwas:natuerlichePerson>
@@ -121,7 +121,7 @@
         <xwas:gesamtbewertung listURI="urn:xoev-de:xwasser:codeliste:gesamtbewertung" listVersionID="2">
           <code>1010</code>
         </xwas:gesamtbewertung>
-        <xwas:zeitpunktValidierungPruefbericht>2026-04-15T23:16:43</xwas:zeitpunktValidierungPruefbericht>
+        <xwas:zeitpunktValidierungPruefbericht>2024-05-28T09:00:00</xwas:zeitpunktValidierungPruefbericht>
         <xwas:fuerValidierungVerantwortlichePerson id="bevollmaechtigter-1">
         </xwas:fuerValidierungVerantwortlichePerson>
         <xwas:freigabeUebermittlungBetreiber>false</xwas:freigabeUebermittlungBetreiber>
@@ -144,7 +144,7 @@
         <xwas:beauftragteUntersuchungsstelle id="wsu-1">
           <xwas:zugelasseneUntersuchungsstelleID></xwas:zugelasseneUntersuchungsstelleID>
         </xwas:beauftragteUntersuchungsstelle>
-        <xwas:ortDerLabortaetigkeiten id="anschrift-fvkb1hPG">
+        <xwas:ortDerLabortaetigkeiten id="anschrift-fixture00000004">
           <xwas:strasse>strasse</xwas:strasse>
           <xwas:hausnummer>hausnummer</xwas:hausnummer>
           <xwas:postleitzahl>postleitzahl</xwas:postleitzahl>
