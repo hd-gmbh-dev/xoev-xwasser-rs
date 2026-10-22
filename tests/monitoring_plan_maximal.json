@@ -68,7 +68,8 @@
         "oberflaechenwassereinfluss": false,
         "desinfektion_durchgefuehrt_mit": {
           "code": "1010",
-          "name": null
+          "name": null,
+          "listVersionID": "1"
         },
         "abfuellung_zur_abgabe_in_verschlossenen_behaeltnissen": false,
         "acrylamid": {
@@ -118,7 +119,8 @@
               {
                 "parameter": {
                   "code": "",
-                  "name": null
+                  "name": null,
+                  "listVersionID": ""
                 },
                 "messprogramm": "",
                 "parameter_gruppe": "",
@@ -159,7 +161,8 @@
             "anschrift_objekt": [],
             "art_objekt": {
               "code": "1010",
-              "name": null
+              "name": null,
+              "listVersionID": "1"
             },
             "name_objekt": "",
             "betriebszustand_des_objekts": null,
@@ -186,17 +189,20 @@
             },
             "unterkategorie_probennahmestelle": {
               "code": "1030",
-              "name": null
+              "name": null,
+              "listVersionID": "1"
             },
             "art_der_entnahmearmatur": {
               "code": "1010",
-              "name": null
+              "name": null,
+              "listVersionID": "1"
             },
             "stockwerk_probennahmestelle": 0,
             "medium_an_der_probennahmestelle": [
               {
                 "code": "1010",
-                "name": null
+                "name": null,
+                "listVersionID": "1"
               }
             ],
             "desinfektion_und_aufbereitung_des_wassers": [],
