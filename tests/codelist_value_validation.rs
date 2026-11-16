@@ -6,8 +6,13 @@ use std::fs;
 
 /// Codelists the baukasten does not enumerate (measured on 0.9.2 … 1.0.1: the
 /// same eleven in every line).
+/// `bundesland` is deliberately absent: the published list keys the states as
+/// `01`..`16`, real documents send `DEBY`/`DEBW`, and enforcing it would reject
+/// data that is accepted today. Revisit with the data owners.
+const NOT_VALIDATED_ON_PURPOSE: &[&str] =
+    &["urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland"];
+
 const SCHEMA_UNVALIDATED: &[&str] = &[
-    "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland",
     "urn:de:dsmeld:schluesseltabelle:auskunftssperre",
     "urn:de:dsmeld:schluesseltabelle:familienstand",
     "urn:de:dsmeld:schluesseltabelle:familienstand.beendigungsgrund",
@@ -53,4 +58,17 @@ fn the_lists_the_schema_cannot_check_are_validated_by_the_model() {
         missing.is_empty(),
         "these codelists are not enumerated by the XSD and must declare `validate`: {missing:?}"
     );
+
+    // the exception stays an exception: the day the data matches the documents,
+    // the list above should lose this flag and the URN must move back
+    for urn in NOT_VALIDATED_ON_PURPOSE {
+        let declaration = declarations
+            .iter()
+            .find(|declaration| declaration.contains(&format!("\"{urn}\"")))
+            .unwrap_or_else(|| panic!("no declaration for {urn}"));
+        assert!(
+            !declaration.contains("validate"),
+            "{urn} is validated on purpose, remove the exception"
+        );
+    }
 }

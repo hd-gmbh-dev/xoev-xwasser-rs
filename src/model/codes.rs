@@ -286,10 +286,12 @@ pub struct CodeBezirkType;
 
 /// Type name: Code.BundeslandType
 /// Die Bundesrepublik Deutschland ist ein Zusammenschluss von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke.Diese Codeliste stellt die deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).
+// NOT validated: the published list keys the states as `01`..`16`, while real
+// XWasser documents (and the KDO fixtures) transmit the ISO forms `DEBY`,
+// `DEBW`, … — enforcing it would reject documents that are accepted today.
 #[xoev_xwasser_code(
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland",
-    fixed = "2010-04-01",
-    validate
+    fixed = "2010-04-01"
 )]
 pub struct CodeBundeslandType;
 
