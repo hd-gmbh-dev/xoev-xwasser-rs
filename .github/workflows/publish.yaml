@@ -3,10 +3,12 @@ name: Publish to crates.io and registry.npmjs.org
 on:
   workflow_call:
     secrets:
+      # only until trusted publishing is configured for the three crates and the
+      # two npm packages; the workflow itself needs no long-lived token
       CRATES_TOKEN:
-        required: true
-      BOT_GITHUB_TOKEN:
-        required: true
+        required: false
+      NPM_TOKEN:
+        required: false
 
 jobs:
   publish:
@@ -65,18 +67,20 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   release:
-      name: Release
-      runs-on: ubuntu-latest
-      needs: publish
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-        - name: Release
-          uses: actions/create-release@latest
-          env:
-            GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
-          with:
-            tag_name: ${{ github.ref }}
-            release_name: ${{ github.ref }}
-            draft: true
-            prerelease: false
+    name: Release
+    runs-on: ubuntu-24.04
+    needs: publish
+    # a release is a repository write and needs no personal access token
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create the draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            --title "$GITHUB_REF_NAME" \
+            --draft \
+            --generate-notes
