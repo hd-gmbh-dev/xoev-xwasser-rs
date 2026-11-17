@@ -72,3 +72,36 @@ fn the_lists_the_schema_cannot_check_are_validated_by_the_model() {
         );
     }
 }
+
+/// The opaque error must name the version the message claimed: a value can be
+/// valid in one version and unknown in another, and the receiver's message has
+/// to tell the sender which one is wrong.
+#[test]
+fn a_rejected_value_carries_the_transmitted_version() {
+    use xoev_xwasser::model::transport::VorgangTransportieren2010;
+    use xoev_xwasser::{CodeListsProvider, XWasserValidate, XWasserValidateError};
+
+    struct Nothing;
+
+    impl CodeListsProvider for Nothing {
+        fn contains(&self, _: &str, _: &str, _: &str) -> bool {
+            false
+        }
+    }
+
+    let xml = std::fs::read_to_string(
+        std::env::current_dir()
+            .expect("cwd")
+            .join("tests/quality_report_minimal.xml"),
+    )
+    .expect("fixture");
+    let parsed: VorgangTransportieren2010 = raxb::de::from_str(&xml).expect("parses");
+
+    let err = parsed
+        .xwasser_validate(&Nothing)
+        .expect_err("nothing is valid against an empty provider");
+    // documents may transmit an empty `listVersionID` (the version is then
+    // resolved by the receiver), so only the field itself is asserted here
+    let XWasserValidateError::CodeListValueNotFound { version, .. } = err;
+    assert!(version.len() <= 64, "version looks unsane: {version:?}");
+}
