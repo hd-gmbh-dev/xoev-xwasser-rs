@@ -91,7 +91,7 @@ pub struct CodePersonenrolleType {
 
 /// Type name: Code.Kommunikation.KanalType
 /// Eine Liste der Kommunikationsmedien und -kanäle, über die man eine Person oder Institution erreichen kann.
-#[xoev_xwasser_code("urn:de:xoev:codeliste:erreichbarkeit", fixed = "3")]
+#[xoev_xwasser_code("urn:de:xoev:codeliste:erreichbarkeit", fixed = "3", validate)]
 pub struct CodeKommunikationKanalType;
 
 /// Type name: Code.VerzeichnisdienstType
@@ -125,7 +125,11 @@ pub struct CodeAbhilfemassnahmeType;
 
 /// Type name: Code.AmtsspracheEUType
 /// Diese Liste beinhaltet die Amtssprachen der Europäischen Union.
-#[xoev_xwasser_code("urn:xoev-de:xfahrtenschreiber:codeliste:sprache-eu", fixed = "2")]
+#[xoev_xwasser_code(
+    "urn:xoev-de:xfahrtenschreiber:codeliste:sprache-eu",
+    fixed = "2",
+    validate
+)]
 pub struct CodeAmtsspracheEuType;
 
 /// Type name: Code.AnlassUntersuchungType
@@ -135,7 +139,11 @@ pub struct CodeAnlassUntersuchungType;
 
 /// Type name: Code.AnschrifttypType
 /// Codeliste für Anschriftentypen. Diese dienen zur näheren Bestimmung der Art von Anschriften.
-#[xoev_xwasser_code("urn:xoev-de:fim:codeliste:xzufi.anschrifttyp", fixed = "2.0")]
+#[xoev_xwasser_code(
+    "urn:xoev-de:fim:codeliste:xzufi.anschrifttyp",
+    fixed = "2.0",
+    validate
+)]
 pub struct CodeAnschrifttypType;
 
 /// Type name: Code.ArtEntnahmearmaturType
@@ -193,7 +201,11 @@ pub struct CodeAuftraggeberartType;
 
 /// Type name: Code.AuskunftssperreType
 /// Mit dieser Schlüsseltabelle werden die Gründe für Auskunfts- oder Übermittlungssperren beschrieben. Siehe Blatt 1801 und Anlage 1 Schlüsseltabelle Auskunfts- und Übermittlungssperren des DSMeld.
-#[xoev_xwasser_code("urn:de:dsmeld:schluesseltabelle:auskunftssperre", fixed = "5")]
+#[xoev_xwasser_code(
+    "urn:de:dsmeld:schluesseltabelle:auskunftssperre",
+    fixed = "5",
+    validate
+)]
 pub struct CodeAuskunftssperreType;
 
 /// Type name: Code.AusweisdokumenteType
@@ -229,6 +241,9 @@ pub struct CodeBezirkType;
 
 /// Type name: Code.BundeslandType
 /// Die Bundesrepublik Deutschland ist ein Zusammenschluss von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke.Diese Codeliste stellt die deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).
+// NOT validated: the published list keys the states as `01`..`16`, while real
+// XWasser documents transmit the ISO forms `DEBY`, `DEBW`, … — enforcing it
+// would reject documents that are accepted today.
 #[xoev_xwasser_code(
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland",
     fixed = "2010-04-01"
@@ -257,13 +272,14 @@ pub struct CodeErlaeuterungWasserabgabemengeType;
 /// Mit dieser Schlüsseltabelle werden die rechtlichen Gründe der Beendigung oder Nichtigkeit der letzten Ehe oder der letzten Lebenspartnerschaft abgebildet. Siehe Blatt 1405 des DSMeld.
 #[xoev_xwasser_code(
     "urn:de:dsmeld:schluesseltabelle:familienstand.beendigungsgrund",
-    fixed = "3"
+    fixed = "3",
+    validate
 )]
 pub struct CodeFamilienstandBeendigungsgrundType;
 
 /// Type name: Code.FamilienstandType
 /// Mit dieser Schlüsseltabelle wird der personenstandsrechtliche Familienstand einer Person abgebildet. Siehe Blatt 1401 des DSMeld.
-#[xoev_xwasser_code("urn:de:dsmeld:schluesseltabelle:familienstand", fixed = "2")]
+#[xoev_xwasser_code("urn:de:dsmeld:schluesseltabelle:familienstand", fixed = "2", validate)]
 pub struct CodeFamilienstandType;
 
 /// Type name: Code.FlockungType
@@ -314,7 +330,7 @@ pub struct CodeKategorieProbennahmestelleType;
 
 /// Type name: Code.KommunikationType
 /// Eine Liste der Kommunikationsmedien und -kanäle, über die man eine Person oder Institution erreichen kann.
-#[xoev_xwasser_code("urn:de:xoev:codeliste:erreichbarkeit", fixed = "3")]
+#[xoev_xwasser_code("urn:de:xoev:codeliste:erreichbarkeit", fixed = "3", validate)]
 pub struct CodeKommunikationType;
 
 /// Type name: Code.KreisType
@@ -353,7 +369,11 @@ pub struct CodeNachweisartType;
 
 /// Type name: Code.NamensartType
 /// Liste ausländischer Namensformen
-#[xoev_xwasser_code("urn:xpersonenstand:schluesseltabelle:namensart", fixed = "1")]
+#[xoev_xwasser_code(
+    "urn:xpersonenstand:schluesseltabelle:namensart",
+    fixed = "1",
+    validate
+)]
 pub struct CodeNamensartType;
 
 /// Type name: Code.ParameterauspraegungType
@@ -467,12 +487,12 @@ pub struct CodeStaatsangehoerigkeitType;
 
 /// Type name: Code.StatusFachlichType
 /// Mit dieser Codeliste wird der fachliche Status definiert.
-#[xoev_xwasser_code("urn:xoev-de:xewaffe:codeliste:statusfachlich", fixed = "1")]
+#[xoev_xwasser_code("urn:xoev-de:xewaffe:codeliste:statusfachlich", fixed = "1", validate)]
 pub struct CodeStatusFachlichType;
 
 /// Type name: Code.StatusTechnischType
 /// Mit dieser Codeliste wird der technische Status definiert.
-#[xoev_xwasser_code("urn:xoev-de:xewaffe:codeliste:statustechnisch", fixed = "1")]
+#[xoev_xwasser_code("urn:xoev-de:xewaffe:codeliste:statustechnisch", fixed = "1", validate)]
 pub struct CodeStatusTechnischType;
 
 /// Type name: Code.StatusUntersuchungsplanType
@@ -525,7 +545,7 @@ pub struct CodeWvaType;
 
 /// Type name: Code.WaehrungType
 /// Die Codeliste basiert auf dem Standard "Currency codes" der International Organization for Standardization (ISO). Die vorliegende Version der Codeliste enthält alle Codelisteneinträge, die mit einem listenweit eindeutigen Eintrag in den Feldern "Currency" und "Alphabetic Code" geführt werden. Sie ist konform zur EN16931-1 und zu dem darauf basierenden Standard XRechnung sowie zum Standard XBestellung und der zugrundeliegenden Peppol BIS Order only.
-#[xoev_xwasser_code("urn:xoev-de:kosit:codeliste:currency-codes", fixed = "3")]
+#[xoev_xwasser_code("urn:xoev-de:kosit:codeliste:currency-codes", fixed = "3", validate)]
 pub struct CodeWaehrungType;
 
 /// Type name: Code.WasserversorgungsgebietType
