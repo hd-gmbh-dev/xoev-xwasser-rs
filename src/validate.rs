@@ -8,7 +8,14 @@ pub trait XWasserValidate {
 }
 
 pub enum XWasserValidateError {
-    CodeListValueNotFound { codelist: String, value: String },
+    /// `version` is the version the message claimed: a value can be valid in one
+    /// published version and unknown in another, and a version can be missing
+    /// from the codelist altogether.
+    CodeListValueNotFound {
+        codelist: String,
+        value: String,
+        version: String,
+    },
 }
 
 pub trait XWasserValidateMarker {}
@@ -27,6 +34,7 @@ where
             Err(XWasserValidateError::CodeListValueNotFound {
                 codelist: Self::CODELIST.to_string(),
                 value: self.as_value().to_string(),
+                version: self.version().to_string(),
             })
         }
     }
