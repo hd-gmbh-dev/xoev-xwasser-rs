@@ -2,13 +2,6 @@ name: Publish to crates.io and registry.npmjs.org
 
 on:
   workflow_call:
-    secrets:
-      # only until trusted publishing is configured for the three crates and the
-      # two npm packages; the workflow itself needs no long-lived token
-      CRATES_TOKEN:
-        required: false
-      NPM_TOKEN:
-        required: false
 
 jobs:
   publish:
@@ -24,6 +17,8 @@ jobs:
     - uses: dtolnay/rust-toolchain@1.94.1
     - name: get-cmake
       uses: lukka/get-cmake@latest
+    - uses: rust-lang/crates-io-auth-action@v1
+      id: crates-auth
     - name: Publish to crates.io.
       run: |
         VERSION=$(cargo pkgid -p xoev-xwasser 2>/dev/null | sed 's/.*@//')
@@ -36,27 +31,28 @@ jobs:
             echo "Skipping $crate - already published ($VERSION)"
           else
             if [ "$crate" = "xoev-xwasser-codelists" ]; then
-              cargo publish --token ${CRATES_TOKEN} --no-verify -p "$crate"
+              cargo publish --no-verify -p "$crate"
             else
-              cargo publish --token ${CRATES_TOKEN} -p "$crate"
+              cargo publish -p "$crate"
             fi
           fi
         done
       env:
-        CRATES_TOKEN: ${{ secrets.CRATES_TOKEN }}
+        # minted from the crates.io trusted publisher, valid for this job only
+        CARGO_REGISTRY_TOKEN: ${{ steps.crates-auth.outputs.token }}
     - uses: actions/setup-node@v4
       with:
-        node-version: '20.x'
+        node-version: "24"
         registry-url: 'https://registry.npmjs.org'
     - name: Download NPM artifact
       uses: actions/download-artifact@v4
       with:
         name: xoev-xwasser-pkg
         path: pkg
+    # No NODE_AUTH_TOKEN: npm exchanges the GitHub OIDC token with the trusted
+    # publisher configured on the package.
     - run: npm publish --provenance --access public
       working-directory: ./pkg
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     - name: Download NPM Web artifact
       uses: actions/download-artifact@v4
       with:
@@ -64,8 +60,6 @@ jobs:
         path: pkg
     - run: npm publish --provenance --access public
       working-directory: ./pkg
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   release:
     name: Release
     runs-on: ubuntu-24.04
