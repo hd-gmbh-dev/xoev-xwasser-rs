@@ -66,18 +66,33 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   release:
-      name: Release
-      runs-on: ubuntu-latest
-      needs: publish
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-        - name: Release
-          uses: actions/create-release@latest
-          env:
-            GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
-          with:
-            tag_name: ${{ github.ref }}
-            release_name: ${{ github.ref }}
-            draft: true
-            prerelease: false
+    name: Release
+    runs-on: ubuntu-24.04
+    needs: publish
+    # a release is a repository write and needs no personal access token
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # several release lines live in this repository; "Latest" belongs to
+          # the greatest version, not to the one released last
+          greatest=$(git ls-remote --tags origin \
+            | sed 's|.*refs/tags/||' \
+            | grep -v '\^{}' \
+            | sort -V \
+            | tail -1)
+          latest=false
+          [ "$greatest" = "$GITHUB_REF_NAME" ] && latest=true
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            echo "release $GITHUB_REF_NAME already exists"
+            exit 0
+          fi
+          gh release create "$GITHUB_REF_NAME" \
+            --title "$GITHUB_REF_NAME" \
+            --generate-notes \
+            --latest="$latest"
