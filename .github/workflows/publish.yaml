@@ -80,12 +80,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          # maintenance lines must not steal the "Latest" badge from the current
-          # one, so only the newest line is marked as such
+          # several release lines live in this repository; "Latest" belongs to the
+          # greatest version, not to the one released last
+          greatest=$(git ls-remote --tags origin \
+            | sed 's|.*refs/tags/||' \
+            | grep -v '\^{}' \
+            | sort -V \
+            | tail -1)
           latest=false
-          case "$GITHUB_REF_NAME" in
-            v101.*) latest=true ;;
-          esac
+          [ "$greatest" = "$GITHUB_REF_NAME" ] && latest=true
           gh release create "$GITHUB_REF_NAME" \
             --title "$GITHUB_REF_NAME" \
             --generate-notes \
