@@ -76,11 +76,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Create the draft release
+      - name: Create the release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          # maintenance lines must not steal the "Latest" badge from the current
+          # one, so only the newest line is marked as such
+          latest=false
+          case "$GITHUB_REF_NAME" in
+            v101.*) latest=true ;;
+          esac
           gh release create "$GITHUB_REF_NAME" \
             --title "$GITHUB_REF_NAME" \
-            --draft \
-            --generate-notes
+            --generate-notes \
+            --latest="$latest"
