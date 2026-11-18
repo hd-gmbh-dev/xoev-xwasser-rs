@@ -102,6 +102,10 @@ fn a_rejected_value_carries_the_transmitted_version() {
         .expect_err("nothing is valid against an empty provider");
     // documents may transmit an empty `listVersionID` (the version is then
     // resolved by the receiver), so only the field itself is asserted here
-    let XWasserValidateError::CodeListValueNotFound { version, .. } = err;
-    assert!(version.len() <= 64, "version looks unsane: {version:?}");
+    match err {
+        XWasserValidateError::CodeListValueNotFound { version, .. } => {
+            assert!(version.len() <= 64, "version looks unsane: {version:?}");
+        }
+        other => panic!("unexpected error: {other}"),
+    }
 }
