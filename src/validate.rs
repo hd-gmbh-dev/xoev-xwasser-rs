@@ -1,3 +1,5 @@
+use std::fmt;
+
 use xoev_xwasser_codelists::{CodeListValue, CodeListsProvider};
 
 pub trait XWasserValidate {
@@ -7,8 +9,14 @@ pub trait XWasserValidate {
     ) -> Result<(), XWasserValidateError>;
 }
 
+/// Why a message failed the codelist check.
+///
+/// `#[non_exhaustive]`: a receiver that does not know a list yet will get its own
+/// variant, and that must not be a breaking change.
+#[derive(Debug)]
+#[non_exhaustive]
 pub enum XWasserValidateError {
-    /// `version` is the version the message claimed: a value can be valid in one
+    /// The version is the one the message claimed: a value can be valid in one
     /// published version and unknown in another, and a version can be missing
     /// from the codelist altogether.
     CodeListValueNotFound {
@@ -17,6 +25,23 @@ pub enum XWasserValidateError {
         version: String,
     },
 }
+
+impl fmt::Display for XWasserValidateError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::CodeListValueNotFound {
+                codelist,
+                value,
+                version,
+            } => write!(
+                f,
+                "value {value} is not in codelist {codelist} version {version}"
+            ),
+        }
+    }
+}
+
+impl std::error::Error for XWasserValidateError {}
 
 pub trait XWasserValidateMarker {}
 
