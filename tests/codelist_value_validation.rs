@@ -100,9 +100,11 @@ fn a_rejected_value_carries_the_transmitted_version() {
     let err = parsed
         .xwasser_validate(&Nothing)
         .expect_err("nothing is valid against an empty provider");
-    let XWasserValidateError::CodeListValueNotFound { version, .. } = err;
-    assert!(
-        !version.is_empty(),
-        "the error must carry the version, got {version:?}"
-    );
+    match err {
+        XWasserValidateError::CodeListValueNotFound { version, .. } => assert!(
+            !version.is_empty(),
+            "the error must carry the version, got {version:?}"
+        ),
+        other => panic!("unexpected error: {other}"),
+    }
 }
