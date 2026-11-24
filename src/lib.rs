@@ -80,42 +80,42 @@ pub fn detect_version(xml: &str) -> Version {
                 Event::Start(ev) => {
                     let attrs = ev.attributes();
                     for attr in attrs.flatten() {
-                        if attr.key.local_name().as_ref() == b"version" {
-                            match &attr.value[..] {
-                                b"0.5.2" => {
+                        if attr.key.local_name().as_ref().as_bytes() == b"version" {
+                            match attr.value.as_ref() {
+                                "0.5.2" => {
                                     return Version::V0_5_2;
                                 }
-                                b"0.5.3" => {
+                                "0.5.3" => {
                                     return Version::V0_5_3;
                                 }
-                                b"0.6.0" => {
+                                "0.6.0" => {
                                     return Version::V0_6_0;
                                 }
-                                b"0.7.0" => {
+                                "0.7.0" => {
                                     return Version::V0_7_0;
                                 }
-                                b"0.7.2" => {
+                                "0.7.2" => {
                                     return Version::V0_7_2;
                                 }
-                                b"0.8.0" => {
+                                "0.8.0" => {
                                     return Version::V0_8_0;
                                 }
-                                b"0.9.0" => {
+                                "0.9.0" => {
                                     return Version::V0_9_0;
                                 }
-                                b"0.9.1" => {
+                                "0.9.1" => {
                                     return Version::V0_9_1;
                                 }
-                                b"0.9.2" => {
+                                "0.9.2" => {
                                     return Version::V0_9_2;
                                 }
-                                b"0.9.5" => {
+                                "0.9.5" => {
                                     return Version::V0_9_5;
                                 }
-                                b"1.0.0" => {
+                                "1.0.0" => {
                                     return Version::V1_0_0;
                                 }
-                                b"1.0.1" => {
+                                "1.0.1" => {
                                     return Version::V1_0_1;
                                 }
                                 _ => {

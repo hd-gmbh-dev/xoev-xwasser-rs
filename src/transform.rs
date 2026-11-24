@@ -24,7 +24,7 @@ use raxb::quick_xml::{
 };
 
 /// The XWasser namespace URI as a quick-xml `Namespace` value.
-const XWAS_NS: Namespace = Namespace(crate::TNS);
+const XWAS_NS: Namespace = Namespace(crate::XMLNS);
 
 // ---------------------------------------------------------------------------
 // Options structs
@@ -155,7 +155,7 @@ pub fn transform_vorgang_transportieren_2010_impl(xml: &str, options: &Transform
         match rdr.read_resolved_event_into(&mut buf) {
             Ok((ns, Event::Start(e))) => {
                 state.depth += 1;
-                let lok = e.local_name().as_ref().to_vec();
+                let lok = e.local_name().as_ref().as_bytes().to_vec();
                 handle_start(
                     &mut state,
                     has_leser,
@@ -170,7 +170,7 @@ pub fn transform_vorgang_transportieren_2010_impl(xml: &str, options: &Transform
             }
 
             Ok((ns, Event::End(e))) => {
-                let lok = e.local_name().as_ref().to_vec();
+                let lok = e.local_name().as_ref().as_bytes().to_vec();
                 handle_end(
                     &mut state,
                     has_leser,
@@ -437,7 +437,7 @@ fn handle_start(
     if lok == b"vorgang.transportieren.2010" && state.root_depth == 0 {
         state.root_depth = state.depth;
         state.root_child_indent.clear();
-        state.root_ns_prefix = prefix_of_qualified(e.name().as_ref());
+        state.root_ns_prefix = prefix_of_qualified(e.name().as_ref().as_bytes());
     }
 
     if lok == b"nachrichtenkopf.g2g" && !ns_is_foreign(&ns) {
@@ -748,7 +748,7 @@ fn handle_generic(
     }
 
     if let Event::Text(t) = &event {
-        let bytes = t.as_ref();
+        let bytes = t.as_ref().as_bytes();
         if !bytes.is_empty()
             && bytes
                 .iter()
@@ -874,7 +874,7 @@ fn write_zusatzinfo_content<W: std::io::Write>(
     for ev in buffered {
         match ev {
             Event::Start(e) => {
-                if e.local_name().as_ref() == zbid_local {
+                if e.local_name().as_ref().as_bytes() == zbid_local {
                     if has_updates && !text_buffer.is_empty() {
                         text_buffer.clear();
                     }
@@ -886,8 +886,10 @@ fn write_zusatzinfo_content<W: std::io::Write>(
                     events.push(e);
                 }
                 events.push(ev.clone());
-                if zi_end_name.is_empty() && e.local_name().as_ref() == b"zusatzinformationen" {
-                    zi_end_name = e.name().as_ref().to_vec();
+                if zi_end_name.is_empty()
+                    && e.local_name().as_ref().as_bytes() == b"zusatzinformationen"
+                {
+                    zi_end_name = e.name().as_ref().as_bytes().to_vec();
                     additional_events.reverse();
                     while let Some(e) = additional_events.pop() {
                         events.push(e);
@@ -895,7 +897,7 @@ fn write_zusatzinfo_content<W: std::io::Write>(
                 }
             }
             Event::End(e) => {
-                if e.local_name().as_ref() == zbid_local && skip_zbid {
+                if e.local_name().as_ref().as_bytes() == zbid_local && skip_zbid {
                     if has_updates && !text_buffer.is_empty() {
                         text_buffer.clear();
                     }
@@ -956,7 +958,7 @@ fn emit_mutated_g2g_element<W: std::io::Write>(
     for ev in buffered {
         match ev {
             Event::Start(e) => {
-                let en = e.local_name().as_ref().to_vec();
+                let en = e.local_name().as_ref().as_bytes().to_vec();
                 if en == b"kennung" {
                     inside_kennung = true;
                     write_event(writer, Event::Start(e.clone()));
@@ -976,7 +978,7 @@ fn emit_mutated_g2g_element<W: std::io::Write>(
                 }
             }
             Event::End(e) => {
-                let en = e.local_name().as_ref().to_vec();
+                let en = e.local_name().as_ref().as_bytes().to_vec();
                 if en == b"kennung" {
                     inside_kennung = false;
                     if has_kennung_update {
