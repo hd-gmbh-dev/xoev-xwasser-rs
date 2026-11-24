@@ -2287,3 +2287,12 @@ fn test_format_malformed_xml_returned_unchanged() {
     let result = transform_vorgang_transportieren_2010(malformed, &TransformOptions::default());
     assert_eq!(malformed, result);
 }
+
+#[test]
+fn test_entity_reference_in_text_roundtrip() {
+    // quick-xml >= 0.38 reports `&amp;` as its own event; the transform must
+    // pass it through instead of dropping it.
+    let xml = "<xwas:vorgang.transportieren.2010><name>a &amp; b &lt;c&gt;</name></xwas:vorgang.transportieren.2010>";
+    let result = transform_vorgang_transportieren_2010(xml, &TransformOptions::default());
+    assert_eq!(xml, result);
+}

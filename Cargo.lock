@@ -1461,9 +1461,9 @@ dependencies = [
 
 [[package]]
 name = "quick-xml"
-version = "0.36.2"
+version = "0.41.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f7649a7b4df05aed9ea7ec6f628c67c9953a43869b8bc50929569b2999d443fe"
+checksum = "e660451e55124f798a69a5af3f49ccfbefbd41910eefd25caf2393e1f3473ec1"
 dependencies = [
  "memchr",
 ]
@@ -1559,9 +1559,7 @@ dependencies = [
 
 [[package]]
 name = "raxb"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0e7753b2543fdc9e8a24889f4dd9d3299824bd196936c86a4f2adefff932cbd6"
+version = "0.7.0"
 dependencies = [
  "quick-xml",
  "raxb-derive",
@@ -1571,9 +1569,7 @@ dependencies = [
 
 [[package]]
 name = "raxb-derive"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4427d2c9c8b1d8d632dbb1dc250e66dbc7a5b507f3c3076f8933e74c7cdb6384"
+version = "0.7.0"
 dependencies = [
  "heck",
  "proc-macro2",
@@ -1585,9 +1581,7 @@ dependencies = [
 
 [[package]]
 name = "raxb-libxml2-sys"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "45bca83fe5f7c45195c7f7ea3a058d4b53144c8983f0a878eb051391cfa43009"
+version = "0.7.0"
 dependencies = [
  "bindgen",
  "cmake",
@@ -1595,9 +1589,7 @@ dependencies = [
 
 [[package]]
 name = "raxb-validate"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6d16a81ce997e098b4a623577c65ba61644183eaf911dfdd1f10ed3b4a3b80ff"
+version = "0.7.0"
 dependencies = [
  "byteorder",
  "libc",
@@ -1613,9 +1605,7 @@ dependencies = [
 
 [[package]]
 name = "raxb-xmlschema"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d75d57e822ab48b5f212710d0d587eb4d861ddcbb78aad43bda0e3bc7c3f2011"
+version = "0.7.0"
 dependencies = [
  "byteorder",
  "lz4_flex",
@@ -1627,9 +1617,7 @@ dependencies = [
 
 [[package]]
 name = "raxb-xmlschema-build"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a9dc52311dcaf534685388dba07c2afc06ac09cdf26258d10e791010d5e3daee"
+version = "0.7.0"
 dependencies = [
  "byteorder",
  "raxb",

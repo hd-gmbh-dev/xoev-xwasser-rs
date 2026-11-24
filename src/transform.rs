@@ -211,6 +211,11 @@ pub fn transform_vorgang_transportieren_2010_impl(xml: &str, options: &Transform
                 handle_generic(&mut state, &mut writer, owned, &resolved);
             }
 
+            Ok((_ns, Event::GeneralRef(e))) => {
+                let owned = Event::GeneralRef(e.clone().into_owned());
+                handle_generic(&mut state, &mut writer, owned, &resolved);
+            }
+
             Ok((_ns, Event::CData(e))) => {
                 let owned = Event::CData(e.clone().into_owned());
                 handle_generic(&mut state, &mut writer, owned, &resolved);
