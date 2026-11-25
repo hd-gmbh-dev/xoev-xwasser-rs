@@ -72,8 +72,8 @@ impl raxb::de::XmlDeserialize for Signature {
         loop {
             match reader.read_resolved_event_into(&mut buf)? {
                 (ResolveResult::Bound(ns), raxb::quick_xml::events::Event::End(e))
-                    if e.local_name().as_ref() == tag
-                        && ns.as_ref() == b"http://www.w3.org/2000/09/xmldsig#" =>
+                    if e.local_name().as_ref().as_bytes() == tag
+                        && ns.as_ref().as_bytes() == b"http://www.w3.org/2000/09/xmldsig#" =>
                 {
                     break;
                 }

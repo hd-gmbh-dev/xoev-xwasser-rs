@@ -1068,7 +1068,7 @@ fn test_zusatzinfo_replacement_preserves_xml_structure() {
                 depth += 1;
             }
             Ok(raxb::quick_xml::events::Event::End(e)) => {
-                let lok = e.local_name().as_ref().to_vec();
+                let lok = e.local_name().as_ref().as_bytes().to_vec();
                 depth -= 1;
                 // zusatzinformationen should close before the root element
                 if lok == b"zusatzinformationen" {
@@ -2257,7 +2257,10 @@ fn test_format_crlf_preserved_on_leser_insert() {
             ..Default::default()
         },
     );
-    // The inserted <leser> block must use CRLF throughout.
+    // The inserted <leser> block must use CRLF throughout. quick-xml writes a
+    // carriage return as `&#13;`, which parses back to CR, so both spellings
+    // count as CRLF here.
+    let result = result.replace("&#13;", "\r");
     let expected = "    <leser>\r\n      <verzeichnisdienst listVersionID=\"\">\r\n        <code></code>\r\n      </verzeichnisdienst>\r\n      <kennung>psw:new</kennung>\r\n      <name>Inserted</name>\r\n    </leser>";
     assert!(
         result.contains(expected),
@@ -2286,4 +2289,13 @@ fn test_format_malformed_xml_returned_unchanged() {
     let malformed = "<xwas:vorgang.transportieren.2010><leser><unclosed>";
     let result = transform_vorgang_transportieren_2010(malformed, &TransformOptions::default());
     assert_eq!(malformed, result);
+}
+
+#[test]
+fn test_entity_reference_in_text_roundtrip() {
+    // quick-xml >= 0.38 reports `&amp;` as its own event; the transform must
+    // pass it through instead of dropping it.
+    let xml = "<xwas:vorgang.transportieren.2010><name>a &amp; b &lt;c&gt;</name></xwas:vorgang.transportieren.2010>";
+    let result = transform_vorgang_transportieren_2010(xml, &TransformOptions::default());
+    assert_eq!(xml, result);
 }

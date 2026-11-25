@@ -135,22 +135,19 @@ checksum = "ac07cdecf99051d9a5238b80f35af32cdeba5b336e55d957b318b50137e18da5"
 
 [[package]]
 name = "bindgen"
-version = "0.69.5"
+version = "0.73.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "271383c67ccabffb7381723dea0672a673f292304fcb45c01cc648c7a8d58088"
+checksum = "787ef8ef523575546b106a58213d6e6b06198a05c2f757258c68a74273670cfa"
 dependencies = [
  "bitflags",
  "cexpr",
  "clang-sys",
- "itertools",
- "lazy_static",
- "lazycell",
  "proc-macro2",
  "quote",
  "regex",
  "rustc-hash",
- "shlex 1.3.0",
- "syn 2.0.119",
+ "shlex",
+ "syn 3.0.9",
 ]
 
 [[package]]
@@ -248,7 +245,7 @@ dependencies = [
  "find-msvc-tools",
  "jobserver",
  "libc",
- "shlex 2.0.1",
+ "shlex",
 ]
 
 [[package]]
@@ -541,12 +538,6 @@ dependencies = [
  "quote",
  "syn 3.0.9",
 ]
-
-[[package]]
-name = "either"
-version = "1.19.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0e9c71c2167ca323c882b99918929403426e2373ea17242ff5653e0d5e1058be"
 
 [[package]]
 name = "encoding_rs"
@@ -1104,15 +1095,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a6cb138bb79a146c1bd460005623e142ef0181e3d0219cb493e02f7d08a35695"
 
 [[package]]
-name = "itertools"
-version = "0.12.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ba291022dbbd398a455acf126c1e341954079855bc60dfdda641363bd6922569"
-dependencies = [
- "either",
-]
-
-[[package]]
 name = "itoa"
 version = "1.0.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1154,12 +1136,6 @@ name = "lazy_static"
 version = "1.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "20870f649af7073d53e38067b2a84312175d56ea15217e1b15bc83506ec50afb"
-
-[[package]]
-name = "lazycell"
-version = "1.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "830d08ce1d1d941e6b30645f1a0eb5643013d835ce3779a5fc208261dbe10f55"
 
 [[package]]
 name = "libbz2-rs-sys"
@@ -1461,9 +1437,9 @@ dependencies = [
 
 [[package]]
 name = "quick-xml"
-version = "0.36.2"
+version = "0.42.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f7649a7b4df05aed9ea7ec6f628c67c9953a43869b8bc50929569b2999d443fe"
+checksum = "41b1177fdf999d2321d3fb46ff47159d9c1fb9ad66a4879f8c50a0b504615e9b"
 dependencies = [
  "memchr",
 ]
@@ -1559,9 +1535,9 @@ dependencies = [
 
 [[package]]
 name = "raxb"
-version = "0.6.0"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0e7753b2543fdc9e8a24889f4dd9d3299824bd196936c86a4f2adefff932cbd6"
+checksum = "989c9b0a8415514ac248a3d0f4910694c90d26ba050886d27d9d0ccfa62e41c6"
 dependencies = [
  "quick-xml",
  "raxb-derive",
@@ -1571,13 +1547,12 @@ dependencies = [
 
 [[package]]
 name = "raxb-derive"
-version = "0.6.0"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4427d2c9c8b1d8d632dbb1dc250e66dbc7a5b507f3c3076f8933e74c7cdb6384"
+checksum = "515125ac387b1aca54177d9ef846a618e482ef96b387d0e96e39e1bed83c92c0"
 dependencies = [
  "heck",
  "proc-macro2",
- "quick-xml",
  "quote",
  "strum 0.26.3",
  "syn 2.0.119",
@@ -1585,9 +1560,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-libxml2-sys"
-version = "0.6.0"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "45bca83fe5f7c45195c7f7ea3a058d4b53144c8983f0a878eb051391cfa43009"
+checksum = "d6d4b57e914ff5e6bf847453ed65afa6f972e36fb405ae2c2f16a2cc75f41b0d"
 dependencies = [
  "bindgen",
  "cmake",
@@ -1595,9 +1570,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-validate"
-version = "0.6.0"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6d16a81ce997e098b4a623577c65ba61644183eaf911dfdd1f10ed3b4a3b80ff"
+checksum = "ce1e3886890f56a9e39ab009067eff5b96db0dd665fe817cd197f547e93595d1"
 dependencies = [
  "byteorder",
  "libc",
@@ -1613,9 +1588,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-xmlschema"
-version = "0.6.0"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d75d57e822ab48b5f212710d0d587eb4d861ddcbb78aad43bda0e3bc7c3f2011"
+checksum = "04ff966822fc9c80edf35c7c4651b6927f58cb41c49c3a4c1bd188e948f72cb8"
 dependencies = [
  "byteorder",
  "lz4_flex",
@@ -1627,9 +1602,9 @@ dependencies = [
 
 [[package]]
 name = "raxb-xmlschema-build"
-version = "0.6.0"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a9dc52311dcaf534685388dba07c2afc06ac09cdf26258d10e791010d5e3daee"
+checksum = "e1581dbf61c62d832e3b2d087f0d7924f6b0a28ff58247f46d2365ff4825d50e"
 dependencies = [
  "byteorder",
  "raxb",
@@ -1770,9 +1745,9 @@ dependencies = [
 
 [[package]]
 name = "rustc-hash"
-version = "1.1.0"
+version = "2.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "08d43f7aa6b08d49f382cde6a7982047c3426db949b1424bc4b7ec9ae12c6ce2"
+checksum = "6b1e7f9a428571be2dc5bc0505c13fb6bf936822b894ec87abf8a08a4e51742d"
 
 [[package]]
 name = "rustix"
@@ -2024,12 +1999,6 @@ checksum = "32824fab5e16e6c4d86dc1ba84489390419a39f97699852b66480bb87d297ed8"
 dependencies = [
  "dirs",
 ]
-
-[[package]]
-name = "shlex"
-version = "1.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64"
 
 [[package]]
 name = "shlex"

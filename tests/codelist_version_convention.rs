@@ -81,14 +81,14 @@ fn codelists_from_schema() -> Vec<(String, Option<String>)> {
     loop {
         match reader.read_event().expect("xml") {
             Event::Start(start) => {
-                let name = String::from_utf8_lossy(start.name().as_ref()).to_string();
+                let name = start.name().as_ref().to_string();
                 match name.as_str() {
                     "xs:complexType" => {
                         let type_name = start
                             .attributes()
                             .flatten()
-                            .find(|attr| attr.key.as_ref() == b"name")
-                            .map(|attr| String::from_utf8_lossy(&attr.value).to_string());
+                            .find(|attr| attr.key.as_ref().as_bytes() == b"name")
+                            .map(|attr| attr.value.to_string());
                         current = type_name.filter(|name| name.starts_with("Code."));
                         urn = None;
                         fixed = None;
@@ -106,7 +106,7 @@ fn codelists_from_schema() -> Vec<(String, Option<String>)> {
                 }
             }
             Event::Empty(empty) => {
-                let name = String::from_utf8_lossy(empty.name().as_ref()).to_string();
+                let name = empty.name().as_ref().to_string();
                 if name == "xs:attribute" {
                     read_version_attribute(
                         empty.attributes(),
@@ -116,10 +116,10 @@ fn codelists_from_schema() -> Vec<(String, Option<String>)> {
                 }
             }
             Event::Text(text) if in_kennung => {
-                urn = Some(String::from_utf8_lossy(text.as_ref()).to_string());
+                urn = Some(text.as_ref().to_string());
             }
             Event::End(end) => {
-                let name = String::from_utf8_lossy(end.name().as_ref()).to_string();
+                let name = end.name().as_ref().to_string();
                 match name.as_str() {
                     "kennung" => in_kennung = false,
                     "xs:complexType" => {
@@ -151,9 +151,9 @@ fn read_version_attribute<'a>(
     let mut fixed_value = None;
     for attr in attributes.flatten() {
         match attr.key.as_ref() {
-            b"name" if attr.value.as_ref() == b"listVersionID" => is_version = true,
-            b"fixed" => {
-                fixed_value = Some(String::from_utf8_lossy(&attr.value).to_string());
+            "name" if attr.value.as_ref() == "listVersionID" => is_version = true,
+            "fixed" => {
+                fixed_value = Some(attr.value.to_string());
             }
             _ => {}
         }

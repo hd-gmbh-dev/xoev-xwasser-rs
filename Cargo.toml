@@ -8,7 +8,7 @@ version = "101.0.7+1.0.1"
 description = """
 XOEV XWasser XML Standard
 """
-rust-version = "1.94.1"
+rust-version = "1.100.0"
 authors = ["H & D GmbH Open Source <contact-oss@h-d-gmbh.de>"]
 license = "MIT"
 repository = "https://github.com/hd-gmbh-dev/xoev-xwasser-rs"
@@ -19,10 +19,10 @@ keywords = []
 anyhow = "1.0.100"
 xoev-xwasser-codelists = { version = "=101.0.7", path = "crates/codelists" }
 xoev-xwasser-derive = { version = "=101.0.7", path = "crates/derive" }
-raxb = "0.6.0"
-raxb-validate = "0.6.0"
-raxb-xmlschema = "0.6.0"
-raxb-xmlschema-build = "0.6.0"
+raxb = "0.7.0"
+raxb-validate = "0.7.0"
+raxb-xmlschema = "0.7.0"
+raxb-xmlschema-build = "0.7.0"
 serde = { version = "1.0.228", features = ["derive", "rc"] }
 encoding_rs = "0.8.34"
 

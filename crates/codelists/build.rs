@@ -183,7 +183,7 @@ fn main() -> anyhow::Result<()> {
                     match rdr.read_event_into(&mut buf) {
                         Ok(Event::Decl(decl)) => match decl.encoding() {
                             Some(Ok(encoding)) => {
-                                if encoding.as_ref() == b"ISO-8859-1" {
+                                if encoding.as_ref() == "ISO-8859-1" {
                                     let encoder = encoding_rs::Encoding::for_label(b"iso-8859-1")
                                         .ok_or(anyhow::anyhow!(
                                         "unknown encoding ISO_8859_1"
