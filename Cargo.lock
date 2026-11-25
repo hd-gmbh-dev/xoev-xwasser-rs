@@ -1536,6 +1536,8 @@ dependencies = [
 [[package]]
 name = "raxb"
 version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "989c9b0a8415514ac248a3d0f4910694c90d26ba050886d27d9d0ccfa62e41c6"
 dependencies = [
  "quick-xml",
  "raxb-derive",
@@ -1546,6 +1548,8 @@ dependencies = [
 [[package]]
 name = "raxb-derive"
 version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "515125ac387b1aca54177d9ef846a618e482ef96b387d0e96e39e1bed83c92c0"
 dependencies = [
  "heck",
  "proc-macro2",
@@ -1557,6 +1561,8 @@ dependencies = [
 [[package]]
 name = "raxb-libxml2-sys"
 version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d6d4b57e914ff5e6bf847453ed65afa6f972e36fb405ae2c2f16a2cc75f41b0d"
 dependencies = [
  "bindgen",
  "cmake",
@@ -1565,6 +1571,8 @@ dependencies = [
 [[package]]
 name = "raxb-validate"
 version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ce1e3886890f56a9e39ab009067eff5b96db0dd665fe817cd197f547e93595d1"
 dependencies = [
  "byteorder",
  "libc",
@@ -1581,6 +1589,8 @@ dependencies = [
 [[package]]
 name = "raxb-xmlschema"
 version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "04ff966822fc9c80edf35c7c4651b6927f58cb41c49c3a4c1bd188e948f72cb8"
 dependencies = [
  "byteorder",
  "lz4_flex",
@@ -1593,6 +1603,8 @@ dependencies = [
 [[package]]
 name = "raxb-xmlschema-build"
 version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e1581dbf61c62d832e3b2d087f0d7924f6b0a28ff58247f46d2365ff4825d50e"
 dependencies = [
  "byteorder",
  "raxb",
